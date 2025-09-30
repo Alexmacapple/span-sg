@@ -30,3 +30,6 @@ exports/
 # Temporary
 *.tmp
 *.bak
+
+# Inspiration (documents de travail)
+inspiration/
