@@ -1,6 +1,6 @@
 site_name: SPAN SG
-site_url: https://[organisation].github.io/span-sg/  # TODO: renseigner l’URL Pages de l’organisation
-repo_url: https://github.com/[organisation]/span-sg  # TODO: renseigner l’URL du dépôt
+site_url: https://alexmacapple.github.io/span-sg-repo/
+repo_url: https://github.com/Alexmacapple/span-sg-repo
 strict: true
 
 theme:
