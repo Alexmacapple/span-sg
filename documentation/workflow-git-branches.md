@@ -6,7 +6,7 @@
 
 ---
 
-## 🎯 Concept général
+## Concept général
 
 Le projet SPAN SG utilise un **workflow Git à 2 branches principales** pour séparer le travail en cours de la version officielle :
 
@@ -17,7 +17,7 @@ Cette architecture garantit que la production reste stable tout en permettant un
 
 ---
 
-## 📝 Branche `draft` - Preview privée
+## Branche `draft` - Preview privée
 
 ### Rôle
 Environnement de **prévisualisation et validation** avant publication officielle.
@@ -77,7 +77,7 @@ git push -u origin feature/update-sircom
 
 ---
 
-## 🚀 Branche `main` - Production officielle
+## Branche `main` - Production officielle
 
 ### Rôle
 Version **officielle et stable** accessible à tous (ou selon politique d'accès).
@@ -145,7 +145,7 @@ git push origin v1.0.0
 
 ---
 
-## 🔄 Flux complet (3 niveaux de branches)
+## Flux complet (3 niveaux de branches)
 
 ```
 ┌──────────────────┐
@@ -171,7 +171,7 @@ git push origin v1.0.0
 
 ---
 
-## 📊 Tableau comparatif détaillé
+## Tableau comparatif détaillé
 
 | Aspect | `draft` | `main` |
 |--------|---------|--------|
@@ -189,7 +189,7 @@ git push origin v1.0.0
 
 ---
 
-## 🎯 Pourquoi cette architecture ?
+## Pourquoi cette architecture ?
 
 ### Avantages
 
@@ -239,7 +239,7 @@ git push origin v1.0.0
 
 ---
 
-## ⚙️ Configuration technique
+## Configuration technique
 
 ### GitHub Actions (`.github/workflows/build.yml`)
 
@@ -313,39 +313,39 @@ gh-pages/
 
 ---
 
-## 🛡️ Protections et bonnes pratiques
+## Protections et bonnes pratiques
 
 ### Protection branche `main`
 
 Sur GitHub → Settings → Branches → Add rule :
 - **Branch name pattern** : `main`
-- ☑ Require a pull request before merging
-- ☑ Require approvals (1 minimum)
-- ☑ Require status checks to pass (CI)
-- ☑ Include administrators (même les admins passent par PR)
+- [x] Require a pull request before merging
+- [x] Require approvals (1 minimum)
+- [x] Require status checks to pass (CI)
+- [x] Include administrators (même les admins passent par PR)
 
 ### Bonnes pratiques
 
 #### Pour les contributeurs (référents services)
-- ✅ Toujours créer une branche `feature/` depuis `draft`
-- ✅ Faire des PR vers `draft` (jamais vers `main` directement)
-- ✅ Commits atomiques avec messages clairs
-- ✅ Tester localement avec `docker compose up` avant PR
+- Toujours créer une branche `feature/` depuis `draft`
+- Faire des PR vers `draft` (jamais vers `main` directement)
+- Commits atomiques avec messages clairs
+- Tester localement avec `docker compose up` avant PR
 
 #### Pour les validateurs (Bertrand, Alex)
-- ✅ Revoir chaque PR sur la preview `draft`
-- ✅ Vérifier checklist : 31 points, front-matter, liens, secrets
-- ✅ Demander corrections via commentaires GitHub
-- ✅ Approuver uniquement si qualité suffisante
+- Revoir chaque PR sur la preview `draft`
+- Vérifier checklist : 31 points, front-matter, liens, secrets
+- Demander corrections via commentaires GitHub
+- Approuver uniquement si qualité suffisante
 
 #### Pour le sponsor (Yves)
-- ✅ Valider uniquement les PR `draft → main`
-- ✅ Focus stratégie (pas technique)
-- ✅ GO/NO-GO documenté dans `decisions/`
+- Valider uniquement les PR `draft → main`
+- Focus stratégie (pas technique)
+- GO/NO-GO documenté dans `decisions/`
 
 ---
 
-## 🚨 Gestion des urgences
+## Gestion des urgences
 
 ### Hotfix (correction critique en production)
 
@@ -382,7 +382,7 @@ git push origin draft
 
 ---
 
-## 📅 Calendrier type de releases
+## Calendrier type de releases
 
 ### Rythme mensuel recommandé
 
@@ -405,7 +405,7 @@ git push origin draft
 
 ---
 
-## 🔗 Références
+## Références
 
 - **PRD v3.3** : Section 4 "Workflow Git simplifié"
 - **CLAUDE.md** : Section "Branches et déploiements"
@@ -414,7 +414,7 @@ git push origin draft
 
 ---
 
-## 📞 Contact
+## Contact
 
 **Questions workflow Git** :
 - Bertrand (@bertrand) : Validation technique
