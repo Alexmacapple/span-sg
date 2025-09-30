@@ -1,0 +1,36 @@
+site_name: SPAN SG
+site_url: https://[organisation].github.io/span-sg/  # TODO: renseigner l’URL Pages de l’organisation
+repo_url: https://github.com/[organisation]/span-sg  # TODO: renseigner l’URL du dépôt
+strict: true
+
+theme:
+  name: material
+  language: fr
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+
+plugins:
+  - search:
+      lang: fr
+  - pdf-export:
+      combined: true
+      combined_output_path: exports/span-sg.pdf
+
+nav:
+  - Accueil: index.md
+  - Synthèse: synthese.md
+  - Processus: processus.md
+  - Modules Services:
+    - SNUM: modules/snum.md
+    - SIRCOM: modules/sircom.md
+    - SRH: modules/srh.md
+    - SIEP: modules/siep.md
+    - SAFI: modules/safi.md
+    - BGS: modules/bgs.md
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true

@@ -1,0 +1,75 @@
+name: Build SPAN
+
+on:
+  push:
+    branches: [main, draft]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install mkdocs-material
+          pip install mkdocs-pdf-export-plugin
+          pip install mkdocs-with-pdf
+
+      - name: Calculate SPAN scores
+        run: python scripts/calculate_scores.py
+
+      - name: Build site
+        run: mkdocs build
+
+      - name: Generate PDF (plugin principal)
+        run: mkdocs build --config-file mkdocs-pdf.yml
+        continue-on-error: true
+
+      - name: Generate PDF fallback (mkdocs-with-pdf si échec)
+        if: failure()
+        run: mkdocs build --config-file mkdocs-with-pdf.yml
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: span-site
+          path: |
+            site/
+            exports/
+
+  deploy_draft:
+    if: github.ref == 'refs/heads/draft'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy draft to GitHub Pages (org-only)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          destination_dir: draft
+          force_orphan: true
+
+  deploy_main:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy production to GitHub Pages (org-only)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          force_orphan: true

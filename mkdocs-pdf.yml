@@ -1,0 +1,7 @@
+site_name: SPAN SG
+theme:
+  name: material
+plugins:
+  - pdf-export:
+      combined: true
+      combined_output_path: exports/span-sg.pdf
