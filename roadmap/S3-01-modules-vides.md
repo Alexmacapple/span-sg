@@ -48,6 +48,23 @@ Créer 5 fichiers modules vides conformes au template, renseigner le front-matte
 
 ## Étapes d'implémentation
 
+### Option automatique (recommandée) : Script create-module.sh
+
+**Pour créer les 5 modules** :
+```bash
+./scripts/create-module.sh SNUM
+./scripts/create-module.sh SRH
+./scripts/create-module.sh SIEP
+./scripts/create-module.sh SAFI
+./scripts/create-module.sh BGS
+```
+
+Le script automatise les étapes 2-7 ci-dessous. Passer à l'étape 8 (validation scoring) si succès.
+
+---
+
+### Option manuelle (si script non disponible)
+
 ### 1. Vérifier les modules existants
 
 ```bash

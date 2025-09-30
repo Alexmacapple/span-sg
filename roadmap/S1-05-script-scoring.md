@@ -17,6 +17,29 @@ Le script `scripts/calculate_scores.py` est le **moteur central** du système SP
 5. Génère `docs/synthese.md` avec tableau agrégé
 6. Échoue (exit code 2) si un module a un nombre de points invalide
 
+**Formule de calcul** :
+```python
+# Par module
+checked = nombre_de_cases_[x]_avec_<!-- DINUM -->
+total = nombre_total_de_<!-- DINUM --> (doit être 0 ou 31)
+score_module = checked / total * 100  # Pourcentage
+
+# Global (6 modules v1)
+total_possible = 6 modules × 31 points = 186 points
+score_global = sum(tous_checked) / 186 * 100
+
+# Statut par module
+if score >= 75%: "✓ Conforme"
+elif score > 0%: "En cours"
+else: "Non renseigné"  # 0%
+```
+
+**Exemple** :
+- SIRCOM : 31 cochés / 31 total = 100% → "✓ Conforme"
+- SNUM : 5 cochés / 31 total = 16.1% → "En cours"
+- SRH : 0 coché / 31 total = 0% → "Non renseigné"
+- **Global** : (31+5+0) / 186 = 19.4% → "Global"
+
 Le script utilise des regex pour :
 - Ignorer les blocs de code (ne pas compter les checkboxes dans les exemples)
 - Extraire l'état `[x]`, `[X]`, ou `[ ]` de chaque checkbox

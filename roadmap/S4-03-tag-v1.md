@@ -47,6 +47,25 @@ Créer et pusher le tag `v1.0.0`, préparer le CHANGELOG, et rassembler les asse
 
 ## Étapes d'implémentation
 
+### Option automatique (recommandée) : Script release.sh
+
+```bash
+./scripts/release.sh v1.0.0
+```
+
+Le script automatise toutes les étapes ci-dessous :
+- Vérifications prérequis
+- Mise à jour CHANGELOG
+- Test build et scoring
+- Création tag annoté
+- Préparation release notes
+
+Passer à S4-04 (Publication) si succès.
+
+---
+
+### Option manuelle (si script non disponible)
+
 ### 1. Vérifier l'état actuel
 
 ```bash

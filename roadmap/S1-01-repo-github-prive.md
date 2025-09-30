@@ -48,6 +48,19 @@ Créer et configurer le dépôt GitHub privé `span-sg-repo` dans le compte `Ale
 
 ## Étapes d'implémentation
 
+### Option automatique (recommandée) : Script init-repo.sh
+
+**Si GitHub CLI (`gh`) installé** :
+```bash
+./scripts/init-repo.sh span-sg-repo Alexmacapple
+```
+
+Le script automatise toutes les étapes ci-dessous. Passer à la section "Critères d'acceptation" si succès.
+
+---
+
+### Option manuelle (si script échoue)
+
 ### 1. Créer le dépôt sur GitHub.com
 
 1. Aller sur https://github.com/new
@@ -178,6 +191,32 @@ git ls-tree -r HEAD --name-only | wc -l
 **Risques** :
 - Si organisation GitHub disponible, préférer créer le repo dans l'organisation pour activer preview org-only
 - Si repo public par erreur, passer immédiatement en Private dans Settings
+
+**Messages d'erreur courants** :
+
+1. **`fatal: remote origin already exists`**
+   ```bash
+   # Solution: Supprimer remote existant
+   git remote remove origin
+   git remote add origin https://github.com/Alexmacapple/span-sg-repo.git
+   ```
+
+2. **`error: failed to push some refs`**
+   - Cause: Branche distante a des commits que vous n'avez pas localement
+   - Solution: `git pull origin main --rebase` puis `git push`
+
+3. **`Repository creation failed: name already exists`**
+   - Cause: Un repo avec ce nom existe déjà
+   - Solution: Choisir autre nom OU supprimer ancien repo sur GitHub
+
+4. **`fatal: Authentication failed`**
+   - Cause: Token GitHub expiré ou credentials invalides
+   - Solution avec gh CLI: `gh auth refresh`
+   - Solution avec HTTPS: Régénérer Personal Access Token
+
+5. **`error: src refspec main does not match any`**
+   - Cause: Aucun commit n'a été créé
+   - Solution: Vérifier `git log` montre au moins 1 commit
 
 **Post-tâche** :
 - Informer Bertrand et Alex de la création du repo
