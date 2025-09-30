@@ -61,3 +61,4 @@ Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/
 - Utiliser `Agents.md` (Codex/Cursor/Builder.io) pour les instructions d’agent standardisées
 - Utiliser `Claude.md` pour Claude Code (format spécifique Anthropic)
 - Conserver le périmètre MVP, ne pas modifier la logique des 31 points DINUM
+
