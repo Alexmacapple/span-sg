@@ -1,3 +1,11 @@
+---
+bmad_phase: context-engineered-development
+bmad_agent: dev
+story_type: implementation
+autonomous: true
+validation: human-qa
+---
+
 # Story S2-01 : Configuration GitHub Actions CI/CD
 
 **Phase** : Semaine 2 - Automatisation

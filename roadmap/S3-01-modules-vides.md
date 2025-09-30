@@ -1,3 +1,11 @@
+---
+bmad_phase: context-engineered-development
+bmad_agent: dev
+story_type: implementation
+autonomous: true
+validation: human-qa
+---
+
 # Story S3-01 : Création modules vides + front-matter
 
 **Phase** : Semaine 3 - Onboarding

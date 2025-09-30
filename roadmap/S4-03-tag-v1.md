@@ -1,3 +1,11 @@
+---
+bmad_phase: context-engineered-development
+bmad_agent: dev
+story_type: implementation
+autonomous: true
+validation: human-qa
+---
+
 # Story S4-03 : Tag v1.0.0 et préparation release
 
 **Phase** : Semaine 4 - Production

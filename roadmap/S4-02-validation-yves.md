@@ -1,3 +1,11 @@
+---
+bmad_phase: context-engineered-development
+bmad_agent: dev
+story_type: implementation
+autonomous: true
+validation: human-qa
+---
+
 # Story S4-02 : Validation Yves (sponsor)
 
 **Phase** : Semaine 4 - Production

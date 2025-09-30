@@ -1,3 +1,11 @@
+---
+bmad_phase: context-engineered-development
+bmad_agent: dev
+story_type: implementation
+autonomous: true
+validation: human-qa
+---
+
 # Story S0-00 : Validation environnement de développement
 
 **Phase** : Semaine 0 - Prérequis

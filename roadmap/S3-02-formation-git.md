@@ -1,3 +1,11 @@
+---
+bmad_phase: context-engineered-development
+bmad_agent: dev
+story_type: implementation
+autonomous: true
+validation: human-qa
+---
+
 # Story S3-02 : Formation Git basique (2h)
 
 **Phase** : Semaine 3 - Onboarding
@@ -388,6 +396,220 @@ test -f videos/formation-git-2025-09-30.mp4 && echo "OK" || echo "SKIP"
 - **PRD v3.3** : Section 7 "Guide contributeur" → Formation Git
 - **CONTRIBUTING.md** : Support principal
 - **docs/formation/git-basics.md** : Support formation à créer
+
+---
+
+## Problèmes formation fréquents
+
+### Problème 1 : Participant bloqué à la création de PR
+
+**Symptôme** : Message "You don't have permission to create a pull request"
+
+**Cause** : Participant n'a pas accès write au repository
+
+**Solution immédiate** :
+```bash
+# Vérifier accès du participant
+# Admin : GitHub → Settings → Collaborators
+# Chercher username du participant
+
+# Si absent : Ajouter avec rôle "Write"
+1. Settings → Collaborators → Add people
+2. Entrer username GitHub ou email
+3. Sélectionner "Write" (pas "Read")
+4. Envoyer invitation
+5. Participant doit accepter l'invitation par email
+```
+
+**Prévention** : Envoyer invitations repo 48h avant la formation pour laisser temps d'acceptation
+
+### Problème 2 : Modifications d'exercice pas visibles dans preview
+
+**Symptôme** : "J'ai coché une case mais elle n'apparaît pas sur la preview"
+
+**Cause** : CI en cours de build (2-3 minutes), ou cache navigateur
+
+**Solution** :
+```bash
+# 1. Vérifier statut CI
+Aller sur la PR → Onglet "Checks"
+- Si orange "In progress" : Attendre 2-3 min
+- Si vert "All checks passed" : CI terminée
+- Si rouge "Some checks failed" : Voir erreurs
+
+# 2. Vider cache navigateur
+Ctrl+Shift+R (Windows/Linux) ou Cmd+Shift+R (macOS)
+
+# 3. Attendre déploiement Pages
+After merge to draft:
+- GitHub Actions : ~2 min
+- Pages deployment : +1 min
+Total : 3-4 min pour voir changements live
+
+# 4. Vérifier URL preview correcte
+https://[org].github.io/span-sg/draft/modules/[service]/
+Pas https://[org].github.io/span-sg/modules/[service]/ (production)
+```
+
+**Astuce formateur** : Créer PR test avant la formation et expliquer timing CI en live
+
+### Problème 3 : "J'ai cassé quelque chose"
+
+**Symptôme** : Participant paniqué après erreur Git/GitHub
+
+**Rassurance immédiate** :
+```markdown
+🛡️ Sécurités en place :
+
+1. **Impossible de casser main**
+   - Protection branche activée
+   - Nécessite PR + review obligatoire
+   - Vous travaillez sur branche isolée
+
+2. **Toutes modifications réversibles**
+   - Git garde historique complet
+   - Possible de revenir en arrière (git revert)
+   - Pire cas : On supprime votre branche et on recommence
+
+3. **Environnement de test**
+   - Formation sur repo de test (optionnel)
+   - Ou branche feature jetable
+   - Aucun impact sur production
+```
+
+**Actions correctives courantes** :
+```bash
+# Cas 1 : Mauvais commit, pas encore pushé
+git reset --soft HEAD~1
+# → Annule dernier commit, garde modifications
+
+# Cas 2 : Mauvais commit déjà pushé
+git revert HEAD
+git push
+# → Crée commit inverse, garde historique propre
+
+# Cas 3 : Fichier cassé, tout recommencer
+git checkout draft -- docs/modules/[service].md
+# → Restaure version draft du fichier
+
+# Cas 4 : Branche complètement cassée
+git branch -D feature/mon-update
+git checkout -b feature/mon-update-v2
+# → Supprime branche, recommence proprement
+```
+
+**Message clé** : "On apprend en faisant des erreurs. Aucun risque pour le projet."
+
+### Problème 4 : Conflit de merge pendant exercice
+
+**Symptôme** : Deux participants éditent même fichier simultanément, conflit à la PR
+
+**Demo résolution conflit live** :
+```markdown
+## Étape 1 : Identifier le conflit
+
+GitHub affiche :
+```
+<<<<<<< HEAD (branche draft)
+- [ ] Point 1 stratégie <!-- DINUM -->
+=======
+- [x] Point 1 stratégie <!-- DINUM -->
+>>>>>>> feature/update-sircom
+```
+
+## Étape 2 : Choisir la bonne version
+
+3 options :
+1. Garder version draft (HEAD)
+2. Garder votre version (feature)
+3. Combiner les deux
+
+Pour exercice : Garder votre [x] (vous avez raison de cocher)
+
+## Étape 3 : Éditer manuellement
+
+Supprimer les marqueurs Git :
+```markdown
+- [x] Point 1 stratégie <!-- DINUM -->
+```
+(Plus de <<<, ===, >>>)
+
+## Étape 4 : Valider résolution
+
+Interface GitHub : Cliquer "Mark as resolved"
+OU Git local : `git add docs/modules/sircom.md && git commit`
+```
+
+**Prévention** : Faire travailler chaque participant sur SON module (pas de collision)
+
+### Problème 5 : Accès refusé au push
+
+**Symptôme** : `remote: Permission to [...]/span-sg.git denied`
+
+**Causes possibles** :
+
+**Cause A** : SSH key non configurée
+```bash
+# Tester connexion SSH GitHub
+ssh -T git@github.com
+
+# Si erreur "Permission denied (publickey)"
+# → Configurer SSH key : https://docs.github.com/en/authentication
+
+# Ou passer en HTTPS
+git remote set-url origin https://github.com/[org]/span-sg.git
+```
+
+**Cause B** : Token HTTPS expiré
+```bash
+# Régénérer Personal Access Token
+GitHub → Settings → Developer settings → Personal access tokens
+# Scopes requis : repo (full control)
+
+# Mettre à jour token local
+git config credential.helper store
+git push  # Re-demande token
+```
+
+**Cause C** : Pas de permission Write au repo (voir Problème 1)
+
+**Solution urgente pendant formation** : Utiliser interface web GitHub (pas de problème auth)
+
+### Problème 6 : Interface GitHub changée depuis captures d'écran
+
+**Symptôme** : Support formation montre ancienne interface, participants perdus
+
+**Solution proactive** :
+```markdown
+## Maintenance support formation
+
+### Vérification trimestrielle (tous les 3 mois)
+- [ ] Tester workflow complet avec screenshots actuels
+- [ ] Comparer interface GitHub vs support
+- [ ] Mettre à jour captures si besoin
+- [ ] Tester sur navigateur récent (Chrome, Firefox, Safari)
+
+### Signaux d'alerte
+- Participant dit "Je ne vois pas ce bouton"
+- Message erreur GitHub jamais vu avant
+- Workflow différent de la démo
+
+### Kit de secours formateur
+1. Partager écran formateur (vue live)
+2. Noter différences pour MAJ support post-formation
+3. Créer issue GitHub : "Update formation screenshots"
+```
+
+**Adaptation temps réel** :
+```markdown
+"L'interface a légèrement changé depuis les screenshots.
+Voici comment faire maintenant : [demo live]"
+```
+
+**Documentation alternative** :
+- Liens officiels GitHub Docs (toujours à jour)
+- Vidéo screencast (plus résilient aux changements UI)
+- Guides textuels (moins dépendants des screenshots)
 
 ---
 

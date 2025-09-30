@@ -1,3 +1,11 @@
+---
+bmad_phase: context-engineered-development
+bmad_agent: dev
+story_type: implementation
+autonomous: true
+validation: human-qa
+---
+
 # Story S3-03 : Renseigner premiers contenus modules
 
 **Phase** : Semaine 3 - Onboarding
@@ -270,6 +278,236 @@ echo "Score global : $score"
 
 ---
 
+## Dépannage référents bloqués
+
+### Problème 1 : "Je ne sais pas quoi écrire"
+
+**Symptôme** : Référent face à page blanche, ne sait pas par où commencer
+
+**Solution** :
+```markdown
+1. Consulter le module SIRCOM comme exemple de référence :
+   - docs/modules/sircom.md (module pilote complet)
+
+2. Utiliser les templates :
+   - roadmap/templates/module-content-examples.md (3 exemples complets)
+
+3. Commencer par la section la plus simple : "Périmètre"
+   - Lister 3-5 applications principales
+   - 1 phrase de description par application
+   - Audience (interne/externe) et criticité
+
+4. Demander aide à Alexandra/Bertrand pour :
+   - Session 1-to-1 de 30min
+   - Revue brouillon avant PR
+```
+
+**Exemple minimal acceptable** :
+```markdown
+## 1. Périmètre
+
+Le service SNUM gère 4 applications principales :
+- Portail intranet (5000 agents/jour, criticité haute)
+- Application de gestion budgétaire (interne, criticité moyenne)
+- Site vitrine externe (500 visiteurs/jour, criticité basse)
+- Outil de reporting (interne, criticité basse)
+```
+
+### Problème 2 : Aucun audit accessibilité disponible
+
+**Symptôme** : Service n'a jamais réalisé d'audit, section "État des lieux" vide
+
+**Solution** :
+```markdown
+## 2. État des lieux (synthèse)
+
+### Audits réalisés
+Aucun audit accessibilité RGAA n'a encore été réalisé.
+
+### État actuel
+- Sensibilisation accessibilité : Non
+- Conformité estimée : Inconnue
+- Action prioritaire 2025 : Audit RGAA complet (T2 2025)
+
+### Points critiques présumés
+- Contraste couleurs à vérifier
+- Navigation clavier à tester
+- Formulaires à auditer
+- Alternatives textuelles images à compléter
+
+**Prochaines étapes** : Audit externe prévu T2 2025 (budget 8K€)
+```
+
+**Renseigner dans le plan d'action** :
+```markdown
+| Action | Échéance | Responsable | Budget | Statut |
+|--------|----------|-------------|--------|--------|
+| Audit RGAA complet (3 services prioritaires) | T2 2025 | [Référent] | 8000€ | À commencer |
+| État des lieux préliminaire interne | T1 2025 | [Référent] | 0€ | En cours |
+```
+
+### Problème 3 : Budget accessibilité non identifié
+
+**Symptôme** : Pas de ligne budgétaire dédiée accessibilité, impossible de renseigner montants
+
+**Solution** :
+```markdown
+## 5. Indicateurs clés
+
+### Budget
+Budget accessibilité spécifique : Non identifié actuellement
+
+**Dépenses 2024** : Intégrées aux budgets projets généraux (non traçables)
+
+**Action 2025** :
+- T1 : Identifier ligne budgétaire accessibilité
+- T2 : Chiffrer besoins annuels (audits, formations, prestations)
+- T3 : Demande arbitrage budgétaire
+
+**Estimation prévisionnelle 2025** : ~15K€
+- Audit RGAA : 8K€
+- Formations équipe : 3K€
+- Prestations corrections : 4K€
+```
+
+**Dans le plan d'action** :
+```markdown
+| Action | Échéance | Responsable | Budget | Statut |
+|--------|----------|-------------|--------|--------|
+| Identification ligne budgétaire accessibilité | T1 2025 | Chef de projet + DAF | 0€ | À commencer |
+```
+
+### Problème 4 : Pas de référent accessibilité nommé officiellement
+
+**Symptôme** : Le service n'a pas encore désigné de référent, champ "Organisation" vide
+
+**Solution temporaire** :
+```markdown
+## 3. Organisation
+
+### Référent accessibilité
+**Statut** : Nomination en cours (T1 2025)
+
+**Porteur intérimaire** : [Votre nom] (pilotage provisoire SPAN)
+
+**Profil recherché** :
+- Connaissance SI du service
+- Disponibilité : 20% ETP (1 jour/semaine)
+- Sensibilité accessibilité/inclusion
+
+**Processus nomination** :
+- T1 2025 : Définition fiche de poste
+- T1 2025 : Validation direction
+- T2 2025 : Nomination officielle + formation RGAA
+
+### Équipe projet (à constituer)
+- Chef de projet SI : [Nom si connu]
+- Développeurs : À sensibiliser (0/X formés actuellement)
+- UX/UI : Prestation externe à prévoir
+```
+
+**Escalader** : Alerter la direction du service que la nomination est bloquante pour avancer
+
+### Problème 5 : Données confidentielles ou sensibles
+
+**Symptôme** : Référent hésite à publier certaines informations (budgets, failles, prestataires)
+
+**Règles d'anonymisation** :
+```markdown
+❌ NE PAS publier :
+- Noms complets prestataires sous contrat en cours
+- Montants budgétaires exacts > 50K€
+- Vulnérabilités critiques non corrigées (risque sécurité)
+- Données personnelles (emails, téléphones directs)
+- Informations commerciales sensibles
+
+✅ AUTORISER :
+- Budgets arrondis ("~8K€" au lieu de "8247€")
+- Noms génériques prestataires ("Prestataire externe RGAA")
+- Vulnérabilités corrigées ou en cours de correction
+- Contact générique service ("accessibilite@[service].gouv.fr")
+- Statistiques agrégées (scores moyens, % conformité)
+```
+
+**Exemple publication safe** :
+```markdown
+### Audits réalisés
+- Application principale : Audit externe, sept 2024, score 68% conforme AA
+- Budget audit : ~8K€
+- Prestataire : Organisme certifié RGAA (liste Accessibilité.gouv.fr)
+- Rapport : Disponible sur demande (usage interne)
+```
+
+**En cas de doute** : Contacter Alexandra/Bertrand pour validation avant PR
+
+### Problème 6 : Conflit de merge Git
+
+**Symptôme** : Message "This branch has conflicts that must be resolved" lors de la PR
+
+**Cause** : Deux personnes ont modifié les mêmes lignes simultanément
+
+**Solution guidée** :
+```bash
+# Option A : Interface GitHub (recommandé pour débutants)
+1. Sur la page de la PR, cliquer "Resolve conflicts"
+2. GitHub affiche :
+   <<<<<<< HEAD
+   [Contenu branche draft]
+   =======
+   [Votre contenu]
+   >>>>>>> feature/update-[service]
+3. Éditer manuellement pour garder la bonne version
+4. Supprimer les lignes <<<<, ====, >>>>
+5. Cliquer "Mark as resolved" puis "Commit merge"
+
+# Option B : Git local (si à l'aise)
+git checkout feature/update-[service]
+git pull origin draft
+# Résoudre conflits dans éditeur
+git add docs/modules/[service].md
+git commit -m "fix: résout conflits merge avec draft"
+git push
+```
+
+**Aide disponible** : Contacter @bertrand ou @alex pour résolution assistée (15 min)
+
+### Problème 7 : CI échoue après la PR
+
+**Symptôme** : Croix rouge sur la PR, message "Some checks were not successful"
+
+**Diagnostic** :
+```bash
+# Cliquer sur "Details" pour voir les logs CI
+
+# Erreur fréquente 1 : Scoring invalide
+ERROR: sircom.md: 30 points tagués <!-- DINUM --> (attendu 31 ou 0)
+→ Solution : Vérifier qu'aucune ligne <!-- DINUM --> n'a été supprimée
+
+# Erreur fréquente 2 : Build strict mode
+ERROR: Error reading page 'modules/sircom.md':
+Broken link to 'page-inexistante.md'
+→ Solution : Corriger le lien markdown cassé
+
+# Erreur fréquente 3 : YAML front-matter invalide
+ERROR: YAML parse error in docs/modules/sircom.md
+→ Solution : Vérifier syntaxe front-matter (quotes, indentation)
+```
+
+**Checklist debug** :
+```markdown
+- [ ] Les 31 lignes <!-- DINUM --> sont toujours présentes ?
+- [ ] Aucun lien markdown cassé ?
+- [ ] Front-matter YAML valide (service, referent, updated) ?
+- [ ] Pas de caractères spéciaux non-échappés ?
+- [ ] Test local passe : `docker compose up` ?
+```
+
+**Si bloqué** :
+1. Pousser un commit vide pour re-déclencher CI : `git commit --allow-empty -m "ci: re-trigger"`
+2. Demander aide @alexandra avec lien vers la PR
+
+---
+
 ## Notes et risques
 
 **Qualité variable**
@@ -282,12 +520,6 @@ Si un service n'a aucun audit, aucun budget identifié :
 - Renseigner "En cours d'analyse" dans les sections
 - Cocher 0 points DINUM (normal en phase démarrage)
 - Prévoir actions d'état des lieux dans le plan 2025
-
-**Confidentialité**
-Éviter de publier :
-- Noms complets de prestataires sous contrat
-- Budgets précis (arrondir : "~5K€")
-- Vulnérabilités critiques non corrigées
 
 **Cohérence globale**
 Alexandra doit relire l'ensemble pour :

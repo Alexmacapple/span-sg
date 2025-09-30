@@ -1,3 +1,11 @@
+---
+bmad_phase: context-engineered-development
+bmad_agent: dev
+story_type: implementation
+autonomous: true
+validation: human-qa
+---
+
 # Story S2-04 : Documentation contributeur (1 page)
 
 **Phase** : Semaine 2 - Automatisation

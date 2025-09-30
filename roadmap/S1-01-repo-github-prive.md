@@ -1,3 +1,11 @@
+---
+bmad_phase: context-engineered-development
+bmad_agent: dev
+story_type: implementation
+autonomous: true
+validation: human-qa
+---
+
 # Story S1-01 : Création du dépôt GitHub privé
 
 **Phase** : Semaine 1 - Setup

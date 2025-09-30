@@ -1,3 +1,11 @@
+---
+bmad_phase: context-engineered-development
+bmad_agent: dev
+story_type: implementation
+autonomous: true
+validation: human-qa
+---
+
 # Story S2-03 : Configuration preview privée GitHub Pages (org-only)
 
 **Phase** : Semaine 2 - Automatisation
