@@ -296,3 +296,169 @@ Le workflow GitHub Actions s'exécute automatiquement :
 
 Artefacts disponibles pendant 90 jours dans Actions → Artifacts.
 ```
+
+---
+
+## Résultats validation (01/10/2025)
+
+### Environnement
+- Système CI : GitHub Actions (ubuntu-latest)
+- Python : 3.11.13
+- Runner Image : ubuntu-24.04
+- Branche : draft
+
+### Workflows exécutés
+
+**Run 1** (`3efb09a`) - ❌ Échec 7s
+- Erreur : `actions/upload-artifact@v3` deprecated
+- Correction : Upgrade vers `@v4`
+
+**Run 2** (`a30cb64`) - ✅ Succès 44s
+- Build + scoring OK
+- Déploiement incorrect (pas de `draft/`)
+- Cause : Manque `download-artifact` dans jobs deploy
+
+**Run 3** (`d614e64`) - ✅ Succès 53s
+- Ajout `download-artifact@v4` dans `deploy_draft` et `deploy_main`
+- Déploiement correct vers `gh-pages/draft/`
+- ✅ **Premier workflow complet réussi**
+
+### Corrections appliquées
+
+**1. Upgrade artifact action**
+```yaml
+# AVANT
+uses: actions/upload-artifact@v3
+
+# APRÈS
+uses: actions/upload-artifact@v4
+```
+
+**2. Ajout download-artifact dans jobs deploy**
+```yaml
+deploy_draft:
+  steps:
+    - uses: actions/checkout@v3
+
+    # AJOUT
+    - name: Download artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: span-site
+
+    - name: Deploy...
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        publish_dir: ./site  # Maintenant présent
+```
+
+### Validation GitHub Pages
+
+**Repo visibility** : Public (requis pour Pages gratuit)
+
+**Activation** :
+```bash
+curl -X POST https://api.github.com/repos/Alexmacapple/span-sg-repo/pages \
+  -d '{"source":{"branch":"gh-pages","path":"/"}}'
+```
+
+**URLs actives** :
+- ✅ Draft : https://alexmacapple.github.io/span-sg-repo/draft/ (HTTP 200)
+- ✅ Production : https://alexmacapple.github.io/span-sg-repo/ (racine)
+- ✅ PDF : https://alexmacapple.github.io/span-sg-repo/draft/exports/span-sg.pdf (48 KB)
+
+### Test erreur périmètre
+
+**Commit test** (`822f5fd`) : SIRCOM 30 points (au lieu de 31)
+
+**Résultat** : ❌ Échec 23s
+```
+Erreurs de périmètre:
+ - sircom.md: 30 points tagués <!-- DINUM --> (attendu 31 ou 0)
+##[error]Process completed with exit code 2.
+```
+
+**Revert** (`2b0f5b2`) : ✅ Succès 49s
+
+✅ **Validation périmètre fonctionnelle**
+
+### Optimisations
+
+**Cache pip** :
+```yaml
+- name: Setup Python
+  uses: actions/setup-python@v4
+  with:
+    python-version: '3.11'
+    cache: 'pip'  # AJOUT
+```
+
+**Badge CI** dans README.md :
+```markdown
+![Build Status](https://github.com/Alexmacapple/span-sg-repo/workflows/Build%20SPAN/badge.svg)
+```
+
+### Performance
+
+**Durée totale** : ~50 secondes
+- Install dependencies : ~15s (avec cache pip)
+- Calculate scores : ~1s
+- Build site : ~5s
+- Generate PDF : ~20s
+- Upload artifacts : ~3s
+- Deploy draft : ~6s
+
+**Total attendu future runs** : ~20-30s (cache pip actif)
+
+### Artefacts générés
+
+**Artefact `span-site`** :
+- Taille : 682 KB
+- Contenu : `site/` + `exports/span-sg.pdf`
+- Rétention : 90 jours
+- Téléchargeable : https://github.com/Alexmacapple/span-sg-repo/actions
+
+**Déploiement gh-pages** :
+```
+draft/
+├── index.html
+├── modules/
+│   ├── sircom/
+│   ├── snum/
+│   └── ...
+├── synthese/
+├── exports/
+│   └── span-sg.pdf (48 KB)
+└── assets/
+```
+
+### Critères d'acceptation (10/10 validés)
+
+- [x] Workflow `.github/workflows/build.yml` existe et valide
+- [x] GitHub Actions activé sur le repo
+- [x] Permissions `GITHUB_TOKEN` = Read and write
+- [x] Premier run sur `draft` réussit sans erreur
+- [x] Job `build` termine en < 5 minutes (53s)
+- [x] Artefacts `span-site` contient `site/` + `exports/span-sg.pdf`
+- [x] PDF généré et lisible (48 KB)
+- [x] Job `deploy_draft` déploie vers `gh-pages/draft/`
+- [x] Test erreur scoring bloque bien le build (exit 2)
+- [x] Logs clairs et exploitables
+
+### Tests de validation (5/5 validés)
+
+| Test | Résultat |
+|------|----------|
+| 1. Workflow YAML valide | ✅ OK |
+| 2. Triggers branches [main, draft] | ✅ OK |
+| 3. Script scoring présent | ✅ OK |
+| 4. Déploiement conditionnel draft | ✅ OK |
+| 5. Branche gh-pages créée | ✅ OK |
+
+### Notes
+
+**Repo public** : Nécessaire pour GitHub Pages gratuit (repos privés = GitHub Pro $4/mois)
+
+**Force orphan** : Chaque deploy écrase complètement gh-pages (pas d'historique pollué)
+
+**Quota CI** : Repos publics = illimité (repos privés = 2000 min/mois)
