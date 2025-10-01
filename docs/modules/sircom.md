@@ -38,7 +38,7 @@ updated: "2025-09-30"
 - [x] Objectifs mesurables d’accessibilité définis (KPI) <!-- DINUM -->
 - [x] Référent accessibilité numérique officiellement désigné <!-- DINUM -->
 - [x] Temps alloué et moyens du référent définis <!-- DINUM -->
-- [x] Ressources humaines dédiées identifiées (ETP)
+- [x] Ressources humaines dédiées identifiées (ETP) <!-- DINUM -->
 - [ ] Budget annuel dédié/identifiable <!-- DINUM -->
 - [ ] Planification pluriannuelle des moyens (3 ans) <!-- DINUM -->
 - [ ] Compétences accessibilité dans les fiches de poste <!-- DINUM -->
