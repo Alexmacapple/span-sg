@@ -15,8 +15,8 @@ Dépendances:
 """
 
 import sys
-from pathlib import Path
 from datetime import datetime, timezone
+from pathlib import Path
 
 try:
     import pikepdf
@@ -71,16 +71,16 @@ def enrich_pdf_metadata(input_path: Path, output_path: Path = None):
             # Sauvegarder PDF enrichi
             pdf.save(output_path)
 
-        print(f"✅ Metadata enrichies avec succès")
+        print("✅ Metadata enrichies avec succès")
         print(f"   Output: {output_path}")
 
         # Afficher résumé metadata
         print("\n📋 Metadata ajoutées:")
-        print(f"   - Titre       : SPAN SG")
-        print(f"   - Langue      : fr-FR")
-        print(f"   - Auteur      : Secrétariat Général")
-        print(f"   - Subject     : Schéma Pluriannuel d'Accessibilité Numérique")
-        print(f"   - Keywords    : SPAN, accessibilité, SG, numérique, RGAA, DINUM")
+        print("   - Titre       : SPAN SG")
+        print("   - Langue      : fr-FR")
+        print("   - Auteur      : Secrétariat Général")
+        print("   - Subject     : Schéma Pluriannuel d'Accessibilité Numérique")
+        print("   - Keywords    : SPAN, accessibilité, SG, numérique, RGAA, DINUM")
         print(f"   - Date        : {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}")
 
     except Exception as e:

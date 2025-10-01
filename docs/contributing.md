@@ -109,11 +109,37 @@ Sur GitHub :
 
 ---
 
+## Qualité code Python
+
+Si vous contribuez au code Python (`scripts/`), suivez ces règles :
+
+### Tests unitaires
+- ✅ Exécuter les tests avant commit : `pytest scripts/ -v --cov=scripts`
+- ✅ Coverage minimum : ≥85% global, ≥90% pour calculate_scores.py
+- ✅ Tous les tests doivent passer
+
+### Formatting et linting
+- ✅ Formater avec Black : `black scripts/`
+- ✅ Vérifier avec Ruff : `ruff check scripts/`
+- ✅ Hooks pre-commit : `pre-commit install` (recommandé)
+
+### Installation environnement dev
+```bash
+pip install -r requirements-dev.txt
+pre-commit install
+```
+
+Les hooks pre-commit exécutent automatiquement Black et Ruff avant chaque commit.
+
+---
+
 ## Règles de validation des PR
 
 Chaque PR est vérifiée automatiquement (CI) et manuellement (Bertrand/Alex) :
 
 ### Vérifications automatiques (CI)
+- ✅ Tests unitaires Python (pytest)
+- ✅ Formatting Black et linting Ruff
 - ✅ Exactement 31 points `<!-- DINUM -->` présents (ou 0 si module vide)
 - ✅ Pas de liens cassés (mode strict MkDocs)
 - ✅ Synthèse recalculée sans erreur

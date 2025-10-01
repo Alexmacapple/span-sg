@@ -21,6 +21,18 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Install dev dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Run Black formatter check
+        run: python -m black --check scripts/
+
+      - name: Run Ruff linter
+        run: python -m ruff check scripts/
+
+      - name: Run unit tests
+        run: python -m pytest scripts/ -v --cov=scripts --cov-report=term-missing
+
       - name: Calculate SPAN scores
         run: python scripts/calculate_scores.py
 

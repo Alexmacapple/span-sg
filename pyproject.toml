@@ -1,0 +1,39 @@
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  \.git
+  | \.github
+  | docs
+  | site
+)/
+'''
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort (tri imports)
+    "N",   # pep8-naming
+]
+
+ignore = [
+    "E501",  # line too long (géré par Black)
+    "N999",  # invalid module name (scripts avec tirets)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"test_enrich_pdf_metadata.py" = ["E402"]  # pytest.importorskip must run before imports
+
+[tool.pytest.ini_options]
+testpaths = ["scripts"]
+python_files = "test_*.py"
+addopts = "-v --cov=scripts --cov-report=term-missing"
