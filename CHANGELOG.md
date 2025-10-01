@@ -58,6 +58,13 @@
 - S2-06 : Tests E2E automatisés + CI locale act
 - S2-07 : Enrichissement modules avec contexte métier
 
+### Semaine 3 - Onboarding (Adaptée)
+- ⏭️ S3-01 : Création modules vides → SATISFAITE par S2-07 (modules enrichis)
+- ⏭️ S3-02 : Formation Git référents → SKIPPÉE (2 contributeurs autonomes)
+- ⏭️ S3-03 : Premiers contenus → SKIPPÉE (Bertrand/Alexandra remplissent directement)
+- 📝 Contexte modifié : contributeurs limités (pas de référents services externes)
+- ✅ Alternative : workflow standard + CONTRIBUTING.md + support on-demand
+
 ---
 
 ## v0.1.0 – 2025-09-30
