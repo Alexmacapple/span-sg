@@ -16,5 +16,4 @@ plugins:
       toc_level: 3
       ordered_chapter_level: 3
       output_path: exports/span-sg.pdf
-      enabled_if_env: ENABLE_PDF_EXPORT
       verbose: false
