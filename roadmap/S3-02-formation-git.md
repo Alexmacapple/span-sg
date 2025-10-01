@@ -6,6 +6,34 @@ autonomous: true
 validation: human-qa
 ---
 
+**⚠️ STORY SKIPPÉE - Contexte projet modifié**
+
+**Date décision** : 2025-10-01
+**Raison** : Contributeurs limités (2 personnes : Bertrand + Alexandra)
+
+**Justification SKIP** :
+- Formation 2h (6h avec préparation) non justifiée pour 2 contributeurs déjà autonomes Git/GitHub
+- Modules enrichis par S2-07 (contexte métier réel déjà présent)
+- Bertrand et Alexandra utilisent déjà workflow Git (branches, PR, CI)
+- Pas de référents services externes confirmés à court terme
+
+**Alternative implémentée** :
+- Documentation existante : CONTRIBUTING.md (S2-04) suffit comme référence
+- Support ad-hoc si nouveaux contributeurs rejoignent ultérieurement
+- Office hours remplacées par support on-demand (email, issues GitHub)
+
+**Réévaluation future** :
+Si 5+ référents services rejoignent le projet :
+- Réactiver story S3-02
+- Adapter format : session async (vidéo 10 min) + doc
+- Focus Option A (GitHub web) uniquement
+
+**Impact planning** :
+- S3-03 (Premiers contenus) → SKIP également (Bertrand/Alexandra remplissent modules directement)
+- Passer à S4 (Review + Validation) ou S5-01 (PDF accessible)
+
+---
+
 # Story S3-02 : Formation Git basique (2h)
 
 **Phase** : Semaine 3 - Onboarding

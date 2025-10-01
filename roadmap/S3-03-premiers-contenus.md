@@ -6,6 +6,35 @@ autonomous: true
 validation: human-qa
 ---
 
+**⚠️ STORY SKIPPÉE - Contexte projet modifié**
+
+**Date décision** : 2025-10-01
+**Raison** : Contributeurs limités (2 personnes : Bertrand + Alexandra)
+
+**Justification SKIP** :
+- Story prévoyait accompagnement 5-6 référents services après formation Git (S3-02)
+- S3-02 skippée → S3-03 sans objet
+- Contenus modules remplis directement par Bertrand/Alexandra (pas d'onboarding externe)
+- Modules déjà enrichis avec contexte métier (S2-07)
+
+**Alternative implémentée** :
+- Bertrand et Alexandra complètent modules en mode standard (branches feature + PR vers draft)
+- Workflow habituel : pas besoin d'accompagnement spécifique
+- Validation croisée entre contributeurs (peer review)
+
+**Réévaluation future** :
+Si référents services rejoignent :
+- Réactiver accompagnement individualisé (sessions 1-to-1 au lieu de groupe)
+- Utiliser CONTRIBUTING.md comme base
+- Support on-demand plutôt que sessions planifiées
+
+**Impact planning** :
+- Contenus modules renseignés progressivement par Bertrand/Alexandra
+- Passer directement à S4-01 (Review contenus) quand modules suffisamment remplis
+- Ou S5-01 (PDF accessible) pour améliorer livrables
+
+---
+
 # Story S3-03 : Renseigner premiers contenus modules
 
 **Phase** : Semaine 3 - Onboarding
