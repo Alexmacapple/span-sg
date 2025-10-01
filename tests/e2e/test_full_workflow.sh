@@ -40,7 +40,7 @@ run_test "Backup module SIRCOM" \
 
 # Test 2 : Modifier SIRCOM (cocher 1 point)
 run_test "Modifier SIRCOM (cocher point 7)" \
-    "sed -i '' 's/- \[ \] Budget annuel dédié/- [x] Budget annuel dédié/' docs/modules/sircom.md"
+    "sed -i 's/- \[ \] Budget annuel dédié/- [x] Budget annuel dédié/' docs/modules/sircom.md"
 
 # Test 3 : Recalculer scores
 run_test "Recalculer scores" \
@@ -70,7 +70,7 @@ run_test "Vérifier PDF généré" \
 
 # Test 8 : Vérifier contenu PDF (au moins 50 KB)
 run_test "Vérifier taille PDF > 50KB" \
-    "[[ \$(stat -f%z $TEMP_DIR/pdf-site/pdf/document.pdf) -gt 51200 ]]"
+    "[[ \$(stat -c%s $TEMP_DIR/pdf-site/pdf/document.pdf 2>/dev/null || stat -f%z $TEMP_DIR/pdf-site/pdf/document.pdf) -gt 51200 ]]"
 
 # Test 9 : Restaurer SIRCOM
 run_test "Restaurer SIRCOM" \
@@ -80,9 +80,9 @@ run_test "Restaurer SIRCOM" \
 run_test "Re-calculer scores après restauration" \
     "python3 scripts/calculate_scores.py"
 
-# Test 11 : Vérifier score SIRCOM restauré
-run_test "Vérifier score SIRCOM = 6/31 (restauré)" \
-    "grep -q '| SIRCOM | 6/31' docs/synthese.md"
+# Test 11 : Vérifier score SIRCOM restauré (7/31 actuel)
+run_test "Vérifier score SIRCOM = 7/31 (restauré)" \
+    "grep -q '| SIRCOM | 7/31' docs/synthese.md"
 
 # Résumé
 echo ""

@@ -11,13 +11,13 @@ echo "Scénario : Modification multi-modules"
 cp docs/modules/{sircom,snum,srh}.md /tmp/
 
 # Modifier SIRCOM (cocher point 8)
-sed -i '' 's/- \[ \] Planification pluriannuelle/- [x] Planification pluriannuelle/' docs/modules/sircom.md
+sed -i 's/- \[ \] Planification pluriannuelle/- [x] Planification pluriannuelle/' docs/modules/sircom.md
 
 # Modifier SNUM (cocher point 1)
-sed -i '' '0,/- \[ \].*<!-- DINUM -->/s//- [x] Stratégie numérique publiée <!-- DINUM -->/' docs/modules/snum.md
+sed -i '0,/- \[ \].*<!-- DINUM -->/s//- [x] Stratégie numérique publiée <!-- DINUM -->/' docs/modules/snum.md
 
 # Modifier SRH (cocher point 1)
-sed -i '' '0,/- \[ \].*<!-- DINUM -->/s//- [x] Stratégie numérique publiée <!-- DINUM -->/' docs/modules/srh.md
+sed -i '0,/- \[ \].*<!-- DINUM -->/s//- [x] Stratégie numérique publiée <!-- DINUM -->/' docs/modules/srh.md
 
 # Recalculer
 python3 scripts/calculate_scores.py

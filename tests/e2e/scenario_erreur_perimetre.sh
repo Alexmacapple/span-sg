@@ -11,7 +11,7 @@ echo "Scénario : Erreur périmètre"
 cp docs/modules/sircom.md /tmp/
 
 # Supprimer 1 ligne DINUM (31 → 30)
-sed -i '' '0,/<!-- DINUM -->/d' docs/modules/sircom.md
+sed -i '0,/<!-- DINUM -->/d' docs/modules/sircom.md
 
 # Tenter scoring (doit échouer avec exit 2)
 if python3 scripts/calculate_scores.py 2>&1; then
