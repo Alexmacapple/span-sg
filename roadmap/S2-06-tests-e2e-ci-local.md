@@ -19,7 +19,7 @@ validation: human-qa
 
 Le projet SPAN SG dispose actuellement de :
 - **Tests unitaires** (S1-05, S1-06) : 7+8 = 15 tests validant composants isolés
-- **Tests d'intégration** (S2-05) : pytest pour `calculate_scores.py`
+- **Tests unitaires** (S2-05) : 18 tests pytest pour `calculate_scores.py` + `enrich_pdf_metadata.py`
 - **CI GitHub Actions** (S2-01) : Workflow automatique sur push
 
 **Score actuel** : Robustesse 17/20
@@ -53,8 +53,92 @@ Implémenter des tests end-to-end automatisés simulant le workflow complet SPAN
 - [x] Story S1-06 complétée (SIRCOM validé)
 - [x] Story S2-01 complétée (CI GitHub Actions opérationnelle)
 - [x] Story S2-05 complétée (tests unitaires pytest)
-- [x] Docker installé (pour act)
-- [x] Homebrew installé (macOS, pour act)
+- [ ] Docker installé et démarré (requis pour act + tests E2E preview HTTP)
+- [ ] Homebrew installé (macOS, requis pour installation act)
+
+---
+
+## Étape 0 : Vérification prérequis (5 min)
+
+### Contexte
+
+Avant d'implémenter les tests E2E et CI locaux, vérifier que l'environnement dispose des prérequis nécessaires.
+
+### Script de vérification
+
+Créer `scripts/check_prerequisites.sh` :
+
+```bash
+#!/usr/bin/env bash
+# Vérification prérequis S2-06
+
+set -euo pipefail
+
+echo "=== Vérification prérequis S2-06 ==="
+echo ""
+
+ERRORS=0
+
+# Test 1 : Docker installé
+echo -n "Docker installé... "
+if command -v docker &> /dev/null; then
+    echo "✅ OK"
+else
+    echo "❌ FAIL"
+    echo "   → Installer Docker Desktop : https://www.docker.com/products/docker-desktop"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Test 2 : Docker démarré
+echo -n "Docker démarré... "
+if docker info > /dev/null 2>&1; then
+    echo "✅ OK"
+else
+    echo "❌ FAIL"
+    echo "   → Lancer Docker Desktop"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Test 3 : Homebrew installé (macOS uniquement)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo -n "Homebrew installé... "
+    if command -v brew &> /dev/null; then
+        echo "✅ OK"
+    else
+        echo "❌ FAIL"
+        echo "   → Installer Homebrew : https://brew.sh"
+        ERRORS=$((ERRORS + 1))
+    fi
+fi
+
+# Test 4 : act installé (optionnel, sera installé en Partie 2)
+echo -n "act installé (optionnel)... "
+if command -v act &> /dev/null; then
+    echo "✅ OK"
+else
+    echo "⏭️  À installer (Partie 2)"
+fi
+
+echo ""
+if [ $ERRORS -eq 0 ]; then
+    echo "✅ Tous les prérequis sont satisfaits"
+    exit 0
+else
+    echo "❌ $ERRORS prérequis manquant(s)"
+    echo ""
+    echo "Corriger les prérequis avant de continuer l'implémentation S2-06."
+    exit 1
+fi
+```
+
+### Exécution
+
+```bash
+chmod +x scripts/check_prerequisites.sh
+./scripts/check_prerequisites.sh
+```
+
+**Attendu** : Tous prérequis ✅ OK sauf act (optionnel).
 
 ---
 
@@ -235,6 +319,7 @@ python3 scripts/calculate_scores.py
 grep -q "| SIRCOM | 7/31" docs/synthese.md || { echo "FAIL: SIRCOM"; exit 1; }
 grep -q "| SNUM | 1/31" docs/synthese.md || { echo "FAIL: SNUM"; exit 1; }
 grep -q "| SRH | 1/31" docs/synthese.md || { echo "FAIL: SRH"; exit 1; }
+# TOTAL = SIRCOM (6→7) + SNUM (0→1) + SRH (0→1) + autres (0) = 7+1+1 = 9/186
 grep -q "| \*\*TOTAL\*\* | \*\*9/186" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
 
 # Restaurer
@@ -421,8 +506,9 @@ done
 # Recalculer
 python3 scripts/calculate_scores.py
 
-# Vérifier TOTAL = 12/186 (6 modules × 2 points, SIRCOM déjà 6)
-# Correction: SIRCOM déjà 6, +1 = 7, autres 5 modules +1 = 5, total = 6+6 = 12
+# Vérifier TOTAL après modification 6 modules
+# Calcul : SIRCOM (6→7) + SNUM (0→1) + SRH (0→1) + SIEP (0→1) + SAFI (0→1) + BGS (0→1)
+#        = 7 + 1 + 1 + 1 + 1 + 1 = 12/186
 grep -q "12/186" docs/synthese.md || { echo "❌ FAIL: Score incorrect"; cat docs/synthese.md; exit 1; }
 
 # Rollback
