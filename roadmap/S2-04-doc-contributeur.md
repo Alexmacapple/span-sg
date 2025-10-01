@@ -341,14 +341,14 @@ git push -u origin test/doc-contributeur
 
 ## Critères d'acceptation
 
-- [ ] `CONTRIBUTING.md` créé (< 200 lignes)
-- [ ] Option A (GitHub web) documentée avec étapes numérotées
-- [ ] Option B (Git local) documentée avec commandes
-- [ ] Règles "À faire" et "Ne pas faire" claires
-- [ ] Workflow complet expliqué (Service → draft → main)
-- [ ] CONTRIBUTING.md accessible dans nav MkDocs
-- [ ] Template PR créé (`.github/PULL_REQUEST_TEMPLATE.md`)
-- [ ] Test utilisateur réussi (débutant peut créer PR)
+- [x] `CONTRIBUTING.md` créé (< 200 lignes) ✅ 163 lignes
+- [x] Option A (GitHub web) documentée avec étapes numérotées ✅
+- [x] Option B (Git local) documentée avec commandes ✅
+- [x] Règles "À faire" et "Ne pas faire" claires ✅
+- [x] Workflow complet expliqué (Service → draft → main) ✅
+- [x] CONTRIBUTING.md accessible dans nav MkDocs ✅
+- [x] Template PR créé (`.github/PULL_REQUEST_TEMPLATE.md`) ✅
+- [ ] Test utilisateur réussi (débutant peut créer PR) ⏳ À faire post-déploiement
 
 ---
 
@@ -454,3 +454,69 @@ Deux méthodes selon votre niveau :
 
 Formation prévue : [date S3-02]
 ```
+
+---
+
+## Résultats de validation
+
+**Date de validation** : 2025-10-01
+**Commits** :
+- 3c195b7 : Implémentation initiale S2-04
+- a6dab63 : Correction URL email post-tâche (100% cohérence)
+
+### Tests exécutés
+
+```bash
+=== Tests de validation S2-04 ===
+
+Test 1 : CONTRIBUTING.md existe
+✅ OK
+
+Test 2 : Taille raisonnable (< 500 lignes)
+✅ OK (163 lignes)
+
+Test 3 : Contient les deux options
+✅ OK
+
+Test 4 : Template PR existe
+✅ OK
+
+Test 5 : Lien dans README
+✅ OK
+```
+
+### Test rendu local
+
+**Commande** : `docker compose up` puis accès à http://localhost:8000/span-sg-repo/contributing/
+**Résultat** : ✅ **200 OK** - Page affichée correctement
+
+### Fichiers livrés
+
+**Créés** :
+1. `CONTRIBUTING.md` (racine) - 163 lignes
+2. `docs/contributing.md` (copie pour MkDocs)
+3. `.github/PULL_REQUEST_TEMPLATE.md` - Template simple avec checklist
+
+**Modifiés** :
+1. `mkdocs.yml` - Ligne 22 : "Guide contributeur" ajouté après "Processus"
+2. `README.md` - Ligne 226 : Section "Contribution" avec lien vers CONTRIBUTING.md
+3. `roadmap/S2-04-doc-contributeur.md` - URLs corrigées (100% cohérent)
+
+### URLs de référence
+
+- **Preview draft** : https://alexmacapple.github.io/span-sg-repo/draft/contributing/
+- **Guide GitHub** : https://github.com/Alexmacapple/span-sg-repo/blob/draft/CONTRIBUTING.md
+- **Template PR** : https://github.com/Alexmacapple/span-sg-repo/blob/draft/.github/PULL_REQUEST_TEMPLATE.md
+
+### Critères d'acceptation : 7/8 ✅
+
+- ✅ CONTRIBUTING.md créé (163 lignes < 200)
+- ✅ Option A documentée avec étapes numérotées
+- ✅ Option B documentée avec commandes
+- ✅ Règles "À faire" / "Ne pas faire" claires
+- ✅ Workflow complet expliqué
+- ✅ Navigation MkDocs fonctionnelle
+- ✅ Template PR créé
+- ⏳ Test utilisateur à faire post-déploiement (S3-02)
+
+**Story S2-04 : ✅ COMPLÈTE** (7/8 critères, dernier critère dépend de S3-02)
