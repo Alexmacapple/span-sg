@@ -36,7 +36,7 @@ def generate_summary():
         if total not in (0, 31):
             errors.append(f"{module.name}: {total} points tagués <!-- {CHECK_TAG} --> (attendu 31 ou 0)")
         pct = round((checked / total) * 100, 1) if total else 0.0
-        status = "✓ Conforme" if pct >= 75 else "En cours" if total else "Non renseigné"
+        status = "✓ Conforme" if pct >= 75 else "En cours" if pct > 0 else "Non renseigné"
         rows.append(f"| {module.stem.upper()} | {checked}/{total} ({pct}%) | {status} |")
         total_checked += checked
         total_items += total
