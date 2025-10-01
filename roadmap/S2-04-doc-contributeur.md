@@ -446,7 +446,7 @@ Annoncer la doc à l'équipe :
 Objet : SPAN SG - Guide de contribution disponible
 
 Le guide de contribution est maintenant disponible :
-https://github.com/span-sg/span-sg/blob/draft/CONTRIBUTING.md
+https://github.com/Alexmacapple/span-sg-repo/blob/draft/CONTRIBUTING.md
 
 Deux méthodes selon votre niveau :
 - Option A : Interface web GitHub (recommandé, pas de Git)
