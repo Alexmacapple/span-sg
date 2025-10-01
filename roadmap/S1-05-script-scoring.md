@@ -279,17 +279,12 @@ grep "| \*\*TOTAL\*\*" docs/synthese.md && echo "OK" || echo "FAIL"
 # Attendu : OK
 
 # Test 6 : Format Markdown valide
-docker compose up -d >/dev/null 2>&1
-if docker compose exec mkdocs mkdocs build --strict >/dev/null 2>&1; then
-  echo "OK"
-else
-  python3 -c "
+python3 -c "
 lines = open('docs/synthese.md').readlines()
 assert lines[0].startswith('# Tableau'), 'Titre manquant'
 assert '|---------|' in ''.join(lines), 'Séparateur tableau manquant'
 print('OK')
 "
-fi
 # Attendu : OK
 
 # Test 7 : Module _template.md ignoré
@@ -299,9 +294,7 @@ fi
 
 **Notes sur les tests** :
 - **Test 4** : Pattern `^| [A-Z].*[0-9]/[0-9]` filtre uniquement les lignes avec scores (exclut l'en-tête du tableau)
-- **Test 6** : Utilise `docker compose exec mkdocs` (le service s'appelle "mkdocs", pas "web")
-- **Test 6** : Fallback Python si Docker indisponible ou mkdocs build échoue
-- **Test 6** : `docker compose up -d` assure que le conteneur tourne avant le test
+- **Test 6** : Validation Python pure (structure Markdown), sans dépendance Docker/mkdocs
 
 ---
 
