@@ -1,7 +1,10 @@
 # Dockerfile
 FROM squidfunk/mkdocs-material:latest
 WORKDIR /docs
-# Note: mkdocs-pdf-export-plugin non installé (nécessite dépendances système lourdes)
-# Pour génération PDF locale, utiliser: pip install mkdocs-pdf-export-plugin
+
+# Installer dépendances Python depuis requirements.txt
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
 EXPOSE 8000
 CMD ["serve", "--dev-addr=0.0.0.0:8000"]

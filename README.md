@@ -101,9 +101,23 @@ docker compose restart
 **URL du site** : http://localhost:8000/span-sg-repo/
 
 ### Autres commandes
-- Build manuel PDF : `mkdocs build --config-file mkdocs-pdf.yml`
-- Calcul synthèse : `python scripts/calculate_scores.py`
-- Script de développement : `./scripts/dev.sh` (lance Docker avec vérifications)
+```bash
+# Build manuel du site HTML
+mkdocs build
+
+# Build manuel du PDF avec enrichissement metadata
+mkdocs build --config-file mkdocs-pdf.yml
+python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
+
+# Calcul des scores SPAN et génération synthèse
+python scripts/calculate_scores.py
+
+# Test complet du workflow PDF
+./scripts/test_pdf_workflow.sh
+
+# Script de développement
+./scripts/dev.sh  # Lance Docker avec vérifications
+```
 
 ## Développement local avec Docker
 
@@ -189,15 +203,23 @@ docker compose logs mkdocs
 
 ### Notes techniques
 
-- **Plugin PDF non installé dans Docker** : `mkdocs-pdf-export-plugin` nécessite des dépendances système lourdes (WeasyPrint, Cairo, Pango). Il est installé uniquement dans la CI GitHub Actions. Pour générer un PDF localement, installer manuellement : `pip install mkdocs-pdf-export-plugin`
+- **Dépendances Python** : Toutes les dépendances sont centralisées dans `requirements.txt`. Pour développer en local sans Docker :
+  ```bash
+  pip install -r requirements.txt
+  mkdocs serve
+  ```
+
+- **Plugin PDF** : Le projet utilise `mkdocs-with-pdf` (meilleur support que `mkdocs-pdf-export-plugin`). L'enrichissement automatique des metadata (titre, langue, keywords) est assuré par `scripts/enrich_pdf_metadata.py`.
 
 - **Hot-reload automatique** : Le volume monté (`- .:/docs`) synchronise le répertoire local avec le conteneur. Toute modification est détectée instantanément par MkDocs.
 
 ## Dépannage rapide
-- **PDF manquant** : Utiliser l'impression navigateur sur « Synthèse » (Cmd+P / Ctrl+P)
+- **PDF manquant** : Utiliser l'impression navigateur sur « Synthèse » (Cmd+P / Ctrl+P) ou vérifier que `exports/span-sg.pdf` existe après `mkdocs build --config-file mkdocs-pdf.yml`
+- **Metadata PDF absentes** : Exécuter `python scripts/enrich_pdf_metadata.py exports/span-sg.pdf` (nécessite `pikepdf`)
 - **Scores incohérents** : S'assurer que seuls les 31 points portent `<!-- DINUM -->`
 - **Preview inaccessible** : Vérifier restriction GitHub Pages à l'organisation et branche `gh-pages`
 - **Docker ne démarre pas** : Vérifier que Docker Desktop est lancé et fonctionnel (`docker ps`)
+- **Dépendances manquantes** : Installer avec `pip install -r requirements.txt`
 
 ## Contacts
 - Owner: Alexandra (@alexandra)

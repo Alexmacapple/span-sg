@@ -1,7 +1,20 @@
 site_name: SPAN SG
+site_author: Secrétariat Général
+copyright: © 2025 Secrétariat Général
+
 theme:
   name: material
+  language: fr
+
 plugins:
-  - pdf-export:
-      combined: true
-      combined_output_path: exports/span-sg.pdf
+  - with-pdf:
+      author: Secrétariat Général
+      copyright: © 2025 Secrétariat Général
+      cover_title: SPAN SG
+      cover_subtitle: Schéma Pluriannuel d'Accessibilité Numérique 2025-2027
+      toc_title: Table des matières
+      toc_level: 3
+      ordered_chapter_level: 3
+      output_path: exports/span-sg.pdf
+      enabled_if_env: ENABLE_PDF_EXPORT
+      verbose: false
