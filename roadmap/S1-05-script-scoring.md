@@ -336,6 +336,105 @@ Le script lit les fichiers en `encoding="utf-8"`. Si caractères spéciaux (acce
 
 ---
 
+## Résultats validation (01/10/2025)
+
+### Environnement
+- Python 3.9.6
+- Système : macOS (Darwin 22.4.0)
+- Branche : draft
+
+### Exécution script sur modules réels
+
+```bash
+python3 scripts/calculate_scores.py
+# Exit code: 0
+```
+
+Fichier `docs/synthese.md` généré :
+```markdown
+# Tableau de bord SPAN SG
+*Mis à jour le 01/10/2025*
+
+| Service | Score | Statut |
+|---------|-------|--------|
+| BGS | 0/31 (0.0%) | Non renseigné |
+| SAFI | 0/31 (0.0%) | Non renseigné |
+| SIEP | 0/31 (0.0%) | Non renseigné |
+| SIRCOM | 6/31 (19.4%) | En cours |
+| SNUM | 0/31 (0.0%) | Non renseigné |
+| SRH | 0/31 (0.0%) | Non renseigné |
+| **TOTAL** | **6/186 (3.2%)** | **Global** |
+```
+
+### Bug découvert et corrigé
+
+**Problème** : Modules avec 0% affichaient "En cours" au lieu de "Non renseigné"
+
+**Ligne 39 (AVANT)** :
+```python
+status = "✓ Conforme" if pct >= 75 else "En cours" if total else "Non renseigné"
+```
+Logique incorrecte : `if total` est toujours vrai quand total=31
+
+**Ligne 39 (APRÈS)** :
+```python
+status = "✓ Conforme" if pct >= 75 else "En cours" if pct > 0 else "Non renseigné"
+```
+Logique correcte : teste `pct > 0` au lieu de `total`
+
+### Test robustesse : module invalide
+
+Création module test avec 30 points (au lieu de 31) :
+```bash
+cp docs/modules/_template.md /tmp/test-invalid.md
+sed -i '' '36d' /tmp/test-invalid.md  # Supprime 1 ligne <!-- DINUM -->
+cp /tmp/test-invalid.md docs/modules/
+python3 scripts/calculate_scores.py
+```
+
+**Résultat** :
+```
+Erreurs de périmètre:
+ - test-invalid.md: 30 points tagués <!-- DINUM --> (attendu 31 ou 0)
+Exit code: 2
+```
+✅ Détection correcte du périmètre invalide
+
+### Tests automatiques (7/7 validés)
+
+| Test | Commande | Résultat |
+|------|----------|----------|
+| 1. Script exécutable | `python3 scripts/calculate_scores.py` | ✅ Exit code 0 |
+| 2. Fichier créé | `test -f docs/synthese.md` | ✅ PASS |
+| 3. Date du jour | `grep "01/10/2025" docs/synthese.md` | ✅ PASS |
+| 4. Modules présents | `grep -c "^| [A-Z]" docs/synthese.md` | ✅ 7 modules (6 + TOTAL) |
+| 5. Ligne TOTAL | `grep "| \*\*TOTAL\*\*" docs/synthese.md` | ✅ PASS |
+| 6. Markdown valide | Validation structure Python | ✅ PASS |
+| 7. Template ignoré | `! grep "_template" docs/synthese.md` | ✅ PASS |
+
+### Vérification HTTP
+
+```bash
+curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/span-sg-repo/synthese/
+# HTTP 200
+```
+✅ Page accessible via MkDocs
+
+### Critères d'acceptation (8/8 validés)
+
+- [x] `python scripts/calculate_scores.py` termine avec exit code 0
+- [x] `docs/synthese.md` généré avec 6 modules + ligne TOTAL
+- [x] Date du jour présente dans synthese.md
+- [x] Scores calculés correctement (checked/total)
+- [x] Statuts corrects (Conforme ≥75%, En cours >0%, Non renseigné =0%)
+- [x] Détection d'erreur fonctionne (test module invalide → exit 2)
+- [x] Blocs de code ignorés (checkboxes dans ``` non comptées)
+- [x] Module SIRCOM = 6/31 (19.4%) - score attendu
+
+**Validation complète** : Script scoring 100% fonctionnel et prêt pour CI.
+
+---
+
 ## Post-tâche
 
 Documenter dans README :
