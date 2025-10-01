@@ -349,7 +349,7 @@ Semaine 1 setup
 [x] mkdocs base + strict
 [x] template 31 `<!-- DINUM -->`
 [x] script scoring testé
-[ ] import module SIRCOM
+[x] import module SIRCOM
 
 Semaine 2 automatisation
 [ ] GitHub Actions ordre corrigé
