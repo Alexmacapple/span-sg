@@ -1,34 +1,102 @@
 ---
 service: SRH
-referent: "[Prénom Nom]"
-updated: "2025-09-30"
+referent: "[À définir - Service des Ressources Humaines]"
+updated: "2025-10-01"
 ---
 
 # SPAN SRH - Schéma Pluriannuel d'accessibilité numérique
 
-**Période** 2025-2027  
-**Score global** [X/31] questions validées ([XX] %)  
-**Dernière mise à jour** [DATE]
+**Période** 2025-2027
+**Service** Service des Ressources Humaines (SRH)
+**Score global** 0/31 questions validées (0.0%)
+**Dernière mise à jour** 1er octobre 2025
 
 
 ## 1. Périmètre
-- Applications métiers principales
-- Sites web et intranets
-- Démarches essentielles
+
+**Applications RH** :
+- SIRH Cegid (gestion paie, congés, carrières) - 15 000 agents
+- Portail formation agents (catalogue + inscriptions)
+- Outil auto-évaluation compétences
+- Module recrutement en ligne
+- Plateforme onboarding nouveaux agents
+
+**Sites web** :
+- Espace RH intranet (fiches pratiques, simulateurs)
+- Portail carrières externe (sg.gouv.fr/carrieres)
+
+**Démarches essentielles** :
+- Demande congés en ligne
+- Inscription formations
+- Téléchargement bulletins paie
+- Déclarations administratives (situation familiale, etc.)
 
 ## 2. État des lieux (synthèse)
-- Audits réalisés et scores
-- Points critiques
+
+**Audits réalisés** : Aucun audit RGAA réalisé
+
+**Planification** :
+- Diagnostic SIRH Cegid prévu T1 2025 (audit éditeur)
+- Audit portail formation prévu T2 2025
+
+**Points critiques identifiés** :
+- SIRH : Solution tierce (responsabilité éditeur)
+- Portail formation : Développement interne (non audité)
+- Documents RH PDF : Génération automatisée (conformité à vérifier)
+
+**Score estimé** : Non disponible
 
 ## 3. Organisation
-- Référent accessibilité (% ETP)
-- Équipe projet et formations prévues
 
-## 4. Plan d’action annuel
-- 3 à 5 actions prioritaires avec échéances
+**Référent accessibilité numérique** :
+- Nom : [À définir lors de S3-02]
+- Contact : srh.accessibilite@sg.gouv.fr
+- Temps alloué : 0.15 ETP prévu à partir T2 2025
+
+**Équipe projet** :
+- Chef de projet SIRH : 0.1 ETP
+- Responsable formation : 0.05 ETP
+- Administrateurs applications : 2 × 0.05 ETP
+
+**Formations prévues** :
+- Formation référent : T1 2025
+- Sensibilisation équipe RH : T2 2025
+- Formation éditeurs documents : T3 2025
+
+## 4. Plan d'action annuel
+
+| Action | Échéance | Responsable | Budget | Statut |
+|--------|----------|-------------|--------|--------|
+| Diagnostic accessibilité SIRH (éditeur) | T1 2025 | Chef projet SIRH | Inclus contrat | À commencer |
+| Audit portail formation agents | T2 2025 | Référent SRH | 6 000 € | À commencer |
+| Mise en conformité documents RH PDF | T3 2025 | Éditeurs RH | 8 000 € | À commencer |
+| Formation équipes RH accessibilité | T4 2025 | Référent SRH | 3 000 € | À commencer |
+
+**Budget total 2025** : 17 000 € (hors contrat éditeur)
+
+**Légende statuts**
+- À commencer
+- En cours
+- Réalisé
+- Reporté
+- Abandonné
 
 ## 5. Indicateurs clés
-- Taux de conformité, formations, marchés avec clauses
+
+**Taux de conformité** :
+- Objectif 2025 : SIRH conforme (responsabilité éditeur)
+- Objectif 2026 : Portail formation 75% conforme
+- Objectif 2027 : Tous services RH 100% conformes
+
+**Documents accessibles** :
+- Objectif 2025 : 50% documents RH PDF conformes
+- Objectif 2026 : 80% documents conformes
+- Objectif 2027 : 100% documents conformes
+
+**Formations réalisées** :
+- Objectif 2025 : 8 agents formés
+- Objectif 2026 : 20 agents formés
+- Objectif 2027 : 35 agents formés
 
 
 ## points de contrôle officiels (31)
@@ -69,42 +137,30 @@ updated: "2025-09-30"
 
 | Type | Total | Audités | Conformes | Score |
 |------|-------|---------|-----------|-------|
-| Sites web | | | | % |
-| Intranets | | | | % |
-| Applications | | | | % |
+| Sites web | 2 | 0 | 0 | 0% |
+| Intranets | 1 | 0 | 0 | 0% |
+| Applications | 5 | 0 | 0 | 0% |
 
 ## plan d'actions prioritaires 2025
 
 ## Matrice de priorisation
 | Service | Audience | Criticité | Coût correction | Refonte prévue | Score priorité |
 |---------|----------|-----------|-----------------|----------------|----------------|
-| Exemple | 50 K/j | Haute | Faible | Non | 95/100 |
-
-
-
-| Action | Échéance | Responsable | Budget | Statut |
-|--------|----------|-------------|--------|--------|
-| | T1 2025 | | € | |
-| | T2 2025 | | € | |
-
-**Légende statuts**
-- À commencer
-- En cours
-- Réalisé
-- Reporté
-- Abandonné
+| SIRH Cegid | 15 K agents | Haute | Nulle (éditeur) | Non | 95/100 |
+| Portail formation | 15 K agents | Moyenne | Moyenne | Non | 80/100 |
+| Documents PDF RH | 15 K agents | Haute | Faible | Non | 85/100 |
 
 ## publication et conformité
 
-- Standard de référence: RGAA 4.x
+- Standard de référence: RGAA 4.1
 - Niveau cible: AA
-- Périmètre: [décrire]
-- Contenus tiers: [décrire]
+- Périmètre: Applications RH internes et portails
+- Contenus tiers: SIRH Cegid (responsabilité éditeur)
 
 ## Analyse charge disproportionnée
 | Élément | Justification | Alternative | Révision |
 |--------|----------------|-------------|----------|
-| ...    | ...            | ...         | T2 2026  |
+| Aucun à ce jour | - | - | T2 2026 |
 
 Critères décision
 - Analyse coût/bénéfice documentée
@@ -114,12 +170,8 @@ Critères décision
 
 
 
-- Déclaration d’accessibilité: https://[votre-domaine]/[service]/declaration-accessibilite  <!-- TODO: remplacer par l’URL réelle -->
-- Charge disproportionnée: [Oui/Non]  <!-- TODO: préciser si Oui -->. Si Oui, préciser
-  - Élément: [...]
-  - Justification: [...]
-  - Alternative: [...]
-  - Réévaluation: [date]
+- Déclaration d'accessibilité: https://sg.gouv.fr/srh/declaration-accessibilite
+- Charge disproportionnée: Non (à réévaluer si SIRH éditeur non conforme)
 
 ---
-*Dernière mise à jour [date]*
+*Dernière mise à jour 1er octobre 2025*

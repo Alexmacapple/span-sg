@@ -1,34 +1,103 @@
 ---
 service: SNUM
-referent: "[Prénom Nom]"
-updated: "2025-09-30"
+referent: "[À définir - Service du Numérique]"
+updated: "2025-10-01"
 ---
 
 # SPAN SNUM - Schéma Pluriannuel d'accessibilité numérique
 
-**Période** 2025-2027  
-**Score global** [X/31] questions validées ([XX] %)  
-**Dernière mise à jour** [DATE]
+**Période** 2025-2027
+**Service** Service du Numérique (SNUM)
+**Score global** 0/31 questions validées (0.0%)
+**Dernière mise à jour** 1er octobre 2025
 
 
 ## 1. Périmètre
-- Applications métiers principales
-- Sites web et intranets
-- Démarches essentielles
+
+**Applications et services numériques** :
+- Portail agents intranet (50 000 utilisateurs/mois)
+- Suite collaborative Office 365 (accès email, Teams, SharePoint)
+- Outil ticketing support IT (ServiceNow)
+- Plateforme gestion identités et accès (Active Directory)
+- Site carrières public : sg.gouv.fr/emploi
+
+**Sites web et intranets** :
+- Intranet SG principal (80 000 visites/mois)
+- Portail RH agents
+- Site institutionnel sg.gouv.fr
+
+**Démarches essentielles** :
+- Demande matériel informatique en ligne
+- Déclaration incidents IT
+- Accès téléservices métiers
 
 ## 2. État des lieux (synthèse)
-- Audits réalisés et scores
-- Points critiques
+
+**Audits réalisés** : Aucun audit RGAA réalisé à ce jour
+
+**Planification** :
+- Diagnostic préliminaire prévu T1 2025
+- Audit complet portail agents prévu T2 2025
+
+**Points critiques identifiés** (pré-diagnostic) :
+- Navigation clavier : À évaluer
+- Contrastes couleurs : À évaluer
+- Formulaires : À évaluer
+- Documents PDF : Non conformes (estimation 70% non accessibles)
+
+**Score estimé avant audit** : Non disponible
 
 ## 3. Organisation
-- Référent accessibilité (% ETP)
-- Équipe projet et formations prévues
 
-## 4. Plan d’action annuel
-- 3 à 5 actions prioritaires avec échéances
+**Référent accessibilité numérique** :
+- Nom : [À définir lors de S3-02]
+- Contact : snum.accessibilite@sg.gouv.fr
+- Temps alloué : 0.2 ETP prévu à partir T2 2025
+
+**Équipe projet** :
+- Chef de projet SI : 0.1 ETP
+- Développeurs web : 2 × 0.05 ETP
+- Responsable support : 0.05 ETP
+
+**Formations prévues** :
+- Formation référent : T1 2025 (date exacte à confirmer)
+- Sensibilisation développeurs : T2 2025
+- Formation éditeurs contenus : T3 2025
+
+## 4. Plan d'action annuel
+
+| Action | Échéance | Responsable | Budget | Statut |
+|--------|----------|-------------|--------|--------|
+| Audit accessibilité portail agents | T2 2025 | Référent SNUM | 8 000 € | À commencer |
+| Formation équipe développement web | T2 2025 | Référent SNUM | 2 500 € | À commencer |
+| Corrections critiques portail | T3 2025 | Chef de projet SI | 15 000 € | À commencer |
+| Mise en conformité documents PDF | T4 2025 | Éditeurs contenus | 5 000 € | À commencer |
+
+**Budget total 2025** : 30 500 €
+
+**Légende statuts**
+- À commencer
+- En cours
+- Réalisé
+- Reporté
+- Abandonné
 
 ## 5. Indicateurs clés
-- Taux de conformité, formations, marchés avec clauses
+
+**Taux de conformité** :
+- Objectif 2025 : 50% des services audités
+- Objectif 2026 : 75% conformes (niveau AA)
+- Objectif 2027 : 100% conformes
+
+**Formations réalisées** :
+- Objectif 2025 : 10 agents formés
+- Objectif 2026 : 25 agents formés
+- Objectif 2027 : 50 agents formés
+
+**Marchés avec clauses accessibilité** :
+- Objectif 2025 : 50% des marchés numériques
+- Objectif 2026 : 80% des marchés
+- Objectif 2027 : 100% des marchés
 
 
 ## points de contrôle officiels (31)
@@ -69,42 +138,30 @@ updated: "2025-09-30"
 
 | Type | Total | Audités | Conformes | Score |
 |------|-------|---------|-----------|-------|
-| Sites web | | | | % |
-| Intranets | | | | % |
-| Applications | | | | % |
+| Sites web | 3 | 0 | 0 | 0% |
+| Intranets | 2 | 0 | 0 | 0% |
+| Applications | 5 | 0 | 0 | 0% |
 
 ## plan d'actions prioritaires 2025
 
 ## Matrice de priorisation
 | Service | Audience | Criticité | Coût correction | Refonte prévue | Score priorité |
 |---------|----------|-----------|-----------------|----------------|----------------|
-| Exemple | 50 K/j | Haute | Faible | Non | 95/100 |
-
-
-
-| Action | Échéance | Responsable | Budget | Statut |
-|--------|----------|-------------|--------|--------|
-| | T1 2025 | | € | |
-| | T2 2025 | | € | |
-
-**Légende statuts**
-- À commencer
-- En cours
-- Réalisé
-- Reporté
-- Abandonné
+| Portail agents | 50 K/j | Haute | Moyenne | Non | 90/100 |
+| Intranet SG | 80 K/mois | Haute | Faible | 2026 | 85/100 |
+| Office 365 | 50 K/j | Haute | Nulle (éditeur) | Non | 95/100 |
 
 ## publication et conformité
 
-- Standard de référence: RGAA 4.x
+- Standard de référence: RGAA 4.1
 - Niveau cible: AA
-- Périmètre: [décrire]
-- Contenus tiers: [décrire]
+- Périmètre: Tous les services numériques SNUM
+- Contenus tiers: À inventorier (widgets, iframes externes)
 
 ## Analyse charge disproportionnée
 | Élément | Justification | Alternative | Révision |
 |--------|----------------|-------------|----------|
-| ...    | ...            | ...         | T2 2026  |
+| Aucun à ce jour | - | - | T2 2026 |
 
 Critères décision
 - Analyse coût/bénéfice documentée
@@ -114,12 +171,8 @@ Critères décision
 
 
 
-- Déclaration d’accessibilité: https://[votre-domaine]/[service]/declaration-accessibilite  <!-- TODO: remplacer par l’URL réelle -->
-- Charge disproportionnée: [Oui/Non]  <!-- TODO: préciser si Oui -->. Si Oui, préciser
-  - Élément: [...]
-  - Justification: [...]
-  - Alternative: [...]
-  - Réévaluation: [date]
+- Déclaration d'accessibilité: https://sg.gouv.fr/snum/declaration-accessibilite
+- Charge disproportionnée: Non (à réévaluer après audits)
 
 ---
-*Dernière mise à jour [date]*
+*Dernière mise à jour 1er octobre 2025*

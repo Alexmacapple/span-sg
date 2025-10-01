@@ -6,7 +6,7 @@
 | BGS | 0/31 (0.0%) | Non renseigné |
 | SAFI | 0/31 (0.0%) | Non renseigné |
 | SIEP | 0/31 (0.0%) | Non renseigné |
-| SIRCOM | 6/31 (19.4%) | En cours |
+| SIRCOM | 7/31 (22.6%) | En cours |
 | SNUM | 0/31 (0.0%) | Non renseigné |
 | SRH | 0/31 (0.0%) | Non renseigné |
-| **TOTAL** | **6/186 (3.2%)** | **Global** |
+| **TOTAL** | **7/186 (3.8%)** | **Global** |

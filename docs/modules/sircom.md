@@ -40,7 +40,7 @@ updated: "2025-09-30"
 - [x] Temps alloué et moyens du référent définis <!-- DINUM -->
 - [x] Ressources humaines dédiées identifiées (ETP) <!-- DINUM -->
 - [ ] Budget annuel dédié/identifiable <!-- DINUM -->
-- [ ] Planification pluriannuelle des moyens (3 ans) <!-- DINUM -->
+- [x] Planification pluriannuelle des moyens (3 ans) <!-- DINUM -->
 - [ ] Compétences accessibilité dans les fiches de poste <!-- DINUM -->
 - [ ] Grille de recrutement intégrant l’accessibilité <!-- DINUM -->
 - [ ] Plan de formation annuel pour les profils clés <!-- DINUM -->
