@@ -3,9 +3,57 @@
 Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/deploy.
 
 ## Démarrage rapide
-1. Installer Docker (facultatif pour dev local)
-2. Cloner le dépôt et créer deux branches: `main` et `draft`
-3. Renseigner `site_url` et `repo_url` dans `mkdocs.yml`
+
+### Prérequis
+1. **Installer Docker Desktop**
+   - Mac : [docs.docker.com/desktop/install/mac-install](https://docs.docker.com/desktop/install/mac-install/)
+   - Windows : [docs.docker.com/desktop/install/windows-install](https://docs.docker.com/desktop/install/windows-install/)
+   - Linux : [docs.docker.com/engine/install](https://docs.docker.com/engine/install/)
+
+2. **Démarrer Docker Desktop**
+   - Ouvrir l'application Docker Desktop
+   - Attendre que l'icône dans la barre de menu affiche "Docker Desktop is running"
+
+3. **Vérifier que Docker fonctionne**
+   ```bash
+   docker --version
+   # Attendu : Docker version 20.x ou supérieur
+
+   docker ps
+   # Attendu : Liste des conteneurs (vide ou avec conteneurs existants)
+   ```
+
+### Installation
+1. **Cloner le dépôt**
+   ```bash
+   git clone https://github.com/Alexmacapple/span-sg-repo.git
+   cd span-sg-repo
+   ```
+
+2. **Créer les branches principales**
+   ```bash
+   git checkout -b main
+   git checkout -b draft
+   ```
+
+3. **Configurer les URLs** (si nécessaire)
+   - Éditer `mkdocs.yml` : ajuster `site_url` et `repo_url`
+
+### Premier lancement
+```bash
+# Lancer le serveur de développement
+docker compose up -d
+
+# Le premier lancement télécharge l'image Docker (~200MB)
+# Cela peut prendre 1-2 minutes
+```
+
+**Accéder au site** : http://localhost:8000/span-sg-repo/
+
+**Arrêter le serveur** :
+```bash
+docker compose down
+```
 
 ## Checklist « première release v0.1 »
 1. Configurer GitHub Pages au niveau de l’organisation et restreindre l’accès aux membres
@@ -24,14 +72,122 @@ Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/
 10. Notifier Yves pour validation production et consigner la décision GO/NO-GO
 
 ## Commandes utiles
-- Dev local: `docker compose up` puis http://localhost:8000
-- Build manuel PDF: `mkdocs build --config-file mkdocs-pdf.yml`
-- Calcul synthèse: `python scripts/calculate_scores.py`
+
+### Développement local
+```bash
+# Démarrer le serveur (en arrière-plan)
+docker compose up -d
+
+# Voir les logs en temps réel
+docker compose logs -f mkdocs
+
+# Arrêter le serveur
+docker compose down
+
+# Redémarrer après modifications
+docker compose restart
+```
+
+**URL du site** : http://localhost:8000/span-sg-repo/
+
+### Autres commandes
+- Build manuel PDF : `mkdocs build --config-file mkdocs-pdf.yml`
+- Calcul synthèse : `python scripts/calculate_scores.py`
+- Script de développement : `./scripts/dev.sh` (lance Docker avec vérifications)
+
+## Développement local avec Docker
+
+### Architecture Docker
+
+Le projet utilise 2 fichiers Docker complémentaires :
+
+**`Dockerfile`** (la recette de l'image)
+```dockerfile
+FROM squidfunk/mkdocs-material:latest  # Image de base MkDocs Material
+WORKDIR /docs                          # Répertoire de travail
+EXPOSE 8000                            # Port exposé
+CMD ["serve", "--dev-addr=0.0.0.0:8000"]  # Commande au démarrage
+```
+
+**Rôle** : Définit comment construire l'image Docker (le modèle du conteneur).
+
+**`docker-compose.yml`** (la configuration de lancement)
+```yaml
+services:
+  mkdocs:
+    build: .              # Construire avec le Dockerfile du répertoire actuel
+    volumes:
+      - .:/docs           # Partager le dossier actuel avec le conteneur
+    ports:
+      - "8000:8000"       # Exposer le port 8000 sur l'hôte
+```
+
+**Rôle** : Définit comment lancer le conteneur (volumes, ports, configuration).
+
+### Workflow de développement
+
+1. **Lancer le serveur** : `docker compose up -d`
+   - Docker lit `docker-compose.yml`
+   - Si l'image n'existe pas, la construit avec `Dockerfile`
+   - Démarre le conteneur en arrière-plan (`-d`)
+   - Monte le répertoire actuel dans `/docs` (hot-reload automatique)
+
+2. **Modifier le code** : Éditer les fichiers dans `docs/`
+   - MkDocs détecte automatiquement les changements
+   - Le site se reconstruit en temps réel
+   - Rafraîchir le navigateur pour voir les modifications
+
+3. **Arrêter le serveur** : `docker compose down`
+
+### Troubleshooting Docker
+
+**Erreur : "Cannot connect to Docker daemon"**
+```bash
+# Cause : Docker Desktop n'est pas démarré
+# Solution : Lancer Docker Desktop et attendre qu'il soit prêt
+docker ps  # Vérifier que Docker répond
+```
+
+**Erreur : "Port 8000 already in use"**
+```bash
+# Cause : Un autre processus utilise le port 8000
+# Solution : Trouver et arrêter le processus
+lsof -i :8000
+kill <PID>
+
+# Ou changer le port dans docker-compose.yml
+ports:
+  - "8001:8000"  # Utiliser 8001 au lieu de 8000
+```
+
+**Site inaccessible après `docker compose up`**
+```bash
+# Vérifier que le conteneur tourne
+docker compose ps
+
+# Voir les logs pour identifier l'erreur
+docker compose logs mkdocs
+
+# Problèmes courants :
+# - Erreur dans mkdocs.yml : corriger la config
+# - Plugin manquant : installer les dépendances
+```
+
+**Premier lancement très long**
+- Normal : Docker télécharge l'image de base (~200MB)
+- Les lancements suivants sont instantanés (image en cache)
+
+### Notes techniques
+
+- **Plugin PDF non installé dans Docker** : `mkdocs-pdf-export-plugin` nécessite des dépendances système lourdes (WeasyPrint, Cairo, Pango). Il est installé uniquement dans la CI GitHub Actions. Pour générer un PDF localement, installer manuellement : `pip install mkdocs-pdf-export-plugin`
+
+- **Hot-reload automatique** : Le volume monté (`- .:/docs`) synchronise le répertoire local avec le conteneur. Toute modification est détectée instantanément par MkDocs.
 
 ## Dépannage rapide
-- PDF manquant: utiliser l'impression navigateur sur « Synthèse » (Cmd+P / Ctrl+P)
-- Scores incohérents: s’assurer que seuls les 31 points portent `<!-- DINUM -->`
-- Preview inaccessible: vérifier restriction GitHub Pages à l’organisation et branche `gh-pages`
+- **PDF manquant** : Utiliser l'impression navigateur sur « Synthèse » (Cmd+P / Ctrl+P)
+- **Scores incohérents** : S'assurer que seuls les 31 points portent `<!-- DINUM -->`
+- **Preview inaccessible** : Vérifier restriction GitHub Pages à l'organisation et branche `gh-pages`
+- **Docker ne démarre pas** : Vérifier que Docker Desktop est lancé et fonctionnel (`docker ps`)
 
 ## Contacts
 - Owner: Alexandra (@alexandra)
