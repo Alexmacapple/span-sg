@@ -356,6 +356,7 @@ Semaine 2 automatisation
 [ ] export PDF automatique
 [ ] preview privée (Option A)
 [ ] doc contributeur 1 page
+[ ] qualité code (tests + linting)
 
 Semaine 3 onboarding services  
 [ ] modules vides + front-matter  
