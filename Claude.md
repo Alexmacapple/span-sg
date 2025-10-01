@@ -18,7 +18,7 @@ docker compose up
 # → http://localhost:8000
 
 # Sans Docker
-pip install mkdocs-material mkdocs-pdf-export-plugin mkdocs-with-pdf
+pip install mkdocs-material mkdocs-pdf-export-plugin
 mkdocs serve
 ```
 
@@ -27,11 +27,8 @@ mkdocs serve
 # Build site HTML
 mkdocs build
 
-# Générer PDF principal
+# Générer PDF
 mkdocs build --config-file mkdocs-pdf.yml
-
-# Générer PDF fallback (si échec du principal)
-mkdocs build --config-file mkdocs-with-pdf.yml
 
 # Calculer les scores SPAN et générer docs/synthese.md
 python scripts/calculate_scores.py
@@ -89,10 +86,9 @@ Chaque module contient:
 3. **31 points de contrôle DINUM**: liste fixe avec `<!-- DINUM -->`
 4. **Blocs légaux**: déclaration accessibilité, charge disproportionnée
 
-### Configuration MkDocs triple
+### Configuration MkDocs
 - `mkdocs.yml`: config principale (strict mode, nav, theme Material)
 - `mkdocs-pdf.yml`: génération PDF via `mkdocs-pdf-export-plugin`
-- `mkdocs-with-pdf.yml`: fallback PDF via `mkdocs-with-pdf`
 
 **Mode strict activé**: toute erreur de lien/référence bloque le build.
 
@@ -101,7 +97,7 @@ Workflow `.github/workflows/build.yml`:
 1. Install Python + dépendances MkDocs
 2. Calcul scores (`python scripts/calculate_scores.py`)
 3. Build site (`mkdocs build`)
-4. Génération PDF (principal + fallback si échec)
+4. Génération PDF (`mkdocs build --config-file mkdocs-pdf.yml`)
 5. Upload artefacts (site/ + exports/)
 6. Déploiement conditionnel:
    - `draft` → `gh-pages/draft/` (preview)

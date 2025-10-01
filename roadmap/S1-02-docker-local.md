@@ -26,10 +26,13 @@ Le projet SPAN SG nécessite un environnement de développement local pour :
 Docker permet d'encapsuler MkDocs + dépendances dans un conteneur isolé, garantissant la reproductibilité de l'environnement entre développeurs.
 
 Le fichier `docker-compose.yml` déjà présent dans le repo configure :
-- Image Python avec MkDocs Material
+- Build d'un Dockerfile custom basé sur MkDocs Material
+- Plugin PDF intégré (mkdocs-pdf-export-plugin)
 - Volumes pour hot-reload automatique
 - Port 8000 exposé pour accès navigateur
 - Configuration service `mkdocs`
+
+Le `Dockerfile` étend l'image officielle `squidfunk/mkdocs-material` avec le plugin PDF nécessaire pour la génération des exports documentaires (voir `mkdocs-pdf.yml`).
 
 ---
 
@@ -76,15 +79,38 @@ Contenu attendu :
 version: '3.8'
 services:
   mkdocs:
-    image: squidfunk/mkdocs-material
+    build: .  # Dockerfile custom avec plugins PDF
+    volumes:
+      - .:/docs
     ports:
       - "8000:8000"
-    volumes:
-      - ./:/docs
-    command: serve --dev-addr=0.0.0.0:8000
 ```
 
-### 3. Démarrer le serveur MkDocs
+**Note** : La configuration utilise `build: .` au lieu de `image: squidfunk/mkdocs-material` car le projet nécessite les plugins PDF (`mkdocs-pdf-export-plugin`, `mkdocs-with-pdf`) qui ne sont pas inclus dans l'image officielle. Le Dockerfile custom étend l'image Material et ajoute ces dépendances.
+
+### 3. Vérifier le Dockerfile
+
+```bash
+cat Dockerfile
+```
+
+Contenu attendu :
+```dockerfile
+# Dockerfile
+FROM squidfunk/mkdocs-material:latest
+WORKDIR /docs
+RUN pip install mkdocs-pdf-export-plugin mkdocs-with-pdf
+EXPOSE 8000
+CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:8000"]
+```
+
+Ce Dockerfile :
+- Part de l'image officielle MkDocs Material
+- Installe le plugin PDF (mkdocs-pdf-export-plugin)
+- Configure le serveur pour écouter sur toutes les interfaces (0.0.0.0)
+- Expose le port 8000 pour accès depuis l'hôte
+
+### 4. Démarrer le serveur MkDocs
 
 ```bash
 # Depuis la racine du projet
@@ -105,7 +131,7 @@ mkdocs-1  | INFO     -  Documentation built in 0.45 seconds
 mkdocs-1  | INFO     -  [12:34:56] Serving on http://0.0.0.0:8000/
 ```
 
-### 4. Tester l'accès navigateur
+### 5. Tester l'accès navigateur
 
 1. Ouvrir navigateur : http://localhost:8000
 2. Vérifier :
@@ -114,7 +140,7 @@ mkdocs-1  | INFO     -  [12:34:56] Serving on http://0.0.0.0:8000/
    - Theme Material appliqué
    - Recherche disponible
 
-### 5. Tester le hot-reload
+### 6. Tester le hot-reload
 
 1. Garder http://localhost:8000 ouvert
 2. Éditer `docs/index.md` :
@@ -132,7 +158,7 @@ mkdocs-1  | INFO     -  [12:34:56] Serving on http://0.0.0.0:8000/
    git checkout docs/index.md
    ```
 
-### 6. Arrêter le serveur
+### 7. Arrêter le serveur
 
 ```bash
 # Si lancé en mode interactif : Ctrl+C

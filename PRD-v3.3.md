@@ -33,7 +33,6 @@ Niveau 1 : SPAN SG (Global)
 span-sg/
 ├─ mkdocs.yml
 ├─ mkdocs-pdf.yml
-├─ mkdocs-with-pdf.yml           # fallback PDF
 ├─ docker-compose.yml
 ├─ .github/workflows/build.yml
 ├─ docs/
@@ -164,28 +163,26 @@ if __name__ == "__main__":
     raise SystemExit(generate_summary())
 ```
 
-### 3.3 export PDF avec fallback robuste
+### 3.3 export PDF simplifié
 
-Objectif  
-Garantir un PDF d’archive à chaque build, sans bloquer la release.
+Objectif
+Générer un PDF d'archive à chaque build pour documentation et releases.
 
-Choix tranché  
-1) Plugin principal: `mkdocs-pdf-export-plugin`  
-2) Fallback automatique: `mkdocs-with-pdf`  
-3) Filet ultime: impression navigateur sur « Synthèse »
+Stratégie
+1) Plugin principal: `mkdocs-pdf-export-plugin`
+2) Méthode manuelle de secours: impression navigateur sur page « Synthèse »
 
-Fichier fallback
+Configuration PDF
 
 ```yaml
-# mkdocs-with-pdf.yml
+# mkdocs-pdf.yml
 site_name: SPAN SG
 theme:
   name: material
 plugins:
-  - with-pdf:
-      output_path: exports/span-sg.pdf
-      cover_title: "SPAN SG"
-      toc_level: 2
+  - pdf-export:
+      combined: true
+      combined_output_path: exports/span-sg.pdf
 ```
 
 ---
@@ -334,9 +331,9 @@ Release publiée avec tag, changelog ≤ 3 puces, PDF joint.
 
 ## 10. décisions et hypothèses mvp
 
-Décisions figées  
-- Preview privée: GitHub Pages restreint aux membres de l’organisation (Option A)  
-- PDF d’archive: plugin principal + fallback `mkdocs-with-pdf` + filet impression navigateur  
+Décisions figées
+- Preview privée: GitHub Pages restreint aux membres de l'organisation (Option A)
+- PDF d'archive: plugin `mkdocs-pdf-export-plugin` + méthode manuelle (impression navigateur)
 - Modèles légaux: blocs standardisés dans `index.md` et dans chaque module
 
 Hors périmètre MVP  
@@ -354,10 +351,10 @@ Semaine 1 setup
 [ ] script scoring testé  
 [ ] import module SIRCOM
 
-Semaine 2 automatisation  
-[ ] GitHub Actions ordre corrigé  
-[ ] export PDF + fallback  
-[ ] preview privée (Option A)  
+Semaine 2 automatisation
+[ ] GitHub Actions ordre corrigé
+[ ] export PDF automatique
+[ ] preview privée (Option A)
 [ ] doc contributeur 1 page
 
 Semaine 3 onboarding services  
@@ -404,20 +401,7 @@ Semaine 4 production
 
 *(identique au bloc 3.2 ci-dessus, fourni pour collage direct dans le repo)*
 
-## B. mkdocs-with-pdf.yml
-
-```yaml
-site_name: SPAN SG
-theme:
-  name: material
-plugins:
-  - with-pdf:
-      output_path: exports/span-sg.pdf
-      cover_title: "SPAN SG"
-      toc_level: 2
-```
-
-## C. .github/workflows/build.yml
+## B. .github/workflows/build.yml
 
 ```yaml
 name: Build SPAN
@@ -443,7 +427,6 @@ jobs:
         run: |
           pip install mkdocs-material
           pip install mkdocs-pdf-export-plugin
-          pip install mkdocs-with-pdf
 
       - name: Calculate SPAN scores
         run: python scripts/calculate_scores.py
@@ -451,13 +434,8 @@ jobs:
       - name: Build site
         run: mkdocs build
 
-      - name: Generate PDF (plugin principal)
+      - name: Generate PDF
         run: mkdocs build --config-file mkdocs-pdf.yml
-        continue-on-error: true
-
-      - name: Generate PDF fallback (mkdocs-with-pdf si échec)
-        if: failure()
-        run: mkdocs build --config-file mkdocs-with-pdf.yml
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
@@ -497,7 +475,7 @@ jobs:
           force_orphan: true
 ```
 
-## D. docs/index.md – blocs légaux
+## C. docs/index.md – blocs légaux
 
 ```markdown
 ## Déclarations d’accessibilité

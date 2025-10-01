@@ -14,9 +14,6 @@ theme:
 plugins:
   - search:
       lang: fr
-  - pdf-export:
-      combined: true
-      combined_output_path: exports/span-sg.pdf
 
 nav:
   - Accueil: index.md

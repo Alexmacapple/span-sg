@@ -21,7 +21,6 @@ jobs:
         run: |
           pip install mkdocs-material
           pip install mkdocs-pdf-export-plugin
-          pip install mkdocs-with-pdf
 
       - name: Calculate SPAN scores
         run: python scripts/calculate_scores.py
@@ -29,13 +28,8 @@ jobs:
       - name: Build site
         run: mkdocs build
 
-      - name: Generate PDF (plugin principal)
+      - name: Generate PDF
         run: mkdocs build --config-file mkdocs-pdf.yml
-        continue-on-error: true
-
-      - name: Generate PDF fallback (mkdocs-with-pdf si échec)
-        if: failure()
-        run: mkdocs build --config-file mkdocs-with-pdf.yml
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3

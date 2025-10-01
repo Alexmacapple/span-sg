@@ -26,7 +26,7 @@ MkDocs Material est le générateur de site statique choisi pour SPAN SG. Le **m
 La configuration actuelle dans `mkdocs.yml` doit être validée et testée pour garantir :
 1. Site_url et repo_url corrects
 2. Navigation cohérente vers les 6 modules
-3. Plugins PDF configurés avec fallback
+3. Plugin PDF configuré
 4. Thème Material en français
 5. Mode strict activé sans erreur
 
@@ -214,8 +214,8 @@ python -c "import yaml; yaml.safe_load(open('mkdocs.yml'))" && echo "YAML valid"
 **Mode strict trop contraignant ?**
 Si le mode strict bloque le build pour des warnings mineurs, possibilité de le désactiver temporairement pour débloquer, mais c'est **fortement déconseillé** (contrainte MVP).
 
-**Plugins PDF optionnels pour ce test**
-Les plugins `mkdocs-pdf-export-plugin` et `mkdocs-with-pdf` ne sont pas nécessaires pour valider le strict mode. Ils seront testés dans S2-02.
+**Plugin PDF optionnel pour ce test**
+Le plugin `mkdocs-pdf-export-plugin` n'est pas nécessaire pour valider le strict mode. Il sera testé dans S2-02.
 
 **CSS custom**
 Le fichier `docs/assets/custom.css` peut être édité ultérieurement sans impact sur le strict mode.

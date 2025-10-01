@@ -1,7 +1,6 @@
-version: '3'
 services:
   mkdocs:
-    build: .
+    build: .  # Dockerfile custom avec plugin PDF (mkdocs-pdf-export-plugin)
     volumes:
       - .:/docs
     ports:

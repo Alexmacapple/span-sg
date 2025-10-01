@@ -108,7 +108,7 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
 - Script de scoring automatique (`scripts/calculate_scores.py`)
 - Génération synthèse globale (`docs/synthese.md`)
 - CI/CD GitHub Actions (build + PDF + deploy)
-- Export PDF avec fallback robuste (`mkdocs-pdf-export-plugin` + `mkdocs-with-pdf`)
+- Export PDF automatique (`mkdocs-pdf-export-plugin`)
 - Preview privée GitHub Pages (org-only)
 - Documentation contributeur (`CONTRIBUTING.md`)
 - Guide formation Git (`docs/formation/git-basics.md`)
@@ -134,7 +134,7 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
 
 ### Décisions
 - Preview privée : Option A (GitHub Pages org-only)
-- PDF d'archive : Double stratégie (plugin + fallback)
+- PDF d'archive : Plugin unique (mkdocs-pdf-export-plugin) + méthode manuelle secours
 - Workflow : feature → draft → main
 - Périmètre v1 : 6 modules uniquement
 
@@ -291,7 +291,7 @@ Chaque service dispose de son propre module avec :
 
 ### CI/CD robuste
 - Build automatique à chaque push
-- Export PDF avec fallback (2 plugins)
+- Export PDF automatique (mkdocs-pdf-export-plugin)
 - Déploiement GitHub Pages
 - Artefacts disponibles 90 jours
 

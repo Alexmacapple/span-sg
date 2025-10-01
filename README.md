@@ -25,12 +25,11 @@ Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/
 
 ## Commandes utiles
 - Dev local: `docker compose up` puis http://localhost:8000
-- Build manuel PDF principal: `mkdocs build --config-file mkdocs-pdf.yml`
-- Build manuel PDF fallback: `mkdocs build --config-file mkdocs-with-pdf.yml`
+- Build manuel PDF: `mkdocs build --config-file mkdocs-pdf.yml`
 - Calcul synthèse: `python scripts/calculate_scores.py`
 
 ## Dépannage rapide
-- PDF manquant: vérifier fallback `mkdocs-with-pdf` ou utiliser l’impression navigateur sur « Synthèse »
+- PDF manquant: utiliser l'impression navigateur sur « Synthèse » (Cmd+P / Ctrl+P)
 - Scores incohérents: s’assurer que seuls les 31 points portent `<!-- DINUM -->`
 - Preview inaccessible: vérifier restriction GitHub Pages à l’organisation et branche `gh-pages`
 

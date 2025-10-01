@@ -20,7 +20,7 @@ validation: human-qa
 La CI/CD GitHub Actions est le **cœur de l'automatisation** SPAN SG. Elle garantit :
 - Build automatique à chaque push (main, draft)
 - Validation scoring (exit 2 si erreur périmètre)
-- Génération PDF avec fallback robuste
+- Génération PDF automatique
 - Déploiement conditionnel vers GitHub Pages
 - Artefacts disponibles pour releases
 
@@ -102,10 +102,9 @@ Observer les étapes :
 2. ✅ Install dependencies (pip install mkdocs-material...)
 3. ✅ Calculate SPAN scores
 4. ✅ Build site (mkdocs build)
-5. ✅ Generate PDF (principal)
-6. ⚠️ Generate PDF fallback (si échec step 5)
-7. ✅ Upload artifacts
-8. ✅ deploy_draft (si branche=draft)
+5. ✅ Generate PDF
+6. ✅ Upload artifacts
+7. ✅ deploy_draft (si branche=draft)
 
 ### 6. Vérifier les artefacts
 
@@ -131,7 +130,7 @@ Extraire et ouvrir `exports/span-sg.pdf` :
 - Vérifier contenu : Accueil, Synthèse, 6 modules
 - Vérifier formatage (theme Material, tableaux)
 - Vérifier table des matières
-- Si PDF vide ou erreur → Vérifier step "Generate PDF fallback" a fonctionné
+- Si PDF vide ou erreur → Consulter logs step "Generate PDF"
 
 ### 8. Vérifier le déploiement draft
 
@@ -244,14 +243,11 @@ git ls-remote --heads origin gh-pages && echo "OK" || echo "WARN: gh-pages pas e
 ## Notes et risques
 
 **Échec PDF non bloquant**
-Le step "Generate PDF (plugin principal)" utilise `continue-on-error: true`. Cela permet au fallback de s'exécuter même si le plugin principal échoue.
-
-Si le fallback échoue aussi, le workflow continue (artefact `exports/` sera vide). Pour rendre l'échec PDF bloquant :
+Par défaut, si la génération PDF échoue, le workflow continue (artefact `exports/` sera vide). Pour rendre l'échec PDF bloquant et stopper le workflow :
 ```yaml
-- name: Generate PDF fallback
-  if: failure()
-  run: mkdocs build --config-file mkdocs-with-pdf.yml
-  # Retirer continue-on-error pour bloquer
+- name: Generate PDF
+  run: mkdocs build --config-file mkdocs-pdf.yml
+  # Sans continue-on-error, l'échec bloque le workflow
 ```
 
 **Temps d'exécution**
