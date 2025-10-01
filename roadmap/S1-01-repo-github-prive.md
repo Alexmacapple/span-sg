@@ -226,7 +226,14 @@ git ls-tree -r HEAD --name-only | wc -l
    - Cause: Aucun commit n'a été créé
    - Solution: Vérifier `git log` montre au moins 1 commit
 
+6. **`HTTP 403: Upgrade to GitHub Pro or make this repository public to enable this feature`**
+   - Cause: Protection de branche requiert GitHub Pro pour dépôts privés personnels
+   - Solution Option A: Migrer repo vers une organisation GitHub (protection gratuite)
+   - Solution Option B: Workflow manuel strict (toujours créer PR, validation humaine avant merge)
+   - Solution Option C: Upgrade GitHub Pro (4$/mois)
+
 **Post-tâche** :
 - Informer Bertrand et Alex de la création du repo
 - Leur donner accès (Settings → Collaborators)
+- **Limitation identifiée** : Protection branche `main` non disponible (GitHub Free + repo privé personnel). Workflow PR manuel obligatoire : `feature/*` → `draft` → `main` avec validation humaine systématique
 - Noter l'URL exacte pour la suite
