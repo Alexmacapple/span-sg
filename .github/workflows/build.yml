@@ -45,6 +45,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: span-site
+
       - name: Deploy draft to GitHub Pages (org-only)
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -60,6 +66,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: span-site
+
       - name: Deploy production to GitHub Pages (org-only)
         uses: peaceiris/actions-gh-pages@v3
         with:
