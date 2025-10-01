@@ -52,7 +52,7 @@ Ce script est le **moteur de scoring** qui :
 ## Objectif
 
 Porter la qualité du code Python de **18/20 à 20/20** en ajoutant :
-1. **Tests unitaires pytest** (couverture ≥90%)
+1. **Tests unitaires pytest** (≥90% calculate_scores, ≥85% global)
 2. **Linting/Formatting** (Black + Ruff + pre-commit hooks)
 3. **Validation CI** (tests + lint bloquent merge si échec)
 
@@ -75,8 +75,10 @@ Porter la qualité du code Python de **18/20 à 20/20** en ajoutant :
 #### 1. Installer pytest
 
 ```bash
-pip install pytest pytest-cov
+pip install pytest pytest-cov  # Ou: pip install -r requirements-dev.txt
 ```
+
+**Note** : Les dépendances complètes sont dans `requirements-dev.txt` (section 5). Cette commande permet une installation rapide pour commencer.
 
 #### 2. Créer `scripts/test_calculate_scores.py`
 
