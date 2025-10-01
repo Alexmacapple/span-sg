@@ -10,14 +10,17 @@ echo "Scénario : Modification multi-modules"
 # Backup
 cp docs/modules/{sircom,snum,srh}.md /tmp/
 
-# Modifier SIRCOM (cocher point 8)
-sed -i 's/- \[ \] Planification pluriannuelle/- [x] Planification pluriannuelle/' docs/modules/sircom.md
+# Modifier SIRCOM (cocher "Budget annuel dédié" - point 7 non coché) avec awk
+awk '/- \[ \] Budget annuel/ && !done {sub(/- \[ \]/, "- [x]"); done=1} {print}' docs/modules/sircom.md > /tmp/sircom.tmp
+mv /tmp/sircom.tmp docs/modules/sircom.md
 
-# Modifier SNUM (cocher point 1)
-sed -i '0,/- \[ \].*<!-- DINUM -->/s//- [x] Stratégie numérique publiée <!-- DINUM -->/' docs/modules/snum.md
+# Modifier SNUM (cocher point 1) avec awk
+awk '/- \[ \].* DINUM/ && !done {sub(/- \[ \]/, "- [x]"); done=1} {print}' docs/modules/snum.md > /tmp/snum.tmp
+mv /tmp/snum.tmp docs/modules/snum.md
 
-# Modifier SRH (cocher point 1)
-sed -i '0,/- \[ \].*<!-- DINUM -->/s//- [x] Stratégie numérique publiée <!-- DINUM -->/' docs/modules/srh.md
+# Modifier SRH (cocher point 1) avec awk
+awk '/- \[ \].* DINUM/ && !done {sub(/- \[ \]/, "- [x]"); done=1} {print}' docs/modules/srh.md > /tmp/srh.tmp
+mv /tmp/srh.tmp docs/modules/srh.md
 
 # Recalculer
 python3 scripts/calculate_scores.py

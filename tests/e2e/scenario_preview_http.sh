@@ -13,9 +13,9 @@ if ! docker info > /dev/null 2>&1; then
     exit 0
 fi
 
-# Build image avec gcc/g++ pour libsass
-docker build -f Dockerfile.mkdocs-test -t span-mkdocs-test . > /dev/null 2>&1 || {
-    echo "⚠️  SKIP: Build Docker échoué"
+# Build image avec gcc/g++ pour libsass (timeout 60s)
+timeout 60 docker build -f Dockerfile.mkdocs-test -t span-mkdocs-test . > /dev/null 2>&1 || {
+    echo "⚠️  SKIP: Build Docker timeout/échoué"
     exit 0
 }
 
