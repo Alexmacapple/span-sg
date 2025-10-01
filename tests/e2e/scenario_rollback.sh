@@ -10,10 +10,11 @@ echo "Scénario : Rollback complet"
 # Backup tous modules
 cp -r docs/modules /tmp/modules-backup
 
-# Modifier tous modules (cocher 1er point partout)
+# Modifier tous modules (cocher 1er point partout) - sed avec numéro ligne
 for module in snum sircom srh siep safi bgs; do
-    awk '/- \[ \].* DINUM/ && !done {sub(/- \[ \]/, "- [x]"); done=1} {print}' "docs/modules/$module.md" > "/tmp/$module.tmp"
-    mv "/tmp/$module.tmp" "docs/modules/$module.md"
+    LINE=$(grep -n '^- \[ \].*<!-- DINUM -->' "docs/modules/$module.md" | head -1 | cut -d: -f1)
+    sed -i.bak "${LINE}s/- \[ \]/- [x]/" "docs/modules/$module.md"
+    rm -f "docs/modules/$module.md.bak"
 done
 
 # Recalculer

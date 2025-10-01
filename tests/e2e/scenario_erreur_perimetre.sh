@@ -10,9 +10,10 @@ echo "Scénario : Erreur périmètre"
 # Backup
 cp docs/modules/sircom.md /tmp/
 
-# Supprimer 1 checkbox DINUM (31 → 30) avec awk
-awk '/- \[[ x]\].* DINUM/ && !done {done=1; next} {print}' docs/modules/sircom.md > /tmp/sircom-30.md
-mv /tmp/sircom-30.md docs/modules/sircom.md
+# Supprimer 1 checkbox DINUM (31 → 30) - sed avec numéro ligne
+LINE=$(grep -n '^- \[[ x]\].*<!-- DINUM -->' docs/modules/sircom.md | head -1 | cut -d: -f1)
+sed -i.bak "${LINE}d" docs/modules/sircom.md
+rm -f docs/modules/sircom.md.bak
 
 # Tenter scoring (doit échouer avec exit 2)
 set +e

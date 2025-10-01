@@ -303,17 +303,20 @@ echo "Scénario : Modification multi-modules"
 # Backup
 cp docs/modules/{sircom,snum,srh}.md /tmp/
 
-# Modifier SIRCOM (cocher "Budget annuel dédié" - point 7 non coché) avec awk
-awk '/- \[ \] Budget annuel/ && !done {sub(/- \[ \]/, "- [x]"); done=1} {print}' docs/modules/sircom.md > /tmp/sircom.tmp
-mv /tmp/sircom.tmp docs/modules/sircom.md
+# Modifier SIRCOM (cocher "Budget annuel dédié") - sed avec numéro ligne
+LINE=$(grep -n '^- \[ \] Budget annuel' docs/modules/sircom.md | head -1 | cut -d: -f1)
+sed -i.bak "${LINE}s/- \[ \]/- [x]/" docs/modules/sircom.md
+rm -f docs/modules/sircom.md.bak
 
-# Modifier SNUM (cocher point 1) avec awk
-awk '/- \[ \].* DINUM/ && !done {sub(/- \[ \]/, "- [x]"); done=1} {print}' docs/modules/snum.md > /tmp/snum.tmp
-mv /tmp/snum.tmp docs/modules/snum.md
+# Modifier SNUM (cocher première checkbox DINUM) - sed avec numéro ligne
+LINE=$(grep -n '^- \[ \].*<!-- DINUM -->' docs/modules/snum.md | head -1 | cut -d: -f1)
+sed -i.bak "${LINE}s/- \[ \]/- [x]/" docs/modules/snum.md
+rm -f docs/modules/snum.md.bak
 
-# Modifier SRH (cocher point 1) avec awk
-awk '/- \[ \].* DINUM/ && !done {sub(/- \[ \]/, "- [x]"); done=1} {print}' docs/modules/srh.md > /tmp/srh.tmp
-mv /tmp/srh.tmp docs/modules/srh.md
+# Modifier SRH (cocher première checkbox DINUM) - sed avec numéro ligne
+LINE=$(grep -n '^- \[ \].*<!-- DINUM -->' docs/modules/srh.md | head -1 | cut -d: -f1)
+sed -i.bak "${LINE}s/- \[ \]/- [x]/" docs/modules/srh.md
+rm -f docs/modules/srh.md.bak
 
 # Recalculer
 python3 scripts/calculate_scores.py
@@ -349,9 +352,10 @@ echo "Scénario : Erreur périmètre"
 # Backup
 cp docs/modules/sircom.md /tmp/
 
-# Supprimer 1 checkbox DINUM (31 → 30) avec awk
-awk '/- \[[ x]\].* DINUM/ && !done {done=1; next} {print}' docs/modules/sircom.md > /tmp/sircom-30.md
-mv /tmp/sircom-30.md docs/modules/sircom.md
+# Supprimer 1 checkbox DINUM (31 → 30) - sed avec numéro ligne
+LINE=$(grep -n '^- \[[ x]\].*<!-- DINUM -->' docs/modules/sircom.md | head -1 | cut -d: -f1)
+sed -i.bak "${LINE}d" docs/modules/sircom.md
+rm -f docs/modules/sircom.md.bak
 
 # Tenter scoring (doit échouer avec exit 2)
 set +e
