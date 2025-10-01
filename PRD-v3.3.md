@@ -357,6 +357,7 @@ Semaine 2 automatisation
 [ ] preview privée (Option A)
 [ ] doc contributeur 1 page
 [ ] qualité code (tests + linting)
+[ ] tests E2E et CI local
 
 Semaine 3 onboarding services  
 [ ] modules vides + front-matter  
