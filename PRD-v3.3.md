@@ -343,12 +343,12 @@ dashboard temps réel, API, notifications, signature électronique, multi-tenant
 
 ## 11. plan de mise en œuvre
 
-Semaine 1 setup  
-[ ] repo GitHub privé  
-[ ] docker local  
-[ ] mkdocs base + strict  
-[ ] template 31 `<!-- DINUM -->`  
-[ ] script scoring testé  
+Semaine 1 setup
+[x] repo GitHub privé
+[x] docker local
+[x] mkdocs base + strict
+[x] template 31 `<!-- DINUM -->`
+[x] script scoring testé
 [ ] import module SIRCOM
 
 Semaine 2 automatisation
@@ -383,12 +383,12 @@ Semaine 4 production
 
 ## 13. décision go/no-go
 
-- [ ] architecture v3.3 validée  
-- [ ] repository créé  
-- [ ] accès configurés  
-- [ ] template checklist approuvé  
-- [ ] script scoring testé  
-- [ ] planning accepté
+- [x] architecture v3.3 validée
+- [x] repository créé
+- [x] accès configurés
+- [x] template checklist approuvé
+- [x] script scoring testé
+- [x] planning accepté
 
 *PRD v3.3 avec checklist officielle, 30 septembre 2025*  
 *Principe: simple, fonctionnel, efficace, conforme*
