@@ -10,18 +10,23 @@ echo "Scénario : Erreur périmètre"
 # Backup
 cp docs/modules/sircom.md /tmp/
 
-# Supprimer 1 ligne DINUM (31 → 30)
-sed -i '0,/<!-- DINUM -->/d' docs/modules/sircom.md
+# Supprimer 1 checkbox DINUM (31 → 30) avec awk
+awk '/- \[[ x]\].* DINUM/ && !done {done=1; next} {print}' docs/modules/sircom.md > /tmp/sircom-30.md
+mv /tmp/sircom-30.md docs/modules/sircom.md
 
 # Tenter scoring (doit échouer avec exit 2)
-if python3 scripts/calculate_scores.py 2>&1; then
+set +e
+python3 scripts/calculate_scores.py 2>&1
+EXIT_CODE=$?
+set -e
+
+if [ $EXIT_CODE -eq 0 ]; then
     echo "❌ FAIL: Scoring devrait échouer avec exit 2"
     mv /tmp/sircom.md docs/modules/
     exit 1
 fi
 
 # Vérifier exit code = 2
-EXIT_CODE=$?
 if [ $EXIT_CODE -ne 2 ]; then
     echo "❌ FAIL: Exit code attendu=2, obtenu=$EXIT_CODE"
     mv /tmp/sircom.md docs/modules/

@@ -46,9 +46,9 @@ run_test "Modifier SIRCOM (cocher point 7)" \
 run_test "Recalculer scores" \
     "python3 scripts/calculate_scores.py"
 
-# Test 4 : Vérifier score SIRCOM augmenté
-run_test "Vérifier score SIRCOM = 7/31" \
-    "grep -q '| SIRCOM | 7/31' docs/synthese.md"
+# Test 4 : Vérifier score SIRCOM augmenté (base 7/31 + 1 = 8/31)
+run_test "Vérifier score SIRCOM = 8/31" \
+    "grep -q '| SIRCOM | 8/31' docs/synthese.md"
 
 # Test 5 : Build site MkDocs
 run_test "Build site MkDocs" \
@@ -66,11 +66,11 @@ run_test "Générer PDF" \
     "mkdocs build --config-file mkdocs-pdf.yml --site-dir $TEMP_DIR/pdf-site"
 
 run_test "Vérifier PDF généré" \
-    "test -f $TEMP_DIR/pdf-site/pdf/document.pdf"
+    "test -f $TEMP_DIR/pdf-site/exports/span-sg.pdf"
 
 # Test 8 : Vérifier contenu PDF (au moins 50 KB)
 run_test "Vérifier taille PDF > 50KB" \
-    "[[ \$(stat -c%s $TEMP_DIR/pdf-site/pdf/document.pdf 2>/dev/null || stat -f%z $TEMP_DIR/pdf-site/pdf/document.pdf) -gt 51200 ]]"
+    "[[ \$(stat -c%s $TEMP_DIR/pdf-site/exports/span-sg.pdf 2>/dev/null || stat -f%z $TEMP_DIR/pdf-site/exports/span-sg.pdf) -gt 51200 ]]"
 
 # Test 9 : Restaurer SIRCOM
 run_test "Restaurer SIRCOM" \

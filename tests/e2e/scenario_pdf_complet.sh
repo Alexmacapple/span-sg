@@ -13,13 +13,13 @@ trap "rm -rf $TEMP_DIR" EXIT
 # Générer PDF
 mkdocs build --config-file mkdocs-pdf.yml --site-dir "$TEMP_DIR/pdf-site" > /dev/null 2>&1
 
-PDF_FILE="$TEMP_DIR/pdf-site/pdf/document.pdf"
+PDF_FILE="$TEMP_DIR/pdf-site/exports/span-sg.pdf"
 
 # Vérifier présence
 test -f "$PDF_FILE" || { echo "❌ FAIL: PDF absent"; exit 1; }
 
 # Vérifier taille > 100 KB (indicateur contenu complet)
-SIZE=$(stat -f%z "$PDF_FILE")
+SIZE=$(stat -c%s "$PDF_FILE" 2>/dev/null || stat -f%z "$PDF_FILE")
 if [ $SIZE -lt 102400 ]; then
     echo "❌ FAIL: PDF trop petit ($SIZE bytes < 100KB)"
     exit 1

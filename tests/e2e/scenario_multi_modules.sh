@@ -23,11 +23,11 @@ sed -i '0,/- \[ \].*<!-- DINUM -->/s//- [x] Stratégie numérique publiée <!-- 
 python3 scripts/calculate_scores.py
 
 # Vérifier scores
-grep -q "| SIRCOM | 7/31" docs/synthese.md || { echo "FAIL: SIRCOM"; exit 1; }
+grep -q "| SIRCOM | 8/31" docs/synthese.md || { echo "FAIL: SIRCOM"; exit 1; }
 grep -q "| SNUM | 1/31" docs/synthese.md || { echo "FAIL: SNUM"; exit 1; }
 grep -q "| SRH | 1/31" docs/synthese.md || { echo "FAIL: SRH"; exit 1; }
-# TOTAL = SIRCOM (6→7) + SNUM (0→1) + SRH (0→1) + autres (0) = 7+1+1 = 9/186
-grep -q "| \*\*TOTAL\*\* | \*\*9/186" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
+# TOTAL = SIRCOM (7→8) + SNUM (0→1) + SRH (0→1) + autres (0) = 8+1+1 = 10/186
+grep -q "| \*\*TOTAL\*\* | \*\*10/186" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
 
 # Restaurer
 mv /tmp/{sircom,snum,srh}.md docs/modules/

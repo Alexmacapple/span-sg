@@ -226,9 +226,9 @@ run_test "Modifier SIRCOM (cocher point 7)" \
 run_test "Recalculer scores" \
     "python3 scripts/calculate_scores.py"
 
-# Test 4 : Vérifier score SIRCOM augmenté
-run_test "Vérifier score SIRCOM = 7/31" \
-    "grep -q '| SIRCOM | 7/31' docs/synthese.md"
+# Test 4 : Vérifier score SIRCOM augmenté (base 7/31 + 1 = 8/31)
+run_test "Vérifier score SIRCOM = 8/31" \
+    "grep -q '| SIRCOM | 8/31' docs/synthese.md"
 
 # Test 5 : Build site MkDocs
 run_test "Build site MkDocs" \
@@ -246,11 +246,11 @@ run_test "Générer PDF" \
     "mkdocs build --config-file mkdocs-pdf.yml --site-dir $TEMP_DIR/pdf-site"
 
 run_test "Vérifier PDF généré" \
-    "test -f $TEMP_DIR/pdf-site/pdf/document.pdf"
+    "test -f $TEMP_DIR/pdf-site/exports/span-sg.pdf"
 
 # Test 8 : Vérifier contenu PDF (au moins 50 KB)
 run_test "Vérifier taille PDF > 50KB" \
-    "[[ $(stat -f%z $TEMP_DIR/pdf-site/pdf/document.pdf) -gt 51200 ]]"
+    "[[ \$(stat -c%s $TEMP_DIR/pdf-site/exports/span-sg.pdf 2>/dev/null || stat -f%z $TEMP_DIR/pdf-site/exports/span-sg.pdf) -gt 51200 ]]"
 
 # Test 9 : Restaurer SIRCOM
 run_test "Restaurer SIRCOM" \
@@ -260,9 +260,9 @@ run_test "Restaurer SIRCOM" \
 run_test "Re-calculer scores après restauration" \
     "python3 scripts/calculate_scores.py"
 
-# Test 11 : Vérifier score SIRCOM restauré
-run_test "Vérifier score SIRCOM = 6/31 (restauré)" \
-    "grep -q '| SIRCOM | 6/31' docs/synthese.md"
+# Test 11 : Vérifier score SIRCOM restauré (retour à 7/31)
+run_test "Vérifier score SIRCOM = 7/31 (restauré)" \
+    "grep -q '| SIRCOM | 7/31' docs/synthese.md"
 
 # Résumé
 echo ""
@@ -316,11 +316,11 @@ sed -i '' '0,/- \[ \].*<!-- DINUM -->/s//- [x] Stratégie numérique publiée <!
 python3 scripts/calculate_scores.py
 
 # Vérifier scores
-grep -q "| SIRCOM | 7/31" docs/synthese.md || { echo "FAIL: SIRCOM"; exit 1; }
+grep -q "| SIRCOM | 8/31" docs/synthese.md || { echo "FAIL: SIRCOM"; exit 1; }
 grep -q "| SNUM | 1/31" docs/synthese.md || { echo "FAIL: SNUM"; exit 1; }
 grep -q "| SRH | 1/31" docs/synthese.md || { echo "FAIL: SRH"; exit 1; }
-# TOTAL = SIRCOM (6→7) + SNUM (0→1) + SRH (0→1) + autres (0) = 7+1+1 = 9/186
-grep -q "| \*\*TOTAL\*\* | \*\*9/186" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
+# TOTAL = SIRCOM (7→8) + SNUM (0→1) + SRH (0→1) + autres (0) = 8+1+1 = 10/186
+grep -q "| \*\*TOTAL\*\* | \*\*10/186" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
 
 # Restaurer
 mv /tmp/{sircom,snum,srh}.md docs/modules/
@@ -346,18 +346,23 @@ echo "Scénario : Erreur périmètre"
 # Backup
 cp docs/modules/sircom.md /tmp/
 
-# Supprimer 1 ligne DINUM (31 → 30)
-sed -i '' '0,/<!-- DINUM -->/d' docs/modules/sircom.md
+# Supprimer 1 checkbox DINUM (31 → 30) avec awk
+awk '/- \[[ x]\].* DINUM/ && !done {done=1; next} {print}' docs/modules/sircom.md > /tmp/sircom-30.md
+mv /tmp/sircom-30.md docs/modules/sircom.md
 
 # Tenter scoring (doit échouer avec exit 2)
-if python3 scripts/calculate_scores.py 2>&1; then
+set +e
+python3 scripts/calculate_scores.py 2>&1
+EXIT_CODE=$?
+set -e
+
+if [ $EXIT_CODE -eq 0 ]; then
     echo "❌ FAIL: Scoring devrait échouer avec exit 2"
     mv /tmp/sircom.md docs/modules/
     exit 1
 fi
 
 # Vérifier exit code = 2
-EXIT_CODE=$?
 if [ $EXIT_CODE -ne 2 ]; then
     echo "❌ FAIL: Exit code attendu=2, obtenu=$EXIT_CODE"
     mv /tmp/sircom.md docs/modules/
@@ -456,13 +461,13 @@ trap "rm -rf $TEMP_DIR" EXIT
 # Générer PDF
 mkdocs build --config-file mkdocs-pdf.yml --site-dir "$TEMP_DIR/pdf-site" > /dev/null 2>&1
 
-PDF_FILE="$TEMP_DIR/pdf-site/pdf/document.pdf"
+PDF_FILE="$TEMP_DIR/pdf-site/exports/span-sg.pdf"
 
 # Vérifier présence
 test -f "$PDF_FILE" || { echo "❌ FAIL: PDF absent"; exit 1; }
 
 # Vérifier taille > 100 KB (indicateur contenu complet)
-SIZE=$(stat -f%z "$PDF_FILE")
+SIZE=$(stat -c%s "$PDF_FILE" 2>/dev/null || stat -f%z "$PDF_FILE")
 if [ $SIZE -lt 102400 ]; then
     echo "❌ FAIL: PDF trop petit ($SIZE bytes < 100KB)"
     exit 1
@@ -507,22 +512,43 @@ done
 python3 scripts/calculate_scores.py
 
 # Vérifier TOTAL après modification 6 modules
-# Calcul : SIRCOM (6→7) + SNUM (0→1) + SRH (0→1) + SIEP (0→1) + SAFI (0→1) + BGS (0→1)
-#        = 7 + 1 + 1 + 1 + 1 + 1 = 12/186
-grep -q "12/186" docs/synthese.md || { echo "❌ FAIL: Score incorrect"; cat docs/synthese.md; exit 1; }
+# Calcul : SIRCOM (7→8) + SNUM (0→1) + SRH (0→1) + SIEP (0→1) + SAFI (0→1) + BGS (0→1)
+#        = 8 + 1 + 1 + 1 + 1 + 1 = 13/186
+grep -q "13/186" docs/synthese.md || { echo "❌ FAIL: Score incorrect"; cat docs/synthese.md; exit 1; }
 
 # Rollback
 rm -rf docs/modules
 mv /tmp/modules-backup docs/modules
 python3 scripts/calculate_scores.py
 
-# Vérifier retour à 6/186
-grep -q "6/186" docs/synthese.md || { echo "❌ FAIL: Rollback incorrect"; exit 1; }
+# Vérifier retour à 7/186
+grep -q "7/186" docs/synthese.md || { echo "❌ FAIL: Rollback incorrect"; exit 1; }
 
 echo "✅ Scénario rollback OK"
 ```
 
-#### Scénario 7 : Preview HTTP local
+#### Scénario 7 : Preview HTTP local (Docker avec libsass)
+
+**Prérequis** : Créer `Dockerfile.mkdocs-test` avec build tools pour compilation libsass.
+
+`Dockerfile.mkdocs-test` :
+
+```dockerfile
+FROM squidfunk/mkdocs-material:latest
+
+# Installer build-essentials pour compiler libsass (Alpine Linux)
+RUN apk add --no-cache \
+    gcc \
+    g++ \
+    musl-dev \
+    python3-dev
+
+WORKDIR /docs
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:8000"]
+```
 
 `tests/e2e/scenario_preview_http.sh` :
 
@@ -542,13 +568,16 @@ if ! docker info > /dev/null 2>&1; then
     exit 0
 fi
 
-# Démarrer mkdocs serve (background)
-docker compose up -d mkdocs 2>/dev/null || {
-    echo "⚠️  SKIP: Service mkdocs indisponible"
+# Build image avec gcc/g++ pour libsass
+docker build -f Dockerfile.mkdocs-test -t span-mkdocs-test . > /dev/null 2>&1 || {
+    echo "⚠️  SKIP: Build Docker échoué"
     exit 0
 }
 
-# Attendre 5s
+# Démarrer container mkdocs serve (background)
+CONTAINER_ID=$(docker run -d -p 8000:8000 -v "$(pwd):/docs" span-mkdocs-test)
+
+# Attendre 5s pour démarrage
 sleep 5
 
 # Test HTTP
@@ -556,7 +585,7 @@ HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/)
 
 if [ "$HTTP_CODE" != "200" ]; then
     echo "❌ FAIL: HTTP code = $HTTP_CODE (attendu 200)"
-    docker compose down
+    docker stop "$CONTAINER_ID" > /dev/null 2>&1
     exit 1
 fi
 
@@ -565,11 +594,12 @@ HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/modules
 
 if [ "$HTTP_CODE" != "200" ]; then
     echo "❌ FAIL: Page SIRCOM HTTP = $HTTP_CODE"
-    docker compose down
+    docker stop "$CONTAINER_ID" > /dev/null 2>&1
     exit 1
 fi
 
-docker compose down > /dev/null 2>&1
+# Cleanup
+docker stop "$CONTAINER_ID" > /dev/null 2>&1
 
 echo "✅ Scénario preview HTTP OK"
 ```

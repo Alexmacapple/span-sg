@@ -13,13 +13,16 @@ if ! docker info > /dev/null 2>&1; then
     exit 0
 fi
 
-# Démarrer mkdocs serve (background)
-docker compose up -d mkdocs 2>/dev/null || {
-    echo "⚠️  SKIP: Service mkdocs indisponible"
+# Build image avec gcc/g++ pour libsass
+docker build -f Dockerfile.mkdocs-test -t span-mkdocs-test . > /dev/null 2>&1 || {
+    echo "⚠️  SKIP: Build Docker échoué"
     exit 0
 }
 
-# Attendre 5s
+# Démarrer container mkdocs serve (background)
+CONTAINER_ID=$(docker run -d -p 8000:8000 -v "$(pwd):/docs" span-mkdocs-test)
+
+# Attendre 5s pour démarrage
 sleep 5
 
 # Test HTTP
@@ -27,7 +30,7 @@ HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/)
 
 if [ "$HTTP_CODE" != "200" ]; then
     echo "❌ FAIL: HTTP code = $HTTP_CODE (attendu 200)"
-    docker compose down
+    docker stop "$CONTAINER_ID" > /dev/null 2>&1
     exit 1
 fi
 
@@ -36,10 +39,11 @@ HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/modules
 
 if [ "$HTTP_CODE" != "200" ]; then
     echo "❌ FAIL: Page SIRCOM HTTP = $HTTP_CODE"
-    docker compose down
+    docker stop "$CONTAINER_ID" > /dev/null 2>&1
     exit 1
 fi
 
-docker compose down > /dev/null 2>&1
+# Cleanup
+docker stop "$CONTAINER_ID" > /dev/null 2>&1
 
 echo "✅ Scénario preview HTTP OK"
