@@ -30,3 +30,4 @@ exports/
 # Temporary
 *.tmp
 *.bak
+.secrets
