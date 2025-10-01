@@ -262,7 +262,7 @@ if [ $ERRORS -eq 0 ] && [ $WARNINGS -eq 0 ]; then
     add_to_report "Tous les prérequis sont remplis. Vous pouvez démarrer :"
     add_to_report "\`\`\`bash"
     add_to_report "docker compose up"
-    add_to_report "# → http://localhost:8000"
+    add_to_report "# → http://localhost:8000/span-sg-repo/"
     add_to_report "\`\`\`"
 elif [ $ERRORS -eq 0 ]; then
     echo -e "${YELLOW}⚠️  Environnement OK avec $WARNINGS warning(s)${NC}"

@@ -130,7 +130,7 @@ Attendu :
 docker compose up
 ```
 
-Ouvrir http://localhost:8000/modules/_template/ (ou créer temporairement une page visible dans la nav) et vérifier :
+Ouvrir http://localhost:8000/span-sg-repo/modules/_template/ (ou créer temporairement une page visible dans la nav) et vérifier :
 - Rendu Markdown correct
 - Checkboxes affichées
 - Tableaux bien formatés

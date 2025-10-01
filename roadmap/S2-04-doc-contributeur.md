@@ -143,7 +143,7 @@ vim docs/modules/[votre-service].md
 
 ```bash
 docker compose up
-# Ouvrir http://localhost:8000
+# Ouvrir http://localhost:8000/span-sg-repo/
 ```
 
 ### 5. Committer et pusher
@@ -241,7 +241,7 @@ nav:
 docker compose up
 ```
 
-Ouvrir http://localhost:8000/contributing/ et vérifier :
+Ouvrir http://localhost:8000/span-sg-repo/contributing/ et vérifier :
 - Sections Option A et Option B claires
 - Code blocks formatés correctement
 - Diagramme workflow lisible

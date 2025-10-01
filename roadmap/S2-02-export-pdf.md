@@ -141,7 +141,7 @@ Si le plugin échoue, méthode manuelle :
 docker compose up
 
 # Ouvrir navigateur
-open http://localhost:8000/synthese/
+open http://localhost:8000/span-sg-repo/synthese/
 
 # Imprimer en PDF (Cmd+P / Ctrl+P)
 # Destination : Enregistrer au format PDF

@@ -38,7 +38,7 @@ Le `Dockerfile` étend l'image officielle `squidfunk/mkdocs-material` avec le pl
 
 ## Objectif
 
-Vérifier et démarrer l'environnement Docker local pour le développement MkDocs, garantir que le site s'affiche sur http://localhost:8000 avec hot-reload fonctionnel.
+Vérifier et démarrer l'environnement Docker local pour le développement MkDocs, garantir que le site s'affiche sur http://localhost:8000/span-sg-repo/ avec hot-reload fonctionnel.
 
 ---
 
@@ -133,7 +133,7 @@ mkdocs-1  | INFO     -  [12:34:56] Serving on http://0.0.0.0:8000/
 
 ### 5. Tester l'accès navigateur
 
-1. Ouvrir navigateur : http://localhost:8000
+1. Ouvrir navigateur : http://localhost:8000/span-sg-repo/
 2. Vérifier :
    - Page d'accueil "SPAN SG" s'affiche
    - Navigation fonctionnelle (Synthèse, Modules, Processus)
@@ -142,7 +142,7 @@ mkdocs-1  | INFO     -  [12:34:56] Serving on http://0.0.0.0:8000/
 
 ### 6. Tester le hot-reload
 
-1. Garder http://localhost:8000 ouvert
+1. Garder http://localhost:8000/span-sg-repo/ ouvert
 2. Éditer `docs/index.md` :
    ```bash
    echo "\n\n## Test hot-reload" >> docs/index.md
@@ -172,7 +172,7 @@ docker compose down
 ## Critères d'acceptation
 
 - [ ] `docker compose up` démarre sans erreur
-- [ ] http://localhost:8000 affiche le site SPAN SG
+- [ ] http://localhost:8000/span-sg-repo/ affiche le site SPAN SG
 - [ ] Navigation fonctionnelle entre toutes les pages
 - [ ] Hot-reload détecte les modifications et rebuild automatiquement
 - [ ] `docker compose down` arrête proprement le conteneur
@@ -192,7 +192,7 @@ docker compose logs mkdocs
 # Attendu : "Serving on http://0.0.0.0:8000/"
 
 # Test 3 : Test HTTP
-curl -s http://localhost:8000 | grep "SPAN SG"
+curl -s http://localhost:8000/span-sg-repo/ | grep "SPAN SG"
 # Attendu : Sortie HTML contenant "SPAN SG"
 
 # Test 4 : Arrêt propre

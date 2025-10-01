@@ -157,7 +157,7 @@ Vérifier présence de :
 docker compose up
 ```
 
-Ouvrir http://localhost:8000/modules/sircom/ et valider :
+Ouvrir http://localhost:8000/span-sg-repo/modules/sircom/ et valider :
 - Page s'affiche sans erreur 404
 - Navigation fonctionnelle
 - Checkboxes visibles (cochées ou non)
@@ -210,7 +210,7 @@ python scripts/calculate_scores.py
 - [ ] Blocs légaux (déclaration + charge disproportionnée) présents
 - [ ] `python scripts/calculate_scores.py` inclut SIRCOM sans erreur
 - [ ] Score SIRCOM = X/31 avec X cohérent
-- [ ] http://localhost:8000/modules/sircom/ s'affiche correctement
+- [ ] http://localhost:8000/span-sg-repo/modules/sircom/ s'affiche correctement
 - [ ] Aucune erreur de syntaxe Markdown
 
 ---

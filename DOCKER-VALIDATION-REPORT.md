@@ -28,7 +28,7 @@ Machine : Darwin mac-alex.local 22.4.0 Darwin Kernel Version 22.4.0: Mon Mar  6 
 Tous les prérequis sont remplis. Vous pouvez démarrer :
 ```bash
 docker compose up
-# → http://localhost:8000
+# → http://localhost:8000/span-sg-repo/
 ```
 
 ---

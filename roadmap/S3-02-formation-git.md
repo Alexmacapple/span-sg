@@ -151,7 +151,7 @@ code docs/modules/[service].md
 
 # Prévisualiser
 docker compose up
-# → http://localhost:8000
+# → http://localhost:8000/span-sg-repo/
 ```
 
 ### Exercice 7 : Push et PR (10 min)

@@ -223,7 +223,7 @@ Vérifier `docs/synthese.md` généré :
 docker compose up
 ```
 
-Vérifier http://localhost:8000 :
+Vérifier http://localhost:8000/span-sg-repo/ :
 - Navigation affiche les 6 modules
 - Chaque module est accessible
 - Pas d'erreur 404

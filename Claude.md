@@ -15,7 +15,7 @@ Date: 2025-09-30
 ```bash
 # Démarrer le serveur MkDocs en local (Docker)
 docker compose up
-# → http://localhost:8000
+# → http://localhost:8000/span-sg-repo/
 
 # Sans Docker
 pip install mkdocs-material mkdocs-pdf-export-plugin

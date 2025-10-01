@@ -232,7 +232,7 @@ git checkout -b feature/update-[service]-[date]
 code docs/modules/[service].md
 
 # Preview local
-docker compose up  # http://localhost:8000
+docker compose up  # http://localhost:8000/span-sg-repo/
 
 # Commit + Push
 git add docs/modules/[service].md
