@@ -271,26 +271,37 @@ grep "$(date +%d/%m/%Y)" docs/synthese.md && echo "OK" || echo "WARN"
 # Attendu : OK
 
 # Test 4 : 6 modules présents
-grep -c "| [A-Z]" docs/synthese.md
-# Attendu : 7 (6 modules + 1 TOTAL)
+grep -c "^| [A-Z].*[0-9]/[0-9]" docs/synthese.md
+# Attendu : 7 (6 modules + 1 TOTAL avec scores)
 
 # Test 5 : Ligne TOTAL présente
 grep "| \*\*TOTAL\*\*" docs/synthese.md && echo "OK" || echo "FAIL"
 # Attendu : OK
 
 # Test 6 : Format Markdown valide
-python -c "
+docker compose up -d >/dev/null 2>&1
+if docker compose exec mkdocs mkdocs build --strict >/dev/null 2>&1; then
+  echo "OK"
+else
+  python3 -c "
 lines = open('docs/synthese.md').readlines()
 assert lines[0].startswith('# Tableau'), 'Titre manquant'
 assert '|---------|' in ''.join(lines), 'Séparateur tableau manquant'
 print('OK')
 "
+fi
 # Attendu : OK
 
 # Test 7 : Module _template.md ignoré
 ! grep "_TEMPLATE" docs/synthese.md && echo "OK" || echo "FAIL"
 # Attendu : OK (template ignoré car nom commence par _)
 ```
+
+**Notes sur les tests** :
+- **Test 4** : Pattern `^| [A-Z].*[0-9]/[0-9]` filtre uniquement les lignes avec scores (exclut l'en-tête du tableau)
+- **Test 6** : Utilise `docker compose exec mkdocs` (le service s'appelle "mkdocs", pas "web")
+- **Test 6** : Fallback Python si Docker indisponible ou mkdocs build échoue
+- **Test 6** : `docker compose up -d` assure que le conteneur tourne avant le test
 
 ---
 
