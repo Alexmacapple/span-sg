@@ -223,6 +223,10 @@ docker compose logs mkdocs
 - **Docker ne démarre pas** : Vérifier que Docker Desktop est lancé et fonctionnel (`docker ps`)
 - **Dépendances manquantes** : Installer avec `pip install -r requirements.txt`
 
+## Contribution
+
+Pour contribuer au projet, consulter le [Guide contributeur](CONTRIBUTING.md).
+
 ## Contacts
 - Owner: Alexandra (@alexandra)
 - Validateurs: Bertrand (@bertrand), Alex (@alex)

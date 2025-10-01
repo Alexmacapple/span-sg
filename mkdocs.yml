@@ -19,6 +19,7 @@ nav:
   - Accueil: index.md
   - Synthèse: synthese.md
   - Processus: processus.md
+  - Guide contributeur: contributing.md
   - Modules Services:
     - SNUM: modules/snum.md
     - SIRCOM: modules/sircom.md

@@ -68,7 +68,7 @@ Les modifications passent par une **Pull Request** vers `draft` pour validation.
 
 ### 1. Aller sur le fichier de votre service
 
-https://github.com/span-sg/span-sg/blob/draft/docs/modules/[votre-service].md
+https://github.com/Alexmacapple/span-sg-repo/blob/draft/docs/modules/[votre-service].md
 
 Exemple : `sircom.md`, `snum.md`, `srh.md`, etc.
 
@@ -106,7 +106,7 @@ Sur la page suivante :
 Bertrand ou Alex reviendra la PR et la mergera si OK.
 Vous recevrez une notification par email.
 
-La preview sera visible sur : https://span-sg.github.io/span-sg/draft/
+La preview sera visible sur : https://alexmacapple.github.io/span-sg-repo/draft/
 
 ---
 
@@ -117,8 +117,8 @@ La preview sera visible sur : https://span-sg.github.io/span-sg/draft/
 ### 1. Cloner le repo
 
 ```bash
-git clone https://github.com/span-sg/span-sg.git
-cd span-sg
+git clone https://github.com/Alexmacapple/span-sg-repo.git
+cd span-sg-repo
 ```
 
 ### 2. Créer une branche feature
@@ -158,7 +158,7 @@ git push -u origin feature/update-[votre-service]
 
 Sur GitHub :
 - Cliquer le lien affiché dans le terminal
-- OU aller sur https://github.com/span-sg/span-sg/pulls → New Pull Request
+- OU aller sur https://github.com/Alexmacapple/span-sg-repo/pulls → New Pull Request
 - **Base** : `draft`
 - **Compare** : votre branche
 
@@ -203,7 +203,7 @@ Validation Yves → Production
 
 - **Questions techniques** : Bertrand (@bertrand), Alex (@alex)
 - **Questions contenu** : Alexandra (@alexandra)
-- **Issues GitHub** : https://github.com/span-sg/span-sg/issues
+- **Issues GitHub** : https://github.com/Alexmacapple/span-sg-repo/issues
 
 ---
 
@@ -213,27 +213,26 @@ EOF
 
 ### 2. Ajouter CONTRIBUTING.md à la navigation MkDocs
 
+**Solution retenue** : Copier dans docs/ (MkDocs ne supporte pas les liens relatifs hors de docs/)
+
+```bash
+cp CONTRIBUTING.md docs/contributing.md
+```
+
 Éditer `mkdocs.yml` :
 ```yaml
 nav:
   - Accueil: index.md
   - Synthèse: synthese.md
   - Processus: processus.md
-  - Guide contributeur: ../CONTRIBUTING.md  # Lien vers racine
+  - Guide contributeur: contributing.md
   - Modules Services:
     - SNUM: modules/snum.md
     - SIRCOM: modules/sircom.md
     # ...
 ```
 
-**Alternative** : Copier dans docs/
-```bash
-cp CONTRIBUTING.md docs/contributing.md
-
-# Puis dans mkdocs.yml
-nav:
-  - Guide contributeur: contributing.md
-```
+**Note** : Garder CONTRIBUTING.md à la racine (standard GitHub) ET copie dans docs/
 
 ### 3. Tester le rendu
 
@@ -400,6 +399,11 @@ grep -q "CONTRIBUTING.md" README.md && echo "OK" || echo "FAIL"
 ---
 
 ## Notes et risques
+
+**URLs actuelles vs migration future**
+- URLs actuelles : `Alexmacapple/span-sg-repo` (compte utilisateur)
+- Migration prévue : Vers organisation GitHub lors de la mise en production
+- Note ajoutée dans CONTRIBUTING.md pour informer les contributeurs
 
 **Éviter la sur-documentation**
 Résister à la tentation d'ajouter :
