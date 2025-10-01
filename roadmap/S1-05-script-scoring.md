@@ -272,7 +272,7 @@ grep "$(date +%d/%m/%Y)" docs/synthese.md && echo "OK" || echo "WARN"
 
 # Test 4 : 6 modules présents
 grep -c "^| [A-Z].*[0-9]/[0-9]" docs/synthese.md
-# Attendu : 7 (6 modules + 1 TOTAL avec scores)
+# Attendu : 6 (modules uniquement, TOTAL exclu car commence par **)
 
 # Test 5 : Ligne TOTAL présente
 grep "| \*\*TOTAL\*\*" docs/synthese.md && echo "OK" || echo "FAIL"
@@ -293,7 +293,7 @@ print('OK')
 ```
 
 **Notes sur les tests** :
-- **Test 4** : Pattern `^| [A-Z].*[0-9]/[0-9]` filtre uniquement les lignes avec scores (exclut l'en-tête du tableau)
+- **Test 4** : Pattern `^| [A-Z].*[0-9]/[0-9]` compte uniquement les modules (6), exclut TOTAL (commence par `**`) et en-tête
 - **Test 6** : Validation Python pure (structure Markdown), sans dépendance Docker/mkdocs
 
 ---
