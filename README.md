@@ -1,5 +1,7 @@
 # SPAN SG – Repo
 
+![Build Status](https://github.com/Alexmacapple/span-sg-repo/workflows/Build%20SPAN/badge.svg)
+
 Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/deploy.
 
 ## Démarrage rapide
