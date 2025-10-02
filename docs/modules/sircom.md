@@ -2,6 +2,7 @@
 service: SIRCOM
 referent: "Alice Dupont"
 updated: "2025-09-30"
+validation_status: validated
 ---
 
 # SPAN SIRCOM - Schéma Pluriannuel d'accessibilité numérique

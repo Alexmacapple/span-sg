@@ -2,9 +2,12 @@
 service: SIEP
 referent: "[À définir - Service Innovation et Évaluation]"
 updated: "2025-10-01"
+validation_status: in_progress
 ---
 
 # SPAN SIEP - Schéma Pluriannuel d'accessibilité numérique
+
+> 🔄 **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
 
 **Période** 2025-2027
 **Service** Service de l'Innovation et de l'Évaluation des Politiques (SIEP)

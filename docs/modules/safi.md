@@ -2,9 +2,12 @@
 service: SAFI
 referent: "[À définir - Service Affaires Financières]"
 updated: "2025-10-01"
+validation_status: in_progress
 ---
 
 # SPAN SAFI - Schéma Pluriannuel d'accessibilité numérique
+
+> 🔄 **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
 
 **Période** 2025-2027
 **Service** Service des Affaires Financières et Immobilières (SAFI)

@@ -2,6 +2,7 @@
 service: SNUM
 referent: "[À définir - Service du Numérique]"
 updated: "2025-10-01"
+validation_status: validated
 ---
 
 # SPAN SNUM - Schéma Pluriannuel d'accessibilité numérique

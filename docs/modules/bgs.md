@@ -2,9 +2,12 @@
 service: BGS
 referent: "[À définir - Bureau Gestion Services]"
 updated: "2025-10-01"
+validation_status: in_progress
 ---
 
 # SPAN BGS - Schéma Pluriannuel d'accessibilité numérique
+
+> 🔄 **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
 
 **Période** 2025-2027
 **Service** Bureau de Gestion des Services (BGS)
