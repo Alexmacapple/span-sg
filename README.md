@@ -4,15 +4,15 @@
 
 Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/deploy.
 
+## ✅ Version 1.0 en production
+
+**Framework opérationnel avec 2 modules services validés** (SIRCOM, SNUM). 4 modules additionnels en structure (SRH, SIEP, SAFI, BGS), enrichis progressivement selon identification référents.
+
 ## 🌐 Liens utiles
 
 - **Preview (draft)** : https://alexmacapple.github.io/span-sg-repo/draft/
-- **Production** : https://alexmacapple.github.io/span-sg-repo/ *(disponible après merge vers main)*
-- **PDF draft** : https://alexmacapple.github.io/span-sg-repo/draft/exports/span-sg.pdf
-
-> **⚠️ Accès preview** : La preview est actuellement **publique** (repo sur compte utilisateur). Pour une phase POC, ceci est acceptable. Une migration vers organisation GitHub est prévue pour restreindre l'accès aux membres uniquement lors de la mise en production.
->
-> **Note** : La production sera activée en Semaine 4 (après validation Yves).
+- **Production** : https://alexmacapple.github.io/span-sg-repo/
+- **PDF production** : https://github.com/Alexmacapple/span-sg-repo/releases/latest
 
 ## Démarrage rapide
 
