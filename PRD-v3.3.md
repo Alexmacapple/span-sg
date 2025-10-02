@@ -1,10 +1,10 @@
 # PRD v3.3 SPAN SG – MkDocs avec checklist officielle
 
-**Version** 3.3  
-**Date** 30 septembre 2025  
-**Owner** Alexandra  
-**Validateurs** Bertrand, Alex  
-**Sponsor** Yves (validation production uniquement)
+**Version** 3.3
+**Date** 30 septembre 2025
+**Owner** Alexandra
+**Validateurs** Bertrand, Alex
+**Sponsor** Stéphane (Chef mission numérique SNUM-SG, validation conceptuelle)
 
 ---
 
@@ -197,11 +197,11 @@ feature/ modifications par service
 Process  
 1) service crée `feature/update-[service]`  
 2) modifie son module  
-3) PR vers `draft`  
-4) revue Bertrand/Alex  
-5) preview privée (voir 5.1)  
-6) PR `draft` vers `main`  
-7) validation Yves  
+3) PR vers `draft`
+4) revue Bertrand/Alex
+5) preview privée (voir 5.1)
+6) PR `draft` vers `main`
+7) présentation Stéphane + validation Chef SNUM
 8) tag version
 
 Gestion d’urgence  
@@ -364,10 +364,10 @@ Semaine 3 onboarding services
 [ ] formation Git basique 2 h  
 [ ] premiers contenus
 
-Semaine 4 production  
-[ ] review contenus  
-[ ] validation Yves  
-[ ] tag v1.0.0  
+Semaine 4 production
+[ ] review contenus
+[ ] présentation Stéphane + validation Chef SNUM
+[ ] tag v1.0.0
 [ ] publication
 
 ---
@@ -379,7 +379,8 @@ Semaine 4 production
 | Owner | Alexandra | @alexandra |
 | Validateur | Bertrand | @bertrand |
 | Validateur | Alex | @alex |
-| Sponsor | Yves | - |
+| Sponsor | Stéphane (Chef mission numérique SNUM-SG) | - |
+| Validation finale prod | Chef SNUM | - |
 
 ---
 

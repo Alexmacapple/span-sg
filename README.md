@@ -230,12 +230,13 @@ Pour contribuer au projet, consulter le [Guide contributeur](CONTRIBUTING.md).
 ## Contacts
 - Owner: Alexandra (@alexandra)
 - Validateurs: Bertrand (@bertrand), Alex (@alex)
-- Sponsor: Yves
+- Sponsor: Stéphane (Chef mission numérique SNUM-SG)
 
 
 ## règles de validation
 - Validation de contenu: Bertrand et Alex
-- Yves: validation uniquement pour la bascule en production
+- Stéphane (Chef mission numérique SNUM-SG): validation conceptuelle
+- Chef SNUM: validation finale GO production
 
 
 ## preview privée (Pages organisation GitHub)

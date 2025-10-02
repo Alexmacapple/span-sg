@@ -139,7 +139,7 @@ Merge dans draft → Preview privée
           ↓
 PR draft → main (mensuel)
           ↓
-Validation Yves → Production
+Présentation Stéphane → Validation Chef SNUM → Production
 ```
 
 ---

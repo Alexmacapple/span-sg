@@ -29,7 +29,8 @@ Fournir des instructions d’agent standardisées pour travailler sur le repo SP
 ## Rôles
 - Product Owner: Alexandra
 - Validateurs: Bertrand, Alex
-- Sponsor: Yves (prod uniquement)
+- Sponsor: Stéphane (Chef mission numérique SNUM-SG, validation conceptuelle)
+- Validation finale production: Chef SNUM
 
 ## Conventions de branches
 - `draft`: preview
