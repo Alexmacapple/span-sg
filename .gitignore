@@ -31,3 +31,6 @@ exports/
 *.tmp
 *.bak
 .secrets
+
+# Project-specific
+inspiration/
