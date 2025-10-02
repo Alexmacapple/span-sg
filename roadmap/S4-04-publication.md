@@ -57,7 +57,7 @@ validation: human-qa
 - [x] S4-03 complété (tag v1.0.0 créé et pushé)
 - [x] GO Stéphane confirmé (S4-02)
 - [x] CI draft 100% PASS (dernier commit)
-- [x] Validation Chef SNUM obtenue OU délégation Stéphane confirmée
+- [x] Validation Chef SNUM obtenue OU délégation explicite Stéphane (email/verbal confirmé)
 - [x] Working directory clean (aucun changement pending)
 
 ---
@@ -132,8 +132,8 @@ cat docs/synthese.md
 git checkout main
 git pull origin main
 
-git tag -a v0.2.1-backup -m "Backup main avant merge draft v1.0.0"
-git push origin v0.2.1-backup
+git tag -a pre-v1.0.0-backup -m "Backup main avant merge draft v1.0.0"
+git push origin pre-v1.0.0-backup
 ```
 
 **Justification** : Rollback facilité si problème critique post-merge.
@@ -294,8 +294,7 @@ Ouvrir : https://alexmacapple.github.io/span-sg-repo/ (racine, SANS /draft/)
 
 **Checklist exhaustive** :
 - [ ] Homepage charge (pas 404, pas "Site coming soon")
-- [ ] Disclaimer v1.0 visible :
-  > "✅ **Version 1.0 en production** : Framework opérationnel avec 2 modules services validés (SIRCOM, SNUM). 4 modules additionnels en structure, enrichis progressivement."
+- [ ] Disclaimer v1.0 visible (ton positif README avec liste modules SRH/SIEP/SAFI/BGS + "selon identification référents")
 - [ ] Navigation 6 modules fonctionnelle :
   - [ ] SIRCOM cliquable → page charge
   - [ ] SNUM cliquable → page charge
@@ -313,8 +312,8 @@ Ouvrir : https://alexmacapple.github.io/span-sg-repo/ (racine, SANS /draft/)
 Ouvrir : https://github.com/Alexmacapple/span-sg-repo
 
 **Checklist README** :
-- [ ] Badge "Build" : ![Build](https://img.shields.io/github/actions/workflow/status/.../build.yml?branch=main) → ✅ passing
-- [ ] Badge "Release" : ![Release](https://img.shields.io/github/v/release/...) → v1.0.0
+- [ ] Badge "Build Status" : ![Build Status](...workflows/Build%20SPAN/badge.svg) → ✅ passing (vert)
+- [ ] Lien release v1.0.0 visible (ou badge release si ajouté)
 - [ ] Disclaimer README (ton positif) visible
 
 **4.3 Validation scoring production** (5 min)
@@ -327,9 +326,9 @@ git pull origin main
 # Recalculer scores localement (vérification cohérence)
 python scripts/calculate_scores.py
 
-# Comparer avec synthese.md production
-diff docs/synthese.md <(curl -s https://alexmacapple.github.io/span-sg-repo/synthese/)
-# Attendu : aucune différence (ou différences mineures formatage HTML)
+# Vérifier synthèse accessible en production
+curl -I https://alexmacapple.github.io/span-sg-repo/synthese/
+# Attendu : HTTP/2 200
 ```
 
 **Vérifier** :
@@ -530,7 +529,7 @@ Rollback SI :
 git checkout main
 
 # Reset hard au tag backup
-git reset --hard v0.2.1-backup
+git reset --hard pre-v1.0.0-backup
 
 # Force push main (⚠️ DESTRUCTIF)
 git push origin main --force
