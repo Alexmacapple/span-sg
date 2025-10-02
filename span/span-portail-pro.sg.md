@@ -1,6 +1,20 @@
+---
+source_type: official_span
+service: SNUM
+application: "Portailpro.gouv"
+organisme: "MEFSIN - Mission France Recouvrement (SG)"
+periode_couverte: "2025-2027"
+date_document_source: "2025"
+mapped_to: docs/modules/snum.md
+mapping_date: "2025-10-02"
+mapped_by: "Alexandra + Bertrand"
+validation: "Stéphane (Chef mission numérique SNUM-SG, 2025-10-XX)"
+resultat_mapping: "21/31 points DINUM (67.7%)"
+---
+
 # Schéma pluriannuel d'accessibilité <br>2025 - 2027 de Portailpro.gouv
 
-L’article 47 de la loi n° 2005-102 du 11 février 2005 pour l’égalité des droits et des chances, la participation et la citoyenneté des personnes rend obligatoire à tout service de communication publique en ligne d’être accessible à tous.
+L'article 47 de la loi n° 2005-102 du 11 février 2005 pour l'égalité des droits et des chances, la participation et la citoyenneté des personnes rend obligatoire à tout service de communication publique en ligne d'être accessible à tous.
 
 ## Politique d’accessibilité
 

@@ -1,12 +1,25 @@
+---
+source_type: official_span
+service: SIRCOM
+organisme: "MEFSIN - SG/SIRCOM"
+periode_couverte: "2024-2027"
+date_document_source: "2024-03-18"
+mapped_to: docs/modules/sircom.md
+mapping_date: "2025-10-02"
+mapped_by: "Alexandra + Bertrand"
+validation: "Stéphane (Chef mission numérique SNUM-SG, 2025-10-XX)"
+resultat_mapping: "25/31 points DINUM (80.6%)"
+---
+
 # Page 1
 
-Schéma pluriannuel d’accessibilité numérique (SPAN) 2024-2027
+Schéma pluriannuel d'accessibilité numérique (SPAN) 2024-2027
 18/03/2024
 S G – S
 ECRETARIAT ENERAL ERVICE DE LA
 (SG-SIRCOM) -
 COMMUNICATION
-S ’
+S '
 CHEMA PLURIANNUEL D ACCESSIBILITE
 (SPAN) - 2024-2027
 NUMERIQUE
