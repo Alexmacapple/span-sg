@@ -54,6 +54,7 @@ validation: human-qa
 - [x] Sources SPAN lisibles (`span/span-sircom-sg.md`, `span/span-portail-pro.sg.md`)
 - [x] Script `calculate_scores.py` modifié (colonne État avec validation_status)
 - [x] Branche `draft` à jour
+- [ ] Coordination Bertrand/Alexandra décidée (Option A Séquentiel / B Parallèle / C Pair programming Phase 1)
 
 ---
 
@@ -194,7 +195,7 @@ Pour les **10 points TODO probables**, appliquer même stratégie que Phase 1.3 
 
 #### Microtâches
 
-**3.1 Vérifier structure et disclaimers** (30 min)
+**3.1 Audit final structure et disclaimers** (30 min)
 
 Pour chaque module `{srh.md, siep.md, safi.md, bgs.md}` :
 - [ ] Structure complète (5 sections obligatoires présentes)
@@ -275,15 +276,15 @@ Préparer **6 éléments clés** à montrer à Stéphane (S4-02) :
 - **Message clé** (1 phrase pitch)
 - **Temps démo** (~2 min par élément)
 
-**Format** : Créer fichier `roadmap/S4-02-highlights.md` (sera intégré dans PRD S4-02).
+**Validation** : Vérifier que S4-02 PRD contient les 6 highlights identifiés (homepage, synthèse, SIRCOM, PDF, CI, architecture) dans sa section "Présentation".
 
 **4.3 Statistiques v1.0 pour présentation** (15 min)
 
 Calculer statistiques à présenter :
 - **Framework** : 31 points DINUM × 6 modules = 186 points total
-- **Modules validés** : 2 (SIRCOM X/31, SNUM Y/31) = Z/62 points (~32-40/62 attendu)
+- **Modules validés** : 2 (SIRCOM X/31, SNUM Y/31) = Z/62 points (~40-46/62 attendu sur base S4-00)
 - **Modules en cours** : 4 (structure framework, 0/124 points)
-- **Taux global** : Z/186 (attendu ~20-25%)
+- **Taux global** : 46/186 (24.7%) sur base estimations S4-00 (25 SIRCOM + 21 SNUM)
 - **Tests** : 18 unitaires + 9 E2E (100% PASS)
 - **Documentation** : 6 modules structurés, CONTRIBUTING.md, template PR
 
@@ -392,7 +393,7 @@ Le module SNUM couvre **Portailpro.gouv** (Mission France Recouvrement), pas l'e
 
 **Clarification pour Stéphane** : Si d'autres applications SNUM doivent être intégrées, prévoir Phase 2 ou module dédié.
 
-**Alternative** : Renommer `snum.md` → `snum-portailpro.md` pour précision ? À décider en Phase 4 si ambiguïté.
+**Décision Phase 4.2** : Ajouter note clarification dans module OU renommer `snum.md` → `snum-portailpro.md` (selon préférence Stéphane, voir S4-02 FAQ Q6).
 
 ### Modules fictifs = démonstration framework
 
