@@ -18,7 +18,7 @@ validation: human-qa
 
 **Après S4-02** : GO concept Stéphane obtenu
 - Présentation validée (6 éléments montrés)
-- Décision GO documentée (`roadmap/S4-02-decision-stephane.md`)
+- Décision GO documentée (fichier `roadmap/S4-02-decision-stephane.md` OU email Stéphane archivé)
 - Ajustements post-feedback implémentés (si GO conditionnel)
 
 **État codebase** :

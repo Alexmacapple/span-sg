@@ -132,8 +132,9 @@ cat docs/synthese.md
 git checkout main
 git pull origin main
 
-git tag -a pre-v1.0.0-backup -m "Backup main avant merge draft v1.0.0"
-git push origin pre-v1.0.0-backup
+git tag -a backup-$(date +%d%b%Y)-pre-v1.0.0 -m "Backup main avant merge draft v1.0.0"
+git push origin backup-$(date +%d%b%Y)-pre-v1.0.0
+# Exemple tag généré : backup-15oct2025-pre-v1.0.0
 ```
 
 **Justification** : Rollback facilité si problème critique post-merge.
@@ -528,8 +529,9 @@ Rollback SI :
 # Sur branche main
 git checkout main
 
-# Reset hard au tag backup
-git reset --hard pre-v1.0.0-backup
+# Reset hard au tag backup créé en Étape 2.1 (format: backup-DDmmmYYYY-pre-v1.0.0)
+# Lister tags disponibles : git tag -l "backup-*-pre-v1.0.0"
+git reset --hard backup-15oct2025-pre-v1.0.0  # Exemple, remplacer par le tag réel
 
 # Force push main (⚠️ DESTRUCTIF)
 git push origin main --force
