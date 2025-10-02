@@ -22,12 +22,15 @@ try:
     assert 'service' in data, 'Clé service manquante'
     assert 'referent' in data, 'Clé referent manquante'
     assert 'updated' in data, 'Clé updated manquante'
+    assert 'validation_status' in data, 'Clé validation_status manquante'
+    valid_statuses = ['validated', 'in_progress', 'draft']
+    assert data['validation_status'] in valid_statuses, f\"validation_status invalide: '{data['validation_status']}' (attendu: {valid_statuses})\"
 except Exception as e:
     print(f'❌ FAIL $module: {e}')
     sys.exit(1)
 " || exit 1
 
-    echo "  ✅ $module : YAML valide"
+    echo "  ✅ $module : YAML valide (service, referent, updated, validation_status)"
 done
 
 echo "✅ Scénario front-matter OK (6 modules)"
