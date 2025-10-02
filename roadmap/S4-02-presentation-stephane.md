@@ -82,8 +82,8 @@ validation: stephane-go-concept
 
 ```bash
 # Récupérer PDF dernière CI draft
-gh run list --branch draft --limit 1
-gh run download <RUN_ID> --name exports
+RUN_ID=$(gh run list --branch draft --limit 1 --json databaseId --jq '.[0].databaseId')
+gh run download $RUN_ID --name exports
 
 # Vérifier PDF accessible
 open exports/span-sg.pdf
@@ -211,6 +211,9 @@ Préparer fiche récap (lire depuis synthese.md ou calculer) :
 **Message clé** :
 > "Export PDF automatisé (mkdocs-pdf-export + enrich_pdf_metadata.py). Métadonnées enrichies pour conformité RGAA. PDF/UA accessible. Généré systématiquement par CI, archivable pour audits."
 
+**Si Stéphane questionne "Infrastructure conforme RGAA 4.1"** :
+> "Objectif design basé sur MkDocs Material (thème accessible par conception, validé communauté). Audit externe S5 prévu pour certification officielle v1.1."
+
 **5. Infrastructure CI/CD (12-14 min)**
 
 **Action** : Ouvrir https://github.com/Alexmacapple/span-sg-repo/actions (ou montrer badges README)
@@ -288,7 +291,7 @@ Préparer fiche récap (lire depuis synthese.md ou calculer) :
 **Q5 : "Quand audit RGAA externe prévu ?"**
 
 **Réponse préparée** :
-> "**Audit externe prévu S5** (Semaine 5 - PDF accessible, après v1.0). Budget à définir (estimation 5-8 k€ audit complet site MkDocs). Audit ciblera framework technique (site, navigation, PDF) + modules SIRCOM/SNUM. Auto-évaluation actuelle (S2-05 Tests qualité) = validations internes satisfaisantes. **Priorisation** : v1.0 d'abord (fondations), puis audit certifiant pour v1.1. Audit externe donnera crédibilité et identifiera axes amélioration."
+> "**Audit externe prévu S5** (Semaine 5 - PDF accessible, après v1.0). Budget à définir (estimation 5-8 k€ audit complet site MkDocs). Audit ciblera framework technique (site, navigation, PDF) + modules SIRCOM/SNUM. MkDocs Material = thème accessible par design (validé communauté). Auto-évaluation technique en cours (navigation clavier, contrastes, structure sémantique). **Priorisation** : v1.0 d'abord (fondations), puis audit certifiant pour v1.1. Audit externe donnera crédibilité et identifiera axes amélioration."
 
 **Argument complémentaire** : MkDocs Material = thème accessible par design, risques conformité limités.
 
@@ -297,7 +300,7 @@ Préparer fiche récap (lire depuis synthese.md ou calculer) :
 **Q6 : "Scope SNUM = Portailpro.gouv uniquement, pourquoi pas l'ensemble SNUM ?"**
 
 **Réponse préparée** :
-> "**Source SPAN disponible** = Portailpro.gouv (Mission France Recouvrement). Document `span-portail-pro.sg.md` couvre ce périmètre spécifique. Autres services SNUM non documentés dans sources actuelles. **Option 1 clarification** : Ajouter note module SNUM 'Périmètre v1.0 : Portailpro.gouv. Autres services SNUM à intégrer Phase 2.' **Option 2 extension** : Si d'autres SPAN SNUM disponibles, créer modules dédiés (ex: snum-intranet.md, snum-portail.md). **Votre préférence** ?"
+> "**Source SPAN disponible** = Portailpro.gouv (Mission France Recouvrement). Document `span-portail-pro.sg.md` couvre ce périmètre spécifique. Autres services SNUM non documentés dans sources actuelles. **Option 1 clarification** : Ajouter note module SNUM 'Périmètre v1.0 : Portailpro.gouv. Autres services SNUM à intégrer Phase 2.' **Option 2 extension** : Si d'autres SPAN SNUM disponibles, créer modules dédiés (ex: snum-intranet.md, snum-portail.md). **Quelle est votre préférence, Stéphane** ?"
 
 **Argument complémentaire** : Architecture modulaire permet ajouts futurs sans refonte.
 
@@ -315,7 +318,7 @@ Préparer fiche récap (lire depuis synthese.md ou calculer) :
 **Q8 : "Validation Chef SNUM : quand et comment ?"**
 
 **Réponse préparée** :
-> "**Après votre GO concept** : si Stéphane valide, passage à S4-03 (tag v1.0) + S4-04 (publication main). Communication Chef SNUM via Stéphane (vous gérez remontée). Format validation Chef SNUM flexible : présentation 10 min OU email récap + lien production OU validation implicite si Stéphane sponsor. **Notre recommandation** : Présentation courte Chef SNUM (10 min, focus framework mature + 2 modules opérationnels) pour obtenir GO formel avant communication large. **Timing** : Semaine 4 fin si Stéphane GO aujourd'hui."
+> "**Après votre GO concept** : si Stéphane valide, passage à S4-03 (tag v1.0) + S4-04 (publication main). Communication Chef SNUM via Stéphane (vous [Stéphane] gérez remontée hiérarchique). Format validation Chef SNUM flexible : présentation 10 min OU email récap + lien production OU validation implicite si Stéphane sponsor. **Notre recommandation** : Présentation courte Chef SNUM (10 min, focus framework mature + 2 modules opérationnels) pour obtenir GO formel avant communication large. **Timing** : Semaine 4 fin si Stéphane GO aujourd'hui."
 
 **Argument complémentaire** : v1.0 production peut rester org-only (Pages privé) jusqu'à GO Chef SNUM.
 
