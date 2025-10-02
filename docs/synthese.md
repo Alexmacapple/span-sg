@@ -1,12 +1,14 @@
 # Tableau de bord SPAN SG
-*Mis à jour le 01/10/2025*
+*Mis à jour le 02/10/2025*
 
-| Service | Score | Statut |
-|---------|-------|--------|
-| BGS | 0/31 (0.0%) | Non renseigné |
-| SAFI | 0/31 (0.0%) | Non renseigné |
-| SIEP | 0/31 (0.0%) | Non renseigné |
-| SIRCOM | 7/31 (22.6%) | En cours |
-| SNUM | 0/31 (0.0%) | Non renseigné |
-| SRH | 0/31 (0.0%) | Non renseigné |
-| **TOTAL** | **7/186 (3.8%)** | **Global** |
+⚠️ **État du déploiement v1.0** : 2 modules validés (SIRCOM, SNUM), 4 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement.
+
+| Service | Score | Statut | État |
+|---------|-------|--------|------|
+| BGS | 0/31 (0.0%) | Non renseigné | 🔄 En cours |
+| SAFI | 0/31 (0.0%) | Non renseigné | 🔄 En cours |
+| SIEP | 0/31 (0.0%) | Non renseigné | 🔄 En cours |
+| SIRCOM | 24/31 (77.4%) | ✓ Conforme | ✅ Validé |
+| SNUM | 21/31 (67.7%) | En cours | ✅ Validé |
+| SRH | 0/31 (0.0%) | Non renseigné | 🔄 En cours |
+| **TOTAL** | **45/186 (24.2%)** | **Global** | |
