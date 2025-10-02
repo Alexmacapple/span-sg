@@ -55,7 +55,7 @@ validation: human-qa
 - [x] S4-02 complété (GO Stéphane obtenu)
 - [x] Branche `draft` à jour et pushée
 - [x] CI draft 100% PASS (dernier commit)
-- [x] Aucun commit pending (working directory clean)
+- [x] Aucun commit pending (sauf CHANGELOG.md à modifier en Étape 1)
 
 ---
 
@@ -111,10 +111,10 @@ Ajouter en tête de CHANGELOG (après ligne 3) :
 - ✅ Template Pull Request
 - ✅ 6 modules structurés (5 sections obligatoires + 31 points DINUM)
 - ✅ Sources SPAN officielles documentées (span/README.md + métadonnées)
-- ✅ Guide mapping détaillé (roadmap/S4-00-mapping-contenus.md, ~2700 lignes)
+- ✅ Guide mapping détaillé (roadmap/S4-00-mapping-contenus.md, ~400 lignes)
 
 ### Roadmaps BMAD complétées (Semaine 4 - Production)
-- S4-00 : Mapping contenus réels SIRCOM/SNUM (~7h30 - guide + exécution)
+- S4-00 : Guide mapping assisté (~3h - tables correspondance + instructions)
 - S4-01 : Review Bertrand/Alexandra (~8-10h - finalisation 6 modules)
 - S4-02 : Présentation Stéphane → GO concept (~2h30)
 - S4-03 : Tag v1.0.0 + CHANGELOG (~1h)
@@ -130,7 +130,7 @@ Ajouter en tête de CHANGELOG (après ligne 3) :
 ---
 ```
 
-**Format** : Aligner avec v0.2.0 (checkmarks ✅, sections thématiques, détails techniques).
+**Format** : Aligner avec v0.2.0 du CHANGELOG (checkmarks ✅, sections thématiques, détails techniques).
 
 **Ton** : Transparence disclaimers ⚠️ + valorisation framework mature ✅.
 
@@ -214,7 +214,7 @@ Infrastructure :
 
 Documentation :
 - CONTRIBUTING.md
-- Guide mapping (~2700 lignes)
+- Guide mapping (~400 lignes)
 - 6 modules structurés
 
 Validation :
@@ -240,7 +240,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 ```bash
 # Lister tags
 git tag
-# Attendu : v0.1.0, v0.2.0, v1.0.0
+# Attendu : v1.0.0 (premier tag du projet)
 
 # Afficher annotation tag
 git show v1.0.0

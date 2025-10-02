@@ -237,7 +237,7 @@ gh release create v1.0.0 \
 
 ### Documentation
 - CONTRIBUTING.md (workflow contributeur)
-- Guide mapping détaillé (roadmap/S4-00, ~2700 lignes)
+- Guide mapping détaillé (roadmap/S4-00, ~400 lignes)
 - 6 modules structurés (5 sections + 31 points DINUM)
 
 ### Validation
