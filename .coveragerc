@@ -21,3 +21,7 @@ exclude_lines =
     if __name__ == .__main__.:
     if TYPE_CHECKING:
     @abstractmethod
+
+[html]
+# Rapport HTML dans tests/htmlcov/
+directory = tests/htmlcov

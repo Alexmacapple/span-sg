@@ -16,6 +16,11 @@ ENV/
 site/
 exports/
 
+# Coverage reports
+tests/htmlcov/
+.coverage
+.pytest_cache/
+
 # Editors
 .vscode/
 .idea/

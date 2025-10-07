@@ -122,7 +122,7 @@ pytest scripts/test_*.py -v
 
 # Générer rapport HTML
 pytest --cov=scripts --cov-report=html scripts/test_*.py
-open htmlcov/index.html
+open tests/htmlcov/index.html
 ```
 
 ### Objectif Coverage

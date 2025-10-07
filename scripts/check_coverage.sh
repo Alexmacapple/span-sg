@@ -16,11 +16,11 @@ EXIT_CODE=$?
 if [ $EXIT_CODE -eq 0 ]; then
     echo ""
     echo "✅ Coverage 89%+ atteint !"
-    echo "   Rapport HTML : htmlcov/index.html"
+    echo "   Rapport HTML : tests/htmlcov/index.html"
 else
     echo ""
     echo "❌ Coverage < 89%"
     echo "   Voir lignes manquantes ci-dessus"
-    echo "   Rapport HTML : htmlcov/index.html"
+    echo "   Rapport HTML : tests/htmlcov/index.html"
     exit 1
 fi
