@@ -80,27 +80,6 @@ jobs:
           name: exports
           path: exports/
 
-  deploy_draft:
-    if: github.ref == 'refs/heads/draft'
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: span-site
-
-      - name: Deploy draft to GitHub Pages (org-only)
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          publish_branch: gh-pages
-          destination_dir: draft
-          force_orphan: true
-
   deploy_main:
     if: github.ref == 'refs/heads/main'
     needs: build
@@ -113,7 +92,7 @@ jobs:
         with:
           name: span-site
 
-      - name: Deploy production to GitHub Pages (org-only)
+      - name: Deploy production to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
