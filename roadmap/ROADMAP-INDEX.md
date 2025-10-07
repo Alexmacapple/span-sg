@@ -61,15 +61,15 @@
 - **Estimation** : 4-6h
 - **Priorité** : P3 (nice to have)
 
-### Sprint 7 - DSFR Migration (P1, Futur)
-[EN-COURS] **S7-01-migration-dsfr.md** : Migration DSFR complet (v2.0.0)
-- POC technique Phase 1 (12h)
-- Migration complète Phase 2 (12-18h)
-- Release v2.0.0 Phase 3 (4-6h)
-- **Estimation** : 30-56h (selon complexité PDF)
-- **Priorité** : P1 (après v1.0.0 + domaine .gouv.fr)
-- **Trigger** : v1.0.0 stable + domaine .gouv.fr confirmé
-- **Breaking change** : v2.0.0 (Material → DSFR)
+### Sprint 7 - DSFR Migration (SUSPENDU)
+[SUSPENDU] **S7-01-migration-dsfr.md** : Migration DSFR complet (v2.0.0)
+- POC Phase 1 : NO-GO (PDF bloquant)
+- Branche POC : feature/dsfr-poc (commit cac2a34)
+- Résultats : Build HTML OK, Export PDF incompatible
+- **Décision** : Reporter migration DSFR
+- **Alternative recommandée** : Stratégie C Hybrid (Material + custom DSFR)
+- **Estimation alternative** : 12-18h
+- **Réévaluation** : Si mkdocs-dsfr + PDF compatible (3-6 mois)
 
 ---
 
@@ -240,8 +240,8 @@
 5. [EN-COURS] Release v1.1.0 (si modules complétés)
 
 ### Long Terme (4-8 semaines)
-6. [EN-COURS] POC Migration DSFR Phase 1 (S7-01) → v2.0.0-alpha
-7. [EN-COURS] Migration DSFR complète (S7-01) → v2.0.0 (si POC OK)
+6. [NON-FAIT] POC Migration DSFR Phase 1 (S7-01) → NO-GO (PDF bloquant)
+7. [SUSPENDU] Migration DSFR complète (S7-01) → Reporter (alternative Stratégie C)
 8. Migration vers organisation GitHub + domaine .gouv.fr
 9. Onboarding référents services réels
 10. Audits RGAA externes
