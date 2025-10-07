@@ -1,0 +1,14 @@
+# .actrc - Configuration act pour SPAN SG
+
+# Image Docker medium (inclut Python)
+-P ubuntu-latest=catthehacker/ubuntu:act-latest
+
+# Secrets locaux
+--secret-file .secrets
+
+# Variables d'environnement
+--env GITHUB_REPOSITORY=Alexmacapple/span-sg-repo
+--env GITHUB_REF=refs/heads/draft
+
+# Verbose
+-v

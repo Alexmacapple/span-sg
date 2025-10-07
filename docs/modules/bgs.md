@@ -1,34 +1,106 @@
 ---
 service: BGS
-referent: "[Prénom Nom]"
-updated: "2025-09-30"
+referent: "[À définir - Bureau Gestion Services]"
+updated: "2025-10-01"
+validation_status: in_progress
 ---
 
 # SPAN BGS - Schéma Pluriannuel d'accessibilité numérique
 
-**Période** 2025-2027  
-**Score global** [X/31] questions validées ([XX] %)  
-**Dernière mise à jour** [DATE]
+> **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
+
+**Période** 2025-2027
+**Service** Bureau de Gestion des Services (BGS)
+**Score global** 0/31 questions validées (0.0%)
+**Dernière mise à jour** 1er octobre 2025
 
 
 ## 1. Périmètre
-- Applications métiers principales
-- Sites web et intranets
-- Démarches essentielles
+
+**Applications services généraux** :
+- Outil gestion courrier et parapheur électronique
+- Plateforme réservation ressources (salles, véhicules, matériel)
+- Module gestion archive numérique
+- Application badgeage et contrôle accès
+- Outil gestion prestataires et interventions
+
+**Intranets** :
+- Portail services généraux (demandes, suivi)
+- Annuaire services et contacts internes
+
+**Démarches essentielles** :
+- Réservation salles de réunion
+- Demande intervention maintenance
+- Commande fournitures bureau
+- Déclaration incidents locaux
+- Consultation planning occupations
 
 ## 2. État des lieux (synthèse)
-- Audits réalisés et scores
-- Points critiques
+
+**Audits réalisés** : Aucun audit RGAA réalisé
+
+**Planification** :
+- Diagnostic plateforme réservation prévu T2 2025
+- Audit portail services généraux prévu T3 2025
+
+**Points critiques identifiés** :
+- Plateforme réservation : Interface calendrier (navigation clavier)
+- Parapheur électronique : Solution tierce (accessibilité à vérifier)
+- Formulaires demandes : Validation à tester
+
+**Score estimé** : Non disponible
 
 ## 3. Organisation
-- Référent accessibilité (% ETP)
-- Équipe projet et formations prévues
 
-## 4. Plan d’action annuel
-- 3 à 5 actions prioritaires avec échéances
+**Référent accessibilité numérique** :
+- Nom : [À définir lors de S3-02]
+- Contact : bgs.accessibilite@sg.gouv.fr
+- Temps alloué : 0.1 ETP prévu à partir T2 2025
+
+**Équipe projet** :
+- Responsable services généraux : 0.1 ETP
+- Gestionnaire applications : 0.05 ETP
+- Support utilisateurs : 0.05 ETP
+
+**Formations prévues** :
+- Formation référent : T1 2025
+- Sensibilisation équipe BGS : T3 2025
+- Formation éditeurs contenus : T4 2025
+
+## 4. Plan d'action annuel
+
+| Action | Échéance | Responsable | Budget | Statut |
+|--------|----------|-------------|--------|--------|
+| Diagnostic parapheur électronique (éditeur) | T1 2025 | Responsable BGS | Inclus contrat | À commencer |
+| Audit plateforme réservation | T2 2025 | Référent BGS | 5 500 € | À commencer |
+| Mise en conformité formulaires demandes | T3 2025 | Gestionnaire appli | 8 000 € | À commencer |
+| Formation équipe BGS accessibilité | T4 2025 | Référent BGS | 1 500 € | À commencer |
+
+**Budget total 2025** : 15 000 € (hors parapheur éditeur)
+
+**Légende statuts**
+- À commencer
+- En cours
+- Réalisé
+- Reporté
+- Abandonné
 
 ## 5. Indicateurs clés
-- Taux de conformité, formations, marchés avec clauses
+
+**Taux de conformité** :
+- Objectif 2025 : Plateforme réservation 70% conforme
+- Objectif 2026 : Portail services généraux 85% conforme
+- Objectif 2027 : Tous outils 100% conformes
+
+**Démarches accessibles** :
+- Objectif 2025 : 70% formulaires demandes conformes
+- Objectif 2026 : 90% démarches conformes
+- Objectif 2027 : 100% démarches conformes
+
+**Formations réalisées** :
+- Objectif 2025 : 5 agents formés
+- Objectif 2026 : 12 agents formés
+- Objectif 2027 : 20 agents formés
 
 
 ## points de contrôle officiels (31)
@@ -69,42 +141,30 @@ updated: "2025-09-30"
 
 | Type | Total | Audités | Conformes | Score |
 |------|-------|---------|-----------|-------|
-| Sites web | | | | % |
-| Intranets | | | | % |
-| Applications | | | | % |
+| Sites web | 1 | 0 | 0 | 0% |
+| Intranets | 2 | 0 | 0 | 0% |
+| Applications | 5 | 0 | 0 | 0% |
 
 ## plan d'actions prioritaires 2025
 
 ## Matrice de priorisation
 | Service | Audience | Criticité | Coût correction | Refonte prévue | Score priorité |
 |---------|----------|-----------|-----------------|----------------|----------------|
-| Exemple | 50 K/j | Haute | Faible | Non | 95/100 |
-
-
-
-| Action | Échéance | Responsable | Budget | Statut |
-|--------|----------|-------------|--------|--------|
-| | T1 2025 | | € | |
-| | T2 2025 | | € | |
-
-**Légende statuts**
-- À commencer
-- En cours
-- Réalisé
-- Reporté
-- Abandonné
+| Plateforme réservation | 10 K agents | Haute | Moyenne | Non | 85/100 |
+| Parapheur électronique | 500 users | Haute | Nulle (éditeur) | Non | 90/100 |
+| Formulaires demandes | 10 K agents | Moyenne | Faible | Non | 75/100 |
 
 ## publication et conformité
 
-- Standard de référence: RGAA 4.x
+- Standard de référence: RGAA 4.1
 - Niveau cible: AA
-- Périmètre: [décrire]
-- Contenus tiers: [décrire]
+- Périmètre: Outils services généraux, portail réservation
+- Contenus tiers: Parapheur électronique (responsabilité éditeur)
 
 ## Analyse charge disproportionnée
 | Élément | Justification | Alternative | Révision |
 |--------|----------------|-------------|----------|
-| ...    | ...            | ...         | T2 2026  |
+| Aucun à ce jour | - | - | T2 2026 |
 
 Critères décision
 - Analyse coût/bénéfice documentée
@@ -114,12 +174,8 @@ Critères décision
 
 
 
-- Déclaration d’accessibilité: https://[votre-domaine]/[service]/declaration-accessibilite  <!-- TODO: remplacer par l’URL réelle -->
-- Charge disproportionnée: [Oui/Non]  <!-- TODO: préciser si Oui -->. Si Oui, préciser
-  - Élément: [...]
-  - Justification: [...]
-  - Alternative: [...]
-  - Réévaluation: [date]
+- Déclaration d'accessibilité: https://sg.gouv.fr/bgs/declaration-accessibilite
+- Charge disproportionnée: Non (à réévaluer après audits)
 
 ---
-*Dernière mise à jour [date]*
+*Dernière mise à jour 1er octobre 2025*

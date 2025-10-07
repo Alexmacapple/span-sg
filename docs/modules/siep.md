@@ -1,34 +1,105 @@
 ---
 service: SIEP
-referent: "[Prénom Nom]"
-updated: "2025-09-30"
+referent: "[À définir - Service Innovation et Évaluation]"
+updated: "2025-10-01"
+validation_status: in_progress
 ---
 
 # SPAN SIEP - Schéma Pluriannuel d'accessibilité numérique
 
-**Période** 2025-2027  
-**Score global** [X/31] questions validées ([XX] %)  
-**Dernière mise à jour** [DATE]
+> **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
+
+**Période** 2025-2027
+**Service** Service de l'Innovation et de l'Évaluation des Politiques (SIEP)
+**Score global** 0/31 questions validées (0.0%)
+**Dernière mise à jour** 1er octobre 2025
 
 
 ## 1. Périmètre
-- Applications métiers principales
-- Sites web et intranets
-- Démarches essentielles
+
+**Outils innovation** :
+- Plateforme collaborative innovation interne (idéation, projets)
+- Tableau de bord pilotage innovation
+- Base documentaire études et évaluations
+- Outil cartographie services numériques SG
+
+**Sites web et publications** :
+- Portail open data SG (data.sg.gouv.fr)
+- Site vitrine innovation.sg.gouv.fr
+- Rapports et études en ligne (format PDF)
+
+**Démarches et services** :
+- Soumission propositions innovation
+- Accès résultats évaluations
+- Consultation indicateurs performance
+- Téléchargement données ouvertes
 
 ## 2. État des lieux (synthèse)
-- Audits réalisés et scores
-- Points critiques
+
+**Audits réalisés** : Aucun audit RGAA réalisé
+
+**Planification** :
+- Audit portail open data prévu T2 2025 (priorité haute)
+- Diagnostic outils internes prévu T3 2025
+
+**Points critiques identifiés** :
+- Portail open data : Visualisations graphiques (accessibilité à vérifier)
+- Rapports PDF : Génération automatisée (non conformes)
+- Tableaux de bord : Interactivité clavier à tester
+
+**Score estimé** : Non disponible
 
 ## 3. Organisation
-- Référent accessibilité (% ETP)
-- Équipe projet et formations prévues
 
-## 4. Plan d’action annuel
-- 3 à 5 actions prioritaires avec échéances
+**Référent accessibilité numérique** :
+- Nom : [À définir lors de S3-02]
+- Contact : siep.accessibilite@sg.gouv.fr
+- Temps alloué : 0.1 ETP prévu à partir T2 2025
+
+**Équipe projet** :
+- Chef de projet open data : 0.1 ETP
+- Data scientists : 2 × 0.05 ETP
+- Chargés études : 0.05 ETP
+
+**Formations prévues** :
+- Formation référent : T1 2025
+- Formation dataviz accessible : T2 2025
+- Formation rédaction rapports accessibles : T3 2025
+
+## 4. Plan d'action annuel
+
+| Action | Échéance | Responsable | Budget | Statut |
+|--------|----------|-------------|--------|--------|
+| Audit portail open data | T2 2025 | Référent SIEP | 7 000 € | À commencer |
+| Mise en conformité visualisations données | T3 2025 | Data scientists | 10 000 € | À commencer |
+| Remédiation rapports PDF accessibles | T3 2025 | Chargés études | 5 000 € | À commencer |
+| Formation dataviz accessible équipe | T2 2025 | Référent SIEP | 2 000 € | À commencer |
+
+**Budget total 2025** : 24 000 €
+
+**Légende statuts**
+- À commencer
+- En cours
+- Réalisé
+- Reporté
+- Abandonné
 
 ## 5. Indicateurs clés
-- Taux de conformité, formations, marchés avec clauses
+
+**Taux de conformité** :
+- Objectif 2025 : Portail open data 75% conforme
+- Objectif 2026 : Tous outils 80% conformes
+- Objectif 2027 : 100% conformes
+
+**Publications accessibles** :
+- Objectif 2025 : 60% rapports/études PDF conformes
+- Objectif 2026 : 90% publications conformes
+- Objectif 2027 : 100% publications conformes
+
+**Visualisations accessibles** :
+- Objectif 2025 : 50% dataviz avec alternatives textuelles
+- Objectif 2026 : 80% dataviz conformes
+- Objectif 2027 : 100% dataviz conformes
 
 
 ## points de contrôle officiels (31)
@@ -69,42 +140,30 @@ updated: "2025-09-30"
 
 | Type | Total | Audités | Conformes | Score |
 |------|-------|---------|-----------|-------|
-| Sites web | | | | % |
-| Intranets | | | | % |
-| Applications | | | | % |
+| Sites web | 3 | 0 | 0 | 0% |
+| Intranets | 1 | 0 | 0 | 0% |
+| Applications | 4 | 0 | 0 | 0% |
 
 ## plan d'actions prioritaires 2025
 
 ## Matrice de priorisation
 | Service | Audience | Criticité | Coût correction | Refonte prévue | Score priorité |
 |---------|----------|-----------|-----------------|----------------|----------------|
-| Exemple | 50 K/j | Haute | Faible | Non | 95/100 |
-
-
-
-| Action | Échéance | Responsable | Budget | Statut |
-|--------|----------|-------------|--------|--------|
-| | T1 2025 | | € | |
-| | T2 2025 | | € | |
-
-**Légende statuts**
-- À commencer
-- En cours
-- Réalisé
-- Reporté
-- Abandonné
+| Portail open data | Public | Haute | Moyenne | Non | 90/100 |
+| Rapports PDF | Public/interne | Haute | Faible | Non | 85/100 |
+| Tableaux de bord | Interne | Moyenne | Moyenne | 2026 | 70/100 |
 
 ## publication et conformité
 
-- Standard de référence: RGAA 4.x
+- Standard de référence: RGAA 4.1
 - Niveau cible: AA
-- Périmètre: [décrire]
-- Contenus tiers: [décrire]
+- Périmètre: Portail open data, outils innovation, publications
+- Contenus tiers: Widgets dataviz (à auditer)
 
 ## Analyse charge disproportionnée
 | Élément | Justification | Alternative | Révision |
 |--------|----------------|-------------|----------|
-| ...    | ...            | ...         | T2 2026  |
+| Visualisations interactives complexes | À évaluer après audit | Alternatives textuelles | T2 2026 |
 
 Critères décision
 - Analyse coût/bénéfice documentée
@@ -114,12 +173,8 @@ Critères décision
 
 
 
-- Déclaration d’accessibilité: https://[votre-domaine]/[service]/declaration-accessibilite  <!-- TODO: remplacer par l’URL réelle -->
-- Charge disproportionnée: [Oui/Non]  <!-- TODO: préciser si Oui -->. Si Oui, préciser
-  - Élément: [...]
-  - Justification: [...]
-  - Alternative: [...]
-  - Réévaluation: [date]
+- Déclaration d'accessibilité: https://sg.gouv.fr/siep/declaration-accessibilite
+- Charge disproportionnée: À évaluer (complexité visualisations interactives)
 
 ---
-*Dernière mise à jour [date]*
+*Dernière mise à jour 1er octobre 2025*

@@ -16,12 +16,31 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+          cache: 'pip'
 
       - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install dev dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Run Black formatter check
+        run: python -m black --check scripts/
+
+      - name: Run Ruff linter
+        run: python -m ruff check scripts/
+
+      - name: Run unit tests
+        run: python -m pytest scripts/ -v --cov=scripts --cov-report=term-missing
+
+      - name: Run production scripts coverage check (89%+ required)
         run: |
-          pip install mkdocs-material
-          pip install mkdocs-pdf-export-plugin
-          pip install mkdocs-with-pdf
+          python -m pytest \
+            --cov=scripts \
+            --cov-report=term-missing \
+            --cov-report=html \
+            --cov-fail-under=89 \
+            scripts/test_calculate_scores*.py scripts/test_enrich_pdf*.py
 
       - name: Calculate SPAN scores
         run: python scripts/calculate_scores.py
@@ -29,36 +48,80 @@ jobs:
       - name: Build site
         run: mkdocs build
 
-      - name: Generate PDF (plugin principal)
+      - name: Generate PDF
         run: mkdocs build --config-file mkdocs-pdf.yml
-        continue-on-error: true
 
-      - name: Generate PDF fallback (mkdocs-with-pdf si échec)
-        if: failure()
-        run: mkdocs build --config-file mkdocs-with-pdf.yml
+      - name: Enrich PDF metadata
+        run: python scripts/enrich_pdf_metadata.py site/exports/span-sg.pdf
+
+      - name: Copy PDF to root exports folder
+        run: |
+          mkdir -p exports
+          cp site/exports/span-sg.pdf exports/
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        if: ${{ !env.ACT }}
+        uses: actions/upload-artifact@v4
         with:
           name: span-site
           path: |
             site/
             exports/
 
-  deploy_draft:
-    if: github.ref == 'refs/heads/draft'
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Deploy draft to GitHub Pages (org-only)
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload PDF artifact
+        if: ${{ !env.ACT }}
+        uses: actions/upload-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          publish_branch: gh-pages
-          destination_dir: draft
-          force_orphan: true
+          name: exports
+          path: exports/
+
+  e2e-tests:
+    name: Tests E2E
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install system dependencies (qpdf)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qpdf
+
+      - name: Run E2E tests with reporting
+        run: |
+          chmod +x tests/e2e/ci_runner.sh
+          ./tests/e2e/ci_runner.sh
+
+      - name: Upload E2E report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-report
+          path: tests/e2e/reports/e2e-report.html
+          retention-days: 30
+
+      - name: Comment PR with E2E results
+        if: github.event_name == 'pull_request' && failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '❌ Tests E2E échoués. Voir rapport dans artifacts.'
+            })
 
   deploy_main:
     if: github.ref == 'refs/heads/main'
@@ -66,7 +129,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Deploy production to GitHub Pages (org-only)
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: span-site
+
+      - name: Deploy production to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

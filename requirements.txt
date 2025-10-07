@@ -1,0 +1,18 @@
+# Dépendances Python pour SPAN SG
+# Installation: pip install -r requirements.txt
+
+# MkDocs et thème Material
+mkdocs-material>=9.5.0,<10.0.0
+
+# Plugin export PDF
+# Note: mkdocs-pdf-export-plugin a été remplacé par mkdocs-with-pdf
+# car il est mieux maintenu et supporte Material 9.x
+mkdocs-with-pdf>=0.9.3
+
+# Enrichissement metadata PDF (pour accessibilité)
+pikepdf>=8.0.0
+
+# Dépendances optionnelles pour développement local
+# (commentées par défaut, décommenter si besoin)
+# markdown-include>=0.8.1
+# pymdown-extensions>=10.0

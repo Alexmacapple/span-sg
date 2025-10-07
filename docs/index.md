@@ -1,6 +1,8 @@
 # SPAN SG – Portail et conformité
 
-Ce site centralise le SPAN SG et les modules services. Voir la page Synthèse pour l’agrégation automatique.
+**État du déploiement v1.0** : 2 modules validés (SIRCOM, SNUM), 4 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement.
+
+Ce site centralise le SPAN SG et les modules services. Voir la page Synthèse pour l'agrégation automatique.
 
 ## Déclarations d’accessibilité
 

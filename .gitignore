@@ -1,0 +1,45 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+ENV/
+
+# MkDocs
+site/
+exports/
+*.pdf
+
+# E2E Reports
+tests/e2e/reports/
+
+# Coverage reports
+tests/htmlcov/
+.coverage
+.pytest_cache/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+
+# Temporary
+*.tmp
+*.bak
+.secrets
+
+# Project-specific
+inspiration/

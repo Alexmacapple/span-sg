@@ -1,54 +1,285 @@
 # SPAN SG – Repo
 
+![Build Status](https://github.com/Alexmacapple/span-sg-repo/workflows/Build%20SPAN/badge.svg)
+![E2E Tests](https://github.com/Alexmacapple/span-sg-repo/actions/workflows/build.yml/badge.svg?event=push)
+
 Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/deploy.
 
-## Démarrage rapide
-1. Installer Docker (facultatif pour dev local)
-2. Cloner le dépôt et créer deux branches: `main` et `draft`
-3. Renseigner `site_url` et `repo_url` dans `mkdocs.yml`
+## État actuel du projet (07/10/2025)
 
-## Checklist « première release v0.1 »
-1. Configurer GitHub Pages au niveau de l’organisation et restreindre l’accès aux membres
-2. Créer les branches `main` (production) et `draft` (preview)
-3. Paramétrer les secrets nécessaires (si besoin) et vérifier les permissions `GITHUB_TOKEN`
-4. Mettre à jour `docs/index.md` (blocs légaux) et `docs/modules/*` (front-matter)
-5. Mapper les 31 points officiels dans `docs/modules/_template.md` et dans le module pilote (SIRCOM)
-6. Lancer la CI sur `draft` et vérifier: build site OK, `exports/span-sg.pdf` présent
-7. Revue par Bertrand/Alex puis merge dans `draft` pour la preview privée
-8. Préparer `CHANGELOG.md`, tagger `v0.1.0` et pousser le tag
+**Version POC** : v1.0.2-poc - Sprint 6 Tech First terminé (Score 97/100)
+
+- **Infrastructure** : Production-ready (CI/CD, tests E2E automatisés, sécurité renforcée)
+- **2 modules validés** : SIRCOM (24/31 - 77.4%), SNUM (21/31 - 67.7%)
+- **4 modules optionnels** : BGS, SAFI, SIEP, SRH (structure créée, enrichissement progressif)
+- **Roadmaps** : 32 archivées (Sprints 0-6), 5 actives (modules optionnels)
+- **Prochaine étape** : Release v1.0.0 officielle (merge draft → main)
+
+## Liens utiles
+
+- **Draft (preview)** : Désactivé — revue locale/PDF (voir `.github/PAGES-ACCESS-CHECKLIST.md`)
+- **Production** : https://alexmacapple.github.io/span-sg-repo/
+- **PDF production** : https://github.com/Alexmacapple/span-sg-repo/releases/latest
+- **Changelog** : [CHANGELOG.md](CHANGELOG.md) - Historique versions
+- **Migration** : [MIGRATION.md](MIGRATION.md) - Guides upgrade path
+
+## Démarrage rapide
+
+### Prérequis
+1. **Installer Docker Desktop**
+   - Mac : [docs.docker.com/desktop/install/mac-install](https://docs.docker.com/desktop/install/mac-install/)
+   - Windows : [docs.docker.com/desktop/install/windows-install](https://docs.docker.com/desktop/install/windows-install/)
+   - Linux : [docs.docker.com/engine/install](https://docs.docker.com/engine/install/)
+
+2. **Installer dépendances système** (optionnel, si vous voulez run scripts localement)
+
+   **macOS** :
    ```bash
-   git tag -a v0.1.0 -m "Release SPAN SG v0.1.0"
-   git push origin v0.1.0
+   brew install qpdf
    ```
-9. Lancer le déploiement de `main` et créer la release GitHub en joignant `exports/span-sg.pdf`
-10. Notifier Yves pour validation production et consigner la décision GO/NO-GO
+
+   **Ubuntu/Debian** :
+   ```bash
+   sudo apt-get install qpdf
+   ```
+
+   **Note** : Requis pour le script `enrich_pdf_metadata.py` (métadonnées PDF).
+   Docker inclut déjà ces dépendances.
+
+3. **Démarrer Docker Desktop**
+   - Ouvrir l'application Docker Desktop
+   - Attendre que l'icône dans la barre de menu affiche "Docker Desktop is running"
+
+4. **Vérifier que Docker fonctionne**
+   ```bash
+   docker --version
+   # Attendu : Docker version 20.x ou supérieur
+
+   docker ps
+   # Attendu : Liste des conteneurs (vide ou avec conteneurs existants)
+   ```
+
+### Installation
+1. **Cloner le dépôt**
+   ```bash
+   git clone https://github.com/Alexmacapple/span-sg-repo.git
+   cd span-sg-repo
+   ```
+
+2. **Créer les branches principales**
+   ```bash
+   git checkout -b main
+   git checkout -b draft
+   ```
+
+3. **Configurer les URLs** (si nécessaire)
+   - Éditer `mkdocs.yml` : ajuster `site_url` et `repo_url`
+
+### Premier lancement
+```bash
+# Lancer le serveur de développement
+docker compose up -d
+
+# Le premier lancement télécharge l'image Docker (~200MB)
+# Cela peut prendre 1-2 minutes
+```
+
+**Accéder au site** : http://localhost:8000/span-sg-repo/
+
+**Arrêter le serveur** :
+```bash
+docker compose down
+```
+
+## Sprint 6 Tech First - Terminé (Score 97/100)
+
+**Infrastructure production-ready** :
+1. [COMPLETE] Tests E2E automatisés CI (S6-01) - Job GitHub Actions + reporting HTML
+2. [COMPLETE] Renforcement sécurité (S6-07) - Dependabot + SECURITY.md + guide BFG
+3. [COMPLETE] Documentation maintenabilité (S6-08) - CHANGELOG + MIGRATION + versioning
+
+**Roadmaps organisées** :
+- 32 roadmaps archivées (Sprints 0-6 terminés)
+- Structure unifiée `roadmap/archive/`
+- ROADMAP-INDEX.md créé (master index)
+
+**Prochaines étapes** :
+1. **POC-FINALISATION** : Release v1.0.0 officielle (merge draft → main, GitHub Release)
+2. **Modules optionnels** (P1) : Compléter BGS, SAFI, SIEP, SRH (S6-03 à S6-06)
+3. **Infrastructure optionnelle** (P3) : Notifications CI + Rollback (S6-02)
 
 ## Commandes utiles
-- Dev local: `docker compose up` puis http://localhost:8000
-- Build manuel PDF principal: `mkdocs build --config-file mkdocs-pdf.yml`
-- Build manuel PDF fallback: `mkdocs build --config-file mkdocs-with-pdf.yml`
-- Calcul synthèse: `python scripts/calculate_scores.py`
+
+### Développement local
+```bash
+# Démarrer le serveur (en arrière-plan)
+docker compose up -d
+
+# Voir les logs en temps réel
+docker compose logs -f mkdocs
+
+# Arrêter le serveur
+docker compose down
+
+# Redémarrer après modifications
+docker compose restart
+```
+
+**URL du site** : http://localhost:8000/span-sg-repo/
+
+### Autres commandes
+```bash
+# Build manuel du site HTML
+mkdocs build
+
+# Build manuel du PDF avec enrichissement metadata
+mkdocs build --config-file mkdocs-pdf.yml
+python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
+
+# Calcul des scores SPAN et génération synthèse
+python scripts/calculate_scores.py
+
+# Test complet du workflow PDF
+./scripts/test_pdf_workflow.sh
+
+# Script de développement
+./scripts/dev.sh  # Lance Docker avec vérifications
+```
+
+## Développement local avec Docker
+
+### Architecture Docker
+
+Le projet utilise 2 fichiers Docker complémentaires :
+
+**`Dockerfile`** (la recette de l'image)
+```dockerfile
+FROM squidfunk/mkdocs-material:latest  # Image de base MkDocs Material
+WORKDIR /docs                          # Répertoire de travail
+EXPOSE 8000                            # Port exposé
+CMD ["serve", "--dev-addr=0.0.0.0:8000"]  # Commande au démarrage
+```
+
+**Rôle** : Définit comment construire l'image Docker (le modèle du conteneur).
+
+**`docker-compose.yml`** (la configuration de lancement)
+```yaml
+services:
+  mkdocs:
+    build: .              # Construire avec le Dockerfile du répertoire actuel
+    volumes:
+      - .:/docs           # Partager le dossier actuel avec le conteneur
+    ports:
+      - "8000:8000"       # Exposer le port 8000 sur l'hôte
+```
+
+**Rôle** : Définit comment lancer le conteneur (volumes, ports, configuration).
+
+### Workflow de développement
+
+1. **Lancer le serveur** : `docker compose up -d`
+   - Docker lit `docker-compose.yml`
+   - Si l'image n'existe pas, la construit avec `Dockerfile`
+   - Démarre le conteneur en arrière-plan (`-d`)
+   - Monte le répertoire actuel dans `/docs` (hot-reload automatique)
+
+2. **Modifier le code** : Éditer les fichiers dans `docs/`
+   - MkDocs détecte automatiquement les changements
+   - Le site se reconstruit en temps réel
+   - Rafraîchir le navigateur pour voir les modifications
+
+3. **Arrêter le serveur** : `docker compose down`
+
+### Troubleshooting Docker
+
+**Erreur : "Cannot connect to Docker daemon"**
+```bash
+# Cause : Docker Desktop n'est pas démarré
+# Solution : Lancer Docker Desktop et attendre qu'il soit prêt
+docker ps  # Vérifier que Docker répond
+```
+
+**Erreur : "Port 8000 already in use"**
+```bash
+# Cause : Un autre processus utilise le port 8000
+# Solution : Trouver et arrêter le processus
+lsof -i :8000
+kill <PID>
+
+# Ou changer le port dans docker-compose.yml
+ports:
+  - "8001:8000"  # Utiliser 8001 au lieu de 8000
+```
+
+**Site inaccessible après `docker compose up`**
+```bash
+# Vérifier que le conteneur tourne
+docker compose ps
+
+# Voir les logs pour identifier l'erreur
+docker compose logs mkdocs
+
+# Problèmes courants :
+# - Erreur dans mkdocs.yml : corriger la config
+# - Plugin manquant : installer les dépendances
+```
+
+**Premier lancement très long**
+- Normal : Docker télécharge l'image de base (~200MB)
+- Les lancements suivants sont instantanés (image en cache)
+
+### Notes techniques
+
+- **Dépendances Python** : Toutes les dépendances sont centralisées dans `requirements.txt`. Pour développer en local sans Docker :
+  ```bash
+  pip install -r requirements.txt
+  mkdocs serve
+  ```
+
+- **Plugin PDF** : Le projet utilise `mkdocs-with-pdf` (meilleur support que `mkdocs-pdf-export-plugin`). L'enrichissement automatique des metadata (titre, langue, keywords) est assuré par `scripts/enrich_pdf_metadata.py`.
+
+- **Hot-reload automatique** : Le volume monté (`- .:/docs`) synchronise le répertoire local avec le conteneur. Toute modification est détectée instantanément par MkDocs.
 
 ## Dépannage rapide
-- PDF manquant: vérifier fallback `mkdocs-with-pdf` ou utiliser l’impression navigateur sur « Synthèse »
-- Scores incohérents: s’assurer que seuls les 31 points portent `<!-- DINUM -->`
-- Preview inaccessible: vérifier restriction GitHub Pages à l’organisation et branche `gh-pages`
+- **PDF manquant** : Utiliser l'impression navigateur sur « Synthèse » (Cmd+P / Ctrl+P) ou vérifier que `exports/span-sg.pdf` existe après `mkdocs build --config-file mkdocs-pdf.yml`
+- **Metadata PDF absentes** : Exécuter `python scripts/enrich_pdf_metadata.py exports/span-sg.pdf` (nécessite `pikepdf`)
+- **Scores incohérents** : S'assurer que seuls les 31 points portent `<!-- DINUM -->`
+- **Preview désactivée** : Utiliser revue locale (`mkdocs serve`) et PDF CI
+- **Docker ne démarre pas** : Vérifier que Docker Desktop est lancé et fonctionnel (`docker ps`)
+- **Dépendances manquantes** : Installer avec `pip install -r requirements.txt`
+
+## Sécurité
+
+Pour signaler une vulnérabilité, consultez [SECURITY.md](SECURITY.md).
+
+**Ne créez PAS d'issue publique pour les vulnérabilités.**
+
+### Mesures de Sécurité
+
+- **Dependabot** : Scan automatique hebdomadaire (vulnérabilités CVE)
+- **Security alerts** : Notifications activées
+- **Git history** : Nettoyé (fichiers sensibles purgés)
+- **CI/CD** : Validation automatique (linter, tests)
+
+## Contribution
+
+Pour contribuer au projet, consulter le [Guide contributeur](CONTRIBUTING.md).
 
 ## Contacts
 - Owner: Alexandra (@alexandra)
 - Validateurs: Bertrand (@bertrand), Alex (@alex)
-- Sponsor: Yves
+- Sponsor: Stéphane (Chef mission numérique SNUM-SG)
 
 
 ## règles de validation
 - Validation de contenu: Bertrand et Alex
-- Yves: validation uniquement pour la bascule en production
+- Stéphane (Chef mission numérique SNUM-SG): validation conceptuelle
+- Chef SNUM: validation finale GO production
 
 
-## preview privée (Pages organisation GitHub)
-- Restreindre l’accès aux membres de l’organisation dans les paramètres Pages
-- Déploiement `draft` vers `gh-pages` sous `draft/`
-- Pas d’identifiants génériques; seuls les comptes org sont autorisés
+## Preview GitHub Pages (note)
+- Ce dépôt public n’active pas Pages pour la preview avant validation.
+- Pour un déploiement Pages privé, voir `.github/PAGES-ACCESS-CHECKLIST.md` (nécessite organisation/Enterprise).
 
 
 ## Checklist GO
@@ -61,3 +292,12 @@ Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/
 - Utiliser `Agents.md` (Codex/Cursor/Builder.io) pour les instructions d’agent standardisées
 - Utiliser `Claude.md` pour Claude Code (format spécifique Anthropic)
 - Conserver le périmètre MVP, ne pas modifier la logique des 31 points DINUM
+
+## Preview et revue (Draft)
+
+Sur ce dépôt public, la preview GitHub Pages est désactivée pour éviter toute exposition avant validation.
+
+- Revue locale: `mkdocs serve -f mkdocs.yml -a 0.0.0.0:8000`
+- Build strict: `mkdocs build -f mkdocs.yml`
+- PDF: `mkdocs build -f mkdocs-pdf.yml` ou artefact CI (voir `scripts/download_latest_pdf.sh`)
+- Politique: consulter `.github/PAGES-ACCESS-CHECKLIST.md` (Scénario B) et `docs/dev-local.md`.

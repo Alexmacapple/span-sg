@@ -1,0 +1,27 @@
+[run]
+# Configuration coverage pour scripts production
+omit =
+    scripts/test_*.py
+    scripts/add-bmad-headers.py
+    scripts/evaluate-bmad-final.py
+    scripts/create-module.sh
+    scripts/dev.sh
+    scripts/init-repo.sh
+    scripts/release.sh
+    scripts/check_prerequisites.sh
+    scripts/check_coverage.sh
+
+[report]
+# Exclusions lignes
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise AssertionError
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    if TYPE_CHECKING:
+    @abstractmethod
+
+[html]
+# Rapport HTML dans tests/htmlcov/
+directory = tests/htmlcov

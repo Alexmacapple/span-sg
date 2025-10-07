@@ -1,8 +1,0 @@
-site_name: SPAN SG
-theme:
-  name: material
-plugins:
-  - with-pdf:
-      output_path: exports/span-sg.pdf
-      cover_title: "SPAN SG"
-      toc_level: 2

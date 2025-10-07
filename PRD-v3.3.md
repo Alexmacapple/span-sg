@@ -1,10 +1,10 @@
 # PRD v3.3 SPAN SG – MkDocs avec checklist officielle
 
-**Version** 3.3  
-**Date** 30 septembre 2025  
-**Owner** Alexandra  
-**Validateurs** Bertrand, Alex  
-**Sponsor** Yves (validation production uniquement)
+**Version** 3.3
+**Date** 30 septembre 2025
+**Owner** Alexandra
+**Validateurs** Bertrand, Alex
+**Sponsor** Stéphane (Chef mission numérique SNUM-SG, validation conceptuelle)
 
 ---
 
@@ -33,7 +33,6 @@ Niveau 1 : SPAN SG (Global)
 span-sg/
 ├─ mkdocs.yml
 ├─ mkdocs-pdf.yml
-├─ mkdocs-with-pdf.yml           # fallback PDF
 ├─ docker-compose.yml
 ├─ .github/workflows/build.yml
 ├─ docs/
@@ -164,28 +163,26 @@ if __name__ == "__main__":
     raise SystemExit(generate_summary())
 ```
 
-### 3.3 export PDF avec fallback robuste
+### 3.3 export PDF simplifié
 
-Objectif  
-Garantir un PDF d’archive à chaque build, sans bloquer la release.
+Objectif
+Générer un PDF d'archive à chaque build pour documentation et releases.
 
-Choix tranché  
-1) Plugin principal: `mkdocs-pdf-export-plugin`  
-2) Fallback automatique: `mkdocs-with-pdf`  
-3) Filet ultime: impression navigateur sur « Synthèse »
+Stratégie
+1) Plugin principal: `mkdocs-pdf-export-plugin`
+2) Méthode manuelle de secours: impression navigateur sur page « Synthèse »
 
-Fichier fallback
+Configuration PDF
 
 ```yaml
-# mkdocs-with-pdf.yml
+# mkdocs-pdf.yml
 site_name: SPAN SG
 theme:
   name: material
 plugins:
-  - with-pdf:
-      output_path: exports/span-sg.pdf
-      cover_title: "SPAN SG"
-      toc_level: 2
+  - pdf-export:
+      combined: true
+      combined_output_path: exports/span-sg.pdf
 ```
 
 ---
@@ -200,11 +197,11 @@ feature/ modifications par service
 Process  
 1) service crée `feature/update-[service]`  
 2) modifie son module  
-3) PR vers `draft`  
-4) revue Bertrand/Alex  
-5) preview privée (voir 5.1)  
-6) PR `draft` vers `main`  
-7) validation Yves  
+3) PR vers `draft`
+4) revue Bertrand/Alex
+5) preview privée (voir 5.1)
+6) PR `draft` vers `main`
+7) présentation Stéphane + validation Chef SNUM
 8) tag version
 
 Gestion d’urgence  
@@ -334,9 +331,9 @@ Release publiée avec tag, changelog ≤ 3 puces, PDF joint.
 
 ## 10. décisions et hypothèses mvp
 
-Décisions figées  
-- Preview privée: GitHub Pages restreint aux membres de l’organisation (Option A)  
-- PDF d’archive: plugin principal + fallback `mkdocs-with-pdf` + filet impression navigateur  
+Décisions figées
+- Preview privée: GitHub Pages restreint aux membres de l'organisation (Option A)
+- PDF d'archive: plugin `mkdocs-pdf-export-plugin` + méthode manuelle (impression navigateur)
 - Modèles légaux: blocs standardisés dans `index.md` et dans chaque module
 
 Hors périmètre MVP  
@@ -346,29 +343,31 @@ dashboard temps réel, API, notifications, signature électronique, multi-tenant
 
 ## 11. plan de mise en œuvre
 
-Semaine 1 setup  
-[ ] repo GitHub privé  
-[ ] docker local  
-[ ] mkdocs base + strict  
-[ ] template 31 `<!-- DINUM -->`  
-[ ] script scoring testé  
-[ ] import module SIRCOM
+Semaine 1 setup
+[x] repo GitHub privé
+[x] docker local
+[x] mkdocs base + strict
+[x] template 31 `<!-- DINUM -->`
+[x] script scoring testé
+[x] import module SIRCOM
 
-Semaine 2 automatisation  
-[ ] GitHub Actions ordre corrigé  
-[ ] export PDF + fallback  
-[ ] preview privée (Option A)  
+Semaine 2 automatisation
+[ ] GitHub Actions ordre corrigé
+[ ] export PDF automatique
+[ ] preview privée (Option A)
 [ ] doc contributeur 1 page
+[ ] qualité code (tests + linting)
+[ ] tests E2E et CI local
 
 Semaine 3 onboarding services  
 [ ] modules vides + front-matter  
 [ ] formation Git basique 2 h  
 [ ] premiers contenus
 
-Semaine 4 production  
-[ ] review contenus  
-[ ] validation Yves  
-[ ] tag v1.0.0  
+Semaine 4 production
+[ ] review contenus
+[ ] présentation Stéphane + validation Chef SNUM
+[ ] tag v1.0.0
 [ ] publication
 
 ---
@@ -380,18 +379,19 @@ Semaine 4 production
 | Owner | Alexandra | @alexandra |
 | Validateur | Bertrand | @bertrand |
 | Validateur | Alex | @alex |
-| Sponsor | Yves | - |
+| Sponsor | Stéphane (Chef mission numérique SNUM-SG) | - |
+| Validation finale prod | Chef SNUM | - |
 
 ---
 
 ## 13. décision go/no-go
 
-- [ ] architecture v3.3 validée  
-- [ ] repository créé  
-- [ ] accès configurés  
-- [ ] template checklist approuvé  
-- [ ] script scoring testé  
-- [ ] planning accepté
+- [x] architecture v3.3 validée
+- [x] repository créé
+- [x] accès configurés
+- [x] template checklist approuvé
+- [x] script scoring testé
+- [x] planning accepté
 
 *PRD v3.3 avec checklist officielle, 30 septembre 2025*  
 *Principe: simple, fonctionnel, efficace, conforme*
@@ -404,20 +404,7 @@ Semaine 4 production
 
 *(identique au bloc 3.2 ci-dessus, fourni pour collage direct dans le repo)*
 
-## B. mkdocs-with-pdf.yml
-
-```yaml
-site_name: SPAN SG
-theme:
-  name: material
-plugins:
-  - with-pdf:
-      output_path: exports/span-sg.pdf
-      cover_title: "SPAN SG"
-      toc_level: 2
-```
-
-## C. .github/workflows/build.yml
+## B. .github/workflows/build.yml
 
 ```yaml
 name: Build SPAN
@@ -443,7 +430,6 @@ jobs:
         run: |
           pip install mkdocs-material
           pip install mkdocs-pdf-export-plugin
-          pip install mkdocs-with-pdf
 
       - name: Calculate SPAN scores
         run: python scripts/calculate_scores.py
@@ -451,13 +437,8 @@ jobs:
       - name: Build site
         run: mkdocs build
 
-      - name: Generate PDF (plugin principal)
+      - name: Generate PDF
         run: mkdocs build --config-file mkdocs-pdf.yml
-        continue-on-error: true
-
-      - name: Generate PDF fallback (mkdocs-with-pdf si échec)
-        if: failure()
-        run: mkdocs build --config-file mkdocs-with-pdf.yml
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
@@ -497,7 +478,7 @@ jobs:
           force_orphan: true
 ```
 
-## D. docs/index.md – blocs légaux
+## C. docs/index.md – blocs légaux
 
 ```markdown
 ## Déclarations d’accessibilité
