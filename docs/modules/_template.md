@@ -4,6 +4,12 @@ referent: "[Prénom Nom]"
 updated: "2025-09-30"
 ---
 
+<!--
+  FICHIER TEMPLATE - Non inclus dans la navigation MkDocs
+  Utilisé comme référence pour créer de nouveaux modules
+  Contient les 31 points DINUM officiels
+-->
+
 # SPAN [SERVICE] - Schéma Pluriannuel d'accessibilité numérique
 
 **Période** 2025-2027  
