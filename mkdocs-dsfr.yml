@@ -4,8 +4,7 @@
 # Basé sur: mkdocs.yml (Material)
 
 site_name: SPAN SG
-site_url: https://alexmacapple.github.io/span-sg-repo/
-repo_url: https://github.com/Alexmacapple/span-sg-repo
+site_url: http://localhost:8000/span-sg-repo/
 strict: true
 
 theme:
@@ -20,12 +19,16 @@ theme:
   libelle_bouton_editer: "Éditer dans GitHub"
 
   # Intitulé République Française
-  intitule: "République <br> française"
+  intitule: "GOUVERNEMENT"
 
   # Configuration header DSFR
   header:
     titre: "SPAN SG"
     sous_titre: "Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général"
+    liens_rapides:
+      - name: "Voir le code source sur GitHub"
+        url: "https://github.com/Alexmacapple/span-sg-repo"
+        icon: "github"
 
   # Configuration footer DSFR
   footer:
@@ -57,8 +60,9 @@ nav:
     - SIEP: modules/siep.md
     - SAFI: modules/safi.md
     - BGS: modules/bgs.md
+  - "Code source GitHub": "https://github.com/Alexmacapple/span-sg-repo"
 
 markdown_extensions:
   - tables
   - toc:
-      permalink: true
+      permalink: false

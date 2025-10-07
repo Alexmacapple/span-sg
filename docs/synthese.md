@@ -5,10 +5,10 @@
 
 | Service | Score | Statut | État |
 |---------|-------|--------|------|
-| BGS | 0/31 (0.0%) | Non renseigné | En cours |
+| BGS | 19/31 (61.3%) | En cours | En cours |
 | SAFI | 0/31 (0.0%) | Non renseigné | En cours |
 | SIEP | 0/31 (0.0%) | Non renseigné | En cours |
 | SIRCOM | 24/31 (77.4%) | Conforme | Validé |
 | SNUM | 21/31 (67.7%) | En cours | Validé |
 | SRH | 0/31 (0.0%) | Non renseigné | En cours |
-| **TOTAL** | **45/186 (24.2%)** | **Global** | |
+| **TOTAL** | **64/186 (34.4%)** | **Global** | |
