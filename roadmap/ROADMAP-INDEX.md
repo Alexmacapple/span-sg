@@ -1,16 +1,16 @@
 # Index Roadmaps SPAN SG
 
 **Date mise à jour** : 2025-10-07
-**Total roadmaps** : 37
+**Total roadmaps** : 38
 
 ---
 
 ## Vue d'Ensemble
 
 ### Statistiques
-- **Archivées** : 32 (86.5%) - Sprints 0-6 complétés
-- **Actives** : 5 (13.5%) - Modules optionnels
-- **Nouvelle** : 1 - POC-FINALISATION
+- **Archivées** : 32 (84.2%) - Sprints 0-6 complétés
+- **Actives** : 6 (15.8%) - Modules optionnels + DSFR Migration
+- **Nouvelles** : POC-FINALISATION, S7-01 Migration DSFR
 
 ### Statut Projet
 - **Score qualité** : 97/100
@@ -60,6 +60,16 @@
 - Runbook incidents
 - **Estimation** : 4-6h
 - **Priorité** : P3 (nice to have)
+
+### Sprint 7 - DSFR Migration (P1, Futur)
+[EN-COURS] **S7-01-migration-dsfr.md** : Migration DSFR complet (v2.0.0)
+- POC technique Phase 1 (12h)
+- Migration complète Phase 2 (12-18h)
+- Release v2.0.0 Phase 3 (4-6h)
+- **Estimation** : 30-56h (selon complexité PDF)
+- **Priorité** : P1 (après v1.0.0 + domaine .gouv.fr)
+- **Trigger** : v1.0.0 stable + domaine .gouv.fr confirmé
+- **Breaking change** : v2.0.0 (Material → DSFR)
 
 ---
 
@@ -229,10 +239,12 @@
 4. [EN-COURS] Compléter 4 modules (S6-03 à S6-06) → 90.9% conformité
 5. [EN-COURS] Release v1.1.0 (si modules complétés)
 
-### Long Terme (1-3 mois)
-6. Migration vers organisation GitHub (production finale)
-7. Onboarding référents services réels
-8. Audits RGAA externes
+### Long Terme (4-8 semaines)
+6. [EN-COURS] POC Migration DSFR Phase 1 (S7-01) → v2.0.0-alpha
+7. [EN-COURS] Migration DSFR complète (S7-01) → v2.0.0 (si POC OK)
+8. Migration vers organisation GitHub + domaine .gouv.fr
+9. Onboarding référents services réels
+10. Audits RGAA externes
 
 ---
 
