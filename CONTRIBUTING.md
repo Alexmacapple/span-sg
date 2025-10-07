@@ -153,6 +153,76 @@ Les lignes 23-26 de `enrich_pdf_metadata.py` (ImportError pikepdf) ne sont pas t
 
 ---
 
+## Tests End-to-End (E2E)
+
+### Exécuter tests E2E localement
+
+```bash
+# Tous les scénarios
+./tests/e2e/run_all.sh
+
+# Scénario spécifique
+./tests/e2e/scenario_performance.sh
+./tests/e2e/scenario_frontmatter.sh
+
+# Avec rapport HTML (identique CI)
+./tests/e2e/ci_runner.sh
+open tests/e2e/reports/e2e-report.html
+```
+
+### Scénarios E2E disponibles
+
+| Scénario | Description | Temps |
+|----------|-------------|-------|
+| **test_full_workflow** | Workflow complet (calcul scores + build + PDF) | ~15s |
+| **scenario_multi_modules** | Calcul scores 6 modules | ~8s |
+| **scenario_erreur_perimetre** | Module ≠31 points → erreur | ~5s |
+| **scenario_erreur_markdown** | Markdown invalide → build fail | ~5s |
+| **scenario_performance** | Temps build < 10s | ~10s |
+| **scenario_pdf_complet** | PDF généré avec métadonnées | ~12s |
+| **scenario_rollback** | Intégrité après rollback Git | ~12s |
+| **scenario_preview_http** | Serveur MkDocs démarrable | ~8s |
+| **scenario_frontmatter** | Validation YAML front-matter | ~5s |
+
+### Ajouter nouveau test E2E
+
+1. Créer script `tests/e2e/scenario_[nom].sh`
+2. Utiliser structure standardisée :
+   ```bash
+   #!/usr/bin/env bash
+   set -euo pipefail
+   PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+   cd "$PROJECT_ROOT"
+
+   echo "Scénario : [Description]"
+
+   # ... vos tests ...
+
+   echo "✅ Scénario [nom] OK"
+   ```
+3. Ajouter dans `ci_runner.sh` (array SCENARIOS)
+4. Tester localement : `./tests/e2e/ci_runner.sh`
+5. Commit et pusher (CI exécutera automatiquement)
+
+### CI Integration
+
+Tests E2E exécutés automatiquement sur :
+- ✅ Push vers `draft` ou `main`
+- ✅ Pull Requests
+- ✅ Job séparé dans GitHub Actions
+- ✅ Rapport HTML disponible dans Actions artifacts (30 jours)
+
+**En cas d'échec** :
+1. Consulter logs CI (onglet Actions)
+2. Télécharger artefact `e2e-report`
+3. Ouvrir `e2e-report.html` localement
+4. Reproduire scénario échoué en local
+5. Corriger et repousher
+
+**Temps CI E2E** : ~2 min (9 scénarios séquentiels)
+
+---
+
 ## Règles de validation des PR
 
 Chaque PR est vérifiée automatiquement (CI) et manuellement (Bertrand/Alex) :
