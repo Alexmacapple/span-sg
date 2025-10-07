@@ -27,11 +27,26 @@ Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/
    - Windows : [docs.docker.com/desktop/install/windows-install](https://docs.docker.com/desktop/install/windows-install/)
    - Linux : [docs.docker.com/engine/install](https://docs.docker.com/engine/install/)
 
-2. **Démarrer Docker Desktop**
+2. **Installer dépendances système** (optionnel, si vous voulez run scripts localement)
+
+   **macOS** :
+   ```bash
+   brew install qpdf
+   ```
+
+   **Ubuntu/Debian** :
+   ```bash
+   sudo apt-get install qpdf
+   ```
+
+   **Note** : Requis pour le script `enrich_pdf_metadata.py` (métadonnées PDF).
+   Docker inclut déjà ces dépendances.
+
+3. **Démarrer Docker Desktop**
    - Ouvrir l'application Docker Desktop
    - Attendre que l'icône dans la barre de menu affiche "Docker Desktop is running"
 
-3. **Vérifier que Docker fonctionne**
+4. **Vérifier que Docker fonctionne**
    ```bash
    docker --version
    # Attendu : Docker version 20.x ou supérieur
