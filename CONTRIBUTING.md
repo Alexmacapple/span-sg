@@ -109,6 +109,50 @@ Sur GitHub :
 
 ---
 
+## Tests et Coverage
+
+### Exécuter tests localement
+
+```bash
+# Tests unitaires seuls
+pytest scripts/test_*.py -v
+
+# Tests avec coverage production (89%+ requis)
+./scripts/check_coverage.sh
+
+# Générer rapport HTML
+pytest --cov=scripts --cov-report=html scripts/test_*.py
+open htmlcov/index.html
+```
+
+### Objectif Coverage
+
+**Scripts production** : 89%+ obligatoire (calculate_scores, enrich_pdf_metadata)
+- CI bloquée si coverage < 89%
+- Configuration .coveragerc exclut scripts dev + __main__ blocks
+- Rapport généré automatiquement dans Actions
+
+**Scripts développement** : Non requis (add-bmad-headers, evaluate-bmad-final)
+- Outils internes, non utilisés en production
+- Tests optionnels
+
+### Ajouter nouveaux tests
+
+1. Créer fichier `test_[module].py` dans `scripts/`
+2. Run coverage : `./scripts/check_coverage.sh`
+3. Viser 89%+ pour modules production
+4. Commit avec tests inclus
+
+### Note Coverage ImportError
+
+Les lignes 23-26 de `enrich_pdf_metadata.py` (ImportError pikepdf) ne sont pas testées :
+- Import top-level difficile à mocker proprement
+- pikepdf toujours installé (requirements.txt + CI + Docker)
+- Edge case non critique (erreur claire si pikepdf absent)
+- Coverage production scripts : 89.6% acceptable
+
+---
+
 ## Règles de validation des PR
 
 Chaque PR est vérifiée automatiquement (CI) et manuellement (Bertrand/Alex) :
