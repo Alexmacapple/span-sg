@@ -264,7 +264,7 @@ Préparer fiche récap (lire depuis synthese.md ou calculer) :
 **Q2 : "Les 6 points non cochés SIRCOM / 10 points SNUM, c'est un problème pour la conformité ?"**
 
 **Réponse préparée** :
-> "**Non, c'est transparent et acceptable pour v1.0**. Les points non cochés sont **justifiés** dans le contenu (ex: 'Budget annuel à documenter'). Sources SPAN sont des politiques stratégiques, pas des réponses exhaustives aux 31 points DINUM. Les gaps identifiés = feuille de route Phase 2 claire. **Approche pragmatique** : SPAN n'est pas une certification RGAA, mais un outil de pilotage. 25/31 SIRCOM (80%) démontre engagement sérieux. Points manquants = souvent administratifs (grille recrutement RH, tests utilisateurs à planifier) vs techniques."
+> "**Non, c'est transparent et acceptable pour v1.0**. Les points non cochés sont **justifiés** dans le contenu (ex: 'Budget annuel à documenter'). Sources SPAN sont des politiques stratégiques, pas des réponses exhaustives aux 31 points DINUM. Les gaps identifiés = feuille de route Phase 2 claire. **Approche pragmatique** : SPAN n'est pas une certification RGAA, mais un outil de pilotage. 24/31 SIRCOM (77%) démontre engagement sérieux. Points manquants = souvent administratifs (grille recrutement RH, tests utilisateurs à planifier) vs techniques."
 
 **Argument complémentaire** : Scoring automatisé permet tracking progression facilement (re-cocher points quand info disponible).
 
