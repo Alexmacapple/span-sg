@@ -12,6 +12,10 @@ validation: human-qa
 **Priorité** : Critique (mise en ligne)
 **Estimation** : 1h30-2h
 
+**Note POC** : Ce roadmap décrit le processus publication main complet.
+Pour POC v1.0.0, publication draft uniquement (pas de merge main prévu).
+Scores historiques roadmap conservés (référence processus standard).
+
 ---
 
 ## Contexte projet

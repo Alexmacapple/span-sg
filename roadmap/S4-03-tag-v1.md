@@ -88,9 +88,9 @@ Ajouter en tête de CHANGELOG (après ligne 3) :
 **⚠️ VERSION HYBRID - Contenus partiellement validés**
 
 ### Modules RÉELS (mappés depuis SPAN officiels)
-- ✅ **SIRCOM** : 25/31 points validés (80.6%) - source : span-sircom-sg.md
+- ✅ **SIRCOM** : 24/31 points validés (77.4%) - source : span-sircom-sg.md
 - ✅ **SNUM Portailpro.gouv** : 21/31 points validés (67.7%) - source : span-portail-pro.sg.md
-- **Total validés : 46/62 (74.2%)**
+- **Total validés : 45/62 (72.6%)**
 
 ### Modules EN COURS (structure framework)
 - 🔄 SRH, SIEP, SAFI, BGS : Structure framework présente, contenus à renseigner (0/124 points)
@@ -181,7 +181,7 @@ git status
 git add CHANGELOG.md
 git commit -m "docs(changelog): ajoute section v1.0.0 hybrid
 
-- 2 modules validés SIRCOM/SNUM (46/62 points)
+- 2 modules validés SIRCOM/SNUM (45/62 points)
 - 4 modules en cours (structure framework)
 - Infrastructure production-ready (CI, PDF, scoring)
 - Roadmaps S4 complétées
@@ -200,7 +200,7 @@ git tag -a v1.0.0 -m "Release SPAN SG v1.0.0 - Framework Production Hybrid
 Version 1.0.0 : Framework technique complet + 2 modules services validés.
 
 Modules validés :
-- SIRCOM : 25/31 (80.6%)
+- SIRCOM : 24/31 (77.4%)
 - SNUM Portailpro.gouv : 21/31 (67.7%)
 
 Modules en cours :
@@ -321,7 +321,7 @@ git push origin draft
 ### CHANGELOG
 - [ ] Section v1.0.0 ajoutée en tête (après titre, avant v0.2.0)
 - [ ] Format hybrid avec disclaimers ⚠️ et checkmarks ✅
-- [ ] Modules réels listés avec scores (SIRCOM 25/31, SNUM 21/31)
+- [ ] Modules réels listés avec scores (SIRCOM 24/31, SNUM 21/31)
 - [ ] Modules en cours listés (SRH, SIEP, SAFI, BGS)
 - [ ] Infrastructure détaillée (CI, tests, PDF, scoring)
 - [ ] Roadmaps S4 mentionnées (S4-00 à S4-04)
@@ -462,7 +462,7 @@ Informer Bertrand/Alexandra :
 Le tag v1.0.0 a été créé sur draft.
 
 Contenu :
-- SIRCOM : 25/31 (80.6%)
+- SIRCOM : 24/31 (77.4%)
 - SNUM : 21/31 (67.7%)
 - 4 modules en cours (SRH, SIEP, SAFI, BGS)
 
