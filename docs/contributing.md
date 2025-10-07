@@ -51,7 +51,7 @@ Sur la page suivante :
 Bertrand ou Alex reviendra la PR et la mergera si OK.
 Vous recevrez une notification par email.
 
-La preview sera visible sur : https://alexmacapple.github.io/span-sg-repo/draft/
+Preview désactivée : revue locale/PDF. Voir `docs/dev-local.md` et `.github/PAGES-ACCESS-CHECKLIST.md`.
 
 ---
 
@@ -161,7 +161,7 @@ Service modifie son module
           ↓
 Revue Bertrand/Alex
           ↓
-Merge dans draft → Preview privée
+Merge dans draft → Revue locale/PDF (sans Pages)
           ↓
 PR draft → main (mensuel)
           ↓

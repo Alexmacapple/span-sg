@@ -8,10 +8,8 @@
 ## Situation actuelle
 
 **Repo** : Public
-**GitHub Pages** : Activé (gratuit pour repos publics)
-**URLs déployées** :
-- Draft : https://alexmacapple.github.io/span-sg-repo/draft/
-- Production : https://alexmacapple.github.io/span-sg-repo/
+**GitHub Pages** : Désactivé (pas de preview publique avant validation)
+**Preview** : Revue locale/PDF (voir `docs/dev-local.md`)
 
 **Problème** : Les URLs sont **accessibles publiquement** par tout le monde (pas de restriction d'accès).
 
@@ -243,13 +241,12 @@ gh repo edit Alexmacapple/span-sg-repo --visibility private --accept-visibility-
 
 ## Décision pour SPAN SG
 
-**Option actuellement en place** : **Option 3** (Repo public)
+**Option actuellement en place** : Sans Pages — revue locale/PDF (prépublication)
 
 **Raison** :
-1. Contenu SPAN SG = données publiques (accessibilité numérique, conformité DINUM)
-2. Budget limité (plan GitHub Free)
-3. Besoin URL partageable pour validateurs (Bertrand, Alex, Yves)
-4. Transparence administration publique
+1. Éviter toute exposition publique avant validation
+2. Plan GitHub Free (pas de Pages privées)
+3. Revue interne via `mkdocs serve` et PDF CI
 
 **Action si changement requis** :
 - Contacter Alexandra pour décision sponsor Yves

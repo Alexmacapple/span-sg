@@ -1,5 +1,7 @@
 # Présentation Sponsor SPAN SG v1.0 (12 slides)
 
+> Note de politique – 2025-10-07: La preview GitHub Pages est désactivée (dépôt public). Revue en local via `mkdocs serve` et via le PDF généré par la CI. Les mentions de preview privée restent pour contexte si passage ultérieur à une organisation/Enterprise.
+
 Template de présentation reveal.js pour Story S4-02 - Validation Yves
 
 ---

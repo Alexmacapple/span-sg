@@ -1,5 +1,7 @@
 site_name: SPAN SG
+# TODO-2025-10-07: site_url vérifié (public, repo personnel)
 site_url: https://alexmacapple.github.io/span-sg-repo/
+# TODO-2025-10-07: repo_url vérifié
 repo_url: https://github.com/Alexmacapple/span-sg-repo
 strict: true
 

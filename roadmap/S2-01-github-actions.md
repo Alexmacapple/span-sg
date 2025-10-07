@@ -8,6 +8,8 @@ validation: human-qa
 
 # Story S2-01 : Configuration GitHub Actions CI/CD
 
+> Note de politique – 2025-10-07: La preview GitHub Pages est désactivée pour éviter toute exposition publique. Revue en local (`mkdocs serve`) et via le PDF CI. Ce document reste pour référence si la politique change (repo privé/org ou Enterprise).
+
 **Phase** : Semaine 2 - Automatisation
 **Priorité** : Critique
 **Estimation** : 2h

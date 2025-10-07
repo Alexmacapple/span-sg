@@ -68,5 +68,14 @@ mkdocs build --config-file mkdocs-pdf.yml
 | Environnement | URL |
 |---|---|
 | **Local** | http://localhost:8000/span-sg-repo/ |
-| **Draft (preview)** | https://alexmacapple.github.io/span-sg-repo/draft/ |
+| **Draft (preview)** | Désactivé — revue locale/PDF (voir `.github/PAGES-ACCESS-CHECKLIST.md`) |
 | **Production** | https://alexmacapple.github.io/span-sg-repo/ |
+
+## Revue locale et PDF (sans Pages)
+
+Objectif: éviter toute exposition publique avant validation.
+
+- Prévisualisation locale: `mkdocs serve -f mkdocs.yml -a 0.0.0.0:8000`
+- Build strict local: `mkdocs build -f mkdocs.yml`
+- PDF pour revue: `mkdocs build -f mkdocs-pdf.yml` ou récupérer l’artefact CI (`scripts/download_latest_pdf.sh`)
+- Ne pas activer GitHub Pages tant que le contenu n’est pas validé. Consulter `.github/PAGES-ACCESS-CHECKLIST.md` (scénario B).

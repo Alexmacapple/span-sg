@@ -10,12 +10,12 @@ Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/
 
 - **2 modules validés** : SIRCOM (24/31 - 77.4%), SNUM (21/31 - 67.7%)
 - **4 modules en cours** : SRH, SIEP, SAFI, BGS (structure créée, 0/31)
-- **Infrastructure opérationnelle** : CI/CD, tests E2E, preview privée, génération PDF
+- **Infrastructure opérationnelle** : CI/CD, tests E2E, génération PDF (preview Pages désactivée)
 - **Production** : En attente de validation finale (branche `main` en standby)
 
 ## Liens utiles
 
-- **Preview (draft)** : https://alexmacapple.github.io/span-sg-repo/draft/
+- **Draft (preview)** : Désactivé — revue locale/PDF (voir `.github/PAGES-ACCESS-CHECKLIST.md`)
 - **Production** : https://alexmacapple.github.io/span-sg-repo/
 - **PDF production** : https://github.com/Alexmacapple/span-sg-repo/releases/latest
 
@@ -89,7 +89,8 @@ docker compose down
 
 ## Prochaines étapes vers v1.0 production
 
-1. **Infrastructure** : CI/CD, tests, preview privée → TERMINÉ
+1. **Infrastructure** : CI/CD, tests, génération PDF → TERMINÉ
+   - Politique preview : revue locale/PDF (Pages désactivé) → EN PLACE
 2. **Modules pilotes** : SIRCOM (77.4%), SNUM (67.7%) → VALIDÉS
 3. **Modules restants** : Compléter SRH, SIEP, SAFI, BGS (0/31 actuellement)
 4. **Validation intermédiaire** : Review Bertrand/Alexandra → EN COURS
@@ -233,7 +234,7 @@ docker compose logs mkdocs
 - **PDF manquant** : Utiliser l'impression navigateur sur « Synthèse » (Cmd+P / Ctrl+P) ou vérifier que `exports/span-sg.pdf` existe après `mkdocs build --config-file mkdocs-pdf.yml`
 - **Metadata PDF absentes** : Exécuter `python scripts/enrich_pdf_metadata.py exports/span-sg.pdf` (nécessite `pikepdf`)
 - **Scores incohérents** : S'assurer que seuls les 31 points portent `<!-- DINUM -->`
-- **Preview inaccessible** : Vérifier restriction GitHub Pages à l'organisation et branche `gh-pages`
+- **Preview désactivée** : Utiliser revue locale (`mkdocs serve`) et PDF CI
 - **Docker ne démarre pas** : Vérifier que Docker Desktop est lancé et fonctionnel (`docker ps`)
 - **Dépendances manquantes** : Installer avec `pip install -r requirements.txt`
 
@@ -253,10 +254,9 @@ Pour contribuer au projet, consulter le [Guide contributeur](CONTRIBUTING.md).
 - Chef SNUM: validation finale GO production
 
 
-## preview privée (Pages organisation GitHub)
-- Restreindre l’accès aux membres de l’organisation dans les paramètres Pages
-- Déploiement `draft` vers `gh-pages` sous `draft/`
-- Pas d’identifiants génériques; seuls les comptes org sont autorisés
+## Preview GitHub Pages (note)
+- Ce dépôt public n’active pas Pages pour la preview avant validation.
+- Pour un déploiement Pages privé, voir `.github/PAGES-ACCESS-CHECKLIST.md` (nécessite organisation/Enterprise).
 
 
 ## Checklist GO
@@ -270,4 +270,11 @@ Pour contribuer au projet, consulter le [Guide contributeur](CONTRIBUTING.md).
 - Utiliser `Claude.md` pour Claude Code (format spécifique Anthropic)
 - Conserver le périmètre MVP, ne pas modifier la logique des 31 points DINUM
 
+## Preview et revue (Draft)
 
+Sur ce dépôt public, la preview GitHub Pages est désactivée pour éviter toute exposition avant validation.
+
+- Revue locale: `mkdocs serve -f mkdocs.yml -a 0.0.0.0:8000`
+- Build strict: `mkdocs build -f mkdocs.yml`
+- PDF: `mkdocs build -f mkdocs-pdf.yml` ou artefact CI (voir `scripts/download_latest_pdf.sh`)
+- Politique: consulter `.github/PAGES-ACCESS-CHECKLIST.md` (Scénario B) et `docs/dev-local.md`.

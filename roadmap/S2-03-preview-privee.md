@@ -8,6 +8,8 @@ validation: human-qa
 
 # Story S2-03 : Configuration preview privée GitHub Pages (org-only)
 
+> Note de politique – 2025-10-07: Sur ce dépôt public, la preview GitHub Pages est désactivée. Revue en local via `mkdocs serve` et partage du PDF CI. Ce document reste pour référence historique et cas futurs (organisation/Enterprise).
+
 **Phase** : Semaine 2 - Automatisation
 **Priorité** : Critique
 **Estimation** : 1h
