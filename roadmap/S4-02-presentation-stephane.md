@@ -17,7 +17,7 @@ validation: stephane-go-concept
 ## Contexte projet
 
 **Après S4-01** : Contenus v1.0 finalisés
-- SIRCOM : 25/31 points validés (mapping depuis span-sircom-sg.md)
+- SIRCOM : 24/31 points validés (mapping depuis span-sircom-sg.md)
 - SNUM : 21/31 points validés (mapping depuis span-portail-pro.sg.md)
 - 4 modules en cours validés (SRH, SIEP, SAFI, BGS avec disclaimers)
 - Synthèse générée avec colonne État (✅ Validé / 🔄 En cours)
@@ -100,7 +100,7 @@ Créer support écrit (papier ou fichier) avec les **6 points obligatoires** + t
 | Timing | Élément | URL/Action | Message clé |
 |--------|---------|------------|-------------|
 | 0-3 min | Homepage + disclaimer | Ouvrir https://.../draft/ | "v1.0 hybrid : 2 validés, 4 en cours, framework complet" |
-| 3-7 min | Module SIRCOM (réel) | Cliquer SIRCOM → Scroll 31 points | "25/31 mappés depuis SPAN officiel, sections remplies" |
+| 3-7 min | Module SIRCOM (réel) | Cliquer SIRCOM → Scroll 31 points | "24/31 mappés depuis SPAN officiel, sections remplies" |
 | 7-10 min | Synthèse tableau de bord | Cliquer Synthèse | "Scoring automatisé, colonne État, transparence totale" |
 | 10-12 min | PDF accessible | Télécharger PDF (ou montrer local) | "Export conforme RGAA, métadonnées enrichies" |
 | 12-14 min | CI/CD GitHub Actions | Montrer https://github.com/.../actions | "Tests automatisés 100% PASS, déploiement sécurisé" |
@@ -118,14 +118,14 @@ Préparer fiche récap (lire depuis synthese.md ou calculer) :
 - Architecture modulaire production-ready
 
 **Modules validés (2)** :
-- SIRCOM : 25/31 (80.6%)
+- SIRCOM : 24/31 (77.4%)
 - SNUM Portailpro.gouv : 21/31 (67.7%)
-- **Total validés : 46/62 (74.2%)**
+- **Total validés : 45/62 (72.6%)**
 
 **Modules en cours (4)** :
 - SRH, SIEP, SAFI, BGS : Structure framework, 0/124
 
-**Taux global** : 46/186 (24.7%)
+**Taux global** : 45/186 (24.2%)
 
 **Qualité** :
 - CI/CD : 100% PASS
@@ -169,12 +169,12 @@ Préparer fiche récap (lire depuis synthese.md ou calculer) :
 - Front-matter : service, référent, updated, validation_status
 - 5 sections obligatoires remplies (Périmètre, État, Organisation, Plan, Indicateurs)
 - **Scroll vers les 31 points DINUM** :
-  - Points cochés `[x]` (25/31)
-  - Points non cochés `[ ]` avec justification (6 TODO documentés, ex: "Budget annuel à documenter")
+  - Points cochés `[x]` (24/31)
+  - Points non cochés `[ ]` avec justification (7 TODO documentés, ex: "Budget annuel à documenter")
 - Tableaux périmètre et plan d'action 2025 remplis
 
 **Message clé** :
-> "SIRCOM : 25/31 points validés, mappés depuis SPAN officiel (span-sircom-sg.md). Les 6 points non cochés sont justifiés (informations manquantes sources, à compléter Phase 2). Contenu professionnel, traçabilité complète."
+> "SIRCOM : 24/31 points validés, mappés depuis SPAN officiel (span-sircom-sg.md). Les 7 points non cochés sont justifiés (informations manquantes sources, à compléter Phase 2). Contenu professionnel, traçabilité complète."
 
 **Anecdote si pertinent** : Montrer 1-2 exemples concrets de points validés (ex: "Référent désigné : Pôle web SG/SIRCOM").
 
@@ -188,11 +188,11 @@ Préparer fiche récap (lire depuis synthese.md ou calculer) :
   - Colonnes : Service | Score | Statut | **État**
   - SIRCOM, SNUM : ✅ Validé
   - SRH, SIEP, SAFI, BGS : 🔄 En cours
-- Score global : 46/186 (24.7%)
+- Score global : 45/186 (24.2%)
 - Date mise à jour
 
 **Message clé** :
-> "Scoring automatisé via CI (calculate_scores.py). Colonne État distingue modules validés vs en cours. Transparence totale : 24.7% global reflète stratégie hybrid (2/6 modules opérationnels). Progression trackable, ré-exécution automatique à chaque commit."
+> "Scoring automatisé via CI (calculate_scores.py). Colonne État distingue modules validés vs en cours. Transparence totale : 24.2% global reflète stratégie hybrid (2/6 modules opérationnels). Progression trackable, ré-exécution automatique à chaque commit."
 
 **4. PDF export accessible (10-12 min)**
 
