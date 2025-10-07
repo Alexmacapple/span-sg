@@ -2,12 +2,18 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Version: 1.1
-Date: 2025-09-30
+Version: 1.2
+Date: 2025-10-07
 
 ## Langue et ton
 - Répondre en français, sans émojis, concision.
 - Respecter strictement le MVP et le cahier des charges.
+
+## Règle stricte : Aucun émoji
+- **JAMAIS d'émojis dans les fichiers Markdown** (✅ ❌ ⚠️ 🔄 ✓ ☑ ✏️ etc.)
+- Exceptions : fichiers roadmap/ et inspiration/ (archives projet)
+- Concerné : docs/, README.md, CONTRIBUTING.md, CHANGELOG.md, modules
+- Remplacement : texte descriptif ("Validé", "En cours", "Conforme")
 
 ## Commandes essentielles
 
