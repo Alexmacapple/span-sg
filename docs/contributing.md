@@ -17,28 +17,28 @@ https://github.com/Alexmacapple/span-sg-repo/blob/draft/docs/modules/[votre-serv
 
 Exemple : `sircom.md`, `snum.md`, `srh.md`, etc.
 
-### 2. Cliquer sur l'icône ✏️ (Edit this file)
+### 2. Cliquer sur "Edit this file"
 
-En haut à droite du fichier.
+En haut à droite du fichier (icône crayon).
 
 ### 3. Modifier le contenu
 
 **Ce que vous pouvez faire** :
-- ✅ Cocher des cases `[x]` dans les 31 points DINUM
-- ✅ Compléter les sections 1-5 (Périmètre, État des lieux, Organisation, Plan d'action, Indicateurs)
-- ✅ Ajouter des actions au tableau "Plan d'actions prioritaires"
-- ✅ Renseigner l'URL de déclaration d'accessibilité
+- Cocher des cases `[x]` dans les 31 points DINUM
+- Compléter les sections 1-5 (Périmètre, État des lieux, Organisation, Plan d'action, Indicateurs)
+- Ajouter des actions au tableau "Plan d'actions prioritaires"
+- Renseigner l'URL de déclaration d'accessibilité
 
 **Ce que vous ne devez PAS faire** :
-- ❌ Ajouter/supprimer des lignes `<!-- DINUM -->`
-- ❌ Modifier la structure (titres des sections)
-- ❌ Toucher au front-matter (section `---` en haut)
+- Ajouter/supprimer des lignes `<!-- DINUM -->`
+- Modifier la structure (titres des sections)
+- Toucher au front-matter (section `---` en haut)
 
 ### 4. Sauvegarder et créer la Pull Request
 
 En bas de la page :
 - **Commit message** : `feat(sircom): ajoute 3 actions au plan 2025` (exemple)
-- ☑ **Create a new branch** : `update-sircom-[date]`
+- Cocher **Create a new branch** : `update-sircom-[date]`
 - Cliquer **Propose changes**
 
 Sur la page suivante :
@@ -114,14 +114,14 @@ Sur GitHub :
 Si vous contribuez au code Python (`scripts/`), suivez ces règles :
 
 ### Tests unitaires
-- ✅ Exécuter les tests avant commit : `pytest scripts/ -v --cov=scripts`
-- ✅ Coverage minimum : ≥85% global, ≥90% pour calculate_scores.py
-- ✅ Tous les tests doivent passer
+- Exécuter les tests avant commit : `pytest scripts/ -v --cov=scripts`
+- Coverage minimum : ≥85% global, ≥90% pour calculate_scores.py
+- Tous les tests doivent passer
 
 ### Formatting et linting
-- ✅ Formater avec Black : `black scripts/`
-- ✅ Vérifier avec Ruff : `ruff check scripts/`
-- ✅ Hooks pre-commit : `pre-commit install` (recommandé)
+- Formater avec Black : `black scripts/`
+- Vérifier avec Ruff : `ruff check scripts/`
+- Hooks pre-commit : `pre-commit install` (recommandé)
 
 ### Installation environnement dev
 ```bash
@@ -138,17 +138,17 @@ Les hooks pre-commit exécutent automatiquement Black et Ruff avant chaque commi
 Chaque PR est vérifiée automatiquement (CI) et manuellement (Bertrand/Alex) :
 
 ### Vérifications automatiques (CI)
-- ✅ Tests unitaires Python (pytest)
-- ✅ Formatting Black et linting Ruff
-- ✅ Exactement 31 points `<!-- DINUM -->` présents (ou 0 si module vide)
-- ✅ Pas de liens cassés (mode strict MkDocs)
-- ✅ Synthèse recalculée sans erreur
+- Tests unitaires Python (pytest)
+- Formatting Black et linting Ruff
+- Exactement 31 points `<!-- DINUM -->` présents (ou 0 si module vide)
+- Pas de liens cassés (mode strict MkDocs)
+- Synthèse recalculée sans erreur
 
 ### Vérifications manuelles
-- ✅ Front-matter à jour (service, referent, updated)
-- ✅ Contenu cohérent et de qualité
-- ✅ Blocs légaux remplis (déclaration accessibilité)
-- ✅ Pas de secrets/informations sensibles
+- Front-matter à jour (service, referent, updated)
+- Contenu cohérent et de qualité
+- Blocs légaux remplis (déclaration accessibilité)
+- Pas de secrets/informations sensibles
 
 ---
 

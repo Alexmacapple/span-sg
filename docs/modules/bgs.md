@@ -7,7 +7,7 @@ validation_status: in_progress
 
 # SPAN BGS - Schéma Pluriannuel d'accessibilité numérique
 
-> 🔄 **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
+> **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
 
 **Période** 2025-2027
 **Service** Bureau de Gestion des Services (BGS)
