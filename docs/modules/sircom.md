@@ -9,7 +9,7 @@ validation_status: validated
 
 **Période** 2024-2027
 **Service** SG-SIRCOM (Secrétariat Général - Service de la Communication)
-**Score global** 25/31 questions validées (80.6%)
+**Score global** 24/31 questions validées (77.4%)
 **Dernière mise à jour** 2 octobre 2025
 
 
