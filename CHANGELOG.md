@@ -52,12 +52,58 @@ Valider faisabilité architecture modulaire + scoring automatisé + CI/CD comple
 
 ---
 
+## v1.0.0 – 2025-10-07
+
+**Release officielle** : POC Production-Ready (Score 97/100)
+
+### Objectif
+Officialiser le POC (Proof of Concept) démontrant la faisabilité technique du framework SPAN SG avec infrastructure production-ready.
+
+### Infrastructure Production-Ready
+- ✅ Score qualité : 97/100 (Tests 19/20, Sécurité 20/20, Documentation 20/20)
+- ✅ CI/CD 100% automatisé (GitHub Actions)
+- ✅ Tests E2E automatisés CI (9 scénarios + reporting HTML)
+- ✅ Sécurité renforcée (Dependabot + SECURITY.md + BFG guide)
+- ✅ Documentation maintenabilité (CHANGELOG + MIGRATION + versioning)
+- ✅ Coverage tests 89%+ scripts production
+
+### Modules Validés
+- **SIRCOM** : 24/31 (77.4%) - Contenu réel mappé
+- **SNUM Portailpro.gouv** : 21/31 (67.7%) - Contenu réel mappé
+- **SRH, SIEP, SAFI, BGS** : 0/124 - Structure framework présente
+- **Total démonstration** : 45/186 (24.2%)
+
+### Roadmaps Complétées
+- **32 roadmaps archivées** : Sprints 0-6 terminés
+- **Sprint 6 Tech First** : Tests E2E CI + Sécurité + Documentation (+3 points)
+- **POC-FINALISATION** : Merge draft → main, tag v1.0.0, GitHub Release
+
+### Documentation
+- CONTRIBUTING.md : Guide contributeur Option A + B
+- CHANGELOG.md : Historique complet Keep a Changelog
+- MIGRATION.md : Guides upgrade path v0.x→v1.0
+- SECURITY.md : Responsible disclosure policy
+- Guide mapping : roadmap/archive/S4-00 (~400 lignes)
+- ROADMAP-INDEX.md : Master index + parcours recommandés
+
+### Déploiement
+- Production : https://alexmacapple.github.io/span-sg-repo/
+- Release : https://github.com/Alexmacapple/span-sg-repo/releases/tag/v1.0.0
+- PDF : exports/span-sg.pdf (3 MB, joint à release)
+
+### Prochaines Étapes (Optionnelles)
+- Modules : Complétion BGS, SAFI, SIEP, SRH (S6-03 à S6-06) → 90.9%
+- Infrastructure : Notifications CI + Rollback (S6-02)
+- v2.0.0 : Migration DSFR complet (S7-01, après .gouv.fr)
+
+---
+
 ## [Unreleased] – En développement (branche draft)
 
 ### Prévu
-- Release v1.0.0 officielle (POC-FINALISATION)
 - Complétion modules optionnels BGS, SAFI, SIEP, SRH (S6-03 à S6-06)
 - Notifications CI + Rollback automatique (S6-02, optionnel)
+- Migration DSFR (S7-01, après .gouv.fr confirmé)
 
 ---
 
