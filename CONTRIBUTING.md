@@ -258,10 +258,55 @@ Présentation Stéphane → Validation Chef SNUM → Production
 
 ---
 
+## Sécurité
+
+### Signaler une Vulnérabilité
+
+**Ne créez PAS d'issue publique pour les vulnérabilités de sécurité.**
+
+Consultez [SECURITY.md](SECURITY.md) pour la procédure de responsible disclosure.
+
+### Dependabot
+
+Le projet utilise Dependabot pour détecter automatiquement les vulnérabilités :
+- **Scan hebdomadaire** : Lundi 9h (dépendances Python + GitHub Actions)
+- **PR automatiques** : Vulnérabilités CVE créent des PR immédiatement
+- **Labels** : `dependencies`, `security`, `ci`
+
+**Reviewer PR Dependabot** :
+1. Consulter CHANGELOG dépendance mise à jour
+2. Vérifier breaking changes
+3. Tester localement si changements majeurs
+4. Merger si CI passe
+
+### Secrets et Données Sensibles
+
+**Interdictions strictes** :
+- ❌ Committer secrets (tokens, passwords, API keys)
+- ❌ Committer données personnelles
+- ❌ Committer fichiers sensibles (même temporairement)
+
+**Si secret committé par erreur** :
+1. Ne pas simplement supprimer (reste dans historique Git)
+2. Suivre guide BFG : `docs/security/bfg-purge-guide.md`
+3. Révoquer immédiatement secret compromis
+4. Notifier équipe sécurité
+
+### Bonnes Pratiques
+
+- ✅ Utiliser variables d'environnement pour secrets locaux
+- ✅ Vérifier `.gitignore` avant commit
+- ✅ Run `git diff --cached` avant push
+- ✅ Activer notifications Dependabot
+- ✅ Maintenir dépendances à jour (merge PR Dependabot régulièrement)
+
+---
+
 ## Besoin d'aide ?
 
 - **Questions techniques** : Bertrand (@bertrand), Alex (@alex)
 - **Questions contenu** : Alexandra (@alexandra)
+- **Vulnérabilités sécurité** : Voir [SECURITY.md](SECURITY.md)
 - **Issues GitHub** : https://github.com/Alexmacapple/span-sg-repo/issues
 
 ---

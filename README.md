@@ -239,6 +239,19 @@ docker compose logs mkdocs
 - **Docker ne démarre pas** : Vérifier que Docker Desktop est lancé et fonctionnel (`docker ps`)
 - **Dépendances manquantes** : Installer avec `pip install -r requirements.txt`
 
+## Sécurité
+
+Pour signaler une vulnérabilité, consultez [SECURITY.md](SECURITY.md).
+
+**Ne créez PAS d'issue publique pour les vulnérabilités.**
+
+### Mesures de Sécurité
+
+- **Dependabot** : Scan automatique hebdomadaire (vulnérabilités CVE)
+- **Security alerts** : Notifications activées
+- **Git history** : Nettoyé (fichiers sensibles purgés)
+- **CI/CD** : Validation automatique (linter, tests)
+
 ## Contribution
 
 Pour contribuer au projet, consulter le [Guide contributeur](CONTRIBUTING.md).
