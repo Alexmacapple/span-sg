@@ -6,6 +6,52 @@ Format basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
 ---
 
+## v1.0.0-poc – 2025-10-07
+
+**POC (Proof of Concept)** : Démonstration technique framework SPAN SG
+
+### Objectif POC
+Valider faisabilité architecture modulaire + scoring automatisé + CI/CD complet.
+
+### Modules démonstration
+- **SIRCOM** : 24/31 (77.4%) - Contenu réel mappé depuis span-sircom-sg.md
+- **SNUM Portailpro.gouv** : 21/31 (67.7%) - Contenu réel mappé depuis span-portail-pro.sg.md
+- **SRH, SIEP, SAFI, BGS** : Structure framework présente (0/124)
+- **Total démonstration** : 45/186 (24.2%)
+
+### Infrastructure validée POC
+- CI/CD 100% automatisé (GitHub Actions)
+- Tests unitaires (18) + E2E (9 scénarios)
+- Export PDF accessible avec métadonnées enrichies
+- Scoring automatisé avec colonne État (Validé / En cours)
+- Preview privée GitHub Pages
+
+### Documentation
+- CONTRIBUTING.md (workflow contributeur Option A + B)
+- Guide mapping détaillé (roadmap/S4-00, ~400 lignes)
+- 6 modules structurés (5 sections + 31 points DINUM)
+- Template PR, tests README, agents instructions
+
+### Roadmaps BMAD complétées
+- S4-00 : Guide mapping assisté
+- S4-01 : Review contenus finalisés
+- S4-02 : Auto-validation technique
+- S4-03 : Tag v1.0.0-poc
+- S4-04 : Publication draft POC
+
+### Statut projet
+- Déploiement : GitHub Pages draft uniquement (/draft/)
+- Production : Non applicable (POC technique)
+- Évolution : Framework prêt pour adaptation projet réel
+
+### Prochaines étapes (si projet réel)
+- Onboarding référents services (4 modules en cours)
+- Audit RGAA externe (framework + modules validés)
+- Migration organisation GitHub (restrictions Pages)
+- Communication interne après validation sponsor
+
+---
+
 ## [Unreleased] – En développement (branche draft)
 
 ### Ajouté
