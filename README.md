@@ -7,12 +7,13 @@ Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/
 
 ## État actuel du projet (07/10/2025)
 
-**Version en développement** : Branche `draft` active avec 45/186 points validés (24.2%)
+**Version POC** : v1.0.2-poc - Sprint 6 Tech First terminé (Score 97/100)
 
+- **Infrastructure** : Production-ready (CI/CD, tests E2E automatisés, sécurité renforcée)
 - **2 modules validés** : SIRCOM (24/31 - 77.4%), SNUM (21/31 - 67.7%)
-- **4 modules en cours** : SRH, SIEP, SAFI, BGS (structure créée, 0/31)
-- **Infrastructure opérationnelle** : CI/CD, tests E2E, génération PDF (preview Pages désactivée)
-- **Production** : En attente de validation finale (branche `main` en standby)
+- **4 modules optionnels** : BGS, SAFI, SIEP, SRH (structure créée, enrichissement progressif)
+- **Roadmaps** : 32 archivées (Sprints 0-6), 5 actives (modules optionnels)
+- **Prochaine étape** : Release v1.0.0 officielle (merge draft → main)
 
 ## Liens utiles
 
@@ -90,16 +91,22 @@ docker compose up -d
 docker compose down
 ```
 
-## Prochaines étapes vers v1.0 production
+## Sprint 6 Tech First - Terminé (Score 97/100)
 
-1. **Infrastructure** : CI/CD, tests, génération PDF → TERMINÉ
-   - Politique preview : revue locale/PDF (Pages désactivé) → EN PLACE
-2. **Modules pilotes** : SIRCOM (77.4%), SNUM (67.7%) → VALIDÉS
-3. **Modules restants** : Compléter SRH, SIEP, SAFI, BGS (0/31 actuellement)
-4. **Validation intermédiaire** : Review Bertrand/Alexandra → EN COURS
-5. **Présentation Stéphane** : Validation conceptuelle (roadmap S4-02)
-6. **Tag v1.0.0** : Création release après validation finale (roadmap S4-03)
-7. **Production** : Merge `draft` → `main` + déploiement (roadmap S4-04)
+**Infrastructure production-ready** :
+1. [COMPLETE] Tests E2E automatisés CI (S6-01) - Job GitHub Actions + reporting HTML
+2. [COMPLETE] Renforcement sécurité (S6-07) - Dependabot + SECURITY.md + guide BFG
+3. [COMPLETE] Documentation maintenabilité (S6-08) - CHANGELOG + MIGRATION + versioning
+
+**Roadmaps organisées** :
+- 32 roadmaps archivées (Sprints 0-6 terminés)
+- Structure unifiée `roadmap/archive/`
+- ROADMAP-INDEX.md créé (master index)
+
+**Prochaines étapes** :
+1. **POC-FINALISATION** : Release v1.0.0 officielle (merge draft → main, GitHub Release)
+2. **Modules optionnels** (P1) : Compléter BGS, SAFI, SIEP, SRH (S6-03 à S6-06)
+3. **Infrastructure optionnelle** (P3) : Notifications CI + Rollback (S6-02)
 
 ## Commandes utiles
 

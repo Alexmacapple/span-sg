@@ -54,6 +54,42 @@ Valider faisabilité architecture modulaire + scoring automatisé + CI/CD comple
 
 ## [Unreleased] – En développement (branche draft)
 
+### Prévu
+- Release v1.0.0 officielle (POC-FINALISATION)
+- Complétion modules optionnels BGS, SAFI, SIEP, SRH (S6-03 à S6-06)
+- Notifications CI + Rollback automatique (S6-02, optionnel)
+
+---
+
+## v1.0.2-poc – 2025-10-07
+
+**Roadmaps cleanup** : Organisation structure + suppression emojis
+
+### Modifié
+- **Suppression emojis roadmaps** : Remplacement par tags texte [COMPLETE], [EN-COURS], [NON-FAIT]
+  - roadmap/POC-FINALISATION.md
+  - roadmap/ROADMAP-INDEX.md
+  - roadmap/archive/README.md
+- **Organisation roadmaps** :
+  - 32 roadmaps archivées (Sprints 0-6 terminés) → roadmap/archive/
+  - 29 roadmaps supprimées de racine (déjà archivées)
+  - Fusion archives/ → archive/ (s3-skipped)
+  - Création ROADMAP-INDEX.md (master index, parcours recommandés)
+- **.gitignore** : Ajout `*.pdf` et `tests/e2e/reports/`
+
+### Score
+- Score qualité : 97/100 (maintenu)
+- Contenu : 45/186 (24.2%)
+
+### Conformité
+- CLAUDE.md : Pas d'emojis dans .md roadmap
+
+---
+
+## v1.0.1-poc – 2025-10-07
+
+**Sprint 6 Tech First terminé** : Score qualité 97/100 (+3 points)
+
 ### Ajouté
 - **Tests E2E automatisés CI** (S6-01) : Job GitHub Actions séparé avec reporting HTML
   - Script orchestrateur `tests/e2e/ci_runner.sh` (9 scénarios)
@@ -88,10 +124,16 @@ Valider faisabilité architecture modulaire + scoring automatisé + CI/CD comple
 - SRH, SIEP, SAFI, BGS : 0/31 - En cours
 
 ### Score Qualité Projet
-- **96/100** (après S6-01 + S6-07)
+- **97/100** (après S6-01 + S6-07 + S6-08)
 - Tests : 17/20 → 19/20 (+2 points E2E CI)
 - Sécurité : 18/20 → 20/20 (+2 points Dependabot + SECURITY.md)
 - Maintenabilité : 19/20 → 20/20 (+1 point CHANGELOG + MIGRATION)
+
+### Roadmaps
+- S6-01 : Tests E2E automatisés CI
+- S6-07 : Renforcement sécurité
+- S6-08 : Documentation maintenabilité
+- 32 roadmaps archivées (Sprints 0-6 complétés)
 
 ---
 
