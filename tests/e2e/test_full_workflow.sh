@@ -39,16 +39,16 @@ run_test "Backup module SIRCOM" \
     "cp docs/modules/sircom.md $TEMP_DIR/sircom-backup.md"
 
 # Test 2 : Modifier SIRCOM (cocher 1 point)
-run_test "Modifier SIRCOM (cocher point 7)" \
-    "sed -i 's/- \[ \] Budget annuel dédié/- [x] Budget annuel dédié/' docs/modules/sircom.md"
+run_test "Modifier SIRCOM (cocher Grille recrutement)" \
+    "sed -i 's/- \[ \] Grille de recrutement intégrant/- [x] Grille de recrutement intégrant/' docs/modules/sircom.md"
 
 # Test 3 : Recalculer scores
 run_test "Recalculer scores" \
     "python3 scripts/calculate_scores.py"
 
-# Test 4 : Vérifier score SIRCOM augmenté (base 7/31 + 1 = 8/31)
-run_test "Vérifier score SIRCOM = 8/31" \
-    "grep -q '| SIRCOM | 8/31' docs/synthese.md"
+# Test 4 : Vérifier score SIRCOM augmenté (base 24/31 + 1 = 25/31)
+run_test "Vérifier score SIRCOM = 25/31" \
+    "grep -q '| SIRCOM | 25/31' docs/synthese.md"
 
 # Test 5 : Build site MkDocs
 run_test "Build site MkDocs" \
@@ -80,9 +80,9 @@ run_test "Restaurer SIRCOM" \
 run_test "Re-calculer scores après restauration" \
     "python3 scripts/calculate_scores.py"
 
-# Test 11 : Vérifier score SIRCOM restauré (7/31 actuel)
-run_test "Vérifier score SIRCOM = 7/31 (restauré)" \
-    "grep -q '| SIRCOM | 7/31' docs/synthese.md"
+# Test 11 : Vérifier score SIRCOM restauré (24/31 actuel)
+run_test "Vérifier score SIRCOM = 24/31 (restauré)" \
+    "grep -q '| SIRCOM | 24/31' docs/synthese.md"
 
 # Résumé
 echo ""
