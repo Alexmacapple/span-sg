@@ -30,13 +30,13 @@ def get_validation_status(p: Path) -> str:
         if status_match:
             status = status_match.group(1).lower()
             if status == "validated":
-                return "✅ Validé"
+                return "Validé"
             elif status == "in_progress":
-                return "🔄 En cours"
+                return "En cours"
             elif status == "draft":
-                return "⚪ Brouillon"
+                return "Brouillon"
     # Fallback if validation_status not found or unrecognized
-    return "⚪ Brouillon"
+    return "Brouillon"
 
 
 def generate_summary():
@@ -44,7 +44,7 @@ def generate_summary():
 
     # Disclaimer en-tête (option e Q35 : ton neutre pour synthèse)
     disclaimer = (
-        "⚠️ **État du déploiement v1.0** : 2 modules validés (SIRCOM, SNUM), "
+        "**État du déploiement v1.0** : 2 modules validés (SIRCOM, SNUM), "
         "4 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement."
     )
 
@@ -72,9 +72,7 @@ def generate_summary():
                 f"{module.name}: {total} points tagués <!-- {CHECK_TAG} --> (attendu 31 ou 0)"
             )
         pct = round((checked / total) * 100, 1) if total else 0.0
-        status = (
-            "✓ Conforme" if pct >= 75 else "En cours" if pct > 0 else "Non renseigné"
-        )
+        status = "Conforme" if pct >= 75 else "En cours" if pct > 0 else "Non renseigné"
         rows.append(
             f"| {module.stem.upper()} | {checked}/{total} ({pct}%) | {status} | {validation_state} |"
         )
