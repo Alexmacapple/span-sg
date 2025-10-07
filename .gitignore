@@ -15,6 +15,10 @@ ENV/
 # MkDocs
 site/
 exports/
+*.pdf
+
+# E2E Reports
+tests/e2e/reports/
 
 # Coverage reports
 tests/htmlcov/
