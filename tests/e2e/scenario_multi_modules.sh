@@ -10,8 +10,8 @@ echo "Scénario : Modification multi-modules"
 # Backup
 cp docs/modules/{sircom,snum,srh}.md /tmp/
 
-# Modifier SIRCOM (cocher "Budget annuel dédié") - sed avec numéro ligne
-LINE=$(grep -n '^- \[ \] Budget annuel' docs/modules/sircom.md | head -1 | cut -d: -f1)
+# Modifier SIRCOM (cocher premier point non coché) - sed avec numéro ligne
+LINE=$(grep -n '^- \[ \].*<!-- DINUM -->' docs/modules/sircom.md | head -1 | cut -d: -f1)
 sed -i.bak "${LINE}s/- \[ \]/- [x]/" docs/modules/sircom.md
 rm -f docs/modules/sircom.md.bak
 
@@ -29,11 +29,11 @@ rm -f docs/modules/srh.md.bak
 python3 scripts/calculate_scores.py
 
 # Vérifier scores
-grep -q "| SIRCOM | 8/31" docs/synthese.md || { echo "FAIL: SIRCOM"; exit 1; }
-grep -q "| SNUM | 1/31" docs/synthese.md || { echo "FAIL: SNUM"; exit 1; }
+grep -q "| SIRCOM | 25/31" docs/synthese.md || { echo "FAIL: SIRCOM"; exit 1; }
+grep -q "| SNUM | 22/31" docs/synthese.md || { echo "FAIL: SNUM"; exit 1; }
 grep -q "| SRH | 1/31" docs/synthese.md || { echo "FAIL: SRH"; exit 1; }
-# TOTAL = SIRCOM (7→8) + SNUM (0→1) + SRH (0→1) + autres (0) = 8+1+1 = 10/186
-grep -q "| \*\*TOTAL\*\* | \*\*10/186" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
+# TOTAL = SIRCOM (24→25) + SNUM (21→22) + SRH (0→1) + autres (0) = 25+22+1 = 48/186
+grep -q "| \*\*TOTAL\*\* | \*\*48/186" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
 
 # Restaurer
 mv /tmp/{sircom,snum,srh}.md docs/modules/
