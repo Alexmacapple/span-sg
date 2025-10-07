@@ -51,7 +51,9 @@ jobs:
         run: python scripts/enrich_pdf_metadata.py site/exports/span-sg.pdf
 
       - name: Copy PDF to root exports folder
-        run: cp site/exports/span-sg.pdf exports/
+        run: |
+          mkdir -p exports
+          cp site/exports/span-sg.pdf exports/
 
       - name: Upload artifacts
         if: ${{ !env.ACT }}
