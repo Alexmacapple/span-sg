@@ -44,6 +44,20 @@ python scripts/calculate_scores.py
 # Attendu: 0 ou 31 points par module, sinon erreur
 ```
 
+### CI et artefacts
+```bash
+# Télécharger le PDF depuis la dernière CI draft
+./scripts/download_latest_pdf.sh
+
+# Télécharger depuis branche main
+./scripts/download_latest_pdf.sh main
+
+# Commande manuelle équivalente
+RUN_ID=$(gh run list --branch draft --limit 1 --json databaseId --jq '.[0].databaseId')
+gh run download "$RUN_ID" --name exports --repo Alexmacapple/span-sg-repo
+# → Télécharge exports/span-sg.pdf
+```
+
 ### Workflow Git
 ```bash
 # Créer une branche feature pour un service
@@ -155,7 +169,8 @@ git push origin vX.Y.Z
 ## Contacts et gouvernance
 - **Owner**: Alexandra (@alexandra)
 - **Validateurs**: Bertrand (@bertrand), Alex (@alex)
-- **Sponsor**: Yves (validation production uniquement)
+- **Sponsor**: Stéphane (Chef mission numérique SNUM-SG, validation conceptuelle)
+- **Validation finale production**: Chef SNUM
 
 ## Références
 - PRD complet: `PRD-v3.3.md`

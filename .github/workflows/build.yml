@@ -50,6 +50,9 @@ jobs:
       - name: Enrich PDF metadata
         run: python scripts/enrich_pdf_metadata.py site/exports/span-sg.pdf
 
+      - name: Copy PDF to root exports folder
+        run: cp site/exports/span-sg.pdf exports/
+
       - name: Upload artifacts
         if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v4
@@ -58,6 +61,13 @@ jobs:
           path: |
             site/
             exports/
+
+      - name: Upload PDF artifact
+        if: ${{ !env.ACT }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: exports
+          path: exports/
 
   deploy_draft:
     if: github.ref == 'refs/heads/draft'
