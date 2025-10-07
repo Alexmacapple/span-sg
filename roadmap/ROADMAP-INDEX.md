@@ -24,7 +24,7 @@
 **Localisation** : `roadmap/` (racine)
 
 ### POC Finalisation (P0 - Critique)
-📋 **POC-FINALISATION.md** : Release v1.0.0 officielle
+[ROADMAP] **POC-FINALISATION.md** : Release v1.0.0 officielle
 - Tag v1.0.0
 - GitHub Release avec PDF
 - CHANGELOG finalisé
@@ -32,29 +32,29 @@
 - **Priorité** : P0 (critique)
 
 ### Sprint 6 - Modules Optionnels (P1)
-⏳ **S6-03-completion-module-bgs.md** : Complétion module BGS
+[EN-COURS] **S6-03-completion-module-bgs.md** : Complétion module BGS
 - 0/31 → 20-25/31 points
 - **Estimation** : 4-6h
 - **Priorité** : P1 (contenu)
 
-⏳ **S6-04-completion-module-safi.md** : Complétion module SAFI
+[EN-COURS] **S6-04-completion-module-safi.md** : Complétion module SAFI
 - 0/31 → 20-25/31 points
 - **Estimation** : 4-6h
 - **Priorité** : P1 (contenu)
 
-⏳ **S6-05-completion-module-siep.md** : Complétion module SIEP
+[EN-COURS] **S6-05-completion-module-siep.md** : Complétion module SIEP
 - 0/31 → 20-25/31 points
 - **Estimation** : 4-6h
 - **Priorité** : P1 (contenu)
 
-⏳ **S6-06-completion-module-srh.md** : Complétion module SRH (DERNIER MODULE)
+[EN-COURS] **S6-06-completion-module-srh.md** : Complétion module SRH (DERNIER MODULE)
 - 0/31 → 20-25/31 points
 - **Résultat** : 45/186 → 169/186 (90.9%)
 - **Estimation** : 4-6h
 - **Priorité** : P1 (contenu)
 
 ### Sprint 6 - Infrastructure Optionnelle (P3)
-⏳ **S6-02-notifications-ci-rollback.md** : Notifications CI + Rollback automatique
+[EN-COURS] **S6-02-notifications-ci-rollback.md** : Notifications CI + Rollback automatique
 - Slack webhooks
 - Rollback script
 - Runbook incidents
@@ -69,34 +69,34 @@
 **Documentation** : Voir `roadmap/archive/README.md` pour index complet
 
 ### Sprint 0 : Setup (1 roadmap)
-- ✅ S0-00-env-setup.md
+- [COMPLETE] S0-00-env-setup.md
 
 ### Sprint 1 : Infrastructure Base (6 roadmaps)
-- ✅ S1-01-repo-github-prive.md
-- ✅ S1-02-docker-local.md
-- ✅ S1-03-mkdocs-strict.md
-- ✅ S1-04-template-31-points.md
-- ✅ S1-05-script-scoring.md
-- ✅ S1-06-import-sircom.md
+- [COMPLETE] S1-01-repo-github-prive.md
+- [COMPLETE] S1-02-docker-local.md
+- [COMPLETE] S1-03-mkdocs-strict.md
+- [COMPLETE] S1-04-template-31-points.md
+- [COMPLETE] S1-05-script-scoring.md
+- [COMPLETE] S1-06-import-sircom.md
 
 ### Sprint 2 : CI/CD & Documentation (10 roadmaps)
-- ✅ S2-01 à S2-09 (CI/CD, PDF, preview, docs, tests)
-- ❌ S2-10, S2-11 (obsolètes)
+- [COMPLETE] S2-01 à S2-09 (CI/CD, PDF, preview, docs, tests)
+- [NON-FAIT] S2-10, S2-11 (obsolètes)
 
 ### Sprint 4 : Contenu & Validation (5 roadmaps)
-- ✅ S4-00 à S4-04 (mapping, review, présentation, tag, publication)
+- [COMPLETE] S4-00 à S4-04 (mapping, review, présentation, tag, publication)
 
 ### Sprint 5 : Robustesse (2 roadmaps)
-- ✅ S5-01 (PDF accessible + coverage 89%+)
+- [COMPLETE] S5-01 (PDF accessible + coverage 89%+)
 
 ### Sprint 6 Tech First (3 roadmaps)
-- ✅ S6-01-tests-e2e-ci.md
-- ✅ S6-07-renforcement-securite.md
-- ✅ S6-08-documentation-maintenabilite.md
+- [COMPLETE] S6-01-tests-e2e-ci.md
+- [COMPLETE] S6-07-renforcement-securite.md
+- [COMPLETE] S6-08-documentation-maintenabilite.md
 
 ### Hotfixes & Audits (3 roadmaps)
-- ✅ HOTFIX-01, HOTFIX-02
-- ✅ AUDIT-2025-10-07.md
+- [COMPLETE] HOTFIX-01, HOTFIX-02
+- [COMPLETE] AUDIT-2025-10-07.md
 
 ---
 
@@ -189,7 +189,7 @@
 - Coverage 89%+
 - 2 modules validés
 
-### v1.0.0 (Sprint 6) : 97/100 ⭐
+### v1.0.0 (Sprint 6) : 97/100 
 - Tests E2E automatisés CI (+2)
 - Sécurité renforcée (+2)
 - Documentation maintenabilité (+1)
@@ -221,13 +221,13 @@
 ## Prochaines Étapes
 
 ### Court Terme (Semaine courante)
-1. ✅ Archiver Sprints 0-6 terminés (32 roadmaps)
-2. ✅ Créer POC-FINALISATION.md
-3. ⏳ Exécuter POC-FINALISATION (release v1.0.0)
+1. [COMPLETE] Archiver Sprints 0-6 terminés (32 roadmaps)
+2. [COMPLETE] Créer POC-FINALISATION.md
+3. [EN-COURS] Exécuter POC-FINALISATION (release v1.0.0)
 
 ### Moyen Terme (1-2 semaines)
-4. ⏳ Compléter 4 modules (S6-03 à S6-06) → 90.9% conformité
-5. ⏳ Release v1.1.0 (si modules complétés)
+4. [EN-COURS] Compléter 4 modules (S6-03 à S6-06) → 90.9% conformité
+5. [EN-COURS] Release v1.1.0 (si modules complétés)
 
 ### Long Terme (1-3 mois)
 6. Migration vers organisation GitHub (production finale)
