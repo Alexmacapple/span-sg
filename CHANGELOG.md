@@ -1,5 +1,30 @@
 # Changelog
 
+Toutes les modifications notables du projet SPAN SG sont documentées ici.
+
+Format basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
+
+---
+
+## [Unreleased] – En développement (branche draft)
+
+### Ajouté
+- Documentation "Développement local" accessible via navigation MkDocs (`docs/dev-local.md`)
+- Finalisation mapping SNUM : 21/31 points validés (67.7%)
+- Finalisation mapping SIRCOM : 24/31 points validés (77.4%)
+- Génération automatique `docs/synthese.md` avec état de déploiement v1.0
+
+### Modifié
+- README.md : Ajout état actuel du projet (07/10/2025) avec scores et roadmap v1.0
+- Navigation MkDocs : Ajout "Développement local" après "Guide contributeur"
+
+### Score actuel
+- **TOTAL : 45/186 (24.2%)**
+- SIRCOM : 24/31 (77.4%) - Validé
+- SNUM : 21/31 (67.7%) - Validé
+- SRH, SIEP, SAFI, BGS : 0/31 - En cours
+
+---
 
 ## v0.2.0 – 2025-10-01
 

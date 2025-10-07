@@ -20,6 +20,7 @@ nav:
   - Synthèse: synthese.md
   - Processus: processus.md
   - Guide contributeur: contributing.md
+  - Développement local: dev-local.md
   - Modules Services:
     - SNUM: modules/snum.md
     - SIRCOM: modules/sircom.md

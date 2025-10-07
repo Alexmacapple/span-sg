@@ -4,11 +4,16 @@
 
 Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/deploy.
 
-## ✅ Version 1.0 en production
+## État actuel du projet (07/10/2025)
 
-**Framework opérationnel avec 2 modules services validés** (SIRCOM, SNUM). 4 modules additionnels en structure (SRH, SIEP, SAFI, BGS), enrichis progressivement selon identification référents.
+**Version en développement** : Branche `draft` active avec 45/186 points validés (24.2%)
 
-## 🌐 Liens utiles
+- **2 modules validés** : SIRCOM (24/31 - 77.4%), SNUM (21/31 - 67.7%)
+- **4 modules en cours** : SRH, SIEP, SAFI, BGS (structure créée, 0/31)
+- **Infrastructure opérationnelle** : CI/CD, tests E2E, preview privée, génération PDF
+- **Production** : En attente de validation finale (branche `main` en standby)
+
+## Liens utiles
 
 - **Preview (draft)** : https://alexmacapple.github.io/span-sg-repo/draft/
 - **Production** : https://alexmacapple.github.io/span-sg-repo/
@@ -67,21 +72,15 @@ docker compose up -d
 docker compose down
 ```
 
-## Checklist « première release v0.1 »
-1. Configurer GitHub Pages au niveau de l’organisation et restreindre l’accès aux membres
-2. Créer les branches `main` (production) et `draft` (preview)
-3. Paramétrer les secrets nécessaires (si besoin) et vérifier les permissions `GITHUB_TOKEN`
-4. Mettre à jour `docs/index.md` (blocs légaux) et `docs/modules/*` (front-matter)
-5. Mapper les 31 points officiels dans `docs/modules/_template.md` et dans le module pilote (SIRCOM)
-6. Lancer la CI sur `draft` et vérifier: build site OK, `exports/span-sg.pdf` présent
-7. Revue par Bertrand/Alex puis merge dans `draft` pour la preview privée
-8. Préparer `CHANGELOG.md`, tagger `v0.1.0` et pousser le tag
-   ```bash
-   git tag -a v0.1.0 -m "Release SPAN SG v0.1.0"
-   git push origin v0.1.0
-   ```
-9. Lancer le déploiement de `main` et créer la release GitHub en joignant `exports/span-sg.pdf`
-10. Notifier Yves pour validation production et consigner la décision GO/NO-GO
+## Prochaines étapes vers v1.0 production
+
+1. **Infrastructure** : CI/CD, tests, preview privée → TERMINÉ
+2. **Modules pilotes** : SIRCOM (77.4%), SNUM (67.7%) → VALIDÉS
+3. **Modules restants** : Compléter SRH, SIEP, SAFI, BGS (0/31 actuellement)
+4. **Validation intermédiaire** : Review Bertrand/Alexandra → EN COURS
+5. **Présentation Stéphane** : Validation conceptuelle (roadmap S4-02)
+6. **Tag v1.0.0** : Création release après validation finale (roadmap S4-03)
+7. **Production** : Merge `draft` → `main` + déploiement (roadmap S4-04)
 
 ## Commandes utiles
 
