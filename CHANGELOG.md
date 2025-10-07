@@ -55,6 +55,22 @@ Valider faisabilité architecture modulaire + scoring automatisé + CI/CD comple
 ## [Unreleased] – En développement (branche draft)
 
 ### Ajouté
+- **Tests E2E automatisés CI** (S6-01) : Job GitHub Actions séparé avec reporting HTML
+  - Script orchestrateur `tests/e2e/ci_runner.sh` (9 scénarios)
+  - Générateur rapport HTML `tests/e2e/generate_report.py` (stylisé, logs détaillés)
+  - Artefact e2e-report.html uploadé (30 jours rétention)
+  - Section Tests E2E dans CONTRIBUTING.md (tableau scénarios, guide ajout tests)
+  - Badge E2E Tests dans README.md
+- **Renforcement sécurité** (S6-07) :
+  - Configuration Dependabot `.github/dependabot.yml` (scan hebdomadaire pip + github-actions)
+  - SECURITY.md avec politique responsible disclosure (CVSS 3.1, délais réponse)
+  - Guide BFG Repo-Cleaner `docs/security/bfg-purge-guide.md` (purge Git history)
+  - Section Sécurité dans CONTRIBUTING.md (signalement vulnérabilités, Dependabot, secrets)
+  - Section Sécurité dans README.md (mesures existantes)
+- **Documentation maintenabilité** (S6-08) :
+  - CHANGELOG.md complété (Keep a Changelog format, entry v1.0.0-poc)
+  - MIGRATION.md avec guides upgrade path (v0.x → v1.0)
+  - Section Gestion Versions dans CONTRIBUTING.md (process CHANGELOG, SemVer)
 - Documentation "Développement local" accessible via navigation MkDocs (`docs/dev-local.md`)
 - Finalisation mapping SNUM : 21/31 points validés (67.7%)
 - Finalisation mapping SIRCOM : 24/31 points validés (77.4%)
@@ -63,12 +79,19 @@ Valider faisabilité architecture modulaire + scoring automatisé + CI/CD comple
 ### Modifié
 - README.md : Ajout état actuel du projet (07/10/2025) avec scores et roadmap v1.0
 - Navigation MkDocs : Ajout "Développement local" après "Guide contributeur"
+- Workflow `.github/workflows/build.yml` : Job e2e-tests séparé (avant intégré dans build)
 
 ### Score actuel
 - **TOTAL : 45/186 (24.2%)**
 - SIRCOM : 24/31 (77.4%) - Validé
 - SNUM : 21/31 (67.7%) - Validé
 - SRH, SIEP, SAFI, BGS : 0/31 - En cours
+
+### Score Qualité Projet
+- **96/100** (après S6-01 + S6-07)
+- Tests : 17/20 → 19/20 (+2 points E2E CI)
+- Sécurité : 18/20 → 20/20 (+2 points Dependabot + SECURITY.md)
+- Maintenabilité : 19/20 → 20/20 (+1 point CHANGELOG + MIGRATION)
 
 ---
 

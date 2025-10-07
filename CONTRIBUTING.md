@@ -258,6 +258,56 @@ Présentation Stéphane → Validation Chef SNUM → Production
 
 ---
 
+## Gestion des Versions
+
+### CHANGELOG.md
+
+Tous les changements notables sont documentés dans [CHANGELOG.md](CHANGELOG.md).
+
+**Mise à jour CHANGELOG** :
+- Chaque PR significative ajoute entry dans section `[Unreleased]`
+- Catégories : `Added`, `Changed`, `Fixed`, `Security`
+- Format : Bullet point descriptif concis
+
+**Exemple** :
+```markdown
+## [Unreleased]
+
+### Added
+- Tests E2E automatisés CI avec reporting HTML (S6-01)
+
+### Fixed
+- Correction score SIRCOM roadmaps (25/31 → 24/31)
+```
+
+**Release** :
+Lors de la création d'une release (tag vX.Y.Z) :
+1. Déplacer section `[Unreleased]` vers `[X.Y.Z] - AAAA-MM-JJ`
+2. Ajouter lien release en bas de fichier
+3. Créer nouvelle section `[Unreleased]` vide
+
+### Semantic Versioning
+
+SPAN SG suit [SemVer 2.0.0](https://semver.org/lang/fr/) :
+- **MAJOR (X.0.0)** : Breaking changes (ex: refonte structure modules, 31 → 50 points DINUM)
+- **MINOR (1.X.0)** : Nouvelles fonctionnalités rétrocompatibles (ex: nouveau module)
+- **PATCH (1.0.X)** : Corrections bugs rétrocompatibles (ex: fix calcul score)
+
+**Exemples** :
+- v1.0.0 → v1.1.0 : Ajout module SRH (nouvelle fonctionnalité)
+- v1.1.0 → v1.1.1 : Fix lien cassé module SIRCOM (correction)
+- v1.1.1 → v2.0.0 : Passage 31 → 50 points DINUM (breaking change)
+
+### Migration Versions
+
+Pour migrer entre versions majeures, consultez [MIGRATION.md](MIGRATION.md).
+
+Guides disponibles :
+- v0.x → v1.0 : Migration POC vers production
+- v1.x → v2.0 : Migration 31 → 50 points DINUM (prévu)
+
+---
+
 ## Sécurité
 
 ### Signaler une Vulnérabilité

@@ -19,6 +19,8 @@ Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/
 - **Draft (preview)** : Désactivé — revue locale/PDF (voir `.github/PAGES-ACCESS-CHECKLIST.md`)
 - **Production** : https://alexmacapple.github.io/span-sg-repo/
 - **PDF production** : https://github.com/Alexmacapple/span-sg-repo/releases/latest
+- **Changelog** : [CHANGELOG.md](CHANGELOG.md) - Historique versions
+- **Migration** : [MIGRATION.md](MIGRATION.md) - Guides upgrade path
 
 ## Démarrage rapide
 
