@@ -1,0 +1,77 @@
+# Configuration DSFR POC - Test compatibilité mkdocs-dsfr
+# Date: 2025-10-07
+# Phase: POC Phase 1 (S7-01)
+# Basé sur: mkdocs.yml (Material)
+
+site_name: SPAN SG
+site_url: https://alexmacapple.github.io/span-sg-repo/
+repo_url: https://github.com/Alexmacapple/span-sg-repo
+strict: true
+
+theme:
+  name: dsfr
+  language: fr
+
+  # Configuration par défaut DSFR
+  include_search_page: true
+  afficher_date_de_revision: true
+  afficher_menu_lateral: true
+  afficher_bouton_editer: true
+  libelle_bouton_editer: "Éditer dans GitHub"
+
+  # Intitulé République Française
+  intitule: "République <br> française"
+
+  # Configuration header DSFR
+  header:
+    titre: "SPAN SG"
+    sous_titre: "Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général"
+
+  # Configuration footer DSFR
+  footer:
+    description: "Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de la Transition Écologique"
+    links:
+      - name: legifrance.gouv.fr
+        url: https://legifrance.gouv.fr
+      - name: service-public.fr
+        url: https://service-public.fr
+      - name: data.gouv.fr
+        url: https://data.gouv.fr
+      - name: info.gouv.fr
+        url: https://info.gouv.fr
+
+plugins:
+  - search:
+      lang: fr
+  - with-pdf:
+      author: Secrétariat Général
+      copyright: © 2025 Secrétariat Général
+      cover_title: SPAN SG - DSFR POC
+      cover_subtitle: |
+        Schéma Pluriannuel d'Accessibilité Numérique 2025-2027
+
+        POC Test Export PDF avec Theme DSFR
+      toc_title: Table des matières
+      toc_level: 3
+      ordered_chapter_level: 3
+      output_path: exports/span-sg-dsfr.pdf
+      verbose: true
+
+nav:
+  - Accueil: index.md
+  - Synthèse: synthese.md
+  - Processus: processus.md
+  - Guide contributeur: contributing.md
+  - Développement local: dev-local.md
+  - Modules Services:
+    - SNUM: modules/snum.md
+    - SIRCOM: modules/sircom.md
+    - SRH: modules/srh.md
+    - SIEP: modules/siep.md
+    - SAFI: modules/safi.md
+    - BGS: modules/bgs.md
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true

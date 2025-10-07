@@ -1,0 +1,15 @@
+# Requirements DSFR POC - Test compatibilité mkdocs-dsfr
+# Date: 2025-10-07
+# Phase: POC Phase 1 (S7-01)
+
+# Theme DSFR officiel (dernière version disponible: 0.9.3)
+mkdocs-dsfr>=0.9.0,<1.0.0
+
+# Plugins nécessaires (identiques à requirements.txt)
+mkdocs-git-revision-date-localized-plugin>=1.2.0
+
+# PDF metadata enrichment
+pikepdf>=8.0.0
+
+# NOTE: mkdocs-with-pdf (PDF export) sera testé séparément
+# Car risque incompatibilité 60-70% avec mkdocs-dsfr
