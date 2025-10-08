@@ -32,7 +32,7 @@ theme:
 
   # Configuration footer DSFR
   footer:
-    description: "Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de la Transition Écologique"
+    description: "Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique"
     links:
       - name: legifrance.gouv.fr
         url: https://legifrance.gouv.fr
