@@ -234,18 +234,6 @@ validation_status: validated
   <p><strong>Aucune charge disproportionnée invoquée</strong> pour le périmètre SPAN 2024-2027.</p>
 
   <p>Tous les sites et applications du périmètre sont engagés dans une démarche progressive de mise en conformité RGAA selon l'agenda planifié 2024-2027.</p>
-
-  <details class="fr-accordion">
-    <summary class="fr-accordion__title">Critères de décision (non applicables actuellement)</summary>
-    <div class="fr-accordion__content">
-      <ul>
-        <li>Analyse coût/bénéfice documentée</li>
-        <li>Alternatives étudiées et proposées</li>
-        <li>Validation juridique</li>
-        <li>Publication justification dans déclarations accessibilité</li>
-      </ul>
-    </div>
-  </details>
 </section>
 
 ---

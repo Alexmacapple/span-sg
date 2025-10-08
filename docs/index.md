@@ -15,33 +15,18 @@ Pour chaque service
 
 ## Mentions de charge disproportionnée
 
-<section aria-labelledby="charge-disproportionnee-titre">
+**Si applicable**, chaque service doit documenter précisément les charges disproportionnées selon la structure suivante :
 
-<p><strong>Si applicable</strong>, chaque service doit documenter précisément les charges disproportionnées selon la structure suivante :</p>
+| Critère | Description |
+|---------|-------------|
+| **Fonctionnalité/section concernée** | Description précise de l'élément non conforme<br>*Exemple : module cartographique interactif legacy 2010-2015, vidéo archives 2015-2018, formulaire complexe métier X* |
+| **Type de charge** | Technique / Financière / Organisationnelle |
+| **Analyse coût/bénéfice** | Estimation chiffrée si possible<br>*Exemple : 150K€ refonte pour 200 utilisateurs/an = 750€/utilisateur* |
+| **Documentation de référence** | Lien vers étude technique, rapport audit financier, décision validée |
+| **Alternative proposée** | Moyen alternatif d'accès au service/information<br>*Exemple : formulaire papier avec assistance, contact téléphonique dédié, version simplifiée HTML, données téléchargeables CSV accessible* |
+| **Échéance de réévaluation** | 31 décembre 2026 (révision obligatoire tous les 3 ans minimum) |
 
-<dl class="fr-charge-disproportionnee">
-  <dt>Fonctionnalité/section concernée</dt>
-  <dd>Description précise de l'élément non conforme (ex: module cartographique, vidéo archives 2015-2018, formulaire complexe métier X)</dd>
-
-  <dt>Justification documentée</dt>
-  <dd>
-    <ul>
-      <li><strong>Type de charge</strong> : Technique / Financière / Organisationnelle</li>
-      <li><strong>Analyse coût/bénéfice</strong> : Estimation chiffrée si possible (ex: 150K€ pour 200 utilisateurs/an = 750€/utilisateur)</li>
-      <li><strong>Documentation de référence</strong> : Lien vers étude technique, rapport financier, décision validée</li>
-    </ul>
-  </dd>
-
-  <dt>Alternative proposée (canal/équivalent)</dt>
-  <dd>Moyen alternatif d'accès au service/information (ex: formulaire papier avec assistance, contact téléphonique dédié, version simplifiée HTML)</dd>
-
-  <dt>Échéance de réévaluation</dt>
-  <dd><time datetime="2026-12-31">31 décembre 2026</time> (révision obligatoire tous les 3 ans minimum)</dd>
-</dl>
-
-<p><em>Note : La charge disproportionnée ne dispense pas de publier une déclaration d'accessibilité ni de proposer une alternative.</em></p>
-
-</section>
+*Note : La charge disproportionnée ne dispense pas de publier une déclaration d'accessibilité ni de proposer une alternative.*
 
 
 

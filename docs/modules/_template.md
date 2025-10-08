@@ -128,31 +128,20 @@ updated: "2025-09-30"
 
 <!-- OPTION 2 : Avec charge(s) disproportionnée(s) - À utiliser si applicable -->
 <!--
-<section aria-labelledby="charge-disproportionnee-titre">
-  <h3 id="charge-disproportionnee-titre">Charges disproportionnées</h3>
+### Charges disproportionnées
 
-  <dl class="fr-charge-disproportionnee">
-    <dt>Fonctionnalité/section concernée</dt>
-    <dd>[Décrire précisément l'élément : ex "Module cartographique interactif legacy 2010-2015"]</dd>
+**Charge disproportionnée identifiée** pour [nom de la fonctionnalité/service]
 
-    <dt>Justification documentée</dt>
-    <dd>
-      <ul>
-        <li><strong>Type de charge</strong> : [Technique / Financière / Organisationnelle]</li>
-        <li><strong>Analyse coût/bénéfice</strong> : [Chiffrage : ex "150K€ refonte pour 200 utilisateurs/an = 750€/utilisateur"]</li>
-        <li><strong>Documentation de référence</strong> : [Lien étude technique, rapport audit, décision validée]</li>
-      </ul>
-    </dd>
+| Critère | Description |
+|---------|-------------|
+| **Fonctionnalité/section concernée** | [Décrire précisément l'élément : ex "Module cartographique interactif legacy 2010-2015"] |
+| **Type de charge** | [Technique / Financière / Organisationnelle] |
+| **Analyse coût/bénéfice** | [Chiffrage : ex "150K€ refonte pour 200 utilisateurs/an = 750€/utilisateur"] |
+| **Documentation de référence** | [Lien étude technique, rapport audit, décision validée] |
+| **Alternative proposée** | [Décrire l'alternative : ex "Données téléchargeables CSV accessible + contact dédié pour assistance"] |
+| **Échéance de réévaluation** | [Date : ex "31 décembre 2026"] |
 
-    <dt>Alternative proposée (canal/équivalent)</dt>
-    <dd>[Décrire l'alternative : ex "Données téléchargeables CSV accessible + contact dédié pour assistance"]</dd>
-
-    <dt>Échéance de réévaluation</dt>
-    <dd><time datetime="YYYY-MM-DD">[Date lisible]</time></dd>
-  </dl>
-
-  <p class="fr-text--sm"><em>Critères de décision appliqués : analyse coût/bénéfice documentée, alternatives étudiées, validation juridique, publication dans déclaration d'accessibilité.</em></p>
-</section>
+*Critères de décision appliqués : analyse coût/bénéfice documentée, alternatives étudiées, validation juridique, publication dans déclaration d'accessibilité.*
 -->
 
 ---
