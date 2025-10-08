@@ -19,7 +19,7 @@ plugins:
 
 nav:
   - Accueil: index.md
-  - SPAN-SERVICES:
+  - SPAN (services):
     - BGS: modules/bgs.md
     - SAFI: modules/safi.md
     - SIEP: modules/siep.md
