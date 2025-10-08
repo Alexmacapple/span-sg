@@ -3,7 +3,7 @@
 
 **État du déploiement v1.0** : 2 modules validés (SIRCOM, SNUM), 4 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement.
 
-<div class="fr-table" markdown>
+<div class="fr-table" markdown="block">
 
 | Service | Score | Statut | État |
 |---------|-------|--------|------|
