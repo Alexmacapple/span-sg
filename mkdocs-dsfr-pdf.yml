@@ -20,12 +20,16 @@ theme:
   libelle_bouton_editer: "Éditer dans GitHub"
 
   # Intitulé République Française
-  intitule: "République <br> française"
+  intitule: "GOUVERNEMENT"
 
   # Configuration header DSFR
   header:
     titre: "SPAN SG"
     sous_titre: "Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général"
+    liens_rapides:
+      - name: "Voir le code source sur GitHub"
+        url: "https://github.com/Alexmacapple/span-sg-repo"
+        icon: "github"
 
   # Configuration footer DSFR
   footer:
@@ -46,16 +50,17 @@ plugins:
   - with-pdf:
       author: Secrétariat Général
       copyright: © 2025 Secrétariat Général
-      cover_title: SPAN SG - DSFR POC
+      cover_title: SPAN SG
       cover_subtitle: |
         Schéma Pluriannuel d'Accessibilité Numérique 2025-2027
 
-        POC Test Export PDF avec Theme DSFR
+        Périmètre version 1.0 : Ce document couvre 2 services avec contenus validés (SIRCOM, SNUM) et 4 services avec structure présente (en cours de renseignement). Infrastructure conforme RGAA 4.1.
       toc_title: Table des matières
       toc_level: 3
       ordered_chapter_level: 3
-      output_path: exports/span-sg-dsfr.pdf
-      verbose: true
+      output_path: exports/span-sg.pdf
+      verbose: false
+      enabled_if_env: ENABLE_PDF_EXPORT
 
 nav:
   - Accueil: index.md
@@ -70,8 +75,9 @@ nav:
     - SIEP: modules/siep.md
     - SAFI: modules/safi.md
     - BGS: modules/bgs.md
+  - "Code source GitHub": "https://github.com/Alexmacapple/span-sg-repo"
 
 markdown_extensions:
   - tables
   - toc:
-      permalink: true
+      permalink: false

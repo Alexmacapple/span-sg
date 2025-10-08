@@ -4,7 +4,7 @@
 # Basé sur: mkdocs.yml (Material)
 
 site_name: SPAN SG
-site_url: http://localhost:8000/span-sg-repo/
+site_url: https://alexmacapple.github.io/span-sg-repo/
 strict: true
 
 theme:
