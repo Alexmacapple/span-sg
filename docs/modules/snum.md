@@ -113,7 +113,7 @@ validation_status: validated
 ### Catégorie 2 - Ressources (12 points)
 
 - [x] Référent accessibilité numérique officiellement désigné <!-- DINUM -->
-  > **Validé** : Coordinateur RGAA Mission France Recouvrement. Contact : mfr.rgaa@finances.gouv.fr. Responsabilité : élaboration, suivi, mise à jour SPAN sous couvert SG Ministères Économiques et Financiers.
+  > **Validé** : Coordinateur RGAA Mission France Recouvrement. Contact : <mfr.rgaa@finances.gouv.fr>. Responsabilité : élaboration, suivi, mise à jour SPAN sous couvert SG Ministères Économiques et Financiers.
 
 - [x] Temps alloué et moyens du référent définis <!-- DINUM -->
   > **Validé** : Coordinateur RGAA apporte support aux équipes Portailpro.gouv sur tout cycle production. Missions définies : prise en compte critères accessibilité développements, outils tests automatisés, aides méthodologiques.
@@ -157,7 +157,7 @@ validation_status: validated
   > **Validé** : Stratégie revues périodiques accessibilité par lots pages sélectionnées chaque cycle développement. Limitation risques régression, amélioration progressive taux conformité. Audits RGAA services non-auth et auth.
 
 - [x] Process de traitement des demandes usagers (accès/retour) <!-- DINUM -->
-  > **Validé** : Moyen contact mis en place permettant usagers handicapés signaler difficultés. Boîte mail dédiée : mfr.rgaa@finances.gouv.fr. Analyse demandes par services concernés et responsable SPAN. Conformité RGAA et attentes légitimes utilisateurs.
+  > **Validé** : Moyen contact mis en place permettant usagers handicapés signaler difficultés. Boîte mail dédiée : <mfr.rgaa@finances.gouv.fr>. Analyse demandes par services concernés et responsable SPAN. Conformité RGAA et attentes légitimes utilisateurs.
 
 - [x] Clauses accessibilité dans marchés/commandes <!-- DINUM -->
   > **Validé** : Accessibilité numérique et conformité RGAA = clause contraignante appels d'offres. Rubriques spécifiques accessibilité dans cahiers charges achats publics (MOA, UX, MOE, recette). Prestations externes : intervenants formés/sensibilisés accessibilité.

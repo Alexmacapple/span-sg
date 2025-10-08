@@ -117,7 +117,7 @@ validation_status: validated
 ### Catégorie 2 - Ressources (12 points)
 
 - [x] Référent accessibilité numérique officiellement désigné <!-- DINUM -->
-  > **Validé** : Pôle web du bureau de l'assistance et des Technologies Numériques SG/SIRCOM. Contact : accessibilite.communication@finances.gouv.fr. Responsabilité : élaboration, suivi, mise à jour SPAN.
+  > **Validé** : Pôle web du bureau de l'assistance et des Technologies Numériques SG/SIRCOM. Contact : <accessibilite.communication@finances.gouv.fr>. Responsabilité : élaboration, suivi, mise à jour SPAN.
 
 - [x] Temps alloué et moyens du référent définis <!-- DINUM -->
   > **Validé** : Équipe accessibilité constituée de plusieurs chefs de projets formés. Missions définies : promotion, accompagnement, formation, contrôle conformité, relation Arcom.
@@ -161,7 +161,7 @@ validation_status: validated
   > **Validé** : Contrôles lors mise en ligne initiale, mise à jour substantielle, refonte, fin opérations mises aux normes. Contrôles internes (personne formée non impliquée projet) ou externes (intervenant spécialisé). Contrôles tout au long vie projets.
 
 - [x] Process de traitement des demandes usagers (accès/retour) <!-- DINUM -->
-  > **Validé** : Moyen contact sur chaque site/application : accessibilite.communication@finances.gouv.fr. Procédure spécifique assistance mise en place avec services et personnels impliqués. Conformité RGAA et attentes légitimes utilisateurs.
+  > **Validé** : Moyen contact sur chaque site/application : <accessibilite.communication@finances.gouv.fr>. Procédure spécifique assistance mise en place avec services et personnels impliqués. Conformité RGAA et attentes légitimes utilisateurs.
 
 - [x] Clauses accessibilité dans marchés/commandes <!-- DINUM -->
   > **Validé** : Accessibilité numérique et conformité RGAA = clause contraignante appels d'offres. Participation évaluation qualité offre prestataire. Procédures élaboration marchés et règles évaluation candidatures adaptées.
