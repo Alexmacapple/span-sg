@@ -62,6 +62,9 @@ nav:
     - BGS: modules/bgs.md
   - "Code source GitHub": "https://github.com/Alexmacapple/span-sg-repo"
 
+hooks:
+  - hooks/dsfr_table_wrapper.py
+
 markdown_extensions:
   - tables
   - md_in_html
