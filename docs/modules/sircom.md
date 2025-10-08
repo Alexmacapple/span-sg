@@ -50,7 +50,7 @@ validation_status: validated
 
 **Référent accessibilité numérique** :
 - Entité : Pôle web du bureau de l'assistance et des Technologies Numériques SG/SIRCOM
-- Contact : accessibilite.communication@finances.gouv.fr
+- Contact : <accessibilite.communication@finances.gouv.fr>
 - Mission : Promotion accessibilité, accompagnement équipes internes, formation, contrôle conformité, relation Arcom
 
 **Équipe accessibilité** :
@@ -242,7 +242,7 @@ validation_status: validated
 
 - **Déclaration d'accessibilité** : Publiée sur chaque site/application du périmètre conformément RGAA
 - **Mise à jour** : Lors contrôles (mise en ligne initiale, mise à jour substantielle, refonte, fin mises aux normes)
-- **Contact** : accessibilite.communication@finances.gouv.fr
+- **Contact** : <accessibilite.communication@finances.gouv.fr>
 - **Médiation** : Défenseur des Droits en cas non-réponse satisfaisante
 
 ---

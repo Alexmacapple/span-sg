@@ -228,9 +228,9 @@ git push --force --all
 
 ## Références
 
-- **BFG Repo-Cleaner** : https://rtyley.github.io/bfg-repo-cleaner/
-- **GitHub Docs** : https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
-- **git-filter-repo** : https://github.com/newren/git-filter-repo
+- **BFG Repo-Cleaner** : <https://rtyley.github.io/bfg-repo-cleaner/>
+- **GitHub Docs** : <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository>
+- **git-filter-repo** : <https://github.com/newren/git-filter-repo>
 
 ---
 

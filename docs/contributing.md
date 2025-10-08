@@ -179,7 +179,7 @@ Validation Yves → Production
 
 - **Questions techniques** : Bertrand (@bertrand), Alex (@alex)
 - **Questions contenu** : Alexandra (@alexandra)
-- **Issues GitHub** : https://github.com/Alexmacapple/span-sg-repo/issues
+- **Issues GitHub** : <https://github.com/Alexmacapple/span-sg-repo/issues>
 
 ---
 

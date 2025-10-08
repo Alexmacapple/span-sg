@@ -49,7 +49,7 @@ validation_status: validated
 **Coordinateur RGAA** :
 - Support aux équipes Portailpro.gouv
 - Prise en compte critères RGAA sur tout cycle production (contenus + fonctionnalités)
-- Contact : mfr.rgaa@finances.gouv.fr
+- Contact : <mfr.rgaa@finances.gouv.fr>
 
 **Responsabilité schéma pluriannuel** :
 - Mission France Recouvrement (sous couvert SG Ministères Économiques et Financiers)
@@ -239,7 +239,7 @@ Portailpro.gouv (service non-auth + service auth) engagé dans démarche progres
 
 - **Service non-authentifié** : [Déclaration accessibilité RGAA - non-auth](https://www.portailpro.gouv.fr/ms/declaration-daccessibilite-au-referentiel-general-damelioration-de-laccessibilite-non-authentifie)
 - **Service authentifié** : [Déclaration accessibilité RGAA - auth](https://www.portailpro.gouv.fr/ms/declaration-daccessibilite-au-referentiel-general-damelioration-de-laccessibilite)
-- **Contact** : mfr.rgaa@finances.gouv.fr
+- **Contact** : <mfr.rgaa@finances.gouv.fr>
 - **Contacter référent** : [Formulaire contact](https://www.portailpro.gouv.fr/ms/contacter-le-referent-accessibilite-numerique-de-portailprogouv)
 - **Médiation** : Défenseur des Droits en cas non-réponse satisfaisante
 

@@ -362,7 +362,7 @@ Le projet utilise Dependabot pour détecter automatiquement les vulnérabilités
 - **Questions techniques** : Bertrand (@bertrand), Alex (@alex)
 - **Questions contenu** : Alexandra (@alexandra)
 - **Vulnérabilités sécurité** : Voir [SECURITY.md](SECURITY.md)
-- **Issues GitHub** : https://github.com/Alexmacapple/span-sg-repo/issues
+- **Issues GitHub** : <https://github.com/Alexmacapple/span-sg-repo/issues>
 
 ---
 

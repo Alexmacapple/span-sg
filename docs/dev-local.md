@@ -12,7 +12,7 @@ docker compose up
 docker compose up -d
 ```
 
-Accès : http://localhost:8000/span-sg-repo/
+Accès : <http://localhost:8000/span-sg-repo/>
 
 ### Sans Docker
 
@@ -24,7 +24,7 @@ pip install -r requirements.txt
 mkdocs serve
 ```
 
-Accès : http://127.0.0.1:8000/
+Accès : <http://127.0.0.1:8000/>
 
 ## Commandes utiles
 

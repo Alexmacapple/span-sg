@@ -53,7 +53,7 @@ validation_status: in_progress
 
 **Référent accessibilité numérique** :
 - Nom : [À définir lors de S3-02]
-- Contact : siep.accessibilite@sg.gouv.fr
+- Contact : <siep.accessibilite@sg.gouv.fr>
 - Temps alloué : 0.1 ETP prévu à partir T2 2025
 
 **Équipe projet** :
@@ -173,7 +173,7 @@ Critères décision
 
 
 
-- Déclaration d'accessibilité: https://sg.gouv.fr/siep/declaration-accessibilite
+- Déclaration d'accessibilité: <https://sg.gouv.fr/siep/declaration-accessibilite>
 - Charge disproportionnée: À évaluer (complexité visualisations interactives)
 
 ---
