@@ -19,6 +19,7 @@ exports/
 
 # E2E Reports
 tests/e2e/reports/
+e2e-report.html
 
 # Coverage reports
 tests/htmlcov/

@@ -1,7 +1,7 @@
 # Tableau de bord SPAN SG
-*Mis à jour le 07/10/2025*
+*Mis à jour le 08/10/2025*
 
-**État du déploiement v1.0** : 2 modules validés (SIRCOM, SNUM), 4 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement.
+**État du déploiement v1.0** : 2 modules validés (SIRCOM, SNUM), 4 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement.
 
 | Service | Score | Statut | État |
 |---------|-------|--------|------|
