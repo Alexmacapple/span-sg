@@ -17,6 +17,7 @@ theme:
   afficher_menu_lateral: true
   afficher_bouton_editer: true
   libelle_bouton_editer: "Éditer dans GitHub"
+  bouton_hautdepage: right
 
   # Intitulé République Française
   intitule: "GOUVERNEMENT"
