@@ -1,3 +1,7 @@
+---
+title: SPAN (SG)
+---
+
 # Schéma Pluriannuel d'Accessibilité Numérique
 
 <nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
