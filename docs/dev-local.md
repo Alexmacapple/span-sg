@@ -5,11 +5,11 @@
 ### Avec Docker (recommandé)
 
 ```bash
-# Démarrer le serveur
-docker compose up
+# Démarrer le serveur (thème DSFR)
+docker compose -f docker-compose-dsfr.yml up
 
 # Ou en arrière-plan
-docker compose up -d
+docker compose -f docker-compose-dsfr.yml up -d
 ```
 
 Accès : <http://localhost:8000/span-sg-repo/>
@@ -30,17 +30,24 @@ Accès : <http://127.0.0.1:8000/>
 
 ```bash
 # Arrêter le serveur
-docker compose down
+docker compose -f docker-compose-dsfr.yml down
 
 # Voir les logs
-docker compose logs -f
+docker compose -f docker-compose-dsfr.yml logs -f
 
 # Redémarrer
-docker compose restart
+docker compose -f docker-compose-dsfr.yml restart
 
 # Vérifier l'état
-docker compose ps
+docker compose -f docker-compose-dsfr.yml ps
 ```
+
+## Hooks DSFR
+
+Le projet utilise des hooks Python MkDocs pour améliorer l'accessibilité DSFR :
+
+- **`hooks/dsfr_table_wrapper.py`** : Encapsule automatiquement les tableaux Markdown dans `<div class="fr-table">` pour le responsive DSFR
+- **`hooks/title_cleaner.py`** : Nettoie les titres HTML redondants (supprime `site_name` quand vide)
 
 ## Recalculer les scores
 

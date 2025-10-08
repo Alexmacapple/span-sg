@@ -6,6 +6,53 @@ Format basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
 ---
 
+## v1.0.1-dsfr – 2025-10-08
+
+**Migration DSFR** : Intégration complète du thème Système de Design de l'État français
+
+### Thème et infrastructure
+- Migration mkdocs-material vers mkdocs-dsfr (v0.17.0)
+- Nouvelle configuration DSFR : mkdocs-dsfr.yml, mkdocs-dsfr-pdf.yml
+- Docker Compose DSFR : docker-compose-dsfr.yml
+- Thème gouvernemental avec marianne, header/footer officiels
+
+### Accessibilité DSFR
+- Composant fr-summary : sommaire accessible avec navigation sémantique
+- Structure ARIA : `<nav aria-labelledby>`, `<ol class="fr-summary__list">`
+- Bouton "Haut de page" positionné à droite (bouton_hautdepage: right)
+- Hooks DSFR : dsfr_table_wrapper.py (tableaux responsifs), title_cleaner.py (titres optimisés)
+
+### Navigation et UX
+- Menu réorganisé : "SPAN (SG)" en position 1, "SPAN (services)" en position 2
+- Services classés alphabétiquement : BGS, SAFI, SIEP, SIRCOM, SNUM, SRH
+- Titre HTML sans redondance : `<title>SPAN (SG)</title>` au lieu de "SPAN (SG) - SPAN SG"
+- Emails cliquables dans citations Markdown (SIRCOM, SNUM)
+
+### Contenu
+- Page d'accueil (index.md) : SPAN officiel complet (18 sections)
+- Sommaire interactif DSFR avec 18 ancres de navigation
+- Footer : Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique
+
+### Technique
+- Hook Python on_post_page pour nettoyage HTML
+- Front-matter YAML pour contrôle des titres
+- Archives sources SPAN : span/span-sircom-sg.md, span/span-sircom.md
+
+### Commits
+10 commits du 08/10/2025 (437a9c9 à 15a0a8a) :
+- chore(sources): mise à jour archives SPAN SIRCOM
+- fix(meta): supprimer complètement redondance dans title HTML
+- fix(meta): supprimer redondance dans title de la page d'accueil
+- feat(dsfr): positionner bouton "Haut de page" à droite
+- feat(nav): renommer Accueil en SPAN (SG)
+- feat(dsfr): intégration composant Sommaire accessible
+- feat(homepage): remplacement complet par SPAN officiel
+- fix(nav): correction nom menu - "SPAN (services)"
+- feat(nav): réorganisation menu navigation
+- chore: mise à jour date synthèse
+
+---
+
 ## v1.0.0-poc – 2025-10-07
 
 **POC (Proof of Concept)** : Démonstration technique framework SPAN SG
