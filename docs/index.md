@@ -1,27 +1,65 @@
 # Schéma Pluriannuel d'Accessibilité Numérique
 
-<nav aria-label="Sommaire du schéma pluriannuel">
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
 
-## Sommaire
+<h2 class="fr-summary__title" id="fr-summary-title">Sommaire</h2>
 
-- [Introduction](#introduction)
-- [Définition de l'accessibilité numérique](#definition-de-laccessibilite-numerique)
-- [Les contenus concernés](#les-contenus-concernes)
-- [Politique d'accessibilité](#politique-daccessibilite)
-- [Cadre d'application](#cadre-dapplication)
-- [Charte de la communication accessible](#charte-de-la-communication-accessible)
-- [Système de Design de l'État](#systeme-de-design-de-letat)
-- [Ressources humaines et financières affectées à l'accessibilité numérique](#ressources-humaines-et-financieres-affectees-a-laccessibilite-numerique)
-- [Organisation de la prise en compte de l'accessibilité numérique](#organisation-de-la-prise-en-compte-de-laccessibilite-numerique)
-- [Action de formation et de sensibilisation](#action-de-formation-et-de-sensibilisation)
-- [Recours à des compétences externes](#recours-a-des-competences-externes)
-- [Prise en compte de l'accessibilité numérique dans les projets](#prise-en-compte-de-laccessibilite-numerique-dans-les-projets)
-- [Prise en compte de l'accessibilité dans les procédures de marché](#prise-en-compte-de-laccessibilite-dans-les-procedures-de-marche)
-- [Recrutement](#recrutement)
-- [Traitement des retours utilisateurs](#traitement-des-retours-utilisateurs)
-- [Processus de contrôle et de validation](#processus-de-controle-et-de-validation)
-- [Périmètre technique et fonctionnel](#perimetre-technique-et-fonctionnel)
-- [Plans annuels](#plans-annuels)
+<ol class="fr-summary__list">
+<li>
+<a class="fr-summary__link" href="#introduction">Introduction</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#definition-de-laccessibilite-numerique">Définition de l'accessibilité numérique</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#les-contenus-concernes">Les contenus concernés</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#politique-daccessibilite">Politique d'accessibilité</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#cadre-dapplication">Cadre d'application</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#charte-de-la-communication-accessible">Charte de la communication accessible</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#systeme-de-design-de-letat">Système de Design de l'État</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#ressources-humaines-et-financieres-affectees-a-laccessibilite-numerique">Ressources humaines et financières affectées à l'accessibilité numérique</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#organisation-de-la-prise-en-compte-de-laccessibilite-numerique">Organisation de la prise en compte de l'accessibilité numérique</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#action-de-formation-et-de-sensibilisation">Action de formation et de sensibilisation</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#recours-a-des-competences-externes">Recours à des compétences externes</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#prise-en-compte-de-laccessibilite-numerique-dans-les-projets">Prise en compte de l'accessibilité numérique dans les projets</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#prise-en-compte-de-laccessibilite-dans-les-procedures-de-marche">Prise en compte de l'accessibilité dans les procédures de marché</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#recrutement">Recrutement</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#traitement-des-retours-utilisateurs">Traitement des retours utilisateurs</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#processus-de-controle-et-de-validation">Processus de contrôle et de validation</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#perimetre-technique-et-fonctionnel">Périmètre technique et fonctionnel</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#plans-annuels">Plans annuels</a>
+</li>
+</ol>
 
 Ce SPAN est susceptible d'être mis à jour sans préavis. La version en ligne est la seule version qui peut faire référence.
 
