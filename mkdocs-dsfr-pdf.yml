@@ -3,7 +3,7 @@
 # Phase: POC Phase 1 (S7-01)
 # Basé sur: mkdocs.yml (Material)
 
-site_name: SPAN SG
+site_name: ""
 site_url: https://alexmacapple.github.io/span-sg-repo/
 repo_url: https://github.com/Alexmacapple/span-sg-repo
 strict: true
@@ -77,6 +77,9 @@ nav:
   - Guide contributeur: contributing.md
   - Développement local: dev-local.md
   - "Code source GitHub": "https://github.com/Alexmacapple/span-sg-repo"
+
+hooks:
+  - hooks/title_cleaner.py
 
 markdown_extensions:
   - tables

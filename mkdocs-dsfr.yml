@@ -3,7 +3,7 @@
 # Phase: POC Phase 1 (S7-01)
 # Basé sur: mkdocs.yml (Material)
 
-site_name: SPAN SG
+site_name: ""
 site_url: https://alexmacapple.github.io/span-sg-repo/
 strict: true
 
@@ -65,6 +65,7 @@ nav:
 
 hooks:
   - hooks/dsfr_table_wrapper.py
+  - hooks/title_cleaner.py
 
 markdown_extensions:
   - tables
