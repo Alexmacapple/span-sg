@@ -24,12 +24,14 @@ En haut à droite du fichier (icône crayon).
 ### 3. Modifier le contenu
 
 **Ce que vous pouvez faire** :
+
 - Cocher des cases `[x]` dans les 31 points DINUM
 - Compléter les sections 1-5 (Périmètre, État des lieux, Organisation, Plan d'action, Indicateurs)
 - Ajouter des actions au tableau "Plan d'actions prioritaires"
 - Renseigner l'URL de déclaration d'accessibilité
 
 **Ce que vous ne devez PAS faire** :
+
 - Ajouter/supprimer des lignes `<!-- DINUM -->`
 - Modifier la structure (titres des sections)
 - Toucher au front-matter (section `---` en haut)
@@ -37,11 +39,13 @@ En haut à droite du fichier (icône crayon).
 ### 4. Sauvegarder et créer la Pull Request
 
 En bas de la page :
+
 - **Commit message** : `feat(sircom): ajoute 3 actions au plan 2025` (exemple)
 - Cocher **Create a new branch** : `update-sircom-[date]`
 - Cliquer **Propose changes**
 
 Sur la page suivante :
+
 - **Base** : `draft` (important !)
 - **Compare** : votre branche
 - Cliquer **Create Pull Request**
@@ -102,6 +106,7 @@ git push -u origin feature/update-[votre-service]
 ### 6. Créer la Pull Request
 
 Sur GitHub :
+
 - Cliquer le lien affiché dans le terminal
 - OU aller sur https://github.com/Alexmacapple/span-sg-repo/pulls → New Pull Request
 - **Base** : `draft`
