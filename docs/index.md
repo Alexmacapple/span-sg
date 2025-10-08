@@ -15,11 +15,33 @@ Pour chaque service
 
 ## Mentions de charge disproportionnée
 
-Si applicable, pour chaque service
-- Fonctionnalité/section concernée
-- Justification documentée (technique/financière/organisationnelle)
-- Alternative proposée (canal/équivalent)
-- Échéance de réévaluation
+<section aria-labelledby="charge-disproportionnee-titre">
+
+<p><strong>Si applicable</strong>, chaque service doit documenter précisément les charges disproportionnées selon la structure suivante :</p>
+
+<dl class="fr-charge-disproportionnee">
+  <dt>Fonctionnalité/section concernée</dt>
+  <dd>Description précise de l'élément non conforme (ex: module cartographique, vidéo archives 2015-2018, formulaire complexe métier X)</dd>
+
+  <dt>Justification documentée</dt>
+  <dd>
+    <ul>
+      <li><strong>Type de charge</strong> : Technique / Financière / Organisationnelle</li>
+      <li><strong>Analyse coût/bénéfice</strong> : Estimation chiffrée si possible (ex: 150K€ pour 200 utilisateurs/an = 750€/utilisateur)</li>
+      <li><strong>Documentation de référence</strong> : Lien vers étude technique, rapport financier, décision validée</li>
+    </ul>
+  </dd>
+
+  <dt>Alternative proposée (canal/équivalent)</dt>
+  <dd>Moyen alternatif d'accès au service/information (ex: formulaire papier avec assistance, contact téléphonique dédié, version simplifiée HTML)</dd>
+
+  <dt>Échéance de réévaluation</dt>
+  <dd><time datetime="2026-12-31">31 décembre 2026</time> (révision obligatoire tous les 3 ans minimum)</dd>
+</dl>
+
+<p><em>Note : La charge disproportionnée ne dispense pas de publier une déclaration d'accessibilité ni de proposer une alternative.</em></p>
+
+</section>
 
 
 

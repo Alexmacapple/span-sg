@@ -228,15 +228,25 @@ validation_status: validated
 
 ## Analyse charge disproportionnée
 
-**Aucune charge disproportionnée invoquée** pour le périmètre SPAN 2024-2027.
+<section aria-labelledby="charge-disproportionnee-sircom">
+  <h3 id="charge-disproportionnee-sircom">Charges disproportionnées</h3>
 
-Tous les sites et applications du périmètre sont engagés dans une démarche progressive de mise en conformité RGAA selon l'agenda planifié 2024-2027.
+  <p><strong>Aucune charge disproportionnée invoquée</strong> pour le périmètre SPAN 2024-2027.</p>
 
-**Critères décision** (non applicables actuellement) :
-- Analyse coût/bénéfice documentée
-- Alternatives étudiées et proposées
-- Validation juridique
-- Publication justification dans déclarations accessibilité
+  <p>Tous les sites et applications du périmètre sont engagés dans une démarche progressive de mise en conformité RGAA selon l'agenda planifié 2024-2027.</p>
+
+  <details class="fr-accordion">
+    <summary class="fr-accordion__title">Critères de décision (non applicables actuellement)</summary>
+    <div class="fr-accordion__content">
+      <ul>
+        <li>Analyse coût/bénéfice documentée</li>
+        <li>Alternatives étudiées et proposées</li>
+        <li>Validation juridique</li>
+        <li>Publication justification dans déclarations accessibilité</li>
+      </ul>
+    </div>
+  </details>
+</section>
 
 ---
 
