@@ -1,0 +1,21 @@
+# Dockerfile DSFR - Environnement local identique à CI
+# Python 3.11 pour compatibilité dsfr-structure >=0.7.0
+# Date: 2025-10-08
+
+FROM python:3.11-slim
+
+WORKDIR /docs
+
+# Installer dépendances système (git pour mkdocs-git-revision-date-localized-plugin)
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends git && \
+    rm -rf /var/lib/apt/lists/*
+
+# Installer dépendances Python DSFR
+COPY requirements-dsfr.txt .
+RUN pip install --no-cache-dir -r requirements-dsfr.txt
+
+EXPOSE 8000
+
+# Lancer serveur DSFR (hot reload)
+CMD ["mkdocs", "serve", "--config-file", "mkdocs-dsfr.yml", "--dev-addr=0.0.0.0:8000"]

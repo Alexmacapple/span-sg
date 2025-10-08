@@ -3,6 +3,8 @@
 
 **État du déploiement v1.0** : 2 modules validés (SIRCOM, SNUM), 4 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement.
 
+<div class="fr-table" markdown>
+
 | Service | Score | Statut | État |
 |---------|-------|--------|------|
 | BGS | 0/31 (0.0%) | Non renseigné | En cours |
@@ -12,3 +14,5 @@
 | SNUM | 21/31 (67.7%) | En cours | Validé |
 | SRH | 0/31 (0.0%) | Non renseigné | En cours |
 | **TOTAL** | **45/186 (24.2%)** | **Global** | |
+
+</div>

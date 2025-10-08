@@ -64,5 +64,6 @@ nav:
 
 markdown_extensions:
   - tables
+  - md_in_html
   - toc:
       permalink: false

@@ -1,0 +1,15 @@
+# Docker Compose DSFR - Environnement local iso production
+# Date: 2025-10-08
+# Usage: docker compose -f docker-compose-dsfr.yml up --build
+
+services:
+  mkdocs-dsfr:
+    build:
+      context: .
+      dockerfile: Dockerfile-dsfr
+    volumes:
+      - .:/docs
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
