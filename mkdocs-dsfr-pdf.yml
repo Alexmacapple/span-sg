@@ -63,7 +63,7 @@ plugins:
       enabled_if_env: ENABLE_PDF_EXPORT
 
 nav:
-  - Accueil: index.md
+  - SPAN (SG): index.md
   - SPAN (services):
     - BGS: modules/bgs.md
     - SAFI: modules/safi.md

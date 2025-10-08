@@ -48,7 +48,7 @@ plugins:
       lang: fr
 
 nav:
-  - Accueil: index.md
+  - SPAN (SG): index.md
   - SPAN (services):
     - BGS: modules/bgs.md
     - SAFI: modules/safi.md
