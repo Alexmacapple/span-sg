@@ -19,17 +19,17 @@ plugins:
 
 nav:
   - Accueil: index.md
+  - SPAN-SERVICES:
+    - BGS: modules/bgs.md
+    - SAFI: modules/safi.md
+    - SIEP: modules/siep.md
+    - SIRCOM: modules/sircom.md
+    - SNUM: modules/snum.md
+    - SRH: modules/srh.md
   - Synthèse: synthese.md
   - Processus: processus.md
   - Guide contributeur: contributing.md
   - Développement local: dev-local.md
-  - Modules Services:
-    - SNUM: modules/snum.md
-    - SIRCOM: modules/sircom.md
-    - SRH: modules/srh.md
-    - SIEP: modules/siep.md
-    - SAFI: modules/safi.md
-    - BGS: modules/bgs.md
 
 markdown_extensions:
   - tables
