@@ -7,7 +7,7 @@ validation_status: in_progress
 
 # SPAN SRH - Schéma Pluriannuel d'accessibilité numérique
 
-> **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
+> **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
 
 **Période** 2025-2027
 **Service** Service des Ressources Humaines (SRH)
@@ -17,18 +17,18 @@ validation_status: in_progress
 
 ## 1. Périmètre
 
-**Applications RH** :
+**Applications RH** :
 - SIRH Cegid (gestion paie, congés, carrières) - 15 000 agents
 - Portail formation agents (catalogue + inscriptions)
 - Outil auto-évaluation compétences
 - Module recrutement en ligne
 - Plateforme onboarding nouveaux agents
 
-**Sites web** :
+**Sites web** :
 - Espace RH intranet (fiches pratiques, simulateurs)
 - Portail carrières externe (sg.gouv.fr/carrieres)
 
-**Démarches essentielles** :
+**Démarches essentielles** :
 - Demande congés en ligne
 - Inscription formations
 - Téléchargement bulletins paie
@@ -36,35 +36,35 @@ validation_status: in_progress
 
 ## 2. État des lieux (synthèse)
 
-**Audits réalisés** : Aucun audit RGAA réalisé
+**Audits réalisés** : Aucun audit RGAA réalisé
 
-**Planification** :
+**Planification** :
 - Diagnostic SIRH Cegid prévu T1 2025 (audit éditeur)
 - Audit portail formation prévu T2 2025
 
-**Points critiques identifiés** :
-- SIRH : Solution tierce (responsabilité éditeur)
-- Portail formation : Développement interne (non audité)
-- Documents RH PDF : Génération automatisée (conformité à vérifier)
+**Points critiques identifiés** :
+- SIRH : Solution tierce (responsabilité éditeur)
+- Portail formation : Développement interne (non audité)
+- Documents RH PDF : Génération automatisée (conformité à vérifier)
 
-**Score estimé** : Non disponible
+**Score estimé** : Non disponible
 
 ## 3. Organisation
 
-**Référent accessibilité numérique** :
-- Nom : [À définir lors de S3-02]
-- Contact : srh.accessibilite@sg.gouv.fr
-- Temps alloué : 0.15 ETP prévu à partir T2 2025
+**Référent accessibilité numérique** :
+- Nom : [À définir lors de S3-02]
+- Contact : srh.accessibilite@sg.gouv.fr
+- Temps alloué : 0.15 ETP prévu à partir T2 2025
 
-**Équipe projet** :
-- Chef de projet SIRH : 0.1 ETP
-- Responsable formation : 0.05 ETP
-- Administrateurs applications : 2 × 0.05 ETP
+**Équipe projet** :
+- Chef de projet SIRH : 0.1 ETP
+- Responsable formation : 0.05 ETP
+- Administrateurs applications : 2 × 0.05 ETP
 
-**Formations prévues** :
-- Formation référent : T1 2025
-- Sensibilisation équipe RH : T2 2025
-- Formation éditeurs documents : T3 2025
+**Formations prévues** :
+- Formation référent : T1 2025
+- Sensibilisation équipe RH : T2 2025
+- Formation éditeurs documents : T3 2025
 
 ## 4. Plan d'action annuel
 
@@ -75,7 +75,7 @@ validation_status: in_progress
 | Mise en conformité documents RH PDF | T3 2025 | Éditeurs RH | 8 000 € | À commencer |
 | Formation équipes RH accessibilité | T4 2025 | Référent SRH | 3 000 € | À commencer |
 
-**Budget total 2025** : 17 000 € (hors contrat éditeur)
+**Budget total 2025** : 17 000 € (hors contrat éditeur)
 
 **Légende statuts**
 - À commencer
@@ -86,20 +86,20 @@ validation_status: in_progress
 
 ## 5. Indicateurs clés
 
-**Taux de conformité** :
-- Objectif 2025 : SIRH conforme (responsabilité éditeur)
-- Objectif 2026 : Portail formation 75% conforme
-- Objectif 2027 : Tous services RH 100% conformes
+**Taux de conformité** :
+- Objectif 2025 : SIRH conforme (responsabilité éditeur)
+- Objectif 2026 : Portail formation 75% conforme
+- Objectif 2027 : Tous services RH 100% conformes
 
-**Documents accessibles** :
-- Objectif 2025 : 50% documents RH PDF conformes
-- Objectif 2026 : 80% documents conformes
-- Objectif 2027 : 100% documents conformes
+**Documents accessibles** :
+- Objectif 2025 : 50% documents RH PDF conformes
+- Objectif 2026 : 80% documents conformes
+- Objectif 2027 : 100% documents conformes
 
-**Formations réalisées** :
-- Objectif 2025 : 8 agents formés
-- Objectif 2026 : 20 agents formés
-- Objectif 2027 : 35 agents formés
+**Formations réalisées** :
+- Objectif 2025 : 8 agents formés
+- Objectif 2026 : 20 agents formés
+- Objectif 2027 : 35 agents formés
 
 
 ## points de contrôle officiels (31)

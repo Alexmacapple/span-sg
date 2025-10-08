@@ -7,7 +7,7 @@ validation_status: in_progress
 
 # SPAN BGS - Schéma Pluriannuel d'accessibilité numérique
 
-> **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
+> **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
 
 **Période** 2025-2027
 **Service** Bureau de Gestion des Services (BGS)
@@ -17,18 +17,18 @@ validation_status: in_progress
 
 ## 1. Périmètre
 
-**Applications services généraux** :
+**Applications services généraux** :
 - Outil gestion courrier et parapheur électronique
 - Plateforme réservation ressources (salles, véhicules, matériel)
 - Module gestion archive numérique
 - Application badgeage et contrôle accès
 - Outil gestion prestataires et interventions
 
-**Intranets** :
+**Intranets** :
 - Portail services généraux (demandes, suivi)
 - Annuaire services et contacts internes
 
-**Démarches essentielles** :
+**Démarches essentielles** :
 - Réservation salles de réunion
 - Demande intervention maintenance
 - Commande fournitures bureau
@@ -37,35 +37,35 @@ validation_status: in_progress
 
 ## 2. État des lieux (synthèse)
 
-**Audits réalisés** : Aucun audit RGAA réalisé
+**Audits réalisés** : Aucun audit RGAA réalisé
 
-**Planification** :
+**Planification** :
 - Diagnostic plateforme réservation prévu T2 2025
 - Audit portail services généraux prévu T3 2025
 
-**Points critiques identifiés** :
-- Plateforme réservation : Interface calendrier (navigation clavier)
-- Parapheur électronique : Solution tierce (accessibilité à vérifier)
-- Formulaires demandes : Validation à tester
+**Points critiques identifiés** :
+- Plateforme réservation : Interface calendrier (navigation clavier)
+- Parapheur électronique : Solution tierce (accessibilité à vérifier)
+- Formulaires demandes : Validation à tester
 
-**Score estimé** : Non disponible
+**Score estimé** : Non disponible
 
 ## 3. Organisation
 
-**Référent accessibilité numérique** :
-- Nom : [À définir lors de S3-02]
-- Contact : bgs.accessibilite@sg.gouv.fr
-- Temps alloué : 0.1 ETP prévu à partir T2 2025
+**Référent accessibilité numérique** :
+- Nom : [À définir lors de S3-02]
+- Contact : bgs.accessibilite@sg.gouv.fr
+- Temps alloué : 0.1 ETP prévu à partir T2 2025
 
-**Équipe projet** :
-- Responsable services généraux : 0.1 ETP
-- Gestionnaire applications : 0.05 ETP
-- Support utilisateurs : 0.05 ETP
+**Équipe projet** :
+- Responsable services généraux : 0.1 ETP
+- Gestionnaire applications : 0.05 ETP
+- Support utilisateurs : 0.05 ETP
 
-**Formations prévues** :
-- Formation référent : T1 2025
-- Sensibilisation équipe BGS : T3 2025
-- Formation éditeurs contenus : T4 2025
+**Formations prévues** :
+- Formation référent : T1 2025
+- Sensibilisation équipe BGS : T3 2025
+- Formation éditeurs contenus : T4 2025
 
 ## 4. Plan d'action annuel
 
@@ -76,7 +76,7 @@ validation_status: in_progress
 | Mise en conformité formulaires demandes | T3 2025 | Gestionnaire appli | 8 000 € | À commencer |
 | Formation équipe BGS accessibilité | T4 2025 | Référent BGS | 1 500 € | À commencer |
 
-**Budget total 2025** : 15 000 € (hors parapheur éditeur)
+**Budget total 2025** : 15 000 € (hors parapheur éditeur)
 
 **Légende statuts**
 - À commencer
@@ -87,20 +87,20 @@ validation_status: in_progress
 
 ## 5. Indicateurs clés
 
-**Taux de conformité** :
-- Objectif 2025 : Plateforme réservation 70% conforme
-- Objectif 2026 : Portail services généraux 85% conforme
-- Objectif 2027 : Tous outils 100% conformes
+**Taux de conformité** :
+- Objectif 2025 : Plateforme réservation 70% conforme
+- Objectif 2026 : Portail services généraux 85% conforme
+- Objectif 2027 : Tous outils 100% conformes
 
-**Démarches accessibles** :
-- Objectif 2025 : 70% formulaires demandes conformes
-- Objectif 2026 : 90% démarches conformes
-- Objectif 2027 : 100% démarches conformes
+**Démarches accessibles** :
+- Objectif 2025 : 70% formulaires demandes conformes
+- Objectif 2026 : 90% démarches conformes
+- Objectif 2027 : 100% démarches conformes
 
-**Formations réalisées** :
-- Objectif 2025 : 5 agents formés
-- Objectif 2026 : 12 agents formés
-- Objectif 2027 : 20 agents formés
+**Formations réalisées** :
+- Objectif 2025 : 5 agents formés
+- Objectif 2026 : 12 agents formés
+- Objectif 2027 : 20 agents formés
 
 
 ## points de contrôle officiels (31)

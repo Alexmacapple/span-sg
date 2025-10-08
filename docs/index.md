@@ -1,6 +1,6 @@
 # SPAN SG – Portail et conformité
 
-**État du déploiement v1.0** : 2 modules validés (SIRCOM, SNUM), 4 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement.
+**État du déploiement v1.0** : 2 modules validés (SIRCOM, SNUM), 4 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement.
 
 Ce site centralise le SPAN SG et les modules services. Voir la page Synthèse pour l'agrégation automatique.
 
@@ -15,18 +15,18 @@ Pour chaque service
 
 ## Mentions de charge disproportionnée
 
-**Si applicable**, chaque service doit documenter précisément les charges disproportionnées selon la structure suivante :
+**Si applicable**, chaque service doit documenter précisément les charges disproportionnées selon la structure suivante :
 
 | Critère | Description |
 |---------|-------------|
-| **Fonctionnalité/section concernée** | Description précise de l'élément non conforme<br>*Exemple : module cartographique interactif legacy 2010-2015, vidéo archives 2015-2018, formulaire complexe métier X* |
+| **Fonctionnalité/section concernée** | Description précise de l'élément non conforme<br>*Exemple : module cartographique interactif legacy 2010-2015, vidéo archives 2015-2018, formulaire complexe métier X* |
 | **Type de charge** | Technique / Financière / Organisationnelle |
-| **Analyse coût/bénéfice** | Estimation chiffrée si possible<br>*Exemple : 150K€ refonte pour 200 utilisateurs/an = 750€/utilisateur* |
+| **Analyse coût/bénéfice** | Estimation chiffrée si possible<br>*Exemple : 150K€ refonte pour 200 utilisateurs/an = 750€/utilisateur* |
 | **Documentation de référence** | Lien vers étude technique, rapport audit financier, décision validée |
-| **Alternative proposée** | Moyen alternatif d'accès au service/information<br>*Exemple : formulaire papier avec assistance, contact téléphonique dédié, version simplifiée HTML, données téléchargeables CSV accessible* |
+| **Alternative proposée** | Moyen alternatif d'accès au service/information<br>*Exemple : formulaire papier avec assistance, contact téléphonique dédié, version simplifiée HTML, données téléchargeables CSV accessible* |
 | **Échéance de réévaluation** | 31 décembre 2026 (révision obligatoire tous les 3 ans minimum) |
 
-*Note : La charge disproportionnée ne dispense pas de publier une déclaration d'accessibilité ni de proposer une alternative.*
+*Note : La charge disproportionnée ne dispense pas de publier une déclaration d'accessibilité ni de proposer une alternative.*
 
 
 

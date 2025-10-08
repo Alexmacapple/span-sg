@@ -7,7 +7,7 @@ validation_status: in_progress
 
 # SPAN SAFI - Schéma Pluriannuel d'accessibilité numérique
 
-> **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
+> **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
 
 **Période** 2025-2027
 **Service** Service des Affaires Financières et Immobilières (SAFI)
@@ -17,18 +17,18 @@ validation_status: in_progress
 
 ## 1. Périmètre
 
-**Applications financières** :
+**Applications financières** :
 - ERP financier (comptabilité, budget, achats) - Chorus Pro
 - Outil gestion marchés publics
 - Plateforme dématérialisation factures
 - Module suivi budgétaire (tableaux de bord)
 - Application gestion immobilière (patrimoine, maintenance)
 
-**Intranets et portails** :
+**Intranets et portails** :
 - Portail achats agents (demandes, validation)
 - Intranet SAFI (procédures, guides)
 
-**Démarches essentielles** :
+**Démarches essentielles** :
 - Demande achat en ligne
 - Suivi commandes et factures
 - Consultation budgets services
@@ -36,35 +36,35 @@ validation_status: in_progress
 
 ## 2. État des lieux (synthèse)
 
-**Audits réalisés** : Aucun audit RGAA réalisé
+**Audits réalisés** : Aucun audit RGAA réalisé
 
-**Planification** :
+**Planification** :
 - Diagnostic Chorus Pro prévu T1 2025 (solution éditeur)
 - Audit portail achats prévu T2 2025
 
-**Points critiques identifiés** :
-- Chorus Pro : Solution nationale (accessibilité à vérifier)
-- Tableaux de bord financiers : Exports Excel (non accessibles)
-- Formulaires achats : Validation clavier à tester
+**Points critiques identifiés** :
+- Chorus Pro : Solution nationale (accessibilité à vérifier)
+- Tableaux de bord financiers : Exports Excel (non accessibles)
+- Formulaires achats : Validation clavier à tester
 
-**Score estimé** : Non disponible
+**Score estimé** : Non disponible
 
 ## 3. Organisation
 
-**Référent accessibilité numérique** :
-- Nom : [À définir lors de S3-02]
-- Contact : safi.accessibilite@sg.gouv.fr
-- Temps alloué : 0.15 ETP prévu à partir T2 2025
+**Référent accessibilité numérique** :
+- Nom : [À définir lors de S3-02]
+- Contact : safi.accessibilite@sg.gouv.fr
+- Temps alloué : 0.15 ETP prévu à partir T2 2025
 
-**Équipe projet** :
-- Responsable SI financier : 0.1 ETP
-- Chef de projet achats : 0.05 ETP
-- Gestionnaires applications : 2 × 0.05 ETP
+**Équipe projet** :
+- Responsable SI financier : 0.1 ETP
+- Chef de projet achats : 0.05 ETP
+- Gestionnaires applications : 2 × 0.05 ETP
 
-**Formations prévues** :
-- Formation référent : T1 2025
-- Sensibilisation équipe SAFI : T2 2025
-- Formation tableaux de bord accessibles : T3 2025
+**Formations prévues** :
+- Formation référent : T1 2025
+- Sensibilisation équipe SAFI : T2 2025
+- Formation tableaux de bord accessibles : T3 2025
 
 ## 4. Plan d'action annuel
 
@@ -75,7 +75,7 @@ validation_status: in_progress
 | Mise en conformité formulaires achats | T3 2025 | Chef projet achats | 12 000 € | À commencer |
 | Formation équipe tableaux de bord | T3 2025 | Référent SAFI | 2 500 € | À commencer |
 
-**Budget total 2025** : 21 000 € (hors Chorus Pro)
+**Budget total 2025** : 21 000 € (hors Chorus Pro)
 
 **Légende statuts**
 - À commencer
@@ -86,20 +86,20 @@ validation_status: in_progress
 
 ## 5. Indicateurs clés
 
-**Taux de conformité** :
-- Objectif 2025 : Portail achats 70% conforme
-- Objectif 2026 : Tous outils internes 85% conformes
-- Objectif 2027 : 100% conformes (hors solutions nationales)
+**Taux de conformité** :
+- Objectif 2025 : Portail achats 70% conforme
+- Objectif 2026 : Tous outils internes 85% conformes
+- Objectif 2027 : 100% conformes (hors solutions nationales)
 
-**Formulaires accessibles** :
-- Objectif 2025 : 80% formulaires achats conformes
-- Objectif 2026 : 100% formulaires conformes
-- Objectif 2027 : Maintien 100%
+**Formulaires accessibles** :
+- Objectif 2025 : 80% formulaires achats conformes
+- Objectif 2026 : 100% formulaires conformes
+- Objectif 2027 : Maintien 100%
 
-**Formations réalisées** :
-- Objectif 2025 : 6 agents formés
-- Objectif 2026 : 15 agents formés
-- Objectif 2027 : 25 agents formés
+**Formations réalisées** :
+- Objectif 2025 : 6 agents formés
+- Objectif 2026 : 15 agents formés
+- Objectif 2027 : 25 agents formés
 
 
 ## points de contrôle officiels (31)

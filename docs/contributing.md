@@ -7,7 +7,7 @@ Les modifications passent par une **Pull Request** vers `draft` pour validation.
 
 ---
 
-## Option A : Interface GitHub (recommandé pour débutants)
+## Option A : Interface GitHub (recommandé pour débutants)
 
 **Pas besoin de Git, tout se fait dans le navigateur.**
 
@@ -15,7 +15,7 @@ Les modifications passent par une **Pull Request** vers `draft` pour validation.
 
 https://github.com/Alexmacapple/span-sg-repo/blob/draft/docs/modules/[votre-service].md
 
-Exemple : `sircom.md`, `snum.md`, `srh.md`, etc.
+Exemple : `sircom.md`, `snum.md`, `srh.md`, etc.
 
 ### 2. Cliquer sur "Edit this file"
 
@@ -23,14 +23,14 @@ En haut à droite du fichier (icône crayon).
 
 ### 3. Modifier le contenu
 
-**Ce que vous pouvez faire** :
+**Ce que vous pouvez faire** :
 
 - Cocher des cases `[x]` dans les 31 points DINUM
 - Compléter les sections 1-5 (Périmètre, État des lieux, Organisation, Plan d'action, Indicateurs)
 - Ajouter des actions au tableau "Plan d'actions prioritaires"
 - Renseigner l'URL de déclaration d'accessibilité
 
-**Ce que vous ne devez PAS faire** :
+**Ce que vous ne devez PAS faire** :
 
 - Ajouter/supprimer des lignes `<!-- DINUM -->`
 - Modifier la structure (titres des sections)
@@ -38,16 +38,16 @@ En haut à droite du fichier (icône crayon).
 
 ### 4. Sauvegarder et créer la Pull Request
 
-En bas de la page :
+En bas de la page :
 
-- **Commit message** : `feat(sircom): ajoute 3 actions au plan 2025` (exemple)
-- Cocher **Create a new branch** : `update-sircom-[date]`
+- **Commit message** : `feat(sircom): ajoute 3 actions au plan 2025` (exemple)
+- Cocher **Create a new branch** : `update-sircom-[date]`
 - Cliquer **Propose changes**
 
-Sur la page suivante :
+Sur la page suivante :
 
-- **Base** : `draft` (important !)
-- **Compare** : votre branche
+- **Base** : `draft` (important !)
+- **Compare** : votre branche
 - Cliquer **Create Pull Request**
 
 ### 5. Validation
@@ -55,11 +55,11 @@ Sur la page suivante :
 Bertrand ou Alex reviendra la PR et la mergera si OK.
 Vous recevrez une notification par email.
 
-Preview désactivée : revue locale/PDF. Voir `docs/dev-local.md` et `.github/PAGES-ACCESS-CHECKLIST.md`.
+Preview désactivée : revue locale/PDF. Voir `docs/dev-local.md` et `.github/PAGES-ACCESS-CHECKLIST.md`.
 
 ---
 
-## Option B : Git local (avancés)
+## Option B : Git local (avancés)
 
 **Nécessite Git installé localement.**
 
@@ -105,28 +105,28 @@ git push -u origin feature/update-[votre-service]
 
 ### 6. Créer la Pull Request
 
-Sur GitHub :
+Sur GitHub :
 
 - Cliquer le lien affiché dans le terminal
 - OU aller sur https://github.com/Alexmacapple/span-sg-repo/pulls → New Pull Request
-- **Base** : `draft`
-- **Compare** : votre branche
+- **Base** : `draft`
+- **Compare** : votre branche
 
 ---
 
 ## Qualité code Python
 
-Si vous contribuez au code Python (`scripts/`), suivez ces règles :
+Si vous contribuez au code Python (`scripts/`), suivez ces règles :
 
 ### Tests unitaires
-- Exécuter les tests avant commit : `pytest scripts/ -v --cov=scripts`
-- Coverage minimum : ≥85% global, ≥90% pour calculate_scores.py
+- Exécuter les tests avant commit : `pytest scripts/ -v --cov=scripts`
+- Coverage minimum : ≥85% global, ≥90% pour calculate_scores.py
 - Tous les tests doivent passer
 
 ### Formatting et linting
-- Formater avec Black : `black scripts/`
-- Vérifier avec Ruff : `ruff check scripts/`
-- Hooks pre-commit : `pre-commit install` (recommandé)
+- Formater avec Black : `black scripts/`
+- Vérifier avec Ruff : `ruff check scripts/`
+- Hooks pre-commit : `pre-commit install` (recommandé)
 
 ### Installation environnement dev
 ```bash
@@ -140,7 +140,7 @@ Les hooks pre-commit exécutent automatiquement Black et Ruff avant chaque commi
 
 ## Règles de validation des PR
 
-Chaque PR est vérifiée automatiquement (CI) et manuellement (Bertrand/Alex) :
+Chaque PR est vérifiée automatiquement (CI) et manuellement (Bertrand/Alex) :
 
 ### Vérifications automatiques (CI)
 - Tests unitaires Python (pytest)
@@ -175,20 +175,20 @@ Validation Yves → Production
 
 ---
 
-## Besoin d'aide ?
+## Besoin d'aide ?
 
-- **Questions techniques** : Bertrand (@bertrand), Alex (@alex)
-- **Questions contenu** : Alexandra (@alexandra)
+- **Questions techniques** : Bertrand (@bertrand), Alex (@alex)
+- **Questions contenu** : Alexandra (@alexandra)
 - **Issues GitHub** : https://github.com/Alexmacapple/span-sg-repo/issues
 
 ---
 
-**Principe directeur : Simple, fonctionnel, efficace.**
+**Principe directeur : Simple, fonctionnel, efficace.**
 
 ---
 
 ## Note sur les URLs
 
-**URLs actuelles** : Ce projet est hébergé sur `Alexmacapple/span-sg-repo` (compte utilisateur).
+**URLs actuelles** : Ce projet est hébergé sur `Alexmacapple/span-sg-repo` (compte utilisateur).
 
-**Migration prévue** : Lors de la mise en production, le dépôt sera transféré vers une organisation GitHub. Les URLs seront mises à jour à ce moment-là.
+**Migration prévue** : Lors de la mise en production, le dépôt sera transféré vers une organisation GitHub. Les URLs seront mises à jour à ce moment-là.

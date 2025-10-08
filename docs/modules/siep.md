@@ -7,7 +7,7 @@ validation_status: in_progress
 
 # SPAN SIEP - Schéma Pluriannuel d'accessibilité numérique
 
-> **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
+> **Module en cours de complétion** : Structure framework présente, contenus à renseigner (référent service à identifier).
 
 **Période** 2025-2027
 **Service** Service de l'Innovation et de l'Évaluation des Politiques (SIEP)
@@ -17,18 +17,18 @@ validation_status: in_progress
 
 ## 1. Périmètre
 
-**Outils innovation** :
+**Outils innovation** :
 - Plateforme collaborative innovation interne (idéation, projets)
 - Tableau de bord pilotage innovation
 - Base documentaire études et évaluations
 - Outil cartographie services numériques SG
 
-**Sites web et publications** :
+**Sites web et publications** :
 - Portail open data SG (data.sg.gouv.fr)
 - Site vitrine innovation.sg.gouv.fr
 - Rapports et études en ligne (format PDF)
 
-**Démarches et services** :
+**Démarches et services** :
 - Soumission propositions innovation
 - Accès résultats évaluations
 - Consultation indicateurs performance
@@ -36,35 +36,35 @@ validation_status: in_progress
 
 ## 2. État des lieux (synthèse)
 
-**Audits réalisés** : Aucun audit RGAA réalisé
+**Audits réalisés** : Aucun audit RGAA réalisé
 
-**Planification** :
+**Planification** :
 - Audit portail open data prévu T2 2025 (priorité haute)
 - Diagnostic outils internes prévu T3 2025
 
-**Points critiques identifiés** :
-- Portail open data : Visualisations graphiques (accessibilité à vérifier)
-- Rapports PDF : Génération automatisée (non conformes)
-- Tableaux de bord : Interactivité clavier à tester
+**Points critiques identifiés** :
+- Portail open data : Visualisations graphiques (accessibilité à vérifier)
+- Rapports PDF : Génération automatisée (non conformes)
+- Tableaux de bord : Interactivité clavier à tester
 
-**Score estimé** : Non disponible
+**Score estimé** : Non disponible
 
 ## 3. Organisation
 
-**Référent accessibilité numérique** :
-- Nom : [À définir lors de S3-02]
-- Contact : siep.accessibilite@sg.gouv.fr
-- Temps alloué : 0.1 ETP prévu à partir T2 2025
+**Référent accessibilité numérique** :
+- Nom : [À définir lors de S3-02]
+- Contact : siep.accessibilite@sg.gouv.fr
+- Temps alloué : 0.1 ETP prévu à partir T2 2025
 
-**Équipe projet** :
-- Chef de projet open data : 0.1 ETP
-- Data scientists : 2 × 0.05 ETP
-- Chargés études : 0.05 ETP
+**Équipe projet** :
+- Chef de projet open data : 0.1 ETP
+- Data scientists : 2 × 0.05 ETP
+- Chargés études : 0.05 ETP
 
-**Formations prévues** :
-- Formation référent : T1 2025
-- Formation dataviz accessible : T2 2025
-- Formation rédaction rapports accessibles : T3 2025
+**Formations prévues** :
+- Formation référent : T1 2025
+- Formation dataviz accessible : T2 2025
+- Formation rédaction rapports accessibles : T3 2025
 
 ## 4. Plan d'action annuel
 
@@ -75,7 +75,7 @@ validation_status: in_progress
 | Remédiation rapports PDF accessibles | T3 2025 | Chargés études | 5 000 € | À commencer |
 | Formation dataviz accessible équipe | T2 2025 | Référent SIEP | 2 000 € | À commencer |
 
-**Budget total 2025** : 24 000 €
+**Budget total 2025** : 24 000 €
 
 **Légende statuts**
 - À commencer
@@ -86,20 +86,20 @@ validation_status: in_progress
 
 ## 5. Indicateurs clés
 
-**Taux de conformité** :
-- Objectif 2025 : Portail open data 75% conforme
-- Objectif 2026 : Tous outils 80% conformes
-- Objectif 2027 : 100% conformes
+**Taux de conformité** :
+- Objectif 2025 : Portail open data 75% conforme
+- Objectif 2026 : Tous outils 80% conformes
+- Objectif 2027 : 100% conformes
 
-**Publications accessibles** :
-- Objectif 2025 : 60% rapports/études PDF conformes
-- Objectif 2026 : 90% publications conformes
-- Objectif 2027 : 100% publications conformes
+**Publications accessibles** :
+- Objectif 2025 : 60% rapports/études PDF conformes
+- Objectif 2026 : 90% publications conformes
+- Objectif 2027 : 100% publications conformes
 
-**Visualisations accessibles** :
-- Objectif 2025 : 50% dataviz avec alternatives textuelles
-- Objectif 2026 : 80% dataviz conformes
-- Objectif 2027 : 100% dataviz conformes
+**Visualisations accessibles** :
+- Objectif 2025 : 50% dataviz avec alternatives textuelles
+- Objectif 2026 : 80% dataviz conformes
+- Objectif 2027 : 100% dataviz conformes
 
 
 ## points de contrôle officiels (31)

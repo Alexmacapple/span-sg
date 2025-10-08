@@ -111,13 +111,13 @@ updated: "2025-09-30"
 
 <!--
   COMPOSANT SÉMANTIQUE RÉUTILISABLE
-  Deux options selon le cas du service :
+  Deux options selon le cas du service :
 
-  Option 1 : AUCUNE charge disproportionnée (cas le plus fréquent)
-  Option 2 : AU MOINS UNE charge disproportionnée documentée
+  Option 1 : AUCUNE charge disproportionnée (cas le plus fréquent)
+  Option 2 : AU MOINS UNE charge disproportionnée documentée
 -->
 
-<!-- OPTION 1 : Aucune charge disproportionnée -->
+<!-- OPTION 1 : Aucune charge disproportionnée -->
 <section aria-labelledby="charge-disproportionnee-titre">
   <h3 id="charge-disproportionnee-titre">Charges disproportionnées</h3>
 
@@ -126,7 +126,7 @@ updated: "2025-09-30"
   <p>Tous les sites et applications du périmètre sont engagés dans une démarche progressive de mise en conformité RGAA selon l'agenda planifié.</p>
 </section>
 
-<!-- OPTION 2 : Avec charge(s) disproportionnée(s) - À utiliser si applicable -->
+<!-- OPTION 2 : Avec charge(s) disproportionnée(s) - À utiliser si applicable -->
 <!--
 ### Charges disproportionnées
 
@@ -134,14 +134,14 @@ updated: "2025-09-30"
 
 | Critère | Description |
 |---------|-------------|
-| **Fonctionnalité/section concernée** | [Décrire précisément l'élément : ex "Module cartographique interactif legacy 2010-2015"] |
+| **Fonctionnalité/section concernée** | [Décrire précisément l'élément : ex "Module cartographique interactif legacy 2010-2015"] |
 | **Type de charge** | [Technique / Financière / Organisationnelle] |
-| **Analyse coût/bénéfice** | [Chiffrage : ex "150K€ refonte pour 200 utilisateurs/an = 750€/utilisateur"] |
+| **Analyse coût/bénéfice** | [Chiffrage : ex "150K€ refonte pour 200 utilisateurs/an = 750€/utilisateur"] |
 | **Documentation de référence** | [Lien étude technique, rapport audit, décision validée] |
-| **Alternative proposée** | [Décrire l'alternative : ex "Données téléchargeables CSV accessible + contact dédié pour assistance"] |
-| **Échéance de réévaluation** | [Date : ex "31 décembre 2026"] |
+| **Alternative proposée** | [Décrire l'alternative : ex "Données téléchargeables CSV accessible + contact dédié pour assistance"] |
+| **Échéance de réévaluation** | [Date : ex "31 décembre 2026"] |
 
-*Critères de décision appliqués : analyse coût/bénéfice documentée, alternatives étudiées, validation juridique, publication dans déclaration d'accessibilité.*
+*Critères de décision appliqués : analyse coût/bénéfice documentée, alternatives étudiées, validation juridique, publication dans déclaration d'accessibilité.*
 -->
 
 ---
