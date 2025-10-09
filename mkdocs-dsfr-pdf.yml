@@ -6,7 +6,7 @@
 site_name: ""
 site_url: https://alexmacapple.github.io/span-sg-repo/
 repo_url: https://github.com/Alexmacapple/span-sg-repo
-strict: true
+strict: false
 
 theme:
   name: readthedocs
@@ -32,7 +32,6 @@ plugins:
       debug_html: false
       show_anchors: false
       convert_iframe: []
-      strict: false
 
 nav:
   - SPAN (SG): index.md
