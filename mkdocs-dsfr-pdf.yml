@@ -27,11 +27,12 @@ plugins:
       toc_level: 3
       ordered_chapter_level: 3
       output_path: exports/span-sg.pdf
-      verbose: true
+      verbose: false
       enabled_if_env: ENABLE_PDF_EXPORT
       debug_html: false
       show_anchors: false
       convert_iframe: []
+      strict: false
 
 nav:
   - SPAN (SG): index.md
