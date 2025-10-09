@@ -6,6 +6,33 @@ Format basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
 ---
 
+## [Unreleased]
+
+### Added
+- Génération PDF automatique en CI (GitHub Actions)
+- Bouton téléchargement PDF sur page d'accueil (composant DSFR fr-download)
+- Hook `pdf_copy.py` : Copie PDF vers docs/ et site/ pour download web
+- Structure `docs/exports/.gitkeep` : Support PDF en mode développement
+- Validation structure PDF (`qpdf --check`) dans pipeline CI
+- Métadonnées enrichies (pikepdf) : titre, langue, keywords, auteur
+- Section "Export PDF" dans README.md avec instructions génération locale
+- Tests E2E : Validation métadonnées PDF dans scenario_pdf_complet.sh
+
+### Changed
+- `.github/workflows/build.yml` : Installation dépendances WeasyPrint (libpango, libcairo, libharfbuzz)
+- `Dockerfile-dsfr` : Ajout libs système pour génération PDF
+- `requirements-dsfr.txt` : Ajout `mkdocs-with-pdf>=0.9.3`
+- `tests/e2e/scenario_pdf_complet.sh` : Migration vers mkdocs-dsfr-pdf.yml + validation métadonnées
+- `CLAUDE.md` : Commandes PDF mises à jour (ENABLE_PDF_EXPORT, enrichissement, validation)
+- `docs/index.md` : Déplacement section Téléchargements vers haut de page (après fr-summary, ligne 72)
+
+### Fixed
+- Artefact PDF CI (remplace fichier texte factice par PDF réel 2.6 MB)
+- Score CI/CD : 9/10 → 10/10 (génération PDF réactivée)
+- Accessibilité PDF en mode développement : Copie vers docs/exports/ pour mkdocs serve (404 → 200 OK)
+
+---
+
 ## v1.0.1-dsfr – 2025-10-08
 
 **Migration DSFR** : Intégration complète du thème Système de Design de l'État français

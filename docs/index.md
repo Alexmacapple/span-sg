@@ -69,6 +69,16 @@ Ce SPAN est susceptible d'être mis à jour sans préavis. La version en ligne e
 
 </nav>
 
+## Téléchargement PDF
+
+Le PDF est généré automatiquement en production via GitHub Actions et contient l'intégralité des 6 modules services ainsi que le tableau de bord.
+
+En développement local : Le site HTML live constitue la source de vérité. Le PDF n'est disponible qu'après build CI.
+
+En production : Téléchargez la version PDF depuis la page d'accueil du site déployé ou via les GitHub Releases.
+
+---
+
 ## Introduction
 
 La loi n° 2005-102 du 11 février 2005, dans son article 47, rend obligatoire l'accessibilité de tout service de communication publique en ligne à tous les citoyens, y compris les personnes en situation de handicap, afin de garantir l'égalité des droits et des chances, la participation et la citoyenneté de chacun.

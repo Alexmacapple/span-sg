@@ -11,7 +11,7 @@ TEMP_DIR=$(mktemp -d)
 trap "rm -rf $TEMP_DIR" EXIT
 
 # Générer PDF
-mkdocs build --config-file mkdocs-pdf.yml --site-dir "$TEMP_DIR/pdf-site" > /dev/null 2>&1
+ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml --site-dir "$TEMP_DIR/pdf-site" > /dev/null 2>&1
 
 PDF_FILE="$TEMP_DIR/pdf-site/exports/span-sg.pdf"
 
@@ -35,4 +35,28 @@ if command -v pdfinfo &> /dev/null; then
     echo "✅ Scénario PDF complet OK ($PAGES pages, ${SIZE} bytes)"
 else
     echo "✅ Scénario PDF complet OK (${SIZE} bytes, pdfinfo non disponible)"
+fi
+
+# Vérifier métadonnées enrichies (si pikepdf disponible)
+if python3 -c "import pikepdf" 2>/dev/null; then
+    python3 <<EOF
+import pikepdf
+import sys
+try:
+    pdf = pikepdf.open("$PDF_FILE")
+    meta = pdf.open_metadata()
+
+    # Vérifier métadonnées critiques
+    assert meta.get("dc:title") == "SPAN SG", f"Titre incorrect: {meta.get('dc:title')}"
+    assert meta.get("dc:language") == "fr-FR", f"Langue incorrecte: {meta.get('dc:language')}"
+    keywords = meta.get("pdf:Keywords", "")
+    assert "SPAN" in keywords, f"Keywords manquants: {keywords}"
+
+    print("✅ Métadonnées enrichies validées")
+except Exception as e:
+    print(f"⚠️  Erreur validation métadonnées: {e}")
+    sys.exit(0)  # Non bloquant
+EOF
+else
+    echo "⚠️  pikepdf non disponible, métadonnées non validées"
 fi

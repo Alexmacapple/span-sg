@@ -66,6 +66,7 @@ nav:
 hooks:
   - hooks/dsfr_table_wrapper.py
   - hooks/title_cleaner.py
+  - hooks/pdf_copy.py
 
 markdown_extensions:
   - tables

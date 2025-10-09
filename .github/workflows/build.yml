@@ -48,13 +48,32 @@ jobs:
       - name: Build site DSFR
         run: mkdocs build --config-file mkdocs-dsfr.yml --strict
 
-      - name: Generate PDF (DSFR - temporairement désactivé)
+      - name: Install WeasyPrint system dependencies
         run: |
-          echo "PDF generation disabled - WeasyPrint system deps required"
-          mkdir -p site/exports exports
-          echo "PDF DSFR en cours d'implémentation" > site/exports/span-sg.pdf
-          cp site/exports/span-sg.pdf exports/
-        continue-on-error: true
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libpango-1.0-0 \
+            libpangoft2-1.0-0 \
+            libpangocairo-1.0-0 \
+            libcairo2 \
+            libffi-dev \
+            libgdk-pixbuf2.0-0 \
+            libharfbuzz-dev \
+            shared-mime-info
+
+      - name: Generate PDF (DSFR)
+        env:
+          ENABLE_PDF_EXPORT: "1"
+        run: mkdocs build --config-file mkdocs-dsfr-pdf.yml --strict
+
+      - name: Enrich PDF metadata
+        run: python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
+
+      - name: Validate PDF
+        run: |
+          qpdf --check exports/span-sg.pdf
+          ls -lh exports/span-sg.pdf
+          echo "PDF size: $(du -h exports/span-sg.pdf | cut -f1)"
 
       - name: Upload artifacts
         if: ${{ !env.ACT }}

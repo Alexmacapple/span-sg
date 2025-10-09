@@ -31,10 +31,16 @@ mkdocs serve --config-file mkdocs-dsfr.yml
 ### Build et génération
 ```bash
 # Build site HTML
-mkdocs build
+mkdocs build --config-file mkdocs-dsfr.yml
 
-# Générer PDF (DSFR)
-mkdocs build --config-file mkdocs-dsfr-pdf.yml
+# Générer PDF (DSFR) - Nécessite libs système WeasyPrint
+ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml
+
+# Enrichir métadonnées PDF
+python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
+
+# Valider structure PDF
+qpdf --check exports/span-sg.pdf
 
 # Calculer les scores SPAN et générer docs/synthese.md
 python scripts/calculate_scores.py
@@ -52,11 +58,14 @@ python scripts/calculate_scores.py
 
 ### CI et artefacts
 ```bash
-# Télécharger le PDF depuis la dernière CI draft
+# Télécharger PDF depuis dernière CI draft
 ./scripts/download_latest_pdf.sh
 
 # Télécharger depuis branche main
 ./scripts/download_latest_pdf.sh main
+
+# Télécharger depuis site déployé
+curl -O https://alexmacapple.github.io/span-sg-repo/draft/exports/span-sg.pdf
 
 # Commande manuelle équivalente
 RUN_ID=$(gh run list --branch draft --limit 1 --json databaseId --jq '.[0].databaseId')

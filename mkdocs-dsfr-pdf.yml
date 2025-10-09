@@ -80,6 +80,7 @@ nav:
 
 hooks:
   - hooks/title_cleaner.py
+  - hooks/pdf_copy.py
 
 markdown_extensions:
   - tables
