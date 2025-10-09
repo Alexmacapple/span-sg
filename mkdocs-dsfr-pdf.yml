@@ -26,7 +26,7 @@ plugins:
       toc_title: Table des matières
       toc_level: 3
       ordered_chapter_level: 3
-      output_path: exports/span-sg.pdf
+      output_path: ../exports/span-sg.pdf
       verbose: false
       enabled_if_env: ENABLE_PDF_EXPORT
       debug_html: false
