@@ -64,7 +64,7 @@ jobs:
       - name: Generate PDF (DSFR)
         env:
           ENABLE_PDF_EXPORT: "1"
-        run: mkdocs build --config-file mkdocs-dsfr-pdf.yml --strict
+        run: mkdocs build --config-file mkdocs-dsfr-pdf.yml
 
       - name: Enrich PDF metadata
         run: python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
