@@ -1,161 +1,614 @@
-<!DOCTYPE html>
 
-<html class="writer-html5" lang="en">
+<!DOCTYPE html>
+<html lang="fr" data-fr-scheme="system">
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="None" name="description"/><link href="https://alexmacapple.github.io/span-sg-repo/" rel="canonical"/>
-<link href="img/favicon.ico" rel="shortcut icon"/>
-<title></title>
-<link href="css/theme.css" rel="stylesheet"/>
-<link href="css/theme_extra.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
-<script>
-        // Current page data
-        var mkdocs_page_name = "SPAN (SG)";
-        var mkdocs_page_input_path = "index.md";
-        var mkdocs_page_url = "/span-sg-repo/";
-      </script>
-<!--[if lt IE 9]>
-      <script src="js/html5shiv.min.js"></script>
-    <![endif]-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
-<link href="../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
-<body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href=".">
-</a><div role="search">
-<form action="./search.html" class="wy-form" id="rtd-search-form" method="get">
-<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
-</form>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="dsfr.min.css">
+    <link rel="stylesheet" href="utility/utility.min.css">
+    <link rel="stylesheet" href="css/theme.css">
+
+    <meta name="theme-color" content="#000091">
+    <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+    <link rel="apple-touch-icon" href=" favicon /apple-touch-icon.png">
+    <!-- 180×180 -->
+    <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <!-- 32×32 -->
+    <link rel="manifest" href="favicon/manifest.webmanifest" crossorigin="use-credentials">
+    <script src="js/postprocess.js" defer></script>
+
+    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
+    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
+    
+
+    <title>SPAN (SG)</title>
+    
+    
+</head>
+<body>
+    <div class="fr-skiplinks">
+  <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+    <ul class="fr-skiplinks__list">
+      <li>
+        <a class="fr-link" href="#content">Contenu</a>
+      </li>
+      <li>
+        <a class="fr-link" href="#header-navigation">Menu</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#search-modal">Recherche</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#footer">Pied de page</a>
+      </li>
+    </ul>
+  </nav>
 </div>
-</div>
-<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal current" href="#">SPAN (SG)</a>
-<ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="#telechargement-pdf">Téléchargement PDF</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#definition-de-laccessibilite-numerique">Définition de l'accessibilité numérique</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#les-contenus-concernes">Les contenus concernés</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#politique-daccessibilite">Politique d'accessibilité</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#cadre-dapplication">Cadre d'application</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#charte-de-la-communication-accessible">Charte de la communication accessible</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#systeme-de-design-de-letat">Système de Design de l'état</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#ressources-humaines-et-financieres-affectees-a-laccessibilite-numerique">Ressources humaines et financières affectées à l'accessibilité numérique</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#organisation-de-la-prise-en-compte-de-laccessibilite-numerique">Organisation de la prise en compte de l'accessibilité numérique</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#action-de-formation-et-de-sensibilisation">Action de formation et de sensibilisation</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#liste-des-formations-disponibles-aupres-de-ligpde">Liste des formations disponibles auprès de l'IGPDE</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#liste-des-formations-disponibles-sur-mentor">Liste des formations disponibles sur MENTOR</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#recours-a-des-competences-externes">Recours à des compétences externes</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#prise-en-compte-de-laccessibilite-numerique-dans-les-projets">Prise en compte de l'accessibilité numérique dans les projets</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#prise-en-compte-de-laccessibilite-dans-les-procedures-de-marche">Prise en compte de l'accessibilité dans les procédures de marché</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#recrutement">Recrutement</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#traitement-des-retours-utilisateurs">Traitement des retours utilisateurs</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#moyen-de-contact">Moyen de contact</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#processus-de-controle-et-de-validation">Processus de contrôle et de validation</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#perimetre-technique-et-fonctionnel">Périmètre technique et fonctionnel</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#recensement">Recensement</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#evaluation-et-qualification">Évaluation et qualification</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#agenda-planifie-des-interventions">Agenda planifié des interventions</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#plans-annuels">Plans annuels</a>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">SPAN (services)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="modules/bgs/">BGS</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="modules/safi/">SAFI</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="modules/siep/">SIEP</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="modules/sircom/">SIRCOM</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="modules/snum/">SNUM</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="modules/srh/">SRH</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="synthese/">Synthèse</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="processus/">Processus</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="contributing/">Guide contributeur</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="dev-local/">Développement local</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg-repo">Code source GitHub</a>
-</li>
-</ul>
-</div>
-</div>
+    <header role="banner" class="fr-header">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row">
+                <div class="fr-header__brand fr-enlarge-link">
+                    <div class="fr-header__brand-top">
+                        <div class="fr-header__logo">
+                            <p class="fr-logo" style="">
+                                GOUVERNEMENT
+                            </p>
+                        </div>
+
+                        <div class="fr-header__navbar">
+                            
+                            <button
+                                class="fr-btn--search fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-541"
+                                id="button-542"
+                                title="Rechercher"
+                            >
+                                Rechercher
+                            </button>
+                            
+                            <button
+                                class="fr-btn--menu fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-543"
+                                aria-haspopup="menu"
+                                id="button-544"
+                                title="Menu"
+                            >
+                                Menu
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fr-header__service">
+                        <a href="/" title="Retour à l'accueil du site - SPAN SG">
+                            <p class="fr-header__service-title">
+                                SPAN SG
+                            </p>
+                        </a>
+                        <p class="fr-header__service-tagline">
+                            Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général
+                        </p>
+                    </div>
+                </div>
+                <div class="fr-header__tools">
+                    
+                    <div class="fr-header__search fr-modal" id="search-modal">
+                        <div class="fr-container fr-container-lg--fluid">
+                            <button
+                                class="fr-btn--close fr-btn"
+                                aria-controls="modal-541"
+                                title="Fermer"
+                            >
+                                Fermer
+                            </button>
+                            
+                            <form action="search.html">
+                                <div
+                                    class="fr-search-bar"
+                                    id="search-540"
+                                    role="search"
+                                >
+                                    <label
+                                        class="fr-label"
+                                        for="mkdocs-search-query"
+                                    >
+                                        Rechercher
+                                    </label>
+                                    <input
+                                        class="fr-input search_input search-query ui-autocomplete-input"
+                                        placeholder="Rechercher"
+                                        type="text"
+                                        id="mkdocs-search-query"
+                                        name="q"
+                                    />
+                                    <button
+                                        class="fr-btn"
+                                        title="Rechercher"
+                                        type="submit"
+                                    >
+                                        Rechercher
+                                    </button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="fr-header__menu fr-modal"
+        id="modal-543"
+        aria-labelledby="button-544"
+    >
+        <div class="fr-container">
+            <button
+                class="fr-btn--close fr-btn"
+                aria-controls="modal-543"
+                title="Fermer"
+            >
+                Fermer
+            </button>
+            <div class="fr-header__menu-links"></div>
+            <nav
+    class="fr-nav navbar-header"
+    id="header-navigation"
+    role="navigation"
+    aria-label="Menu principal"
+>
+    <ul class="fr-nav__list">
+         
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="."
+                target="_self"
+                
+                aria-current="page"
+                
+                >SPAN (SG)</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7762"
+                
+            >
+                SPAN (services)
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7762">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="modules/bgs/"
+                            target="_self"
+                            >BGS</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="modules/safi/"
+                            target="_self"
+                            >SAFI</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="modules/siep/"
+                            target="_self"
+                            >SIEP</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="modules/sircom/"
+                            target="_self"
+                            >SIRCOM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="modules/snum/"
+                            target="_self"
+                            >SNUM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="modules/srh/"
+                            target="_self"
+                            >SRH</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="synthese/"
+                target="_self"
+                
+                >Synthèse</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="processus/"
+                target="_self"
+                
+                >Processus</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="contributing/"
+                target="_self"
+                
+                >Guide contributeur</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="dev-local/"
+                target="_self"
+                
+                >Développement local</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="https://github.com/Alexmacapple/span-sg-repo"
+                target="_self"
+                
+                >Code source GitHub</a
+            >
+        </li>
+         
+    </ul>
 </nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href="."></a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a aria-label="Docs" class="icon icon-home" href="."></a></li>
-<li class="breadcrumb-item active">SPAN (SG)</li>
-<li class="wy-breadcrumbs-aside">
-<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg-repo/edit/master/docs/index.md"> Edit on GitHub</a>
-</li>
-</ul>
-<hr/>
+        </div>
+    </div>
+</header>
+    <main id="content" role="main">
+        
+        <div class="fr-container markdown-content">
+            <div class="fr-grid-row">
+                
+                
+                    
+                
+
+                
+                    
+<div class="fr-col-12 fr-col-md-3 fr-py-1v">
+    <nav
+        class="fr-sidemenu fr-sidemenu--sticky-full-height fr-mb-0-5v"
+        role="navigation"
+        aria-label="Menu latéral"
+    >
+        
+        <div class="fr-sidemenu__inner">
+            <button
+                class="fr-sidemenu__btn"
+                aria-controls="fr-sidemenu-wrapper"
+                aria-expanded="true"
+            >
+                Schéma Pluriannuel d'Accessibilité Numérique
+            </button>
+            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+                <div class="fr-sidemenu__title">Schéma Pluriannuel d'Accessibilité Numérique</div>
+                <ul class="fr-sidemenu__list">
+                     
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#telechargement-pdf"
+                            target="_self"
+                            >Téléchargement PDF</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#introduction"
+                            target="_self"
+                            >Introduction</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#definition-de-laccessibilite-numerique"
+                            target="_self"
+                            >Définition de l'accessibilité numérique</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#les-contenus-concernes"
+                            target="_self"
+                            >Les contenus concernés</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#politique-daccessibilite"
+                            target="_self"
+                            >Politique d'accessibilité</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#cadre-dapplication"
+                            target="_self"
+                            >Cadre d'application</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#charte-de-la-communication-accessible"
+                            target="_self"
+                            >Charte de la communication accessible</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#systeme-de-design-de-letat"
+                            target="_self"
+                            >Système de Design de l'état</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#ressources-humaines-et-financieres-affectees-a-laccessibilite-numerique"
+                            target="_self"
+                            >Ressources humaines et financières affectées à l'accessibilité numérique</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#organisation-de-la-prise-en-compte-de-laccessibilite-numerique"
+                            target="_self"
+                            >Organisation de la prise en compte de l'accessibilité numérique</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-11"
+                        >
+                            Action de formation et de sensibilisation
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-11"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#liste-des-formations-disponibles-aupres-de-ligpde"
+                                        target="_self"
+                                        >Liste des formations disponibles auprès de l'IGPDE</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#liste-des-formations-disponibles-sur-mentor"
+                                        target="_self"
+                                        >Liste des formations disponibles sur MENTOR</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#recours-a-des-competences-externes"
+                            target="_self"
+                            >Recours à des compétences externes</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#prise-en-compte-de-laccessibilite-numerique-dans-les-projets"
+                            target="_self"
+                            >Prise en compte de l'accessibilité numérique dans les projets</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#prise-en-compte-de-laccessibilite-dans-les-procedures-de-marche"
+                            target="_self"
+                            >Prise en compte de l'accessibilité dans les procédures de marché</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#recrutement"
+                            target="_self"
+                            >Recrutement</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-16"
+                        >
+                            Traitement des retours utilisateurs
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-16"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#moyen-de-contact"
+                                        target="_self"
+                                        >Moyen de contact</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#processus-de-controle-et-de-validation"
+                            target="_self"
+                            >Processus de contrôle et de validation</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-18"
+                        >
+                            Périmètre technique et fonctionnel
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-18"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#recensement"
+                                        target="_self"
+                                        >Recensement</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#evaluation-et-qualification"
+                                        target="_self"
+                                        >Évaluation et qualification</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#agenda-planifie-des-interventions"
+                                        target="_self"
+                                        >Agenda planifié des interventions</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#plans-annuels"
+                            target="_self"
+                            >Plans annuels</a
+                        >
+                    </li>
+                     
+                </ul>
+            </div>
+        </div>
+        
+    </nav>
 </div>
-<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
-<div class="section" itemprop="articleBody">
-<h1 id="schema-pluriannuel-daccessibilite-numerique">Schéma Pluriannuel d'Accessibilité Numérique</h1>
-<nav aria-labelledby="fr-summary-title" class="fr-summary" role="navigation">
+
+                    
+                        <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
+                    
+                
+
+                
+
+                
+                        
+                        <h1 id="schema-pluriannuel-daccessibilite-numerique">Schéma Pluriannuel d'Accessibilité Numérique</h1>
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+
 <h2 class="fr-summary__title" id="fr-summary-title">Sommaire</h2>
+
 <ol class="fr-summary__list">
 <li>
 <a class="fr-summary__link" href="#introduction">Introduction</a>
@@ -216,11 +669,12 @@
 Ce SPAN est susceptible d'être mis à jour sans préavis. La version en ligne est la seule version qui peut faire référence.
 
 </nav>
+
 <h2 id="telechargement-pdf">Téléchargement PDF</h2>
 <p>Le PDF est généré automatiquement en production via GitHub Actions et contient l'intégralité des 6 modules services ainsi que le tableau de bord.</p>
 <p>En développement local : Le site HTML live constitue la source de vérité. Le PDF n'est disponible qu'après build CI.</p>
 <p>En production : Téléchargez la version PDF depuis la page d'accueil du site déployé ou via les GitHub Releases.</p>
-<hr/>
+<hr />
 <h2 id="introduction">Introduction</h2>
 <p>La loi n° 2005-102 du 11 février 2005, dans son article 47, rend obligatoire l'accessibilité de tout service de communication publique en ligne à tous les citoyens, y compris les personnes en situation de handicap, afin de garantir l'égalité des droits et des chances, la participation et la citoyenneté de chacun.</p>
 <h2 id="definition-de-laccessibilite-numerique">Définition de l'accessibilité numérique</h2>
@@ -253,7 +707,7 @@ Ce SPAN est susceptible d'être mis à jour sans préavis. La version en ligne e
 <h2 id="politique-daccessibilite">Politique d'accessibilité</h2>
 <p>L'accessibilité numérique est une préoccupation majeure liée au développement ou à la mise à disposition de sites web ou d'applications par le SG.</p>
 <p>Cette volonté s'illustre par l'élaboration de ce schéma pluriannuel d'accessibilité numérique associé à des plans annuels d'action, dans l'objectif d'accompagner la mise en conformité RGAA (Référentiel Général d'Amélioration de l'Accessibilité) et l'amélioration progressive des sites web et applications concernés.</p>
-<p>L'élaboration, le suivi et la mise à jour de ce schéma pluriannuel sont placés sous la responsabilité de la MIWEB, Mission Ingénierie du Web, qui dépend du SNUM (Service du numérique) : <a href="mailto:accessibilite.communication@finances.gouv.fr">accessibilite.communication@finances.gouv.fr</a></p>
+<p>L'élaboration, le suivi et la mise à jour de ce schéma pluriannuel sont placés sous la responsabilité de la MIWEB, Mission Ingénierie du Web, qui dépend du SNUM (Service du numérique) : <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#99;&#99;&#101;&#115;&#115;&#105;&#98;&#105;&#108;&#105;&#116;&#101;&#46;&#99;&#111;&#109;&#109;&#117;&#110;&#105;&#99;&#97;&#116;&#105;&#111;&#110;&#64;&#102;&#105;&#110;&#97;&#110;&#99;&#101;&#115;&#46;&#103;&#111;&#117;&#118;&#46;&#102;&#114;">&#97;&#99;&#99;&#101;&#115;&#115;&#105;&#98;&#105;&#108;&#105;&#116;&#101;&#46;&#99;&#111;&#109;&#109;&#117;&#110;&#105;&#99;&#97;&#116;&#105;&#111;&#110;&#64;&#102;&#105;&#110;&#97;&#110;&#99;&#101;&#115;&#46;&#103;&#111;&#117;&#118;&#46;&#102;&#114;</a></p>
 <p>Sa mission est :</p>
 <ul>
 <li>De promouvoir l'accessibilité par la diffusion des normes et des bonnes pratiques,</li>
@@ -361,7 +815,7 @@ Ce SPAN est susceptible d'être mis à jour sans préavis. La version en ligne e
 <h2 id="traitement-des-retours-utilisateurs">Traitement des retours utilisateurs</h2>
 <p>Conformément aux dispositions prévues par le RGAA et aux attentes légitimes des utilisateurs, un moyen de contact est mis en place sur chaque site ou application permettant aux utilisateurs en situation de handicap de signaler ses difficultés.</p>
 <h3 id="moyen-de-contact">Moyen de contact</h3>
-<p><a href="mailto:accessibilite.communication@finances.gouv.fr">accessibilite.communication@finances.gouv.fr</a></p>
+<p><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#99;&#99;&#101;&#115;&#115;&#105;&#98;&#105;&#108;&#105;&#116;&#101;&#46;&#99;&#111;&#109;&#109;&#117;&#110;&#105;&#99;&#97;&#116;&#105;&#111;&#110;&#64;&#102;&#105;&#110;&#97;&#110;&#99;&#101;&#115;&#46;&#103;&#111;&#117;&#118;&#46;&#102;&#114;">&#97;&#99;&#99;&#101;&#115;&#115;&#105;&#98;&#105;&#108;&#105;&#116;&#101;&#46;&#99;&#111;&#109;&#109;&#117;&#110;&#105;&#99;&#97;&#116;&#105;&#111;&#110;&#64;&#102;&#105;&#110;&#97;&#110;&#99;&#101;&#115;&#46;&#103;&#111;&#117;&#118;&#46;&#102;&#114;</a></p>
 <p>Afin de répondre à ses demandes, une procédure spécifique d'assistance est mise en place avec l'ensemble des services et des personnels impliqués.</p>
 <h2 id="processus-de-controle-et-de-validation">Processus de contrôle et de validation</h2>
 <p>Chaque site ou application fait l'objet lors de la mise en ligne initiale, lors d'une mise à jour substantielle, d'une refonte ou à la fin des opérations de mises aux normes, d'un contrôle permettant d'établir une déclaration de conformité conformément aux termes de la loi.</p>
@@ -376,43 +830,192 @@ Ce SPAN est susceptible d'être mis à jour sans préavis. La version en ligne e
 <p>Compte tenu des informations recueillies lors de l'élaboration de ce schéma, la complexité des sites, leur classement par ordre de priorité et leur évaluation en matière de faisabilité, les opérations de mise en conformité vont s'étaler sur les années 2025-2028.</p>
 <h2 id="plans-annuels">Plans annuels</h2>
 <p>Ce schéma pluriannuel est accompagné de plans annuels d'actions qui décrivent en détail les opérations mises en œuvre pour prendre en charge l'ensemble des besoins en matière d'accessibilité numérique du SG.</p>
-</div>
-</div><footer>
-<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-right" href="modules/bgs/" title="BGS">Next <span class="icon icon-circle-arrow-right"></span></a>
-</div>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
+                        
+                        
+                        <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
+                        
+                    </div>
+                    <hr />
+                    
+	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
+		<ul class="fr-pagination__list">
+			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  aria-disabled="true" role="link" >
+				Page précédente
+			</a></li>
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="modules/bgs/" title="BGS" >
+				Page suivante
+			</a></li>
+		</ul>
+	</nav>
+
+                </div>
+            </div>
+            <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
+                <div class="fr-container fr-container--fluid fr-container-md">
+                    <div class="fr-grid-row fr-grid-row--center">
+                        <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
+                            <div class="fr-modal__body">
+                                <div class="fr-modal__header">
+                                    <button class="fr-btn--close fr-btn" aria-controls="fr-theme-modal" title="Fermer">
+                                        Fermer
+                                    </button>
+                                </div>
+                                <div class="fr-modal__content">
+                                    <h1 id="fr-theme-modal-title" class="fr-modal__title">
+                                        Paramètres d’affichage </h1>
+                                    <div id="fr-display" class="fr-display">
+                                        <div class="fr-form-group">
+                                            <fieldset class="fr-fieldset">
+                                                <legend class="fr-fieldset__legend fr-text--regular" id='-legend'>
+                                                    Choisissez un thème pour personnaliser l’apparence du site.
+                                                </legend>
+                                                <div class="fr-fieldset__content">
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="light"
+                                                            type="radio" id="fr-radios-theme-light"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-light"> Thème
+                                                            clair </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="artwork/light.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="artwork/light.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="artwork/light.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="dark"
+                                                            type="radio" id="fr-radios-theme-dark"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-dark"> Thème
+                                                            sombre </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="artwork/dark.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="artwork/dark.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="artwork/dark.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="system"
+                                                            type="radio" id="fr-radios-theme-system"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-system"> Système
+                                                            <span class="fr-hint-text">Utilise les paramètres
+                                                                système.</span>
+                                                        </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="artwork/system.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="artwork/system.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="artwork/system.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dialog>
+    </main>
+    <footer class="fr-footer" role="contentinfo" id="footer">
+    <div class="fr-container">
+        <div class="fr-footer__body">
+            <div class="fr-footer__brand fr-enlarge-link">
+                <a href="/"
+                    title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
+                    <p class="fr-logo">
+                        GOUVERNEMENT
+                    </p>
+                </a>
+            </div>
+            <div class="fr-footer__content">
+                <p class="fr-footer__content-desc">Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique</p>
+                <ul class="fr-footer__content-list">
+                    
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://service-public.fr">service-public.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://data.gouv.fr">data.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://info.gouv.fr">info.gouv.fr</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="fr-footer__bottom">
+            <ul class="fr-footer__bottom-list">
+                
+                <li class="fr-footer__bottom-item">
+                    <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+                        aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+                </li>
+            </ul>
+            <div class="fr-footer__bottom-copy">
+                <p>Sauf mention contraire, tous les contenus de ce site sont sous <a
+                        href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence
+                        etalab-2.0</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+<div class="revision-date">
+    
 </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-</div>
-</div>
-</section>
-</div>
-<div aria-label="Versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<span>
-<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg-repo" style="color: #fcfcfc"> GitHub</a>
-</span>
-<span><a href="modules/bgs/" style="color: #fcfcfc">Next »</a></span>
-</span>
-</div>
-<script src="js/jquery-3.6.0.min.js"></script>
-<script>var base_url = ".";</script>
-<script src="js/theme_extra.js"></script>
-<script src="js/theme.js"></script>
-<script src="search/main.js"></script>
+
 <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
+    var base_url = ".";
+</script>
+
+<script type="module" src="dsfr.module.min.js"></script>
+<script
+    type="text/javascript"
+    nomodule
+    src="dsfr.nomodule.min.js"
+></script>
+<script src="search/lunr.js"></script>
+<script src="search/lunr.stemmer.support.js"></script>
+<script src="search/lunr.fr.js"></script>
+<script src="search/main.js" defer></script>
 </body>
+
 </html>
-<!--
-MkDocs version : 1.6.1
-Build Date UTC : 2025-10-10 21:17:23.556170+00:00
--->
