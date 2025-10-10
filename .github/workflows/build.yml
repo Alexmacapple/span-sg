@@ -7,7 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  build-and-deploy-draft:
+    if: github.ref == 'refs/heads/draft'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,8 +17,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-          # Cache désactivé temporairement pour forcer réinstallation complète
-          # cache: 'pip'
 
       - name: Install dependencies
         run: pip install -r requirements-dsfr.txt
@@ -46,36 +45,24 @@ jobs:
       - name: Calculate SPAN scores
         run: python scripts/calculate_scores.py
 
-      - name: Debug - Vérifier packages MkDocs installés
-        run: |
-          echo "=== Packages MkDocs installés ==="
-          pip list | grep -i mkdocs
-          echo "=== Vérifier mkdocs-dsfr ==="
-          python -c "import mkdocs; print(f'MkDocs version: {mkdocs.__version__}')"
-          python -c "try:
-              from mkdocs.config import load_config
-              config = load_config('mkdocs-dsfr.yml')
-              print(f'Theme name: {config[\"theme\"].name}')
-          except Exception as e:
-              print(f'Erreur config: {e}')"
-
       - name: Build site DSFR
         run: mkdocs build --config-file mkdocs-dsfr.yml --strict
 
-      - name: Debug - Vérifier HTML généré
+      - name: Verify DSFR theme in build
         run: |
-          echo "=== Vérifier que DSFR est bien utilisé dans le build ==="
+          echo "=== Vérification DSFR ==="
           if grep -q "writer-html5" site/index.html; then
-            echo "❌ ERREUR: HTML contient 'writer-html5' (thème ReadTheDocs)"
+            echo "❌ ERREUR: HTML contient ReadTheDocs au lieu de DSFR!"
+            head -20 site/index.html
             exit 1
           elif grep -q "data-fr-scheme" site/index.html; then
-            echo "✅ OK: HTML contient 'data-fr-scheme' (thème DSFR)"
+            echo "✅ OK: HTML contient DSFR"
+            head -5 site/index.html
           else
-            echo "⚠️  WARNING: Impossible de déterminer le thème"
+            echo "⚠️  WARNING: Thème indéterminé"
+            head -20 site/index.html
+            exit 1
           fi
-          echo ""
-          echo "=== Premières lignes de site/index.html ==="
-          head -15 site/index.html
 
       - name: Install WeasyPrint system dependencies
         run: |
@@ -111,50 +98,112 @@ jobs:
           ls -lh exports/span-sg.pdf
           echo "PDF size: $(du -h exports/span-sg.pdf | cut -f1)"
 
-      - name: Create artifact root directory
-        run: |
-          mkdir -p artifact-root
-          cp -r site artifact-root/
-          cp -r exports artifact-root/
-
-      - name: Upload artifacts
-        if: ${{ !env.ACT }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: span-site
-          path: artifact-root/
-          include-hidden-files: true
-
       - name: Upload PDF artifact
         if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v4
         with:
-          name: exports
+          name: exports-draft
           path: exports/
 
-  e2e-tests:
-    name: Tests E2E
+      - name: Deploy draft to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          destination_dir: draft
+          keep_files: false
+
+  build-and-deploy-main:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    needs: build
-    if: github.ref != 'refs/heads/draft'
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-          cache: 'pip'
 
       - name: Install dependencies
         run: pip install -r requirements-dsfr.txt
 
-      - name: Install system dependencies (qpdf)
+      - name: Install dev dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Run Black formatter check
+        run: python -m black --check scripts/
+
+      - name: Run Ruff linter
+        run: python -m ruff check scripts/
+
+      - name: Run unit tests
+        run: python -m pytest scripts/ -v --cov=scripts --cov-report=term-missing
+
+      - name: Run production scripts coverage check (89%+ required)
+        run: |
+          python -m pytest \
+            --cov=scripts \
+            --cov-report=term-missing \
+            --cov-report=html \
+            --cov-fail-under=89 \
+            scripts/test_calculate_scores*.py scripts/test_enrich_pdf*.py
+
+      - name: Calculate SPAN scores
+        run: python scripts/calculate_scores.py
+
+      - name: Build site DSFR
+        run: mkdocs build --config-file mkdocs-dsfr.yml --strict
+
+      - name: Verify DSFR theme in build
+        run: |
+          echo "=== Vérification DSFR ==="
+          if grep -q "writer-html5" site/index.html; then
+            echo "❌ ERREUR: HTML contient ReadTheDocs au lieu de DSFR!"
+            head -20 site/index.html
+            exit 1
+          elif grep -q "data-fr-scheme" site/index.html; then
+            echo "✅ OK: HTML contient DSFR"
+            head -5 site/index.html
+          else
+            echo "⚠️  WARNING: Thème indéterminé"
+            head -20 site/index.html
+            exit 1
+          fi
+
+      - name: Install WeasyPrint system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libpango-1.0-0 \
+            libpangoft2-1.0-0 \
+            libpangocairo-1.0-0 \
+            libcairo2 \
+            libffi-dev \
+            libgdk-pixbuf2.0-0 \
+            libharfbuzz-dev \
+            shared-mime-info
+
+      - name: Generate PDF (DSFR)
+        env:
+          ENABLE_PDF_EXPORT: "1"
+        run: |
+          mkdir -p exports
+          mkdocs build --config-file mkdocs-dsfr-pdf.yml
+
+      - name: Enrich PDF metadata
+        run: python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
+
+      - name: Install qpdf and system dependencies for E2E
         run: |
           sudo apt-get update
           sudo apt-get install -y qpdf
+
+      - name: Validate PDF
+        run: |
+          qpdf --check exports/span-sg.pdf
+          ls -lh exports/span-sg.pdf
+          echo "PDF size: $(du -h exports/span-sg.pdf | cut -f1)"
 
       - name: Run E2E tests with reporting
         run: |
@@ -169,114 +218,12 @@ jobs:
           path: tests/e2e/reports/e2e-report.html
           retention-days: 30
 
-      - name: Comment PR with E2E results
-        if: github.event_name == 'pull_request' && failure()
-        uses: actions/github-script@v7
+      - name: Upload PDF artifact
+        if: ${{ !env.ACT }}
+        uses: actions/upload-artifact@v4
         with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '❌ Tests E2E échoués. Voir rapport dans artifacts.'
-            })
-
-  deploy_draft:
-    if: github.ref == 'refs/heads/draft'
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      # Ne PAS faire checkout - télécharger l'artifact dans un environnement vide
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: span-site
-          path: .
-
-      - name: Debug - Vérifier contenu après download
-        run: |
-          echo "=== Contenu du répertoire courant ==="
-          ls -la
-          echo ""
-          echo "=== Contenu de site/ ==="
-          if [ -d site ]; then
-            ls -la site/
-            echo ""
-            echo "=== Premières lignes de site/index.html ==="
-            head -5 site/index.html
-          else
-            echo "❌ ERREUR: Répertoire site/ n'existe pas!"
-            exit 1
-          fi
-
-      - name: Vérifier que site/ contient DSFR avant déploiement
-        run: |
-          echo "=== VALIDATION CRITIQUE ==="
-          if grep -q "writer-html5" site/index.html; then
-            echo "❌ ERREUR CRITIQUE: site/index.html contient ReadTheDocs!"
-            echo "Premières 20 lignes:"
-            head -20 site/index.html
-            exit 1
-          elif grep -q "data-fr-scheme" site/index.html; then
-            echo "✅ OK: site/index.html contient DSFR"
-          else
-            echo "⚠️  WARNING: Thème indéterminé"
-            head -20 site/index.html
-            exit 1
-          fi
-
-      - name: Deploy draft to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          publish_branch: gh-pages
-          destination_dir: draft
-          keep_files: false
-
-  deploy_main:
-    if: github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      # Ne PAS faire checkout - télécharger l'artifact dans un environnement vide
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: span-site
-          path: .
-
-      - name: Debug - Vérifier contenu après download
-        run: |
-          echo "=== Contenu du répertoire courant ==="
-          ls -la
-          echo ""
-          echo "=== Contenu de site/ ==="
-          if [ -d site ]; then
-            ls -la site/ | head -20
-            echo ""
-            echo "=== Premières lignes de site/index.html ==="
-            head -5 site/index.html
-          else
-            echo "❌ ERREUR: Répertoire site/ n'existe pas!"
-            exit 1
-          fi
-
-      - name: Vérifier que site/ contient DSFR avant déploiement
-        run: |
-          echo "=== VALIDATION CRITIQUE ==="
-          if grep -q "writer-html5" site/index.html; then
-            echo "❌ ERREUR CRITIQUE: site/index.html contient ReadTheDocs!"
-            echo "Premières 20 lignes:"
-            head -20 site/index.html
-            exit 1
-          elif grep -q "data-fr-scheme" site/index.html; then
-            echo "✅ OK: site/index.html contient DSFR"
-          else
-            echo "⚠️  WARNING: Thème indéterminé"
-            head -20 site/index.html
-            exit 1
-          fi
+          name: exports-main
+          path: exports/
 
       - name: Deploy production to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
