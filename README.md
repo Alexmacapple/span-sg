@@ -25,70 +25,30 @@ Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/
 
 ## Démarrage rapide
 
-### Prérequis
-1. **Installer Docker Desktop**
-   - Mac : [docs.docker.com/desktop/install/mac-install](https://docs.docker.com/desktop/install/mac-install/)
-   - Windows : [docs.docker.com/desktop/install/windows-install](https://docs.docker.com/desktop/install/windows-install/)
-   - Linux : [docs.docker.com/engine/install](https://docs.docker.com/engine/install/)
+### Installation en 3 étapes
 
-2. **Installer dépendances système** (optionnel, si vous voulez run scripts localement)
-
-   **macOS** :
-   ```bash
-   brew install qpdf
-   ```
-
-   **Ubuntu/Debian** :
-   ```bash
-   sudo apt-get install qpdf
-   ```
-
-   **Note** : Requis pour le script `enrich_pdf_metadata.py` (métadonnées PDF).
-   Docker inclut déjà ces dépendances.
-
-3. **Démarrer Docker Desktop**
-   - Ouvrir l'application Docker Desktop
-   - Attendre que l'icône dans la barre de menu affiche "Docker Desktop is running"
-
-4. **Vérifier que Docker fonctionne**
-   ```bash
-   docker --version
-   # Attendu : Docker version 20.x ou supérieur
-
-   docker ps
-   # Attendu : Liste des conteneurs (vide ou avec conteneurs existants)
-   ```
-
-### Installation
-1. **Cloner le dépôt**
-   ```bash
-   git clone https://github.com/Alexmacapple/span-sg-repo.git
-   cd span-sg-repo
-   ```
-
-2. **Créer les branches principales**
-   ```bash
-   git checkout -b main
-   git checkout -b draft
-   ```
-
-3. **Configurer les URLs** (si nécessaire)
-   - Éditer `mkdocs.yml` : ajuster `site_url` et `repo_url`
-
-### Premier lancement
 ```bash
-# Lancer le serveur de développement
+# 1. Cloner le dépôt
+git clone https://github.com/Alexmacapple/span-sg-repo.git
+cd span-sg-repo
+
+# 2. Démarrer avec Docker
 docker compose up -d
 
-# Le premier lancement télécharge l'image Docker (~200MB)
-# Cela peut prendre 1-2 minutes
+# 3. Accéder au site
+# http://localhost:8000/span-sg-repo/
 ```
 
-**Accéder au site** : http://localhost:8000/span-sg-repo/
+**Guide complet** : Consultez [HOWTO.md](HOWTO.md) pour les instructions détaillées, la résolution de problèmes et les commandes utiles.
 
-**Arrêter le serveur** :
+### Prérequis
+
+- **Docker Desktop** : [Installation](https://www.docker.com/products/docker-desktop)
+- **Git** (normalement préinstallé sur macOS/Linux)
+
+Vérification :
 ```bash
-docker compose down
+docker --version && docker compose version
 ```
 
 ## Sprint 6 Tech First - Terminé (Score 97/100)
@@ -110,6 +70,8 @@ docker compose down
 
 ## Commandes utiles
 
+**Pour un guide complet, consultez [HOWTO.md](HOWTO.md)**
+
 ### Développement local
 ```bash
 # Démarrer le serveur (en arrière-plan)
@@ -123,6 +85,9 @@ docker compose down
 
 # Redémarrer après modifications
 docker compose restart
+
+# Reconstruire après modification du Dockerfile
+docker compose up -d --build
 ```
 
 **URL du site** : http://localhost:8000/span-sg-repo/
