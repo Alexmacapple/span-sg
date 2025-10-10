@@ -105,14 +105,25 @@ jobs:
           name: exports-draft
           path: exports/
 
-      - name: Deploy draft to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          publish_branch: gh-pages
-          destination_dir: draft
-          keep_files: false
+      - name: Deploy draft to GitHub Pages (Git push direct)
+        run: |
+          # Configuration Git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Clone gh-pages
+          git clone --depth=1 --branch=gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages-repo
+
+          # Supprimer ancien draft et copier nouveau
+          rm -rf gh-pages-repo/draft
+          mkdir -p gh-pages-repo/draft
+          cp -r site/* gh-pages-repo/draft/
+
+          # Push
+          cd gh-pages-repo
+          git add .
+          git commit -m "Deploy draft from ${{ github.sha }}" || echo "No changes"
+          git push origin gh-pages
 
   build-and-deploy-main:
     if: github.ref == 'refs/heads/main'
@@ -225,10 +236,23 @@ jobs:
           name: exports-main
           path: exports/
 
-      - name: Deploy production to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          publish_branch: gh-pages
-          force_orphan: true
+      - name: Deploy production to GitHub Pages (Git push direct)
+        run: |
+          # Configuration Git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Clone gh-pages
+          git clone --depth=1 --branch=gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages-repo
+
+          # Remplacer tout le contenu racine (production)
+          cd gh-pages-repo
+          # Garder draft/, supprimer le reste
+          find . -mindepth 1 -maxdepth 1 ! -name 'draft' ! -name '.git' -exec rm -rf {} +
+          # Copier nouveau contenu
+          cp -r ../site/* .
+
+          # Push
+          git add .
+          git commit -m "Deploy production from ${{ github.sha }}" || echo "No changes"
+          git push origin gh-pages
