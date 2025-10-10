@@ -188,14 +188,30 @@ jobs:
         with:
           name: span-site
 
+      - name: Debug - Vérifier contenu après download
+        run: |
+          echo "=== Contenu du répertoire courant ==="
+          ls -la
+          echo ""
+          echo "=== Contenu de site/ ==="
+          if [ -d site ]; then
+            ls -la site/
+            echo ""
+            echo "=== Premières lignes de site/index.html ==="
+            head -5 site/index.html
+          else
+            echo "❌ ERREUR: Répertoire site/ n'existe pas!"
+            exit 1
+          fi
+
       - name: Deploy draft to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+          publish_dir: ./site  # Le répertoire site/ est recréé par download-artifact
           publish_branch: gh-pages
           destination_dir: draft
-          keep_files: true
+          keep_files: false  # Ne pas garder les anciens fichiers ReadTheDocs
 
   deploy_main:
     if: github.ref == 'refs/heads/main'
@@ -208,6 +224,22 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: span-site
+
+      - name: Debug - Vérifier contenu après download
+        run: |
+          echo "=== Contenu du répertoire courant ==="
+          ls -la
+          echo ""
+          echo "=== Contenu de site/ ==="
+          if [ -d site ]; then
+            ls -la site/ | head -20
+            echo ""
+            echo "=== Premières lignes de site/index.html ==="
+            head -5 site/index.html
+          else
+            echo "❌ ERREUR: Répertoire site/ n'existe pas!"
+            exit 1
+          fi
 
       - name: Deploy production to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
