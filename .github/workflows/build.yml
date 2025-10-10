@@ -186,8 +186,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
+      # Ne PAS faire checkout - télécharger l'artifact dans un environnement vide
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
@@ -240,8 +239,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
+      # Ne PAS faire checkout - télécharger l'artifact dans un environnement vide
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
