@@ -206,14 +206,30 @@ jobs:
             exit 1
           fi
 
+      - name: Vérifier que site/ contient DSFR avant déploiement
+        run: |
+          echo "=== VALIDATION CRITIQUE ==="
+          if grep -q "writer-html5" site/index.html; then
+            echo "❌ ERREUR CRITIQUE: site/index.html contient ReadTheDocs!"
+            echo "Premières 20 lignes:"
+            head -20 site/index.html
+            exit 1
+          elif grep -q "data-fr-scheme" site/index.html; then
+            echo "✅ OK: site/index.html contient DSFR"
+          else
+            echo "⚠️  WARNING: Thème indéterminé"
+            head -20 site/index.html
+            exit 1
+          fi
+
       - name: Deploy draft to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site  # Le répertoire site/ est recréé par download-artifact
+          publish_dir: ./site
           publish_branch: gh-pages
           destination_dir: draft
-          keep_files: false  # Ne pas garder les anciens fichiers ReadTheDocs
+          keep_files: false
 
   deploy_main:
     if: github.ref == 'refs/heads/main'
@@ -241,6 +257,22 @@ jobs:
             head -5 site/index.html
           else
             echo "❌ ERREUR: Répertoire site/ n'existe pas!"
+            exit 1
+          fi
+
+      - name: Vérifier que site/ contient DSFR avant déploiement
+        run: |
+          echo "=== VALIDATION CRITIQUE ==="
+          if grep -q "writer-html5" site/index.html; then
+            echo "❌ ERREUR CRITIQUE: site/index.html contient ReadTheDocs!"
+            echo "Premières 20 lignes:"
+            head -20 site/index.html
+            exit 1
+          elif grep -q "data-fr-scheme" site/index.html; then
+            echo "✅ OK: site/index.html contient DSFR"
+          else
+            echo "⚠️  WARNING: Thème indéterminé"
+            head -20 site/index.html
             exit 1
           fi
 
