@@ -16,7 +16,8 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-          cache: 'pip'
+          # Cache désactivé temporairement pour forcer réinstallation complète
+          # cache: 'pip'
 
       - name: Install dependencies
         run: pip install -r requirements-dsfr.txt
