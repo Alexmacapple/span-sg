@@ -45,6 +45,19 @@ jobs:
       - name: Calculate SPAN scores
         run: python scripts/calculate_scores.py
 
+      - name: Debug - Vérifier packages MkDocs installés
+        run: |
+          echo "=== Packages MkDocs installés ==="
+          pip list | grep -i mkdocs
+          echo "=== Vérifier mkdocs-dsfr ==="
+          python -c "import mkdocs; print(f'MkDocs version: {mkdocs.__version__}')"
+          python -c "try:
+              from mkdocs.config import load_config
+              config = load_config('mkdocs-dsfr.yml')
+              print(f'Theme name: {config[\"theme\"].name}')
+          except Exception as e:
+              print(f'Erreur config: {e}')"
+
       - name: Build site DSFR
         run: mkdocs build --config-file mkdocs-dsfr.yml --strict
 
