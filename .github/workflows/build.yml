@@ -105,6 +105,22 @@ jobs:
           name: exports-draft
           path: exports/
 
+      - name: DEBUG INTENSIF - Vérifier site/ juste avant copie
+        run: |
+          echo "=== CONTENU DE site/ JUSTE AVANT COPIE ==="
+          ls -la site/ | head -20
+          echo ""
+          echo "=== site/index.html (premières 20 lignes) ==="
+          head -20 site/index.html
+          echo ""
+          echo "=== Vérification DSFR dans site/index.html ==="
+          if grep -q "data-fr-scheme" site/index.html; then
+            echo "✅ DSFR présent dans site/index.html"
+          else
+            echo "❌ DSFR ABSENT de site/index.html!"
+            exit 1
+          fi
+
       - name: Deploy draft to GitHub Pages (Git push direct)
         run: |
           # Configuration Git
@@ -117,7 +133,13 @@ jobs:
           # Supprimer ancien draft et copier nouveau
           rm -rf gh-pages-repo/draft
           mkdir -p gh-pages-repo/draft
-          cp -r site/* gh-pages-repo/draft/
+
+          echo "=== COPIE site/ vers gh-pages-repo/draft/ ==="
+          cp -rv site/* gh-pages-repo/draft/ | head -10
+
+          echo ""
+          echo "=== VÉRIFICATION gh-pages-repo/draft/index.html APRÈS COPIE ==="
+          head -10 gh-pages-repo/draft/index.html
 
           # Push
           cd gh-pages-repo
