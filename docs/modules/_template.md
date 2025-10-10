@@ -108,24 +108,47 @@ updated: "2025-09-30"
 - Contenus tiers: [décrire]
 
 ## Analyse charge disproportionnée
-| Élément | Justification | Alternative | Révision |
-|--------|----------------|-------------|----------|
-| ...    | ...            | ...         | T2 2026  |
 
-Critères décision
-- Analyse coût/bénéfice documentée
-- Alternatives étudiées
-- Validation juridique
-- Publication de la justification
+<!--
+  COMPOSANT SÉMANTIQUE RÉUTILISABLE
+  Deux options selon le cas du service :
 
+  Option 1 : AUCUNE charge disproportionnée (cas le plus fréquent)
+  Option 2 : AU MOINS UNE charge disproportionnée documentée
+-->
 
+<!-- OPTION 1 : Aucune charge disproportionnée -->
+<section aria-labelledby="charge-disproportionnee-titre">
+  <h3 id="charge-disproportionnee-titre">Charges disproportionnées</h3>
 
-- Déclaration d’accessibilité: https://[votre-domaine]/[service]/declaration-accessibilite  <!-- TODO: remplacer par l’URL réelle -->
-- Charge disproportionnée: [Oui/Non]  <!-- TODO: préciser si Oui -->. Si Oui, préciser
-  - Élément: [...]
-  - Justification: [...]
-  - Alternative: [...]
-  - Réévaluation: [date]
+  <p><strong>Aucune charge disproportionnée invoquée</strong> pour le périmètre SPAN 2024-2027.</p>
+
+  <p>Tous les sites et applications du périmètre sont engagés dans une démarche progressive de mise en conformité RGAA selon l'agenda planifié.</p>
+</section>
+
+<!-- OPTION 2 : Avec charge(s) disproportionnée(s) - À utiliser si applicable -->
+<!--
+### Charges disproportionnées
+
+**Charge disproportionnée identifiée** pour [nom de la fonctionnalité/service]
+
+| Critère | Description |
+|---------|-------------|
+| **Fonctionnalité/section concernée** | [Décrire précisément l'élément : ex "Module cartographique interactif legacy 2010-2015"] |
+| **Type de charge** | [Technique / Financière / Organisationnelle] |
+| **Analyse coût/bénéfice** | [Chiffrage : ex "150K€ refonte pour 200 utilisateurs/an = 750€/utilisateur"] |
+| **Documentation de référence** | [Lien étude technique, rapport audit, décision validée] |
+| **Alternative proposée** | [Décrire l'alternative : ex "Données téléchargeables CSV accessible + contact dédié pour assistance"] |
+| **Échéance de réévaluation** | [Date : ex "31 décembre 2026"] |
+
+*Critères de décision appliqués : analyse coût/bénéfice documentée, alternatives étudiées, validation juridique, publication dans déclaration d'accessibilité.*
+-->
+
+---
+## Déclaration d'accessibilité
+
+- Déclaration d'accessibilité: https://[votre-domaine]/[service]/declaration-accessibilite  <!-- TODO: remplacer par l'URL réelle -->
+- Charge disproportionnée: [Oui/Non]  <!-- TODO: si Oui, utiliser OPTION 2 ci-dessus -->
 
 ---
 *Dernière mise à jour [date]*

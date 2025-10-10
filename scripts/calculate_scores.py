@@ -44,22 +44,48 @@ def generate_summary():
 
     # Disclaimer en-tête (option e Q35 : ton neutre pour synthèse)
     disclaimer = (
-        "**État du déploiement v1.0** : 2 modules validés (SIRCOM, SNUM), "
-        "4 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement."
+        "**État du déploiement v1.0** : 1 module validé (SIRCOM), "
+        "5 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement."
     )
 
     rows = [
         "# Tableau de bord SPAN SG",
+        "",
         f"*Mis à jour le {datetime.now():%d/%m/%Y}*",
         "",
         disclaimer,
         "",
-        "| Service | Score | Statut | État |",
-        "|---------|-------|--------|------|",
+        '<div class="fr-table fr-table--bordered" id="table-synthese-span">',
+        '    <div class="fr-table__wrapper">',
+        '        <div class="fr-table__container">',
+        '            <div class="fr-table__content">',
+        '                <table id="table-span-modules">',
+        "                    <caption>",
+        "                        Synthèse des modules SPAN par service",
+        "                    </caption>",
+        "                    <thead>",
+        "                        <tr>",
+        '                            <th scope="col">',
+        "                                Service",
+        "                            </th>",
+        '                            <th scope="col">',
+        "                                Score",
+        "                            </th>",
+        '                            <th scope="col">',
+        "                                Statut",
+        "                            </th>",
+        '                            <th scope="col">',
+        "                                État",
+        "                            </th>",
+        "                        </tr>",
+        "                    </thead>",
+        "                    <tbody>",
     ]
+
     total_checked = 0
     total_items = 0
     errors = []
+    module_rows = []
 
     for module in sorted(modules_dir.glob("*.md")):
         if module.name.startswith("_"):
@@ -73,15 +99,55 @@ def generate_summary():
             )
         pct = round((checked / total) * 100, 1) if total else 0.0
         status = "Conforme" if pct >= 75 else "En cours" if pct > 0 else "Non renseigné"
-        rows.append(
-            f"| {module.stem.upper()} | {checked}/{total} ({pct}%) | {status} | {validation_state} |"
+
+        service_key = module.stem.lower()
+        module_rows.append(
+            f'                        <tr id="table-span-row-{service_key}" data-row-key="{service_key}">'
         )
+        module_rows.append("                            <td>")
+        module_rows.append(f"                                {module.stem.upper()}")
+        module_rows.append("                            </td>")
+        module_rows.append("                            <td>")
+        module_rows.append(
+            f"                                {checked}/{total} ({pct}%)"
+        )
+        module_rows.append("                            </td>")
+        module_rows.append("                            <td>")
+        module_rows.append(f"                                {status}")
+        module_rows.append("                            </td>")
+        module_rows.append("                            <td>")
+        module_rows.append(f"                                {validation_state}")
+        module_rows.append("                            </td>")
+        module_rows.append("                        </tr>")
+
         total_checked += checked
         total_items += total
 
+    rows.extend(module_rows)
+
     global_pct = round((total_checked / total_items) * 100, 1) if total_items else 0.0
-    rows.append(
-        f"| **TOTAL** | **{total_checked}/{total_items} ({global_pct}%)** | **Global** | |"
+    rows.extend(
+        [
+            '                        <tr id="table-span-row-total" data-row-key="total">',
+            "                            <td>",
+            "                                <strong>TOTAL</strong>",
+            "                            </td>",
+            "                            <td>",
+            f"                                <strong>{total_checked}/{total_items} ({global_pct}%)</strong>",
+            "                            </td>",
+            "                            <td>",
+            "                                <strong>Global</strong>",
+            "                            </td>",
+            "                            <td>",
+            "                            </td>",
+            "                        </tr>",
+            "                    </tbody>",
+            "                </table>",
+            "            </div>",
+            "        </div>",
+            "    </div>",
+            "</div>",
+        ]
     )
 
     Path("docs/synthese.md").write_text("\n".join(rows) + "\n", encoding="utf-8")

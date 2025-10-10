@@ -845,7 +845,88 @@ TOTAL : 56h
 
 **Date création** : 2025-10-07
 **Auteur** : Claude Code (ultrathink)
-**Status** : Planifiée (trigger : v1.0.0 + .gouv.fr)
-**Version** : 1.0
+**Date POC Phase 1** : 2025-10-07
+**Status** : [SUSPENDU] (NO-GO POC Phase 1 - PDF bloquant)
+**Version** : 1.1
 
-Closes: Migration DSFR complet (v2.0.0 breaking change)
+---
+
+## Résultats POC Phase 1 (2025-10-07)
+
+### Décision : NO-GO
+
+**Durée exécution** : 2h (au lieu de 12h prévues)
+
+**Raison bloquante** : Export PDF incompatible avec mkdocs-dsfr
+
+### Tests Réalisés
+
+**✅ Build HTML DSFR** :
+- mkdocs-dsfr 0.6.1 installé avec succès
+- Build HTML : OK (0.44s)
+- Header DSFR : ✅ Titre + sous-titre affichés
+- Footer DSFR : ✅ Liens gouv.fr présents
+- Scoring : ✅ Préservé (45/186 - 24.2%)
+- Navigation : ✅ Fonctionnelle
+
+**❌ Export PDF (BLOQUANT)** :
+- Plugin : mkdocs-with-pdf
+- Erreur : WeasyPrint import failure
+- Cause : Dépendances système manquantes
+- Impact : Livrable PDF critique manquant
+- **Confirmation risque roadmap** : Incompatibilité PDF 60-70% confirmée
+
+### Branche POC
+
+**Nom** : `feature/dsfr-poc`
+**Commit** : `cac2a34`
+**URL** : https://github.com/Alexmacapple/span-sg-repo/tree/feature/dsfr-poc
+**Statut** : Conservée pour référence future
+
+**Fichiers créés** :
+- `requirements-dsfr.txt` : mkdocs-dsfr>=0.9.0
+- `mkdocs-dsfr.yml` : Configuration HTML DSFR fonctionnelle
+- `mkdocs-dsfr-pdf.yml` : Configuration PDF (échec)
+
+### Recommandations Mises à Jour
+
+**Priorité 1 - Court terme (1-2 semaines)** :
+- Reprendre modules optionnels (S6-03 à S6-06)
+- Reporter migration DSFR jusqu'à solution PDF
+
+**Priorité 2 - Moyen terme (1-3 mois)** :
+- **RECOMMANDÉ** : Stratégie C - Hybrid Progressive
+  - Conserver Material theme
+  - Custom header/footer DSFR-like (HTML + CSS)
+  - Préserve PDF, tests, scoring
+  - Estimation : 12-18h
+  - Risque : Faible
+
+**Priorité 3 - Long terme (3-6 mois+)** :
+- Surveiller releases mkdocs-dsfr (compatibilité PDF)
+- Investiguer alternatives PDF (mkdocs-pdf-export-plugin, pandoc)
+- Réévaluer POC Phase 1 si nouveau plugin disponible
+
+### Critères GO/NO-GO Validés
+
+**Critères Techniques** :
+- [x] Build DSFR fonctionne sans erreur
+- [ ] Export PDF généré ❌ **BLOQUANT**
+- [ ] Métadonnées PDF accessibles (N/A sans PDF)
+- [x] Scoring 31 points préservé
+- [x] Header DSFR affiché
+- [x] Footer DSFR affiché
+- [ ] Police Marianne chargée (non vérifié visuellement)
+- [ ] Grille DSFR responsive (non vérifié visuellement)
+
+**Critères Organisationnels** :
+- [ ] Domaine .gouv.fr confirmé (utilisateur : "à terme")
+- [ ] Validation sponsor Stéphane
+- [ ] Ressources disponibles (24-48h dev)
+- [ ] Fenêtre tir v2.0.0 planifiée
+
+**Conclusion** : 1 critère technique bloquant → NO-GO
+
+---
+
+Closes: Migration DSFR complet (v2.0.0 breaking change) - SUSPENDU

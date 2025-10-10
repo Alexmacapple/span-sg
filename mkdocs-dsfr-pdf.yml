@@ -1,0 +1,58 @@
+# Configuration DSFR POC - Test compatibilité mkdocs-dsfr
+# Date: 2025-10-07
+# Phase: POC Phase 1 (S7-01)
+# Basé sur: mkdocs.yml (Material)
+
+site_name: ""
+site_url: https://alexmacapple.github.io/span-sg-repo/
+repo_url: https://github.com/Alexmacapple/span-sg-repo
+strict: false
+
+theme:
+  name: readthedocs
+  language: fr
+
+plugins:
+  - search:
+      lang: fr
+  - with-pdf:
+      author: Secrétariat Général
+      copyright: © 2025 Secrétariat Général
+      cover_title: SPAN SG
+      cover_subtitle: |
+        Schéma Pluriannuel d'Accessibilité Numérique 2025-2027
+
+        Périmètre version 1.0 : Ce document couvre 2 services avec contenus validés (SIRCOM, SNUM) et 4 services avec structure présente (en cours de renseignement). Infrastructure conforme RGAA 4.1.
+      toc_title: Table des matières
+      toc_level: 3
+      ordered_chapter_level: 3
+      output_path: ../exports/span-sg.pdf
+      verbose: false
+      enabled_if_env: ENABLE_PDF_EXPORT
+      debug_html: false
+      show_anchors: false
+      convert_iframe: []
+
+nav:
+  - SPAN (SG): index.md
+  - SPAN (services):
+    - BGS: modules/bgs.md
+    - SAFI: modules/safi.md
+    - SIEP: modules/siep.md
+    - SIRCOM: modules/sircom.md
+    - SNUM: modules/snum.md
+    - SRH: modules/srh.md
+  - Synthèse: synthese.md
+  - Processus: processus.md
+  - Guide contributeur: contributing.md
+  - Développement local: dev-local.md
+  - "Code source GitHub": "https://github.com/Alexmacapple/span-sg-repo"
+
+hooks:
+  - hooks/title_cleaner.py
+  - hooks/pdf_copy.py
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: false

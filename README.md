@@ -5,9 +5,9 @@
 
 Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/deploy.
 
-## État actuel du projet (07/10/2025)
+## État actuel du projet (08/10/2025)
 
-**Version POC** : v1.0.2-poc - Sprint 6 Tech First terminé (Score 97/100)
+**Version** : v1.0.1-dsfr - Migration thème DSFR complète
 
 - **Infrastructure** : Production-ready (CI/CD, tests E2E automatisés, sécurité renforcée)
 - **2 modules validés** : SIRCOM (24/31 - 77.4%), SNUM (21/31 - 67.7%)
@@ -23,6 +23,22 @@ Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/
 - **Changelog** : [CHANGELOG.md](CHANGELOG.md) - Historique versions
 - **Migration** : [MIGRATION.md](MIGRATION.md) - Guides upgrade path
 
+## Thème DSFR (Système de Design de l'État)
+
+Le projet utilise le thème [mkdocs-dsfr](https://pypi.org/project/mkdocs-dsfr/) (v0.17.0) pour garantir la conformité avec le design gouvernemental français.
+
+### Caractéristiques DSFR
+- Header/footer officiels avec Marianne
+- Composants accessibles (fr-summary, fr-grid, fr-button)
+- Navigation RGAA conforme
+- Hooks Python pour tableaux responsifs et titres optimisés
+
+### Configuration
+- **Docker** : `docker-compose-dsfr.yml`
+- **Config principale** : `mkdocs-dsfr.yml`
+- **Config PDF** : `mkdocs-dsfr-pdf.yml`
+- **Hooks** : `hooks/dsfr_table_wrapper.py`, `hooks/title_cleaner.py`
+
 ## Démarrage rapide
 
 ### Installation en 3 étapes
@@ -32,8 +48,8 @@ Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/
 git clone https://github.com/Alexmacapple/span-sg-repo.git
 cd span-sg-repo
 
-# 2. Démarrer avec Docker
-docker compose up -d
+# 2. Démarrer avec Docker (thème DSFR)
+docker compose -f docker-compose-dsfr.yml up -d
 
 # 3. Accéder au site
 # http://localhost:8000/span-sg-repo/
@@ -110,6 +126,52 @@ python scripts/calculate_scores.py
 # Script de développement
 ./scripts/dev.sh  # Lance Docker avec vérifications
 ```
+
+## Export PDF
+
+Le site est exportable en PDF avec métadonnées accessibilité (RGAA).
+
+### Téléchargement
+
+**Depuis le site web** :
+- Draft : https://alexmacapple.github.io/span-sg-repo/draft/ (bouton "Télécharger PDF")
+- Production : https://alexmacapple.github.io/span-sg-repo/ (bouton "Télécharger PDF")
+
+**Depuis GitHub Actions** :
+```bash
+./scripts/download_latest_pdf.sh [branche]
+```
+
+### Génération locale
+
+**Prérequis** : Dépendances système WeasyPrint
+
+**macOS (Homebrew)** :
+```bash
+brew install pango cairo gdk-pixbuf libffi
+```
+
+**Ubuntu/Debian** :
+```bash
+sudo apt-get install libpango-1.0-0 libcairo2 libgdk-pixbuf2.0-0
+```
+
+**Build** :
+```bash
+ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml
+python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
+```
+
+**Output** : `exports/span-sg.pdf` (environ 2.6 MB, PDF 1.7, accessible)
+
+### Métadonnées
+
+Le PDF contient :
+- Titre : SPAN SG
+- Langue : fr-FR
+- Auteur : Secrétariat Général
+- Subject : Schéma Pluriannuel d'Accessibilité Numérique
+- Keywords : SPAN, accessibilité, SG, numérique, RGAA, DINUM
 
 ## Développement local avec Docker
 

@@ -1,0 +1,75 @@
+# Configuration DSFR POC - Test compatibilité mkdocs-dsfr
+# Date: 2025-10-07
+# Phase: POC Phase 1 (S7-01)
+# Basé sur: mkdocs.yml (Material)
+
+site_name: ""
+site_url: https://alexmacapple.github.io/span-sg-repo/
+strict: true
+
+theme:
+  name: dsfr
+  language: fr
+
+  # Configuration par défaut DSFR
+  include_search_page: true
+  afficher_date_de_revision: true
+  afficher_menu_lateral: true
+  afficher_bouton_editer: true
+  libelle_bouton_editer: "Éditer dans GitHub"
+  bouton_hautdepage: right
+
+  # Intitulé République Française
+  intitule: "GOUVERNEMENT"
+
+  # Configuration header DSFR
+  header:
+    titre: "SPAN SG"
+    sous_titre: "Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général"
+    liens_rapides:
+      - name: "Voir le code source sur GitHub"
+        url: "https://github.com/Alexmacapple/span-sg-repo"
+        icon: "github"
+
+  # Configuration footer DSFR
+  footer:
+    description: "Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique"
+    links:
+      - name: legifrance.gouv.fr
+        url: https://legifrance.gouv.fr
+      - name: service-public.fr
+        url: https://service-public.fr
+      - name: data.gouv.fr
+        url: https://data.gouv.fr
+      - name: info.gouv.fr
+        url: https://info.gouv.fr
+
+plugins:
+  - search:
+      lang: fr
+
+nav:
+  - SPAN (SG): index.md
+  - SPAN (services):
+    - BGS: modules/bgs.md
+    - SAFI: modules/safi.md
+    - SIEP: modules/siep.md
+    - SIRCOM: modules/sircom.md
+    - SNUM: modules/snum.md
+    - SRH: modules/srh.md
+  - Synthèse: synthese.md
+  - Processus: processus.md
+  - Guide contributeur: contributing.md
+  - Développement local: dev-local.md
+  - "Code source GitHub": "https://github.com/Alexmacapple/span-sg-repo"
+
+hooks:
+  - hooks/dsfr_table_wrapper.py
+  - hooks/title_cleaner.py
+  - hooks/pdf_copy.py
+
+markdown_extensions:
+  - tables
+  - md_in_html
+  - toc:
+      permalink: false

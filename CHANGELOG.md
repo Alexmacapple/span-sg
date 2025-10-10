@@ -6,6 +6,80 @@ Format basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
 ---
 
+## [Unreleased]
+
+### Added
+- Génération PDF automatique en CI (GitHub Actions)
+- Bouton téléchargement PDF sur page d'accueil (composant DSFR fr-download)
+- Hook `pdf_copy.py` : Copie PDF vers docs/ et site/ pour download web
+- Structure `docs/exports/.gitkeep` : Support PDF en mode développement
+- Validation structure PDF (`qpdf --check`) dans pipeline CI
+- Métadonnées enrichies (pikepdf) : titre, langue, keywords, auteur
+- Section "Export PDF" dans README.md avec instructions génération locale
+- Tests E2E : Validation métadonnées PDF dans scenario_pdf_complet.sh
+
+### Changed
+- `.github/workflows/build.yml` : Installation dépendances WeasyPrint (libpango, libcairo, libharfbuzz)
+- `Dockerfile-dsfr` : Ajout libs système pour génération PDF
+- `requirements-dsfr.txt` : Ajout `mkdocs-with-pdf>=0.9.3`
+- `tests/e2e/scenario_pdf_complet.sh` : Migration vers mkdocs-dsfr-pdf.yml + validation métadonnées
+- `CLAUDE.md` : Commandes PDF mises à jour (ENABLE_PDF_EXPORT, enrichissement, validation)
+- `docs/index.md` : Déplacement section Téléchargements vers haut de page (après fr-summary, ligne 72)
+
+### Fixed
+- Artefact PDF CI (remplace fichier texte factice par PDF réel 2.6 MB)
+- Score CI/CD : 9/10 → 10/10 (génération PDF réactivée)
+- Accessibilité PDF en mode développement : Copie vers docs/exports/ pour mkdocs serve (404 → 200 OK)
+
+---
+
+## v1.0.1-dsfr – 2025-10-08
+
+**Migration DSFR** : Intégration complète du thème Système de Design de l'État français
+
+### Thème et infrastructure
+- Migration mkdocs-material vers mkdocs-dsfr (v0.17.0)
+- Nouvelle configuration DSFR : mkdocs-dsfr.yml, mkdocs-dsfr-pdf.yml
+- Docker Compose DSFR : docker-compose-dsfr.yml
+- Thème gouvernemental avec marianne, header/footer officiels
+
+### Accessibilité DSFR
+- Composant fr-summary : sommaire accessible avec navigation sémantique
+- Structure ARIA : `<nav aria-labelledby>`, `<ol class="fr-summary__list">`
+- Bouton "Haut de page" positionné à droite (bouton_hautdepage: right)
+- Hooks DSFR : dsfr_table_wrapper.py (tableaux responsifs), title_cleaner.py (titres optimisés)
+
+### Navigation et UX
+- Menu réorganisé : "SPAN (SG)" en position 1, "SPAN (services)" en position 2
+- Services classés alphabétiquement : BGS, SAFI, SIEP, SIRCOM, SNUM, SRH
+- Titre HTML sans redondance : `<title>SPAN (SG)</title>` au lieu de "SPAN (SG) - SPAN SG"
+- Emails cliquables dans citations Markdown (SIRCOM, SNUM)
+
+### Contenu
+- Page d'accueil (index.md) : SPAN officiel complet (18 sections)
+- Sommaire interactif DSFR avec 18 ancres de navigation
+- Footer : Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique
+
+### Technique
+- Hook Python on_post_page pour nettoyage HTML
+- Front-matter YAML pour contrôle des titres
+- Archives sources SPAN : span/span-sircom-sg.md, span/span-sircom.md
+
+### Commits
+10 commits du 08/10/2025 (437a9c9 à 15a0a8a) :
+- chore(sources): mise à jour archives SPAN SIRCOM
+- fix(meta): supprimer complètement redondance dans title HTML
+- fix(meta): supprimer redondance dans title de la page d'accueil
+- feat(dsfr): positionner bouton "Haut de page" à droite
+- feat(nav): renommer Accueil en SPAN (SG)
+- feat(dsfr): intégration composant Sommaire accessible
+- feat(homepage): remplacement complet par SPAN officiel
+- fix(nav): correction nom menu - "SPAN (services)"
+- feat(nav): réorganisation menu navigation
+- chore: mise à jour date synthèse
+
+---
+
 ## v1.0.0-poc – 2025-10-07
 
 **POC (Proof of Concept)** : Démonstration technique framework SPAN SG
@@ -52,12 +126,58 @@ Valider faisabilité architecture modulaire + scoring automatisé + CI/CD comple
 
 ---
 
+## v1.0.0 – 2025-10-07
+
+**Release officielle** : POC Production-Ready (Score 97/100)
+
+### Objectif
+Officialiser le POC (Proof of Concept) démontrant la faisabilité technique du framework SPAN SG avec infrastructure production-ready.
+
+### Infrastructure Production-Ready
+- ✅ Score qualité : 97/100 (Tests 19/20, Sécurité 20/20, Documentation 20/20)
+- ✅ CI/CD 100% automatisé (GitHub Actions)
+- ✅ Tests E2E automatisés CI (9 scénarios + reporting HTML)
+- ✅ Sécurité renforcée (Dependabot + SECURITY.md + BFG guide)
+- ✅ Documentation maintenabilité (CHANGELOG + MIGRATION + versioning)
+- ✅ Coverage tests 89%+ scripts production
+
+### Modules Validés
+- **SIRCOM** : 24/31 (77.4%) - Contenu réel mappé
+- **SNUM Portailpro.gouv** : 21/31 (67.7%) - Contenu réel mappé
+- **SRH, SIEP, SAFI, BGS** : 0/124 - Structure framework présente
+- **Total démonstration** : 45/186 (24.2%)
+
+### Roadmaps Complétées
+- **32 roadmaps archivées** : Sprints 0-6 terminés
+- **Sprint 6 Tech First** : Tests E2E CI + Sécurité + Documentation (+3 points)
+- **POC-FINALISATION** : Merge draft → main, tag v1.0.0, GitHub Release
+
+### Documentation
+- CONTRIBUTING.md : Guide contributeur Option A + B
+- CHANGELOG.md : Historique complet Keep a Changelog
+- MIGRATION.md : Guides upgrade path v0.x→v1.0
+- SECURITY.md : Responsible disclosure policy
+- Guide mapping : roadmap/archive/S4-00 (~400 lignes)
+- ROADMAP-INDEX.md : Master index + parcours recommandés
+
+### Déploiement
+- Production : https://alexmacapple.github.io/span-sg-repo/
+- Release : https://github.com/Alexmacapple/span-sg-repo/releases/tag/v1.0.0
+- PDF : exports/span-sg.pdf (3 MB, joint à release)
+
+### Prochaines Étapes (Optionnelles)
+- Modules : Complétion BGS, SAFI, SIEP, SRH (S6-03 à S6-06) → 90.9%
+- Infrastructure : Notifications CI + Rollback (S6-02)
+- v2.0.0 : Migration DSFR complet (S7-01, après .gouv.fr)
+
+---
+
 ## [Unreleased] – En développement (branche draft)
 
 ### Prévu
-- Release v1.0.0 officielle (POC-FINALISATION)
 - Complétion modules optionnels BGS, SAFI, SIEP, SRH (S6-03 à S6-06)
 - Notifications CI + Rollback automatique (S6-02, optionnel)
+- Migration DSFR (S7-01, après .gouv.fr confirmé)
 
 ---
 

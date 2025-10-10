@@ -2,8 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Version: 1.2
-Date: 2025-10-07
+Version: 1.3
+Date: 2025-10-08
 
 ## Langue et ton
 - Répondre en français, sans émojis, concision.
@@ -19,22 +19,28 @@ Date: 2025-10-07
 
 ### Développement local
 ```bash
-# Démarrer le serveur MkDocs en local (Docker)
-docker compose up
+# Démarrer le serveur MkDocs en local (Docker DSFR)
+docker compose -f docker-compose-dsfr.yml up
 # → http://localhost:8000/span-sg-repo/
 
 # Sans Docker
-pip install mkdocs-material mkdocs-pdf-export-plugin
-mkdocs serve
+pip install mkdocs-dsfr
+mkdocs serve --config-file mkdocs-dsfr.yml
 ```
 
 ### Build et génération
 ```bash
 # Build site HTML
-mkdocs build
+mkdocs build --config-file mkdocs-dsfr.yml
 
-# Générer PDF
-mkdocs build --config-file mkdocs-pdf.yml
+# Générer PDF (DSFR) - Nécessite libs système WeasyPrint
+ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml
+
+# Enrichir métadonnées PDF
+python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
+
+# Valider structure PDF
+qpdf --check exports/span-sg.pdf
 
 # Calculer les scores SPAN et générer docs/synthese.md
 python scripts/calculate_scores.py
@@ -52,11 +58,14 @@ python scripts/calculate_scores.py
 
 ### CI et artefacts
 ```bash
-# Télécharger le PDF depuis la dernière CI draft
+# Télécharger PDF depuis dernière CI draft
 ./scripts/download_latest_pdf.sh
 
 # Télécharger depuis branche main
 ./scripts/download_latest_pdf.sh main
+
+# Télécharger depuis site déployé
+curl -O https://alexmacapple.github.io/span-sg-repo/draft/exports/span-sg.pdf
 
 # Commande manuelle équivalente
 RUN_ID=$(gh run list --branch draft --limit 1 --json databaseId --jq '.[0].databaseId')
@@ -107,10 +116,16 @@ Chaque module contient:
 4. **Blocs légaux**: déclaration accessibilité, charge disproportionnée
 
 ### Configuration MkDocs
-- `mkdocs.yml`: config principale (strict mode, nav, theme Material)
-- `mkdocs-pdf.yml`: génération PDF via `mkdocs-pdf-export-plugin`
+- `mkdocs.yml`: config principale Material (legacy, non utilisé)
+- `mkdocs-dsfr.yml`: config principale DSFR (strict mode, nav, theme DSFR)
+- `mkdocs-dsfr-pdf.yml`: génération PDF via `mkdocs-pdf-export-plugin`
 
 **Mode strict activé**: toute erreur de lien/référence bloque le build.
+
+### Hooks DSFR
+Le thème DSFR utilise des hooks Python pour améliorer l'accessibilité :
+- `hooks/dsfr_table_wrapper.py`: Encapsule les tableaux Markdown dans `<div class="fr-table">` pour le responsive DSFR
+- `hooks/title_cleaner.py`: Nettoie les titres HTML redondants (regex post-processing)
 
 ### CI/CD GitHub Actions
 Workflow `.github/workflows/build.yml`:
