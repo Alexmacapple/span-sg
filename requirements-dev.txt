@@ -1,8 +1,7 @@
 # requirements-dev.txt
 # Installation: pip install -r requirements-dev.txt
-
-# Inclure dépendances production
--r requirements.txt
+# Note: N'inclut plus requirements.txt pour éviter conflit avec requirements-dsfr.txt
+# Les dépendances de production doivent être installées séparément via requirements-dsfr.txt
 
 # Tests unitaires
 pytest>=7.4.0
