@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg-repo/contributing/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Guide contributeur</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Guide contributeur";
+        var mkdocs_page_input_path = "contributing.md";
+        var mkdocs_page_url = "/span-sg-repo/contributing/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="..">
+</a><div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">SPAN (SG)</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SPAN (services)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/bgs/">BGS</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/safi/">SAFI</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/siep/">SIEP</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/sircom/">SIRCOM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/snum/">SNUM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/srh/">SRH</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../synthese/">Synthèse</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processus/">Processus</a>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="#">Guide contributeur</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#principe">Principe</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#option-a-interface-github-recommande-pour-debutants">Option A : Interface GitHub (recommandé pour débutants)</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#1-aller-sur-le-fichier-de-votre-service">1. Aller sur le fichier de votre service</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-cliquer-sur-edit-this-file">2. Cliquer sur "Edit this file"</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-modifier-le-contenu">3. Modifier le contenu</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-sauvegarder-et-creer-la-pull-request">4. Sauvegarder et créer la Pull Request</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#5-validation">5. Validation</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#option-b-git-local-avances">Option B : Git local (avancés)</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#1-cloner-le-repo">1. Cloner le repo</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-creer-une-branche-feature">2. Créer une branche feature</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-editer-votre-module">3. Éditer votre module</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-previsualiser-en-local-optionnel">4. Prévisualiser en local (optionnel)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#5-committer-et-pusher">5. Committer et pusher</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#6-creer-la-pull-request">6. Créer la Pull Request</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#qualite-code-python">Qualité code Python</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#tests-unitaires">Tests unitaires</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#formatting-et-linting">Formatting et linting</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#installation-environnement-dev">Installation environnement dev</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#regles-de-validation-des-pr">Règles de validation des PR</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#verifications-automatiques-ci">Vérifications automatiques (CI)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#verifications-manuelles">Vérifications manuelles</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#workflow-complet">Workflow complet</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#besoin-daide">Besoin d'aide ?</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#note-sur-les-urls">Note sur les URLs</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev-local/">Développement local</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg-repo">Code source GitHub</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href=".."></a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item active">Guide contributeur</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg-repo/edit/master/docs/contributing.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="guide-de-contribution-span-sg">Guide de contribution SPAN SG</h1>
+<h2 id="principe">Principe</h2>
+<p>Chaque service gère son propre module dans <code>docs/modules/[service].md</code>.
+Les modifications passent par une <strong>Pull Request</strong> vers <code>draft</code> pour validation.</p>
+<hr/>
+<h2 id="option-a-interface-github-recommande-pour-debutants">Option A : Interface GitHub (recommandé pour débutants)</h2>
+<p><strong>Pas besoin de Git, tout se fait dans le navigateur.</strong></p>
+<h3 id="1-aller-sur-le-fichier-de-votre-service">1. Aller sur le fichier de votre service</h3>
+<p>https://github.com/Alexmacapple/span-sg-repo/blob/draft/docs/modules/[votre-service].md</p>
+<p>Exemple : <code>sircom.md</code>, <code>snum.md</code>, <code>srh.md</code>, etc.</p>
+<h3 id="2-cliquer-sur-edit-this-file">2. Cliquer sur "Edit this file"</h3>
+<p>En haut à droite du fichier (icône crayon).</p>
+<h3 id="3-modifier-le-contenu">3. Modifier le contenu</h3>
+<p><strong>Ce que vous pouvez faire</strong> :</p>
+<ul>
+<li>Cocher des cases <code>[x]</code> dans les 31 points DINUM</li>
+<li>Compléter les sections 1-5 (Périmètre, État des lieux, Organisation, Plan d'action, Indicateurs)</li>
+<li>Ajouter des actions au tableau "Plan d'actions prioritaires"</li>
+<li>Renseigner l'URL de déclaration d'accessibilité</li>
+</ul>
+<p><strong>Ce que vous ne devez PAS faire</strong> :</p>
+<ul>
+<li>Ajouter/supprimer des lignes <code>&lt;!-- DINUM --&gt;</code></li>
+<li>Modifier la structure (titres des sections)</li>
+<li>Toucher au front-matter (section <code>---</code> en haut)</li>
+</ul>
+<h3 id="4-sauvegarder-et-creer-la-pull-request">4. Sauvegarder et créer la Pull Request</h3>
+<p>En bas de la page :</p>
+<ul>
+<li><strong>Commit message</strong> : <code>feat(sircom): ajoute 3 actions au plan 2025</code> (exemple)</li>
+<li>Cocher <strong>Create a new branch</strong> : <code>update-sircom-[date]</code></li>
+<li>Cliquer <strong>Propose changes</strong></li>
+</ul>
+<p>Sur la page suivante :</p>
+<ul>
+<li><strong>Base</strong> : <code>draft</code> (important !)</li>
+<li><strong>Compare</strong> : votre branche</li>
+<li>Cliquer <strong>Create Pull Request</strong></li>
+</ul>
+<h3 id="5-validation">5. Validation</h3>
+<p>Bertrand ou Alex reviendra la PR et la mergera si OK.
+Vous recevrez une notification par email.</p>
+<p>Preview désactivée : revue locale/PDF. Voir <code>docs/dev-local.md</code> et <code>.github/PAGES-ACCESS-CHECKLIST.md</code>.</p>
+<hr/>
+<h2 id="option-b-git-local-avances">Option B : Git local (avancés)</h2>
+<p><strong>Nécessite Git installé localement.</strong></p>
+<h3 id="1-cloner-le-repo">1. Cloner le repo</h3>
+<pre><code class="language-bash">git clone https://github.com/Alexmacapple/span-sg-repo.git
+cd span-sg-repo
+</code></pre>
+<h3 id="2-creer-une-branche-feature">2. Créer une branche feature</h3>
+<pre><code class="language-bash">git checkout draft
+git pull origin draft
+git checkout -b feature/update-[votre-service]
+</code></pre>
+<h3 id="3-editer-votre-module">3. Éditer votre module</h3>
+<pre><code class="language-bash"># Ouvrir dans votre éditeur
+code docs/modules/[votre-service].md
+
+# OU
+vim docs/modules/[votre-service].md
+</code></pre>
+<h3 id="4-previsualiser-en-local-optionnel">4. Prévisualiser en local (optionnel)</h3>
+<pre><code class="language-bash">docker compose up
+# Ouvrir http://localhost:8000/span-sg-repo/
+</code></pre>
+<h3 id="5-committer-et-pusher">5. Committer et pusher</h3>
+<pre><code class="language-bash">git add docs/modules/[votre-service].md
+git commit -m "feat(service): description des modifications"
+git push -u origin feature/update-[votre-service]
+</code></pre>
+<h3 id="6-creer-la-pull-request">6. Créer la Pull Request</h3>
+<p>Sur GitHub :</p>
+<ul>
+<li>Cliquer le lien affiché dans le terminal</li>
+<li>OU aller sur https://github.com/Alexmacapple/span-sg-repo/pulls → New Pull Request</li>
+<li><strong>Base</strong> : <code>draft</code></li>
+<li><strong>Compare</strong> : votre branche</li>
+</ul>
+<hr/>
+<h2 id="qualite-code-python">Qualité code Python</h2>
+<p>Si vous contribuez au code Python (<code>scripts/</code>), suivez ces règles :</p>
+<h3 id="tests-unitaires">Tests unitaires</h3>
+<ul>
+<li>Exécuter les tests avant commit : <code>pytest scripts/ -v --cov=scripts</code></li>
+<li>Coverage minimum : ≥85% global, ≥90% pour calculate_scores.py</li>
+<li>Tous les tests doivent passer</li>
+</ul>
+<h3 id="formatting-et-linting">Formatting et linting</h3>
+<ul>
+<li>Formater avec Black : <code>black scripts/</code></li>
+<li>Vérifier avec Ruff : <code>ruff check scripts/</code></li>
+<li>Hooks pre-commit : <code>pre-commit install</code> (recommandé)</li>
+</ul>
+<h3 id="installation-environnement-dev">Installation environnement dev</h3>
+<pre><code class="language-bash">pip install -r requirements-dev.txt
+pre-commit install
+</code></pre>
+<p>Les hooks pre-commit exécutent automatiquement Black et Ruff avant chaque commit.</p>
+<hr/>
+<h2 id="regles-de-validation-des-pr">Règles de validation des PR</h2>
+<p>Chaque PR est vérifiée automatiquement (CI) et manuellement (Bertrand/Alex) :</p>
+<h3 id="verifications-automatiques-ci">Vérifications automatiques (CI)</h3>
+<ul>
+<li>Tests unitaires Python (pytest)</li>
+<li>Formatting Black et linting Ruff</li>
+<li>Exactement 31 points <code>&lt;!-- DINUM --&gt;</code> présents (ou 0 si module vide)</li>
+<li>Pas de liens cassés (mode strict MkDocs)</li>
+<li>Synthèse recalculée sans erreur</li>
+</ul>
+<h3 id="verifications-manuelles">Vérifications manuelles</h3>
+<ul>
+<li>Front-matter à jour (service, referent, updated)</li>
+<li>Contenu cohérent et de qualité</li>
+<li>Blocs légaux remplis (déclaration accessibilité)</li>
+<li>Pas de secrets/informations sensibles</li>
+</ul>
+<hr/>
+<h2 id="workflow-complet">Workflow complet</h2>
+<pre><code>Service modifie son module
+          ↓
+   PR vers draft
+          ↓
+Revue Bertrand/Alex
+          ↓
+Merge dans draft → Revue locale/PDF (sans Pages)
+          ↓
+PR draft → main (mensuel)
+          ↓
+Validation Yves → Production
+</code></pre>
+<hr/>
+<h2 id="besoin-daide">Besoin d'aide ?</h2>
+<ul>
+<li><strong>Questions techniques</strong> : Bertrand (@bertrand), Alex (@alex)</li>
+<li><strong>Questions contenu</strong> : Alexandra (@alexandra)</li>
+<li><strong>Issues GitHub</strong> : <a href="https://github.com/Alexmacapple/span-sg-repo/issues">https://github.com/Alexmacapple/span-sg-repo/issues</a></li>
+</ul>
+<hr/>
+<p><strong>Principe directeur : Simple, fonctionnel, efficace.</strong></p>
+<hr/>
+<h2 id="note-sur-les-urls">Note sur les URLs</h2>
+<p><strong>URLs actuelles</strong> : Ce projet est hébergé sur <code>Alexmacapple/span-sg-repo</code> (compte utilisateur).</p>
+<p><strong>Migration prévue</strong> : Lors de la mise en production, le dépôt sera transféré vers une organisation GitHub. Les URLs seront mises à jour à ce moment-là.</p>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../processus/" title="Processus"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../dev-local/" title="Développement local">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg-repo" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../processus/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../dev-local/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg-repo/dev-local/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Développement local</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "D\u00e9veloppement local";
+        var mkdocs_page_input_path = "dev-local.md";
+        var mkdocs_page_url = "/span-sg-repo/dev-local/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="..">
+</a><div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">SPAN (SG)</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SPAN (services)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/bgs/">BGS</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/safi/">SAFI</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/siep/">SIEP</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/sircom/">SIRCOM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/snum/">SNUM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/srh/">SRH</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../synthese/">Synthèse</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processus/">Processus</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/">Guide contributeur</a>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="#">Développement local</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#demarrer-le-serveur-mkdocs">Démarrer le serveur MkDocs</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#avec-docker-recommande">Avec Docker (recommandé)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sans-docker">Sans Docker</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#commandes-utiles">Commandes utiles</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hooks-dsfr">Hooks DSFR</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#recalculer-les-scores">Recalculer les scores</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#build-et-validation">Build et validation</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#urls-par-environnement">URLs par environnement</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#revue-locale-et-pdf-sans-pages">Revue locale et PDF (sans Pages)</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg-repo">Code source GitHub</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href=".."></a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item active">Développement local</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg-repo/edit/master/docs/dev-local.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="developpement-local">Développement local</h1>
+<h2 id="demarrer-le-serveur-mkdocs">Démarrer le serveur MkDocs</h2>
+<h3 id="avec-docker-recommande">Avec Docker (recommandé)</h3>
+<pre><code class="language-bash"># Démarrer le serveur (thème DSFR)
+docker compose -f docker-compose-dsfr.yml up
+
+# Ou en arrière-plan
+docker compose -f docker-compose-dsfr.yml up -d
+</code></pre>
+<p>Accès : <a href="http://localhost:8000/span-sg-repo/">http://localhost:8000/span-sg-repo/</a></p>
+<h3 id="sans-docker">Sans Docker</h3>
+<pre><code class="language-bash"># Installer les dépendances
+pip install -r requirements.txt
+
+# Démarrer le serveur
+mkdocs serve
+</code></pre>
+<p>Accès : <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a></p>
+<h2 id="commandes-utiles">Commandes utiles</h2>
+<pre><code class="language-bash"># Arrêter le serveur
+docker compose -f docker-compose-dsfr.yml down
+
+# Voir les logs
+docker compose -f docker-compose-dsfr.yml logs -f
+
+# Redémarrer
+docker compose -f docker-compose-dsfr.yml restart
+
+# Vérifier l'état
+docker compose -f docker-compose-dsfr.yml ps
+</code></pre>
+<h2 id="hooks-dsfr">Hooks DSFR</h2>
+<p>Le projet utilise des hooks Python MkDocs pour améliorer l'accessibilité DSFR :</p>
+<ul>
+<li><strong><code>hooks/dsfr_table_wrapper.py</code></strong> : Encapsule automatiquement les tableaux Markdown dans <code>&lt;div class="fr-table"&gt;</code> pour le responsive DSFR</li>
+<li><strong><code>hooks/title_cleaner.py</code></strong> : Nettoie les titres HTML redondants (supprime <code>site_name</code> quand vide)</li>
+</ul>
+<h2 id="recalculer-les-scores">Recalculer les scores</h2>
+<pre><code class="language-bash">python scripts/calculate_scores.py
+</code></pre>
+<p>Génère automatiquement <code>docs/synthese.md</code> avec les scores agrégés.</p>
+<h2 id="build-et-validation">Build et validation</h2>
+<pre><code class="language-bash"># Build site HTML
+mkdocs build
+
+# Mode strict (erreurs bloquantes)
+mkdocs build --strict
+
+# Générer PDF
+mkdocs build --config-file mkdocs-pdf.yml
+</code></pre>
+<h2 id="urls-par-environnement">URLs par environnement</h2>
+<table>
+<thead>
+<tr>
+<th>Environnement</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Local</strong></td>
+<td>http://localhost:8000/span-sg-repo/</td>
+</tr>
+<tr>
+<td><strong>Draft (preview)</strong></td>
+<td>Désactivé — revue locale/PDF (voir <code>.github/PAGES-ACCESS-CHECKLIST.md</code>)</td>
+</tr>
+<tr>
+<td><strong>Production</strong></td>
+<td>https://alexmacapple.github.io/span-sg-repo/</td>
+</tr>
+</tbody>
+</table>
+<h2 id="revue-locale-et-pdf-sans-pages">Revue locale et PDF (sans Pages)</h2>
+<p>Objectif: éviter toute exposition publique avant validation.</p>
+<ul>
+<li>Prévisualisation locale: <code>mkdocs serve -f mkdocs.yml -a 0.0.0.0:8000</code></li>
+<li>Build strict local: <code>mkdocs build -f mkdocs.yml</code></li>
+<li>PDF pour revue: <code>mkdocs build -f mkdocs-pdf.yml</code> ou récupérer l'artefact CI (<code>scripts/download_latest_pdf.sh</code>)</li>
+<li>Ne pas activer GitHub Pages tant que le contenu n'est pas validé. Consulter <code>.github/PAGES-ACCESS-CHECKLIST.md</code> (scénario B).</li>
+</ul>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../contributing/" title="Guide contributeur"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg-repo" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../contributing/" style="color: #fcfcfc">« Previous</a></span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>
