@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg-repo/modules/sircom/" rel="canonical"/>
+<link href="../../img/favicon.ico" rel="shortcut icon"/>
+<title>SIRCOM</title>
+<link href="../../css/theme.css" rel="stylesheet"/>
+<link href="../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "SIRCOM";
+        var mkdocs_page_input_path = "modules/sircom.md";
+        var mkdocs_page_url = "/span-sg-repo/modules/sircom/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../..">
+</a><div role="search">
+<form action="../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../..">SPAN (SG)</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SPAN (services)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bgs/">BGS</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../safi/">SAFI</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../siep/">SIEP</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="#">SIRCOM</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#1-perimetre">1. Périmètre</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#2-etat-des-lieux-synthese">2. État des lieux (synthèse)</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#3-organisation">3. Organisation</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#4-plan-daction-annuel">4. Plan d'action annuel</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#5-indicateurs-cles">5. Indicateurs clés</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#points-de-controle-officiels-31-points-dinum">Points de contrôle officiels (31 points DINUM)</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#categorie-1-politique-accessibilite-3-points">Catégorie 1 - Politique accessibilité (3 points)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#categorie-2-ressources-12-points">Catégorie 2 - Ressources (12 points)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#categorie-3-conception-accessible-8-points">Catégorie 3 - Conception accessible (8 points)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#categorie-4-suivi-et-amelioration-3-points">Catégorie 4 - Suivi et amélioration (3 points)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#categorie-5-audits-et-conformite-5-points">Catégorie 5 - Audits et conformité (5 points)</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#perimetre-du-service-detail">Périmètre du service (détail)</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#publication-et-conformite">Publication et conformité</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#analyse-charge-disproportionnee">Analyse charge disproportionnée</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#declaration-daccessibilite">Déclaration d'accessibilité</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../snum/">SNUM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../srh/">SRH</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../synthese/">Synthèse</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../processus/">Processus</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Guide contributeur</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-local/">Développement local</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg-repo">Code source GitHub</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../.."></a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href="../.."></a></li>
+<li class="breadcrumb-item">SPAN (services)</li>
+<li class="breadcrumb-item active">SIRCOM</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg-repo/edit/master/docs/modules/sircom.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="span-sircom-schema-pluriannuel-daccessibilite-numerique">SPAN SIRCOM - Schéma Pluriannuel d'accessibilité numérique</h1>
+<p><strong>Période</strong> 2024-2027
+<strong>Service</strong> SG-SIRCOM (Secrétariat Général - Service de la Communication)
+<strong>Score global</strong> 24/31 questions validées (77.4%)
+<strong>Dernière mise à jour</strong> 2 octobre 2025</p>
+<h2 id="1-perimetre">1. Périmètre</h2>
+<p><strong>Sites internet ouverts au public</strong> (5 sites):
+- Portail ministère Économie/Finances (www.economie.gouv.fr) - Priorité 1
+- Portail Transformation et Fonction publiques (www.transformation.gouv.fr) - Priorité 1
+- Site prix des carburants (www.prix-carburants.gouv.fr) - Priorité 1
+- Site tarifs bancaires (www.tarifs-bancaires.gouv.fr) - Priorité 2
+- Site presse ministère (www.presse.economie.gouv.fr) - Priorité 2</p>
+<p><strong>Sites extranet</strong> (1 site):
+- Extranet numérique Bercy (bercynumerique.finances.gouv.fr) - Priorité 3</p>
+<p><strong>Sites intranet</strong> (1 site):
+- Intranet ministère Économie/Finances - Priorité 2 (refonte 2024/2025 prévue)</p>
+<p><strong>Conformité DSFR</strong> : Partielle à totale selon sites (intégration continue depuis 2022)</p>
+<h2 id="2-etat-des-lieux-synthese">2. État des lieux (synthèse)</h2>
+<p><strong>Audits réalisés</strong> : Audits de conformité RGAA réalisés sur les 7 sites du périmètre</p>
+<p><strong>Niveau de conformité actuel</strong> :
+- Sites avec conformité DSFR totale : 3/7 (prix carburants, presse, extranet)
+- Sites avec conformité DSFR partielle : 2/7 (portails Économie/Finances et Transformation)
+- Sites sans conformité DSFR : 2/7 (tarifs bancaires, intranet)</p>
+<p><strong>Points critiques identifiés</strong> :
+- Contenus bureautiques antérieurs septembre 2018 (hors champ légal)
+- Contenus audio/vidéo antérieurs septembre 2020 (hors champ légal)
+- Reproductions collections patrimoniales (exemption légale)</p>
+<p><strong>Stratégie de mise en conformité</strong> : Déploiement progressif 2024-2027 avec priorisation selon fréquentation, criticité et cycle de vie</p>
+<h2 id="3-organisation">3. Organisation</h2>
+<p><strong>Référent accessibilité numérique</strong> :
+- Entité : Pôle web du bureau de l'assistance et des Technologies Numériques SG/SIRCOM
+- Contact : <a href="mailto:accessibilite.communication@finances.gouv.fr">accessibilite.communication@finances.gouv.fr</a>
+- Mission : Promotion accessibilité, accompagnement équipes internes, formation, contrôle conformité, relation Arcom</p>
+<p><strong>Équipe accessibilité</strong> :
+- Plusieurs chefs de projets formés aux problématiques d'accessibilité
+- Rôles : accompagnement montée en compétences contributeurs, accompagnement porteurs de projets, suivi prestations audit externes, contrôles réguliers</p>
+<p><strong>Moyens financiers</strong> :
+- Ligne budgétaire annuelle reconduite pour audits et mise en accessibilité contenus (transcription, sous-titrage, LSF, PDF accessible)</p>
+<p><strong>Formations prévues 2024-2027</strong> :
+- 5 parcours selon profils : Sensibilisation, Ergonomie/graphisme, Rédaction, Conception/développement, Auditeur RGAA
+- Formations IGPDE disponibles : Game of code, Interfaces web accessibles, PDF accessible, Publication economie.gouv.fr
+- Formations MENTOR disponibles : 6 modules métiers, Design accessibilité, Communication État</p>
+<h2 id="4-plan-daction-annuel">4. Plan d'action annuel</h2>
+<p><strong>Plans annuels publiés</strong> :
+- Plan annuel 2024 : publié 04/04/2024
+- Plan annuel 2025 : publication prévue T4 2024
+- Plan annuel 2026 : publication prévue T4 2025</p>
+<p><strong>Agenda planifié</strong> : Mise en conformité étalée 2024-2027 selon complexité, priorité et faisabilité</p>
+<p><strong>Actions prioritaires</strong> (extrapolées du SPAN 2024-2027) :</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Échéance</th>
+<th>Responsable</th>
+<th>Budget</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Déploiement DSFR sites prioritaires</td>
+<td>2024-2025</td>
+<td>Pôle web SIRCOM</td>
+<td>Ligne budgétaire annuelle</td>
+<td>En cours</td>
+</tr>
+<tr>
+<td>Audits RGAA sites conformité totale</td>
+<td>2024</td>
+<td>Prestataires externes</td>
+<td>Ligne budgétaire annuelle</td>
+<td>En cours</td>
+</tr>
+<tr>
+<td>Formation agents profils clés</td>
+<td>2024-2027</td>
+<td>SIRCOM + IGPDE</td>
+<td>Budget formation</td>
+<td>En cours</td>
+</tr>
+<tr>
+<td>Mise en accessibilité contenus (PDF, vidéos)</td>
+<td>2024-2027</td>
+<td>Équipe SIRCOM + prestataires</td>
+<td>Ligne budgétaire annuelle</td>
+<td>En cours</td>
+</tr>
+<tr>
+<td>Refonte intranet ministère</td>
+<td>2024-2025</td>
+<td>SIRCOM + DSI</td>
+<td>Budget projet</td>
+<td>Planifié</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-indicateurs-cles">5. Indicateurs clés</h2>
+<p><strong>Taux de conformité DSFR</strong> :
+- 2024 : 3/7 sites conformité totale (42.9%)
+- 2025 : objectif 5/7 sites (71.4%)
+- 2027 : objectif 7/7 sites (100%)</p>
+<p><strong>Formations réalisées</strong> :
+- Sessions sensibilisation : proposées depuis septembre 2021 à l'ensemble des agents producteurs/diffuseurs
+- Formations par profil : 5 parcours disponibles
+- Formations continues : accès IGPDE et MENTOR</p>
+<p><strong>Marchés avec clauses accessibilité</strong> :
+- Conformité RGAA intégrée comme clause contraignante dans appels d'offres
+- Évaluation qualité offres prestataires incluant accessibilité</p>
+<h2 id="points-de-controle-officiels-31-points-dinum">Points de contrôle officiels (31 points DINUM)</h2>
+<h3 id="categorie-1-politique-accessibilite-3-points">Catégorie 1 - Politique accessibilité (3 points)</h3>
+<ul>
+<li>
+<p>[x] Stratégie numérique: accessibilité intégrée et publiée <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : SPAN 2024-2027 publié 18/03/2024. Accessibilité définie comme préoccupation majeure SG-SIRCOM avec schéma pluriannuel et plans annuels pour accompagnement mise en conformité RGAA progressive.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Politique d'inclusion des personnes handicapées formalisée <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Politique formalisée dans SPAN. Garantie égalité droits et chances selon loi 2005-102 du 11/02/2005. Services communication publique en ligne accessibles à tous citoyens, y compris personnes en situation de handicap.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Objectifs mesurables d'accessibilité définis (KPI) <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Objectifs 2024-2027 : déploiement DSFR (conformité totale 7/7 sites à terme), audits RGAA sur périmètre complet, formations 5 profils agents, mise en conformité progressive selon agenda planifié.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="categorie-2-ressources-12-points">Catégorie 2 - Ressources (12 points)</h3>
+<ul>
+<li>
+<p>[x] Référent accessibilité numérique officiellement désigné <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Pôle web du bureau de l'assistance et des Technologies Numériques SG/SIRCOM. Contact : <a href="mailto:accessibilite.communication@finances.gouv.fr">accessibilite.communication@finances.gouv.fr</a>. Responsabilité : élaboration, suivi, mise à jour SPAN.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Temps alloué et moyens du référent définis <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Équipe accessibilité constituée de plusieurs chefs de projets formés. Missions définies : promotion, accompagnement, formation, contrôle conformité, relation Arcom.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Ressources humaines dédiées identifiées (ETP) <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Équipe accessibilité SIRCOM = plusieurs chefs de projets formés. Rôles : accompagnement montée compétences, accompagnement porteurs projets, suivi prestations externes, contrôles réguliers.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Budget annuel dédié/identifiable <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Ligne budgétaire dédiée accessibilité numérique, reconduite annuellement pour audits, corrections anomalies, mise en accessibilité contenus (transcription, sous-titrage, LSF, PDF accessible).</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Planification pluriannuelle des moyens (3 ans) <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : SPAN 2024-2027 avec plans annuels 2024, 2025, 2026. Ligne budgétaire reconduite. Agenda planifié sur période complète selon complexité et faisabilité.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Compétences accessibilité dans les fiches de poste <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Compétences accessibilité exigées sur postes chefs de projets internet. Attention portée lors création fiches postes et recrutement. Parcours sensibilisation/formation proposé nouveaux agents si compétences non préexistantes.</p>
+</blockquote>
+</li>
+<li>
+<p>[ ] Grille de recrutement intégrant l'accessibilité <!-- DINUM --></p>
+<blockquote>
+<p><strong>En cours</strong> : Compétences accessibilité prises en compte dans procédures recrutement (fiches postes chefs de projets). Grille évaluation formelle candidats à documenter.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Plan de formation annuel pour les profils clés <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : 5 formations selon profils (Sensibilisation, Ergonomie/graphisme, Rédaction, Conception/développement, Auditeur RGAA). Formations IGPDE + MENTOR. Actions tout au long période SPAN.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Sensibilisation large (tous agents) planifiée <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Sessions sensibilisation proposées depuis septembre 2021 à l'ensemble agents producteurs/diffuseurs contenus numériques SG/SIRCOM. Accès contenus en ligne IGPDE et MENTOR.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Formations par rôle (développeurs, UX, éditorial) <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Formations proposées selon besoins et outils : audiovisuels/documentaires/graphiques (créateurs), contributeurs web/community managers (diffuseurs). 5 parcours profils + formations IGPDE/MENTOR métiers.</p>
+</blockquote>
+</li>
+<li>
+<p>[ ] Outils de test/accessibilité référencés et disponibles <!-- DINUM --></p>
+<blockquote>
+<p><strong>En cours</strong> : Processus contrôle validation défini (contrôles internes ou prestataires externes). Outils test spécifiques à documenter (validateurs RGAA, assistive technologies, etc.).</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Procédure d'appel à expertise externe et budget associé <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Recours compétences externes chaque fois nécessaire (sensibilisation, formation, audits). Sélection prestataires selon transparence/objectivité, demande plusieurs devis, respect commande publique. Budget ligne budgétaire annuelle.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="categorie-3-conception-accessible-8-points">Catégorie 3 - Conception accessible (8 points)</h3>
+<ul>
+<li>
+<p>[x] Processus internes documentés (intégration accessibilité) <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Objectifs accessibilité et conformité RGAA inscrits dès début projets (axe majeur, exigence base). Rappel dans conventions opérateurs/délégataires/partenaires. Équipe accessibilité mobilisable phases conception/réalisation. Documentation diffusée.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Modalités de contrôle périodique définies <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Contrôles lors mise en ligne initiale, mise à jour substantielle, refonte, fin opérations mises aux normes. Contrôles internes (personne formée non impliquée projet) ou externes (intervenant spécialisé). Contrôles tout au long vie projets.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Process de traitement des demandes usagers (accès/retour) <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Moyen contact sur chaque site/application : <a href="mailto:accessibilite.communication@finances.gouv.fr">accessibilite.communication@finances.gouv.fr</a>. Procédure spécifique assistance mise en place avec services et personnels impliqués. Conformité RGAA et attentes légitimes utilisateurs.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Clauses accessibilité dans marchés/commandes <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Accessibilité numérique et conformité RGAA = clause contraignante appels d'offres. Participation évaluation qualité offre prestataire. Procédures élaboration marchés et règles évaluation candidatures adaptées.</p>
+</blockquote>
+</li>
+<li>
+<p>[ ] Critères de sélection/pondération incluant accessibilité <!-- DINUM --></p>
+<blockquote>
+<p><strong>En cours</strong> : Accessibilité intégrée évaluation qualité offres. Pondération précise critères sélection à documenter (pourcentage note technique attribué accessibilité).</p>
+</blockquote>
+</li>
+<li>
+<p>[ ] Exigence de livrables conformes et preuves de conformité <!-- DINUM --></p>
+<blockquote>
+<p><strong>En cours</strong> : Audits réalisés par prestataires externes (position tiers confiance). Livrables attendus (rapports audit, recommandations techniques, déclarations conformité) à formaliser explicitement dans cahiers charges.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Accessibilité intégrée dès la conception (projets neufs) <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Objectifs accessibilité rappelés dès début projets. Équipe accessibilité accompagne porteurs projets phases conception/réalisation. Utilisation DSFR obligatoire (composants accessibles par défaut) selon circulaire 6411-SG 07/07/2023.</p>
+</blockquote>
+</li>
+<li>
+<p>[ ] Tests incluant des personnes handicapées <!-- DINUM --></p>
+<blockquote>
+<p><strong>À planifier</strong> : Tests utilisateurs incluant personnes en situation de handicap à intégrer processus validation (recommandation 2 sessions/an avec panels diversifiés déficiences visuelles/mobilité réduite/cognitives).</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="categorie-4-suivi-et-amelioration-3-points">Catégorie 4 - Suivi et amélioration (3 points)</h3>
+<ul>
+<li>
+<p>[x] Évaluations/audits planifiés pour tous les services <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Périmètre 7 sites (5 internet, 1 extranet, 1 intranet) recensés annexe 1 SPAN. Audits planifiés selon priorisation (fréquentation, service rendu, criticité, cycle vie, technologies). Agenda planifié 2024-2027.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Calendrier de corrections priorisé sur usages/volumétrie <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Priorisation définie par critères : fréquentation, service rendu, criticité, cycle de vie (refonte prévue), technologies employées. Priorités 1 (3 sites forte audience), 2 (3 sites), 3 (1 extranet). Mise en conformité étalée 2024-2027.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Suivi de couverture (audités vs total) et périodicité des évaluations <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Couverture périmètre : 7/7 sites inventoriés annexe 1. Contrôles périodiques lors événements (mise en ligne, maj substantielle, refonte, fin mises aux normes). Plans annuels détaillent opérations annuelles.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="categorie-5-audits-et-conformite-5-points">Catégorie 5 - Audits et conformité (5 points)</h3>
+<ul>
+<li>
+<p>[ ] Accès LSF/vidéo pour contenus concernés <!-- DINUM --></p>
+<blockquote>
+<p><strong>En cours</strong> : Ligne budgétaire prévoit sous-titrage et LSF. Contenus audio/vidéo préenregistrés publiés avant 23/09/2020 hors champ légal. Périmètre vidéos institutionnelles prioritaires et modalités LSF à préciser.</p>
+</blockquote>
+</li>
+<li>
+<p>[ ] Traduction FALC pour contenus concernés <!-- DINUM --></p>
+<blockquote>
+<p><strong>À planifier</strong> : Démarches essentielles concernées à identifier. Traduction FALC (Facile À Lire et à Comprendre) à intégrer pour contenus prioritaires accessibilité cognitive.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Prise en compte de critères AAA pertinents <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Utilisation DSFR (Système Design État) imposant bonnes pratiques au-delà AA. Composants accessibles DSFR intègrent critères AAA pertinents (contraste renforcé, navigation optimisée). Remontée anomalies DSFR au SIG.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Bilan annuel réalisé et publié <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : SPAN 2024-2027 publié 18/03/2024. Plans annuels 2024 (publié 04/04/2024), 2025 (prévu T4 2024), 2026 (prévu T4 2025). Déclarations conformité établies/mises à jour tout au long vie projets.</p>
+</blockquote>
+</li>
+<li>
+<p>[x] Plan d'action annuel publié (format accessible) <!-- DINUM --></p>
+<blockquote>
+<p><strong>Validé</strong> : Plans annuels publiés : 2024 (04/04/2024), 2025 (prévu T4 2024), 2026 (prévu T4 2025). Plans détaillent opérations mises en œuvre pour besoins accessibilité SG-SIRCOM.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="perimetre-du-service-detail">Périmètre du service (détail)</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Total</th>
+<th>Conformité DSFR</th>
+<th>Priorité</th>
+<th>Refonte prévue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sites internet publics</td>
+<td>5</td>
+<td>3 totale, 2 partielle/aucune</td>
+<td>1-2</td>
+<td>Selon sites</td>
+</tr>
+<tr>
+<td>Sites extranet</td>
+<td>1</td>
+<td>Totale</td>
+<td>3</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Sites intranet</td>
+<td>1</td>
+<td>Aucune</td>
+<td>2</td>
+<td>2024/2025</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>7</strong></td>
+<td><strong>3/7 totale (42.9%)</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="publication-et-conformite">Publication et conformité</h2>
+<ul>
+<li><strong>Standard de référence</strong> : RGAA 4.x (Référentiel Général d'Amélioration de l'Accessibilité)</li>
+<li><strong>Niveau cible</strong> : AA (conformité WCAG 2.1 niveau double-A)</li>
+<li><strong>Système Design</strong> : DSFR (Système Design État) obligatoire selon circulaire 6411-SG 07/07/2023</li>
+<li><strong>Périmètre</strong> : 7 sites internet/intranet/extranet SG-SIRCOM (voir annexe 1 SPAN)</li>
+<li><strong>Contenus tiers</strong> : Contenus tiers non financés/développés/contrôlés par SG-SIRCOM hors champ</li>
+<li><strong>Contenus exemptés</strong> : Fichiers bureautiques &lt;23/09/2018 (sauf démarches administratives), audio/vidéo &lt;23/09/2020, contenus intranets/extranets &lt;23/09/2019 (sauf révision), reproductions collections patrimoniales</li>
+</ul>
+<h2 id="analyse-charge-disproportionnee">Analyse charge disproportionnée</h2>
+<section aria-labelledby="charge-disproportionnee-sircom">
+<h3 id="charge-disproportionnee-sircom">Charges disproportionnées</h3>
+<p><strong>Aucune charge disproportionnée invoquée</strong> pour le périmètre SPAN 2024-2027.</p>
+<p>Tous les sites et applications du périmètre sont engagés dans une démarche progressive de mise en conformité RGAA selon l'agenda planifié 2024-2027.</p>
+</section>
+<hr/>
+<h2 id="declaration-daccessibilite">Déclaration d'accessibilité</h2>
+<ul>
+<li><strong>Déclaration d'accessibilité</strong> : Publiée sur chaque site/application du périmètre conformément RGAA</li>
+<li><strong>Mise à jour</strong> : Lors contrôles (mise en ligne initiale, mise à jour substantielle, refonte, fin mises aux normes)</li>
+<li><strong>Contact</strong> : <a href="mailto:accessibilite.communication@finances.gouv.fr">accessibilite.communication@finances.gouv.fr</a></li>
+<li><strong>Médiation</strong> : Défenseur des Droits en cas non-réponse satisfaisante</li>
+</ul>
+<hr/>
+<p><em>Dernière mise à jour : 2 octobre 2025</em>
+<em>Basé sur SPAN SG-SIRCOM 2024-2027 (publié 18/03/2024)</em></p>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../siep/" title="SIEP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../snum/" title="SNUM">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg-repo" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../siep/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../snum/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "../..";</script>
+<script src="../../js/theme_extra.js"></script>
+<script src="../../js/theme.js"></script>
+<script src="../../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>
