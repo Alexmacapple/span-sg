@@ -62,6 +62,21 @@ jobs:
       - name: Build site DSFR
         run: mkdocs build --config-file mkdocs-dsfr.yml --strict
 
+      - name: Debug - Vérifier HTML généré
+        run: |
+          echo "=== Vérifier que DSFR est bien utilisé dans le build ==="
+          if grep -q "writer-html5" site/index.html; then
+            echo "❌ ERREUR: HTML contient 'writer-html5' (thème ReadTheDocs)"
+            exit 1
+          elif grep -q "data-fr-scheme" site/index.html; then
+            echo "✅ OK: HTML contient 'data-fr-scheme' (thème DSFR)"
+          else
+            echo "⚠️  WARNING: Impossible de déterminer le thème"
+          fi
+          echo ""
+          echo "=== Premières lignes de site/index.html ==="
+          head -15 site/index.html
+
       - name: Install WeasyPrint system dependencies
         run: |
           sudo apt-get update
