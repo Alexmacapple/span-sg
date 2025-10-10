@@ -82,7 +82,7 @@ jobs:
           ENABLE_PDF_EXPORT: "1"
         run: |
           mkdir -p exports
-          mkdocs build --config-file mkdocs-dsfr-pdf.yml
+          mkdocs build --config-file mkdocs-dsfr-pdf.yml --site-dir pdf-temp
 
       - name: Enrich PDF metadata
         run: python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
@@ -222,7 +222,7 @@ jobs:
           ENABLE_PDF_EXPORT: "1"
         run: |
           mkdir -p exports
-          mkdocs build --config-file mkdocs-dsfr-pdf.yml
+          mkdocs build --config-file mkdocs-dsfr-pdf.yml --site-dir pdf-temp
 
       - name: Enrich PDF metadata
         run: python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
