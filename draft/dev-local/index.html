@@ -292,6 +292,62 @@
         </li>
           
         <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7767"
+                
+            >
+                Documentation technique
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7767">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../dev/api-reference/"
+                            target="_self"
+                            >API Reference</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../dev/hooks-guide/"
+                            target="_self"
+                            >Guide Hooks</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href=".."
+                            target="_self"
+                            >ADR (Décisions)</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../architecture/diagrams/"
+                            target="_self"
+                            >Diagrammes</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
                 href="https://github.com/Alexmacapple/span-sg-repo"
@@ -445,34 +501,34 @@
                         <h1 id="developpement-local">Développement local</h1>
 <h2 id="demarrer-le-serveur-mkdocs">Démarrer le serveur MkDocs</h2>
 <h3 id="avec-docker-recommande">Avec Docker (recommandé)</h3>
-<pre><code class="language-bash"># Démarrer le serveur (thème DSFR)
-docker compose -f docker-compose-dsfr.yml up
+<div class="highlight"><pre><span></span><code><span class="c1"># Démarrer le serveur (thème DSFR)</span>
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-dsfr.yml<span class="w"> </span>up
 
-# Ou en arrière-plan
-docker compose -f docker-compose-dsfr.yml up -d
-</code></pre>
+<span class="c1"># Ou en arrière-plan</span>
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-dsfr.yml<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
 <p>Accès : <a href="http://localhost:8000/span-sg-repo/">http://localhost:8000/span-sg-repo/</a></p>
 <h3 id="sans-docker">Sans Docker</h3>
-<pre><code class="language-bash"># Installer les dépendances
-pip install -r requirements.txt
+<div class="highlight"><pre><span></span><code><span class="c1"># Installer les dépendances</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 
-# Démarrer le serveur
-mkdocs serve
-</code></pre>
+<span class="c1"># Démarrer le serveur</span>
+mkdocs<span class="w"> </span>serve
+</code></pre></div>
 <p>Accès : <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a></p>
 <h2 id="commandes-utiles">Commandes utiles</h2>
-<pre><code class="language-bash"># Arrêter le serveur
-docker compose -f docker-compose-dsfr.yml down
+<div class="highlight"><pre><span></span><code><span class="c1"># Arrêter le serveur</span>
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-dsfr.yml<span class="w"> </span>down
 
-# Voir les logs
-docker compose -f docker-compose-dsfr.yml logs -f
+<span class="c1"># Voir les logs</span>
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-dsfr.yml<span class="w"> </span>logs<span class="w"> </span>-f
 
-# Redémarrer
-docker compose -f docker-compose-dsfr.yml restart
+<span class="c1"># Redémarrer</span>
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-dsfr.yml<span class="w"> </span>restart
 
-# Vérifier l'état
-docker compose -f docker-compose-dsfr.yml ps
-</code></pre>
+<span class="c1"># Vérifier l&#39;état</span>
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-dsfr.yml<span class="w"> </span>ps
+</code></pre></div>
 <h2 id="hooks-dsfr">Hooks DSFR</h2>
 <p>Le projet utilise des hooks Python MkDocs pour améliorer l'accessibilité DSFR :</p>
 <ul>
@@ -480,19 +536,19 @@ docker compose -f docker-compose-dsfr.yml ps
 <li><strong><code>hooks/title_cleaner.py</code></strong> : Nettoie les titres HTML redondants (supprime <code>site_name</code> quand vide)</li>
 </ul>
 <h2 id="recalculer-les-scores">Recalculer les scores</h2>
-<pre><code class="language-bash">python scripts/calculate_scores.py
-</code></pre>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>scripts/calculate_scores.py
+</code></pre></div>
 <p>Génère automatiquement <code>docs/synthese.md</code> avec les scores agrégés.</p>
 <h2 id="build-et-validation">Build et validation</h2>
-<pre><code class="language-bash"># Build site HTML
-mkdocs build
+<div class="highlight"><pre><span></span><code><span class="c1"># Build site HTML</span>
+mkdocs<span class="w"> </span>build
 
-# Mode strict (erreurs bloquantes)
-mkdocs build --strict
+<span class="c1"># Mode strict (erreurs bloquantes)</span>
+mkdocs<span class="w"> </span>build<span class="w"> </span>--strict
 
-# Générer PDF
-mkdocs build --config-file mkdocs-pdf.yml
-</code></pre>
+<span class="c1"># Générer PDF</span>
+mkdocs<span class="w"> </span>build<span class="w"> </span>--config-file<span class="w"> </span>mkdocs-pdf.yml
+</code></pre></div>
 <h2 id="urls-par-environnement">URLs par environnement</h2><div class="fr-table">
 <table>
 <thead>
@@ -537,7 +593,7 @@ mkdocs build --config-file mkdocs-pdf.yml
 			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../contributing/" title="Guide contributeur" >
 				Page précédente
 			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  aria-disabled="true" role="link" >
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../dev/api-reference/" title="API Reference" >
 				Page suivante
 			</a></li>
 		</ul>

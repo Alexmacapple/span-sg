@@ -292,6 +292,62 @@
         </li>
           
         <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7767"
+                
+            >
+                Documentation technique
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7767">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../dev/api-reference/"
+                            target="_self"
+                            >API Reference</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../dev/hooks-guide/"
+                            target="_self"
+                            >Guide Hooks</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href=".."
+                            target="_self"
+                            >ADR (Décisions)</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../architecture/diagrams/"
+                            target="_self"
+                            >Diagrammes</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
                 href="https://github.com/Alexmacapple/span-sg-repo"
@@ -651,30 +707,30 @@ Vous recevrez une notification par email.</p>
 <h2 id="option-b-git-local-avances">Option B : Git local (avancés)</h2>
 <p><strong>Nécessite Git installé localement.</strong></p>
 <h3 id="1-cloner-le-repo">1. Cloner le repo</h3>
-<pre><code class="language-bash">git clone https://github.com/Alexmacapple/span-sg-repo.git
-cd span-sg-repo
-</code></pre>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Alexmacapple/span-sg-repo.git
+<span class="nb">cd</span><span class="w"> </span>span-sg-repo
+</code></pre></div>
 <h3 id="2-creer-une-branche-feature">2. Créer une branche feature</h3>
-<pre><code class="language-bash">git checkout draft
-git pull origin draft
-git checkout -b feature/update-[votre-service]
-</code></pre>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>draft
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>draft
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/update-<span class="o">[</span>votre-service<span class="o">]</span>
+</code></pre></div>
 <h3 id="3-editer-votre-module">3. Éditer votre module</h3>
-<pre><code class="language-bash"># Ouvrir dans votre éditeur
-code docs/modules/[votre-service].md
+<div class="highlight"><pre><span></span><code><span class="c1"># Ouvrir dans votre éditeur</span>
+code<span class="w"> </span>docs/modules/<span class="o">[</span>votre-service<span class="o">]</span>.md
 
-# OU
-vim docs/modules/[votre-service].md
-</code></pre>
+<span class="c1"># OU</span>
+vim<span class="w"> </span>docs/modules/<span class="o">[</span>votre-service<span class="o">]</span>.md
+</code></pre></div>
 <h3 id="4-previsualiser-en-local-optionnel">4. Prévisualiser en local (optionnel)</h3>
-<pre><code class="language-bash">docker compose up
-# Ouvrir http://localhost:8000/span-sg-repo/
-</code></pre>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up
+<span class="c1"># Ouvrir http://localhost:8000/span-sg-repo/</span>
+</code></pre></div>
 <h3 id="5-committer-et-pusher">5. Committer et pusher</h3>
-<pre><code class="language-bash">git add docs/modules/[votre-service].md
-git commit -m &quot;feat(service): description des modifications&quot;
-git push -u origin feature/update-[votre-service]
-</code></pre>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>docs/modules/<span class="o">[</span>votre-service<span class="o">]</span>.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat(service): description des modifications&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/update-<span class="o">[</span>votre-service<span class="o">]</span>
+</code></pre></div>
 <h3 id="6-creer-la-pull-request">6. Créer la Pull Request</h3>
 <p>Sur GitHub :</p>
 <ul>
@@ -699,9 +755,9 @@ git push -u origin feature/update-[votre-service]
 <li>Hooks pre-commit : <code>pre-commit install</code> (recommandé)</li>
 </ul>
 <h3 id="installation-environnement-dev">Installation environnement dev</h3>
-<pre><code class="language-bash">pip install -r requirements-dev.txt
-pre-commit install
-</code></pre>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-dev.txt
+pre-commit<span class="w"> </span>install
+</code></pre></div>
 <p>Les hooks pre-commit exécutent automatiquement Black et Ruff avant chaque commit.</p>
 <hr />
 <h2 id="regles-de-validation-des-pr">Règles de validation des PR</h2>
@@ -723,7 +779,7 @@ pre-commit install
 </ul>
 <hr />
 <h2 id="workflow-complet">Workflow complet</h2>
-<pre><code>Service modifie son module
+<div class="highlight"><pre><span></span><code>Service modifie son module
           ↓
    PR vers draft
           ↓
@@ -734,7 +790,7 @@ Merge dans draft → Revue locale/PDF (sans Pages)
 PR draft → main (mensuel)
           ↓
 Validation Yves → Production
-</code></pre>
+</code></pre></div>
 <hr />
 <h2 id="besoin-daide">Besoin d'aide ?</h2>
 <ul>

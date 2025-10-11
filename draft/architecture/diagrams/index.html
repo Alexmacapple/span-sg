@@ -22,7 +22,7 @@
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
 
-    <title>template</title>
+    <title>Diagrammes</title>
     
     
 </head>
@@ -189,7 +189,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../bgs/"
+                            href="../../modules/bgs/"
                             target="_self"
                             >BGS</a
                         >
@@ -199,7 +199,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../safi/"
+                            href="../../modules/safi/"
                             target="_self"
                             >SAFI</a
                         >
@@ -209,7 +209,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../siep/"
+                            href="../../modules/siep/"
                             target="_self"
                             >SIEP</a
                         >
@@ -219,7 +219,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../sircom/"
+                            href="../../modules/sircom/"
                             target="_self"
                             >SIRCOM</a
                         >
@@ -229,7 +229,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../snum/"
+                            href="../../modules/snum/"
                             target="_self"
                             >SNUM</a
                         >
@@ -239,7 +239,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../srh/"
+                            href="../../modules/srh/"
                             target="_self"
                             >SRH</a
                         >
@@ -295,6 +295,8 @@
                 aria-expanded="false"
                 aria-controls="menu-7767"
                 
+                aria-current="true"
+                
             >
                 Documentation technique
             </button>
@@ -335,7 +337,9 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../../architecture/diagrams/"
+                            aria-current="page"
+                            
+                            href="./"
                             target="_self"
                             >Diagrammes</a
                         >
@@ -384,117 +388,117 @@
                 aria-controls="fr-sidemenu-wrapper"
                 aria-expanded="true"
             >
-                SPAN [SERVICE] - Schéma Pluriannuel d'accessibilité numérique
+                Architecture - Diagrammes
             </button>
             <div class="fr-collapse" id="fr-sidemenu-wrapper">
-                <div class="fr-sidemenu__title">SPAN [SERVICE] - Schéma Pluriannuel d'accessibilité numérique</div>
+                <div class="fr-sidemenu__title">Architecture - Diagrammes</div>
                 <ul class="fr-sidemenu__list">
                      
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#1-perimetre"
+                            href="#1-cicd-pipeline"
                             target="_self"
-                            >1. Périmètre</a
+                            >1. CI/CD Pipeline</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#2-etat-des-lieux-synthese"
+                            href="#2-architecture-composants"
                             target="_self"
-                            >2. État des lieux (synthèse)</a
+                            >2. Architecture Composants</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#3-organisation"
+                            href="#3-workflow-git-branches"
                             target="_self"
-                            >3. Organisation</a
+                            >3. Workflow Git Branches</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#4-plan-daction-annuel"
+                            href="#4-architecture-hooks-dsfr"
                             target="_self"
-                            >4. Plan d’action annuel</a
+                            >4. Architecture Hooks DSFR</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#5-indicateurs-cles"
+                            href="#5-coverage-tests-par-module"
                             target="_self"
-                            >5. Indicateurs clés</a
+                            >5. Coverage Tests par Module</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#points-de-controle-officiels-31"
+                            href="#6-deploiement-github-pages"
                             target="_self"
-                            >points de contrôle officiels (31)</a
+                            >6. Déploiement GitHub Pages</a
                         >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
+                        >
+                            Notes techniques
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#diagrammes-mermaid"
+                                        target="_self"
+                                        >Diagrammes Mermaid</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#modification-diagrammes"
+                                        target="_self"
+                                        >Modification diagrammes</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#syntaxe-mermaid"
+                                        target="_self"
+                                        >Syntaxe Mermaid</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#perimetre-du-service"
+                            href="#references"
                             target="_self"
-                            >périmètre du service</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#plan-dactions-prioritaires-2025"
-                            target="_self"
-                            >plan d'actions prioritaires 2025</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#matrice-de-priorisation"
-                            target="_self"
-                            >Matrice de priorisation</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#publication-et-conformite"
-                            target="_self"
-                            >publication et conformité</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#analyse-charge-disproportionnee"
-                            target="_self"
-                            >Analyse charge disproportionnée</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#declaration-daccessibilite"
-                            target="_self"
-                            >Déclaration d'accessibilité</a
+                            >Références</a
                         >
                     </li>
                      
@@ -514,220 +518,272 @@
 
                 
                         
-                        <!--
-  FICHIER TEMPLATE - Non inclus dans la navigation MkDocs
-  Utilisé comme référence pour créer de nouveaux modules
-  Contient les 31 points DINUM officiels
--->
-
-<h1 id="span-service-schema-pluriannuel-daccessibilite-numerique">SPAN [SERVICE] - Schéma Pluriannuel d'accessibilité numérique</h1>
-<p><strong>Période</strong> 2025-2027<br />
-<strong>Score global</strong> [X/31] questions validées ([XX] %)<br />
-<strong>Dernière mise à jour</strong> [DATE]</p>
-<h2 id="1-perimetre">1. Périmètre</h2>
-<ul>
-<li>Applications métiers principales</li>
-<li>Sites web et intranets</li>
-<li>Démarches essentielles</li>
-</ul>
-<h2 id="2-etat-des-lieux-synthese">2. État des lieux (synthèse)</h2>
-<ul>
-<li>Audits réalisés et scores</li>
-<li>Points critiques</li>
-</ul>
-<h2 id="3-organisation">3. Organisation</h2>
-<ul>
-<li>Référent accessibilité (% ETP)</li>
-<li>Équipe projet et formations prévues</li>
-</ul>
-<h2 id="4-plan-daction-annuel">4. Plan d’action annuel</h2>
-<ul>
-<li>3 à 5 actions prioritaires avec échéances</li>
-</ul>
-<h2 id="5-indicateurs-cles">5. Indicateurs clés</h2>
-<ul>
-<li>Taux de conformité, formations, marchés avec clauses</li>
-</ul>
-<h2 id="points-de-controle-officiels-31">points de contrôle officiels (31)</h2>
-<ul>
-<li>[ ] Stratégie numérique: accessibilité intégrée et publiée <!-- DINUM --></li>
-<li>[ ] Politique d’inclusion des personnes handicapées formalisée <!-- DINUM --></li>
-<li>[ ] Objectifs mesurables d’accessibilité définis (KPI) <!-- DINUM --></li>
-<li>[ ] Référent accessibilité numérique officiellement désigné <!-- DINUM --></li>
-<li>[ ] Temps alloué et moyens du référent définis <!-- DINUM --></li>
-<li>[ ] Ressources humaines dédiées identifiées (ETP) <!-- DINUM --></li>
-<li>[ ] Budget annuel dédié/identifiable <!-- DINUM --></li>
-<li>[ ] Planification pluriannuelle des moyens (3 ans) <!-- DINUM --></li>
-<li>[ ] Compétences accessibilité dans les fiches de poste <!-- DINUM --></li>
-<li>[ ] Grille de recrutement intégrant l’accessibilité <!-- DINUM --></li>
-<li>[ ] Plan de formation annuel pour les profils clés <!-- DINUM --></li>
-<li>[ ] Sensibilisation large (tous agents) planifiée <!-- DINUM --></li>
-<li>[ ] Formations par rôle (développeurs, UX, éditorial) <!-- DINUM --></li>
-<li>[ ] Outils de test/accessibilité référencés et disponibles <!-- DINUM --></li>
-<li>[ ] Procédure d’appel à expertise externe et budget associé <!-- DINUM --></li>
-<li>[ ] Processus internes documentés (intégration accessibilité) <!-- DINUM --></li>
-<li>[ ] Modalités de contrôle périodique définies <!-- DINUM --></li>
-<li>[ ] Process de traitement des demandes usagers (accès/retour) <!-- DINUM --></li>
-<li>[ ] Clauses accessibilité dans marchés/commandes <!-- DINUM --></li>
-<li>[ ] Critères de sélection/pondération incluant accessibilité <!-- DINUM --></li>
-<li>[ ] Exigence de livrables conformes et preuves de conformité <!-- DINUM --></li>
-<li>[ ] Accessibilité intégrée dès la conception (projets neufs) <!-- DINUM --></li>
-<li>[ ] Tests incluant des personnes handicapées <!-- DINUM --></li>
-<li>[ ] Évaluations/audits planifiés pour tous les services <!-- DINUM --></li>
-<li>[ ] Calendrier de corrections priorisé sur usages/volumétrie <!-- DINUM --></li>
-<li>[ ] Suivi de couverture (audités vs total) et périodicité des évaluations <!-- DINUM --></li>
-<li>[ ] Accès LSF/vidéo pour contenus concernés <!-- DINUM --></li>
-<li>[ ] Traduction FALC pour contenus concernés <!-- DINUM --></li>
-<li>[ ] Prise en compte de critères AAA pertinents <!-- DINUM --></li>
-<li>[ ] Bilan annuel réalisé et publié <!-- DINUM --></li>
-<li>[ ] Plan d’action annuel publié (format accessible) <!-- DINUM --></li>
-</ul>
-<h2 id="perimetre-du-service">périmètre du service</h2><div class="fr-table">
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Total</th>
-<th>Audités</th>
-<th>Conformes</th>
-<th>Score</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Sites web</td>
-<td></td>
-<td></td>
-<td></td>
-<td>%</td>
-</tr>
-<tr>
-<td>Intranets</td>
-<td></td>
-<td></td>
-<td></td>
-<td>%</td>
-</tr>
-<tr>
-<td>Applications</td>
-<td></td>
-<td></td>
-<td></td>
-<td>%</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="plan-dactions-prioritaires-2025">plan d'actions prioritaires 2025</h2>
-<h2 id="matrice-de-priorisation">Matrice de priorisation</h2><div class="fr-table">
-<table>
-<thead>
-<tr>
-<th>Service</th>
-<th>Audience</th>
-<th>Criticité</th>
-<th>Coût correction</th>
-<th>Refonte prévue</th>
-<th>Score priorité</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Exemple</td>
-<td>50 K/j</td>
-<td>Haute</td>
-<td>Faible</td>
-<td>Non</td>
-<td>95/100</td>
-</tr>
-</tbody>
-</table>
-</div><div class="fr-table">
-<table>
-<thead>
-<tr>
-<th>Action</th>
-<th>Échéance</th>
-<th>Responsable</th>
-<th>Budget</th>
-<th>Statut</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>T1 2025</td>
-<td></td>
-<td>€</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>T2 2025</td>
-<td></td>
-<td>€</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Légende statuts</strong>
-- À commencer
-- En cours
-- Réalisé
-- Reporté
-- Abandonné</p>
-<h2 id="publication-et-conformite">publication et conformité</h2>
-<ul>
-<li>Standard de référence: RGAA 4.x</li>
-<li>Niveau cible: AA</li>
-<li>Périmètre: [décrire]</li>
-<li>Contenus tiers: [décrire]</li>
-</ul>
-<h2 id="analyse-charge-disproportionnee">Analyse charge disproportionnée</h2>
-<!--
-  COMPOSANT SÉMANTIQUE RÉUTILISABLE
-  Deux options selon le cas du service :
-
-  Option 1 : AUCUNE charge disproportionnée (cas le plus fréquent)
-  Option 2 : AU MOINS UNE charge disproportionnée documentée
--->
-
-<!-- OPTION 1 : Aucune charge disproportionnée -->
-<section aria-labelledby="charge-disproportionnee-titre">
-  <h3 id="charge-disproportionnee-titre">Charges disproportionnées</h3>
-
-  <p><strong>Aucune charge disproportionnée invoquée</strong> pour le périmètre SPAN 2024-2027.</p>
-
-  <p>Tous les sites et applications du périmètre sont engagés dans une démarche progressive de mise en conformité RGAA selon l'agenda planifié.</p>
-</section>
-
-<!-- OPTION 2 : Avec charge(s) disproportionnée(s) - À utiliser si applicable -->
-<!--
-### Charges disproportionnées
-
-**Charge disproportionnée identifiée** pour [nom de la fonctionnalité/service]
-
-| Critère | Description |
-|---------|-------------|
-| **Fonctionnalité/section concernée** | [Décrire précisément l'élément : ex "Module cartographique interactif legacy 2010-2015"] |
-| **Type de charge** | [Technique / Financière / Organisationnelle] |
-| **Analyse coût/bénéfice** | [Chiffrage : ex "150K€ refonte pour 200 utilisateurs/an = 750€/utilisateur"] |
-| **Documentation de référence** | [Lien étude technique, rapport audit, décision validée] |
-| **Alternative proposée** | [Décrire l'alternative : ex "Données téléchargeables CSV accessible + contact dédié pour assistance"] |
-| **Échéance de réévaluation** | [Date : ex "31 décembre 2026"] |
-
-*Critères de décision appliqués : analyse coût/bénéfice documentée, alternatives étudiées, validation juridique, publication dans déclaration d'accessibilité.*
--->
-
+                        <h1 id="architecture-diagrammes">Architecture - Diagrammes</h1>
+<p>Représentations visuelles de l'architecture SPAN SG.</p>
+<p>Version: 1.0.1-dsfr
+Dernière mise à jour: 2025-10-11</p>
 <hr />
-<h2 id="declaration-daccessibilite">Déclaration d'accessibilité</h2>
-<ul>
-<li>Déclaration d'accessibilité: https://[votre-domaine]/[service]/declaration-accessibilite  <!-- TODO: remplacer par l'URL réelle --></li>
-<li>Charge disproportionnée: [Oui/Non]  <!-- TODO: si Oui, utiliser OPTION 2 ci-dessus --></li>
-</ul>
+<h2 id="1-cicd-pipeline">1. CI/CD Pipeline</h2>
+<p>Pipeline complet GitHub Actions (draft + main).</p>
+<pre class="mermaid"><code>graph TD
+    A[Push draft/main] --&gt; B{Branche?}
+
+    B --&gt;|draft| C[Job: build-and-deploy-draft]
+    B --&gt;|main| D[Job: build-and-deploy-main]
+
+    C --&gt; E[Setup Python 3.11]
+    D --&gt; E
+
+    E --&gt; F[Install requirements-dsfr.txt]
+    F --&gt; G[Install requirements-dev.txt]
+
+    G --&gt; H[Black formatter check]
+    H --&gt; I[Ruff linter]
+    I --&gt; J[pytest unit tests]
+    J --&gt; K[Coverage 89%+]
+
+    K --&gt; L[Calculate SPAN scores]
+    L --&gt; M[Build HTML DSFR&lt;br/&gt;mkdocs-dsfr.yml]
+
+    M --&gt; N{Verify DSFR?}
+    N --&gt;|❌ ReadTheDocs| O[FAIL]
+    N --&gt;|✅ data-fr-scheme| P[Install WeasyPrint deps]
+
+    P --&gt; Q[Generate PDF&lt;br/&gt;--site-dir pdf-temp]
+    Q --&gt; R[Enrich PDF metadata]
+    R --&gt; S[Validate PDF qpdf]
+
+    S --&gt; T{Branche?}
+    T --&gt;|draft| U[Deploy draft/ on gh-pages]
+    T --&gt;|main| V[Run E2E tests]
+
+    V --&gt; W{E2E pass?}
+    W --&gt;|❌| X[Upload E2E report&lt;br/&gt;FAIL]
+    W --&gt;|✅| Y[Deploy production on gh-pages]
+
+    U --&gt; Z[✅ Success]
+    Y --&gt; Z
+
+    style O fill:#ff6b6b
+    style X fill:#ff6b6b
+    style Z fill:#51cf66</code></pre>
+<p><strong>Validations:</strong> Black, Ruff, pytest, coverage 89%+, DSFR, PDF, E2E (main seulement)</p>
+<p><strong>Déploiement:</strong>
+- draft → <code>gh-pages/draft/</code>
+- main → <code>gh-pages/</code> (racine)</p>
 <hr />
-<p><em>Dernière mise à jour [date]</em></p>
+<h2 id="2-architecture-composants">2. Architecture Composants</h2>
+<p>Structure projet et dépendances.</p>
+<pre class="mermaid"><code>graph TB
+    subgraph "📁 docs/"
+        A[modules/&lt;br/&gt;6 fichiers .md]
+        B[synthese.md&lt;br/&gt;Tableau HTML DSFR]
+        C[dev/&lt;br/&gt;API + Hooks Guide]
+        D[adr/&lt;br/&gt;5 ADR]
+        E[architecture/&lt;br/&gt;Diagrams]
+    end
+
+    subgraph "⚙️ scripts/"
+        F[calculate_scores.py&lt;br/&gt;100% coverage]
+        G[enrich_pdf_metadata.py&lt;br/&gt;78% coverage]
+    end
+
+    subgraph "🔧 hooks/"
+        H[dsfr_table_wrapper.py&lt;br/&gt;100% coverage]
+        I[title_cleaner.py&lt;br/&gt;100% coverage]
+        J[pdf_copy.py&lt;br/&gt;0% coverage]
+    end
+
+    subgraph "✅ tests/"
+        K[test_hooks*.py&lt;br/&gt;13 tests]
+        L[test_calculate_scores*.py&lt;br/&gt;26 tests]
+        M[test_enrich_pdf*.py&lt;br/&gt;7 tests]
+        N[e2e/&lt;br/&gt;9 scénarios]
+    end
+
+    subgraph "🏗️ Build"
+        O[mkdocs-dsfr.yml&lt;br/&gt;HTML DSFR]
+        P[mkdocs-dsfr-pdf.yml&lt;br/&gt;PDF ReadTheDocs]
+    end
+
+    subgraph "📦 Output"
+        Q[site/&lt;br/&gt;HTML DSFR]
+        R[pdf-temp/&lt;br/&gt;PDF temp]
+        S[exports/&lt;br/&gt;span-sg.pdf]
+    end
+
+    A --&gt; F
+    F --&gt; B
+    B --&gt; O
+
+    O --&gt; H
+    O --&gt; I
+    O --&gt; Q
+
+    P --&gt; R
+    R --&gt; G
+    G --&gt; S
+
+    K --&gt; H
+    K --&gt; I
+    L --&gt; F
+    M --&gt; G
+
+    style Q fill:#91d5ff
+    style S fill:#ffc9c9</code></pre>
+<p><strong>Coverage global: 92%</strong> (seuil 89%+)</p>
+<hr />
+<h2 id="3-workflow-git-branches">3. Workflow Git Branches</h2>
+<p>Stratégie branching et releases.</p>
+<pre class="mermaid"><code>gitGraph
+    commit id: "Initial"
+    branch draft
+    checkout draft
+    commit id: "feat: SIRCOM"
+    commit id: "feat: SNUM"
+
+    checkout main
+    merge draft tag: "v0.9.0"
+
+    checkout draft
+    commit id: "feat: DSFR theme"
+    commit id: "fix: PDF isolation"
+    commit id: "feat: hooks tests"
+    commit id: "fix: E2E tests"
+    commit id: "docs: API + ADR"
+
+    checkout main
+    merge draft tag: "v1.0.0"</code></pre>
+<p><strong>Branches:</strong>
+- <code>main</code>: Production (GitHub Pages racine)
+- <code>draft</code>: Preview (GitHub Pages /draft/)</p>
+<p><strong>Tags:</strong> Releases officielles (v0.9.0, v1.0.0, v1.1.0, ...)</p>
+<hr />
+<h2 id="4-architecture-hooks-dsfr">4. Architecture Hooks DSFR</h2>
+<p>Cycle de vie hooks MkDocs.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant MD as Markdown
+    participant MK as MkDocs
+    participant DT as dsfr_table_wrapper
+    participant TC as title_cleaner
+    participant OUT as site/index.html
+
+    Note over MD,MK: 1. Parsing Markdown
+    MD-&gt;&gt;MK: *.md files
+    MK-&gt;&gt;MK: Convert to HTML
+
+    Note over MK,DT: 2. Hook: on_page_content
+    MK-&gt;&gt;DT: html (tables sans wrapper)
+    DT-&gt;&gt;DT: Regex: wrap &lt;table&gt;&lt;br/&gt;avec fr-table
+    DT-&gt;&gt;MK: html (tables wrappées)
+
+    Note over MK: 3. Génération layout
+    MK-&gt;&gt;MK: Add &lt;head&gt;, footer, nav
+
+    Note over MK,TC: 4. Hook: on_post_page
+    MK-&gt;&gt;TC: output (titre avec tiret)
+    TC-&gt;&gt;TC: Regex: clean "SPAN - "
+    TC-&gt;&gt;MK: output (titre nettoyé)
+
+    Note over MK,OUT: 5. Write final HTML
+    MK-&gt;&gt;OUT: HTML final DSFR</code></pre>
+<p><strong>Hooks:</strong>
+1. <code>on_page_content</code>: Traite body HTML
+2. <code>on_post_page</code>: Traite HTML complet</p>
+<hr />
+<h2 id="5-coverage-tests-par-module">5. Coverage Tests par Module</h2>
+<p>Distribution coverage actuelle.</p>
+<pre class="mermaid"><code>pie title "Coverage 92% (seuil 89%+)"
+    "calculate_scores.py (100%)" : 72
+    "enrich_pdf_metadata.py (78%)" : 39
+    "dsfr_table_wrapper.py (100%)" : 9
+    "title_cleaner.py (100%)" : 7
+    "pdf_copy.py (0%)" : 11</code></pre>
+<p><strong>Légende:</strong>
+- ✅ Vert: 100% coverage (critiques)
+- 🟡 Jaune: 78% coverage (acceptable)
+- 🔴 Rouge: 0% coverage (v1.1)</p>
+<p><strong>Total:</strong> 138 statements, 11 miss, <strong>92.03% coverage</strong></p>
+<hr />
+<h2 id="6-deploiement-github-pages">6. Déploiement GitHub Pages</h2>
+<p>Flow déploiement dual (draft + production).</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph "🔧 CI Build"
+        A[mkdocs build&lt;br/&gt;DSFR]
+        B[Validate HTML&lt;br/&gt;data-fr-scheme]
+        C[Generate PDF&lt;br/&gt;--site-dir pdf-temp]
+    end
+
+    subgraph "🌿 Branches"
+        D{Branche source?}
+        E[draft]
+        F[main]
+    end
+
+    subgraph "📦 gh-pages Branch"
+        G[/draft/&lt;br/&gt;Preview]
+        H[/ Racine&lt;br/&gt;Production]
+    end
+
+    subgraph "🌐 GitHub Pages"
+        I[alexmacapple.github.io/&lt;br/&gt;span-sg-repo/draft/]
+        J[alexmacapple.github.io/&lt;br/&gt;span-sg-repo/]
+    end
+
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D
+
+    D --&gt;|draft push| E
+    D --&gt;|main push| F
+
+    E --&gt; G
+    F --&gt; H
+
+    G --&gt; I
+    H --&gt; J
+
+    style I fill:#91d5ff
+    style J fill:#51cf66</code></pre>
+<p><strong>URLs:</strong>
+- Draft: https://alexmacapple.github.io/span-sg-repo/draft/
+- Production: https://alexmacapple.github.io/span-sg-repo/</p>
+<p><strong>Stratégie:</strong> Git push direct (pas actions/deploy-pages, contrôle total)</p>
+<hr />
+<h2 id="notes-techniques">Notes techniques</h2>
+<h3 id="diagrammes-mermaid">Diagrammes Mermaid</h3>
+<p>Les diagrammes sont renderisés automatiquement par MkDocs avec plugin <code>pymdownx.superfences</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># mkdocs-dsfr.yml</span>
+<span class="nt">markdown_extensions</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pymdownx.superfences</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">custom_fences</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mermaid</span>
+<span class="w">          </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mermaid</span>
+<span class="w">          </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="kt">!!python/name:pymdownx.superfences.fence_code_format</span>
+</code></pre></div>
+<h3 id="modification-diagrammes">Modification diagrammes</h3>
+<ol>
+<li>Éditer ce fichier <code>docs/architecture/diagrams.md</code></li>
+<li>Build local : <code>mkdocs serve --config-file mkdocs-dsfr.yml</code></li>
+<li>Vérifier render : http://localhost:8000/architecture/diagrams/</li>
+<li>Commit si OK</li>
+</ol>
+<h3 id="syntaxe-mermaid">Syntaxe Mermaid</h3>
+<ul>
+<li><strong>Flowchart</strong>: <code>graph TB</code> (Top-Bottom) / <code>graph LR</code> (Left-Right)</li>
+<li><strong>Sequence</strong>: <code>sequenceDiagram</code></li>
+<li><strong>Pie chart</strong>: <code>pie title "..."</code></li>
+<li><strong>Git graph</strong>: <code>gitGraph</code></li>
+</ul>
+<p>Documentation: https://mermaid.js.org/</p>
+<hr />
+<h2 id="references">Références</h2>
+<ul>
+<li><a href="https://mermaid.js.org/">Mermaid Documentation</a></li>
+<li><a href="https://squidfunk.github.io/mkdocs-material/reference/diagrams/">MkDocs Material - Diagrams</a></li>
+<li>Architecture Decision Records: <a href="../../adr/">docs/adr/</a></li>
+<li>API Reference: <a href="../../dev/api-reference/">docs/dev/api-reference.md</a></li>
+</ul>
                         
                         
                         <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
@@ -735,6 +791,17 @@
                     </div>
                     <hr />
                     
+	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
+		<ul class="fr-pagination__list">
+			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../../adr/005-coverage-89-percent/" title="ADR-005 Coverage 89%" >
+				Page précédente
+			</a></li>
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  aria-disabled="true" role="link" >
+				Page suivante
+			</a></li>
+		</ul>
+	</nav>
+
                 </div>
             </div>
             <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">

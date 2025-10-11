@@ -4,25 +4,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../../dsfr.min.css">
-    <link rel="stylesheet" href="../../utility/utility.min.css">
-    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../dsfr.min.css">
+    <link rel="stylesheet" href="../utility/utility.min.css">
+    <link rel="stylesheet" href="../css/theme.css">
 
     <meta name="theme-color" content="#000091">
     <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
-    <link rel="apple-touch-icon" href="../../ favicon /apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="../ favicon /apple-touch-icon.png">
     <!-- 180×180 -->
-    <link rel="icon" href="../../favicon/favicon.svg" type="image/svg+xml">
-    <link rel="shortcut icon" href="../../favicon/favicon.ico">
+    <link rel="icon" href="../favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../favicon/favicon.ico">
     <!-- 32×32 -->
-    <link rel="manifest" href="../../favicon/manifest.webmanifest" crossorigin="use-credentials">
-    <script src="../../js/postprocess.js" defer></script>
+    <link rel="manifest" href="../favicon/manifest.webmanifest" crossorigin="use-credentials">
+    <script src="../js/postprocess.js" defer></script>
 
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
 
-    <title>template</title>
+    <title>Index</title>
     
     
 </head>
@@ -106,7 +106,7 @@
                                 Fermer
                             </button>
                             
-                            <form action="../../search.html">
+                            <form action="../search.html">
                                 <div
                                     class="fr-search-bar"
                                     id="search-540"
@@ -166,7 +166,7 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href=".."
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -189,7 +189,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../bgs/"
+                            href="../modules/bgs/"
                             target="_self"
                             >BGS</a
                         >
@@ -199,7 +199,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../safi/"
+                            href="../modules/safi/"
                             target="_self"
                             >SAFI</a
                         >
@@ -209,7 +209,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../siep/"
+                            href="../modules/siep/"
                             target="_self"
                             >SIEP</a
                         >
@@ -219,7 +219,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../sircom/"
+                            href="../modules/sircom/"
                             target="_self"
                             >SIRCOM</a
                         >
@@ -229,7 +229,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../snum/"
+                            href="../modules/snum/"
                             target="_self"
                             >SNUM</a
                         >
@@ -239,7 +239,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../srh/"
+                            href="../modules/srh/"
                             target="_self"
                             >SRH</a
                         >
@@ -252,7 +252,7 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../synthese/"
+                href="../synthese/"
                 target="_self"
                 
                 >Synthèse</a
@@ -262,7 +262,7 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../processus/"
+                href="../processus/"
                 target="_self"
                 
                 >Processus</a
@@ -272,7 +272,7 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../contributing/"
+                href="../contributing/"
                 target="_self"
                 
                 >Guide contributeur</a
@@ -282,7 +282,7 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../dev-local/"
+                href="../dev-local/"
                 target="_self"
                 
                 >Développement local</a
@@ -305,7 +305,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../../dev/api-reference/"
+                            href="../dev/api-reference/"
                             target="_self"
                             >API Reference</a
                         >
@@ -315,7 +315,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../../dev/hooks-guide/"
+                            href="../dev/hooks-guide/"
                             target="_self"
                             >Guide Hooks</a
                         >
@@ -325,7 +325,9 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../.."
+                            aria-current="page"
+                            
+                            href=".."
                             target="_self"
                             >ADR (Décisions)</a
                         >
@@ -335,7 +337,7 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../../architecture/diagrams/"
+                            href="../architecture/diagrams/"
                             target="_self"
                             >Diagrammes</a
                         >
@@ -384,117 +386,72 @@
                 aria-controls="fr-sidemenu-wrapper"
                 aria-expanded="true"
             >
-                SPAN [SERVICE] - Schéma Pluriannuel d'accessibilité numérique
+                Architecture Decision Records (ADR)
             </button>
             <div class="fr-collapse" id="fr-sidemenu-wrapper">
-                <div class="fr-sidemenu__title">SPAN [SERVICE] - Schéma Pluriannuel d'accessibilité numérique</div>
+                <div class="fr-sidemenu__title">Architecture Decision Records (ADR)</div>
                 <ul class="fr-sidemenu__list">
                      
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#1-perimetre"
+                            href="#index"
                             target="_self"
-                            >1. Périmètre</a
+                            >Index</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#2-etat-des-lieux-synthese"
+                            href="#legende-statuts"
                             target="_self"
-                            >2. État des lieux (synthèse)</a
+                            >Légende statuts</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#3-organisation"
+                            href="#template-adr"
                             target="_self"
-                            >3. Organisation</a
+                            >Template ADR</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#4-plan-daction-annuel"
+                            href="#principes-adr"
                             target="_self"
-                            >4. Plan d’action annuel</a
+                            >Principes ADR</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#5-indicateurs-cles"
+                            href="#quand-creer-un-adr"
                             target="_self"
-                            >5. Indicateurs clés</a
+                            >Quand créer un ADR ?</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#points-de-controle-officiels-31"
+                            href="#process-validation"
                             target="_self"
-                            >points de contrôle officiels (31)</a
+                            >Process validation</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#perimetre-du-service"
+                            href="#references"
                             target="_self"
-                            >périmètre du service</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#plan-dactions-prioritaires-2025"
-                            target="_self"
-                            >plan d'actions prioritaires 2025</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#matrice-de-priorisation"
-                            target="_self"
-                            >Matrice de priorisation</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#publication-et-conformite"
-                            target="_self"
-                            >publication et conformité</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#analyse-charge-disproportionnee"
-                            target="_self"
-                            >Analyse charge disproportionnée</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#declaration-daccessibilite"
-                            target="_self"
-                            >Déclaration d'accessibilité</a
+                            >Références</a
                         >
                     </li>
                      
@@ -514,220 +471,148 @@
 
                 
                         
-                        <!--
-  FICHIER TEMPLATE - Non inclus dans la navigation MkDocs
-  Utilisé comme référence pour créer de nouveaux modules
-  Contient les 31 points DINUM officiels
--->
-
-<h1 id="span-service-schema-pluriannuel-daccessibilite-numerique">SPAN [SERVICE] - Schéma Pluriannuel d'accessibilité numérique</h1>
-<p><strong>Période</strong> 2025-2027<br />
-<strong>Score global</strong> [X/31] questions validées ([XX] %)<br />
-<strong>Dernière mise à jour</strong> [DATE]</p>
-<h2 id="1-perimetre">1. Périmètre</h2>
-<ul>
-<li>Applications métiers principales</li>
-<li>Sites web et intranets</li>
-<li>Démarches essentielles</li>
-</ul>
-<h2 id="2-etat-des-lieux-synthese">2. État des lieux (synthèse)</h2>
-<ul>
-<li>Audits réalisés et scores</li>
-<li>Points critiques</li>
-</ul>
-<h2 id="3-organisation">3. Organisation</h2>
-<ul>
-<li>Référent accessibilité (% ETP)</li>
-<li>Équipe projet et formations prévues</li>
-</ul>
-<h2 id="4-plan-daction-annuel">4. Plan d’action annuel</h2>
-<ul>
-<li>3 à 5 actions prioritaires avec échéances</li>
-</ul>
-<h2 id="5-indicateurs-cles">5. Indicateurs clés</h2>
-<ul>
-<li>Taux de conformité, formations, marchés avec clauses</li>
-</ul>
-<h2 id="points-de-controle-officiels-31">points de contrôle officiels (31)</h2>
-<ul>
-<li>[ ] Stratégie numérique: accessibilité intégrée et publiée <!-- DINUM --></li>
-<li>[ ] Politique d’inclusion des personnes handicapées formalisée <!-- DINUM --></li>
-<li>[ ] Objectifs mesurables d’accessibilité définis (KPI) <!-- DINUM --></li>
-<li>[ ] Référent accessibilité numérique officiellement désigné <!-- DINUM --></li>
-<li>[ ] Temps alloué et moyens du référent définis <!-- DINUM --></li>
-<li>[ ] Ressources humaines dédiées identifiées (ETP) <!-- DINUM --></li>
-<li>[ ] Budget annuel dédié/identifiable <!-- DINUM --></li>
-<li>[ ] Planification pluriannuelle des moyens (3 ans) <!-- DINUM --></li>
-<li>[ ] Compétences accessibilité dans les fiches de poste <!-- DINUM --></li>
-<li>[ ] Grille de recrutement intégrant l’accessibilité <!-- DINUM --></li>
-<li>[ ] Plan de formation annuel pour les profils clés <!-- DINUM --></li>
-<li>[ ] Sensibilisation large (tous agents) planifiée <!-- DINUM --></li>
-<li>[ ] Formations par rôle (développeurs, UX, éditorial) <!-- DINUM --></li>
-<li>[ ] Outils de test/accessibilité référencés et disponibles <!-- DINUM --></li>
-<li>[ ] Procédure d’appel à expertise externe et budget associé <!-- DINUM --></li>
-<li>[ ] Processus internes documentés (intégration accessibilité) <!-- DINUM --></li>
-<li>[ ] Modalités de contrôle périodique définies <!-- DINUM --></li>
-<li>[ ] Process de traitement des demandes usagers (accès/retour) <!-- DINUM --></li>
-<li>[ ] Clauses accessibilité dans marchés/commandes <!-- DINUM --></li>
-<li>[ ] Critères de sélection/pondération incluant accessibilité <!-- DINUM --></li>
-<li>[ ] Exigence de livrables conformes et preuves de conformité <!-- DINUM --></li>
-<li>[ ] Accessibilité intégrée dès la conception (projets neufs) <!-- DINUM --></li>
-<li>[ ] Tests incluant des personnes handicapées <!-- DINUM --></li>
-<li>[ ] Évaluations/audits planifiés pour tous les services <!-- DINUM --></li>
-<li>[ ] Calendrier de corrections priorisé sur usages/volumétrie <!-- DINUM --></li>
-<li>[ ] Suivi de couverture (audités vs total) et périodicité des évaluations <!-- DINUM --></li>
-<li>[ ] Accès LSF/vidéo pour contenus concernés <!-- DINUM --></li>
-<li>[ ] Traduction FALC pour contenus concernés <!-- DINUM --></li>
-<li>[ ] Prise en compte de critères AAA pertinents <!-- DINUM --></li>
-<li>[ ] Bilan annuel réalisé et publié <!-- DINUM --></li>
-<li>[ ] Plan d’action annuel publié (format accessible) <!-- DINUM --></li>
-</ul>
-<h2 id="perimetre-du-service">périmètre du service</h2><div class="fr-table">
+                        <h1 id="architecture-decision-records-adr">Architecture Decision Records (ADR)</h1>
+<p>Historique des décisions techniques majeures du projet SPAN SG.</p>
+<p>Format: <a href="https://adr.github.io/madr/">MADR (Markdown Any Decision Records)</a></p>
+<p>Version: 1.0.1-dsfr
+Dernière mise à jour: 2025-10-11</p>
+<hr />
+<h2 id="index">Index</h2><div class="fr-table">
 <table>
 <thead>
 <tr>
-<th>Type</th>
-<th>Total</th>
-<th>Audités</th>
-<th>Conformes</th>
-<th>Score</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Sites web</td>
-<td></td>
-<td></td>
-<td></td>
-<td>%</td>
-</tr>
-<tr>
-<td>Intranets</td>
-<td></td>
-<td></td>
-<td></td>
-<td>%</td>
-</tr>
-<tr>
-<td>Applications</td>
-<td></td>
-<td></td>
-<td></td>
-<td>%</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="plan-dactions-prioritaires-2025">plan d'actions prioritaires 2025</h2>
-<h2 id="matrice-de-priorisation">Matrice de priorisation</h2><div class="fr-table">
-<table>
-<thead>
-<tr>
-<th>Service</th>
-<th>Audience</th>
-<th>Criticité</th>
-<th>Coût correction</th>
-<th>Refonte prévue</th>
-<th>Score priorité</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Exemple</td>
-<td>50 K/j</td>
-<td>Haute</td>
-<td>Faible</td>
-<td>Non</td>
-<td>95/100</td>
-</tr>
-</tbody>
-</table>
-</div><div class="fr-table">
-<table>
-<thead>
-<tr>
-<th>Action</th>
-<th>Échéance</th>
-<th>Responsable</th>
-<th>Budget</th>
+<th>ADR</th>
+<th>Titre</th>
+<th>Date</th>
 <th>Statut</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td>T1 2025</td>
-<td></td>
-<td>€</td>
-<td></td>
+<td><a href="001-choix-theme-dsfr/">001</a></td>
+<td>Adoption thème DSFR vs Material</td>
+<td>2025-10-08</td>
+<td>✅ Accepted</td>
 </tr>
 <tr>
-<td></td>
-<td>T2 2025</td>
-<td></td>
-<td>€</td>
-<td></td>
+<td><a href="002-format-synthese-html/">002</a></td>
+<td>Migration synthèse Markdown → HTML DSFR</td>
+<td>2025-10-08</td>
+<td>✅ Accepted</td>
+</tr>
+<tr>
+<td><a href="003-isolation-pdf-build/">003</a></td>
+<td>Isolation build PDF avec --site-dir</td>
+<td>2025-10-10</td>
+<td>✅ Accepted</td>
+</tr>
+<tr>
+<td><a href="004-hooks-python-mkdocs/">004</a></td>
+<td>Architecture hooks Python vs JavaScript</td>
+<td>2025-10-08</td>
+<td>✅ Accepted</td>
+</tr>
+<tr>
+<td><a href="005-coverage-89-percent/">005</a></td>
+<td>Seuil coverage 89%+ enforced</td>
+<td>2025-10-10</td>
+<td>✅ Accepted</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>Légende statuts</strong>
-- À commencer
-- En cours
-- Réalisé
-- Reporté
-- Abandonné</p>
-<h2 id="publication-et-conformite">publication et conformité</h2>
-<ul>
-<li>Standard de référence: RGAA 4.x</li>
-<li>Niveau cible: AA</li>
-<li>Périmètre: [décrire]</li>
-<li>Contenus tiers: [décrire]</li>
-</ul>
-<h2 id="analyse-charge-disproportionnee">Analyse charge disproportionnée</h2>
-<!--
-  COMPOSANT SÉMANTIQUE RÉUTILISABLE
-  Deux options selon le cas du service :
-
-  Option 1 : AUCUNE charge disproportionnée (cas le plus fréquent)
-  Option 2 : AU MOINS UNE charge disproportionnée documentée
--->
-
-<!-- OPTION 1 : Aucune charge disproportionnée -->
-<section aria-labelledby="charge-disproportionnee-titre">
-  <h3 id="charge-disproportionnee-titre">Charges disproportionnées</h3>
-
-  <p><strong>Aucune charge disproportionnée invoquée</strong> pour le périmètre SPAN 2024-2027.</p>
-
-  <p>Tous les sites et applications du périmètre sont engagés dans une démarche progressive de mise en conformité RGAA selon l'agenda planifié.</p>
-</section>
-
-<!-- OPTION 2 : Avec charge(s) disproportionnée(s) - À utiliser si applicable -->
-<!--
-### Charges disproportionnées
-
-**Charge disproportionnée identifiée** pour [nom de la fonctionnalité/service]
-
-| Critère | Description |
-|---------|-------------|
-| **Fonctionnalité/section concernée** | [Décrire précisément l'élément : ex "Module cartographique interactif legacy 2010-2015"] |
-| **Type de charge** | [Technique / Financière / Organisationnelle] |
-| **Analyse coût/bénéfice** | [Chiffrage : ex "150K€ refonte pour 200 utilisateurs/an = 750€/utilisateur"] |
-| **Documentation de référence** | [Lien étude technique, rapport audit, décision validée] |
-| **Alternative proposée** | [Décrire l'alternative : ex "Données téléchargeables CSV accessible + contact dédié pour assistance"] |
-| **Échéance de réévaluation** | [Date : ex "31 décembre 2026"] |
-
-*Critères de décision appliqués : analyse coût/bénéfice documentée, alternatives étudiées, validation juridique, publication dans déclaration d'accessibilité.*
--->
-
 <hr />
-<h2 id="declaration-daccessibilite">Déclaration d'accessibilité</h2>
+<h2 id="legende-statuts">Légende statuts</h2>
 <ul>
-<li>Déclaration d'accessibilité: https://[votre-domaine]/[service]/declaration-accessibilite  <!-- TODO: remplacer par l'URL réelle --></li>
-<li>Charge disproportionnée: [Oui/Non]  <!-- TODO: si Oui, utiliser OPTION 2 ci-dessus --></li>
+<li>✅ <strong>Accepted</strong>: Décision adoptée et implémentée en production</li>
+<li>⏳ <strong>Proposed</strong>: En discussion, pas encore implémentée</li>
+<li>❌ <strong>Deprecated</strong>: Remplacée, ne plus utiliser</li>
+<li>🔄 <strong>Superseded</strong>: Remplacée par ADR-XXX (voir lien)</li>
 </ul>
 <hr />
-<p><em>Dernière mise à jour [date]</em></p>
+<h2 id="template-adr">Template ADR</h2>
+<p>Pour créer un nouveau ADR, copier <code>template.md</code> et suivre la structure MADR :</p>
+<div class="highlight"><pre><span></span><code><span class="gh"># ADR-XXX: [Titre court]</span>
+
+<span class="gs">**Date**</span>: YYYY-MM-DD
+<span class="gs">**Statut**</span>: ⏳ Proposed / ✅ Accepted / ❌ Deprecated / 🔄 Superseded
+<span class="gs">**Décideurs**</span>: [Noms]
+<span class="gs">**Sponsor**</span>: [Chef projet/Sponsor]
+
+<span class="gu">## Contexte</span>
+
+[Problème à résoudre, contraintes, contexte métier]
+
+<span class="gu">## Décision</span>
+
+[Solution choisie, justification courte]
+
+<span class="gu">## Alternatives considérées</span>
+
+<span class="gu">### Option A: [Nom]</span>
+<span class="k">-</span><span class="w"> </span>Avantages: ...
+<span class="k">-</span><span class="w"> </span>Inconvénients: ...
+<span class="k">-</span><span class="w"> </span><span class="gs">**Rejeté**</span>: [Raison]
+
+<span class="gu">### Option B: [Nom choisi]</span>
+<span class="k">-</span><span class="w"> </span>Avantages: ...
+<span class="k">-</span><span class="w"> </span>Inconvénients: ...
+<span class="k">-</span><span class="w"> </span><span class="gs">**Choisi**</span>: [Raison]
+
+<span class="gu">## Conséquences</span>
+
+<span class="gs">**Positives:**</span>
+<span class="k">-</span><span class="w"> </span>[Bénéfices]
+
+<span class="gs">**Négatives:**</span>
+<span class="k">-</span><span class="w"> </span>[Coûts, limitations]
+
+<span class="gu">## Validation</span>
+
+<span class="k">-</span><span class="w"> </span>[Critères succès]
+<span class="k">-</span><span class="w"> </span>[Tests validation]
+
+<span class="gu">## Références</span>
+
+<span class="k">-</span><span class="w"> </span>[Commits, issues, docs]
+</code></pre></div>
+<hr />
+<h2 id="principes-adr">Principes ADR</h2>
+<ol>
+<li><strong>Immutables</strong>: Un ADR ne se modifie pas après acceptation</li>
+<li><strong>Traçables</strong>: Chaque décision technique majeure → ADR</li>
+<li><strong>Contextuels</strong>: Expliquer le "pourquoi", pas seulement le "quoi"</li>
+<li><strong>Concis</strong>: 1-2 pages maximum</li>
+<li><strong>Datés</strong>: Date décision pour historique chronologique</li>
+</ol>
+<hr />
+<h2 id="quand-creer-un-adr">Quand créer un ADR ?</h2>
+<p><strong>Créer un ADR pour:</strong>
+- ✅ Choix technologiques structurants (frameworks, libs majeures)
+- ✅ Changements architecture (formats, workflows, CI/CD)
+- ✅ Standards projet (coverage, conventions, process)
+- ✅ Décisions impactant &gt; 20% du code</p>
+<p><strong>Ne pas créer pour:</strong>
+- ❌ Petits bugfixes
+- ❌ Refactoring localisés
+- ❌ Ajout features mineures
+- ❌ Changements réversibles facilement</p>
+<hr />
+<h2 id="process-validation">Process validation</h2>
+<ol>
+<li>Rédiger ADR avec statut <code>⏳ Proposed</code></li>
+<li>Discussion équipe (review, alternatives)</li>
+<li>Décision validée → Statut <code>✅ Accepted</code></li>
+<li>Implémentation (commits référencent ADR-XXX)</li>
+<li>Si déprécié plus tard → Créer nouvel ADR + statut <code>🔄 Superseded by ADR-YYY</code></li>
+</ol>
+<hr />
+<h2 id="references">Références</h2>
+<ul>
+<li><a href="https://adr.github.io/madr/">MADR Documentation</a></li>
+<li><a href="https://adr.github.io/">ADR GitHub Organization</a></li>
+<li><a href="https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records">Thoughtworks Technology Radar - ADR</a></li>
+</ul>
                         
                         
                         <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
@@ -735,6 +620,17 @@
                     </div>
                     <hr />
                     
+	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
+		<ul class="fr-pagination__list">
+			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../dev/hooks-guide/" title="Guide Hooks" >
+				Page précédente
+			</a></li>
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="001-choix-theme-dsfr/" title="ADR-001 Thème DSFR" >
+				Page suivante
+			</a></li>
+		</ul>
+	</nav>
+
                 </div>
             </div>
             <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
@@ -766,13 +662,13 @@
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
                                                                 width="80px" height="80px" viewBox="0 0 80 80">
                                                                 <use class="fr-artwork-decorative"
-                                                                    xlink:href="../../artwork/light.svg#artwork-decorative">
+                                                                    xlink:href="../artwork/light.svg#artwork-decorative">
                                                                 </use>
                                                                 <use class="fr-artwork-minor"
-                                                                    xlink:href="../../artwork/light.svg#artwork-minor">
+                                                                    xlink:href="../artwork/light.svg#artwork-minor">
                                                                 </use>
                                                                 <use class="fr-artwork-major"
-                                                                    xlink:href="../../artwork/light.svg#artwork-major">
+                                                                    xlink:href="../artwork/light.svg#artwork-major">
                                                                 </use>
                                                             </svg>
                                                         </div>
@@ -786,13 +682,13 @@
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
                                                                 width="80px" height="80px" viewBox="0 0 80 80">
                                                                 <use class="fr-artwork-decorative"
-                                                                    xlink:href="../../artwork/dark.svg#artwork-decorative">
+                                                                    xlink:href="../artwork/dark.svg#artwork-decorative">
                                                                 </use>
                                                                 <use class="fr-artwork-minor"
-                                                                    xlink:href="../../artwork/dark.svg#artwork-minor">
+                                                                    xlink:href="../artwork/dark.svg#artwork-minor">
                                                                 </use>
                                                                 <use class="fr-artwork-major"
-                                                                    xlink:href="../../artwork/dark.svg#artwork-major">
+                                                                    xlink:href="../artwork/dark.svg#artwork-major">
                                                                 </use>
                                                             </svg>
                                                         </div>
@@ -808,13 +704,13 @@
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
                                                                 width="80px" height="80px" viewBox="0 0 80 80">
                                                                 <use class="fr-artwork-decorative"
-                                                                    xlink:href="../../artwork/system.svg#artwork-decorative">
+                                                                    xlink:href="../artwork/system.svg#artwork-decorative">
                                                                 </use>
                                                                 <use class="fr-artwork-minor"
-                                                                    xlink:href="../../artwork/system.svg#artwork-minor">
+                                                                    xlink:href="../artwork/system.svg#artwork-minor">
                                                                 </use>
                                                                 <use class="fr-artwork-major"
-                                                                    xlink:href="../../artwork/system.svg#artwork-major">
+                                                                    xlink:href="../artwork/system.svg#artwork-major">
                                                                 </use>
                                                             </svg>
                                                         </div>
@@ -890,19 +786,19 @@
 
 
 <script>
-    var base_url = "../..";
+    var base_url = "..";
 </script>
 
-<script type="module" src="../../dsfr.module.min.js"></script>
+<script type="module" src="../dsfr.module.min.js"></script>
 <script
     type="text/javascript"
     nomodule
-    src="../../dsfr.nomodule.min.js"
+    src="../dsfr.nomodule.min.js"
 ></script>
-<script src="../../search/lunr.js"></script>
-<script src="../../search/lunr.stemmer.support.js"></script>
-<script src="../../search/lunr.fr.js"></script>
-<script src="../../search/main.js" defer></script>
+<script src="../search/lunr.js"></script>
+<script src="../search/lunr.stemmer.support.js"></script>
+<script src="../search/lunr.fr.js"></script>
+<script src="../search/main.js" defer></script>
 </body>
 
 </html>
