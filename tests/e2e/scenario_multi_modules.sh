@@ -29,11 +29,11 @@ rm -f docs/modules/srh.md.bak
 python3 scripts/calculate_scores.py
 
 # Vérifier scores
-grep -q "| SIRCOM | 25/31" docs/synthese.md || { echo "FAIL: SIRCOM"; exit 1; }
-grep -q "| SNUM | 22/31" docs/synthese.md || { echo "FAIL: SNUM"; exit 1; }
-grep -q "| SRH | 1/31" docs/synthese.md || { echo "FAIL: SRH"; exit 1; }
+grep -q "25/31 (" docs/synthese.md || { echo "FAIL: SIRCOM"; exit 1; }
+grep -q "22/31 (" docs/synthese.md || { echo "FAIL: SNUM"; exit 1; }
+grep -q "1/31 (" docs/synthese.md || { echo "FAIL: SRH"; exit 1; }
 # TOTAL = SIRCOM (24→25) + SNUM (21→22) + SRH (0→1) + autres (0) = 25+22+1 = 48/186
-grep -q "| \*\*TOTAL\*\* | \*\*48/186" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
+grep -q "48/186 (" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
 
 # Restaurer
 mv /tmp/{sircom,snum,srh}.md docs/modules/

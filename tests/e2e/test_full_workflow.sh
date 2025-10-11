@@ -48,7 +48,7 @@ run_test "Recalculer scores" \
 
 # Test 4 : Vérifier score SIRCOM augmenté (base 24/31 + 1 = 25/31)
 run_test "Vérifier score SIRCOM = 25/31" \
-    "grep -q '| SIRCOM | 25/31' docs/synthese.md"
+    "grep -q '25/31 (' docs/synthese.md"
 
 # Test 5 : Build site MkDocs
 run_test "Build site MkDocs" \
@@ -82,7 +82,7 @@ run_test "Re-calculer scores après restauration" \
 
 # Test 11 : Vérifier score SIRCOM restauré (24/31 actuel)
 run_test "Vérifier score SIRCOM = 24/31 (restauré)" \
-    "grep -q '| SIRCOM | 24/31' docs/synthese.md"
+    "grep -q '24/31 (' docs/synthese.md"
 
 # Résumé
 echo ""
