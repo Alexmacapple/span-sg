@@ -23,6 +23,15 @@ Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/
 - **Changelog** : [CHANGELOG.md](CHANGELOG.md) - Historique versions
 - **Migration** : [MIGRATION.md](MIGRATION.md) - Guides upgrade path
 
+## Architecture et Documentation
+
+Documentation technique complète du projet :
+
+- **API Reference** : [docs/dev/api-reference.md](docs/dev/api-reference.md) - Documentation scripts Python et hooks MkDocs
+- **Guide Hooks** : [docs/dev/hooks-guide.md](docs/dev/hooks-guide.md) - Guide développeur création hooks MkDocs
+- **ADR (Architecture Decision Records)** : [docs/adr/](docs/adr/) - Décisions techniques majeures (DSFR, PDF, hooks, coverage)
+- **Diagrammes Architecture** : [docs/architecture/diagrams.md](docs/architecture/diagrams.md) - 6 diagrammes Mermaid (CI/CD, composants, Git, hooks)
+
 ## Thème DSFR (Système de Design de l'État)
 
 Le projet utilise le thème [mkdocs-dsfr](https://pypi.org/project/mkdocs-dsfr/) (v0.17.0) pour garantir la conformité avec le design gouvernemental français.
