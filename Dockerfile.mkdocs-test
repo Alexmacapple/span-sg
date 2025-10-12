@@ -1,6 +1,7 @@
-FROM squidfunk/mkdocs-material:latest
+FROM squidfunk/mkdocs-material:9.5
 
 # Installer build-essentials pour compiler libsass (Alpine Linux)
+# Note: gcc/g++ nécessaires pour mkdocs-with-pdf (libsass compilation)
 RUN apk add --no-cache \
     gcc \
     g++ \
@@ -8,6 +9,9 @@ RUN apk add --no-cache \
     python3-dev
 
 WORKDIR /docs
+
+# Copier requirements et installer dépendances
+# Layer séparé pour optimiser cache Docker (invalide uniquement si requirements.txt change)
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 

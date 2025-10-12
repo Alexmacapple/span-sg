@@ -30,6 +30,49 @@ jobs:
       - name: Run Ruff linter
         run: python -m ruff check scripts/
 
+      - name: Install security tools
+        run: pip install -r requirements-security.txt
+
+      - name: Run Bandit security linter
+        run: |
+          echo "=== Bandit Security Analysis ==="
+          echo "Analyzing scripts/ and hooks/ for security issues..."
+          echo ""
+
+          # Generate JSON report (non-blocking)
+          bandit -r scripts/ hooks/ -ll -f json -o bandit-report.json || true
+
+          # Display summary and fail on HIGH/CRITICAL
+          bandit -r scripts/ hooks/ -ll --format screen
+
+          echo ""
+          echo "=== Bandit analysis complete ==="
+
+      - name: Check dependencies vulnerabilities (Safety)
+        run: |
+          echo "=== Safety CVE Check ==="
+          echo "Checking requirements-dsfr.txt for known vulnerabilities..."
+          echo ""
+
+          # Generate JSON report (non-blocking)
+          safety check -r requirements-dsfr.txt --json > safety-report.json || true
+
+          # Fail if vulnerabilities found
+          safety check -r requirements-dsfr.txt
+
+          echo ""
+          echo "=== No vulnerabilities found ==="
+
+      - name: Upload security reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-reports-${{ github.ref_name }}-${{ github.sha }}
+          path: |
+            bandit-report.json
+            safety-report.json
+          retention-days: 90
+
       - name: Run unit tests
         run: python -m pytest scripts/ -v --cov=scripts --cov-report=term-missing
 
@@ -41,6 +84,16 @@ jobs:
             --cov-report=html \
             --cov-fail-under=89 \
             scripts/test_calculate_scores*.py scripts/test_enrich_pdf*.py
+
+      - name: Run hooks coverage check (100% required)
+        run: |
+          python -m pytest \
+            tests/test_hooks_*.py \
+            --cov=hooks \
+            --cov-config=.coveragerc-hooks \
+            --cov-report=term-missing \
+            --cov-report=html:htmlcov-hooks \
+            --cov-fail-under=100
 
       - name: Calculate SPAN scores
         run: python scripts/calculate_scores.py
@@ -170,6 +223,49 @@ jobs:
       - name: Run Ruff linter
         run: python -m ruff check scripts/
 
+      - name: Install security tools
+        run: pip install -r requirements-security.txt
+
+      - name: Run Bandit security linter
+        run: |
+          echo "=== Bandit Security Analysis ==="
+          echo "Analyzing scripts/ and hooks/ for security issues..."
+          echo ""
+
+          # Generate JSON report (non-blocking)
+          bandit -r scripts/ hooks/ -ll -f json -o bandit-report.json || true
+
+          # Display summary and fail on HIGH/CRITICAL
+          bandit -r scripts/ hooks/ -ll --format screen
+
+          echo ""
+          echo "=== Bandit analysis complete ==="
+
+      - name: Check dependencies vulnerabilities (Safety)
+        run: |
+          echo "=== Safety CVE Check ==="
+          echo "Checking requirements-dsfr.txt for known vulnerabilities..."
+          echo ""
+
+          # Generate JSON report (non-blocking)
+          safety check -r requirements-dsfr.txt --json > safety-report.json || true
+
+          # Fail if vulnerabilities found
+          safety check -r requirements-dsfr.txt
+
+          echo ""
+          echo "=== No vulnerabilities found ==="
+
+      - name: Upload security reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-reports-${{ github.ref_name }}-${{ github.sha }}
+          path: |
+            bandit-report.json
+            safety-report.json
+          retention-days: 90
+
       - name: Run unit tests
         run: python -m pytest scripts/ -v --cov=scripts --cov-report=term-missing
 
@@ -181,6 +277,16 @@ jobs:
             --cov-report=html \
             --cov-fail-under=89 \
             scripts/test_calculate_scores*.py scripts/test_enrich_pdf*.py
+
+      - name: Run hooks coverage check (100% required)
+        run: |
+          python -m pytest \
+            tests/test_hooks_*.py \
+            --cov=hooks \
+            --cov-config=.coveragerc-hooks \
+            --cov-report=term-missing \
+            --cov-report=html:htmlcov-hooks \
+            --cov-fail-under=100
 
       - name: Calculate SPAN scores
         run: python scripts/calculate_scores.py
@@ -238,6 +344,17 @@ jobs:
           ls -lh exports/span-sg.pdf
           echo "PDF size: $(du -h exports/span-sg.pdf | cut -f1)"
 
+      - name: Set up Docker Buildx for E2E tests
+        uses: docker/setup-buildx-action@v3
+
+      - name: Cache Docker layers for E2E tests
+        uses: actions/cache@v4
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile.mkdocs-test', 'requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
       - name: Run E2E tests with reporting
         run: |
           chmod +x tests/e2e/ci_runner.sh
@@ -249,6 +366,31 @@ jobs:
         with:
           name: e2e-report
           path: tests/e2e/reports/e2e-report.html
+          retention-days: 30
+
+      - name: Install accessibility testing dependencies
+        run: pip install -r requirements-accessibility.txt
+
+      - name: Install Chrome and ChromeDriver for accessibility tests
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      - name: Run accessibility tests (non-blocking warnings)
+        continue-on-error: true
+        run: |
+          python -m pytest tests/test_accessibility.py \
+            -v \
+            --html=accessibility-report.html \
+            --self-contained-html \
+            || true
+
+      - name: Upload accessibility report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-report
+          path: accessibility-report.html
           retention-days: 30
 
       - name: Upload PDF artifact

@@ -158,6 +158,81 @@ Les lignes 23-26 de `enrich_pdf_metadata.py` (ImportError pikepdf) ne sont pas t
 
 ---
 
+## Pre-commit Hooks
+
+Hooks automatiques pour valider qualité et sécurité du code AVANT commit.
+
+### Installation
+
+```bash
+# Installer pre-commit
+pip install pre-commit
+
+# Activer hooks dans le repo
+pre-commit install
+
+# Vérifier installation (run sur tous fichiers)
+pre-commit run --all-files
+```
+
+### Hooks Actifs
+
+1. **Bandit** : Détection patterns insecures Python
+   - Severity: HIGH et CRITICAL bloquent commit
+   - Exclude: tests/ (évite faux positifs subprocess)
+   - Exemples: shell=True, eval/exec, hardcoded secrets
+
+2. **Safety** : Check CVE dépendances
+   - Base PyUp.io (200k+ vulnérabilités)
+   - Scan requirements-dsfr.txt
+   - Redondant avec Dependabot (mais feedback plus rapide)
+
+3. **Black** : Formatage automatique code
+   - Config: pyproject.toml (line-length 88)
+   - Modifie fichiers automatiquement
+
+4. **Ruff** : Linting Python
+   - Checks: E, W, F, I, N (pycodestyle, pyflakes, isort, naming)
+   - Auto-fix activé (--fix)
+
+### Bypass Hooks (si nécessaire)
+
+```bash
+# Skip hooks pour commit urgence/WIP
+git commit --no-verify -m "wip: bypass hooks"
+
+# ⚠️  ATTENTION: CI bloquera quand même si issues réelles
+```
+
+### Mise à Jour Hooks
+
+```bash
+# Mettre à jour vers dernières versions
+pre-commit autoupdate
+
+# Re-run sur tous fichiers après update
+pre-commit run --all-files
+```
+
+### Troubleshooting
+
+**Hook fail sans raison apparente** :
+```bash
+# Clear cache hooks
+pre-commit clean
+pre-commit install --install-hooks
+```
+
+**Bandit faux positif (tests)** :
+- Vérifier `exclude: ^tests/` dans `.pre-commit-config.yaml`
+- Ou ajouter commentaire `# nosec` sur ligne concernée
+
+**Safety timeout** :
+- API PyUp.io peut être lente (< 30s normal)
+- Retry : `pre-commit run safety --all-files`
+
+---
+
 ## Tests End-to-End (E2E)
 
 ### Exécuter tests E2E localement

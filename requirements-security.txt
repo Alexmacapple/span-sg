@@ -1,0 +1,8 @@
+# Security tools for CI/CD and local development
+# Installation: pip install -r requirements-security.txt
+
+# Static analysis security linter for Python
+bandit>=1.7.5
+
+# Dependency vulnerability scanner (CVE database)
+safety>=2.3.5

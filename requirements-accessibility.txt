@@ -1,0 +1,20 @@
+# Requirements pour tests accessibilité SPAN SG
+# Date: 2025-10-12
+# Usage: pip install -r requirements-accessibility.txt
+
+# Selenium pour automatisation navigateur
+selenium>=4.15.0,<5.0.0
+
+# Axe-core pour tests WCAG/RGAA automatisés
+axe-selenium-python>=2.1.6
+
+# Pytest avec reporting HTML
+pytest>=8.0.0,<9.0.0
+pytest-html>=4.1.0
+pytest-cov>=4.1.0
+
+# Pillow pour screenshots dans rapports
+Pillow>=10.0.0
+
+# WebDriver Manager pour gestion automatique drivers navigateurs
+webdriver-manager>=4.0.0
