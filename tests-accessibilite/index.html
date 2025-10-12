@@ -22,7 +22,7 @@
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
 
-    <title>Synthèse</title>
+    <title>Tests d'accessibilité SPAN SG</title>
     
     
 </head>
@@ -252,10 +252,8 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="./"
+                href="../synthese/"
                 target="_self"
-                
-                aria-current="page"
                 
                 >Synthèse</a
             >
@@ -386,12 +384,219 @@
                 aria-controls="fr-sidemenu-wrapper"
                 aria-expanded="true"
             >
-                Tableau de bord SPAN SG
+                Tests d'accessibilité SPAN SG
             </button>
             <div class="fr-collapse" id="fr-sidemenu-wrapper">
-                <div class="fr-sidemenu__title">Tableau de bord SPAN SG</div>
+                <div class="fr-sidemenu__title">Tests d'accessibilité SPAN SG</div>
                 <ul class="fr-sidemenu__list">
-                    
+                     
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#vue-densemble"
+                            target="_self"
+                            >Vue d'ensemble</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
+                        >
+                            Tests implémentés
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-homepage-wcag-5-tests"
+                                        target="_self"
+                                        >1. Homepage WCAG (5 tests)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-synthese-table-dsfr-4-tests"
+                                        target="_self"
+                                        >2. Synthese Table DSFR (4 tests)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-pdf-metadata-rgaa-3-tests"
+                                        target="_self"
+                                        >3. PDF Metadata RGAA (3 tests)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#installation"
+                            target="_self"
+                            >Installation</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
+                        >
+                            Usage local
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#prerequis"
+                                        target="_self"
+                                        >Prérequis</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#executer-les-tests"
+                                        target="_self"
+                                        >Exécuter les tests</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#integration-cicd"
+                            target="_self"
+                            >Intégration CI/CD</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
+                        >
+                            Couverture RGAA
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#automatisables-60-65"
+                                        target="_self"
+                                        >Automatisables (60-65%)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#non-automatisables-35-40"
+                                        target="_self"
+                                        >Non automatisables (35-40%)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
+                        >
+                            Roadmap
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-1-monitoring-actuel"
+                                        target="_self"
+                                        >Phase 1 : Monitoring (actuel)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-2-enforcement-v110"
+                                        target="_self"
+                                        >Phase 2 : Enforcement (v1.1.0)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-3-certification-v120"
+                                        target="_self"
+                                        >Phase 3 : Certification (v1.2.0)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#references"
+                            target="_self"
+                            >Références</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#support"
+                            target="_self"
+                            >Support</a
+                        >
+                    </li>
+                     
                 </ul>
             </div>
         </div>
@@ -408,138 +613,123 @@
 
                 
                         
-                        <h1 id="tableau-de-bord-span-sg">Tableau de bord SPAN SG</h1>
-<p><em>Mis à jour le 12/10/2025</em></p>
-<p><strong>État du déploiement v1.0</strong> : 1 module validé (SIRCOM), 5 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement.</p>
-<div class="fr-table fr-table--bordered" id="table-synthese-span">
-    <div class="fr-table__wrapper">
-        <div class="fr-table__container">
-            <div class="fr-table__content"><div class="fr-table">
-<table id="table-span-modules">
-                    <caption>
-                        Synthèse des modules SPAN par service
-                    </caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">
-                                Service
-                            </th>
-                            <th scope="col">
-                                Score
-                            </th>
-                            <th scope="col">
-                                Statut
-                            </th>
-                            <th scope="col">
-                                État
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="table-span-row-bgs" data-row-key="bgs">
-                            <td>
-                                BGS
-                            </td>
-                            <td>
-                                0/31 (0.0%)
-                            </td>
-                            <td>
-                                Non renseigné
-                            </td>
-                            <td>
-                                Brouillon
-                            </td>
-                        </tr>
-                        <tr id="table-span-row-safi" data-row-key="safi">
-                            <td>
-                                SAFI
-                            </td>
-                            <td>
-                                0/31 (0.0%)
-                            </td>
-                            <td>
-                                Non renseigné
-                            </td>
-                            <td>
-                                Brouillon
-                            </td>
-                        </tr>
-                        <tr id="table-span-row-siep" data-row-key="siep">
-                            <td>
-                                SIEP
-                            </td>
-                            <td>
-                                0/31 (0.0%)
-                            </td>
-                            <td>
-                                Non renseigné
-                            </td>
-                            <td>
-                                Brouillon
-                            </td>
-                        </tr>
-                        <tr id="table-span-row-sircom" data-row-key="sircom">
-                            <td>
-                                SIRCOM
-                            </td>
-                            <td>
-                                24/31 (77.4%)
-                            </td>
-                            <td>
-                                Conforme
-                            </td>
-                            <td>
-                                Validé
-                            </td>
-                        </tr>
-                        <tr id="table-span-row-snum" data-row-key="snum">
-                            <td>
-                                SNUM
-                            </td>
-                            <td>
-                                0/31 (0.0%)
-                            </td>
-                            <td>
-                                Non renseigné
-                            </td>
-                            <td>
-                                Brouillon
-                            </td>
-                        </tr>
-                        <tr id="table-span-row-srh" data-row-key="srh">
-                            <td>
-                                SRH
-                            </td>
-                            <td>
-                                0/31 (0.0%)
-                            </td>
-                            <td>
-                                Non renseigné
-                            </td>
-                            <td>
-                                Brouillon
-                            </td>
-                        </tr>
-                        <tr id="table-span-row-total" data-row-key="total">
-                            <td>
-                                <strong>TOTAL</strong>
-                            </td>
-                            <td>
-                                <strong>24/186 (12.9%)</strong>
-                            </td>
-                            <td>
-                                <strong>Global</strong>
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-</div>
-            </div>
-        </div>
-    </div>
-</div>
+                        <h1 id="tests-daccessibilite-span-sg">Tests d'accessibilité SPAN SG</h1>
+<p>Version: 1.0
+Date: 2025-10-12
+Statut: Actif (non-bloquant en CI)</p>
+<h2 id="vue-densemble">Vue d'ensemble</h2>
+<p>Le projet SPAN SG intègre une suite complète de tests d'accessibilité automatisés conformes aux standards WCAG 2.1 AA et RGAA 4.1. Ces tests utilisent axe-core via Selenium pour automatiser 60-65% des vérifications RGAA.</p>
+<h2 id="tests-implementes">Tests implémentés</h2>
+<h3 id="1-homepage-wcag-5-tests">1. Homepage WCAG (5 tests)</h3>
+<ul>
+<li><strong>test_homepage_wcag_violations</strong> : Aucune violation WCAG 2.1 AA critique</li>
+<li><strong>test_homepage_color_contrast</strong> : Contraste des couleurs (WCAG 1.4.3)</li>
+<li><strong>test_homepage_heading_hierarchy</strong> : Hiérarchie des titres h1-h6 (WCAG 1.3.1)</li>
+<li><strong>test_homepage_landmarks</strong> : Présence landmarks ARIA (navigation, main, footer)</li>
+<li><strong>test_homepage_keyboard_navigation</strong> : Accessibilité clavier complète</li>
+</ul>
+<h3 id="2-synthese-table-dsfr-4-tests">2. Synthese Table DSFR (4 tests)</h3>
+<ul>
+<li><strong>test_synthese_table_dsfr_wrapper</strong> : Classes DSFR (fr-table)</li>
+<li><strong>test_synthese_table_aria_labels</strong> : Labels ARIA corrects</li>
+<li><strong>test_synthese_table_caption</strong> : Présence et pertinence du caption</li>
+<li><strong>test_synthese_table_responsive</strong> : Responsive design mobile (375px)</li>
+</ul>
+<h3 id="3-pdf-metadata-rgaa-3-tests">3. PDF Metadata RGAA (3 tests)</h3>
+<ul>
+<li><strong>test_pdf_metadata_title</strong> : Metadata /Title présent (RGAA 13.1)</li>
+<li><strong>test_pdf_metadata_language</strong> : Langue fr-FR déclarée (RGAA 13.3)</li>
+<li><strong>test_pdf_metadata_description</strong> : Metadata Subject/Description présent</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Installer dépendances accessibilité</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-accessibility.txt
+
+<span class="c1"># Chrome/ChromeDriver requis pour Selenium</span>
+<span class="c1"># - macOS: brew install chromedriver</span>
+<span class="c1"># - Linux CI: automatique via browser-actions/setup-chrome@v1</span>
+</code></pre></div>
+<h2 id="usage-local">Usage local</h2>
+<h3 id="prerequis">Prérequis</h3>
+<ol>
+<li>Générer le site HTML : <code>mkdocs build --config-file mkdocs-dsfr.yml</code></li>
+<li>Chrome/ChromeDriver disponible dans PATH</li>
+</ol>
+<h3 id="executer-les-tests">Exécuter les tests</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Tous les tests accessibilité</span>
+pytest<span class="w"> </span>tests/test_accessibility.py<span class="w"> </span>-v
+
+<span class="c1"># Tests homepage uniquement</span>
+pytest<span class="w"> </span>tests/test_accessibility.py<span class="w"> </span>-k<span class="w"> </span>homepage<span class="w"> </span>-v
+
+<span class="c1"># Tests table DSFR uniquement</span>
+pytest<span class="w"> </span>tests/test_accessibility.py<span class="w"> </span>-k<span class="w"> </span>synthese_table<span class="w"> </span>-v
+
+<span class="c1"># Tests PDF uniquement (nécessite exports/span-sg.pdf)</span>
+pytest<span class="w"> </span>tests/test_accessibility.py<span class="w"> </span>-k<span class="w"> </span>pdf_metadata<span class="w"> </span>-v
+
+<span class="c1"># Générer rapport HTML</span>
+pytest<span class="w"> </span>tests/test_accessibility.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--html<span class="o">=</span>accessibility-report.html<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--self-contained-html
+</code></pre></div>
+<h2 id="integration-cicd">Intégration CI/CD</h2>
+<p>Les tests d'accessibilité s'exécutent automatiquement dans GitHub Actions (branche main uniquement) :</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run accessibility tests (non-blocking warnings)</span>
+<span class="w">  </span><span class="nt">continue-on-error</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest tests/test_accessibility.py -v --html=accessibility-report.html</span>
+</code></pre></div>
+<p><strong>Statut actuel</strong> : Non-bloquant (<code>continue-on-error: true</code>)
+- Les échecs n'empêchent pas le déploiement
+- Rapport HTML uploadé comme artefact (30 jours rétention)
+- À activer comme bloquant après stabilisation (Phase 2)</p>
+<h2 id="couverture-rgaa">Couverture RGAA</h2>
+<p>Les tests automatisés couvrent environ 60-65% des critères RGAA 4.1 :</p>
+<h3 id="automatisables-60-65">Automatisables (60-65%)</h3>
+<ul>
+<li>Contraste des couleurs (1.4.3)</li>
+<li>Hiérarchie des titres (1.3.1)</li>
+<li>Labels formulaires (3.3.2)</li>
+<li>Navigation clavier (2.1.1)</li>
+<li>Landmarks ARIA (1.3.1)</li>
+<li>PDF metadata (13.1, 13.3)</li>
+</ul>
+<h3 id="non-automatisables-35-40">Non automatisables (35-40%)</h3>
+<ul>
+<li>Pertinence des alternatives textuelles</li>
+<li>Transcriptions audio/vidéo</li>
+<li>Clarté du langage</li>
+<li>Tests utilisateurs handicapés</li>
+</ul>
+<h2 id="roadmap">Roadmap</h2>
+<h3 id="phase-1-monitoring-actuel">Phase 1 : Monitoring (actuel)</h3>
+<ul>
+<li>Tests non-bloquants en CI</li>
+<li>Rapports HTML pour analyse</li>
+<li>Corrections progressives</li>
+</ul>
+<h3 id="phase-2-enforcement-v110">Phase 2 : Enforcement (v1.1.0)</h3>
+<ul>
+<li>Tests bloquants en CI</li>
+<li>Seuil tolérance 0 violations critiques</li>
+<li>Revue manuelle 35% restants</li>
+</ul>
+<h3 id="phase-3-certification-v120">Phase 3 : Certification (v1.2.0)</h3>
+<ul>
+<li>Audit RGAA complet par expert</li>
+<li>Tests utilisateurs handicapés</li>
+<li>Déclaration accessibilité conforme</li>
+</ul>
+<h2 id="references">Références</h2>
+<ul>
+<li>WCAG 2.1 : https://www.w3.org/TR/WCAG21/</li>
+<li>RGAA 4.1 : https://www.numerique.gouv.fr/publications/rgaa-accessibilite/</li>
+<li>axe-core : https://github.com/dequelabs/axe-core</li>
+<li>DSFR Accessibilité : https://www.systeme-de-design.gouv.fr/utilisation-et-organisation/accessibilite</li>
+</ul>
+<h2 id="support">Support</h2>
+<p>Questions : alexandre@span-sg.gouv.fr
+Issues : https://github.com/Alexmacapple/span-sg-repo/issues</p>
                         
                         
                         <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
@@ -547,17 +737,6 @@
                     </div>
                     <hr />
                     
-	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
-		<ul class="fr-pagination__list">
-			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../modules/srh/" title="SRH" >
-				Page précédente
-			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../processus/" title="Processus" >
-				Page suivante
-			</a></li>
-		</ul>
-	</nav>
-
                 </div>
             </div>
             <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
