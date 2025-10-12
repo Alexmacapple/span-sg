@@ -37,13 +37,14 @@ jobs:
         run: |
           echo "=== Bandit Security Analysis ==="
           echo "Analyzing scripts/ and hooks/ for security issues..."
+          echo "(Excluding test files to avoid false positives)"
           echo ""
 
           # Generate JSON report (non-blocking)
-          bandit -r scripts/ hooks/ -ll -f json -o bandit-report.json || true
+          bandit -r scripts/ hooks/ -ll -x scripts/test_*.py,tests/ -f json -o bandit-report.json || true
 
           # Display summary and fail on HIGH/CRITICAL
-          bandit -r scripts/ hooks/ -ll --format screen
+          bandit -r scripts/ hooks/ -ll -x scripts/test_*.py,tests/ --format screen
 
           echo ""
           echo "=== Bandit analysis complete ==="
@@ -230,13 +231,14 @@ jobs:
         run: |
           echo "=== Bandit Security Analysis ==="
           echo "Analyzing scripts/ and hooks/ for security issues..."
+          echo "(Excluding test files to avoid false positives)"
           echo ""
 
           # Generate JSON report (non-blocking)
-          bandit -r scripts/ hooks/ -ll -f json -o bandit-report.json || true
+          bandit -r scripts/ hooks/ -ll -x scripts/test_*.py,tests/ -f json -o bandit-report.json || true
 
           # Display summary and fail on HIGH/CRITICAL
-          bandit -r scripts/ hooks/ -ll --format screen
+          bandit -r scripts/ hooks/ -ll -x scripts/test_*.py,tests/ --format screen
 
           echo ""
           echo "=== Bandit analysis complete ==="
