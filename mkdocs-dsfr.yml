@@ -27,9 +27,10 @@ theme:
     titre: "SPAN SG"
     sous_titre: "Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général"
     liens_rapides:
-      - name: "Voir le code source sur GitHub"
+      - name: "Code Source GitHub"
         url: "https://github.com/Alexmacapple/span-sg-repo"
         icon: "github"
+        target: "_blank"
 
   # Configuration footer DSFR
   footer:
@@ -81,6 +82,9 @@ hooks:
   - hooks/dsfr_table_wrapper.py
   - hooks/title_cleaner.py
   - hooks/pdf_copy.py
+
+extra_javascript:
+  - assets/extra.js
 
 markdown_extensions:
   - tables
