@@ -38,9 +38,9 @@ run_test() {
 run_test "Backup module SIRCOM" \
     "cp docs/modules/sircom.md $TEMP_DIR/sircom-backup.md"
 
-# Test 2 : Modifier SIRCOM (cocher 1 point)
-run_test "Modifier SIRCOM (cocher Grille recrutement)" \
-    "sed -i 's/- \[ \] Grille de recrutement intégrant/- [x] Grille de recrutement intégrant/' docs/modules/sircom.md"
+# Test 2 : Modifier SIRCOM (cocher 1 point) - sed avec numéro ligne
+run_test "Modifier SIRCOM (cocher premier point CHECKLIST)" \
+    "LINE=\$(grep -n '^- \[ \].*<!-- CHECKLIST -->' docs/modules/sircom.md | head -1 | cut -d: -f1) && sed -i \"\${LINE}s/- \[ \]/- [x]/\" docs/modules/sircom.md"
 
 # Test 3 : Recalculer scores
 run_test "Recalculer scores" \
