@@ -9,8 +9,9 @@ validation_status: validated
 
 **Période** 2024-2027
 **Service** SG-SIRCOM (Secrétariat Général - Service de la Communication)
-**Score global** 24/31 questions validées (77.4%)
-**Dernière mise à jour** 2 octobre 2025
+**Score global** 0/33 critères validés (0.0%)
+**Dernière mise à jour** 13 octobre 2025
+**Note**: Checklist mise à jour vers 33 critères officiels - Réévaluation MiWeb requise
 
 
 ## 1. Périmètre
@@ -101,110 +102,65 @@ validation_status: validated
 - Évaluation qualité offres prestataires incluant accessibilité
 
 
-## Points de contrôle officiels (31 points DINUM)
+## Checklist de conformité (33 critères)
 
-### Catégorie 1 - Politique accessibilité (3 points)
+**Note**: Module en cours de réévaluation avec la nouvelle grille officielle DINUM de 33 critères (migration depuis ancienne grille 31 points). L'ancienne évaluation (24/31 = 77.4%) est documentée dans le SPAN officiel SG-SIRCOM 2024-2027 publié le 18/03/2024. Le référent SIRCOM doit réévaluer chaque critère avec la nouvelle structure.
 
-- [x] Stratégie numérique: accessibilité intégrée et publiée <!-- DINUM -->
-  > **Validé** : SPAN 2024-2027 publié 18/03/2024. Accessibilité définie comme préoccupation majeure SG-SIRCOM avec schéma pluriannuel et plans annuels pour accompagnement mise en conformité RGAA progressive.
+### 1. Vision (3 critères)
 
-- [x] Politique d'inclusion des personnes handicapées formalisée <!-- DINUM -->
-  > **Validé** : Politique formalisée dans SPAN. Garantie égalité droits et chances selon loi 2005-102 du 11/02/2005. Services communication publique en ligne accessibles à tous citoyens, y compris personnes en situation de handicap.
+- [ ] Politique de l'entité en matière d'accessibilité numérique décrite dans le SPAN <!-- CHECKLIST -->
+- [ ] Prise en compte de l'accessibilité numérique dans la stratégie numérique de l'entité <!-- CHECKLIST -->
+- [ ] Prise en compte de l'accessibilité dans la politique d'intégration des personnes en situation de handicap <!-- CHECKLIST -->
 
-- [x] Objectifs mesurables d'accessibilité définis (KPI) <!-- DINUM -->
-  > **Validé** : Objectifs 2024-2027 : déploiement DSFR (conformité totale 7/7 sites à terme), audits RGAA sur périmètre complet, formations 5 profils agents, mise en conformité progressive selon agenda planifié.
+### 2. RAN - Référent Accessibilité Numérique (7 critères)
 
-### Catégorie 2 - Ressources (12 points)
+- [ ] SPAN durée maximum 3 ans (conformité légale art. 47 loi handicap) <!-- CHECKLIST -->
+- [ ] Position fonctionnelle du référent accessibilité numérique décrite <!-- CHECKLIST -->
+- [ ] Missions du référent accessibilité numérique décrites <!-- CHECKLIST -->
+- [ ] Bilan des plans d'actions annuels (si nécessaire) <!-- CHECKLIST -->
+- [ ] Travaux de mise en conformité planifiés annuellement dans plans d'actions <!-- CHECKLIST -->
+- [ ] SPAN et plan d'action année en cours disponibles en ligne sur site de l'entité <!-- CHECKLIST -->
+- [ ] SPAN et plans d'actions publiés dans un format accessible <!-- CHECKLIST -->
 
-- [x] Référent accessibilité numérique officiellement désigné <!-- DINUM -->
-  > **Validé** : Pôle web du bureau de l'assistance et des Technologies Numériques SG/SIRCOM. Contact : <accessibilite.communication@finances.gouv.fr>. Responsabilité : élaboration, suivi, mise à jour SPAN.
+### 3. Organisation (6 critères)
 
-- [x] Temps alloué et moyens du référent définis <!-- DINUM -->
-  > **Validé** : Équipe accessibilité constituée de plusieurs chefs de projets formés. Missions définies : promotion, accompagnement, formation, contrôle conformité, relation Arcom.
+- [ ] Mise en œuvre des ressources et expertises externes décrite (si applicable) <!-- CHECKLIST -->
+- [ ] Mise en œuvre des moyens techniques pour gérer et tester l'accessibilité décrite <!-- CHECKLIST -->
+- [ ] Mise en œuvre de l'outillage pour gérer et tester l'accessibilité décrite <!-- CHECKLIST -->
+- [ ] Organisation interne pour mettre en œuvre les obligations d'accessibilité décrite <!-- CHECKLIST -->
+- [ ] Modalités de contrôle des services numériques décrites <!-- CHECKLIST -->
+- [ ] Modalités d'organisation pour le traitement des demandes des usagers décrites <!-- CHECKLIST -->
 
-- [x] Ressources humaines dédiées identifiées (ETP) <!-- DINUM -->
-  > **Validé** : Équipe accessibilité SIRCOM = plusieurs chefs de projets formés. Rôles : accompagnement montée compétences, accompagnement porteurs projets, suivi prestations externes, contrôles réguliers.
+### 4. Budget (2 critères)
 
-- [x] Budget annuel dédié/identifiable <!-- DINUM -->
-  > **Validé** : Ligne budgétaire dédiée accessibilité numérique, reconduite annuellement pour audits, corrections anomalies, mise en accessibilité contenus (transcription, sous-titrage, LSF, PDF accessible).
+- [ ] Ressources humaines affectées à l'accessibilité numérique décrites <!-- CHECKLIST -->
+- [ ] Ressources financières affectées à l'accessibilité numérique décrites <!-- CHECKLIST -->
 
-- [x] Planification pluriannuelle des moyens (3 ans) <!-- DINUM -->
-  > **Validé** : SPAN 2024-2027 avec plans annuels 2024, 2025, 2026. Ligne budgétaire reconduite. Agenda planifié sur période complète selon complexité et faisabilité.
+### 5. Gestion de projets (7 critères)
 
-- [x] Compétences accessibilité dans les fiches de poste <!-- DINUM -->
-  > **Validé** : Compétences accessibilité exigées sur postes chefs de projets internet. Attention portée lors création fiches postes et recrutement. Parcours sensibilisation/formation proposé nouveaux agents si compétences non préexistantes.
+- [ ] Prise en compte de l'accessibilité numérique dans les nouveaux projets décrite <!-- CHECKLIST -->
+- [ ] Prise en compte des personnes en situation de handicap dans les tests utilisateurs prévue <!-- CHECKLIST -->
+- [ ] Évaluations (ou audits) de conformité prévues pour l'ensemble des services de communication <!-- CHECKLIST -->
+- [ ] Mesures correctives pour traiter les contenus non accessibles décrites <!-- CHECKLIST -->
+- [ ] Calendrier de mise en œuvre priorisé (contenus les plus consultés, services les plus utilisés) <!-- CHECKLIST -->
+- [ ] Mesures d'accessibilité non obligatoires décrites (LSF, FALC, niveau AAA, si nécessaire) <!-- CHECKLIST -->
+- [ ] Liens vers SPAN et plans d'actions présents dans déclarations d'accessibilité des services <!-- CHECKLIST -->
 
-- [ ] Grille de recrutement intégrant l'accessibilité <!-- DINUM -->
-  > **En cours** : Compétences accessibilité prises en compte dans procédures recrutement (fiches postes chefs de projets). Grille évaluation formelle candidats à documenter.
+### 6. RH - Ressources Humaines (3 critères)
 
-- [x] Plan de formation annuel pour les profils clés <!-- DINUM -->
-  > **Validé** : 5 formations selon profils (Sensibilisation, Ergonomie/graphisme, Rédaction, Conception/développement, Auditeur RGAA). Formations IGPDE + MENTOR. Actions tout au long période SPAN.
+- [ ] Prise en compte des compétences/connaissances accessibilité dans les fiches de poste décrite <!-- CHECKLIST -->
+- [ ] Prise en compte des compétences/connaissances accessibilité dans les processus de recrutement décrite <!-- CHECKLIST -->
+- [ ] Actions de formation et de sensibilisation des agents décrites <!-- CHECKLIST -->
 
-- [x] Sensibilisation large (tous agents) planifiée <!-- DINUM -->
-  > **Validé** : Sessions sensibilisation proposées depuis septembre 2021 à l'ensemble agents producteurs/diffuseurs contenus numériques SG/SIRCOM. Accès contenus en ligne IGPDE et MENTOR.
+### 7. Achats (5 critères)
 
-- [x] Formations par rôle (développeurs, UX, éditorial) <!-- DINUM -->
-  > **Validé** : Formations proposées selon besoins et outils : audiovisuels/documentaires/graphiques (créateurs), contributeurs web/community managers (diffuseurs). 5 parcours profils + formations IGPDE/MENTOR métiers.
+- [ ] Intégration de l'accessibilité numérique dans les clauses contractuelles (appels d'offres, devis) prévue <!-- CHECKLIST -->
+- [ ] Intégration de l'accessibilité numérique dans les critères de notation des prestataires prévue <!-- CHECKLIST -->
+- [ ] Intégration de l'accessibilité numérique dans les critères de sélection des prestataires prévue <!-- CHECKLIST -->
+- [ ] Intégration de l'accessibilité numérique dans les procédures de recette prévue <!-- CHECKLIST -->
+- [ ] Intégration de l'accessibilité dans les conventions avec opérateurs/délégataires/partenaires prévue (si nécessaire) <!-- CHECKLIST -->
 
-- [ ] Outils de test/accessibilité référencés et disponibles <!-- DINUM -->
-  > **En cours** : Processus contrôle validation défini (contrôles internes ou prestataires externes). Outils test spécifiques à documenter (validateurs RGAA, assistive technologies, etc.).
-
-- [x] Procédure d'appel à expertise externe et budget associé <!-- DINUM -->
-  > **Validé** : Recours compétences externes chaque fois nécessaire (sensibilisation, formation, audits). Sélection prestataires selon transparence/objectivité, demande plusieurs devis, respect commande publique. Budget ligne budgétaire annuelle.
-
-### Catégorie 3 - Conception accessible (8 points)
-
-- [x] Processus internes documentés (intégration accessibilité) <!-- DINUM -->
-  > **Validé** : Objectifs accessibilité et conformité RGAA inscrits dès début projets (axe majeur, exigence base). Rappel dans conventions opérateurs/délégataires/partenaires. Équipe accessibilité mobilisable phases conception/réalisation. Documentation diffusée.
-
-- [x] Modalités de contrôle périodique définies <!-- DINUM -->
-  > **Validé** : Contrôles lors mise en ligne initiale, mise à jour substantielle, refonte, fin opérations mises aux normes. Contrôles internes (personne formée non impliquée projet) ou externes (intervenant spécialisé). Contrôles tout au long vie projets.
-
-- [x] Process de traitement des demandes usagers (accès/retour) <!-- DINUM -->
-  > **Validé** : Moyen contact sur chaque site/application : <accessibilite.communication@finances.gouv.fr>. Procédure spécifique assistance mise en place avec services et personnels impliqués. Conformité RGAA et attentes légitimes utilisateurs.
-
-- [x] Clauses accessibilité dans marchés/commandes <!-- DINUM -->
-  > **Validé** : Accessibilité numérique et conformité RGAA = clause contraignante appels d'offres. Participation évaluation qualité offre prestataire. Procédures élaboration marchés et règles évaluation candidatures adaptées.
-
-- [ ] Critères de sélection/pondération incluant accessibilité <!-- DINUM -->
-  > **En cours** : Accessibilité intégrée évaluation qualité offres. Pondération précise critères sélection à documenter (pourcentage note technique attribué accessibilité).
-
-- [ ] Exigence de livrables conformes et preuves de conformité <!-- DINUM -->
-  > **En cours** : Audits réalisés par prestataires externes (position tiers confiance). Livrables attendus (rapports audit, recommandations techniques, déclarations conformité) à formaliser explicitement dans cahiers charges.
-
-- [x] Accessibilité intégrée dès la conception (projets neufs) <!-- DINUM -->
-  > **Validé** : Objectifs accessibilité rappelés dès début projets. Équipe accessibilité accompagne porteurs projets phases conception/réalisation. Utilisation DSFR obligatoire (composants accessibles par défaut) selon circulaire 6411-SG 07/07/2023.
-
-- [ ] Tests incluant des personnes handicapées <!-- DINUM -->
-  > **À planifier** : Tests utilisateurs incluant personnes en situation de handicap à intégrer processus validation (recommandation 2 sessions/an avec panels diversifiés déficiences visuelles/mobilité réduite/cognitives).
-
-### Catégorie 4 - Suivi et amélioration (3 points)
-
-- [x] Évaluations/audits planifiés pour tous les services <!-- DINUM -->
-  > **Validé** : Périmètre 7 sites (5 internet, 1 extranet, 1 intranet) recensés annexe 1 SPAN. Audits planifiés selon priorisation (fréquentation, service rendu, criticité, cycle vie, technologies). Agenda planifié 2024-2027.
-
-- [x] Calendrier de corrections priorisé sur usages/volumétrie <!-- DINUM -->
-  > **Validé** : Priorisation définie par critères : fréquentation, service rendu, criticité, cycle de vie (refonte prévue), technologies employées. Priorités 1 (3 sites forte audience), 2 (3 sites), 3 (1 extranet). Mise en conformité étalée 2024-2027.
-
-- [x] Suivi de couverture (audités vs total) et périodicité des évaluations <!-- DINUM -->
-  > **Validé** : Couverture périmètre : 7/7 sites inventoriés annexe 1. Contrôles périodiques lors événements (mise en ligne, maj substantielle, refonte, fin mises aux normes). Plans annuels détaillent opérations annuelles.
-
-### Catégorie 5 - Audits et conformité (5 points)
-
-- [ ] Accès LSF/vidéo pour contenus concernés <!-- DINUM -->
-  > **En cours** : Ligne budgétaire prévoit sous-titrage et LSF. Contenus audio/vidéo préenregistrés publiés avant 23/09/2020 hors champ légal. Périmètre vidéos institutionnelles prioritaires et modalités LSF à préciser.
-
-- [ ] Traduction FALC pour contenus concernés <!-- DINUM -->
-  > **À planifier** : Démarches essentielles concernées à identifier. Traduction FALC (Facile À Lire et à Comprendre) à intégrer pour contenus prioritaires accessibilité cognitive.
-
-- [x] Prise en compte de critères AAA pertinents <!-- DINUM -->
-  > **Validé** : Utilisation DSFR (Système Design État) imposant bonnes pratiques au-delà AA. Composants accessibles DSFR intègrent critères AAA pertinents (contraste renforcé, navigation optimisée). Remontée anomalies DSFR au SIG.
-
-- [x] Bilan annuel réalisé et publié <!-- DINUM -->
-  > **Validé** : SPAN 2024-2027 publié 18/03/2024. Plans annuels 2024 (publié 04/04/2024), 2025 (prévu T4 2024), 2026 (prévu T4 2025). Déclarations conformité établies/mises à jour tout au long vie projets.
-
-- [x] Plan d'action annuel publié (format accessible) <!-- DINUM -->
-  > **Validé** : Plans annuels publiés : 2024 (04/04/2024), 2025 (prévu T4 2024), 2026 (prévu T4 2025). Plans détaillent opérations mises en œuvre pour besoins accessibilité SG-SIRCOM.
+**Score: 0/33 (0.0%)**
 
 
 ## Périmètre du service (détail)

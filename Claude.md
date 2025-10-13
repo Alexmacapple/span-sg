@@ -87,15 +87,17 @@ git push -u origin feature/update-[service]
 
 ## Architecture technique
 
-### Pipeline de scoring (31 points DINUM)
-Le système repose sur un **comptage strict** des cases cochées marquées `<!-- DINUM -->`:
+### Pipeline de scoring (33 critères CHECKLIST)
+Le système repose sur un **comptage strict** des cases cochées marquées `<!-- CHECKLIST -->`:
 - `scripts/calculate_scores.py` scanne `docs/modules/*.md`
-- Recherche les lignes: `- [x] ... <!-- DINUM -->`
+- Recherche les lignes: `- [x] ... <!-- CHECKLIST -->`
 - Compte checked/total par module
-- Échoue si total ≠ 0 ou 31 (validation périmètre)
+- Échoue si total ≠ 0 ou 33 (validation périmètre)
 - Génère `docs/synthese.md` avec tableau agrégé
 
-**Règle absolue**: Ne jamais ajouter/supprimer de balises `<!-- DINUM -->`. Seules les coches `[x]` peuvent être modifiées.
+**Règle absolue**: Ne jamais ajouter/supprimer de balises `<!-- CHECKLIST -->`. Seules les coches `[x]` peuvent être modifiées.
+
+**Source officielle**: Checklist de 33 critères extraite du fichier DINUM/Arcom `SPAN-checklist-v2024-02-05-AAL.ots` (voir ADR-006).
 
 ### Structure modulaire
 ```

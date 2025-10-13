@@ -10,10 +10,10 @@ class TestLoadText:
 
     def test_removes_code_fences(self, tmp_path):
         content = """
-- [x] Point réel <!-- DINUM -->
+- [x] Point réel <!-- CHECKLIST -->
 
 ```markdown
-- [x] Point dans fence <!-- DINUM -->
+- [x] Point dans fence <!-- CHECKLIST -->
 ```
         """
         file = tmp_path / "test.md"
@@ -33,40 +33,40 @@ class TestScoreModule:
         assert checked == 0
         assert total == 0
 
-    def test_module_0_of_31(self, tmp_path):
-        content = "".join([f"- [ ] Point {i} <!-- DINUM -->\n" for i in range(31)])
+    def test_module_0_of_33(self, tmp_path):
+        content = "".join([f"- [ ] Point {i} <!-- CHECKLIST -->\n" for i in range(33)])
         file = tmp_path / "unchecked.md"
         file.write_text(content)
         checked, total = score_module(file)
         assert checked == 0
-        assert total == 31
+        assert total == 33
 
-    def test_module_6_of_31_sircom(self, tmp_path):
+    def test_module_6_of_33_sircom(self, tmp_path):
         content = "".join(
-            [f"- [x] Point {i} <!-- DINUM -->\n" for i in range(6)]
-        ) + "".join([f"- [ ] Point {i} <!-- DINUM -->\n" for i in range(6, 31)])
+            [f"- [x] Point {i} <!-- CHECKLIST -->\n" for i in range(6)]
+        ) + "".join([f"- [ ] Point {i} <!-- CHECKLIST -->\n" for i in range(6, 33)])
         file = tmp_path / "sircom.md"
         file.write_text(content)
         checked, total = score_module(file)
         assert checked == 6
-        assert total == 31
-        assert (checked / total * 100) == pytest.approx(19.4, abs=0.1)
+        assert total == 33
+        assert (checked / total * 100) == pytest.approx(18.2, abs=0.1)
 
-    def test_module_31_of_31(self, tmp_path):
-        content = "".join([f"- [x] Point {i} <!-- DINUM -->\n" for i in range(31)])
+    def test_module_33_of_33(self, tmp_path):
+        content = "".join([f"- [x] Point {i} <!-- CHECKLIST -->\n" for i in range(33)])
         file = tmp_path / "complete.md"
         file.write_text(content)
         checked, total = score_module(file)
-        assert checked == 31
-        assert total == 31
+        assert checked == 33
+        assert total == 33
 
-    def test_module_invalid_30_points(self, tmp_path):
-        content = "".join([f"- [ ] Point {i} <!-- DINUM -->\n" for i in range(30)])
+    def test_module_invalid_32_criteria(self, tmp_path):
+        content = "".join([f"- [ ] Point {i} <!-- CHECKLIST -->\n" for i in range(32)])
         file = tmp_path / "invalid.md"
         file.write_text(content)
         checked, total = score_module(file)
-        assert total == 30
-        assert total not in (0, 31)
+        assert total == 32
+        assert total not in (0, 33)
 
 
 class TestStatusLogic:
@@ -75,11 +75,11 @@ class TestStatusLogic:
     @pytest.mark.parametrize(
         "checked,total,expected",
         [
-            (31, 31, "✓ Conforme"),  # 100%
-            (24, 31, "✓ Conforme"),  # 77.4% >= 75%
-            (23, 31, "En cours"),  # 74.2% < 75%
-            (1, 31, "En cours"),  # 3.2% > 0%
-            (0, 31, "Non renseigné"),  # 0%
+            (33, 33, "✓ Conforme"),  # 100%
+            (26, 33, "✓ Conforme"),  # 78.8% >= 75%
+            (24, 33, "En cours"),  # 72.7% < 75%
+            (1, 33, "En cours"),  # 3.0% > 0%
+            (0, 33, "Non renseigné"),  # 0%
             (0, 0, "Non renseigné"),  # Division par zéro
         ],
     )
@@ -95,18 +95,18 @@ class TestRegexPatterns:
     """Tests patterns regex"""
 
     def test_box_regex_unchecked(self):
-        text = "- [ ] Point <!-- DINUM -->"
+        text = "- [ ] Point <!-- CHECKLIST -->"
         match = BOX_RE.search(text)
         assert match is not None
         assert match.group(1) == " "
 
     def test_box_regex_checked_lowercase(self):
-        text = "- [x] Point <!-- DINUM -->"
+        text = "- [x] Point <!-- CHECKLIST -->"
         match = BOX_RE.search(text)
         assert match.group(1) == "x"
 
     def test_box_regex_checked_uppercase(self):
-        text = "- [X] Point <!-- DINUM -->"
+        text = "- [X] Point <!-- CHECKLIST -->"
         match = BOX_RE.search(text)
         assert match.group(1) == "X"
 
@@ -123,7 +123,7 @@ class TestGenerateSummary:
         modules_dir = tmp_path / "docs" / "modules"
         modules_dir.mkdir(parents=True)
 
-        content = "".join([f"- [ ] P{i} <!-- DINUM -->\n" for i in range(31)])
+        content = "".join([f"- [ ] P{i} <!-- CHECKLIST -->\n" for i in range(33)])
         (modules_dir / "test.md").write_text(content)
 
         monkeypatch.chdir(tmp_path)
@@ -139,7 +139,7 @@ class TestGenerateSummary:
         modules_dir = tmp_path / "docs" / "modules"
         modules_dir.mkdir(parents=True)
 
-        content = "".join([f"- [ ] P{i} <!-- DINUM -->\n" for i in range(30)])
+        content = "".join([f"- [ ] P{i} <!-- CHECKLIST -->\n" for i in range(32)])
         (modules_dir / "invalid.md").write_text(content)
 
         monkeypatch.chdir(tmp_path)
@@ -151,4 +151,4 @@ class TestGenerateSummary:
         assert exit_code == 2
         captured = capsys.readouterr()
         assert "Erreurs de périmètre" in captured.out
-        assert "invalid.md: 30 points" in captured.out
+        assert "invalid.md: 32 critères" in captured.out

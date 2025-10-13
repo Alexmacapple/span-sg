@@ -25,14 +25,14 @@ En haut à droite du fichier.
 
 **Ce que vous pouvez faire** :
 
-- ✅ Cocher des cases `[x]` dans les 31 points DINUM
+- ✅ Cocher des cases `[x]` dans les 33 critères de conformité
 - ✅ Compléter les sections 1-5 (Périmètre, État des lieux, Organisation, Plan d'action, Indicateurs)
 - ✅ Ajouter des actions au tableau "Plan d'actions prioritaires"
 - ✅ Renseigner l'URL de déclaration d'accessibilité
 
 **Ce que vous ne devez PAS faire** :
 
-- ❌ Ajouter/supprimer des lignes `<!-- DINUM -->`
+- ❌ Ajouter/supprimer des lignes `<!-- CHECKLIST -->`
 - ❌ Modifier la structure (titres des sections)
 - ❌ Toucher au front-matter (section `---` en haut)
 
