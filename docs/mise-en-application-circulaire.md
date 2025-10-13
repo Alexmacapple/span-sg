@@ -7,8 +7,6 @@ L'ordre du jour comprend une dizaine de points, dont :
 - Un point consacré aux démarches essentielles
 - Un point sur l'accessibilité de la communication et du numérique
 
-**Action demandée :** Merci de remonter les actions récentes menées dans vos équipes et sur les outils de communication (sites web internet et intranet) afin de les valoriser le cas échéant.
-
 ## Schéma Pluriannuel d'Accessibilité Numérique (SPAN)
 
 La MiWeb a entamé la réalisation d'un SPAN sur le périmètre SG :
