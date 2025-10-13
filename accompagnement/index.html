@@ -424,9 +424,9 @@
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#nouvelle-grille-de-conformite-33-criteres"
+                            href="#grille-de-conformite-dun-span-33-criteres"
                             target="_self"
-                            >Nouvelle grille de conformité (33 critères)</a
+                            >Grille de conformité d'un SPAN (33 critères)</a
                         >
                     </li>
                       
@@ -539,7 +539,7 @@
                                         class="fr-sidemenu__link"
                                         href="#etape-2-validation-par-miweb"
                                         target="_self"
-                                        >Étape 2: Validation par MiWeb</a
+                                        >Étape 2 : Validation par MiWeb</a
                                     >
                                 </li>
                                 
@@ -548,7 +548,7 @@
                                         class="fr-sidemenu__link"
                                         href="#etape-3-publication"
                                         target="_self"
-                                        >Étape 3: Publication</a
+                                        >Étape 3 : Publication</a
                                     >
                                 </li>
                                 
@@ -575,7 +575,7 @@
                                         class="fr-sidemenu__link"
                                         href="#regle-1-ne-jamais-modifier-les-balises"
                                         target="_self"
-                                        >Règle 1: Ne jamais modifier les balises</a
+                                        >Règle 1 : Ne jamais modifier les balises</a
                                     >
                                 </li>
                                 
@@ -584,7 +584,7 @@
                                         class="fr-sidemenu__link"
                                         href="#regle-2-total-de-33-criteres-exactement"
                                         target="_self"
-                                        >Règle 2: Total de 33 critères exactement</a
+                                        >Règle 2 : Total de 33 critères exactement</a
                                     >
                                 </li>
                                 
@@ -593,7 +593,7 @@
                                         class="fr-sidemenu__link"
                                         href="#regle-3-format-des-cases-a-cocher"
                                         target="_self"
-                                        >Règle 3: Format des cases à cocher</a
+                                        >Règle 3 : Format des cases à cocher</a
                                     >
                                 </li>
                                 
@@ -602,7 +602,7 @@
                                         class="fr-sidemenu__link"
                                         href="#regle-4-preserver-la-structure"
                                         target="_self"
-                                        >Règle 4: Préserver la structure</a
+                                        >Règle 4 : Préserver la structure</a
                                     >
                                 </li>
                                 
@@ -702,7 +702,7 @@
 <p>Ce guide accompagne les référents de service pour compléter leur module SPAN avec la checklist officielle de 33 critères DINUM/Arcom.</p>
 <h2 id="principe-general">Principe général</h2>
 <p>Chaque service du Secrétariat Général doit documenter son Schéma Pluriannuel d'Accessibilité Numérique (SPAN) en cochant les critères de conformité correspondant à sa situation réelle.</p>
-<h2 id="nouvelle-grille-de-conformite-33-criteres">Nouvelle grille de conformité (33 critères)</h2>
+<h2 id="grille-de-conformite-dun-span-33-criteres">Grille de conformité d'un SPAN (33 critères)</h2>
 <p><strong>Migration effectuée</strong>: La grille a évolué de 31 points DINUM vers 33 critères officiels extraits du fichier de référence DINUM/Arcom (SPAN-checklist-v2024-02-05-AAL.ots).</p>
 <p><strong>Source officielle</strong>: Checklist validée conforme au référentiel DINUM pour l'élaboration des SPAN des entités publiques.</p>
 <h2 id="structure-de-la-checklist">Structure de la checklist</h2>
@@ -788,35 +788,44 @@
 </code></pre></div></p>
 </li>
 </ol>
-<h3 id="etape-2-validation-par-miweb">Étape 2: Validation par MiWeb</h3>
-<p>MiWeb effectue une revue technique et légale:
-- Vérification cohérence des critères cochés
-- Validation des justifications fournies
-- Ajustements si nécessaire (avec accord du référent)
-- Changement du statut: <code>in_progress</code> → <code>validated</code></p>
-<h3 id="etape-3-publication">Étape 3: Publication</h3>
-<p>Une fois validé, le module est intégré:
-- Génération automatique du tableau de bord (docs/synthese.md)
-- Calcul du score global: X/33 critères (XX.X%)
-- Détermination du statut:
-  - <strong>Conforme</strong>: ≥ 75% (≥ 25/33 critères)
-  - <strong>En cours</strong>: &gt; 0% et &lt; 75%
-  - <strong>Non renseigné</strong>: 0%</p>
+<h3 id="etape-2-validation-par-miweb">Étape 2 : Validation par MiWeb</h3>
+<p>MiWeb effectue une revue technique et légale :</p>
+<ul class="fr-raw-list">
+  <li>Vérification cohérence des critères cochés</li>
+  <li>Validation des justifications fournies</li>
+  <li>Ajustements si nécessaire (avec accord du référent)</li>
+  <li>Changement du statut : <code>in_progress</code> → <code>validated</code></li>
+</ul>
+
+<h3 id="etape-3-publication">Étape 3 : Publication</h3>
+<p>Une fois validé, le module est intégré :</p>
+<ul class="fr-raw-list">
+  <li>Génération automatique du tableau de bord (docs/synthese.md)</li>
+  <li>Calcul du score global : X/33 critères (XX.X%)</li>
+  <li>Détermination du statut :
+    <ul>
+      <li><strong>Conforme</strong> : ≥ 75% (≥ 25/33 critères)</li>
+      <li><strong>En cours</strong> : > 0% et < 75%</li>
+      <li><strong>Non renseigné</strong> : 0%</li>
+    </ul>
+  </li>
+</ul>
+
 <h2 id="regles-strictes-a-respecter">Règles strictes à respecter</h2>
-<p><strong>ATTENTION</strong>: Ces règles sont critiques pour le bon fonctionnement du système.</p>
-<h3 id="regle-1-ne-jamais-modifier-les-balises">Règle 1: Ne jamais modifier les balises</h3>
+<p><strong>ATTENTION</strong> : Ces règles sont critiques pour le bon fonctionnement du système.</p>
+<h3 id="regle-1-ne-jamais-modifier-les-balises">Règle 1 : Ne jamais modifier les balises</h3>
 <p><div class="highlight"><pre><span></span><code>&lt;!-- CHECKLIST --&gt;
 </code></pre></div>
 Ces balises sont utilisées par le script de calcul automatique. Ne pas les supprimer, déplacer ou modifier.</p>
-<h3 id="regle-2-total-de-33-criteres-exactement">Règle 2: Total de 33 critères exactement</h3>
+<h3 id="regle-2-total-de-33-criteres-exactement">Règle 2 : Total de 33 critères exactement</h3>
 <p>Le script vérifie que chaque module contient exactement 0 ou 33 critères balisés. Tout autre nombre déclenchera une erreur en CI.</p>
-<h3 id="regle-3-format-des-cases-a-cocher">Règle 3: Format des cases à cocher</h3>
+<h3 id="regle-3-format-des-cases-a-cocher">Règle 3 : Format des cases à cocher</h3>
 <ul>
-<li>Case décochée: <code>- [ ]</code> (espace entre les crochets)</li>
-<li>Case cochée: <code>- [x]</code> ou <code>- [X]</code> (x ou X, pas d'espace)</li>
+<li>Case décochée : <code>- [ ]</code> (espace entre les crochets)</li>
+<li>Case cochée : <code>- [x]</code> ou <code>- [X]</code> (x ou X, pas d'espace)</li>
 <li>Le tiret et l'espace avant <code>[</code> sont obligatoires</li>
 </ul>
-<h3 id="regle-4-preserver-la-structure">Règle 4: Préserver la structure</h3>
+<h3 id="regle-4-preserver-la-structure">Règle 4 : Préserver la structure</h3>
 <p>Ne pas ajouter, supprimer ou réorganiser les 7 catégories. La structure est normalisée.</p>
 <h2 id="conseils-pratiques">Conseils pratiques</h2>
 <h3 id="pour-demarrer">Pour démarrer</h3>
