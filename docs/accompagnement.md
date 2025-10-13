@@ -6,7 +6,7 @@ Ce guide accompagne les référents de service pour compléter leur module SPAN 
 
 Chaque service du Secrétariat Général doit documenter son Schéma Pluriannuel d'Accessibilité Numérique (SPAN) en cochant les critères de conformité correspondant à sa situation réelle.
 
-## Nouvelle grille de conformité (33 critères)
+## Grille de conformité d'un SPAN (33 critères)
 
 **Migration effectuée**: La grille a évolué de 31 points DINUM vers 33 critères officiels extraits du fichier de référence DINUM/Arcom (SPAN-checklist-v2024-02-05-AAL.ots).
 
@@ -87,43 +87,52 @@ La checklist est organisée en 7 catégories thématiques:
    ---
    ```
 
-### Étape 2: Validation par MiWeb
+### Étape 2 : Validation par MiWeb
 
-MiWeb effectue une revue technique et légale:
-- Vérification cohérence des critères cochés
-- Validation des justifications fournies
-- Ajustements si nécessaire (avec accord du référent)
-- Changement du statut: `in_progress` → `validated`
+MiWeb effectue une revue technique et légale :
 
-### Étape 3: Publication
+<ul class="fr-raw-list">
+  <li>Vérification cohérence des critères cochés</li>
+  <li>Validation des justifications fournies</li>
+  <li>Ajustements si nécessaire (avec accord du référent)</li>
+  <li>Changement du statut : <code>in_progress</code> → <code>validated</code></li>
+</ul>
 
-Une fois validé, le module est intégré:
-- Génération automatique du tableau de bord (docs/synthese.md)
-- Calcul du score global: X/33 critères (XX.X%)
-- Détermination du statut:
-  - **Conforme**: ≥ 75% (≥ 25/33 critères)
-  - **En cours**: > 0% et < 75%
-  - **Non renseigné**: 0%
+### Étape 3 : Publication
+
+Une fois validé, le module est intégré :
+
+<ul class="fr-raw-list">
+  <li>Génération automatique du tableau de bord (docs/synthese.md)</li>
+  <li>Calcul du score global : X/33 critères (XX.X%)</li>
+  <li>Détermination du statut :
+    <ul>
+      <li><strong>Conforme</strong> : ≥ 75% (≥ 25/33 critères)</li>
+      <li><strong>En cours</strong> : > 0% et < 75%</li>
+      <li><strong>Non renseigné</strong> : 0%</li>
+    </ul>
+  </li>
+</ul>
 
 ## Règles strictes à respecter
 
-**ATTENTION**: Ces règles sont critiques pour le bon fonctionnement du système.
+**ATTENTION** : Ces règles sont critiques pour le bon fonctionnement du système.
 
-### Règle 1: Ne jamais modifier les balises
+### Règle 1 : Ne jamais modifier les balises
 ```markdown
 <!-- CHECKLIST -->
 ```
 Ces balises sont utilisées par le script de calcul automatique. Ne pas les supprimer, déplacer ou modifier.
 
-### Règle 2: Total de 33 critères exactement
+### Règle 2 : Total de 33 critères exactement
 Le script vérifie que chaque module contient exactement 0 ou 33 critères balisés. Tout autre nombre déclenchera une erreur en CI.
 
-### Règle 3: Format des cases à cocher
-- Case décochée: `- [ ]` (espace entre les crochets)
-- Case cochée: `- [x]` ou `- [X]` (x ou X, pas d'espace)
+### Règle 3 : Format des cases à cocher
+- Case décochée : `- [ ]` (espace entre les crochets)
+- Case cochée : `- [x]` ou `- [X]` (x ou X, pas d'espace)
 - Le tiret et l'espace avant `[` sont obligatoires
 
-### Règle 4: Préserver la structure
+### Règle 4 : Préserver la structure
 Ne pas ajouter, supprimer ou réorganiser les 7 catégories. La structure est normalisée.
 
 ## Conseils pratiques
