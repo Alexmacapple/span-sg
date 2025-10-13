@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Scénario : Détecter erreur périmètre (≠ 31 points)
+# Scénario : Détecter erreur périmètre (≠ 33 points)
 
 set -euo pipefail
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
@@ -10,8 +10,8 @@ echo "Scénario : Erreur périmètre"
 # Backup
 cp docs/modules/sircom.md /tmp/
 
-# Supprimer 1 checkbox DINUM (31 → 30) - sed avec numéro ligne
-LINE=$(grep -n '^- \[[ x]\].*<!-- DINUM -->' docs/modules/sircom.md | head -1 | cut -d: -f1)
+# Supprimer 1 checkbox CHECKLIST (33 → 30) - sed avec numéro ligne
+LINE=$(grep -n '^- \[[ x]\].*<!-- CHECKLIST -->' docs/modules/sircom.md | head -1 | cut -d: -f1)
 sed -i.bak "${LINE}d" docs/modules/sircom.md
 rm -f docs/modules/sircom.md.bak
 
