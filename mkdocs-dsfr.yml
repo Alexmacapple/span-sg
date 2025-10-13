@@ -50,7 +50,7 @@ plugins:
 
 nav:
   - SPAN (SG): index.md
-  - Contexte réglementaire: documentation/Mise en application de la Circulaire.md
+  - Contexte réglementaire: Mise en application de la Circulaire.md
   - SPAN (services):
     - BGS: modules/bgs.md
     - SAFI: modules/safi.md
