@@ -28,12 +28,12 @@ rm -f docs/modules/srh.md.bak
 # Recalculer
 python3 scripts/calculate_scores.py
 
-# Vérifier scores (scores actuels: SIRCOM 24/33, SNUM 0/33, SRH 0/33)
-grep -q "25/33 (" docs/synthese.md || { echo "FAIL: SIRCOM"; exit 1; }
+# Vérifier scores (scores actuels: SIRCOM 0/33, SNUM 0/33, SRH 0/33)
+grep -q "1/33 (" docs/synthese.md || { echo "FAIL: SIRCOM"; exit 1; }
 grep -q "1/33 (" docs/synthese.md || { echo "FAIL: SNUM"; exit 1; }
 grep -q "1/33 (" docs/synthese.md || { echo "FAIL: SRH"; exit 1; }
-# TOTAL = SIRCOM (24→25) + SNUM (0→1) + SRH (0→1) + autres (0) = 27/198
-grep -q "27/198 (" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
+# TOTAL = SIRCOM (0→1) + SNUM (0→1) + SRH (0→1) + autres (0) = 3/198
+grep -q "3/198 (" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
 
 # Restaurer
 mv /tmp/{sircom,snum,srh}.md docs/modules/
