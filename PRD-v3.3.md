@@ -11,7 +11,7 @@
 ## 1. objectif
 
 Créer un framework simple et modulaire pour le SPAN SG permettant  
-1) édition décentralisée par service, 2) agrégation automatique SG, 3) versioning, 4) export HTML/PDF, 5) scoring automatique sur la checklist DINUM (31 points).  
+1) édition décentralisée par service, 2) agrégation automatique SG, 3) versioning, 4) export HTML/PDF, 5) scoring automatique sur la checklist DINUM (33 critères).  
 Principe directeur: simple, fonctionnel, efficace.
 
 ---
@@ -97,10 +97,10 @@ markdown_extensions:
       permalink: true
 ```
 
-### 3.2 scoring des 31 points
+### 3.2 scoring des 33 critères
 
-Principe: seules les cases marquées `<!-- DINUM -->` sont comptées.  
-Le script échoue si un module contient un nombre de points différent de 31 (ou 0 si non renseigné).
+Principe: seules les cases marquées `<!-- CHECKLIST -->` sont comptées.  
+Le script échoue si un module contient un nombre de points différent de 33 (ou 0 si non renseigné).
 
 ```python
 #!/usr/bin/env python3
@@ -109,7 +109,7 @@ import re
 from pathlib import Path
 from datetime import datetime
 
-CHECK_TAG = "DINUM"
+CHECK_TAG = "CHECKLIST"
 FENCE_RE = re.compile(r"```.*?```", re.S)
 BOX_RE = re.compile(r"- \[(x|X| )\].*?<!--\\s*%s\\s*-->" % CHECK_TAG)
 
@@ -139,8 +139,8 @@ def generate_summary():
         if module.name.startswith("_"):
             continue
         checked, total = score_module(module)
-        if total not in (0, 31):
-            errors.append(f"{module.name}: {total} points tagués <!-- {CHECK_TAG} --> (attendu 31 ou 0)")
+        if total not in (0, 33):
+            errors.append(f"{module.name}: {total} points tagués <!-- {CHECK_TAG} --> (attendu 33 ou 0)")
         pct = round((checked / total) * 100, 1) if total else 0.0
         status = "✓ Conforme" if pct >= 75 else "En cours" if total else "Non renseigné"
         rows.append(f"| {module.stem.upper()} | {checked}/{total} ({pct}%) | {status} |")
@@ -208,7 +208,7 @@ Gestion d’urgence
 `hotfix/` vers `main` pour corrections critiques, revue rapide.
 
 Checklist de revue PR  
-31 points DINUM présents, pas de cases orphelines, front-matter, dates cohérentes, liens valides, pas d’identifiants en clair, synthèse CI OK, intitulés propres.
+33 critères DINUM présents, pas de cases orphelines, front-matter, dates cohérentes, liens valides, pas d’identifiants en clair, synthèse CI OK, intitulés propres.
 
 ---
 
@@ -279,7 +279,7 @@ Option A interface GitHub (débutants)
 1) aller sur github.com/[org]/span-sg  
 2) docs/modules/[service].md  
 3) icône crayon Edit  
-4) cocher uniquement les lignes `<!-- DINUM -->`  
+4) cocher uniquement les lignes `<!-- CHECKLIST -->`  
 5) Commit changes  
 6) PR vers `draft`
 
@@ -347,7 +347,7 @@ Semaine 1 setup
 [x] repo GitHub privé
 [x] docker local
 [x] mkdocs base + strict
-[x] template 31 `<!-- DINUM -->`
+[x] template 31 `<!-- CHECKLIST -->`
 [x] script scoring testé
 [x] import module SIRCOM
 
@@ -499,7 +499,7 @@ Si applicable, pour chaque service
 - Échéance de réévaluation
 ```
 
-## E. docs/modules/_template.md – squelette 31 points balisés
+## E. docs/modules/_template.md – squelette 33 critères balisés
 
 ```markdown
 ---
@@ -511,42 +511,44 @@ updated: "2025-09-30"
 # SPAN [SERVICE] - Schéma Pluriannuel d'accessibilité numérique
 
 **Période** 2025-2027  
-**Score global** [X/31] questions validées ([XX] %)  
+**Score global** [X/33] questions validées ([XX] %)  
 **Dernière mise à jour** [DATE]
 
-## points de contrôle officiels (31)
+## Checklist de conformité (33 critères)
 
-- [ ] Point #01 <!-- DINUM -->
-- [ ] Point #02 <!-- DINUM -->
-- [ ] Point #03 <!-- DINUM -->
-- [ ] Point #04 <!-- DINUM -->
-- [ ] Point #05 <!-- DINUM -->
-- [ ] Point #06 <!-- DINUM -->
-- [ ] Point #07 <!-- DINUM -->
-- [ ] Point #08 <!-- DINUM -->
-- [ ] Point #09 <!-- DINUM -->
-- [ ] Point #10 <!-- DINUM -->
-- [ ] Point #11 <!-- DINUM -->
-- [ ] Point #12 <!-- DINUM -->
-- [ ] Point #13 <!-- DINUM -->
-- [ ] Point #14 <!-- DINUM -->
-- [ ] Point #15 <!-- DINUM -->
-- [ ] Point #16 <!-- DINUM -->
-- [ ] Point #17 <!-- DINUM -->
-- [ ] Point #18 <!-- DINUM -->
-- [ ] Point #19 <!-- DINUM -->
-- [ ] Point #20 <!-- DINUM -->
-- [ ] Point #21 <!-- DINUM -->
-- [ ] Point #22 <!-- DINUM -->
-- [ ] Point #23 <!-- DINUM -->
-- [ ] Point #24 <!-- DINUM -->
-- [ ] Point #25 <!-- DINUM -->
-- [ ] Point #26 <!-- DINUM -->
-- [ ] Point #27 <!-- DINUM -->
-- [ ] Point #28 <!-- DINUM -->
-- [ ] Point #29 <!-- DINUM -->
-- [ ] Point #30 <!-- DINUM -->
-- [ ] Point #31 <!-- DINUM -->
+- [ ] Critère #01 <!-- CHECKLIST -->
+- [ ] Critère #02 <!-- CHECKLIST -->
+- [ ] Critère #03 <!-- CHECKLIST -->
+- [ ] Critère #04 <!-- CHECKLIST -->
+- [ ] Critère #05 <!-- CHECKLIST -->
+- [ ] Critère #06 <!-- CHECKLIST -->
+- [ ] Critère #07 <!-- CHECKLIST -->
+- [ ] Critère #08 <!-- CHECKLIST -->
+- [ ] Critère #09 <!-- CHECKLIST -->
+- [ ] Critère #10 <!-- CHECKLIST -->
+- [ ] Critère #11 <!-- CHECKLIST -->
+- [ ] Critère #12 <!-- CHECKLIST -->
+- [ ] Critère #13 <!-- CHECKLIST -->
+- [ ] Critère #14 <!-- CHECKLIST -->
+- [ ] Critère #15 <!-- CHECKLIST -->
+- [ ] Critère #16 <!-- CHECKLIST -->
+- [ ] Critère #17 <!-- CHECKLIST -->
+- [ ] Critère #18 <!-- CHECKLIST -->
+- [ ] Critère #19 <!-- CHECKLIST -->
+- [ ] Critère #20 <!-- CHECKLIST -->
+- [ ] Critère #21 <!-- CHECKLIST -->
+- [ ] Critère #22 <!-- CHECKLIST -->
+- [ ] Critère #23 <!-- CHECKLIST -->
+- [ ] Critère #24 <!-- CHECKLIST -->
+- [ ] Critère #25 <!-- CHECKLIST -->
+- [ ] Critère #26 <!-- CHECKLIST -->
+- [ ] Critère #27 <!-- CHECKLIST -->
+- [ ] Critère #28 <!-- CHECKLIST -->
+- [ ] Critère #29 <!-- CHECKLIST -->
+- [ ] Critère #30 <!-- CHECKLIST -->
+- [ ] Critère #31 <!-- CHECKLIST -->
+- [ ] Critère #32 <!-- CHECKLIST -->
+- [ ] Critère #33 <!-- CHECKLIST -->
 
 ## périmètre du service
 
