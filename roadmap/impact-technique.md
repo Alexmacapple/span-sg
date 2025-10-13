@@ -1,9 +1,10 @@
-# Analyse Technique: Impacts Migration 31 → 34
+# Analyse Technique: Impacts Migration 31 → 33
 
 **Date:** 2025-10-13
 **Phase:** 1 (Analyse technique)
 **Auteur:** Système
 **Durée:** 3h
+**Note:** Document initial estimait 34 critères. L'extraction du fichier .ots officiel a révélé 33 critères réels.
 
 ---
 
@@ -44,15 +45,15 @@ CHECK_TAG = "CHECKLIST"  # Ligne 6
 
 def calculate_module_score(filepath: Path) -> Tuple[int, int, str]:
     ...
-    if total not in (0, 34):  # Ligne 96
+    if total not in (0, 33):  # Ligne 96
         raise ValueError(
-            f"{module.name}: {total} critères tagués <!-- {CHECK_TAG} --> (attendu 34 ou 0)"  # Ligne 98
+            f"{module.name}: {total} critères tagués <!-- {CHECK_TAG} --> (attendu 33 ou 0)"  # Ligne 98
         )
 ```
 
 **Autres modifications:**
-- Commentaires/docstrings mentionnant "31 DINUM" → "34 checklist"
-- Variables `EXPECTED_TOTAL = 31` → `EXPECTED_TOTAL = 34` (si existantes)
+- Commentaires/docstrings mentionnant "31 DINUM" → "33 checklist"
+- Variables `EXPECTED_TOTAL = 31` → `EXPECTED_TOTAL = 33` (si existantes)
 
 **Criticité:** ⭐⭐⭐ CRITIQUE (cœur logique scoring)
 
@@ -75,10 +76,10 @@ def test_module_0_of_31(self, tmp_path):
     assert total == 31
 
 # APRÈS
-def test_module_0_of_34(self, tmp_path):
-    content = "".join([f"- [ ] Critère {i} <!-- CHECKLIST -->\n" for i in range(34)])
+def test_module_0_of_33(self, tmp_path):
+    content = "".join([f"- [ ] Critère {i} <!-- CHECKLIST -->\n" for i in range(33)])
     ...
-    assert total == 34
+    assert total == 33
 ```
 
 #### Test 2: `test_module_6_of_31_sircom`
@@ -92,44 +93,44 @@ def test_module_6_of_31_sircom(self, tmp_path):
     assert total == 31
 
 # APRÈS
-def test_module_6_of_34_sircom(self, tmp_path):
+def test_module_6_of_33_sircom(self, tmp_path):
     content = (
         "".join([f"- [x] Critère {i} <!-- CHECKLIST -->\n" for i in range(6)])
-    ) + "".join([f"- [ ] Critère {i} <!-- CHECKLIST -->\n" for i in range(6, 34)])
+    ) + "".join([f"- [ ] Critère {i} <!-- CHECKLIST -->\n" for i in range(6, 33)])
     ...
-    assert total == 34
+    assert total == 33
 ```
 
-#### Test 3: `test_module_31_of_31`
+#### Test 3: `test_module_33_of_33`
 ```python
 # AVANT (Ligne 55-61)
-def test_module_31_of_31(self, tmp_path):
+def test_module_33_of_33(self, tmp_path):
     content = "".join([f"- [x] Point {i} <!-- DINUM -->\n" for i in range(31)])
     ...
     assert checked == 31
     assert total == 31
 
 # APRÈS
-def test_module_34_of_34(self, tmp_path):
-    content = "".join([f"- [x] Critère {i} <!-- CHECKLIST -->\n" for i in range(34)])
+def test_module_33_of_33(self, tmp_path):
+    content = "".join([f"- [x] Critère {i} <!-- CHECKLIST -->\n" for i in range(33)])
     ...
-    assert checked == 34
-    assert total == 34
+    assert checked == 33
+    assert total == 33
 ```
 
-#### Test 4: `test_invalid_module_30_points`
+#### Test 4: `test_invalid_module_32_criteria`
 ```python
 # AVANT (Ligne 63-69)
-def test_invalid_module_30_points(self, tmp_path):
+def test_invalid_module_32_criteria(self, tmp_path):
     content = "".join([f"- [ ] Point {i} <!-- DINUM -->\n" for i in range(30)])
     ...
     assert total not in (0, 31)
 
 # APRÈS
-def test_invalid_module_33_criteria(self, tmp_path):
-    content = "".join([f"- [ ] Critère {i} <!-- CHECKLIST -->\n" for i in range(33)])
+def test_invalid_module_32_criteria(self, tmp_path):
+    content = "".join([f"- [ ] Critère {i} <!-- CHECKLIST -->\n" for i in range(32)])
     ...
-    assert total not in (0, 34)
+    assert total not in (0, 33)
 ```
 
 #### Test 5: Test data `get_status_label`
@@ -150,11 +151,11 @@ def test_invalid_module_33_criteria(self, tmp_path):
 @pytest.mark.parametrize(
     "checked, total, expected",
     [
-        (34, 34, "✓ Conforme"),  # 100%
-        (26, 34, "✓ Conforme"),  # 76.5% >= 75%
-        (25, 34, "En cours"),  # 73.5% < 75%
-        (1, 34, "En cours"),  # 2.9% > 0%
-        (0, 34, "Non renseigné"),  # 0%
+        (33, 33, "✓ Conforme"),  # 100%
+        (26, 33, "✓ Conforme"),  # 76.5% >= 75%
+        (25, 33, "En cours"),  # 73.5% < 75%
+        (1, 33, "En cours"),  # 2.9% > 0%
+        (0, 33, "Non renseigné"),  # 0%
     ],
 )
 ```
@@ -183,7 +184,7 @@ def test_invalid_module_33_criteria(self, tmp_path):
 ```bash
 cp scripts/calculate_scores.py scripts/calculate_scores_v1_31dinum.py
 git add scripts/calculate_scores_v1_31dinum.py
-git commit -m "backup: scoring 31 DINUM avant migration 34"
+git commit -m "backup: scoring 31 DINUM avant migration 33"
 ```
 
 **Justification:**
@@ -216,7 +217,7 @@ git commit -m "backup: scoring 31 DINUM avant migration 34"
 [31 points au total, liste plate]
 
 <!-- APRÈS -->
-## Checklist de conformité (34 critères)
+## Checklist de conformité (33 critères)
 
 ### 1. Vision (3 critères)
 - [ ] Politique d'accessibilité numérique formalisée <!-- CHECKLIST -->
@@ -247,12 +248,12 @@ git commit -m "backup: scoring 31 DINUM avant migration 34"
 ### 7. Achats (5 critères)
 ...
 
-[34 critères au total, structurés en 7 catégories]
+[33 critères au total, structurés en 7 catégories]
 ```
 
 **Criticité:** ⭐⭐ Important (template référence pour 6 modules)
 
-**Effort:** 30min (extraction checklist-34 depuis checklist-span.md)
+**Effort:** 30min (extraction checklist-33 depuis checklist-span.md)
 
 ---
 
@@ -264,18 +265,18 @@ git commit -m "backup: scoring 31 DINUM avant migration 34"
 
 **Processus:**
 1. Lire contenu SIRCOM actuel (250 lignes)
-2. Mapper chaque critère 34 vs contenu présent
+2. Mapper chaque critère 33 vs contenu présent
 3. Cocher `[x]` critères conformes
-4. Identifier 3 nouveaux critères ajoutés dans version 34:
+4. Identifier 3 nouveaux critères ajoutés dans version 33:
    - Format accessible SPAN (PDF/A, HTML RGAA)
    - Mise à jour régulière SPAN (annuelle)
    - Suivi conformité marchés (recette livrables)
-5. Calculer nouveau score X/34
+5. Calculer nouveau score X/33
 
 **Scénarios:**
-- Optimiste: 28/34 (82.4%) si 3 nouveaux conformes → +5%
-- Réaliste: 26/34 (76.5%) si 2/3 nouveaux → Stable
-- Pessimiste: 24/34 (70.6%) si 0/3 nouveaux + 1 ancien décoché → -7%
+- Optimiste: 28/33 (82.4%) si 3 nouveaux conformes → +5%
+- Réaliste: 26/33 (76.5%) si 2/3 nouveaux → Stable
+- Pessimiste: 24/33 (70.6%) si 0/3 nouveaux + 1 ancien décoché → -7%
 
 **Criticité:** ⭐⭐ Important (module référence)
 
@@ -292,10 +293,10 @@ git commit -m "backup: scoring 31 DINUM avant migration 34"
 **Processus:**
 1. Ouvrir module (ex: snum.md)
 2. Supprimer section `## points de contrôle officiels (31)`
-3. Copier section `## Checklist de conformité (34 critères)` depuis _template.md mis à jour
+3. Copier section `## Checklist de conformité (33 critères)` depuis _template.md mis à jour
 4. Conserver front-matter et structure 5 sections
 
-**Impact:** ✅ Nul (déjà vides, intègrent directement 34)
+**Impact:** ✅ Nul (déjà vides, intègrent directement 33)
 
 **Criticité:** ⭐ Faible (modules vides)
 
@@ -329,13 +330,13 @@ git commit -m "backup: scoring 31 DINUM avant migration 34"
 <!-- APRÈS -->
 <tr>
     <td>SIRCOM</td>
-    <td>26/34 (76.5%)</td>  ← Score réévalué
+    <td>26/33 (76.5%)</td>  ← Score réévalué
     <td>Conforme</td>
     <td>Validé</td>
 </tr>
 <tr>
     <td>SNUM</td>
-    <td>0/34 (0.0%)</td>
+    <td>0/33 (0.0%)</td>
     <td>Non renseigné</td>
     <td>Brouillon</td>
 </tr>
@@ -371,7 +372,7 @@ git commit -m "backup: scoring 31 DINUM avant migration 34"
   run: mkdocs build --config-file mkdocs-dsfr.yml --strict
 ```
 
-**Impact:** synthese.md régénéré avec scores X/34 → ✅ Build OK
+**Impact:** synthese.md régénéré avec scores X/33 → ✅ Build OK
 
 #### Step: Run unit tests (Ligne 78)
 ```yaml
@@ -379,7 +380,7 @@ git commit -m "backup: scoring 31 DINUM avant migration 34"
   run: python -m pytest scripts/ -v --cov=scripts --cov-report=term-missing
 ```
 
-**Impact:** Tests modifiés pour 34 critères → ⚠️ Doit passer après adaptation tests
+**Impact:** Tests modifiés pour 33 critères → ⚠️ Doit passer après adaptation tests
 
 **Action:** Tester CI sur branche feature avant merge main
 
@@ -412,14 +413,14 @@ Le système repose sur un comptage strict des cases cochées marquées `<!-- DIN
 
 <!-- APRÈS -->
 ### Contraintes strictes
-- Ne pas modifier la logique de scoring: 34 critères balisés `<!-- CHECKLIST -->` uniquement.
+- Ne pas modifier la logique de scoring: 33 critères balisés `<!-- CHECKLIST -->` uniquement.
 - Périmètre v1: 6 modules (SNUM, SIRCOM, SRH, SIEP, SAFI, BGS).
 
-### Pipeline de scoring (34 critères checklist)
+### Pipeline de scoring (33 critères checklist)
 Le système repose sur un comptage strict des cases cochées marquées `<!-- CHECKLIST -->`:
 - Compte checked/total par module
-- Échoue si total ≠ 0 ou 34 (validation périmètre)
-- Génère `docs/synthese.md` avec scores X/34
+- Échoue si total ≠ 0 ou 33 (validation périmètre)
+- Génère `docs/synthese.md` avec scores X/33
 
 **Règle absolue**: Ne jamais ajouter/supprimer de balises `<!-- CHECKLIST -->`. Seules les coches `[x]` peuvent être modifiées.
 ```
@@ -437,7 +438,7 @@ Le système repose sur un comptage strict des cases cochées marquées `<!-- CHE
 **Contenu nouveau:**
 - Workflow référent (5 étapes)
 - Workflow MiWeb (validation)
-- Auto-évaluation 34 critères
+- Auto-évaluation 33 critères
 
 **Criticité:** ⭐⭐ Important (guide utilisateurs)
 
@@ -463,9 +464,9 @@ Chaque module contient une checklist de 31 points de contrôle DINUM, balisés `
 - Module complété: exactement 31 points
 
 <!-- APRÈS -->
-### 2.2 scoring des 34 critères
+### 2.2 scoring des 33 critères
 
-Chaque module contient une checklist de 34 critères de conformité SPAN, balisés `<!-- CHECKLIST -->`.
+Chaque module contient une checklist de 33 critères de conformité SPAN, balisés `<!-- CHECKLIST -->`.
 
 **Grille d'évaluation:**
 1. Vision (3 critères)
@@ -477,8 +478,8 @@ Chaque module contient une checklist de 34 critères de conformité SPAN, balis�
 7. Achats (5 critères)
 
 **Règle de validation:**
-- Module vide: 0/34 accepté
-- Module complété: exactement 34 critères
+- Module vide: 0/33 accepté
+- Module complété: exactement 33 critères
 
 **Note:** Cette grille remplace les 31 points DINUM initiaux (voir ADR-006).
 ```
@@ -489,12 +490,12 @@ Chaque module contient une checklist de 34 critères de conformité SPAN, balis�
 
 ---
 
-### 5.4 docs/adr/006-migration-checklist-34.md (NOUVEAU)
+### 5.4 docs/adr/006-migration-checklist-33.md (NOUVEAU)
 
 **Contenu:** Architecture Decision Record complet
 
 **Sections:**
-- Contexte (31 obsolète, 34 officiel)
+- Contexte (31 obsolète, 33 officiel)
 - Décision (migration)
 - Justification (conformité + guidage)
 - Conséquences (positives/négatives)
@@ -515,7 +516,7 @@ Chaque module contient une checklist de 34 critères de conformité SPAN, balis�
 
 **Sections:**
 - Introduction SPAN SG
-- Comprendre checklist 34 (7 catégories)
+- Comprendre checklist 33 (7 catégories)
 - Workflow de complétion (diagramme Mermaid)
 - Ressources disponibles
 - Accompagnement MiWeb
@@ -618,7 +619,7 @@ nav:
 ---
 
 ### Phase 4 (Mise à jour modules)
-**Dépendances:** Phase 2 (checklist-34-formatted.md)
+**Dépendances:** Phase 2 (checklist-33-formatted.md)
 **Fichiers:**
 1. docs/modules/_template.md
 2. docs/modules/{bgs,safi,siep,snum,srh}.md (5 modules vides)
@@ -643,7 +644,7 @@ nav:
 ### Phase 6 (Documentation)
 **Dépendances:** Phases 3-5 terminées
 **Fichiers:**
-1. docs/adr/006-migration-checklist-34.md
+1. docs/adr/006-migration-checklist-33.md
 2. CONTRIBUTING.md
 3. CLAUDE.md
 4. PRD-v3.3.md
@@ -692,11 +693,11 @@ nav:
 
 ## Prochaine Étape
 
-**Phase 2:** Extraction et formatage checklist 34 critères depuis `documentation/checklist-span.md`
+**Phase 2:** Extraction et formatage checklist 33 critères depuis `documentation/checklist-span.md`
 
 **Livrables attendus:**
-- `roadmap/checklist-34-raw.md` (34 critères bruts)
-- `roadmap/checklist-34-formatted.md` (Markdown cochable avec `<!-- CHECKLIST -->`)
+- `roadmap/checklist-33-raw.md` (33 critères bruts)
+- `roadmap/checklist-33-formatted.md` (Markdown cochable avec `<!-- CHECKLIST -->`)
 
 ---
 

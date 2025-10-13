@@ -1,4 +1,4 @@
-# Roadmap: Migration Conformité 31 → 34 Critères Officiels DINUM
+# Roadmap: Migration Conformité 31 → 33 Critères Officiels DINUM
 
 **Créé:** 2025-10-13
 **Statut:** ✅ Validé (conformité légale requise)
@@ -10,7 +10,7 @@
 
 ### Contexte
 
-Le SPAN SG utilise actuellement un scoring basé sur 31 points (ancienne version). La référence officielle DINUM/Arcom comprend **34 critères** documentés dans `documentation/checklist-span.md`.
+Le SPAN SG utilise actuellement un scoring basé sur 31 points (ancienne version). La référence officielle DINUM/Arcom comprend **33 critères** documentés dans `documentation/checklist-span.md`.
 
 **Situation actuelle:** NON CONFORME
 **Après migration:** CONFORME avec référence officielle
@@ -18,7 +18,7 @@ Le SPAN SG utilise actuellement un scoring basé sur 31 points (ancienne version
 ### Objectifs
 
 1. Rétablir conformité légale DINUM/Arcom
-2. Aligner sur standard national (tous ministères utilisent 34)
+2. Aligner sur standard national (tous ministères utilisent 33)
 3. Améliorer guidage référents (checklist structurée 7 catégories)
 
 ### ROI
@@ -38,13 +38,13 @@ Le SPAN SG utilise actuellement un scoring basé sur 31 points (ancienne version
 ### Benefits (Bénéfices)
 
 **B1 - Conformité légale rétablie**
-- ✅ 34 critères = référence officielle DINUM/Arcom
+- ✅ 33 critères = référence officielle DINUM/Arcom
 - ✅ Élimine risque rejet lors contrôle
 - ✅ Actuellement NON CONFORME avec 31 points obsolètes
 
 **B2 - Alignement méthodologique**
 - ✅ Checklist officielle utilisée par évaluateurs SPAN professionnels
-- ✅ Grille fine (34 vs 31) = évaluation qualité accrue
+- ✅ Grille fine (33 vs 31) = évaluation qualité accrue
 - ✅ Catégorisation claire (7 thématiques)
 
 **B3 - Guidage référents**
@@ -53,7 +53,7 @@ Le SPAN SG utilise actuellement un scoring basé sur 31 points (ancienne version
 - ✅ Page accompagnement.md = ressources centralisées
 
 **B4 - Comparabilité nationale**
-- ✅ Score X/34 comparable avec autres ministères
+- ✅ Score X/33 comparable avec autres ministères
 - ✅ Inclusion baromètre DINUM national
 - ✅ Communication externe facilitée
 
@@ -65,7 +65,7 @@ Le SPAN SG utilise actuellement un scoring basé sur 31 points (ancienne version
 - Cible: ≥ 2 commits/module/mois
 
 **M2 - Qualité SPAN**
-- KPI: Score moyen 34 critères
+- KPI: Score moyen 33 critères
 - Mesure: Moyenne pondérée des 6 modules
 - Cible: ≥ 70% (conforme) d'ici fin 2026
 
@@ -91,7 +91,7 @@ Le SPAN SG utilise actuellement un scoring basé sur 31 points (ancienne version
 - Mitigation: Obtenir mandat officiel direction
 
 **A3 - Disponibilité MiWeb**
-- Hypothèse: MiWeb peut valider 5 modules × 34 critères = 170 évaluations
+- Hypothèse: MiWeb peut valider 5 modules × 33 critères = 170 évaluations
 - Validation: Charge travail compatible
 - Mitigation: Checklist guidée réduit itérations
 
@@ -108,12 +108,12 @@ Le SPAN SG utilise actuellement un scoring basé sur 31 points (ancienne version
 - ❌ Risque régression: CI peut casser si tests mal adaptés
 
 **D2 - Réévaluation SIRCOM**
-- ❌ Module validé 24/31 (77%) doit être réévalué avec 34 critères
+- ❌ Module validé 24/31 (77%) doit être réévalué avec 33 critères
 - ❌ Charge travail: MiWeb doit auditer SIRCOM à nouveau
 - ❌ Risque: Score peut varier (77% → X% si critères plus stricts)
 
 **D3 - Formation utilisateurs**
-- ❌ Référents doivent apprendre nouveau système (34 vs 31)
+- ❌ Référents doivent apprendre nouveau système (33 vs 31)
 - ❌ Documentation à mettre à jour (CLAUDE, CONTRIBUTING, PRD)
 - ❌ Communication changement (email référents, réunion)
 
@@ -125,16 +125,16 @@ Le SPAN SG utilise actuellement un scoring basé sur 31 points (ancienne version
 
 **Fichiers modifiés:**
 1. `scripts/calculate_scores.py` (scoring)
-2. `docs/modules/_template.md` (checklist 34)
+2. `docs/modules/_template.md` (checklist 33)
 3. `docs/modules/{bgs,safi,siep,sircom,snum,srh}.md` (6 modules)
-4. `docs/synthese.md` (tableau scores X/34)
+4. `docs/synthese.md` (tableau scores X/33)
 5. `docs/index.md` (teaser accompagnement)
 6. `docs/accompagnement.md` (NOUVEAU)
 7. `mkdocs-dsfr.yml` (navigation)
 8. `.github/workflows/build.yml` (CI adaptation)
 9. `tests/test_calculate_scores.py` (tests unitaires)
 10. `CLAUDE.md`, `CONTRIBUTING.md`, `PRD-v3.3.md` (docs)
-11. `docs/adr/006-migration-checklist-34.md` (NOUVEAU)
+11. `docs/adr/006-migration-checklist-33.md` (NOUVEAU)
 
 **Total:** 11 fichiers modifiés, 2 nouveaux = **13 fichiers impactés**
 
@@ -149,11 +149,11 @@ Le SPAN SG utilise actuellement un scoring basé sur 31 points (ancienne version
 
 **Situation actuelle:**
 - ❌ SPAN SG utilise 31 points (ancienne version)
-- ❌ **NON CONFORME** avec référence officielle 34 critères
+- ❌ **NON CONFORME** avec référence officielle 33 critères
 - ⚠️ Risque rejet lors contrôle Arcom
 
 **Après migration:**
-- ✅ SPAN SG utilise 34 critères (version officielle)
+- ✅ SPAN SG utilise 33 critères (version officielle)
 - ✅ **CONFORME** DINUM/Arcom
 - ✅ Risque rejet éliminé
 
@@ -165,27 +165,27 @@ Le SPAN SG utilise actuellement un scoring basé sur 31 points (ancienne version
 - ✅ Guidage amélioré (checklist structurée)
 - ✅ Autonomie (auto-évaluation)
 - ⚠️ Courbe apprentissage (nouveau système)
-- ⚠️ Charge travail (34 critères à comprendre)
+- ⚠️ Charge travail (33 critères à comprendre)
 
 **MiWeb (1 équipe: validation)**
 - ✅ Grille évaluation explicite (objectivité)
-- ❌ Charge validation: 5 modules × 34 critères = 170 évaluations
-- ❌ Réévaluation SIRCOM (24/31 → X/34)
-- ⚠️ Formation interne (comprendre 34 critères)
+- ❌ Charge validation: 5 modules × 33 critères = 170 évaluations
+- ❌ Réévaluation SIRCOM (24/31 → X/33)
+- ⚠️ Formation interne (comprendre 33 critères)
 
 **Sponsors (Direction SG)**
 - ✅ Conformité légale rétablie
-- ✅ Transparence accrue (score X/34 plus fin)
+- ✅ Transparence accrue (score X/33 plus fin)
 - ✅ Comparabilité nationale (baromètre DINUM)
 
 ### Impact 4: Utilisateurs Finaux (POSITIF)
 
 **Citoyens consultant SPAN SG:**
-- ✅ Score X/34 = format standard attendu
+- ✅ Score X/33 = format standard attendu
 - ✅ Transparence identique
 
 **Référents autres ministères:**
-- ✅ Comparabilité rétablie (tous utilisent 34)
+- ✅ Comparabilité rétablie (tous utilisent 33)
 - ✅ Partage bonnes pratiques facilité
 
 ---
@@ -194,15 +194,15 @@ Le SPAN SG utilise actuellement un scoring basé sur 31 points (ancienne version
 
 ### Phase 0: Documentation Évolution (30min) - OPTIONNEL
 
-**Objectif:** Documenter différences 31→34 pour traçabilité.
+**Objectif:** Documenter différences 31→33 pour traçabilité.
 
 **Actions:**
-1. Créer `roadmap/evolution-31-34.md`
-2. Identifier quels 3 critères ajoutés dans version 34
+1. Créer `roadmap/evolution-31-33.md`
+2. Identifier quels 3 critères ajoutés dans version 33
 3. Documenter rationale changement
 
 **Livrables:**
-- `roadmap/evolution-31-34.md`
+- `roadmap/evolution-31-33.md`
 
 ### Phase 1: Analyse Technique (3h)
 
@@ -236,13 +236,13 @@ cat .github/workflows/build.yml | grep -B2 -A2 "synthese"
 **Livrables:**
 - `roadmap/ci-impacts.md`: Steps CI à tester
 
-### Phase 2: Extraction Checklist 34 (2h)
+### Phase 2: Extraction Checklist 33 (2h)
 
 **Objectif:** Transformer checklist-span.md en Markdown structuré.
 
 **2.1 Parser checklist-span.md (30min)**
 
-Créer `roadmap/checklist-34-raw.md` avec:
+Créer `roadmap/checklist-33-raw.md` avec:
 - 1. Vision (3 critères)
 - 2. RAN (7 critères)
 - 3. Organisation (6 critères)
@@ -262,22 +262,22 @@ Créer `roadmap/checklist-34-raw.md` avec:
 ```
 
 **2.3 Valider exhaustivité (30min)**
-- Compter critères: doit totaliser 34
+- Compter critères: doit totaliser 33
 - Vérifier balises `<!-- CHECKLIST -->` sur chaque ligne
 - Peer review MiWeb
 
 **Livrables:**
-- `roadmap/checklist-34-formatted.md`: Checklist prête à intégrer
+- `roadmap/checklist-33-formatted.md`: Checklist prête à intégrer
 
 ### Phase 3: Refactoring Scoring (3h)
 
-**Objectif:** Modifier calculate_scores.py pour scorer 34 checklist.
+**Objectif:** Modifier calculate_scores.py pour scorer 33 checklist.
 
 **3.1 Sauvegarder version actuelle (5min)**
 ```bash
 cp scripts/calculate_scores.py scripts/calculate_scores_v1_31dinum.py
 git add scripts/calculate_scores_v1_31dinum.py
-git commit -m "backup: scoring 31 DINUM avant migration 34"
+git commit -m "backup: scoring 31 DINUM avant migration 33"
 ```
 
 **3.2 Modifier calculate_scores.py (1h30)**
@@ -290,23 +290,23 @@ EXPECTED_TOTAL = 31
 
 # APRÈS
 CHECKLIST_PATTERN = r'- \[([ x])\].*?<!-- CHECKLIST -->'
-EXPECTED_TOTAL = 34
+EXPECTED_TOTAL = 33
 ```
 
 **3.3 Adapter tests unitaires (1h)**
 
 Modifier `scripts/test_calculate_scores.py`:
 ```python
-def test_valid_module_34_criteria():
-    content = "- [x] Test <!-- CHECKLIST -->\n" * 34
-    assert calculate_module_score(content) == (34, 34)
+def test_valid_module_33_criteria():
+    content = "- [x] Test <!-- CHECKLIST -->\n" * 33
+    assert calculate_module_score(content) == (33, 33)
 ```
 
 **3.4 Tester localement (30min)**
 ```bash
 python -m pytest scripts/test_calculate_scores.py -v
 python scripts/calculate_scores.py
-cat docs/synthese.md | grep "0/34"
+cat docs/synthese.md | grep "0/33"
 ```
 
 **Livrables:**
@@ -316,7 +316,7 @@ cat docs/synthese.md | grep "0/34"
 
 ### Phase 4: Mise à Jour Modules (2h30)
 
-**Objectif:** Intégrer checklist 34 dans les 6 modules.
+**Objectif:** Intégrer checklist 33 dans les 6 modules.
 
 **4.1 Mettre à jour _template.md (30min)**
 
@@ -324,11 +324,11 @@ Structure:
 ```markdown
 # SPAN [SERVICE]
 
-## Checklist de conformité (34 critères)
+## Checklist de conformité (33 critères)
 
-[Copier roadmap/checklist-34-formatted.md]
+[Copier roadmap/checklist-33-formatted.md]
 
-**Score: 0/34 (0.0%)**
+**Score: 0/33 (0.0%)**
 
 ---
 
@@ -345,15 +345,15 @@ Modules: BGS, SAFI, SIEP, SNUM, SRH
 
 **4.3 Réévaluer SIRCOM (1h)**
 
-Mapper chaque critère 34 vs contenu SIRCOM actuel.
+Mapper chaque critère 33 vs contenu SIRCOM actuel.
 
 **4.4 Mettre à jour synthese.md (30min)**
 
-Afficher scores X/34 pour les 6 modules.
+Afficher scores X/33 pour les 6 modules.
 
 **Livrables:**
-- 6 modules avec checklist 34
-- synthese.md affiche X/34
+- 6 modules avec checklist 33
+- synthese.md affiche X/33
 
 ### Phase 5: Page Accompagnement (1h30)
 
@@ -363,7 +363,7 @@ Afficher scores X/34 pour les 6 modules.
 
 Structure:
 - Introduction SPAN SG
-- Comprendre checklist 34 (7 catégories)
+- Comprendre checklist 33 (7 catégories)
 - Workflow de complétion (diagramme)
 - Ressources disponibles
 - Accompagnement MiWeb
@@ -404,9 +404,9 @@ nav:
 
 **6.1 Créer ADR-006 (45min)**
 
-`docs/adr/006-migration-checklist-34.md`:
-- Contexte: 31 points obsolètes, 34 critères officiels
-- Décision: Migration vers 34 pour conformité
+`docs/adr/006-migration-checklist-33.md`:
+- Contexte: 31 points obsolètes, 33 critères officiels
+- Décision: Migration vers 33 pour conformité
 - Justification: Conformité légale + guidage
 - Conséquences: Positives (conformité) + Négatives (refactoring)
 
@@ -415,19 +415,19 @@ nav:
 Ajouter section "Compléter un Module SPAN":
 - Workflow référent (5 étapes)
 - Workflow MiWeb (4 étapes validation)
-- Auto-évaluation 34 critères
+- Auto-évaluation 33 critères
 
 **6.3 Mettre à jour CLAUDE.md (30min)**
 
 Modifier sections:
-- Contraintes strictes: 34 points `<!-- CHECKLIST -->`
-- Pipeline de scoring: 34 critères (pas 31 DINUM)
+- Contraintes strictes: 33 critères `<!-- CHECKLIST -->`
+- Pipeline de scoring: 33 critères (pas 31 DINUM)
 
 **6.4 Mettre à jour PRD-v3.3.md (15min)**
 
-Section "2.2 scoring des 34 critères":
+Section "2.2 scoring des 33 critères":
 - Grille évaluation 7 catégories
-- Règle validation: 0 ou 34 exactement
+- Règle validation: 0 ou 33 exactement
 
 **Livrables:**
 - ADR-006 complet
@@ -448,7 +448,7 @@ python -m pytest scripts/test_calculate_scores.py --cov=scripts --cov-fail-under
 **7.2 Tests intégration (30min)**
 ```bash
 python scripts/calculate_scores.py
-cat docs/synthese.md | grep "0/34\|28/34"
+cat docs/synthese.md | grep "0/33\|28/33"
 mkdocs build --config-file mkdocs-dsfr.yml --strict
 ```
 
@@ -460,10 +460,10 @@ cd tests/e2e
 
 **7.4 Tester CI sur branche (30min)**
 ```bash
-git checkout -b feature/migration-checklist-34
+git checkout -b feature/migration-checklist-33
 git add .
-git commit -m "feat(scoring): migration 31 → 34 critères officiels (ADR-006)"
-git push origin feature/migration-checklist-34
+git commit -m "feat(scoring): migration 31 → 33 critères officiels (ADR-006)"
+git push origin feature/migration-checklist-33
 gh run watch
 ```
 
@@ -479,9 +479,9 @@ gh run watch
 
 | Phase | Durée | Dépendances | Livrable |
 |-------|-------|-------------|----------|
-| 0. Documentation évolution | 30min | - | evolution-31-34.md |
+| 0. Documentation évolution | 30min | - | evolution-31-33.md |
 | 1. Analyse technique | 3h | Phase 0 | impact-technique.md |
-| 2. Extraction checklist | 2h | - | checklist-34-formatted.md |
+| 2. Extraction checklist | 2h | - | checklist-33-formatted.md |
 | 3. Refactoring scoring | 3h | Phase 2 | calculate_scores.py modifié |
 | 4. Mise à jour modules | 2h30 | Phase 3 | 6 modules + synthese.md |
 | 5. Page accompagnement | 1h30 | - | accompagnement.md |
@@ -568,7 +568,7 @@ gh run watch
 
 **Coût rollback:** 2h (automatisable via script)
 
-**Note:** Pas de rollback légal nécessaire (34 = conformité obligatoire)
+**Note:** Pas de rollback légal nécessaire (33 = conformité obligatoire)
 
 ---
 
@@ -601,14 +601,14 @@ gh run watch
 
 ### Documentation Projet
 
-- [ADR-006](../docs/adr/006-migration-checklist-34.md)
-- [Checklist 34 formatted](checklist-34-formatted.md)
-- [Évolution 31→34](evolution-31-34.md)
+- [ADR-006](../docs/adr/006-migration-checklist-33.md)
+- [Checklist 33 formatted](checklist-33-formatted.md)
+- [Évolution 31→33](evolution-31-33.md)
 - [Impact technique](impact-technique.md)
 
 ### Références Externes
 
-- [Checklist SPAN 34 critères](../documentation/checklist-span.md)
+- [Checklist SPAN 33 critères](../documentation/checklist-span.md)
 - [Les attendus du SPAN](../documentation/les-attendus-du-span.md)
 - [RGAA - Schéma pluriannuel](https://accessibilite.numerique.gouv.fr/obligations/schema-pluriannuel/)
 
@@ -619,15 +619,15 @@ gh run watch
 **Statut:** ✅ **GO VALIDÉ**
 
 **Justification:**
-- Conformité légale obligatoire (34 critères = référence officielle)
+- Conformité légale obligatoire (33 critères = référence officielle)
 - Risque faible (technique uniquement)
 - ROI positif (conformité + guidage référents)
 
 **Validation:** 2025-10-13
-**Décideurs:** Alexandra, MiWeb
-**Sponsor:** Stéphane (Chef SNUM-SG)
+**Décideurs:** Bertrand, Alexandra, MiWeb
+**Sponsor:** Stéphane (Chef de service Miweb SNUM-SG)
 
-**Prochaine action:** Lancer Phase 0 (documentation évolution 31→34)
+**Prochaine action:** Lancer Phase 0 (documentation évolution 31→33)
 
 ---
 

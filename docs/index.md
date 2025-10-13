@@ -79,6 +79,16 @@ En production : Téléchargez la version PDF depuis la page d'accueil du site d�
 
 ---
 
+## Nouveau référent ? Besoin d'aide ?
+
+La MiWeb accompagne les services du SG dans la mise en œuvre de leur SPAN.
+
+→ [Consulter le guide d'accompagnement](accompagnement.md)
+
+**Contact:** accessibilite.miweb@finances.gouv.fr
+
+---
+
 ## Introduction
 
 La loi n° 2005-102 du 11 février 2005, dans son article 47, rend obligatoire l'accessibilité de tout service de communication publique en ligne à tous les citoyens, y compris les personnes en situation de handicap, afin de garantir l'égalité des droits et des chances, la participation et la citoyenneté de chacun.
