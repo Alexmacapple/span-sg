@@ -11,29 +11,29 @@ echo "Scénario : Modification multi-modules"
 cp docs/modules/{sircom,snum,srh}.md /tmp/
 
 # Modifier SIRCOM (cocher premier point non coché) - sed avec numéro ligne
-LINE=$(grep -n '^- \[ \].*<!-- DINUM -->' docs/modules/sircom.md | head -1 | cut -d: -f1)
+LINE=$(grep -n '^- \[ \].*<!-- CHECKLIST -->' docs/modules/sircom.md | head -1 | cut -d: -f1)
 sed -i.bak "${LINE}s/- \[ \]/- [x]/" docs/modules/sircom.md
 rm -f docs/modules/sircom.md.bak
 
-# Modifier SNUM (cocher première checkbox DINUM) - sed avec numéro ligne
-LINE=$(grep -n '^- \[ \].*<!-- DINUM -->' docs/modules/snum.md | head -1 | cut -d: -f1)
+# Modifier SNUM (cocher première checkbox CHECKLIST) - sed avec numéro ligne
+LINE=$(grep -n '^- \[ \].*<!-- CHECKLIST -->' docs/modules/snum.md | head -1 | cut -d: -f1)
 sed -i.bak "${LINE}s/- \[ \]/- [x]/" docs/modules/snum.md
 rm -f docs/modules/snum.md.bak
 
-# Modifier SRH (cocher première checkbox DINUM) - sed avec numéro ligne
-LINE=$(grep -n '^- \[ \].*<!-- DINUM -->' docs/modules/srh.md | head -1 | cut -d: -f1)
+# Modifier SRH (cocher première checkbox CHECKLIST) - sed avec numéro ligne
+LINE=$(grep -n '^- \[ \].*<!-- CHECKLIST -->' docs/modules/srh.md | head -1 | cut -d: -f1)
 sed -i.bak "${LINE}s/- \[ \]/- [x]/" docs/modules/srh.md
 rm -f docs/modules/srh.md.bak
 
 # Recalculer
 python3 scripts/calculate_scores.py
 
-# Vérifier scores (scores actuels: SIRCOM 24/31, SNUM 0/31, SRH 0/31)
-grep -q "25/31 (" docs/synthese.md || { echo "FAIL: SIRCOM"; exit 1; }
-grep -q "1/31 (" docs/synthese.md || { echo "FAIL: SNUM"; exit 1; }
-grep -q "1/31 (" docs/synthese.md || { echo "FAIL: SRH"; exit 1; }
-# TOTAL = SIRCOM (24→25) + SNUM (0→1) + SRH (0→1) + autres (0) = 27/186
-grep -q "27/186 (" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
+# Vérifier scores (scores actuels: SIRCOM 24/33, SNUM 0/33, SRH 0/33)
+grep -q "25/33 (" docs/synthese.md || { echo "FAIL: SIRCOM"; exit 1; }
+grep -q "1/33 (" docs/synthese.md || { echo "FAIL: SNUM"; exit 1; }
+grep -q "1/33 (" docs/synthese.md || { echo "FAIL: SRH"; exit 1; }
+# TOTAL = SIRCOM (24→25) + SNUM (0→1) + SRH (0→1) + autres (0) = 27/198
+grep -q "27/198 (" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
 
 # Restaurer
 mv /tmp/{sircom,snum,srh}.md docs/modules/
