@@ -31,6 +31,7 @@ theme:
         url: "https://github.com/Alexmacapple/span-sg-repo"
         icon: "github"
         target: "_blank"
+        title: "Code source GitHub ouvrir dans une nouvelle fenêtre"
 
   # Configuration footer DSFR
   footer:
@@ -59,14 +60,14 @@ nav:
     - SIRCOM: modules/sircom.md
     - SNUM: modules/snum.md
     - SRH: modules/srh.md
-  - Synthèse: synthese.md
   - Guide d'accompagnement: accompagnement.md
+  - Synthèse: synthese.md
   - Processus: processus.md
   - Guide contributeur: contributing.md
-  - Développement local: dev-local.md
   - Documentation technique:
     - API Reference: dev/api-reference.md
     - Guide Hooks: dev/hooks-guide.md
+    - Développement local: dev-local.md
     - ADR (Décisions):
       - Index: adr/README.md
       - ADR-001 Thème DSFR: adr/001-choix-theme-dsfr.md

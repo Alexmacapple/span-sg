@@ -5,5 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
   links.forEach(function(link) {
     link.setAttribute('target', '_blank');
     link.setAttribute('rel', 'noopener noreferrer');
+    link.setAttribute('title', 'Code source GitHub ouvrir dans une nouvelle fenêtre');
   });
 });
