@@ -256,7 +256,7 @@ open tests/e2e/reports/e2e-report.html
 |----------|-------------|-------|
 | **test_full_workflow** | Workflow complet (calcul scores + build + PDF) | ~15s |
 | **scenario_multi_modules** | Calcul scores 6 modules | ~8s |
-| **scenario_erreur_perimetre** | Module ≠31 points → erreur | ~5s |
+| **scenario_erreur_perimetre** | Module ≠33 critères → erreur | ~5s |
 | **scenario_erreur_markdown** | Markdown invalide → build fail | ~5s |
 | **scenario_performance** | Temps build < 10s | ~10s |
 | **scenario_pdf_complet** | PDF généré avec métadonnées | ~12s |
@@ -308,7 +308,7 @@ Tests E2E exécutés automatiquement sur :
 Chaque PR est vérifiée automatiquement (CI) et manuellement (Bertrand/Alex) :
 
 ### Vérifications automatiques (CI)
-- ✅ Exactement 31 points `<!-- DINUM -->` présents (ou 0 si module vide)
+- ✅ Exactement 33 critères `<!-- CHECKLIST -->` présents (ou 0 si module vide)
 - ✅ Pas de liens cassés (mode strict MkDocs)
 - ✅ Synthèse recalculée sans erreur
 
@@ -357,7 +357,7 @@ Tous les changements notables sont documentés dans [CHANGELOG.md](CHANGELOG.md)
 - Tests E2E automatisés CI avec reporting HTML (S6-01)
 
 ### Fixed
-- Correction score SIRCOM roadmaps (25/31 → 24/31)
+- Migration vers 33 critères CHECKLIST officiels (ADR-006)
 ```
 
 **Release** :
@@ -369,14 +369,14 @@ Lors de la création d'une release (tag vX.Y.Z) :
 ### Semantic Versioning
 
 SPAN SG suit [SemVer 2.0.0](https://semver.org/lang/fr/) :
-- **MAJOR (X.0.0)** : Breaking changes (ex: refonte structure modules, 31 → 50 points DINUM)
+- **MAJOR (X.0.0)** : Breaking changes (ex: refonte structure modules, modification checklist critères)
 - **MINOR (1.X.0)** : Nouvelles fonctionnalités rétrocompatibles (ex: nouveau module)
 - **PATCH (1.0.X)** : Corrections bugs rétrocompatibles (ex: fix calcul score)
 
 **Exemples** :
 - v1.0.0 → v1.1.0 : Ajout module SRH (nouvelle fonctionnalité)
 - v1.1.0 → v1.1.1 : Fix lien cassé module SIRCOM (correction)
-- v1.1.1 → v2.0.0 : Passage 31 → 50 points DINUM (breaking change)
+- v1.1.1 → v2.0.0 : Migration 31 → 33 critères CHECKLIST (breaking change, voir ADR-006)
 
 ### Migration Versions
 
@@ -384,7 +384,7 @@ Pour migrer entre versions majeures, consultez [MIGRATION.md](MIGRATION.md).
 
 Guides disponibles :
 - v0.x → v1.0 : Migration POC vers production
-- v1.x → v2.0 : Migration 31 → 50 points DINUM (prévu)
+- v1.x → v2.0 : Migration vers checklist officielle 33 critères DINUM (voir ADR-006)
 
 ---
 

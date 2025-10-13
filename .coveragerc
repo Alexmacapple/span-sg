@@ -10,6 +10,7 @@ omit =
     scripts/release.sh
     scripts/check_prerequisites.sh
     scripts/check_coverage.sh
+    scripts/calculate_scores_v1_31dinum.py
 
 [report]
 # Exclusions lignes
