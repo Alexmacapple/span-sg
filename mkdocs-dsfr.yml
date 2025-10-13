@@ -58,6 +58,7 @@ nav:
     - SNUM: modules/snum.md
     - SRH: modules/srh.md
   - Synthèse: synthese.md
+  - Guide d'accompagnement: accompagnement.md
   - Processus: processus.md
   - Guide contributeur: contributing.md
   - Développement local: dev-local.md
@@ -71,6 +72,7 @@ nav:
       - ADR-003 Isolation PDF build: adr/003-isolation-pdf-build.md
       - ADR-004 Hooks Python: adr/004-hooks-python-mkdocs.md
       - ADR-005 Coverage 89%: adr/005-coverage-89-percent.md
+      - ADR-006 Checklist 33 critères: adr/006-migration-checklist-33-criteres.md
     - Diagrammes: architecture/diagrams.md
   - "Code source GitHub": "https://github.com/Alexmacapple/span-sg-repo"
 

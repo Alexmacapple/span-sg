@@ -95,6 +95,8 @@ docker --version && docker compose version
 
 ## Commandes utiles
 
+**Pour un guide complet, consultez [HOWTO.md](HOWTO.md)**
+
 ### Développement local
 ```bash
 # Démarrer le serveur (en arrière-plan)
@@ -108,6 +110,9 @@ docker compose down
 
 # Redémarrer après modifications
 docker compose restart
+
+# Reconstruire après modification du Dockerfile
+docker compose up -d --build
 ```
 
 **URL du site** : http://localhost:8000/span-sg-repo/

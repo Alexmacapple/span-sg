@@ -1,6 +1,6 @@
 # Tableau de bord SPAN SG
 
-*Mis à jour le 11/10/2025*
+*Mis à jour le 13/10/2025*
 
 **État du déploiement v1.0** : 1 module validé (SIRCOM), 5 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement.
 
@@ -34,7 +34,7 @@
                                 BGS
                             </td>
                             <td>
-                                0/31 (0.0%)
+                                0/33 (0.0%)
                             </td>
                             <td>
                                 Non renseigné
@@ -48,7 +48,7 @@
                                 SAFI
                             </td>
                             <td>
-                                0/31 (0.0%)
+                                0/33 (0.0%)
                             </td>
                             <td>
                                 Non renseigné
@@ -62,7 +62,7 @@
                                 SIEP
                             </td>
                             <td>
-                                0/31 (0.0%)
+                                0/33 (0.0%)
                             </td>
                             <td>
                                 Non renseigné
@@ -76,10 +76,10 @@
                                 SIRCOM
                             </td>
                             <td>
-                                24/31 (77.4%)
+                                0/33 (0.0%)
                             </td>
                             <td>
-                                Conforme
+                                Non renseigné
                             </td>
                             <td>
                                 Validé
@@ -90,7 +90,7 @@
                                 SNUM
                             </td>
                             <td>
-                                0/31 (0.0%)
+                                0/33 (0.0%)
                             </td>
                             <td>
                                 Non renseigné
@@ -104,7 +104,7 @@
                                 SRH
                             </td>
                             <td>
-                                0/31 (0.0%)
+                                0/33 (0.0%)
                             </td>
                             <td>
                                 Non renseigné
@@ -118,7 +118,7 @@
                                 <strong>TOTAL</strong>
                             </td>
                             <td>
-                                <strong>24/186 (12.9%)</strong>
+                                <strong>0/198 (0.0%)</strong>
                             </td>
                             <td>
                                 <strong>Global</strong>

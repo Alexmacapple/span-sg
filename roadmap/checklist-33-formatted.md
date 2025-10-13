@@ -1,11 +1,10 @@
----
-service: SNUM
-referent: À définir
-updated: 2025-10-08
-validation_status: draft
----
+# Checklist SPAN 33 Critères (Format Markdown Cochable)
 
-# SPAN SNUM
+**Source:** SPAN-checklist-v2024-02-05-AAL.ots (extraction officielle)
+**Format:** Markdown cochable avec balises `<!-- CHECKLIST -->`
+**Total:** 33 critères
+
+---
 
 ## Checklist de conformité (33 critères)
 
@@ -63,4 +62,50 @@ validation_status: draft
 - [ ] Intégration de l'accessibilité numérique dans les procédures de recette prévue <!-- CHECKLIST -->
 - [ ] Intégration de l'accessibilité dans les conventions avec opérateurs/délégataires/partenaires prévue (si nécessaire) <!-- CHECKLIST -->
 
+---
+
+## Validation Comptage
+
+- Vision: 3
+- RAN: 7
+- Organisation: 6
+- Budget: 2
+- Gestion projets: 7
+- RH: 3
+- Achats: 5
+
+**Total: 3 + 7 + 6 + 2 + 7 + 3 + 5 = 33 critères** ✓
+
+---
+
+## Instructions d'Intégration
+
+### Dans docs/modules/_template.md
+
+Remplacer la section `## points de contrôle officiels (31)` par:
+
+```markdown
+## Checklist de conformité (33 critères)
+
+[Copier tout le contenu ci-dessus depuis "### 1. Vision" jusqu'à "### 7. Achats"]
+
 **Score: 0/33 (0.0%)**
+```
+
+### Règles de Modification
+
+1. **NE JAMAIS ajouter/supprimer de lignes `<!-- CHECKLIST -->`**
+   - Total DOIT rester exactement 33
+   - Script `calculate_scores.py` vérifie: `total in (0, 33)`
+
+2. **Seules les coches `[ ]` → `[x]` sont modifiables**
+   - Référent métier coche les critères conformes
+   - MiWeb valide/ajuste lors de la validation
+
+3. **Texte des critères peut être clarifié**
+   - Améliorer formulation si nécessaire
+   - MAIS balise `<!-- CHECKLIST -->` DOIT rester en fin de ligne
+
+---
+
+*Fichier prêt pour intégration Phase 3-4*

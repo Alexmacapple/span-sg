@@ -7,36 +7,60 @@ validation_status: draft
 
 # SPAN SRH
 
-## points de contrôle officiels (31)
+## Checklist de conformité (33 critères)
 
-- [ ] Stratégie numérique: accessibilité intégrée et publiée <!-- DINUM -->
-- [ ] Politique d'inclusion des personnes handicapées formalisée <!-- DINUM -->
-- [ ] Objectifs mesurables d'accessibilité définis (KPI) <!-- DINUM -->
-- [ ] Référent accessibilité numérique officiellement désigné <!-- DINUM -->
-- [ ] Temps alloué et moyens du référent définis <!-- DINUM -->
-- [ ] Ressources humaines dédiées identifiées (ETP) <!-- DINUM -->
-- [ ] Budget annuel dédié/identifiable <!-- DINUM -->
-- [ ] Planification pluriannuelle des moyens (3 ans) <!-- DINUM -->
-- [ ] Compétences accessibilité dans les fiches de poste <!-- DINUM -->
-- [ ] Grille de recrutement intégrant l'accessibilité <!-- DINUM -->
-- [ ] Plan de formation annuel pour les profils clés <!-- DINUM -->
-- [ ] Sensibilisation large (tous agents) planifiée <!-- DINUM -->
-- [ ] Formations par rôle (développeurs, UX, éditorial) <!-- DINUM -->
-- [ ] Outils de test/accessibilité référencés et disponibles <!-- DINUM -->
-- [ ] Procédure d'appel à expertise externe et budget associé <!-- DINUM -->
-- [ ] Processus internes documentés (intégration accessibilité) <!-- DINUM -->
-- [ ] Modalités de contrôle périodique définies <!-- DINUM -->
-- [ ] Process de traitement des demandes usagers (accès/retour) <!-- DINUM -->
-- [ ] Clauses accessibilité dans marchés/commandes <!-- DINUM -->
-- [ ] Critères de sélection/pondération incluant accessibilité <!-- DINUM -->
-- [ ] Exigence de livrables conformes et preuves de conformité <!-- DINUM -->
-- [ ] Accessibilité intégrée dès la conception (projets neufs) <!-- DINUM -->
-- [ ] Tests incluant des personnes handicapées <!-- DINUM -->
-- [ ] Évaluations/audits planifiés pour tous les services <!-- DINUM -->
-- [ ] Calendrier de corrections priorisé sur usages/volumétrie <!-- DINUM -->
-- [ ] Suivi de couverture (audités vs total) et périodicité des évaluations <!-- DINUM -->
-- [ ] Accès LSF/vidéo pour contenus concernés <!-- DINUM -->
-- [ ] Traduction FALC pour contenus concernés <!-- DINUM -->
-- [ ] Prise en compte de critères AAA pertinents <!-- DINUM -->
-- [ ] Bilan annuel réalisé et publié <!-- DINUM -->
-- [ ] Plan d'action annuel publié (format accessible) <!-- DINUM -->
+### 1. Vision (3 critères)
+
+- [ ] Politique de l'entité en matière d'accessibilité numérique décrite dans le SPAN <!-- CHECKLIST -->
+- [ ] Prise en compte de l'accessibilité numérique dans la stratégie numérique de l'entité <!-- CHECKLIST -->
+- [ ] Prise en compte de l'accessibilité dans la politique d'intégration des personnes en situation de handicap <!-- CHECKLIST -->
+
+### 2. RAN - Référent Accessibilité Numérique (7 critères)
+
+- [ ] SPAN durée maximum 3 ans (conformité légale art. 47 loi handicap) <!-- CHECKLIST -->
+- [ ] Position fonctionnelle du référent accessibilité numérique décrite <!-- CHECKLIST -->
+- [ ] Missions du référent accessibilité numérique décrites <!-- CHECKLIST -->
+- [ ] Bilan des plans d'actions annuels (si nécessaire) <!-- CHECKLIST -->
+- [ ] Travaux de mise en conformité planifiés annuellement dans plans d'actions <!-- CHECKLIST -->
+- [ ] SPAN et plan d'action année en cours disponibles en ligne sur site de l'entité <!-- CHECKLIST -->
+- [ ] SPAN et plans d'actions publiés dans un format accessible <!-- CHECKLIST -->
+
+### 3. Organisation (6 critères)
+
+- [ ] Mise en œuvre des ressources et expertises externes décrite (si applicable) <!-- CHECKLIST -->
+- [ ] Mise en œuvre des moyens techniques pour gérer et tester l'accessibilité décrite <!-- CHECKLIST -->
+- [ ] Mise en œuvre de l'outillage pour gérer et tester l'accessibilité décrite <!-- CHECKLIST -->
+- [ ] Organisation interne pour mettre en œuvre les obligations d'accessibilité décrite <!-- CHECKLIST -->
+- [ ] Modalités de contrôle des services numériques décrites <!-- CHECKLIST -->
+- [ ] Modalités d'organisation pour le traitement des demandes des usagers décrites <!-- CHECKLIST -->
+
+### 4. Budget (2 critères)
+
+- [ ] Ressources humaines affectées à l'accessibilité numérique décrites <!-- CHECKLIST -->
+- [ ] Ressources financières affectées à l'accessibilité numérique décrites <!-- CHECKLIST -->
+
+### 5. Gestion de projets (7 critères)
+
+- [ ] Prise en compte de l'accessibilité numérique dans les nouveaux projets décrite <!-- CHECKLIST -->
+- [ ] Prise en compte des personnes en situation de handicap dans les tests utilisateurs prévue <!-- CHECKLIST -->
+- [ ] Évaluations (ou audits) de conformité prévues pour l'ensemble des services de communication <!-- CHECKLIST -->
+- [ ] Mesures correctives pour traiter les contenus non accessibles décrites <!-- CHECKLIST -->
+- [ ] Calendrier de mise en œuvre priorisé (contenus les plus consultés, services les plus utilisés) <!-- CHECKLIST -->
+- [ ] Mesures d'accessibilité non obligatoires décrites (LSF, FALC, niveau AAA, si nécessaire) <!-- CHECKLIST -->
+- [ ] Liens vers SPAN et plans d'actions présents dans déclarations d'accessibilité des services <!-- CHECKLIST -->
+
+### 6. RH - Ressources Humaines (3 critères)
+
+- [ ] Prise en compte des compétences/connaissances accessibilité dans les fiches de poste décrite <!-- CHECKLIST -->
+- [ ] Prise en compte des compétences/connaissances accessibilité dans les processus de recrutement décrite <!-- CHECKLIST -->
+- [ ] Actions de formation et de sensibilisation des agents décrites <!-- CHECKLIST -->
+
+### 7. Achats (5 critères)
+
+- [ ] Intégration de l'accessibilité numérique dans les clauses contractuelles (appels d'offres, devis) prévue <!-- CHECKLIST -->
+- [ ] Intégration de l'accessibilité numérique dans les critères de notation des prestataires prévue <!-- CHECKLIST -->
+- [ ] Intégration de l'accessibilité numérique dans les critères de sélection des prestataires prévue <!-- CHECKLIST -->
+- [ ] Intégration de l'accessibilité numérique dans les procédures de recette prévue <!-- CHECKLIST -->
+- [ ] Intégration de l'accessibilité dans les conventions avec opérateurs/délégataires/partenaires prévue (si nécessaire) <!-- CHECKLIST -->
+
+**Score: 0/33 (0.0%)**

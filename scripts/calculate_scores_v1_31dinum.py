@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 
-CHECK_TAG = "CHECKLIST"
+CHECK_TAG = "DINUM"
 FENCE_RE = re.compile(r"```.*?```", re.S)
 BOX_RE = re.compile(r"- \[(x|X| )\].*?<!--\s*%s\s*-->" % CHECK_TAG)
 
@@ -93,9 +93,9 @@ def generate_summary():
         checked, total = score_module(module)
         validation_state = get_validation_status(module)
 
-        if total not in (0, 33):
+        if total not in (0, 31):
             errors.append(
-                f"{module.name}: {total} critères tagués <!-- {CHECK_TAG} --> (attendu 33 ou 0)"
+                f"{module.name}: {total} points tagués <!-- {CHECK_TAG} --> (attendu 31 ou 0)"
             )
         pct = round((checked / total) * 100, 1) if total else 0.0
         status = "Conforme" if pct >= 75 else "En cours" if pct > 0 else "Non renseigné"

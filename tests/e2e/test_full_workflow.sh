@@ -50,9 +50,9 @@ run_test "Recalculer scores" \
 run_test "Vérifier score SIRCOM = 25/31" \
     "grep -q '25/31 (' docs/synthese.md"
 
-# Test 5 : Build site MkDocs
-run_test "Build site MkDocs" \
-    "mkdocs build --site-dir $TEMP_DIR/site"
+# Test 5 : Build site MkDocs DSFR
+run_test "Build site MkDocs DSFR" \
+    "mkdocs build --config-file mkdocs-dsfr.yml --site-dir $TEMP_DIR/site"
 
 # Test 6 : Vérifier HTML généré
 run_test "Vérifier index.html présent" \
@@ -61,9 +61,9 @@ run_test "Vérifier index.html présent" \
 run_test "Vérifier page SIRCOM générée" \
     "test -f $TEMP_DIR/site/modules/sircom/index.html"
 
-# Test 7 : Générer PDF
-run_test "Générer PDF" \
-    "mkdocs build --config-file mkdocs-pdf.yml --site-dir $TEMP_DIR/pdf-site"
+# Test 7 : Générer PDF DSFR
+run_test "Générer PDF DSFR" \
+    "ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml --site-dir $TEMP_DIR/pdf-site"
 
 run_test "Vérifier PDF généré" \
     "test -f $TEMP_DIR/pdf-site/exports/span-sg.pdf"

@@ -10,9 +10,9 @@ echo "Scénario : Performance build"
 TEMP_DIR=$(mktemp -d)
 trap "rm -rf $TEMP_DIR" EXIT
 
-# Mesurer temps build
+# Mesurer temps build DSFR
 START=$(date +%s)
-mkdocs build --site-dir "$TEMP_DIR/site" > /dev/null 2>&1
+mkdocs build --config-file mkdocs-dsfr.yml --site-dir "$TEMP_DIR/site" > /dev/null 2>&1
 END=$(date +%s)
 
 DURATION=$((END - START))
