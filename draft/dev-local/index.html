@@ -262,20 +262,20 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../synthese/"
+                href="../accompagnement/"
                 target="_self"
                 
-                >Synthèse</a
+                >Guide d'accompagnement</a
             >
         </li>
           
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../accompagnement/"
+                href="../synthese/"
                 target="_self"
                 
-                >Guide d'accompagnement</a
+                >Synthèse</a
             >
         </li>
           
@@ -300,27 +300,17 @@
         </li>
           
         <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="./"
-                target="_self"
-                
-                aria-current="page"
-                
-                >Développement local</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7769"
+                aria-controls="menu-7768"
+                
+                aria-current="true"
                 
             >
                 Documentation technique
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7769">
+            <div class="fr-collapse fr-menu" id="menu-7768">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -340,6 +330,18 @@
                             href="../dev/hooks-guide/"
                             target="_self"
                             >Guide Hooks</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            aria-current="page"
+                            
+                            href="./"
+                            target="_self"
+                            >Développement local</a
                         >
                     </li>
                     
@@ -610,10 +612,10 @@ mkdocs<span class="w"> </span>build<span class="w"> </span>--config-file<span cl
                     
 	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
 		<ul class="fr-pagination__list">
-			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../contributing/" title="Guide contributeur" >
+			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../dev/hooks-guide/" title="Guide Hooks" >
 				Page précédente
 			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../dev/api-reference/" title="API Reference" >
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../adr/" title="Index" >
 				Page suivante
 			</a></li>
 		</ul>
