@@ -77,6 +77,7 @@ nav:
   - Documentation technique:
     - API Reference: dev/api-reference.md
     - Guide Hooks: dev/hooks-guide.md
+    - Guide Composants DSFR: dev/dsfr-components-guide.md
     - Développement local: dev-local.md
     - Guide contributeur: contributing.md
     - ADR (Décisions):
@@ -87,6 +88,7 @@ nav:
       - ADR-004 Hooks Python: adr/004-hooks-python-mkdocs.md
       - ADR-005 Coverage 89%: adr/005-coverage-89-percent.md
       - ADR-006 Checklist 33 critères: adr/006-migration-checklist-33-criteres.md
+      - ADR-007 Divergence locale/language: adr/007-mkdocs-dsfr-language-divergence.md
     - Diagrammes: architecture/diagrams.md
   - Informations légales:
     - Accessibilité: accessibilite.md
