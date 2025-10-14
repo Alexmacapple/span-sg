@@ -6,6 +6,14 @@ Ce guide accompagne les référents de service pour compléter leur module SPAN 
 
 Chaque service du Secrétariat Général doit documenter son Schéma Pluriannuel d'Accessibilité Numérique (SPAN) en cochant les critères de conformité correspondant à sa situation réelle.
 
+/// callout | Besoin d'aide ?
+    icon: question-line
+    color: blue-france
+    link_label: Contacter la MiWeb
+    link_url: mailto:accessibilite.miweb@finances.gouv.fr
+La MiWeb accompagne les référents de service dans la complétion de leur SPAN. N'hésitez pas à nous solliciter pour toute question sur la checklist ou le processus de validation.
+///
+
 ## Grille de conformité d'un SPAN (33 critères)
 
 **Migration effectuée**: La grille a évolué de 31 points DINUM vers 33 critères officiels extraits du fichier de référence DINUM/Arcom (SPAN-checklist-v2024-02-05-AAL.ots).

@@ -44,6 +44,12 @@ Le **processus de mise en œuvre du SPAN** est une démarche structurée obligat
 
 ## 2. Avant de démarrer : 6 actions préalables indispensables
 
+/// callout | Actions critiques pour le succès
+    icon: alert-line
+    color: orange-terre-battue
+Ces 6 actions préalables conditionnent la réussite de votre SPAN. Ne pas les réaliser expose à l'échec du projet, à des sanctions financières (jusqu'à 75K€/site) et à un risque réputationnel important.
+///
+
 ### 2.1 Obtenir l'engagement de la Direction
 - Présenter le business case (risques juridiques : 75K€/site, bénéfices UX, image)
 - Argumentaire adapté selon interlocuteur (voir [/documentation/argumentaire.md](/documentation/argumentaire.md))
@@ -88,6 +94,15 @@ Le **processus de mise en œuvre du SPAN** est une démarche structurée obligat
   - Temps RAN : coût salarial × % ETP
 
 - **Financements disponibles** :
+
+/// callout | Financement FIPHFP disponible
+    icon: money-euro-circle-line
+    color: green-menthe
+    link_label: En savoir plus sur le FIPHFP
+    link_url: https://www.fiphfp.fr/
+Le FIPHFP peut financer jusqu'à 10 000€ par an pendant 3 ans (30 000€ total) pour vos actions d'accessibilité : formations, audits RGAA, outils spécialisés.
+///
+
   - **FIPHFP** : jusqu'à 10K€/an pendant 3 ans = 30K€ total (formations, audits)
   - Budget interne DSI/métiers
   - Mutualisation interministérielle (partage outils, formations)

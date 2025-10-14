@@ -116,6 +116,57 @@ La MiWeb accompagne les services du SG dans la mise en œuvre de leur SPAN.
 
 ---
 
+## Modules services
+
+Accédez directement aux SPAN de chaque service du Secrétariat Général :
+
+/// row | fr-grid-row--gutters
+/// col | 12 md-6 lg-4
+/// card | SIRCOM
+    target: modules/sircom.md
+    badge: Validé | success
+Service de la Communication - Portails ministériels, sites internet/intranet
+///
+///
+/// col | 12 md-6 lg-4
+/// card | SNUM
+    target: modules/snum.md
+    badge: Brouillon | warning
+Service du Numérique - Systèmes d'information, applications métiers
+///
+///
+/// col | 12 md-6 lg-4
+/// card | SRH
+    target: modules/srh.md
+    badge: Brouillon | warning
+Service des Ressources Humaines - Outils RH, gestion du personnel
+///
+///
+/// col | 12 md-6 lg-4
+/// card | BGS
+    target: modules/bgs.md
+    badge: Brouillon | warning
+Bureau de la Gestion des Services - Logistique, moyens généraux
+///
+///
+/// col | 12 md-6 lg-4
+/// card | SAFI
+    target: modules/safi.md
+    badge: Brouillon | warning
+Service des Affaires Financières - Budget, comptabilité
+///
+///
+/// col | 12 md-6 lg-4
+/// card | SIEP
+    target: modules/siep.md
+    badge: Brouillon | warning
+Service des Infrastructures et de l'Environnement Professionnel
+///
+///
+///
+
+---
+
 ## Introduction
 
 La loi n° 2005-102 du 11 février 2005, dans son article 47, rend obligatoire l'accessibilité de tout service de communication publique en ligne à tous les citoyens, y compris les personnes en situation de handicap, afin de garantir l'égalité des droits et des chances, la participation et la citoyenneté de chacun.
