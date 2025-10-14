@@ -19,7 +19,7 @@ theme:
   include_search_page: true
   afficher_date_de_revision: true
   afficher_menu_lateral: true
-  afficher_sommaire: false
+  afficher_sommaire: true
   afficher_bouton_editer: true
   libelle_bouton_editer: "Éditer dans GitHub"
   bouton_hautdepage: right
