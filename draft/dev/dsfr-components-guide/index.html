@@ -568,6 +568,24 @@
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
+                            href="#accordions-accordeons-pliables"
+                            target="_self"
+                            >Accordions - Accordéons pliables</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#tabs-onglets"
+                            target="_self"
+                            >Tabs - Onglets</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
                             href="#references-complementaires"
                             target="_self"
                             >Références complémentaires</a
@@ -605,6 +623,8 @@ Auteur: Équipe technique SPAN SG</p>
 <li><a href="#alerts-notifications">Alerts - Notifications</a></li>
 <li><a href="#grid-grilles-responsives">Grid - Grilles responsives</a></li>
 <li><a href="#tables-tableaux-accessibles">Tables - Tableaux accessibles</a></li>
+<li><a href="#accordions-accordeons-pliables">Accordions - Accordéons pliables</a></li>
+<li><a href="#tabs-onglets">Tabs - Onglets</a></li>
 <li><a href="#snippets-reutilisables">Snippets réutilisables</a></li>
 </ol>
 <hr />
@@ -1396,6 +1416,250 @@ Description card 3
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <hr />
+<h2 id="accordions-accordeons-pliables">Accordions - Accordéons pliables</h2>
+<p>Les accordéons permettent de masquer/afficher du contenu de manière interactive. Idéal pour FAQ, sections longues ou documentation technique.</p>
+<h3 id="syntaxe-de-base_4">Syntaxe de base</h3>
+<div class="highlight"><pre><span></span><code>/// accordion | Titre de l&#39;accordéon
+Contenu masqué par défaut
+///
+</code></pre></div>
+<h3 id="parametres-disponibles">Paramètres disponibles</h3>
+<div class="fr-table">
+<div class="fr-table">
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Description</th>
+<th>Valeurs</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>Titre de l'accordéon</td>
+<td>Texte</td>
+<td>Requis</td>
+</tr>
+<tr>
+<td><code>expanded</code></td>
+<td>État initial</td>
+<td><code>true</code>/<code>false</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td>ID HTML unique</td>
+<td>string</td>
+<td>auto</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h3 id="exemple-1-faq-simple">Exemple 1 : FAQ simple</h3>
+<div class="highlight"><pre><span></span><code>/// accordion | Comment contribuer au projet ?
+Consultez le [<span class="nt">Guide contributeur</span>](<span class="na">../contributing.md</span>) pour les instructions détaillées.
+
+Processus en 3 étapes :
+<span class="k">1.</span> Fork du dépôt
+<span class="k">2.</span> Créer une branche feature
+<span class="k">3.</span> Ouvrir une Pull Request
+///
+
+/// accordion | Où trouver la documentation API ?
+    expanded: true
+La documentation complète est disponible dans [<span class="nt">API Reference</span>](<span class="na">api-reference.md</span>).
+///
+</code></pre></div>
+<h3 id="exemple-2-documentation-technique-pliable">Exemple 2 : Documentation technique pliable</h3>
+<div class="highlight"><pre><span></span><code>/// accordion | Détails techniques du hook dsfr_table_wrapper.py
+<span class="gs">**Fonction**</span> : Encapsule automatiquement les tableaux Markdown dans <span class="sb">`&lt;div class=&quot;fr-table&quot;&gt;`</span>.
+
+<span class="gs">**Code source**</span> :
+```python
+def on_page_content(html, page, config, files):
+    soup = BeautifulSoup(html, &#39;html.parser&#39;)
+    for table in soup.find_all(&#39;table&#39;):
+        wrapper = soup.new_tag(&#39;div&#39;, **{&#39;class&#39;: &#39;fr-table&#39;})
+        table.wrap(wrapper)
+    return str(soup)
+</code></pre></div>
+<p><strong>Tests</strong> : Voir <code>tests/test_hooks_dsfr_table_wrapper.py</code> (100% coverage).
+///
+<div class="highlight"><pre><span></span><code>### Exemple 3 : Sections multiples (groupe)
+
+```markdown
+/// accordion | SIRCOM - Service de la Communication
+**Score** : 24/33 (72.7%)
+**Référent** : Équipe Communication
+
+Plan d&#39;action 2025 : 9 actions en cours.
+///
+
+/// accordion | SNUM - Service du Numérique
+**Score** : 21/33 (63.6%)
+**Référent** : Chef de mission numérique
+
+Plan d&#39;action 2025 : 12 actions prioritaires.
+///
+</code></pre></div></p>
+<h3 id="difference-avec-collapsible-divs">Différence avec Collapsible divs</h3>
+<ul>
+<li><strong>Accordions</strong> : Syntaxe markdown, intégration native mkdocs-dsfr</li>
+<li><strong>Collapsible HTML</strong> : <code>&lt;details&gt;&lt;summary&gt;</code> HTML natif</li>
+</ul>
+<p>Privilégier les accordions pour cohérence DSFR.</p>
+<h3 id="accessibilite">Accessibilité</h3>
+<p>Les accordions génèrent automatiquement :
+- <code>role="button"</code> sur le titre
+- <code>aria-expanded="true/false"</code> selon l'état
+- Navigation clavier (Entrée/Espace pour toggle)</p>
+<hr />
+<h2 id="tabs-onglets">Tabs - Onglets</h2>
+<p>Les onglets permettent d'organiser du contenu alternatif (exemples multi-langages, configurations alternatives).</p>
+<h3 id="syntaxe-de-base_5">Syntaxe de base</h3>
+<p><div class="highlight"><pre><span></span><code>/// tabs
+/// tab | Python
+```python
+print(&quot;Hello SPAN&quot;)
+</code></pre></div>
+///</p>
+<p>/// tab | Bash
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello SPAN&quot;</span>
+</code></pre></div>
+///
+///
+<div class="highlight"><pre><span></span><code>### Exemple 1 : Exemples multi-langages
+
+```markdown
+/// tabs
+/// tab | Python
+```python
+import yaml
+
+with open(&#39;mkdocs-dsfr.yml&#39;) as f:
+    config = yaml.safe_load(f)
+    print(config[&#39;site_name&#39;])
+</code></pre></div>
+///</p>
+<p>/// tab | JavaScript
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yaml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;js-yaml&#39;</span><span class="p">);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yaml</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s1">&#39;mkdocs-dsfr.yml&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;utf8&#39;</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">site_name</span><span class="p">);</span>
+</code></pre></div>
+///</p>
+<p>/// tab | Bash
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s2">&quot;^site_name:&quot;</span><span class="w"> </span>mkdocs-dsfr.yml<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d:<span class="w"> </span>-f2
+</code></pre></div>
+///
+///
+<div class="highlight"><pre><span></span><code>### Exemple 2 : Configurations alternatives
+
+```markdown
+/// tabs
+/// tab | Docker (Recommandé)
+```bash
+docker compose -f docker-compose-dsfr.yml up -d
+# Accès : http://localhost:8000/span-sg-repo/
+</code></pre></div></p>
+<p><strong>Avantages</strong> : Isolation, pas de dépendances locales.
+///</p>
+<p>/// tab | Python local
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-dsfr.txt
+mkdocs<span class="w"> </span>serve<span class="w"> </span>--config-file<span class="w"> </span>mkdocs-dsfr.yml
+</code></pre></div></p>
+<p><strong>Prérequis</strong> : Python 3.11+, pip.
+///</p>
+<p>/// tab | macOS Homebrew
+<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>mkdocs
+pip3<span class="w"> </span>install<span class="w"> </span>mkdocs-dsfr
+mkdocs<span class="w"> </span>serve<span class="w"> </span>--config-file<span class="w"> </span>mkdocs-dsfr.yml
+</code></pre></div></p>
+<p><strong>Note</strong> : Utiliser Python 3 de Homebrew.
+///
+///
+<div class="highlight"><pre><span></span><code>### Exemple 3 : Workflows Git
+
+```markdown
+/// tabs
+/// tab | Feature (nouveau module)
+```bash
+git checkout -b feature/update-sircom
+# Modifications dans docs/modules/sircom.md
+git add docs/modules/sircom.md
+git commit -m &quot;feat(sircom): mise à jour plan 2025&quot;
+git push -u origin feature/update-sircom
+# Créer PR vers draft
+</code></pre></div>
+///</p>
+<p>/// tab | Hotfix (production)
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>hotfix/fix-typo-synthese
+<span class="c1"># Corrections dans docs/synthese.md</span>
+git<span class="w"> </span>add<span class="w"> </span>docs/synthese.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix(synthese): correction typo tableau&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>hotfix/fix-typo-synthese
+<span class="c1"># Créer PR vers main</span>
+</code></pre></div>
+///</p>
+<p>/// tab | Sync draft → main
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+git<span class="w"> </span>merge<span class="w"> </span>draft<span class="w"> </span>--no-ff
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+<span class="c1"># Déclenche déploiement production</span>
+</code></pre></div>
+///
+///
+```</p>
+<h3 id="parametres-tabs">Paramètres tabs</h3>
+<div class="fr-table">
+<div class="fr-table">
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Description</th>
+<th>Valeurs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tabs parent</td>
+<td>Conteneur principal</td>
+<td><code>/// tabs</code> ... <code>///</code></td>
+</tr>
+<tr>
+<td>Tab enfant</td>
+<td>Onglet individuel</td>
+<td><code>/// tab \| Titre</code></td>
+</tr>
+<tr>
+<td>Titre</td>
+<td>Label de l'onglet</td>
+<td>Texte (requis)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h3 id="accessibilite_1">Accessibilité</h3>
+<p>Les onglets génèrent automatiquement :
+- <code>role="tablist"</code> sur le conteneur
+- <code>role="tab"</code> sur chaque onglet
+- <code>aria-selected="true/false"</code> selon l'onglet actif
+- Navigation clavier (flèches gauche/droite)</p>
+<h3 id="cas-dusage-recommandes">Cas d'usage recommandés</h3>
+<ul>
+<li>Exemples de code multi-langages</li>
+<li>Instructions alternatives (Docker vs local)</li>
+<li>Workflows Git différents (feature vs hotfix)</li>
+<li>Configurations environnements (dev, staging, prod)</li>
+</ul>
+<hr />
 <h2 id="references-complementaires">Références complémentaires</h2>
 <ul>
 <li><strong>ADR-001</strong> : <a href="../../adr/001-choix-theme-dsfr/">Choix thème DSFR</a></li>
@@ -1586,7 +1850,7 @@ Description card 3
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="14 octobre 2025 17:33:41 UTC">14 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="14 octobre 2025 20:22:25 UTC">14 octobre 2025</span> 
 </div>
 
 
