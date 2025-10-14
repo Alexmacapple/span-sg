@@ -18,6 +18,8 @@ Dernière mise à jour: 2025-10-11
 | [003](003-isolation-pdf-build.md) | Isolation build PDF avec --site-dir | 2025-10-10 | ✅ Accepted |
 | [004](004-hooks-python-mkdocs.md) | Architecture hooks Python vs JavaScript | 2025-10-08 | ✅ Accepted |
 | [005](005-coverage-89-percent.md) | Seuil coverage 89%+ enforced | 2025-10-10 | ✅ Accepted |
+| [006](006-migration-checklist-33-criteres.md) | Migration 31 → 33 critères DINUM officiels | 2025-10-11 | ✅ Accepted |
+| [007](007-mkdocs-dsfr-language-divergence.md) | Divergence mkdocs-dsfr locale vs language | 2025-10-14 | ✅ Accepted |
 
 ---
 

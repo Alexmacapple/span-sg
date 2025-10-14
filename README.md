@@ -29,6 +29,7 @@ Documentation technique complète du projet :
 
 - **API Reference** : [docs/dev/api-reference.md](docs/dev/api-reference.md) - Documentation scripts Python et hooks MkDocs
 - **Guide Hooks** : [docs/dev/hooks-guide.md](docs/dev/hooks-guide.md) - Guide développeur création hooks MkDocs
+- **Guide Composants DSFR** : [docs/dev/dsfr-components-guide.md](docs/dev/dsfr-components-guide.md) - Utilisation Cards, Callouts, Badges, Alerts, Grid (8 sections, 12+ exemples)
 - **ADR (Architecture Decision Records)** : [docs/adr/](docs/adr/) - Décisions techniques majeures (DSFR, PDF, hooks, coverage)
 - **Diagrammes Architecture** : [docs/architecture/diagrams.md](docs/architecture/diagrams.md) - 6 diagrammes Mermaid (CI/CD, composants, Git, hooks)
 
