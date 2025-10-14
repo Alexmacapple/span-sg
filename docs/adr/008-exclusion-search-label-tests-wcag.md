@@ -265,8 +265,7 @@ Ce ADR sera marqué **🔄 Superseded by ADR-009** lorsque :
 
 ### Upstream
 
-- **Issue GitLab** : À créer manuellement sur https://gitlab-forge.din.developpement-durable.gouv.fr/pub/numeco/mkdocs-dsfr/-/issues
-- **Template issue** : `.github/ISSUE-UPSTREAM-MKDOCS-DSFR.md` (enrichi Phase 2.3, prêt pour soumission)
+- **Template issue** : `.github/ISSUE-UPSTREAM-MKDOCS-DSFR.md` (prêt pour soumission si souhaité)
 - **Contenu issue** : Description complète (228 lignes) avec violation, HTML source, workaround, 3 propositions de fix, tests validation
 - **Thème source** : mkdocs-dsfr v0.17.0 (`header.html:81-86`)
 
