@@ -38,6 +38,14 @@ title: SPAN (SG)
 </li>
 <li>
 <a class="fr-summary__link" href="#action-de-formation-et-de-sensibilisation">Action de formation et de sensibilisation</a>
+<ol>
+<li>
+<a class="fr-summary__link" href="#liste-des-formations-disponibles-aupres-de-ligpde">Liste des formations disponibles auprès de l'IGPDE</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#liste-des-formations-disponibles-sur-mentor">Liste des formations disponibles sur MENTOR</a>
+</li>
+</ol>
 </li>
 <li>
 <a class="fr-summary__link" href="#recours-a-des-competences-externes">Recours à des compétences externes</a>
@@ -53,12 +61,28 @@ title: SPAN (SG)
 </li>
 <li>
 <a class="fr-summary__link" href="#traitement-des-retours-utilisateurs">Traitement des retours utilisateurs</a>
+<ol>
+<li>
+<a class="fr-summary__link" href="#moyen-de-contact">Moyen de contact</a>
+</li>
+</ol>
 </li>
 <li>
 <a class="fr-summary__link" href="#processus-de-controle-et-de-validation">Processus de contrôle et de validation</a>
 </li>
 <li>
 <a class="fr-summary__link" href="#perimetre-technique-et-fonctionnel">Périmètre technique et fonctionnel</a>
+<ol>
+<li>
+<a class="fr-summary__link" href="#recensement">Recensement</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#evaluation-et-qualification">Évaluation et qualification</a>
+</li>
+<li>
+<a class="fr-summary__link" href="#agenda-planifie-des-interventions">Agenda planifié des interventions</a>
+</li>
+</ol>
 </li>
 <li>
 <a class="fr-summary__link" href="#plans-annuels">Plans annuels</a>
@@ -85,7 +109,7 @@ La MiWeb accompagne les services du SG dans la mise en œuvre de leur SPAN.
 
 → [Consulter le guide d'accompagnement](accompagnement.md)
 
-**Contact:** accessibilite.miweb@finances.gouv.fr
+**Contact :** [accessibilite.miweb@finances.gouv.fr](mailto:accessibilite.miweb@finances.gouv.fr)
 
 ---
 
