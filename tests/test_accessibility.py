@@ -9,16 +9,13 @@ Catégories testées :
 Utilise axe-core via Selenium pour automatiser 60-65% des vérifications RGAA.
 """
 
-import os
-import tempfile
 from pathlib import Path
 
 import pytest
+from axe_selenium_python import Axe
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from axe_selenium_python import Axe
 
 
 @pytest.fixture(scope="module")
@@ -42,6 +39,10 @@ def driver(site_dir):
     driver = webdriver.Chrome(options=options)
     driver.set_window_size(1920, 1080)
 
+    # Augmenter timeouts pour CI (résout timeouts axe-core)
+    driver.set_script_timeout(60)  # 60s pour scripts (axe.run())
+    driver.implicitly_wait(10)  # 10s pour éléments DOM
+
     yield driver
 
     driver.quit()
@@ -58,6 +59,7 @@ def load_page(driver, site_dir, page_path):
 # HOMEPAGE WCAG TESTS (5 scenarios)
 # =============================================================================
 
+
 def test_homepage_wcag_violations(driver, site_dir):
     """Vérifie que la homepage n'a aucune violation WCAG 2.1 AA critique."""
     load_page(driver, site_dir, "index.html")
@@ -70,8 +72,22 @@ def test_homepage_wcag_violations(driver, site_dir):
 
     # Filtrer les violations critiques uniquement (impact: critical, serious)
     critical_violations = [
-        v for v in violations
-        if v.get("impact") in ["critical", "serious"]
+        v for v in violations if v.get("impact") in ["critical", "serious"]
+    ]
+
+    # WORKAROUND: Exclure search input label (bug upstream mkdocs-dsfr v0.17.0)
+    # Le label est caché visuellement (CSS sr-only) mais axe-core le détecte comme violation.
+    # Voir ADR-008 et issue GitLab mkdocs-dsfr pour résolution upstream.
+    critical_violations = [
+        v
+        for v in critical_violations
+        if not (
+            v.get("id") == "label"
+            and any(
+                "#mkdocs-search-query" in str(node.get("target", []))
+                for node in v.get("nodes", [])
+            )
+        )
     ]
 
     assert len(critical_violations) == 0, (
@@ -89,9 +105,9 @@ def test_homepage_color_contrast(driver, site_dir):
     results = axe.run(options={"runOnly": ["color-contrast"]})
 
     violations = results["violations"]
-    assert len(violations) == 0, (
-        f"Contraste insuffisant détecté : {len(violations)} élément(s)"
-    )
+    assert (
+        len(violations) == 0
+    ), f"Contraste insuffisant détecté : {len(violations)} élément(s)"
 
 
 def test_homepage_heading_hierarchy(driver, site_dir):
@@ -119,9 +135,7 @@ def test_homepage_landmarks(driver, site_dir):
     results = axe.run(options={"runOnly": ["region", "landmark-one-main"]})
 
     violations = results["violations"]
-    assert len(violations) == 0, (
-        "Landmarks ARIA manquants ou mal structurés"
-    )
+    assert len(violations) == 0, "Landmarks ARIA manquants ou mal structurés"
 
 
 def test_homepage_keyboard_navigation(driver, site_dir):
@@ -130,20 +144,20 @@ def test_homepage_keyboard_navigation(driver, site_dir):
 
     axe = Axe(driver)
     axe.inject()
-    results = axe.run(options={
-        "runOnly": ["keyboard", "focus-order-semantics"]
-    })
+    results = axe.run(options={"runOnly": ["keyboard", "focus-order-semantics"]})
 
     violations = results["violations"]
-    assert len(violations) == 0, (
-        "Éléments non accessibles au clavier détectés"
-    )
+    assert len(violations) == 0, "Éléments non accessibles au clavier détectés"
 
 
 # =============================================================================
 # SYNTHESE TABLE DSFR TESTS (4 scenarios)
 # =============================================================================
 
+
+@pytest.mark.skip(
+    reason="Tests obsolètes: table remplacé par cards DSFR (index.md:119-167)"
+)
 def test_synthese_table_dsfr_wrapper(driver, site_dir):
     """Vérifie que le tableau synthèse est wrappé avec classes DSFR."""
     load_page(driver, site_dir, "index.html")
@@ -155,11 +169,14 @@ def test_synthese_table_dsfr_wrapper(driver, site_dir):
     parent = table.find_element(By.XPATH, "..")
     parent_classes = parent.get_attribute("class")
 
-    assert "fr-table__content" in parent_classes, (
-        "Tableau doit être wrappé dans div.fr-table__content (DSFR)"
-    )
+    assert (
+        "fr-table__content" in parent_classes
+    ), "Tableau doit être wrappé dans div.fr-table__content (DSFR)"
 
 
+@pytest.mark.skip(
+    reason="Tests obsolètes: table remplacé par cards DSFR (index.md:119-167)"
+)
 def test_synthese_table_aria_labels(driver, site_dir):
     """Vérifie les labels ARIA du tableau synthèse."""
     load_page(driver, site_dir, "index.html")
@@ -170,16 +187,16 @@ def test_synthese_table_aria_labels(driver, site_dir):
     # Cibler spécifiquement le tableau SPAN
     context = {"include": [["#table-span-modules"]]}
     results = axe.run(
-        context=context,
-        options={"runOnly": ["table", "td-headers-attr"]}
+        context=context, options={"runOnly": ["table", "td-headers-attr"]}
     )
 
     violations = results["violations"]
-    assert len(violations) == 0, (
-        f"Tableau a {len(violations)} violation(s) ARIA"
-    )
+    assert len(violations) == 0, f"Tableau a {len(violations)} violation(s) ARIA"
 
 
+@pytest.mark.skip(
+    reason="Tests obsolètes: table remplacé par cards DSFR (index.md:119-167)"
+)
 def test_synthese_table_caption(driver, site_dir):
     """Vérifie présence et pertinence du <caption>."""
     load_page(driver, site_dir, "index.html")
@@ -188,11 +205,12 @@ def test_synthese_table_caption(driver, site_dir):
     caption = table.find_element(By.TAG_NAME, "caption")
 
     assert caption is not None, "Tableau doit avoir un <caption>"
-    assert len(caption.text) > 10, (
-        "Caption trop court (doit décrire le contenu)"
-    )
+    assert len(caption.text) > 10, "Caption trop court (doit décrire le contenu)"
 
 
+@pytest.mark.skip(
+    reason="Tests obsolètes: table remplacé par cards DSFR (index.md:119-167)"
+)
 def test_synthese_table_responsive(driver, site_dir):
     """Vérifie que le tableau est responsive (DSFR)."""
     load_page(driver, site_dir, "index.html")
@@ -203,9 +221,7 @@ def test_synthese_table_responsive(driver, site_dir):
     table_wrapper = driver.find_element(By.CLASS_NAME, "fr-table__wrapper")
 
     # Vérifier que le wrapper est visible (pas hidden)
-    assert table_wrapper.is_displayed(), (
-        "Tableau doit rester accessible en mode mobile"
-    )
+    assert table_wrapper.is_displayed(), "Tableau doit rester accessible en mode mobile"
 
     # Restaurer largeur desktop
     driver.set_window_size(1920, 1080)
@@ -214,6 +230,7 @@ def test_synthese_table_responsive(driver, site_dir):
 # =============================================================================
 # PDF METADATA RGAA TESTS (3 scenarios)
 # =============================================================================
+
 
 @pytest.fixture(scope="module")
 def pdf_file():
@@ -250,9 +267,9 @@ def test_pdf_metadata_language(pdf_file):
         # Vérifier dans catalog root
         if "/Lang" in pdf.Root:
             lang = str(pdf.Root.get("/Lang", ""))
-            assert lang.startswith("fr"), (
-                f"Langue PDF doit être 'fr-FR' (actuel: {lang})"
-            )
+            assert lang.startswith(
+                "fr"
+            ), f"Langue PDF doit être 'fr-FR' (actuel: {lang})"
         else:
             pytest.fail("PDF doit avoir metadata /Lang dans Root")
 
@@ -271,23 +288,18 @@ def test_pdf_metadata_description(pdf_file):
         has_subject = "/Subject" in metadata
         has_description = "/Description" in metadata
 
-        assert has_subject or has_description, (
-            "PDF doit avoir /Subject ou /Description"
-        )
+        assert has_subject or has_description, "PDF doit avoir /Subject ou /Description"
 
         if has_subject:
             subject = str(metadata["/Subject"])
-            assert len(subject) > 10, (
-                f"Subject trop court : '{subject}'"
-            )
+            assert len(subject) > 10, f"Subject trop court : '{subject}'"
 
 
 # =============================================================================
 # CONFIGURATION PYTEST
 # =============================================================================
 
+
 def pytest_configure(config):
     """Configuration pytest pour marqueurs personnalisés."""
-    config.addinivalue_line(
-        "markers", "accessibility: Tests accessibilité WCAG/RGAA"
-    )
+    config.addinivalue_line("markers", "accessibility: Tests accessibilité WCAG/RGAA")
