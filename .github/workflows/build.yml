@@ -379,14 +379,12 @@ jobs:
         with:
           chrome-version: stable
 
-      - name: Run accessibility tests (non-blocking warnings)
-        continue-on-error: true
+      - name: Run accessibility tests (RGAA blocking)
         run: |
           python -m pytest tests/test_accessibility.py \
             -v \
             --html=accessibility-report.html \
-            --self-contained-html \
-            || true
+            --self-contained-html
 
       - name: Upload accessibility report
         if: always()
