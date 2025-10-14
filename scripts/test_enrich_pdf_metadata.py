@@ -26,7 +26,9 @@ class TestEnrichPdfMetadata:
 
     def test_file_not_found_exits_1(self, capsys):
         """Vérifie que le script échoue proprement si fichier manquant (HOTFIX-02)"""
-        non_existent = Path("/tmp/nonexistent_span_sg_test.pdf")
+        non_existent = Path(
+            "/tmp/nonexistent_span_sg_test.pdf"
+        )  # nosec B108 - test file path
         with pytest.raises(SystemExit) as exc_info:
             enrich_pdf_metadata(non_existent)
         assert exc_info.value.code == 1

@@ -89,9 +89,12 @@ title: SPAN (SG)
 </li>
 </ol>
 
-Ce SPAN est susceptible d'être mis à jour sans préavis. La version en ligne est la seule version qui peut faire référence.
-
 </nav>
+
+/// alert | Document évolutif
+    type: info
+Ce SPAN est susceptible d'être mis à jour sans préavis. La version en ligne est la seule version qui peut faire référence.
+///
 
 ## Téléchargement PDF
 

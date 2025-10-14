@@ -39,6 +39,33 @@ def get_validation_status(p: Path) -> str:
     return "Brouillon"
 
 
+def status_to_badge(status: str) -> str:
+    """Convertit un statut textuel en badge DSFR HTML."""
+    badge_map = {
+        "Conforme": ("success", "Conforme"),
+        "En cours": ("info", "En cours"),
+        "Non renseigné": ("error", "Non renseigné"),
+    }
+    if status in badge_map:
+        badge_type, label = badge_map[status]
+        return f'<p class="fr-badge fr-badge--{badge_type}">{label}</p>'
+    return status
+
+
+def validation_to_badge(validation_state: str) -> str:
+    """Convertit un état de validation en badge DSFR HTML."""
+    badge_map = {
+        "Validé": ("success", "Validé"),
+        "En cours": ("info", "En cours"),
+        "Brouillon": ("warning", "Brouillon"),
+        "Non renseigné": ("error", "Non renseigné"),
+    }
+    if validation_state in badge_map:
+        badge_type, label = badge_map[validation_state]
+        return f'<p class="fr-badge fr-badge--{badge_type}">{label}</p>'
+    return validation_state
+
+
 def generate_summary():
     modules_dir = Path("docs/modules")
 
@@ -99,6 +126,8 @@ def generate_summary():
             )
         pct = round((checked / total) * 100, 1) if total else 0.0
         status = "Conforme" if pct >= 75 else "En cours" if pct > 0 else "Non renseigné"
+        status_badge = status_to_badge(status)
+        validation_badge = validation_to_badge(validation_state)
 
         service_key = module.stem.lower()
         module_rows.append(
@@ -113,10 +142,10 @@ def generate_summary():
         )
         module_rows.append("                            </td>")
         module_rows.append("                            <td>")
-        module_rows.append(f"                                {status}")
+        module_rows.append(f"                                {status_badge}")
         module_rows.append("                            </td>")
         module_rows.append("                            <td>")
-        module_rows.append(f"                                {validation_state}")
+        module_rows.append(f"                                {validation_badge}")
         module_rows.append("                            </td>")
         module_rows.append("                        </tr>")
 
