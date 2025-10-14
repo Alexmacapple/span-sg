@@ -96,6 +96,20 @@
                 </div>
                 <div class="fr-header__tools">
                     
+                    <div class="fr-header__tools-links">
+                        <ul class="fr-btns-group">
+                            <li>
+                                <a
+                                    href="https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/adr/005-coverage-89-percent.md"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="fr-btn"
+                                    >Éditer dans GitHub</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    
                     <div class="fr-header__search fr-modal" id="search-modal">
                         <div class="fr-container fr-container-lg--fluid">
                             <button
@@ -431,57 +445,12 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <button
-                            class="fr-sidemenu__btn"
-                            aria-expanded="false"
-                            aria-controls="fr-sidemenu-item-3"
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#alternatives-considerees"
+                            target="_self"
+                            >Alternatives considérées</a
                         >
-                            Alternatives considérées
-                        </button>
-                        <div
-                            class="fr-collapse"
-                            id="fr-sidemenu-item-3"
-                        >
-                            <ul class="fr-sidemenu__list">
-                                
-                                <li class="fr-sidemenu__item">
-                                    <a
-                                        class="fr-sidemenu__link"
-                                        href="#option-a-pas-de-seuil-enforced-rejete"
-                                        target="_self"
-                                        >Option A: Pas de seuil enforced (rejeté)</a
-                                    >
-                                </li>
-                                
-                                <li class="fr-sidemenu__item">
-                                    <a
-                                        class="fr-sidemenu__link"
-                                        href="#option-b-seuil-100-strict-rejete"
-                                        target="_self"
-                                        >Option B: Seuil 100% strict (rejeté)</a
-                                    >
-                                </li>
-                                
-                                <li class="fr-sidemenu__item">
-                                    <a
-                                        class="fr-sidemenu__link"
-                                        href="#option-c-seuil-70-80-standard-industrie-rejete"
-                                        target="_self"
-                                        >Option C: Seuil 70-80% (standard industrie, rejeté)</a
-                                    >
-                                </li>
-                                
-                                <li class="fr-sidemenu__item">
-                                    <a
-                                        class="fr-sidemenu__link"
-                                        href="#option-d-seuil-89-cible-choisi"
-                                        target="_self"
-                                        >Option D: Seuil 89%+ ciblé (choisi)</a
-                                    >
-                                </li>
-                                
-                            </ul>
-                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -825,6 +794,7 @@ pytest<span class="w"> </span>--cov-fail-under<span class="o">=</span><span clas
     
 <div class="revision-date">
     
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="14 octobre 2025 16:50:04 UTC">14 octobre 2025</span> 
 </div>
 
 
@@ -843,6 +813,7 @@ pytest<span class="w"> </span>--cov-fail-under<span class="o">=</span><span clas
 <script src="../../search/lunr.fr.js"></script>
 <script src="../../assets/extra.js" defer></script>
 <script src="../../search/main.js" defer></script>
+<script src="../../js/open_in_new_tab.js" defer></script>
 </body>
 
 </html>
