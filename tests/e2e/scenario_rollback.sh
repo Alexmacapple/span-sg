@@ -20,17 +20,17 @@ done
 # Recalculer
 python3 scripts/calculate_scores.py
 
-# Vérifier TOTAL après modification 6 modules (scores actuels: SIRCOM 24/33, autres 0/33)
-# Calcul : SIRCOM (24→25) + SNUM (0→1) + SRH (0→1) + SIEP (0→1) + SAFI (0→1) + BGS (0→1)
-#        = 25 + 1 + 1 + 1 + 1 + 1 = 30/198
-grep -q "30/198" docs/synthese.md || { echo "❌ FAIL: Score incorrect"; cat docs/synthese.md; exit 1; }
+# Vérifier TOTAL après modification 6 modules (scores actuels: tous 0/33)
+# Calcul : SIRCOM (0→1) + SNUM (0→1) + SRH (0→1) + SIEP (0→1) + SAFI (0→1) + BGS (0→1)
+#        = 1 + 1 + 1 + 1 + 1 + 1 = 6/198
+grep -q "6/198" docs/synthese.md || { echo "❌ FAIL: Score incorrect"; cat docs/synthese.md; exit 1; }
 
 # Rollback
 rm -rf docs/modules
 mv /tmp/modules-backup docs/modules
 python3 scripts/calculate_scores.py
 
-# Vérifier retour à 24/198 (score initial)
-grep -q "24/198" docs/synthese.md || { echo "❌ FAIL: Rollback incorrect"; exit 1; }
+# Vérifier retour à 0/198 (score initial actuel)
+grep -q "0/198" docs/synthese.md || { echo "❌ FAIL: Rollback incorrect"; exit 1; }
 
 echo "✅ Scénario rollback OK"

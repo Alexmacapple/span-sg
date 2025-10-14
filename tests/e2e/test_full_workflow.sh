@@ -46,9 +46,9 @@ run_test "Modifier SIRCOM (cocher Grille recrutement)" \
 run_test "Recalculer scores" \
     "python3 scripts/calculate_scores.py"
 
-# Test 4 : Vérifier score SIRCOM augmenté (base 24/33 + 1 = 25/33)
-run_test "Vérifier score SIRCOM = 25/33" \
-    "grep -q '25/33 (' docs/synthese.md"
+# Test 4 : Vérifier score SIRCOM augmenté (base 0/33 + 1 = 1/33)
+run_test "Vérifier score SIRCOM = 1/33" \
+    "grep -q '1/33 (' docs/synthese.md"
 
 # Test 5 : Build site MkDocs DSFR
 run_test "Build site MkDocs DSFR" \
@@ -80,9 +80,9 @@ run_test "Restaurer SIRCOM" \
 run_test "Re-calculer scores après restauration" \
     "python3 scripts/calculate_scores.py"
 
-# Test 11 : Vérifier score SIRCOM restauré (24/33 actuel)
-run_test "Vérifier score SIRCOM = 24/33 (restauré)" \
-    "grep -q '24/33 (' docs/synthese.md"
+# Test 11 : Vérifier score SIRCOM restauré (0/33 actuel)
+run_test "Vérifier score SIRCOM = 0/33 (restauré)" \
+    "grep -q '0/33 (' docs/synthese.md"
 
 # Résumé
 echo ""
