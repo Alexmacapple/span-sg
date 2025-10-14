@@ -17,6 +17,11 @@ validation_status: validated
 Checklist mise à jour vers 33 critères officiels - Réévaluation MiWeb requise
 ///
 
+/// callout | Périmètre SIRCOM en chiffres
+    icon: building-line
+    color: blue-france
+7 sites internet/intranet/extranet - 5 sites internet publics prioritaires - 3 sites avec conformité DSFR totale - Déploiement continu depuis 2022
+///
 
 ## 1. Périmètre
 
