@@ -45,6 +45,14 @@ theme:
         url: https://data.gouv.fr
       - name: info.gouv.fr
         url: https://info.gouv.fr
+    # Liens footer bottom obligatoires RGAA 4.1 (natif mkdocs-dsfr 0.17.0)
+    bottom_links:
+      - name: "Accessibilité : conformité partielle"
+        url: /span-sg-repo/accessibilite/
+      - name: "Mentions légales"
+        url: /span-sg-repo/mentions-legales/
+      - name: "Données personnelles"
+        url: /span-sg-repo/donnees-personnelles/
 
 plugins:
   - search:
@@ -80,6 +88,10 @@ nav:
       - ADR-005 Coverage 89%: adr/005-coverage-89-percent.md
       - ADR-006 Checklist 33 critères: adr/006-migration-checklist-33-criteres.md
     - Diagrammes: architecture/diagrams.md
+  - Informations légales:
+    - Accessibilité: accessibilite.md
+    - Mentions légales: mentions-legales.md
+    - Données personnelles: donnees-personnelles.md
   - "Code source GitHub": "https://github.com/Alexmacapple/span-sg-repo"
 
 hooks:
