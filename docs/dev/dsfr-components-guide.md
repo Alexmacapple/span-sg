@@ -17,7 +17,9 @@ Auteur: Équipe technique SPAN SG
 5. [Alerts - Notifications](#alerts-notifications)
 6. [Grid - Grilles responsives](#grid-grilles-responsives)
 7. [Tables - Tableaux accessibles](#tables-tableaux-accessibles)
-8. [Snippets réutilisables](#snippets-reutilisables)
+8. [Accordions - Accordéons pliables](#accordions-accordeons-pliables)
+9. [Tabs - Onglets](#tabs-onglets)
+10. [Snippets réutilisables](#snippets-reutilisables)
 
 ---
 
@@ -704,6 +706,249 @@ Description card 3
     </div>
 </div>
 ```
+
+---
+
+## Accordions - Accordéons pliables
+
+Les accordéons permettent de masquer/afficher du contenu de manière interactive. Idéal pour FAQ, sections longues ou documentation technique.
+
+### Syntaxe de base
+
+```markdown
+/// accordion | Titre de l'accordéon
+Contenu masqué par défaut
+///
+```
+
+### Paramètres disponibles
+
+| Paramètre | Description | Valeurs | Défaut |
+|-----------|-------------|---------|--------|
+| `title` | Titre de l'accordéon | Texte | Requis |
+| `expanded` | État initial | `true`/`false` | `false` |
+| `id` | ID HTML unique | string | auto |
+
+### Exemple 1 : FAQ simple
+
+```markdown
+/// accordion | Comment contribuer au projet ?
+Consultez le [Guide contributeur](../contributing.md) pour les instructions détaillées.
+
+Processus en 3 étapes :
+1. Fork du dépôt
+2. Créer une branche feature
+3. Ouvrir une Pull Request
+///
+
+/// accordion | Où trouver la documentation API ?
+    expanded: true
+La documentation complète est disponible dans [API Reference](api-reference.md).
+///
+```
+
+### Exemple 2 : Documentation technique pliable
+
+```markdown
+/// accordion | Détails techniques du hook dsfr_table_wrapper.py
+**Fonction** : Encapsule automatiquement les tableaux Markdown dans `<div class="fr-table">`.
+
+**Code source** :
+```python
+def on_page_content(html, page, config, files):
+    soup = BeautifulSoup(html, 'html.parser')
+    for table in soup.find_all('table'):
+        wrapper = soup.new_tag('div', **{'class': 'fr-table'})
+        table.wrap(wrapper)
+    return str(soup)
+```
+
+**Tests** : Voir `tests/test_hooks_dsfr_table_wrapper.py` (100% coverage).
+///
+```
+
+### Exemple 3 : Sections multiples (groupe)
+
+```markdown
+/// accordion | SIRCOM - Service de la Communication
+**Score** : 24/33 (72.7%)
+**Référent** : Équipe Communication
+
+Plan d'action 2025 : 9 actions en cours.
+///
+
+/// accordion | SNUM - Service du Numérique
+**Score** : 21/33 (63.6%)
+**Référent** : Chef de mission numérique
+
+Plan d'action 2025 : 12 actions prioritaires.
+///
+```
+
+### Différence avec Collapsible divs
+
+- **Accordions** : Syntaxe markdown, intégration native mkdocs-dsfr
+- **Collapsible HTML** : `<details><summary>` HTML natif
+
+Privilégier les accordions pour cohérence DSFR.
+
+### Accessibilité
+
+Les accordions génèrent automatiquement :
+- `role="button"` sur le titre
+- `aria-expanded="true/false"` selon l'état
+- Navigation clavier (Entrée/Espace pour toggle)
+
+---
+
+## Tabs - Onglets
+
+Les onglets permettent d'organiser du contenu alternatif (exemples multi-langages, configurations alternatives).
+
+### Syntaxe de base
+
+```markdown
+/// tabs
+/// tab | Python
+```python
+print("Hello SPAN")
+```
+///
+
+/// tab | Bash
+```bash
+echo "Hello SPAN"
+```
+///
+///
+```
+
+### Exemple 1 : Exemples multi-langages
+
+```markdown
+/// tabs
+/// tab | Python
+```python
+import yaml
+
+with open('mkdocs-dsfr.yml') as f:
+    config = yaml.safe_load(f)
+    print(config['site_name'])
+```
+///
+
+/// tab | JavaScript
+```javascript
+const fs = require('fs');
+const yaml = require('js-yaml');
+
+const config = yaml.load(fs.readFileSync('mkdocs-dsfr.yml', 'utf8'));
+console.log(config.site_name);
+```
+///
+
+/// tab | Bash
+```bash
+grep "^site_name:" mkdocs-dsfr.yml | cut -d: -f2
+```
+///
+///
+```
+
+### Exemple 2 : Configurations alternatives
+
+```markdown
+/// tabs
+/// tab | Docker (Recommandé)
+```bash
+docker compose -f docker-compose-dsfr.yml up -d
+# Accès : http://localhost:8000/span-sg-repo/
+```
+
+**Avantages** : Isolation, pas de dépendances locales.
+///
+
+/// tab | Python local
+```bash
+pip install -r requirements-dsfr.txt
+mkdocs serve --config-file mkdocs-dsfr.yml
+```
+
+**Prérequis** : Python 3.11+, pip.
+///
+
+/// tab | macOS Homebrew
+```bash
+brew install mkdocs
+pip3 install mkdocs-dsfr
+mkdocs serve --config-file mkdocs-dsfr.yml
+```
+
+**Note** : Utiliser Python 3 de Homebrew.
+///
+///
+```
+
+### Exemple 3 : Workflows Git
+
+```markdown
+/// tabs
+/// tab | Feature (nouveau module)
+```bash
+git checkout -b feature/update-sircom
+# Modifications dans docs/modules/sircom.md
+git add docs/modules/sircom.md
+git commit -m "feat(sircom): mise à jour plan 2025"
+git push -u origin feature/update-sircom
+# Créer PR vers draft
+```
+///
+
+/// tab | Hotfix (production)
+```bash
+git checkout -b hotfix/fix-typo-synthese
+# Corrections dans docs/synthese.md
+git add docs/synthese.md
+git commit -m "fix(synthese): correction typo tableau"
+git push -u origin hotfix/fix-typo-synthese
+# Créer PR vers main
+```
+///
+
+/// tab | Sync draft → main
+```bash
+git checkout main
+git pull origin main
+git merge draft --no-ff
+git push origin main
+# Déclenche déploiement production
+```
+///
+///
+```
+
+### Paramètres tabs
+
+| Paramètre | Description | Valeurs |
+|-----------|-------------|---------|
+| Tabs parent | Conteneur principal | `/// tabs` ... `///` |
+| Tab enfant | Onglet individuel | `/// tab \| Titre` |
+| Titre | Label de l'onglet | Texte (requis) |
+
+### Accessibilité
+
+Les onglets génèrent automatiquement :
+- `role="tablist"` sur le conteneur
+- `role="tab"` sur chaque onglet
+- `aria-selected="true/false"` selon l'onglet actif
+- Navigation clavier (flèches gauche/droite)
+
+### Cas d'usage recommandés
+
+- Exemples de code multi-langages
+- Instructions alternatives (Docker vs local)
+- Workflows Git différents (feature vs hotfix)
+- Configurations environnements (dev, staging, prod)
 
 ---
 
