@@ -7,9 +7,13 @@ site_name: ""
 site_url: https://alexmacapple.github.io/span-sg-repo/
 strict: true
 
+# Configuration dépôt (requis pour bouton Éditer)
+repo_url: https://github.com/Alexmacapple/span-sg-repo
+edit_uri: blob/main/docs/
+
 theme:
   name: dsfr
-  language: fr
+  language: fr  # Note: Doc officielle dit "locale" mais génère warning. "language" fonctionne.
 
   # Configuration par défaut DSFR
   include_search_page: true
@@ -27,12 +31,7 @@ theme:
   header:
     titre: "SPAN SG"
     sous_titre: "Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général"
-    liens_rapides:
-      - name: "Code Source GitHub"
-        url: "https://github.com/Alexmacapple/span-sg-repo"
-        icon: "github"
-        target: "_blank"
-        title: "Code source GitHub ouvrir dans une nouvelle fenêtre"
+    # Note: liens_rapides non supporté dans mkdocs-dsfr 0.17.0 (ignoré silencieusement)
 
   # Configuration footer DSFR
   footer:
@@ -50,6 +49,8 @@ theme:
 plugins:
   - search:
       lang: fr
+  - git-revision-date-localized:
+      enable_creation_date: false
   - open-in-new-tab
 
 nav:
