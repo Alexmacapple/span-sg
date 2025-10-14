@@ -11,7 +11,11 @@ validation_status: validated
 **Service** SG-SIRCOM (Secrétariat Général - Service de la Communication)
 **Score global** 0/33 critères validés (0.0%)
 **Dernière mise à jour** 13 octobre 2025
-**Note**: Checklist mise à jour vers 33 critères officiels - Réévaluation MiWeb requise
+
+/// alert | Méthodologie mise à jour
+    type: warning
+Checklist mise à jour vers 33 critères officiels - Réévaluation MiWeb requise
+///
 
 
 ## 1. Périmètre

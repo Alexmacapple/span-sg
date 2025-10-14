@@ -1,6 +1,6 @@
 # Tableau de bord SPAN SG
 
-*Mis à jour le 13/10/2025*
+*Mis à jour le 14/10/2025*
 
 **État du déploiement v1.0** : 1 module validé (SIRCOM), 5 modules en cours de complétion. Framework production-ready, contenus enrichis progressivement.
 
@@ -37,10 +37,10 @@
                                 0/33 (0.0%)
                             </td>
                             <td>
-                                Non renseigné
+                                <p class="fr-badge fr-badge--error">Non renseigné</p>
                             </td>
                             <td>
-                                Brouillon
+                                <p class="fr-badge fr-badge--warning">Brouillon</p>
                             </td>
                         </tr>
                         <tr id="table-span-row-safi" data-row-key="safi">
@@ -51,10 +51,10 @@
                                 0/33 (0.0%)
                             </td>
                             <td>
-                                Non renseigné
+                                <p class="fr-badge fr-badge--error">Non renseigné</p>
                             </td>
                             <td>
-                                Brouillon
+                                <p class="fr-badge fr-badge--warning">Brouillon</p>
                             </td>
                         </tr>
                         <tr id="table-span-row-siep" data-row-key="siep">
@@ -65,10 +65,10 @@
                                 0/33 (0.0%)
                             </td>
                             <td>
-                                Non renseigné
+                                <p class="fr-badge fr-badge--error">Non renseigné</p>
                             </td>
                             <td>
-                                Brouillon
+                                <p class="fr-badge fr-badge--warning">Brouillon</p>
                             </td>
                         </tr>
                         <tr id="table-span-row-sircom" data-row-key="sircom">
@@ -79,10 +79,10 @@
                                 0/33 (0.0%)
                             </td>
                             <td>
-                                Non renseigné
+                                <p class="fr-badge fr-badge--error">Non renseigné</p>
                             </td>
                             <td>
-                                Validé
+                                <p class="fr-badge fr-badge--success">Validé</p>
                             </td>
                         </tr>
                         <tr id="table-span-row-snum" data-row-key="snum">
@@ -93,10 +93,10 @@
                                 0/33 (0.0%)
                             </td>
                             <td>
-                                Non renseigné
+                                <p class="fr-badge fr-badge--error">Non renseigné</p>
                             </td>
                             <td>
-                                Brouillon
+                                <p class="fr-badge fr-badge--warning">Brouillon</p>
                             </td>
                         </tr>
                         <tr id="table-span-row-srh" data-row-key="srh">
@@ -107,10 +107,10 @@
                                 0/33 (0.0%)
                             </td>
                             <td>
-                                Non renseigné
+                                <p class="fr-badge fr-badge--error">Non renseigné</p>
                             </td>
                             <td>
-                                Brouillon
+                                <p class="fr-badge fr-badge--warning">Brouillon</p>
                             </td>
                         </tr>
                         <tr id="table-span-row-total" data-row-key="total">
