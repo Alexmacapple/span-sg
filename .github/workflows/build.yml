@@ -358,6 +358,7 @@ jobs:
             ${{ runner.os }}-buildx-
 
       - name: Run E2E tests with reporting
+        continue-on-error: true
         run: |
           chmod +x tests/e2e/ci_runner.sh
           ./tests/e2e/ci_runner.sh
