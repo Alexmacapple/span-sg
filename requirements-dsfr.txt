@@ -5,11 +5,14 @@
 # MkDocs core (version explicite pour compatibilité)
 mkdocs>=1.6.0,<2.0.0
 
-# Theme DSFR officiel (dernière version disponible: 0.9.3)
-mkdocs-dsfr>=0.9.0,<1.0.0
+# Theme DSFR officiel (version installée: 0.17.0)
+mkdocs-dsfr>=0.17.0,<0.18.0
 
 # Plugins nécessaires (identiques à requirements.txt)
 mkdocs-git-revision-date-localized-plugin>=1.2.0
+
+# Plugin recommandé pour liens externes (icône + nouvel onglet)
+mkdocs-open-in-new-tab>=1.0.0
 
 # PDF metadata enrichment
 pikepdf>=8.0.0

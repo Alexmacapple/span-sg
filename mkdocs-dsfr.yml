@@ -15,6 +15,7 @@ theme:
   include_search_page: true
   afficher_date_de_revision: true
   afficher_menu_lateral: true
+  afficher_sommaire: false
   afficher_bouton_editer: true
   libelle_bouton_editer: "Éditer dans GitHub"
   bouton_hautdepage: right
@@ -49,6 +50,7 @@ theme:
 plugins:
   - search:
       lang: fr
+  - open-in-new-tab
 
 nav:
   - SPAN (SG): index.md
@@ -88,12 +90,25 @@ extra_javascript:
   - assets/extra.js
 
 markdown_extensions:
-  - tables
-  - md_in_html
-  - toc:
-      permalink: false
+  - dsfr_structure.extension.all_extensions
+  - pymdownx.snippets
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.emoji:
+      options:
+        attributes:
+          align: absmiddle
+          height: 20px
+          width: 20px
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: false
+      toc_depth: 2
+  - attr_list
+  - def_list
+  - tables
+  - md_in_html
