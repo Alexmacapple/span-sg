@@ -22,7 +22,7 @@
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
 
-    <title>Index</title>
+    <title>Mentions légales</title>
     
     
 </head>
@@ -100,7 +100,7 @@
                         <ul class="fr-btns-group">
                             <li>
                                 <a
-                                    href="https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/adr/README.md"
+                                    href="https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/mentions-legales.md"
                                     target="_blank"
                                     rel="noopener"
                                     class="fr-btn"
@@ -359,8 +359,6 @@
                         <a
                             class="fr-nav__link"
                             
-                            aria-current="page"
-                            
                             href=".."
                             target="_self"
                             >ADR (Décisions)</a
@@ -387,6 +385,8 @@
                 aria-expanded="false"
                 aria-controls="menu-7768"
                 
+                aria-current="true"
+                
             >
                 Informations légales
             </button>
@@ -407,7 +407,9 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../mentions-legales/"
+                            aria-current="page"
+                            
+                            href="./"
                             target="_self"
                             >Mentions légales</a
                         >
@@ -466,72 +468,99 @@
                 aria-controls="fr-sidemenu-wrapper"
                 aria-expanded="true"
             >
-                Architecture Decision Records (ADR)
+                Mentions légales
             </button>
             <div class="fr-collapse" id="fr-sidemenu-wrapper">
-                <div class="fr-sidemenu__title">Architecture Decision Records (ADR)</div>
+                <div class="fr-sidemenu__title">Mentions légales</div>
                 <ul class="fr-sidemenu__list">
                      
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#index"
+                            href="#editeur"
                             target="_self"
-                            >Index</a
+                            >Éditeur</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#legende-statuts"
+                            href="#directeur-de-la-publication"
                             target="_self"
-                            >Légende statuts</a
+                            >Directeur de la publication</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#template-adr"
+                            href="#hebergement"
                             target="_self"
-                            >Template ADR</a
+                            >Hébergement</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#principes-adr"
+                            href="#propriete-intellectuelle"
                             target="_self"
-                            >Principes ADR</a
+                            >Propriété intellectuelle</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#quand-creer-un-adr"
+                            href="#responsabilite"
                             target="_self"
-                            >Quand créer un ADR ?</a
+                            >Responsabilité</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#process-validation"
+                            href="#liens-hypertextes"
                             target="_self"
-                            >Process validation</a
+                            >Liens hypertextes</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#references"
+                            href="#donnees-personnelles"
                             target="_self"
-                            >Références</a
+                            >Données personnelles</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#accessibilite"
+                            target="_self"
+                            >Accessibilité</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#statistiques-de-consultation"
+                            target="_self"
+                            >Statistiques de consultation</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#droit-applicable"
+                            target="_self"
+                            >Droit applicable</a
                         >
                     </li>
                      
@@ -551,151 +580,64 @@
 
                 
                         
-                        <h1 id="architecture-decision-records-adr">Architecture Decision Records (ADR)</h1>
-<p>Historique des décisions techniques majeures du projet SPAN SG.</p>
-<p>Format: <a href="https://adr.github.io/madr/">MADR (Markdown Any Decision Records)</a></p>
-<p>Version: 1.0.1-dsfr
-Dernière mise à jour: 2025-10-11</p>
-<hr />
-<h2 id="index">Index</h2>
-<div class="fr-table">
-<div class="fr-table">
-<table>
-<thead>
-<tr>
-<th>ADR</th>
-<th>Titre</th>
-<th>Date</th>
-<th>Statut</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="001-choix-theme-dsfr/">001</a></td>
-<td>Adoption thème DSFR vs Material</td>
-<td>2025-10-08</td>
-<td>✅ Accepted</td>
-</tr>
-<tr>
-<td><a href="002-format-synthese-html/">002</a></td>
-<td>Migration synthèse Markdown → HTML DSFR</td>
-<td>2025-10-08</td>
-<td>✅ Accepted</td>
-</tr>
-<tr>
-<td><a href="003-isolation-pdf-build/">003</a></td>
-<td>Isolation build PDF avec --site-dir</td>
-<td>2025-10-10</td>
-<td>✅ Accepted</td>
-</tr>
-<tr>
-<td><a href="004-hooks-python-mkdocs/">004</a></td>
-<td>Architecture hooks Python vs JavaScript</td>
-<td>2025-10-08</td>
-<td>✅ Accepted</td>
-</tr>
-<tr>
-<td><a href="005-coverage-89-percent/">005</a></td>
-<td>Seuil coverage 89%+ enforced</td>
-<td>2025-10-10</td>
-<td>✅ Accepted</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<hr />
-<h2 id="legende-statuts">Légende statuts</h2>
+                        <h1 id="mentions-legales">Mentions légales</h1>
+<h2 id="editeur">Éditeur</h2>
+<p><strong>Site SPAN SG</strong> (Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général)</p>
+<p>Édité par :
+<strong>Secrétariat Général du Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique</strong></p>
+<p>Adresse :
+139 rue de Bercy
+75012 Paris</p>
+<p>Téléphone : +33 1 53 18 21 21</p>
+<h2 id="directeur-de-la-publication">Directeur de la publication</h2>
+<p>Le directeur de la publication est le Chef du Service du Numérique du Secrétariat Général.</p>
+<p>Contact : snum@finances.gouv.fr</p>
+<h2 id="hebergement">Hébergement</h2>
+<p>Le site est hébergé par :</p>
+<p><strong>GitHub, Inc.</strong>
+88 Colin P Kelly Jr Street
+San Francisco, CA 94107
+États-Unis</p>
+<p>Service utilisé : GitHub Pages (https://pages.github.com/)</p>
+<h2 id="propriete-intellectuelle">Propriété intellectuelle</h2>
+<h3 id="contenus">Contenus</h3>
+<p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle.</p>
+<p>Sauf mention contraire, tous les contenus de ce site sont sous <strong>licence etalab-2.0</strong> (Licence Ouverte v2.0).</p>
+<p>Vous êtes libre de :
+- Reproduire, copier, publier et transmettre les informations
+- Diffuser et redistribuer les informations
+- Adapter, modifier, extraire et transformer les informations
+- Exploiter les informations à titre commercial</p>
+<p>À condition de :
+- Mentionner la paternité de l'information : nom du producteur, date de dernière mise à jour
+- Ne pas altérer les informations
+- Ne pas induire en erreur des tiers quant au contenu ou à la source des informations</p>
+<p>Texte complet de la licence : https://github.com/etalab/licence-ouverte/blob/master/LO.md</p>
+<h3 id="marques">Marques</h3>
+<p>Les marques citées sur ce site sont déposées par les sociétés qui en sont propriétaires.</p>
 <ul>
-<li>✅ <strong>Accepted</strong>: Décision adoptée et implémentée en production</li>
-<li>⏳ <strong>Proposed</strong>: En discussion, pas encore implémentée</li>
-<li>❌ <strong>Deprecated</strong>: Remplacée, ne plus utiliser</li>
-<li>🔄 <strong>Superseded</strong>: Remplacée par ADR-XXX (voir lien)</li>
+<li>DSFR (Système de Design de l'État) : Direction interministérielle du numérique (DINUM)</li>
+<li>MkDocs : Tom Christie et contributeurs (licence BSD)</li>
 </ul>
+<h2 id="responsabilite">Responsabilité</h2>
+<p>Les informations contenues sur ce site sont aussi précises que possible. Toutefois, le Secrétariat Général ne pourra être tenu responsable des omissions, des inexactitudes et des carences dans la mise à jour, qu'elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces informations.</p>
+<p>Le Secrétariat Général s'efforce d'assurer au mieux de ses possibilités, l'exactitude et la mise à jour des informations diffusées sur ce site.</p>
+<h2 id="liens-hypertextes">Liens hypertextes</h2>
+<p>Le site peut contenir des liens hypertextes vers d'autres sites. Le Secrétariat Général n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.</p>
+<p>Les liens proposés vers des sites externes le sont à titre informatif et n'engagent pas la responsabilité du Secrétariat Général quant aux contenus des sites sur lesquels il est possible de naviguer via ces liens.</p>
+<h2 id="donnees-personnelles">Données personnelles</h2>
+<p>Pour toute information relative au traitement de vos données personnelles, veuillez consulter notre <a href="../donnees-personnelles/">politique de confidentialité</a>.</p>
+<h2 id="accessibilite">Accessibilité</h2>
+<p>Le Secrétariat Général s'engage à rendre son site accessible conformément à l'article 47 de la loi n° 2005-102 du 11 février 2005.</p>
+<p>Pour en savoir plus, consultez notre <a href="../accessibilite/">déclaration d'accessibilité</a>.</p>
+<h2 id="statistiques-de-consultation">Statistiques de consultation</h2>
+<p>Ce site utilise GitHub Pages pour l'hébergement. GitHub peut collecter des logs serveur standard (adresses IP, pages visitées, user-agent) pour des raisons de sécurité et de disponibilité du service.</p>
+<p>Aucun cookie de suivi marketing ou analytics n'est déposé sur votre navigateur.</p>
+<h2 id="droit-applicable">Droit applicable</h2>
+<p>Le présent site et les présentes mentions légales sont régis par le droit français.</p>
+<p>Tout litige relatif à l'utilisation du site est de la compétence exclusive des tribunaux français.</p>
 <hr />
-<h2 id="template-adr">Template ADR</h2>
-<p>Pour créer un nouveau ADR, copier <code>template.md</code> et suivre la structure MADR :</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># ADR-XXX: [Titre court]</span>
-
-<span class="gs">**Date**</span>: YYYY-MM-DD
-<span class="gs">**Statut**</span>: ⏳ Proposed / ✅ Accepted / ❌ Deprecated / 🔄 Superseded
-<span class="gs">**Décideurs**</span>: [Noms]
-<span class="gs">**Sponsor**</span>: [Chef projet/Sponsor]
-
-<span class="gu">## Contexte</span>
-
-[Problème à résoudre, contraintes, contexte métier]
-
-<span class="gu">## Décision</span>
-
-[Solution choisie, justification courte]
-
-<span class="gu">## Alternatives considérées</span>
-
-<span class="gu">### Option A: [Nom]</span>
-<span class="k">-</span><span class="w"> </span>Avantages: ...
-<span class="k">-</span><span class="w"> </span>Inconvénients: ...
-<span class="k">-</span><span class="w"> </span><span class="gs">**Rejeté**</span>: [Raison]
-
-<span class="gu">### Option B: [Nom choisi]</span>
-<span class="k">-</span><span class="w"> </span>Avantages: ...
-<span class="k">-</span><span class="w"> </span>Inconvénients: ...
-<span class="k">-</span><span class="w"> </span><span class="gs">**Choisi**</span>: [Raison]
-
-<span class="gu">## Conséquences</span>
-
-<span class="gs">**Positives:**</span>
-<span class="k">-</span><span class="w"> </span>[Bénéfices]
-
-<span class="gs">**Négatives:**</span>
-<span class="k">-</span><span class="w"> </span>[Coûts, limitations]
-
-<span class="gu">## Validation</span>
-
-<span class="k">-</span><span class="w"> </span>[Critères succès]
-<span class="k">-</span><span class="w"> </span>[Tests validation]
-
-<span class="gu">## Références</span>
-
-<span class="k">-</span><span class="w"> </span>[Commits, issues, docs]
-</code></pre></div>
-<hr />
-<h2 id="principes-adr">Principes ADR</h2>
-<ol>
-<li><strong>Immutables</strong>: Un ADR ne se modifie pas après acceptation</li>
-<li><strong>Traçables</strong>: Chaque décision technique majeure → ADR</li>
-<li><strong>Contextuels</strong>: Expliquer le "pourquoi", pas seulement le "quoi"</li>
-<li><strong>Concis</strong>: 1-2 pages maximum</li>
-<li><strong>Datés</strong>: Date décision pour historique chronologique</li>
-</ol>
-<hr />
-<h2 id="quand-creer-un-adr">Quand créer un ADR ?</h2>
-<p><strong>Créer un ADR pour:</strong>
-- ✅ Choix technologiques structurants (frameworks, libs majeures)
-- ✅ Changements architecture (formats, workflows, CI/CD)
-- ✅ Standards projet (coverage, conventions, process)
-- ✅ Décisions impactant &gt; 20% du code</p>
-<p><strong>Ne pas créer pour:</strong>
-- ❌ Petits bugfixes
-- ❌ Refactoring localisés
-- ❌ Ajout features mineures
-- ❌ Changements réversibles facilement</p>
-<hr />
-<h2 id="process-validation">Process validation</h2>
-<ol>
-<li>Rédiger ADR avec statut <code>⏳ Proposed</code></li>
-<li>Discussion équipe (review, alternatives)</li>
-<li>Décision validée → Statut <code>✅ Accepted</code></li>
-<li>Implémentation (commits référencent ADR-XXX)</li>
-<li>Si déprécié plus tard → Créer nouvel ADR + statut <code>🔄 Superseded by ADR-YYY</code></li>
-</ol>
-<hr />
-<h2 id="references">Références</h2>
-<ul>
-<li><a href="https://adr.github.io/madr/">MADR Documentation</a></li>
-<li><a href="https://adr.github.io/">ADR GitHub Organization</a></li>
-<li><a href="https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records">Thoughtworks Technology Radar - ADR</a></li>
-</ul>
+<p><em>Dernière mise à jour : 14 octobre 2025</em></p>
                         
                         
                         <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
@@ -705,10 +647,10 @@ Dernière mise à jour: 2025-10-11</p>
                     
 	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
 		<ul class="fr-pagination__list">
-			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../contributing/" title="Guide contributeur" >
+			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../accessibilite/" title="Accessibilité" >
 				Page précédente
 			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="001-choix-theme-dsfr/" title="ADR-001 Thème DSFR" >
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../donnees-personnelles/" title="Données personnelles" >
 				Page suivante
 			</a></li>
 		</ul>

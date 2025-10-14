@@ -22,7 +22,7 @@
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
 
-    <title>Index</title>
+    <title>Données personnelles</title>
     
     
 </head>
@@ -100,7 +100,7 @@
                         <ul class="fr-btns-group">
                             <li>
                                 <a
-                                    href="https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/adr/README.md"
+                                    href="https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/donnees-personnelles.md"
                                     target="_blank"
                                     rel="noopener"
                                     class="fr-btn"
@@ -359,8 +359,6 @@
                         <a
                             class="fr-nav__link"
                             
-                            aria-current="page"
-                            
                             href=".."
                             target="_self"
                             >ADR (Décisions)</a
@@ -386,6 +384,8 @@
                 class="fr-nav__btn"
                 aria-expanded="false"
                 aria-controls="menu-7768"
+                
+                aria-current="true"
                 
             >
                 Informations légales
@@ -417,7 +417,9 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../donnees-personnelles/"
+                            aria-current="page"
+                            
+                            href="./"
                             target="_self"
                             >Données personnelles</a
                         >
@@ -466,72 +468,126 @@
                 aria-controls="fr-sidemenu-wrapper"
                 aria-expanded="true"
             >
-                Architecture Decision Records (ADR)
+                Politique de confidentialité et données personnelles
             </button>
             <div class="fr-collapse" id="fr-sidemenu-wrapper">
-                <div class="fr-sidemenu__title">Architecture Decision Records (ADR)</div>
+                <div class="fr-sidemenu__title">Politique de confidentialité et données personnelles</div>
                 <ul class="fr-sidemenu__list">
                      
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#index"
+                            href="#responsable-du-traitement"
                             target="_self"
-                            >Index</a
+                            >Responsable du traitement</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#legende-statuts"
+                            href="#delegue-a-la-protection-des-donnees-dpo"
                             target="_self"
-                            >Légende statuts</a
+                            >Délégué à la protection des données (DPO)</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#template-adr"
+                            href="#donnees-collectees"
                             target="_self"
-                            >Template ADR</a
+                            >Données collectées</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#principes-adr"
+                            href="#finalites-du-traitement"
                             target="_self"
-                            >Principes ADR</a
+                            >Finalités du traitement</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#quand-creer-un-adr"
+                            href="#base-legale"
                             target="_self"
-                            >Quand créer un ADR ?</a
+                            >Base légale</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#process-validation"
+                            href="#destinataires-des-donnees"
                             target="_self"
-                            >Process validation</a
+                            >Destinataires des données</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#references"
+                            href="#duree-de-conservation"
                             target="_self"
-                            >Références</a
+                            >Durée de conservation</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#vos-droits"
+                            target="_self"
+                            >Vos droits</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#droit-de-reclamation"
+                            target="_self"
+                            >Droit de réclamation</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#securite"
+                            target="_self"
+                            >Sécurité</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#transferts-hors-ue"
+                            target="_self"
+                            >Transferts hors UE</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#modifications-de-la-politique"
+                            target="_self"
+                            >Modifications de la politique</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#contact"
+                            target="_self"
+                            >Contact</a
                         >
                     </li>
                      
@@ -551,151 +607,122 @@
 
                 
                         
-                        <h1 id="architecture-decision-records-adr">Architecture Decision Records (ADR)</h1>
-<p>Historique des décisions techniques majeures du projet SPAN SG.</p>
-<p>Format: <a href="https://adr.github.io/madr/">MADR (Markdown Any Decision Records)</a></p>
-<p>Version: 1.0.1-dsfr
-Dernière mise à jour: 2025-10-11</p>
-<hr />
-<h2 id="index">Index</h2>
+                        <h1 id="politique-de-confidentialite-et-donnees-personnelles">Politique de confidentialité et données personnelles</h1>
+<p>Le Secrétariat Général du Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique accorde une grande importance à la protection de vos données personnelles et au respect de votre vie privée.</p>
+<p>Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos données lorsque vous consultez le site <strong>SPAN SG</strong>.</p>
+<h2 id="responsable-du-traitement">Responsable du traitement</h2>
+<p><strong>Secrétariat Général du Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique</strong></p>
+<p>Adresse : 139 rue de Bercy, 75012 Paris</p>
+<p>Contact : snum@finances.gouv.fr</p>
+<h2 id="delegue-a-la-protection-des-donnees-dpo">Délégué à la protection des données (DPO)</h2>
+<p>Pour toute question relative à la protection de vos données personnelles, vous pouvez contacter le délégué à la protection des données du Ministère :</p>
+<p>Email : dpo.mefsin@finances.gouv.fr</p>
+<p>Adresse postale :
+Délégué à la protection des données
+Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique
+139 rue de Bercy
+75012 Paris</p>
+<h2 id="donnees-collectees">Données collectées</h2>
+<h3 id="navigation-sur-le-site">Navigation sur le site</h3>
+<p>Le site <strong>SPAN SG</strong> est un site de consultation publique hébergé sur GitHub Pages. Aucune donnée personnelle identifiable n'est collectée directement par le Secrétariat Général lors de votre navigation.</p>
+<p>Cependant, l'hébergeur GitHub peut collecter automatiquement des données techniques à des fins de sécurité et de disponibilité du service :
+- Adresse IP
+- Type de navigateur (user-agent)
+- Pages visitées
+- Date et heure de connexion
+- Système d'exploitation</p>
+<p>Ces données sont conservées par GitHub conformément à sa propre politique de confidentialité : https://docs.github.com/fr/site-policy/privacy-policies/github-privacy-statement</p>
+<h3 id="cookies">Cookies</h3>
+<p><strong>Aucun cookie de suivi marketing ou analytics n'est déposé sur votre navigateur</strong> lors de la consultation de ce site.</p>
+<p>Le seul cookie utilisé est le cookie de préférence d'affichage (thème clair/sombre) du DSFR, qui est strictement technique et ne contient aucune donnée personnelle. Ce cookie est stocké localement dans votre navigateur et n'est jamais transmis à un serveur tiers.</p>
 <div class="fr-table">
 <div class="fr-table">
 <table>
 <thead>
 <tr>
-<th>ADR</th>
-<th>Titre</th>
-<th>Date</th>
-<th>Statut</th>
+<th>Nom du cookie</th>
+<th>Finalité</th>
+<th>Durée</th>
+<th>Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="001-choix-theme-dsfr/">001</a></td>
-<td>Adoption thème DSFR vs Material</td>
-<td>2025-10-08</td>
-<td>✅ Accepted</td>
-</tr>
-<tr>
-<td><a href="002-format-synthese-html/">002</a></td>
-<td>Migration synthèse Markdown → HTML DSFR</td>
-<td>2025-10-08</td>
-<td>✅ Accepted</td>
-</tr>
-<tr>
-<td><a href="003-isolation-pdf-build/">003</a></td>
-<td>Isolation build PDF avec --site-dir</td>
-<td>2025-10-10</td>
-<td>✅ Accepted</td>
-</tr>
-<tr>
-<td><a href="004-hooks-python-mkdocs/">004</a></td>
-<td>Architecture hooks Python vs JavaScript</td>
-<td>2025-10-08</td>
-<td>✅ Accepted</td>
-</tr>
-<tr>
-<td><a href="005-coverage-89-percent/">005</a></td>
-<td>Seuil coverage 89%+ enforced</td>
-<td>2025-10-10</td>
-<td>✅ Accepted</td>
+<td><code>fr-theme</code></td>
+<td>Préférence thème clair/sombre</td>
+<td>1 an</td>
+<td>Technique</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<hr />
-<h2 id="legende-statuts">Légende statuts</h2>
+<p>Conformément à l'article 82 de la loi Informatique et Libertés et aux recommandations de la CNIL, ce cookie technique est exempté de consentement préalable.</p>
+<h2 id="finalites-du-traitement">Finalités du traitement</h2>
+<p>Les données techniques collectées par l'hébergeur GitHub Pages sont utilisées uniquement pour :
+- Assurer la sécurité et la disponibilité du service
+- Détecter et prévenir les abus (attaques DDoS, tentatives d'intrusion)
+- Analyser les performances du service d'hébergement</p>
+<p>Le Secrétariat Général n'a pas accès à ces logs techniques.</p>
+<h2 id="base-legale">Base légale</h2>
+<p>Le traitement des données d'hébergement repose sur :
+- Article 6.1.f du RGPD (intérêt légitime) : sécurité et disponibilité du service public numérique
+- Article 6.1.e du RGPD (mission d'intérêt public) : publication du Schéma Pluriannuel d'Accessibilité Numérique</p>
+<h2 id="destinataires-des-donnees">Destinataires des données</h2>
+<p>Les données techniques d'hébergement sont accessibles uniquement à :
+- GitHub, Inc. (hébergeur) pour l'exploitation de l'infrastructure
+- Équipe technique du Secrétariat Général (administrateurs GitHub) pour la maintenance du site</p>
+<p><strong>Aucune donnée n'est transmise à des tiers à des fins commerciales ou marketing.</strong></p>
+<h2 id="duree-de-conservation">Durée de conservation</h2>
 <ul>
-<li>✅ <strong>Accepted</strong>: Décision adoptée et implémentée en production</li>
-<li>⏳ <strong>Proposed</strong>: En discussion, pas encore implémentée</li>
-<li>❌ <strong>Deprecated</strong>: Remplacée, ne plus utiliser</li>
-<li>🔄 <strong>Superseded</strong>: Remplacée par ADR-XXX (voir lien)</li>
+<li>Logs serveur GitHub : conformément à la politique GitHub (généralement 90 jours)</li>
+<li>Cookie fr-theme : 1 an (supprimable à tout moment via les paramètres de votre navigateur)</li>
 </ul>
-<hr />
-<h2 id="template-adr">Template ADR</h2>
-<p>Pour créer un nouveau ADR, copier <code>template.md</code> et suivre la structure MADR :</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># ADR-XXX: [Titre court]</span>
-
-<span class="gs">**Date**</span>: YYYY-MM-DD
-<span class="gs">**Statut**</span>: ⏳ Proposed / ✅ Accepted / ❌ Deprecated / 🔄 Superseded
-<span class="gs">**Décideurs**</span>: [Noms]
-<span class="gs">**Sponsor**</span>: [Chef projet/Sponsor]
-
-<span class="gu">## Contexte</span>
-
-[Problème à résoudre, contraintes, contexte métier]
-
-<span class="gu">## Décision</span>
-
-[Solution choisie, justification courte]
-
-<span class="gu">## Alternatives considérées</span>
-
-<span class="gu">### Option A: [Nom]</span>
-<span class="k">-</span><span class="w"> </span>Avantages: ...
-<span class="k">-</span><span class="w"> </span>Inconvénients: ...
-<span class="k">-</span><span class="w"> </span><span class="gs">**Rejeté**</span>: [Raison]
-
-<span class="gu">### Option B: [Nom choisi]</span>
-<span class="k">-</span><span class="w"> </span>Avantages: ...
-<span class="k">-</span><span class="w"> </span>Inconvénients: ...
-<span class="k">-</span><span class="w"> </span><span class="gs">**Choisi**</span>: [Raison]
-
-<span class="gu">## Conséquences</span>
-
-<span class="gs">**Positives:**</span>
-<span class="k">-</span><span class="w"> </span>[Bénéfices]
-
-<span class="gs">**Négatives:**</span>
-<span class="k">-</span><span class="w"> </span>[Coûts, limitations]
-
-<span class="gu">## Validation</span>
-
-<span class="k">-</span><span class="w"> </span>[Critères succès]
-<span class="k">-</span><span class="w"> </span>[Tests validation]
-
-<span class="gu">## Références</span>
-
-<span class="k">-</span><span class="w"> </span>[Commits, issues, docs]
-</code></pre></div>
-<hr />
-<h2 id="principes-adr">Principes ADR</h2>
-<ol>
-<li><strong>Immutables</strong>: Un ADR ne se modifie pas après acceptation</li>
-<li><strong>Traçables</strong>: Chaque décision technique majeure → ADR</li>
-<li><strong>Contextuels</strong>: Expliquer le "pourquoi", pas seulement le "quoi"</li>
-<li><strong>Concis</strong>: 1-2 pages maximum</li>
-<li><strong>Datés</strong>: Date décision pour historique chronologique</li>
-</ol>
-<hr />
-<h2 id="quand-creer-un-adr">Quand créer un ADR ?</h2>
-<p><strong>Créer un ADR pour:</strong>
-- ✅ Choix technologiques structurants (frameworks, libs majeures)
-- ✅ Changements architecture (formats, workflows, CI/CD)
-- ✅ Standards projet (coverage, conventions, process)
-- ✅ Décisions impactant &gt; 20% du code</p>
-<p><strong>Ne pas créer pour:</strong>
-- ❌ Petits bugfixes
-- ❌ Refactoring localisés
-- ❌ Ajout features mineures
-- ❌ Changements réversibles facilement</p>
-<hr />
-<h2 id="process-validation">Process validation</h2>
-<ol>
-<li>Rédiger ADR avec statut <code>⏳ Proposed</code></li>
-<li>Discussion équipe (review, alternatives)</li>
-<li>Décision validée → Statut <code>✅ Accepted</code></li>
-<li>Implémentation (commits référencent ADR-XXX)</li>
-<li>Si déprécié plus tard → Créer nouvel ADR + statut <code>🔄 Superseded by ADR-YYY</code></li>
-</ol>
-<hr />
-<h2 id="references">Références</h2>
+<h2 id="vos-droits">Vos droits</h2>
+<p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez des droits suivants :</p>
 <ul>
-<li><a href="https://adr.github.io/madr/">MADR Documentation</a></li>
-<li><a href="https://adr.github.io/">ADR GitHub Organization</a></li>
-<li><a href="https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records">Thoughtworks Technology Radar - ADR</a></li>
+<li><strong>Droit d'accès</strong> : obtenir la confirmation que vos données sont traitées et en obtenir copie</li>
+<li><strong>Droit de rectification</strong> : corriger vos données inexactes ou incomplètes</li>
+<li><strong>Droit à l'effacement</strong> : demander la suppression de vos données</li>
+<li><strong>Droit à la limitation</strong> : limiter le traitement de vos données</li>
+<li><strong>Droit d'opposition</strong> : vous opposer au traitement de vos données</li>
+<li><strong>Droit à la portabilité</strong> : recevoir vos données dans un format structuré</li>
 </ul>
+<p>Pour exercer ces droits, contactez le DPO : dpo.mefsin@finances.gouv.fr</p>
+<p><strong>Délai de réponse :</strong> 1 mois (peut être prolongé de 2 mois si la demande est complexe)</p>
+<h2 id="droit-de-reclamation">Droit de réclamation</h2>
+<p>Si vous estimez que le traitement de vos données personnelles n'est pas conforme à la réglementation, vous pouvez introduire une réclamation auprès de la CNIL :</p>
+<p><strong>Commission Nationale de l'Informatique et des Libertés (CNIL)</strong>
+- Site web : https://www.cnil.fr/fr/plaintes
+- Adresse postale : 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07
+- Téléphone : +33 1 53 73 22 22</p>
+<h2 id="securite">Sécurité</h2>
+<p>Le Secrétariat Général met en œuvre toutes les mesures techniques et organisationnelles appropriées pour assurer la sécurité de vos données :</p>
+<ul>
+<li>Hébergement sur infrastructure GitHub Pages (certifiée SOC 2 Type II, ISO 27001)</li>
+<li>Connexion HTTPS obligatoire (chiffrement TLS 1.3)</li>
+<li>Aucune collecte de données sensibles</li>
+<li>Accès restreint aux administrateurs autorisés uniquement</li>
+</ul>
+<h2 id="transferts-hors-ue">Transferts hors UE</h2>
+<p>Le site est hébergé par GitHub, Inc., société américaine. GitHub s'engage à respecter les exigences du RGPD pour les transferts de données hors UE, notamment via :
+- Clauses contractuelles types de la Commission européenne
+- Certifications Privacy Shield (remplacé par le Data Privacy Framework)</p>
+<p>Plus d'informations : https://docs.github.com/fr/site-policy/privacy-policies/github-data-protection-agreement</p>
+<h2 id="modifications-de-la-politique">Modifications de la politique</h2>
+<p>Cette politique de confidentialité peut être mise à jour pour refléter les évolutions légales ou techniques.</p>
+<p><strong>Date de dernière mise à jour :</strong> 14 octobre 2025</p>
+<p>Nous vous invitons à consulter régulièrement cette page pour prendre connaissance des éventuelles modifications.</p>
+<h2 id="contact">Contact</h2>
+<p>Pour toute question relative à cette politique de confidentialité ou à la protection de vos données personnelles :</p>
+<p>Email : dpo.mefsin@finances.gouv.fr</p>
+<p>Adresse postale :
+Service du Numérique - Secrétariat Général
+Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique
+139 rue de Bercy
+75012 Paris</p>
+<hr />
+<p><em>Cette politique est conforme au RGPD (Règlement UE 2016/679) et à la loi Informatique et Libertés modifiée.</em></p>
                         
                         
                         <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
@@ -705,10 +732,10 @@ Dernière mise à jour: 2025-10-11</p>
                     
 	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
 		<ul class="fr-pagination__list">
-			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../contributing/" title="Guide contributeur" >
+			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../mentions-legales/" title="Mentions légales" >
 				Page précédente
 			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="001-choix-theme-dsfr/" title="ADR-001 Thème DSFR" >
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  aria-disabled="true" role="link" >
 				Page suivante
 			</a></li>
 		</ul>

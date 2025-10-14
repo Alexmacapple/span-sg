@@ -22,7 +22,7 @@
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
 
-    <title>Index</title>
+    <title>Accessibilité</title>
     
     
 </head>
@@ -100,7 +100,7 @@
                         <ul class="fr-btns-group">
                             <li>
                                 <a
-                                    href="https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/adr/README.md"
+                                    href="https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/accessibilite.md"
                                     target="_blank"
                                     rel="noopener"
                                     class="fr-btn"
@@ -359,8 +359,6 @@
                         <a
                             class="fr-nav__link"
                             
-                            aria-current="page"
-                            
                             href=".."
                             target="_self"
                             >ADR (Décisions)</a
@@ -387,6 +385,8 @@
                 aria-expanded="false"
                 aria-controls="menu-7768"
                 
+                aria-current="true"
+                
             >
                 Informations légales
             </button>
@@ -397,7 +397,9 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../accessibilite/"
+                            aria-current="page"
+                            
+                            href="./"
                             target="_self"
                             >Accessibilité</a
                         >
@@ -466,72 +468,54 @@
                 aria-controls="fr-sidemenu-wrapper"
                 aria-expanded="true"
             >
-                Architecture Decision Records (ADR)
+                Déclaration d'accessibilité
             </button>
             <div class="fr-collapse" id="fr-sidemenu-wrapper">
-                <div class="fr-sidemenu__title">Architecture Decision Records (ADR)</div>
+                <div class="fr-sidemenu__title">Déclaration d'accessibilité</div>
                 <ul class="fr-sidemenu__list">
                      
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#index"
+                            href="#etat-de-conformite"
                             target="_self"
-                            >Index</a
+                            >État de conformité</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#legende-statuts"
+                            href="#etablissement-de-cette-declaration-daccessibilite"
                             target="_self"
-                            >Légende statuts</a
+                            >Établissement de cette déclaration d'accessibilité</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#template-adr"
+                            href="#retour-dinformation-et-contact"
                             target="_self"
-                            >Template ADR</a
+                            >Retour d'information et contact</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#principes-adr"
+                            href="#voies-de-recours"
                             target="_self"
-                            >Principes ADR</a
+                            >Voies de recours</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#quand-creer-un-adr"
+                            href="#informations-techniques"
                             target="_self"
-                            >Quand créer un ADR ?</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#process-validation"
-                            target="_self"
-                            >Process validation</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#references"
-                            target="_self"
-                            >Références</a
+                            >Informations techniques</a
                         >
                     </li>
                      
@@ -551,151 +535,99 @@
 
                 
                         
-                        <h1 id="architecture-decision-records-adr">Architecture Decision Records (ADR)</h1>
-<p>Historique des décisions techniques majeures du projet SPAN SG.</p>
-<p>Format: <a href="https://adr.github.io/madr/">MADR (Markdown Any Decision Records)</a></p>
-<p>Version: 1.0.1-dsfr
-Dernière mise à jour: 2025-10-11</p>
-<hr />
-<h2 id="index">Index</h2>
-<div class="fr-table">
-<div class="fr-table">
-<table>
-<thead>
-<tr>
-<th>ADR</th>
-<th>Titre</th>
-<th>Date</th>
-<th>Statut</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="001-choix-theme-dsfr/">001</a></td>
-<td>Adoption thème DSFR vs Material</td>
-<td>2025-10-08</td>
-<td>✅ Accepted</td>
-</tr>
-<tr>
-<td><a href="002-format-synthese-html/">002</a></td>
-<td>Migration synthèse Markdown → HTML DSFR</td>
-<td>2025-10-08</td>
-<td>✅ Accepted</td>
-</tr>
-<tr>
-<td><a href="003-isolation-pdf-build/">003</a></td>
-<td>Isolation build PDF avec --site-dir</td>
-<td>2025-10-10</td>
-<td>✅ Accepted</td>
-</tr>
-<tr>
-<td><a href="004-hooks-python-mkdocs/">004</a></td>
-<td>Architecture hooks Python vs JavaScript</td>
-<td>2025-10-08</td>
-<td>✅ Accepted</td>
-</tr>
-<tr>
-<td><a href="005-coverage-89-percent/">005</a></td>
-<td>Seuil coverage 89%+ enforced</td>
-<td>2025-10-10</td>
-<td>✅ Accepted</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<hr />
-<h2 id="legende-statuts">Légende statuts</h2>
+                        <h1 id="declaration-daccessibilite">Déclaration d'accessibilité</h1>
+<p>Le Secrétariat Général du Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique s'engage à rendre son site internet accessible, conformément à l'article 47 de la loi n° 2005-102 du 11 février 2005.</p>
+<p>Cette déclaration d'accessibilité s'applique au site <strong>SPAN SG</strong> (https://alexmacapple.github.io/span-sg-repo/).</p>
+<h2 id="etat-de-conformite">État de conformité</h2>
+<p>Le site <strong>SPAN SG</strong> est <strong>partiellement conforme</strong> avec le référentiel général d'amélioration de l'accessibilité (RGAA) version 4.1, en raison des non-conformités et des dérogations énumérées ci-dessous.</p>
+<h3 id="resultats-des-tests">Résultats des tests</h3>
+<p>L'audit de conformité réalisé par l'équipe technique révèle que :</p>
 <ul>
-<li>✅ <strong>Accepted</strong>: Décision adoptée et implémentée en production</li>
-<li>⏳ <strong>Proposed</strong>: En discussion, pas encore implémentée</li>
-<li>❌ <strong>Deprecated</strong>: Remplacée, ne plus utiliser</li>
-<li>🔄 <strong>Superseded</strong>: Remplacée par ADR-XXX (voir lien)</li>
+<li><strong>98 % des critères RGAA sont respectés</strong> (tests automatisés axe-core)</li>
+<li>Tests réalisés le 14 octobre 2025</li>
+<li>12 tests automatisés couvrant les critères WCAG 2.1 AA :</li>
+<li>Absence de violations critiques ou sérieuses</li>
+<li>Contraste des couleurs conforme (4.5:1 minimum)</li>
+<li>Hiérarchie des titres respectée</li>
+<li>Landmarks ARIA présents (navigation, main, footer)</li>
+<li>Navigation au clavier fonctionnelle</li>
+<li>Tableaux accessibles avec caption et scope</li>
+</ul>
+<h3 id="contenus-non-accessibles">Contenus non accessibles</h3>
+<h4 id="non-conformites">Non-conformités</h4>
+<ol>
+<li><strong>Liens footer bottom</strong> : Implémentation partielle avant octobre 2025 (corrigé dans version actuelle)</li>
+</ol>
+<h4 id="derogations-pour-charge-disproportionnee">Dérogations pour charge disproportionnée</h4>
+<p>Néant.</p>
+<h4 id="contenus-non-soumis-a-lobligation-daccessibilite">Contenus non soumis à l'obligation d'accessibilité</h4>
+<ul>
+<li>Fichiers bureautiques publiés avant le 23 septembre 2018 (sauf si nécessaires pour les démarches administratives)</li>
+<li>Contenus audio et vidéo publiés avant le 23 septembre 2020</li>
+<li>Contenus des intranets et extranets publiés avant le 23 septembre 2019 (jusqu'à leur révision)</li>
+</ul>
+<h2 id="etablissement-de-cette-declaration-daccessibilite">Établissement de cette déclaration d'accessibilité</h2>
+<p>Cette déclaration a été établie le 14 octobre 2025.</p>
+<h3 id="technologies-utilisees-pour-la-realisation-du-site">Technologies utilisées pour la réalisation du site</h3>
+<ul>
+<li>HTML5</li>
+<li>CSS3 (DSFR - Système de Design de l'État)</li>
+<li>JavaScript (bibliothèque DSFR v1.11)</li>
+<li>Python (MkDocs + mkdocs-dsfr 0.17.0)</li>
+</ul>
+<h3 id="agents-utilisateurs-technologies-dassistance-et-outils-utilises-pour-verifier-laccessibilite">Agents utilisateurs, technologies d'assistance et outils utilisés pour vérifier l'accessibilité</h3>
+<p>Les tests ont été effectués avec les combinaisons de navigateurs web et lecteurs d'écran suivants :</p>
+<ul>
+<li>Chrome 119 + axe DevTools</li>
+<li>Chrome 119 + Selenium + axe-core 4.8</li>
+<li>Tests automatisés : pytest + axe-selenium-python</li>
+</ul>
+<p>Les outils suivants ont été utilisés lors de l'évaluation :</p>
+<ul>
+<li>axe-core (Deque Systems) - tests WCAG 2.1 AA</li>
+<li>Selenium WebDriver - automatisation navigateur</li>
+<li>pytest - framework de tests</li>
+<li>Chrome DevTools - inspecteur accessibilité</li>
+</ul>
+<h3 id="pages-du-site-ayant-fait-lobjet-de-la-verification-de-conformite">Pages du site ayant fait l'objet de la vérification de conformité</h3>
+<ul>
+<li>Page d'accueil : https://alexmacapple.github.io/span-sg-repo/</li>
+<li>Page synthèse : https://alexmacapple.github.io/span-sg-repo/synthese/</li>
+<li>Page module (exemple SIRCOM) : https://alexmacapple.github.io/span-sg-repo/modules/sircom/</li>
+<li>PDF export : exports/span-sg.pdf (métadonnées conformes)</li>
+</ul>
+<h2 id="retour-dinformation-et-contact">Retour d'information et contact</h2>
+<p>Si vous n'arrivez pas à accéder à un contenu ou à un service, vous pouvez contacter le responsable du site pour être orienté vers une alternative accessible ou obtenir le contenu sous une autre forme.</p>
+<p><strong>Envoyer un message</strong> : accessibilite.snum@finances.gouv.fr</p>
+<p><strong>Adresse</strong> :
+Secrétariat Général - Service du Numérique
+Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique
+139 rue de Bercy
+75012 Paris</p>
+<h2 id="voies-de-recours">Voies de recours</h2>
+<p>Cette procédure est à utiliser dans le cas suivant : vous avez signalé au responsable du site internet un défaut d'accessibilité qui vous empêche d'accéder à un contenu ou à un des services du portail et vous n'avez pas obtenu de réponse satisfaisante.</p>
+<p>Vous pouvez :</p>
+<ul>
+<li>Écrire un message au Défenseur des droits : https://formulaire.defenseurdesdroits.fr/</li>
+<li>Contacter le délégué du Défenseur des droits dans votre région : https://www.defenseurdesdroits.fr/saisir/delegues</li>
+<li>Envoyer un courrier par la poste (gratuit, ne pas mettre de timbre) :</li>
+</ul>
+<p>Défenseur des droits
+Libre réponse 71120
+75342 Paris CEDEX 07</p>
+<h2 id="informations-techniques">Informations techniques</h2>
+<h3 id="referentiel-utilise">Référentiel utilisé</h3>
+<p>RGAA 4.1 (Référentiel Général d'Amélioration de l'Accessibilité)</p>
+<h3 id="norme-de-reference">Norme de référence</h3>
+<p>EN 301 549 V3.2.1 (2021-03) - Exigences en matière d'accessibilité pour les produits et services TIC</p>
+<h3 id="normes-web">Normes web</h3>
+<ul>
+<li>WCAG 2.1 niveau AA (Web Content Accessibility Guidelines)</li>
+<li>HTML 5.2</li>
+<li>WAI-ARIA 1.2</li>
 </ul>
 <hr />
-<h2 id="template-adr">Template ADR</h2>
-<p>Pour créer un nouveau ADR, copier <code>template.md</code> et suivre la structure MADR :</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># ADR-XXX: [Titre court]</span>
-
-<span class="gs">**Date**</span>: YYYY-MM-DD
-<span class="gs">**Statut**</span>: ⏳ Proposed / ✅ Accepted / ❌ Deprecated / 🔄 Superseded
-<span class="gs">**Décideurs**</span>: [Noms]
-<span class="gs">**Sponsor**</span>: [Chef projet/Sponsor]
-
-<span class="gu">## Contexte</span>
-
-[Problème à résoudre, contraintes, contexte métier]
-
-<span class="gu">## Décision</span>
-
-[Solution choisie, justification courte]
-
-<span class="gu">## Alternatives considérées</span>
-
-<span class="gu">### Option A: [Nom]</span>
-<span class="k">-</span><span class="w"> </span>Avantages: ...
-<span class="k">-</span><span class="w"> </span>Inconvénients: ...
-<span class="k">-</span><span class="w"> </span><span class="gs">**Rejeté**</span>: [Raison]
-
-<span class="gu">### Option B: [Nom choisi]</span>
-<span class="k">-</span><span class="w"> </span>Avantages: ...
-<span class="k">-</span><span class="w"> </span>Inconvénients: ...
-<span class="k">-</span><span class="w"> </span><span class="gs">**Choisi**</span>: [Raison]
-
-<span class="gu">## Conséquences</span>
-
-<span class="gs">**Positives:**</span>
-<span class="k">-</span><span class="w"> </span>[Bénéfices]
-
-<span class="gs">**Négatives:**</span>
-<span class="k">-</span><span class="w"> </span>[Coûts, limitations]
-
-<span class="gu">## Validation</span>
-
-<span class="k">-</span><span class="w"> </span>[Critères succès]
-<span class="k">-</span><span class="w"> </span>[Tests validation]
-
-<span class="gu">## Références</span>
-
-<span class="k">-</span><span class="w"> </span>[Commits, issues, docs]
-</code></pre></div>
-<hr />
-<h2 id="principes-adr">Principes ADR</h2>
-<ol>
-<li><strong>Immutables</strong>: Un ADR ne se modifie pas après acceptation</li>
-<li><strong>Traçables</strong>: Chaque décision technique majeure → ADR</li>
-<li><strong>Contextuels</strong>: Expliquer le "pourquoi", pas seulement le "quoi"</li>
-<li><strong>Concis</strong>: 1-2 pages maximum</li>
-<li><strong>Datés</strong>: Date décision pour historique chronologique</li>
-</ol>
-<hr />
-<h2 id="quand-creer-un-adr">Quand créer un ADR ?</h2>
-<p><strong>Créer un ADR pour:</strong>
-- ✅ Choix technologiques structurants (frameworks, libs majeures)
-- ✅ Changements architecture (formats, workflows, CI/CD)
-- ✅ Standards projet (coverage, conventions, process)
-- ✅ Décisions impactant &gt; 20% du code</p>
-<p><strong>Ne pas créer pour:</strong>
-- ❌ Petits bugfixes
-- ❌ Refactoring localisés
-- ❌ Ajout features mineures
-- ❌ Changements réversibles facilement</p>
-<hr />
-<h2 id="process-validation">Process validation</h2>
-<ol>
-<li>Rédiger ADR avec statut <code>⏳ Proposed</code></li>
-<li>Discussion équipe (review, alternatives)</li>
-<li>Décision validée → Statut <code>✅ Accepted</code></li>
-<li>Implémentation (commits référencent ADR-XXX)</li>
-<li>Si déprécié plus tard → Créer nouvel ADR + statut <code>🔄 Superseded by ADR-YYY</code></li>
-</ol>
-<hr />
-<h2 id="references">Références</h2>
-<ul>
-<li><a href="https://adr.github.io/madr/">MADR Documentation</a></li>
-<li><a href="https://adr.github.io/">ADR GitHub Organization</a></li>
-<li><a href="https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records">Thoughtworks Technology Radar - ADR</a></li>
-</ul>
+<p><em>Dernière mise à jour : 14 octobre 2025</em></p>
                         
                         
                         <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
@@ -705,10 +637,10 @@ Dernière mise à jour: 2025-10-11</p>
                     
 	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
 		<ul class="fr-pagination__list">
-			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../contributing/" title="Guide contributeur" >
+			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../architecture/diagrams/" title="Diagrammes" >
 				Page précédente
 			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="001-choix-theme-dsfr/" title="ADR-001 Thème DSFR" >
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../mentions-legales/" title="Mentions légales" >
 				Page suivante
 			</a></li>
 		</ul>
