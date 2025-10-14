@@ -22,7 +22,7 @@
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
 
-    <title>Contexte réglementaire</title>
+    <title>Accessibilité</title>
     
     
 </head>
@@ -100,7 +100,7 @@
                         <ul class="fr-btns-group">
                             <li>
                                 <a
-                                    href="https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/mise-en-application-circulaire.md"
+                                    href="https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/accessibilite.md"
                                     target="_blank"
                                     rel="noopener"
                                     class="fr-btn"
@@ -190,10 +190,8 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="./"
+                href="../mise-en-application-circulaire/"
                 target="_self"
-                
-                aria-current="page"
                 
                 >Contexte réglementaire</a
             >
@@ -397,6 +395,8 @@
                 aria-expanded="false"
                 aria-controls="menu-7768"
                 
+                aria-current="true"
+                
             >
                 Informations légales
             </button>
@@ -407,7 +407,9 @@
                         <a
                             class="fr-nav__link"
                             
-                            href="../accessibilite/"
+                            aria-current="page"
+                            
+                            href="./"
                             target="_self"
                             >Accessibilité</a
                         >
@@ -476,45 +478,54 @@
                 aria-controls="fr-sidemenu-wrapper"
                 aria-expanded="true"
             >
-                Mise en application de la Circulaire du Premier Ministre (28 avril 2025)
+                Déclaration d'accessibilité
             </button>
             <div class="fr-collapse" id="fr-sidemenu-wrapper">
-                <div class="fr-sidemenu__title">Mise en application de la Circulaire du Premier Ministre (28 avril 2025)</div>
+                <div class="fr-sidemenu__title">Déclaration d'accessibilité</div>
                 <ul class="fr-sidemenu__list">
                      
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#comite-ministeriel-du-handicap"
+                            href="#etat-de-conformite"
                             target="_self"
-                            >Comité ministériel du handicap</a
+                            >État de conformité</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#schema-pluriannuel-daccessibilite-numerique-span"
+                            href="#etablissement-de-cette-declaration-daccessibilite"
                             target="_self"
-                            >Schéma Pluriannuel d'Accessibilité Numérique (SPAN)</a
+                            >Établissement de cette déclaration d'accessibilité</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#accompagnement-et-sensibilisation"
+                            href="#retour-dinformation-et-contact"
                             target="_self"
-                            >Accompagnement et sensibilisation</a
+                            >Retour d'information et contact</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#salon-tchap-accessibilite-numerique-des-mef"
+                            href="#voies-de-recours"
                             target="_self"
-                            >Salon Tchap "Accessibilité numérique des MEF"</a
+                            >Voies de recours</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#informations-techniques"
+                            target="_self"
+                            >Informations techniques</a
                         >
                     </li>
                      
@@ -534,46 +545,99 @@
 
                 
                         
-                        <h1 id="mise-en-application-de-la-circulaire-du-premier-ministre-28-avril-2025">Mise en application de la Circulaire du Premier Ministre (28 avril 2025)</h1>
-<p>La Circulaire relative à l'action interministérielle pour améliorer l'accès aux droits des personnes en situation de handicap fait l'objet d'un suivi actif.</p>
-<h2 id="comite-ministeriel-du-handicap">Comité ministériel du handicap</h2>
-<p>Un Comité ministériel du handicap est en cours de construction sous le pilotage du HFHI (Fabrice Thevaux).</p>
-<p>L'ordre du jour comprend une dizaine de points, dont :</p>
+                        <h1 id="declaration-daccessibilite">Déclaration d'accessibilité</h1>
+<p>Le Secrétariat Général du Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique s'engage à rendre son site internet accessible, conformément à l'article 47 de la loi n° 2005-102 du 11 février 2005.</p>
+<p>Cette déclaration d'accessibilité s'applique au site <strong>SPAN SG</strong> (https://alexmacapple.github.io/span-sg-repo/).</p>
+<h2 id="etat-de-conformite">État de conformité</h2>
+<p>Le site <strong>SPAN SG</strong> est <strong>partiellement conforme</strong> avec le référentiel général d'amélioration de l'accessibilité (RGAA) version 4.1, en raison des non-conformités et des dérogations énumérées ci-dessous.</p>
+<h3 id="resultats-des-tests">Résultats des tests</h3>
+<p>L'audit de conformité réalisé par l'équipe technique révèle que :</p>
 <ul>
-<li>Un point consacré aux démarches essentielles</li>
-<li>Un point sur l'accessibilité de la communication et du numérique</li>
+<li><strong>98 % des critères RGAA sont respectés</strong> (tests automatisés axe-core)</li>
+<li>Tests réalisés le 14 octobre 2025</li>
+<li>12 tests automatisés couvrant les critères WCAG 2.1 AA :</li>
+<li>Absence de violations critiques ou sérieuses</li>
+<li>Contraste des couleurs conforme (4.5:1 minimum)</li>
+<li>Hiérarchie des titres respectée</li>
+<li>Landmarks ARIA présents (navigation, main, footer)</li>
+<li>Navigation au clavier fonctionnelle</li>
+<li>Tableaux accessibles avec caption et scope</li>
 </ul>
-<h2 id="schema-pluriannuel-daccessibilite-numerique-span">Schéma Pluriannuel d'Accessibilité Numérique (SPAN)</h2>
-<p>La MiWeb a entamé la réalisation d'un SPAN sur le périmètre SG :</p>
+<h3 id="contenus-non-accessibles">Contenus non accessibles</h3>
+<h4 id="non-conformites">Non-conformités</h4>
+<ol>
+<li><strong>Liens footer bottom</strong> : Implémentation partielle avant octobre 2025 (corrigé dans version actuelle)</li>
+</ol>
+<h4 id="derogations-pour-charge-disproportionnee">Dérogations pour charge disproportionnée</h4>
+<p>Néant.</p>
+<h4 id="contenus-non-soumis-a-lobligation-daccessibilite">Contenus non soumis à l'obligation d'accessibilité</h4>
 <ul>
-<li>S'appuyant sur l'expérience du SIRCOM (SPAN publié sur le portail economie)</li>
-<li>Avec un périmètre élargi au niveau du Secrétariat Général</li>
-<li>Objectif : embarquer l'ensemble des services du SG (MOA des sites et applications) dans ce projet</li>
+<li>Fichiers bureautiques publiés avant le 23 septembre 2018 (sauf si nécessaires pour les démarches administratives)</li>
+<li>Contenus audio et vidéo publiés avant le 23 septembre 2020</li>
+<li>Contenus des intranets et extranets publiés avant le 23 septembre 2019 (jusqu'à leur révision)</li>
 </ul>
-<h2 id="accompagnement-et-sensibilisation">Accompagnement et sensibilisation</h2>
-<p>La MiWeb propose des présentations sur l'accessibilité dans vos services et directions :</p>
+<h2 id="etablissement-de-cette-declaration-daccessibilite">Établissement de cette déclaration d'accessibilité</h2>
+<p>Cette déclaration a été établie le 14 octobre 2025.</p>
+<h3 id="technologies-utilisees-pour-la-realisation-du-site">Technologies utilisées pour la réalisation du site</h3>
 <ul>
-<li>Sensibilisation et acculturation</li>
-<li>Mise en œuvre</li>
-<li>Publications</li>
+<li>HTML5</li>
+<li>CSS3 (DSFR - Système de Design de l'État)</li>
+<li>JavaScript (bibliothèque DSFR v1.11)</li>
+<li>Python (MkDocs + mkdocs-dsfr 0.17.0)</li>
 </ul>
-<p><strong>Contact :</strong> <a href="mailto:accessibilite.miweb@finances.gouv.fr">accessibilite.miweb@finances.gouv.fr</a></p>
-<h2 id="salon-tchap-accessibilite-numerique-des-mef">Salon Tchap "Accessibilité numérique des MEF"</h2>
-<p>Un nouveau salon Tchap (accès réservé) vient d'ouvrir pour faciliter les échanges entre collègues.</p>
-<p><strong>Public cible :</strong></p>
+<h3 id="agents-utilisateurs-technologies-dassistance-et-outils-utilises-pour-verifier-laccessibilite">Agents utilisateurs, technologies d'assistance et outils utilisés pour vérifier l'accessibilité</h3>
+<p>Les tests ont été effectués avec les combinaisons de navigateurs web et lecteurs d'écran suivants :</p>
 <ul>
-<li>MOA</li>
-<li>MOE</li>
-<li>Communicants</li>
-<li>Chefs de projets</li>
+<li>Chrome 119 + axe DevTools</li>
+<li>Chrome 119 + Selenium + axe-core 4.8</li>
+<li>Tests automatisés : pytest + axe-selenium-python</li>
 </ul>
-<p><strong>Usage :</strong></p>
+<p>Les outils suivants ont été utilisés lors de l'évaluation :</p>
 <ul>
-<li>Entraide</li>
-<li>Demandes de conseils</li>
-<li>Partage d'informations de manière informelle et transverse</li>
+<li>axe-core (Deque Systems) - tests WCAG 2.1 AA</li>
+<li>Selenium WebDriver - automatisation navigateur</li>
+<li>pytest - framework de tests</li>
+<li>Chrome DevTools - inspecteur accessibilité</li>
 </ul>
-<p><strong>Pour demander l'accès :</strong> <a href="mailto:accessibilite.miweb@finances.gouv.fr">accessibilite.miweb@finances.gouv.fr</a></p>
+<h3 id="pages-du-site-ayant-fait-lobjet-de-la-verification-de-conformite">Pages du site ayant fait l'objet de la vérification de conformité</h3>
+<ul>
+<li>Page d'accueil : https://alexmacapple.github.io/span-sg-repo/</li>
+<li>Page synthèse : https://alexmacapple.github.io/span-sg-repo/synthese/</li>
+<li>Page module (exemple SIRCOM) : https://alexmacapple.github.io/span-sg-repo/modules/sircom/</li>
+<li>PDF export : exports/span-sg.pdf (métadonnées conformes)</li>
+</ul>
+<h2 id="retour-dinformation-et-contact">Retour d'information et contact</h2>
+<p>Si vous n'arrivez pas à accéder à un contenu ou à un service, vous pouvez contacter le responsable du site pour être orienté vers une alternative accessible ou obtenir le contenu sous une autre forme.</p>
+<p><strong>Envoyer un message</strong> : accessibilite.snum@finances.gouv.fr</p>
+<p><strong>Adresse</strong> :
+Secrétariat Général - Service du Numérique
+Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique
+139 rue de Bercy
+75012 Paris</p>
+<h2 id="voies-de-recours">Voies de recours</h2>
+<p>Cette procédure est à utiliser dans le cas suivant : vous avez signalé au responsable du site internet un défaut d'accessibilité qui vous empêche d'accéder à un contenu ou à un des services du portail et vous n'avez pas obtenu de réponse satisfaisante.</p>
+<p>Vous pouvez :</p>
+<ul>
+<li>Écrire un message au Défenseur des droits : https://formulaire.defenseurdesdroits.fr/</li>
+<li>Contacter le délégué du Défenseur des droits dans votre région : https://www.defenseurdesdroits.fr/saisir/delegues</li>
+<li>Envoyer un courrier par la poste (gratuit, ne pas mettre de timbre) :</li>
+</ul>
+<p>Défenseur des droits
+Libre réponse 71120
+75342 Paris CEDEX 07</p>
+<h2 id="informations-techniques">Informations techniques</h2>
+<h3 id="referentiel-utilise">Référentiel utilisé</h3>
+<p>RGAA 4.1 (Référentiel Général d'Amélioration de l'Accessibilité)</p>
+<h3 id="norme-de-reference">Norme de référence</h3>
+<p>EN 301 549 V3.2.1 (2021-03) - Exigences en matière d'accessibilité pour les produits et services TIC</p>
+<h3 id="normes-web">Normes web</h3>
+<ul>
+<li>WCAG 2.1 niveau AA (Web Content Accessibility Guidelines)</li>
+<li>HTML 5.2</li>
+<li>WAI-ARIA 1.2</li>
+</ul>
+<hr />
+<p><em>Dernière mise à jour : 14 octobre 2025</em></p>
                         
                         
                         <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
@@ -583,10 +647,10 @@
                     
 	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
 		<ul class="fr-pagination__list">
-			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href=".." title="SPAN (SG)" >
+			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../architecture/diagrams/" title="Diagrammes" >
 				Page précédente
 			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../modules/bgs/" title="BGS" >
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../mentions-legales/" title="Mentions légales" >
 				Page suivante
 			</a></li>
 		</ul>
