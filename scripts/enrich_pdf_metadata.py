@@ -68,6 +68,9 @@ def enrich_pdf_metadata(input_path: Path, output_path: Path = None):
                 meta["xmp:CreateDate"] = datetime.now(timezone.utc).isoformat()
                 meta["xmp:MetadataDate"] = datetime.now(timezone.utc).isoformat()
 
+            # Définir langue dans Root catalog (requis RGAA 13.3 - test_pdf_metadata_language)
+            pdf.Root.Lang = "fr-FR"
+
             # Sauvegarder PDF enrichi
             pdf.save(output_path)
 

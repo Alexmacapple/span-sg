@@ -155,6 +155,9 @@ def test_homepage_keyboard_navigation(driver, site_dir):
 # =============================================================================
 
 
+@pytest.mark.skip(
+    reason="Tests obsolètes: table remplacé par cards DSFR (index.md:119-167)"
+)
 def test_synthese_table_dsfr_wrapper(driver, site_dir):
     """Vérifie que le tableau synthèse est wrappé avec classes DSFR."""
     load_page(driver, site_dir, "index.html")
@@ -171,6 +174,9 @@ def test_synthese_table_dsfr_wrapper(driver, site_dir):
     ), "Tableau doit être wrappé dans div.fr-table__content (DSFR)"
 
 
+@pytest.mark.skip(
+    reason="Tests obsolètes: table remplacé par cards DSFR (index.md:119-167)"
+)
 def test_synthese_table_aria_labels(driver, site_dir):
     """Vérifie les labels ARIA du tableau synthèse."""
     load_page(driver, site_dir, "index.html")
@@ -188,6 +194,9 @@ def test_synthese_table_aria_labels(driver, site_dir):
     assert len(violations) == 0, f"Tableau a {len(violations)} violation(s) ARIA"
 
 
+@pytest.mark.skip(
+    reason="Tests obsolètes: table remplacé par cards DSFR (index.md:119-167)"
+)
 def test_synthese_table_caption(driver, site_dir):
     """Vérifie présence et pertinence du <caption>."""
     load_page(driver, site_dir, "index.html")
@@ -199,6 +208,9 @@ def test_synthese_table_caption(driver, site_dir):
     assert len(caption.text) > 10, "Caption trop court (doit décrire le contenu)"
 
 
+@pytest.mark.skip(
+    reason="Tests obsolètes: table remplacé par cards DSFR (index.md:119-167)"
+)
 def test_synthese_table_responsive(driver, site_dir):
     """Vérifie que le tableau est responsive (DSFR)."""
     load_page(driver, site_dir, "index.html")
