@@ -30,11 +30,11 @@ python3 scripts/calculate_scores.py
 
 # Vérifier scores (scores actuels: SIRCOM 0/33, SNUM 0/33, SRH 0/33)
 # SIRCOM passe à 1/33
-grep -q '<td>.*SIRCOM' docs/synthese.md -A 10 | grep -q "1/33 (" || { echo "FAIL: SIRCOM"; exit 1; }
+grep -A 10 '<td>.*SIRCOM' docs/synthese.md | grep -q "1/33 (" || { echo "FAIL: SIRCOM"; exit 1; }
 # SNUM passe à 1/33
-grep -q '<td>.*SNUM' docs/synthese.md -A 10 | grep -q "1/33 (" || { echo "FAIL: SNUM"; exit 1; }
+grep -A 10 '<td>.*SNUM' docs/synthese.md | grep -q "1/33 (" || { echo "FAIL: SNUM"; exit 1; }
 # SRH passe à 1/33
-grep -q '<td>.*SRH' docs/synthese.md -A 10 | grep -q "1/33 (" || { echo "FAIL: SRH"; exit 1; }
+grep -A 10 '<td>.*SRH' docs/synthese.md | grep -q "1/33 (" || { echo "FAIL: SRH"; exit 1; }
 # TOTAL = SIRCOM (0→1) + SNUM (0→1) + SRH (0→1) + autres (0) = 3/198
 grep -q "3/198 (" docs/synthese.md || { echo "FAIL: TOTAL"; exit 1; }
 
