@@ -358,7 +358,6 @@ jobs:
             ${{ runner.os }}-buildx-
 
       - name: Run E2E tests with reporting
-        continue-on-error: true
         run: |
           chmod +x tests/e2e/ci_runner.sh
           ./tests/e2e/ci_runner.sh
@@ -379,8 +378,7 @@ jobs:
         with:
           chrome-version: stable
 
-      - name: Run accessibility tests (RGAA non-blocking for deployment)
-        continue-on-error: true
+      - name: Run accessibility tests (RGAA)
         run: |
           python -m pytest tests/test_accessibility.py \
             -v \
