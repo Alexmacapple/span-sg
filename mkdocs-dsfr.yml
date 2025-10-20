@@ -4,11 +4,11 @@
 # Basé sur: mkdocs.yml (Material)
 
 site_name: ""
-site_url: https://alexmacapple.github.io/span-sg-repo/
+site_url: https://alexmacapple.github.io/span-sg/
 strict: true
 
 # Configuration dépôt (requis pour bouton Éditer)
-repo_url: https://github.com/Alexmacapple/span-sg-repo
+repo_url: https://github.com/Alexmacapple/span-sg
 edit_uri: blob/main/docs/
 
 theme:

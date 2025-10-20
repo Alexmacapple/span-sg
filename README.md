@@ -1,7 +1,7 @@
 # SPAN SG – Repo
 
-![Build Status](https://github.com/Alexmacapple/span-sg-repo/workflows/Build%20SPAN/badge.svg)
-![E2E Tests](https://github.com/Alexmacapple/span-sg-repo/actions/workflows/build.yml/badge.svg?event=push)
+![Build Status](https://github.com/Alexmacapple/span-sg/workflows/Build%20SPAN/badge.svg)
+![E2E Tests](https://github.com/Alexmacapple/span-sg/actions/workflows/build.yml/badge.svg?event=push)
 
 Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/deploy.
 
@@ -18,8 +18,8 @@ Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/
 ## Liens utiles
 
 - **Draft (preview)** : Désactivé — revue locale/PDF (voir `.github/PAGES-ACCESS-CHECKLIST.md`)
-- **Production** : https://alexmacapple.github.io/span-sg-repo/
-- **PDF production** : https://github.com/Alexmacapple/span-sg-repo/releases/latest
+- **Production** : https://alexmacapple.github.io/span-sg/
+- **PDF production** : https://github.com/Alexmacapple/span-sg/releases/latest
 - **Changelog** : [CHANGELOG.md](CHANGELOG.md) - Historique versions
 - **Migration** : [MIGRATION.md](MIGRATION.md) - Guides upgrade path
 
@@ -55,14 +55,14 @@ Le projet utilise le thème [mkdocs-dsfr](https://pypi.org/project/mkdocs-dsfr/)
 
 ```bash
 # 1. Cloner le dépôt
-git clone https://github.com/Alexmacapple/span-sg-repo.git
-cd span-sg-repo
+git clone https://github.com/Alexmacapple/span-sg.git
+cd span-sg
 
 # 2. Démarrer avec Docker (thème DSFR)
 docker compose -f docker-compose-dsfr.yml up -d
 
 # 3. Accéder au site
-# http://localhost:8000/span-sg-repo/
+# http://localhost:8000/span-sg/
 ```
 
 **Guide complet** : Consultez [HOWTO.md](HOWTO.md) pour les instructions détaillées, la résolution de problèmes et les commandes utiles.
@@ -116,7 +116,7 @@ docker compose restart
 docker compose up -d --build
 ```
 
-**URL du site** : http://localhost:8000/span-sg-repo/
+**URL du site** : http://localhost:8000/span-sg/
 
 ### Autres commandes
 ```bash
@@ -144,8 +144,8 @@ Le site est exportable en PDF avec métadonnées accessibilité (RGAA).
 ### Téléchargement
 
 **Depuis le site web** :
-- Draft : https://alexmacapple.github.io/span-sg-repo/draft/ (bouton "Télécharger PDF")
-- Production : https://alexmacapple.github.io/span-sg-repo/ (bouton "Télécharger PDF")
+- Draft : https://alexmacapple.github.io/span-sg/draft/ (bouton "Télécharger PDF")
+- Production : https://alexmacapple.github.io/span-sg/ (bouton "Télécharger PDF")
 
 **Depuis GitHub Actions** :
 ```bash

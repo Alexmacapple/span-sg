@@ -4,8 +4,8 @@
 # Basé sur: mkdocs.yml (Material)
 
 site_name: ""
-site_url: https://alexmacapple.github.io/span-sg-repo/
-repo_url: https://github.com/Alexmacapple/span-sg-repo
+site_url: https://alexmacapple.github.io/span-sg/
+repo_url: https://github.com/Alexmacapple/span-sg
 strict: false
 
 theme:
@@ -46,7 +46,7 @@ nav:
   - Processus: processus.md
   - Guide contributeur: contributing.md
   - Développement local: dev-local.md
-  - "Code source GitHub": "https://github.com/Alexmacapple/span-sg-repo"
+  - "Code source GitHub": "https://github.com/Alexmacapple/span-sg"
 
 hooks:
   - hooks/title_cleaner.py

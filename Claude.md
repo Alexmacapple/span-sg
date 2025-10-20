@@ -21,7 +21,7 @@ Date: 2025-10-08
 ```bash
 # Démarrer le serveur MkDocs en local (Docker DSFR)
 docker compose -f docker-compose-dsfr.yml up
-# → http://localhost:8000/span-sg-repo/
+# → http://localhost:8000/span-sg/
 
 # Sans Docker
 pip install mkdocs-dsfr
@@ -65,11 +65,11 @@ python scripts/calculate_scores.py
 ./scripts/download_latest_pdf.sh main
 
 # Télécharger depuis site déployé
-curl -O https://alexmacapple.github.io/span-sg-repo/draft/exports/span-sg.pdf
+curl -O https://alexmacapple.github.io/span-sg/draft/exports/span-sg.pdf
 
 # Commande manuelle équivalente
 RUN_ID=$(gh run list --branch draft --limit 1 --json databaseId --jq '.[0].databaseId')
-gh run download "$RUN_ID" --name exports --repo Alexmacapple/span-sg-repo
+gh run download "$RUN_ID" --name exports --repo Alexmacapple/span-sg
 # → Télécharge exports/span-sg.pdf
 ```
 
