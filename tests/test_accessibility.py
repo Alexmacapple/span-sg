@@ -48,8 +48,16 @@ def driver(site_dir):
     driver.implicitly_wait(30)  # 30s pour éléments DOM
 
     # Configurer timeout HTTP du client Selenium (urllib3)
-    if hasattr(driver, "command_executor"):
-        driver.command_executor._timeout = 300  # 300s pour requêtes HTTP
+    # IMPORTANT: Doit configurer le timeout au niveau de l'adaptateur HTTP
+    if hasattr(driver, "command_executor") and hasattr(
+        driver.command_executor, "_conn"
+    ):
+        # Modifier le timeout de la pool de connexions urllib3
+        import urllib3
+
+        # Créer une nouvelle PoolManager avec timeout augmenté
+        timeout = urllib3.Timeout(connect=120, read=300)
+        driver.command_executor._conn = urllib3.PoolManager(timeout=timeout)
 
     yield driver
 
