@@ -31,6 +31,9 @@ PASSED=0
 SKIPPED=0
 
 for scenario in "${SCENARIOS[@]}"; do
+    # Restaurer état propre avant chaque test (évite fuites d'état)
+    git checkout -- docs/modules/*.md docs/synthese.md 2>/dev/null || true
+
     echo "▶ Test: $scenario"
 
     LOG_FILE="$REPORT_DIR/${scenario%.sh}.log"
