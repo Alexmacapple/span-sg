@@ -1,131 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/accessibilite/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/accessibilite/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/accompagnement/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/accompagnement/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/contributing/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/contributing/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/dev-local/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/dev-local/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/donnees-personnelles/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/donnees-personnelles/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/mentions-legales/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/mentions-legales/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/mise-en-application-circulaire/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/mise-en-application-circulaire/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/processus/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/processus/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/synthese/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/synthese/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/tests-accessibilite/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/tests-accessibilite/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/adr/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/adr/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/adr/001-choix-theme-dsfr/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/adr/001-choix-theme-dsfr/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/adr/002-format-synthese-html/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/adr/002-format-synthese-html/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/adr/003-isolation-pdf-build/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/adr/003-isolation-pdf-build/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/adr/004-hooks-python-mkdocs/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/adr/004-hooks-python-mkdocs/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/adr/005-coverage-89-percent/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/adr/005-coverage-89-percent/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/adr/006-migration-checklist-33-criteres/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/adr/006-migration-checklist-33-criteres/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/adr/007-mkdocs-dsfr-language-divergence/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/adr/007-mkdocs-dsfr-language-divergence/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/adr/008-exclusion-search-label-tests-wcag/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/adr/008-exclusion-search-label-tests-wcag/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/architecture/diagrams/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/architecture/diagrams/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/dev/api-reference/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/dev/api-reference/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/dev/dsfr-components-guide/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/dev/dsfr-components-guide/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/dev/hooks-guide/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/dev/hooks-guide/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/modules/_template/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/modules/_template/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/modules/bgs/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/modules/bgs/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/modules/safi/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/modules/safi/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/modules/siep/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/modules/siep/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/modules/sircom/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/modules/sircom/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/modules/snum/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/modules/snum/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/modules/srh/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/modules/srh/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
     <url>
-         <loc>https://alexmacapple.github.io/span-sg-repo/security/bfg-purge-guide/</loc>
+         <loc>https://alexmacapple.github.io/span-sg/security/bfg-purge-guide/</loc>
          <lastmod>2025-10-20</lastmod>
     </url>
 </urlset>
