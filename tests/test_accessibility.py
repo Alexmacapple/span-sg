@@ -15,6 +15,7 @@ import pytest
 from axe_selenium_python import Axe
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
 
@@ -36,12 +37,19 @@ def driver(site_dir):
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-gpu")
 
-    driver = webdriver.Chrome(options=options)
+    # Service avec timeout HTTP élevé pour CI
+    service = Service()
+
+    driver = webdriver.Chrome(options=options, service=service)
     driver.set_window_size(1920, 1080)
 
     # Augmenter timeouts pour CI (résout timeouts axe-core)
-    driver.set_script_timeout(240)  # 240s (4min) pour scripts (axe.run())
+    driver.set_script_timeout(300)  # 300s (5min) pour scripts (axe.run())
     driver.implicitly_wait(30)  # 30s pour éléments DOM
+
+    # Configurer timeout HTTP du client Selenium (urllib3)
+    if hasattr(driver, "command_executor"):
+        driver.command_executor._timeout = 300  # 300s pour requêtes HTTP
 
     yield driver
 
