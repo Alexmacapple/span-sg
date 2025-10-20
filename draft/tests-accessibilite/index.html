@@ -578,9 +578,9 @@
                 
                         
                         <h1 id="tests-daccessibilite-span-sg">Tests d'accessibilité SPAN SG</h1>
-<p>Version: 1.0
-Date: 2025-10-12
-Statut: Actif (non-bloquant en CI)</p>
+<p>Version: 1.1
+Date: 2025-10-20
+Statut: Actif (bloquant en CI - Phase 2)</p>
 <h2 id="vue-densemble">Vue d'ensemble</h2>
 <p>Le projet SPAN SG intègre une suite complète de tests d'accessibilité automatisés conformes aux standards WCAG 2.1 AA et RGAA 4.1. Ces tests utilisent axe-core via Selenium pour automatiser 60-65% des vérifications RGAA.</p>
 <h2 id="tests-implementes">Tests implémentés</h2>
@@ -639,14 +639,14 @@ pytest<span class="w"> </span>tests/test_accessibility.py<span class="w"> </span
 </code></pre></div>
 <h2 id="integration-cicd">Intégration CI/CD</h2>
 <p>Les tests d'accessibilité s'exécutent automatiquement dans GitHub Actions (branche main uniquement) :</p>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run accessibility tests (non-blocking warnings)</span>
-<span class="w">  </span><span class="nt">continue-on-error</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run accessibility tests (RGAA)</span>
 <span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest tests/test_accessibility.py -v --html=accessibility-report.html</span>
 </code></pre></div>
-<p><strong>Statut actuel</strong> : Non-bloquant (<code>continue-on-error: true</code>)
-- Les échecs n'empêchent pas le déploiement
+<p><strong>Statut actuel</strong> : Bloquant (Phase 2 activée)
+- Les échecs bloquent le déploiement (fail-fast)
+- Seuil de tolérance : 0 violations critiques WCAG 2.1 AA
 - Rapport HTML uploadé comme artefact (30 jours rétention)
-- À activer comme bloquant après stabilisation (Phase 2)</p>
+- Phase 3 (Certification RGAA) prévue pour v1.2.0</p>
 <h2 id="couverture-rgaa">Couverture RGAA</h2>
 <p>Les tests automatisés couvrent environ 60-65% des critères RGAA 4.1 :</p>
 <h3 id="automatisables-60-65">Automatisables (60-65%)</h3>
@@ -666,13 +666,13 @@ pytest<span class="w"> </span>tests/test_accessibility.py<span class="w"> </span
 <li>Tests utilisateurs handicapés</li>
 </ul>
 <h2 id="roadmap">Roadmap</h2>
-<h3 id="phase-1-monitoring-actuel">Phase 1 : Monitoring (actuel)</h3>
+<h3 id="phase-1-monitoring-termine-le-2025-10-20">Phase 1 : Monitoring ✅ (terminé le 2025-10-20)</h3>
 <ul>
 <li>Tests non-bloquants en CI</li>
 <li>Rapports HTML pour analyse</li>
 <li>Corrections progressives</li>
 </ul>
-<h3 id="phase-2-enforcement-v110">Phase 2 : Enforcement (v1.1.0)</h3>
+<h3 id="phase-2-enforcement-actuel-v110">Phase 2 : Enforcement 🚀 (actuel - v1.1.0)</h3>
 <ul>
 <li>Tests bloquants en CI</li>
 <li>Seuil tolérance 0 violations critiques</li>
@@ -864,7 +864,7 @@ Issues : https://github.com/Alexmacapple/span-sg-repo/issues</p>
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="20 octobre 2025 14:24:27 UTC">20 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="20 octobre 2025 14:52:31 UTC">20 octobre 2025</span> 
 </div>
 
 
