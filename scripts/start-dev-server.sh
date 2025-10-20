@@ -32,7 +32,7 @@ echo -e "${GREEN}✅ Docker est opérationnel${NC}"
 # Vérifier si le conteneur tourne déjà
 if docker compose ps | grep -q "Up"; then
     echo -e "${YELLOW}⚠️  Le serveur MkDocs est déjà en cours d'exécution${NC}"
-    echo "📍 URL : http://localhost:8000/span-sg-repo/"
+    echo "📍 URL : http://localhost:8000/span-sg/"
     echo ""
     echo "Commandes disponibles :"
     echo "  - Voir les logs     : docker compose logs -f mkdocs"
@@ -58,7 +58,7 @@ done
 if docker compose ps | grep -q "Up"; then
     echo -e "${GREEN}✅ Serveur démarré avec succès !${NC}"
     echo ""
-    echo "📍 Accéder au site : ${GREEN}http://localhost:8000/span-sg-repo/${NC}"
+    echo "📍 Accéder au site : ${GREEN}http://localhost:8000/span-sg/${NC}"
     echo ""
     echo "Commandes utiles :"
     echo "  - Voir les logs     : docker compose logs -f mkdocs"
