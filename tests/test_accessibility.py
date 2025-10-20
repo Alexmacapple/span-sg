@@ -12,11 +12,16 @@ Utilise axe-core via Selenium pour automatiser 60-65% des vérifications RGAA.
 from pathlib import Path
 
 import pytest
+import urllib3
 from axe_selenium_python import Axe
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+
+# Configurer timeout urllib3 AVANT création du driver
+# CRITICAL: Doit être fait au niveau module pour affecter Selenium
+urllib3.Timeout.DEFAULT_TIMEOUT = 300  # 300s pour read/connect
 
 
 @pytest.fixture(scope="module")
@@ -37,7 +42,7 @@ def driver(site_dir):
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-gpu")
 
-    # Service avec timeout HTTP élevé pour CI
+    # Service ChromeDriver
     service = Service()
 
     driver = webdriver.Chrome(options=options, service=service)
@@ -46,18 +51,7 @@ def driver(site_dir):
     # Augmenter timeouts pour CI (résout timeouts axe-core)
     driver.set_script_timeout(300)  # 300s (5min) pour scripts (axe.run())
     driver.implicitly_wait(30)  # 30s pour éléments DOM
-
-    # Configurer timeout HTTP du client Selenium (urllib3)
-    # IMPORTANT: Doit configurer le timeout au niveau de l'adaptateur HTTP
-    if hasattr(driver, "command_executor") and hasattr(
-        driver.command_executor, "_conn"
-    ):
-        # Modifier le timeout de la pool de connexions urllib3
-        import urllib3
-
-        # Créer une nouvelle PoolManager avec timeout augmenté
-        timeout = urllib3.Timeout(connect=120, read=300)
-        driver.command_executor._conn = urllib3.PoolManager(timeout=timeout)
+    # Note: timeout HTTP urllib3 configuré au niveau module (ligne 24)
 
     yield driver
 
