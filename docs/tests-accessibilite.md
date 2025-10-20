@@ -1,8 +1,8 @@
 # Tests d'accessibilité SPAN SG
 
-Version: 1.0
-Date: 2025-10-12
-Statut: Actif (non-bloquant en CI)
+Version: 1.1
+Date: 2025-10-20
+Statut: Actif (bloquant en CI - Phase 2)
 
 ## Vue d'ensemble
 
@@ -74,15 +74,15 @@ pytest tests/test_accessibility.py \
 Les tests d'accessibilité s'exécutent automatiquement dans GitHub Actions (branche main uniquement) :
 
 ```yaml
-- name: Run accessibility tests (non-blocking warnings)
-  continue-on-error: true
+- name: Run accessibility tests (RGAA)
   run: pytest tests/test_accessibility.py -v --html=accessibility-report.html
 ```
 
-**Statut actuel** : Non-bloquant (`continue-on-error: true`)
-- Les échecs n'empêchent pas le déploiement
+**Statut actuel** : Bloquant (Phase 2 activée)
+- Les échecs bloquent le déploiement (fail-fast)
+- Seuil de tolérance : 0 violations critiques WCAG 2.1 AA
 - Rapport HTML uploadé comme artefact (30 jours rétention)
-- À activer comme bloquant après stabilisation (Phase 2)
+- Phase 3 (Certification RGAA) prévue pour v1.2.0
 
 ## Couverture RGAA
 
@@ -104,12 +104,12 @@ Les tests automatisés couvrent environ 60-65% des critères RGAA 4.1 :
 
 ## Roadmap
 
-### Phase 1 : Monitoring (actuel)
+### Phase 1 : Monitoring ✅ (terminé le 2025-10-20)
 - Tests non-bloquants en CI
 - Rapports HTML pour analyse
 - Corrections progressives
 
-### Phase 2 : Enforcement (v1.1.0)
+### Phase 2 : Enforcement 🚀 (actuel - v1.1.0)
 - Tests bloquants en CI
 - Seuil tolérance 0 violations critiques
 - Revue manuelle 35% restants
