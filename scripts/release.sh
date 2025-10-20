@@ -105,13 +105,16 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
 ## [$VERSION] - $(date +%Y-%m-%d)
 
 ### Ajouté
-- TODO: Décrire les ajouts
+- Nouvelle fonctionnalité ou module
+- Exemple : Génération PDF automatique en CI avec métadonnées RGAA
 
 ### Modifié
-- TODO: Décrire les modifications
+- Amélioration ou changement de comportement existant
+- Exemple : Migration mkdocs-material → mkdocs-dsfr (Système de Design État)
 
 ### Corrigé
-- TODO: Décrire les corrections
+- Correction de bug ou d'erreur
+- Exemple : Score CI/CD passant de 9/10 à 10/10 (génération PDF réactivée)
 
 ---
 

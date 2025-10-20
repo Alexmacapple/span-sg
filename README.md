@@ -134,7 +134,7 @@ python scripts/calculate_scores.py
 ./scripts/test_pdf_workflow.sh
 
 # Script de développement
-./scripts/dev.sh  # Lance Docker avec vérifications
+./scripts/start-dev-server.sh  # Lance Docker avec vérifications
 ```
 
 ## Export PDF
