@@ -40,8 +40,8 @@ def driver(site_dir):
     driver.set_window_size(1920, 1080)
 
     # Augmenter timeouts pour CI (résout timeouts axe-core)
-    driver.set_script_timeout(120)  # 120s pour scripts (axe.run())
-    driver.implicitly_wait(20)  # 20s pour éléments DOM
+    driver.set_script_timeout(240)  # 240s (4min) pour scripts (axe.run())
+    driver.implicitly_wait(30)  # 30s pour éléments DOM
 
     yield driver
 
