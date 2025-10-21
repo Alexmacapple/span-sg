@@ -578,9 +578,9 @@
                 
                         
                         <h1 id="tests-daccessibilite-span-sg">Tests d'accessibilité SPAN SG</h1>
-<p>Version: 1.1
+<p>Version: 1.2
 Date: 2025-10-20
-Statut: Actif (bloquant en CI - Phase 2)</p>
+Statut: Actif (non-bloquant - surveillance active)</p>
 <h2 id="vue-densemble">Vue d'ensemble</h2>
 <p>Le projet SPAN SG intègre une suite complète de tests d'accessibilité automatisés conformes aux standards WCAG 2.1 AA et RGAA 4.1. Ces tests utilisent axe-core via Selenium pour automatiser 60-65% des vérifications RGAA.</p>
 <h2 id="tests-implementes">Tests implémentés</h2>
@@ -672,14 +672,19 @@ pytest<span class="w"> </span>tests/test_accessibility.py<span class="w"> </span
 <li>Rapports HTML pour analyse</li>
 <li>Corrections progressives</li>
 </ul>
-<h3 id="phase-2-enforcement-actuel-v110">Phase 2 : Enforcement 🚀 (actuel - v1.1.0)</h3>
+<h3 id="phase-2-surveillance-active-actuel-v120">Phase 2 : Surveillance active 🔄 (actuel - v1.2.0)</h3>
 <ul>
-<li>Tests bloquants en CI</li>
-<li>Seuil tolérance 0 violations critiques</li>
-<li>Revue manuelle 35% restants</li>
+<li>Tests non-bloquants (timeout axe-core incompatible CI &gt;2min/test)</li>
+<li>Rapports HTML systématiques pour chaque build</li>
+<li>Tests E2E bloquants (9/9 scénarios)</li>
+<li>Couverture 93% (89%+ scripts, 100% hooks)</li>
+<li><strong>Note</strong> : Tests accessibilité restent exécutés mais non-bloquants</li>
+<li><strong>Roadmap</strong> : Optimisation future (Phase 3) pour tests bloquants</li>
 </ul>
-<h3 id="phase-3-certification-v120">Phase 3 : Certification (v1.2.0)</h3>
+<h3 id="phase-3-optimisation-certification-v200">Phase 3 : Optimisation &amp; Certification (v2.0.0)</h3>
 <ul>
+<li>Optimisation tests axe-core (réduction timeout)</li>
+<li>Tests accessibilité bloquants si faisable</li>
 <li>Audit RGAA complet par expert</li>
 <li>Tests utilisateurs handicapés</li>
 <li>Déclaration accessibilité conforme</li>
@@ -864,7 +869,7 @@ Issues : https://github.com/Alexmacapple/span-sg-repo/issues</p>
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="20 octobre 2025 16:01:37 UTC">20 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="21 octobre 2025 11:58:40 UTC">21 octobre 2025</span> 
 </div>
 
 
