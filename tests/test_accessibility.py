@@ -12,10 +12,16 @@ Utilise axe-core via Selenium pour automatiser 60-65% des vérifications RGAA.
 from pathlib import Path
 
 import pytest
+import urllib3
 from axe_selenium_python import Axe
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+
+# Configurer timeout urllib3 AVANT création du driver
+# CRITICAL: Doit être fait au niveau module pour affecter Selenium
+urllib3.Timeout.DEFAULT_TIMEOUT = 300  # 300s pour read/connect
 
 
 @pytest.fixture(scope="module")
@@ -36,12 +42,16 @@ def driver(site_dir):
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-gpu")
 
-    driver = webdriver.Chrome(options=options)
+    # Service ChromeDriver
+    service = Service()
+
+    driver = webdriver.Chrome(options=options, service=service)
     driver.set_window_size(1920, 1080)
 
     # Augmenter timeouts pour CI (résout timeouts axe-core)
-    driver.set_script_timeout(60)  # 60s pour scripts (axe.run())
-    driver.implicitly_wait(10)  # 10s pour éléments DOM
+    driver.set_script_timeout(300)  # 300s (5min) pour scripts (axe.run())
+    driver.implicitly_wait(30)  # 30s pour éléments DOM
+    # Note: timeout HTTP urllib3 configuré au niveau module (ligne 24)
 
     yield driver
 
