@@ -141,7 +141,7 @@ jobs:
       - name: Enrich PDF metadata
         run: python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
 
-      - name: Install qpdf
+      - name: Install qpdf and system dependencies for E2E
         run: |
           sudo apt-get update
           sudo apt-get install -y qpdf
@@ -152,28 +152,60 @@ jobs:
           ls -lh exports/span-sg.pdf
           echo "PDF size: $(du -h exports/span-sg.pdf | cut -f1)"
 
+      - name: Set up Docker Buildx for E2E tests
+        uses: docker/setup-buildx-action@v3
+
+      - name: Cache Docker layers for E2E tests
+        uses: actions/cache@v4
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile.mkdocs-test', 'requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      - name: Run E2E tests with reporting
+        run: |
+          chmod +x tests/e2e/ci_runner.sh
+          ./tests/e2e/ci_runner.sh
+
+      - name: Upload E2E report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-report
+          path: tests/e2e/reports/e2e-report.html
+          retention-days: 30
+
+      - name: Install accessibility testing dependencies
+        run: pip install -r requirements-accessibility.txt
+
+      - name: Install Chrome and ChromeDriver for accessibility tests
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      - name: Run accessibility tests (RGAA)
+        continue-on-error: true  # Non-bloquant : timeout axe-core incompatible CI (>2min/test)
+        run: |
+          python -m pytest tests/test_accessibility.py \
+            -v \
+            --html=accessibility-report.html \
+            --self-contained-html
+
+      - name: Upload accessibility report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-report
+          path: accessibility-report.html
+          retention-days: 30
+
       - name: Upload PDF artifact
         if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v4
         with:
           name: exports-draft
           path: exports/
-
-      - name: DEBUG INTENSIF - Vérifier site/ juste avant copie
-        run: |
-          echo "=== CONTENU DE site/ JUSTE AVANT COPIE ==="
-          ls -la site/ | head -20
-          echo ""
-          echo "=== site/index.html (premières 20 lignes) ==="
-          head -20 site/index.html
-          echo ""
-          echo "=== Vérification DSFR dans site/index.html ==="
-          if grep -q "data-fr-scheme" site/index.html; then
-            echo "✅ DSFR présent dans site/index.html"
-          else
-            echo "❌ DSFR ABSENT de site/index.html!"
-            exit 1
-          fi
 
       - name: Deploy draft to GitHub Pages (Git push direct)
         run: |
