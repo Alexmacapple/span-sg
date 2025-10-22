@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg/guide-chef-snum-approvals/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Guide Chef SNUM - Approval Déploiements Production</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Guide Chef SNUM - Approval D\u00e9ploiements Production";
+        var mkdocs_page_input_path = "guide-chef-snum-approvals.md";
+        var mkdocs_page_url = "/span-sg/guide-chef-snum-approvals/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="..">
+</a><div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">SPAN (SG)</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SPAN (services)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/bgs/">BGS</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/safi/">SAFI</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/siep/">SIEP</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/sircom/">SIRCOM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/snum/">SNUM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/srh/">SRH</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../synthese/">Synthèse</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processus/">Processus</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/">Guide contributeur</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev-local/">Développement local</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg">Code source GitHub</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href=".."></a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item active">Guide Chef SNUM - Approval Déploiements Production</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg/edit/master/docs/guide-chef-snum-approvals.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="guide-chef-snum-approval-deploiements-production">Guide Chef SNUM - Approval Déploiements Production</h1>
+<p>Guide pour approuver les déploiements production SPAN SG via GitHub Environments.</p>
+<p>Version: 1.0.0
+Date: 2025-10-22
+Public cible: Chef SNUM
+Durée lecture: 10 minutes</p>
+<hr/>
+<h2 id="vue-densemble">Vue d'ensemble</h2>
+<p>Depuis la migration GitHub Environments (ADR-009), vous êtes <strong>gate-keeper</strong> des déploiements production.</p>
+<p><strong>Votre rôle</strong> :
+- Recevoir notifications "Deployment to production pending"
+- Review staging https://alexmacapple.github.io/span-sg/draft/
+- Approuver déploiement production https://alexmacapple.github.io/span-sg/</p>
+<p><strong>Délai typique</strong> :
+- Hotfix urgent : Approuver immédiatement (&lt; 1h)
+- Contribution normale : Variable selon stratégie (0-60 jours)
+- Batch releases : Accumulation 10-20 contributions puis approval groupée</p>
+<hr/>
+<h2 id="processus-approval-5-etapes">Processus Approval (5 étapes)</h2>
+<h3 id="etape-1-recevoir-notification">Étape 1 : Recevoir Notification</h3>
+<p><strong>Email GitHub</strong> :</p>
+<pre><code>From: notifications@github.com
+Subject: [Alexmacapple/span-sg] Deployment to production pending review
+
+Environment: production
+URL: https://alexmacapple.github.io/span-sg/
+Status: Pending approval
+Commit: 02a52e7 (docs: amélioration documentation 8/10 → 10/10)
+
+You have been requested to review this deployment.
+Review deployment: https://github.com/Alexmacapple/span-sg/deployments/...
+</code></pre>
+<p><strong>Fréquence</strong> : Variable selon activité contributeurs (1-5 notifications/semaine estimé)</p>
+<p><strong>Action</strong> : Cliquer lien "Review deployment" ou aller manuellement sur dashboard</p>
+<hr/>
+<h3 id="etape-2-consulter-dashboard-deployments">Étape 2 : Consulter Dashboard Deployments</h3>
+<p><strong>URL</strong> : https://github.com/Alexmacapple/span-sg/deployments</p>
+<p><strong>Interface</strong> :</p>
+<pre><code>┌───────────────────────────────────────────────────────────┐
+│ Deployments                                               │
+├───────────────────────────────────────────────────────────┤
+│ Environment: production                                   │
+│ Status: ⏳ Waiting for review                            │
+│ Deployed by: github-actions[bot]                         │
+│ Commit: 02a52e7 (docs: amélioration...)                  │
+│ Requested: 2025-10-22 14:10 (5 minutes ago)              │
+│                                                           │
+│ Changes in this deployment:                               │
+│ - docs: amélioration documentation 8/10 → 10/10          │
+│ - feat(sircom): ajoute 3 actions plan 2025               │
+│ - fix(accessibility): corriger timeout urllib3            │
+│                                                           │
+│ Preview staging: https://...github.io/span-sg/draft/      │
+│                                                           │
+│ [Review deployment]                                       │
+└───────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>Informations disponibles</strong> :
+- Commit SHA et message
+- Liste changements depuis dernier déploiement production
+- Lien staging preview
+- Timestamp demande approval</p>
+<hr/>
+<h3 id="etape-3-review-staging">Étape 3 : Review Staging</h3>
+<p><strong>URL staging</strong> : https://alexmacapple.github.io/span-sg/draft/</p>
+<p><strong>Checklist review</strong> (5-10 minutes) :</p>
+<ul>
+<li>[ ] <strong>Navigation générale</strong> : Ouvrir site, tester menu latéral</li>
+<li>[ ] <strong>Modules services</strong> : Vérifier 2-3 modules (SIRCOM, SNUM)</li>
+<li>[ ] <strong>Synthèse</strong> : Vérifier tableau scores cohérent</li>
+<li>[ ] <strong>Badges DSFR</strong> : Vérifier badges visibles (Validé, En cours)</li>
+<li>[ ] <strong>PDF exports</strong> : Télécharger span-sg.pdf, ouvrir (metadata OK)</li>
+<li>[ ] <strong>Aucune régression</strong> : Comparer avec production actuelle</li>
+</ul>
+<p><strong>Outils</strong> :
+- Navigation manuelle navigateur
+- Optionnel : Lighthouse accessibility score (devrait être 90+)
+- Optionnel : Compare staging vs production (outil diff visuel)</p>
+<p><strong>Durée</strong> : 5-10 minutes selon ampleur changements</p>
+<hr/>
+<h3 id="etape-4-verifier-logs-cicd">Étape 4 : Vérifier Logs CI/CD</h3>
+<p><strong>URL GitHub Actions</strong> : https://github.com/Alexmacapple/span-sg/actions</p>
+<p><strong>Workflow à vérifier</strong> : Dernier run "Build and Deploy"</p>
+<p><strong>Statuts à vérifier</strong> :</p>
+<pre><code>Job: build-and-test
+  ✅ Linting (Black + Ruff)
+  ✅ Security (Bandit + Safety)
+  ✅ Tests (33 unitaires, coverage 89%+)
+  ✅ Build HTML DSFR (strict mode)
+  ✅ Generate PDF
+  ✅ E2E tests (9 scenarios)
+
+Job: deploy-staging
+  ✅ Deploy /draft/
+
+Job: deploy-production
+  ⏳ Waiting for approval (vous)
+</code></pre>
+<p><strong>Vérifier logs</strong> :
+- Aucune erreur bloquante
+- Coverage scripts ≥ 89%, hooks 100%
+- E2E tests 9/9 passés
+- PDF généré avec metadata enrichies</p>
+<p><strong>Warnings acceptables</strong> :
+- git-revision-date plugin warnings (non bloquant)
+- RGAA timeouts accessibilité (tests non bloquants, continue-on-error: true)</p>
+<p><strong>Durée</strong> : 2-3 minutes</p>
+<hr/>
+<h3 id="etape-5-approuver-ou-rejeter">Étape 5 : Approuver ou Rejeter</h3>
+<h4 id="option-a-approuver-cas-nominal">Option A : Approuver (cas nominal)</h4>
+<p><strong>Action</strong> :</p>
+<ol>
+<li>Retourner dashboard Deployments</li>
+<li>Cliquer "Review deployment"</li>
+<li>Sélectionner "Approve deployment"</li>
+<li>(Optionnel) Ajouter commentaire : "LGTM, déploiement approuvé"</li>
+<li>Cliquer "Approve"</li>
+</ol>
+<p><strong>Résultat</strong> :
+- Déploiement production déclenché automatiquement
+- Durée : 2-5 minutes
+- Notification email : "Deployment to production succeeded"
+- Site production mis à jour : https://alexmacapple.github.io/span-sg/</p>
+<h4 id="option-b-rejeter-probleme-detecte">Option B : Rejeter (problème détecté)</h4>
+<p><strong>Action</strong> :</p>
+<ol>
+<li>Cliquer "Review deployment"</li>
+<li>Sélectionner "Reject deployment"</li>
+<li>Ajouter commentaire expliquant raison rejet :
+   <code>Régression détectée : Tableau synthèse cassé (badges non visibles)
+   Merci de corriger avant re-déploiement</code></li>
+<li>Cliquer "Reject"</li>
+</ol>
+<p><strong>Résultat</strong> :
+- Déploiement production annulé
+- Notification équipe développement
+- Validateurs corrigent problème
+- Nouveau déploiement soumis après corrections</p>
+<h4 id="option-c-differer-attendre-accumulation">Option C : Différer (attendre accumulation)</h4>
+<p><strong>Action</strong> :</p>
+<ol>
+<li>Ignorer notification (ne rien faire)</li>
+<li>Déploiement reste "Pending approval"</li>
+<li>Contributions ultérieures s'accumulent en staging</li>
+<li>Approuver plus tard quand batch suffisant (ex: 10 contributions)</li>
+</ol>
+<p><strong>Note</strong> : Pas de limite temporelle, vous décidez quand approuver</p>
+<hr/>
+<h2 id="cas-dusage">Cas d'Usage</h2>
+<h3 id="cas-1-hotfix-urgent">Cas 1 : Hotfix Urgent</h3>
+<p><strong>Contexte</strong> : Bug critique production détecté, correctif développé</p>
+<p><strong>Workflow</strong> :</p>
+<pre><code>10:00 : Bug détecté production (lien cassé page Synthèse)
+10:15 : Validateur crée hotfix branch, corrige, merge main
+10:20 : CI/CD build-and-test passe
+10:22 : Deploy staging automatique
+10:22 : Vous recevez notification "Pending approval"
+10:25 : Vous review staging (3 min) : Bug corrigé
+10:28 : Vous approuvez immédiatement
+10:33 : Deploy production terminé, bug résolu
+
+Total : 33 minutes bug détecté → production
+</code></pre>
+<p><strong>Action recommandée</strong> : <strong>Approuver immédiatement</strong> après review rapide</p>
+<hr/>
+<h3 id="cas-2-contribution-normale">Cas 2 : Contribution Normale</h3>
+<p><strong>Contexte</strong> : Contributeur service complète module SIRCOM (3 critères cochés)</p>
+<p><strong>Workflow</strong> :</p>
+<pre><code>J+0  : Contributeur crée PR vers main
+J+2  : Validateur review et merge
+J+2  : Deploy staging automatique
+J+2  : Vous recevez notification "Pending approval"
+J+2-30 : Vous laissez pending (accumulation autres contributions)
+J+30 : 8 contributions accumulées en staging
+J+30 : Vous review staging (10 min) : Tout OK
+J+30 : Vous approuvez batch 8 contributions
+J+30 : Deploy production terminé
+
+Total : 30 jours contribution → production (délai voulu)
+</code></pre>
+<p><strong>Action recommandée</strong> : <strong>Différer</strong> jusqu'à accumulation suffisante (votre décision)</p>
+<hr/>
+<h3 id="cas-3-regression-detectee">Cas 3 : Régression Détectée</h3>
+<p><strong>Contexte</strong> : Erreur staging détectée lors review</p>
+<p><strong>Workflow</strong> :</p>
+<pre><code>14:00 : Vous recevez notification "Pending approval"
+14:05 : Vous review staging
+14:08 : Problème détecté : Badges DSFR non visibles (CSS cassé)
+14:10 : Vous rejetez deployment avec commentaire
+14:15 : Validateur notifié, investigation
+15:00 : Correctif mergé sur main
+15:05 : Nouveau deployment staging automatique
+15:05 : Nouvelle notification "Pending approval"
+15:10 : Vous review staging : Bug corrigé
+15:12 : Vous approuvez
+15:17 : Deploy production terminé
+
+Total : 1h17 (dont 45 min correction)
+</code></pre>
+<p><strong>Action recommandée</strong> : <strong>Rejeter</strong> avec commentaire explicite</p>
+<hr/>
+<h2 id="dashboard-centralise">Dashboard Centralisé</h2>
+<h3 id="acces">Accès</h3>
+<p><strong>URL bookmark</strong> : https://github.com/Alexmacapple/span-sg/deployments</p>
+<p>Ajouter aux favoris navigateur pour accès rapide.</p>
+<h3 id="filtres">Filtres</h3>
+<pre><code>Environment: [All] [staging] [production]
+Status: [All] [Active] [Pending] [Failed]
+</code></pre>
+<p><strong>Exemples filtres</strong> :</p>
+<ul>
+<li>Voir déploiements production uniquement : Filter "Environment: production"</li>
+<li>Voir déploiements en attente approval : Filter "Status: Pending"</li>
+<li>Historique staging : Filter "Environment: staging"</li>
+</ul>
+<h3 id="historique">Historique</h3>
+<p><strong>Timeline déploiements</strong> (scrollable) :</p>
+<pre><code>2025-10-22 14:35 : production → 02a52e7 (docs 10/10) [Active]
+2025-10-22 14:10 : staging → 02a52e7 (docs 10/10) [Active]
+2025-10-15 10:20 : production → 3c06ca1 (rollback strict) [Superseded]
+2025-10-15 10:18 : staging → 3c06ca1 (rollback strict) [Superseded]
+2025-10-08 16:45 : production → 1b11fea (sync main-draft) [Superseded]
+...
+</code></pre>
+<p><strong>Utilité</strong> :
+- Audit trail complet
+- Voir qui a approuvé (nom reviewer)
+- Voir délai entre staging et production
+- Rollback : Re-run deployment précédent</p>
+<hr/>
+<h2 id="rollback-production">Rollback Production</h2>
+<h3 id="quand-rollback">Quand Rollback ?</h3>
+<p><strong>Situations</strong> :
+- Bug critique détecté production après déploiement
+- Régression fonctionnelle majeure
+- Performance dégradée
+- Erreur 500 site production</p>
+<h3 id="procedure-rollback-2-5-minutes">Procédure Rollback (2-5 minutes)</h3>
+<p><strong>Étape 1</strong> : Identifier version stable précédente</p>
+<pre><code>Dashboard Deployments
+→ Environment: production
+→ Historique : Voir déploiement précédent [Active] avant actuel
+→ Exemple : 3c06ca1 (rollback strict) était stable
+</code></pre>
+<p><strong>Étape 2</strong> : Re-run deployment</p>
+<pre><code>1. Cliquer déploiement stable précédent (3c06ca1)
+2. Cliquer "Re-run all jobs" (icône en haut à droite)
+3. Confirmation : "Re-run workflow?"
+4. Cliquer "Re-run jobs"
+</code></pre>
+<p><strong>Étape 3</strong> : Approuver rollback</p>
+<pre><code>1. Notification "Deployment to production pending" (rollback 3c06ca1)
+2. Approuver immédiatement (pas de review nécessaire, version connue stable)
+</code></pre>
+<p><strong>Étape 4</strong> : Vérifier production restaurée</p>
+<pre><code>1. Ouvrir https://alexmacapple.github.io/span-sg/
+2. Vérifier version affichée (footer ou CHANGELOG)
+3. Tester fonctionnalité qui était cassée
+4. Confirmer bug résolu
+</code></pre>
+<p><strong>Durée totale</strong> : 2-5 minutes (vs 10-15 minutes rebuild classique)</p>
+<p><strong>Avantage</strong> : Pas de rebuild CI/CD, réutilisation artifacts précédents</p>
+<hr/>
+<h2 id="notifications">Notifications</h2>
+<h3 id="configuration-email">Configuration Email</h3>
+<p><strong>Par défaut</strong> : Notifications actives</p>
+<p><strong>Vérifier configuration</strong> :</p>
+<pre><code>GitHub → Settings (profil) → Notifications
+→ Email notification preferences
+→ ☑ Actions: Deployment review requested
+</code></pre>
+<p><strong>Fréquence attendue</strong> :
+- 5-10 notifications/semaine (selon activité contributeurs)
+- Peak : Fin trimestre (rapports SPAN)
+- Creux : Été, vacances</p>
+<h3 id="notifications-slack-optionnel">Notifications Slack (optionnel)</h3>
+<p><strong>Si souhaité</strong> : Webhook Slack configurable</p>
+<pre><code class="language-yaml"># .github/workflows/build.yml
+- name: Notify Slack deployment pending
+  uses: 8398a7/action-slack@v3
+  with:
+    status: pending
+    text: "Deployment production en attente @chef-snum"
+    webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+</code></pre>
+<p><strong>Nécessite</strong> : Configuration Slack webhook (demander admin GitHub)</p>
+<hr/>
+<h2 id="faq">FAQ</h2>
+<h3 id="q1-que-se-passe-t-il-si-jignore-notification">Q1 : Que se passe-t-il si j'ignore notification ?</h3>
+<p><strong>R</strong> : Déploiement reste "Pending approval" indéfiniment. Aucune limite temporelle.</p>
+<p>Contributions ultérieures s'accumulent en staging. Vous approuvez quand prêt (batch).</p>
+<hr/>
+<h3 id="q2-puis-je-deleguer-approval-a-quelquun">Q2 : Puis-je déléguer approval à quelqu'un ?</h3>
+<p><strong>R</strong> : Oui, demander admin GitHub ajouter reviewer supplémentaire :</p>
+<pre><code>Settings → Environments → production → Required reviewers
+→ Add: [username_adjoint]
+</code></pre>
+<p>N'importe quel reviewer peut alors approuver (pas besoin tous approuver).</p>
+<hr/>
+<h3 id="q3-combien-de-temps-prend-deploiement-apres-approval">Q3 : Combien de temps prend déploiement après approval ?</h3>
+<p><strong>R</strong> : 2-5 minutes automatique.</p>
+<p>Étapes :
+1. Approval (vous)
+2. GitHub Actions déclenché (Job: deploy-production)
+3. Clone gh-pages branch
+4. Copy artifacts (site HTML + PDF)
+5. Git push gh-pages
+6. CloudFlare CDN propagation (&lt; 1 min)</p>
+<p>Total : 2-5 minutes.</p>
+<hr/>
+<h3 id="q4-puis-je-annuler-approval-apres-avoir-clique">Q4 : Puis-je annuler approval après avoir cliqué ?</h3>
+<p><strong>R</strong> : Non, approval irréversible. Déploiement démarre immédiatement.</p>
+<p>Si erreur détectée après : Faire rollback (procédure ci-dessus, 2-5 min).</p>
+<hr/>
+<h3 id="q5-que-faire-si-e2e-tests-echouent">Q5 : Que faire si E2E tests échouent ?</h3>
+<p><strong>R</strong> : Déploiement staging n'aura pas lieu (fail-fast).</p>
+<p>Vous ne recevrez PAS de notification approval car job deploy-staging nécessite build-and-test success.</p>
+<p>Validateurs corrigent tests, nouveau push main, nouveau build.</p>
+<hr/>
+<h3 id="q6-puis-je-voir-diff-staging-vs-production">Q6 : Puis-je voir diff staging vs production ?</h3>
+<p><strong>R</strong> : Oui, outils :</p>
+<p><strong>Option 1 : GitHub Compare</strong> :</p>
+<pre><code>https://github.com/Alexmacapple/span-sg/compare/production...staging
+
+# Voir commits pas encore en production
+</code></pre>
+<p><strong>Option 2 : Visual diff</strong> (optionnel) :</p>
+<pre><code class="language-bash"># Percy.io ou Chromatic (tools visuels)
+# Nécessite configuration externe (payant)
+</code></pre>
+<p><strong>Option 3 : Manuel</strong> :</p>
+<pre><code>1. Ouvrir /draft/ (staging)
+2. Ouvrir / (production) dans onglet séparé
+3. Comparer visuellement côte-à-côte
+</code></pre>
+<hr/>
+<h3 id="q7-combien-de-contributions-attendre-avant-approuver-batch">Q7 : Combien de contributions attendre avant approuver batch ?</h3>
+<p><strong>R</strong> : Votre décision, basée sur stratégie :</p>
+<p><strong>Stratégie fréquente</strong> (recommandé début) :
+- Approuver tous les vendredis (releases hebdomadaires)
+- Accumulation 2-5 contributions/semaine</p>
+<p><strong>Stratégie groupée</strong> :
+- Approuver fin trimestre (releases trimestrielles)
+- Accumulation 20-50 contributions</p>
+<p><strong>Stratégie mixte</strong> :
+- Hotfix : Immédiat (&lt; 1h)
+- Normal : Hebdomadaire (vendredis)
+- Batch : Trimestriel (rapports SPAN)</p>
+<hr/>
+<h3 id="q8-que-faire-si-staging-draft-inaccessible-404">Q8 : Que faire si staging /draft/ inaccessible (404) ?</h3>
+<p><strong>R</strong> : Vérifier :</p>
+<ol>
+<li><strong>URL correcte</strong> : https://alexmacapple.github.io/span-sg/draft/ (pas /draft sans trailing slash)</li>
+<li><strong>Accès org-only</strong> : Connecté GitHub avec compte org (pas mode incognito)</li>
+<li><strong>Déploiement staging réussi</strong> : Vérifier GitHub Actions logs</li>
+</ol>
+<p>Si toujours inaccessible : Contacter validateurs (Bertrand/Alex).</p>
+<hr/>
+<h3 id="q9-puis-je-approuver-depuis-mobile">Q9 : Puis-je approuver depuis mobile ?</h3>
+<p><strong>R</strong> : Oui, interface GitHub mobile fonctionne.</p>
+<p>App GitHub Mobile :
+- iOS : https://apps.apple.com/app/github/id1477376905
+- Android : https://play.google.com/store/apps/details?id=com.github.android</p>
+<p>Notifications push + approval possible mobile.</p>
+<hr/>
+<h3 id="q10-quel-delai-attendre-avant-approuver-securite">Q10 : Quel délai attendre avant approuver (sécurité) ?</h3>
+<p><strong>R</strong> : Configurable via "Wait timer" environment production.</p>
+<p><strong>Actuellement</strong> : 0 minutes (approval immédiat possible)</p>
+<p><strong>Optionnel</strong> : Configurer 30-60 min safety delay :</p>
+<pre><code>Settings → Environments → production
+→ Wait timer: 60 minutes
+</code></pre>
+<p>Empêche approval &lt; 1h après staging deploy (temps reflection).</p>
+<hr/>
+<h2 id="metriques-et-reporting">Métriques et Reporting</h2>
+<h3 id="metriques-personnelles">Métriques personnelles</h3>
+<p><strong>Dashboard personnel</strong> :</p>
+<pre><code class="language-bash"># Nombre approvals/mois
+gh api repos/Alexmacapple/span-sg/deployments \
+  --jq '.[] | select(.environment=="production") | select(.created_at | startswith("2025-10")) | length'
+
+# Délai moyen staging → production
+# (Nécessite script custom, ou Insights GitHub)
+</code></pre>
+<p><strong>Insights GitHub</strong> (Admin uniquement) :
+- Settings → Insights → Deployments
+- Frequency, lead time, success rate</p>
+<hr/>
+<h2 id="support-et-contacts">Support et Contacts</h2>
+<h3 id="contacts-techniques">Contacts techniques</h3>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Personne</th>
+<th>Email</th>
+<th>Disponibilité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Validateur</td>
+<td>Bertrand</td>
+<td>@bertrand</td>
+<td>Sous 48h</td>
+</tr>
+<tr>
+<td>Validateur</td>
+<td>Alex</td>
+<td>@alex</td>
+<td>Sous 48h</td>
+</tr>
+<tr>
+<td>Admin GitHub</td>
+<td>[Nom admin]</td>
+<td>admin@...</td>
+<td>Sous 24h</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ressources-documentation">Ressources documentation</h3>
+<ul>
+<li><a href="../adr/009-migration-github-environments/">ADR-009 : Migration GitHub Environments</a></li>
+<li><a href="https://github.com/Alexmacapple/span-sg/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a></li>
+<li><a href="https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment">GitHub Deployments Documentation</a></li>
+</ul>
+<hr/>
+<h2 id="annexe-checklist-approval-complete">Annexe : Checklist Approval Complète</h2>
+<pre><code class="language-markdown">## Checklist Approval Déploiement Production
+
+Date: _____________
+Commit SHA: _____________
+Contributeur(s): _____________
+
+### 1. Review Staging (5-10 min)
+
+- [ ] Ouvrir https://alexmacapple.github.io/span-sg/draft/
+- [ ] Tester navigation menu latéral (6 modules services)
+- [ ] Ouvrir 2-3 modules (ex: SIRCOM, SNUM)
+- [ ] Vérifier tableau Synthèse (scores cohérents, badges visibles)
+- [ ] Télécharger exports/span-sg.pdf
+- [ ] Ouvrir PDF (metadata OK, contenu lisible)
+- [ ] Comparer staging vs production (aucune régression visuelle)
+
+### 2. Vérifier Logs CI/CD (2-3 min)
+
+- [ ] Ouvrir GitHub Actions : https://github.com/Alexmacapple/span-sg/actions
+- [ ] Workflow "Build and Deploy" : Status ✅ Success
+- [ ] Job build-and-test : Tous steps ✅
+- [ ] Linting (Black + Ruff) : ✅
+- [ ] Security (Bandit + Safety) : ✅
+- [ ] Tests (33 unitaires, coverage 89%+) : ✅
+- [ ] E2E tests (9 scenarios) : ✅
+- [ ] Build HTML DSFR (strict mode) : ✅
+- [ ] Generate PDF (metadata enrichies) : ✅
+- [ ] Job deploy-staging : ✅ Deployed to /draft/
+- [ ] Aucune erreur bloquante dans logs
+
+### 3. Décision
+
+- [ ] **Approuver** : Staging OK, logs OK, aucune régression
+- [ ] **Rejeter** : Problème détecté (commentaire : ________________)
+- [ ] **Différer** : Attendre accumulation (prochaine review : __________)
+
+### 4. Post-Approval (si approuvé)
+
+- [ ] Attendre notification "Deployment to production succeeded" (2-5 min)
+- [ ] Vérifier https://alexmacapple.github.io/span-sg/ accessible
+- [ ] Test rapide navigation production (1 min)
+- [ ] Confirmer déploiement réussi
+
+---
+
+**Signature** : _____________
+**Date/Heure** : _____________
+</code></pre>
+<hr/>
+<p><strong>Dernière mise à jour</strong> : 2025-10-22
+<strong>Version</strong> : 1.0.0
+<strong>Auteur</strong> : Claude Code</p>
+</div>
+</div><footer>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg" style="color: #fcfcfc"> GitHub</a>
+</span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>

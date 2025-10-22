@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg/glossary/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Glossaire SPAN SG - Termes Techniques Illustrés</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Glossaire SPAN SG - Termes Techniques Illustr\u00e9s";
+        var mkdocs_page_input_path = "glossary.md";
+        var mkdocs_page_url = "/span-sg/glossary/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="..">
+</a><div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">SPAN (SG)</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SPAN (services)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/bgs/">BGS</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/safi/">SAFI</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/siep/">SIEP</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/sircom/">SIRCOM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/snum/">SNUM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/srh/">SRH</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../synthese/">Synthèse</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processus/">Processus</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/">Guide contributeur</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev-local/">Développement local</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg">Code source GitHub</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href=".."></a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item active">Glossaire SPAN SG - Termes Techniques Illustrés</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg/edit/master/docs/glossary.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="glossaire-span-sg-termes-techniques-illustres">Glossaire SPAN SG - Termes Techniques Illustrés</h1>
+<p>Définitions des termes techniques, acronymes et concepts du projet SPAN SG.</p>
+<p>Version: 1.0.1-dsfr
+Dernière mise à jour: 2025-10-22
+Organisation alphabétique</p>
+<hr/>
+<h2 id="a">A</h2>
+<h3 id="accessibilite-numerique">Accessibilité Numérique</h3>
+<p><strong>Définition :</strong> Capacité d'un service numérique à être utilisable par tous, y compris les personnes en situation de handicap (moteur, visuel, auditif, cognitif).</p>
+<p><strong>Standard français :</strong> RGAA 4.1 (Référentiel Général d'Amélioration de l'Accessibilité)</p>
+<p><strong>Exemple pratique :</strong></p>
+<pre><code class="language-markdown">❌ Mauvais : &lt;img src="logo.png"&gt;
+✅ Bon : &lt;img src="logo.png" alt="Logo Ministère Économie"&gt;
+</code></pre>
+<p><strong>Référence :</strong> <a href="../adr/007-mkdocs-dsfr-language-divergence/">ADR-007</a></p>
+<hr/>
+<h3 id="adr-architecture-decision-record">ADR (Architecture Decision Record)</h3>
+<p><strong>Définition :</strong> Document traçant une décision technique majeure (contexte, alternatives, conséquences).</p>
+<p><strong>Format :</strong> MADR (Markdown Any Decision Records)</p>
+<p><strong>Exemple :</strong></p>
+<pre><code>ADR-001: Adoption thème DSFR vs Material
+ADR-003: Isolation build PDF avec --site-dir
+ADR-006: Migration 31 → 33 critères DINUM
+</code></pre>
+<p><strong>Diagramme :</strong></p>
+<pre><code class="language-mermaid">graph LR
+    A[Problème] --&gt; B[ADR Proposed]
+    B --&gt; C[Discussion équipe]
+    C --&gt; D{Décision}
+    D --&gt;|Approved| E[ADR Accepted]
+    D --&gt;|Rejected| F[ADR Deprecated]
+    E --&gt; G[Implémentation]
+
+    style E fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
+    style F fill:#ff6b6b
+</code></pre>
+<p><strong>Documentation :</strong> <a href="../adr/">docs/adr/README.md</a></p>
+<hr/>
+<h2 id="c">C</h2>
+<h3 id="c4-model">C4 Model</h3>
+<p><strong>Définition :</strong> Modèle de documentation architecture logicielle en 4 niveaux de zoom.</p>
+<p><strong>Niveaux :</strong>
+1. <strong>Context</strong> : Système dans son écosystème
+2. <strong>Containers</strong> : Applications, services, BDD
+3. <strong>Components</strong> : Modules logiques internes
+4. <strong>Code</strong> : Classes, fonctions (optionnel)</p>
+<p><strong>Diagramme :</strong></p>
+<pre><code class="language-mermaid">graph TB
+    C1[Level 1&lt;br/&gt;Context&lt;br/&gt;Vue macro] --&gt; C2[Level 2&lt;br/&gt;Containers&lt;br/&gt;Applications]
+    C2 --&gt; C3[Level 3&lt;br/&gt;Components&lt;br/&gt;Modules]
+    C3 --&gt; C4[Level 4&lt;br/&gt;Code&lt;br/&gt;Classes]
+
+    style C1 fill:#91d5ff
+    style C2 fill:#b5f5ec
+    style C3 fill:#ffc9c9
+    style C4 fill:#ffe7ba
+</code></pre>
+<p><strong>Référence :</strong> <a href="../architecture/c4-diagrams/">docs/architecture/c4-diagrams.md</a></p>
+<hr/>
+<h3 id="cicd-continuous-integration-continuous-deployment">CI/CD (Continuous Integration / Continuous Deployment)</h3>
+<p><strong>Définition :</strong> Pipeline automatisé de validation et déploiement du code.</p>
+<p><strong>Pipeline SPAN SG :</strong></p>
+<pre><code class="language-mermaid">graph LR
+    A[Push code] --&gt; B[Linting]
+    B --&gt; C[Tests]
+    C --&gt; D[Build]
+    D --&gt; E[Deploy]
+
+    style E fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
+</code></pre>
+<p><strong>Steps :</strong>
+1. Linting (Black, Ruff)
+2. Tests (Pytest 33, Coverage 89%+)
+3. Sécurité (Bandit, Safety)
+4. Build (MkDocs DSFR + PDF)
+5. Deploy (GitHub Pages)</p>
+<p><strong>Durée :</strong> 6 min (draft), 10 min (main)</p>
+<p><strong>Référence :</strong> <a href="../architecture/diagrams/#1-cicd-pipeline">docs/architecture/diagrams.md</a></p>
+<hr/>
+<h3 id="coverage-couverture-de-tests">Coverage (Couverture de Tests)</h3>
+<p><strong>Définition :</strong> Pourcentage de code exécuté par les tests automatisés.</p>
+<p><strong>Seuils SPAN SG :</strong>
+- Scripts production : <strong>89%+ requis</strong>
+- Hooks MkDocs : <strong>100% requis</strong></p>
+<p><strong>Exemple :</strong></p>
+<pre><code class="language-bash">pytest --cov=scripts --cov-fail-under=89
+# PASSED: 92.03% coverage (seuil 89%)
+</code></pre>
+<p><strong>Distribution :</strong></p>
+<pre><code class="language-mermaid">pie title "Coverage 92% (seuil 89%+)"
+    "calculate_scores.py (100%)" : 72
+    "enrich_pdf_metadata.py (78%)" : 39
+    "dsfr_table_wrapper.py (100%)" : 9
+    "title_cleaner.py (100%)" : 7
+    "pdf_copy.py (0%)" : 11
+</code></pre>
+<p><strong>Référence :</strong> <a href="../adr/005-coverage-89-percent/">ADR-005</a></p>
+<hr/>
+<h2 id="d">D</h2>
+<h3 id="dinum-direction-interministerielle-du-numerique">DINUM (Direction Interministérielle du Numérique)</h3>
+<p><strong>Définition :</strong> Direction gouvernementale pilotant la transformation numérique de l'État.</p>
+<p><strong>Rôle SPAN SG :</strong>
+- Éditeur référentiel 33 critères accessibilité
+- Contrôleur conformité SPAN administrations
+- Référence : Checklist <code>SPAN-checklist-v2024-02-05-AAL.ots</code></p>
+<p><strong>Critères DINUM :</strong></p>
+<pre><code class="language-markdown">- [x] 1.1.1 Nommer un référent accessibilité &lt;!-- DINUM --&gt;
+- [x] 1.1.2 Former le référent &lt;!-- DINUM --&gt;
+- [ ] 1.1.3 Sensibiliser les équipes &lt;!-- DINUM --&gt;
+...
+(31 critères au total)
+</code></pre>
+<p><strong>Site officiel :</strong> https://www.numerique.gouv.fr/</p>
+<hr/>
+<h3 id="docker">Docker</h3>
+<p><strong>Définition :</strong> Plateforme de containerisation pour empaqueter applications + dépendances.</p>
+<p><strong>Usage SPAN SG :</strong></p>
+<pre><code class="language-bash"># Lancer MkDocs DSFR en local
+docker compose -f docker-compose-dsfr.yml up
+# → http://localhost:8000/span-sg/
+</code></pre>
+<p><strong>Image utilisée :</strong></p>
+<pre><code class="language-yaml"># docker-compose-dsfr.yml
+services:
+  mkdocs:
+    image: python:3.11-slim
+    volumes:
+      - .:/docs
+    ports:
+      - 8000:8000
+    command: mkdocs serve --config-file mkdocs-dsfr.yml
+</code></pre>
+<p><strong>Référence :</strong> <a href="https://github.com/Alexmacapple/span-sg/blob/main/HOWTO.md#docker">HOWTO.md</a></p>
+<hr/>
+<h3 id="dsfr-design-system-de-letat-francais">DSFR (Design System de l'État Français)</h3>
+<p><strong>Définition :</strong> Charte graphique officielle des sites gouvernementaux français.</p>
+<p><strong>Composants :</strong>
+- Header Marianne officiel
+- Couleurs État (bleu France #000091)
+- Typographie Marianne
+- Composants accessibles (boutons, cards, alerts)</p>
+<p><strong>Exemple :</strong></p>
+<pre><code class="language-html">&lt;!-- Bouton DSFR --&gt;
+&lt;button class="fr-btn"&gt;Action principale&lt;/button&gt;
+
+&lt;!-- Card DSFR --&gt;
+&lt;div class="fr-card"&gt;
+  &lt;div class="fr-card__body"&gt;
+    &lt;h3 class="fr-card__title"&gt;Titre&lt;/h3&gt;
+    &lt;p class="fr-card__desc"&gt;Description&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>Version :</strong> mkdocs-dsfr 0.17.0</p>
+<p><strong>Référence :</strong> <a href="../adr/001-choix-theme-dsfr/">ADR-001</a></p>
+<hr/>
+<h2 id="e">E</h2>
+<h3 id="e2e-end-to-end-tests">E2E (End-to-End Tests)</h3>
+<p><strong>Définition :</strong> Tests automatisés simulant parcours utilisateur complet.</p>
+<p><strong>Scénarios SPAN SG (9) :</strong>
+1. Full Workflow (13 étapes)
+2. Multi Modules (SIRCOM + SNUM + SRH)
+3. Erreur Périmètre (détection 0/198 invalide)
+4. Erreur Markdown (lien cassé)
+5. Performance (build &lt; 30s)
+6. PDF Complet (métadonnées enrichies)
+7. Rollback (0/198 → 6/198 → 0/198)
+8. Preview HTTP (serveur local)
+9. Front-matter (validation YAML)</p>
+<p><strong>Résultats :</strong></p>
+<pre><code>=== Résumé E2E ===
+✅ Passés   : 9
+❌ Échoués  : 0
+⏭️  Skippés : 0
+</code></pre>
+<p><strong>Référence :</strong> <a href="../tests/e2e/">tests/e2e/</a></p>
+<hr/>
+<h2 id="g">G</h2>
+<h3 id="git">Git</h3>
+<p><strong>Définition :</strong> Système de contrôle de versions décentralisé.</p>
+<p><strong>Workflow SPAN SG :</strong></p>
+<pre><code class="language-mermaid">gitGraph
+    commit id: "Initial"
+    branch main
+
+    branch feature/sircom
+    checkout feature/sircom
+    commit id: "ajoute 3 actions"
+
+    checkout main
+    merge feature/sircom tag: "v1.0"
+    commit id: "Deploy staging"
+    commit id: "Approval Chef SNUM"
+    commit id: "Deploy production"
+</code></pre>
+<p><strong>Architecture (depuis 22/10/2025) :</strong>
+- <code>main</code> : Branche unique (source de vérité)
+- <code>feature/*</code> : Contributions services (PR vers main)
+- GitHub Environment <code>staging</code> : Auto-deploy /draft/
+- GitHub Environment <code>production</code> : Deploy / (approval Chef SNUM requis)</p>
+<p><strong>Référence :</strong> <a href="../contributing/#option-b--git-local-avancs">CONTRIBUTING.md</a></p>
+<hr/>
+<h3 id="github-actions">GitHub Actions</h3>
+<p><strong>Définition :</strong> Service CI/CD intégré à GitHub.</p>
+<p><strong>Runner specs :</strong>
+- OS : Ubuntu 22.04 LTS
+- vCPU : 8 cores
+- RAM : 14 GB
+- Durée : 15-20 min/build</p>
+<p><strong>Workflow (3 jobs séquentiels) :</strong></p>
+<pre><code class="language-yaml"># .github/workflows/build.yml
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Linting, Security, Tests, Build, E2E
+      ...
+
+  deploy-staging:
+    needs: build-and-test
+    environment: staging
+    ...
+
+  deploy-production:
+    needs: build-and-test
+    environment: production  # Requires approval Chef SNUM
+    ...
+</code></pre>
+<p><strong>Référence :</strong> <a href="../architecture/infrastructure/">docs/architecture/infrastructure.md</a></p>
+<hr/>
+<h3 id="github-pages">GitHub Pages</h3>
+<p><strong>Définition :</strong> Hébergement gratuit de sites statiques par GitHub.</p>
+<p><strong>URLs SPAN SG :</strong>
+- Staging (auto-deploy) : https://alexmacapple.github.io/span-sg/draft/ (org-only)
+- Production (approval requis) : https://alexmacapple.github.io/span-sg/ (org-only)</p>
+<p><strong>Branche :</strong> <code>gh-pages</code></p>
+<p><strong>Architecture :</strong> GitHub Environments (staging/production) - Voir <a href="../adr/009-migration-github-environments/">ADR-009</a></p>
+<p><strong>CDN :</strong> CloudFlare (latence &lt;100ms)</p>
+<hr/>
+<h2 id="h">H</h2>
+<h3 id="hooks-mkdocs">Hooks MkDocs</h3>
+<p><strong>Définition :</strong> Scripts Python exécutés pendant le build MkDocs.</p>
+<p><strong>Hooks SPAN SG :</strong>
+1. <strong>dsfr_table_wrapper.py</strong> : Encapsule <code>&lt;table&gt;</code> dans <code>&lt;div class="fr-table"&gt;</code>
+2. <strong>title_cleaner.py</strong> : Nettoie titres HTML (regex <code>SPAN -</code>)
+3. <strong>pdf_copy.py</strong> : Copie PDF de pdf-temp/ vers exports/</p>
+<p><strong>Lifecycle :</strong></p>
+<pre><code class="language-mermaid">sequenceDiagram
+    MkDocs-&gt;&gt;Hook: on_page_content(html)
+    Hook-&gt;&gt;Hook: Transform HTML
+    Hook-&gt;&gt;MkDocs: return html
+    MkDocs-&gt;&gt;Hook: on_post_page(output)
+    Hook-&gt;&gt;Hook: Transform output
+    Hook-&gt;&gt;MkDocs: return output
+</code></pre>
+<p><strong>Référence :</strong> <a href="../dev/hooks-guide/">docs/dev/hooks-guide.md</a></p>
+<hr/>
+<h2 id="m">M</h2>
+<h3 id="markdown">Markdown</h3>
+<p><strong>Définition :</strong> Langage de balisage léger pour écrire documentation formatée.</p>
+<p><strong>Syntaxe SPAN SG :</strong></p>
+<pre><code class="language-markdown"># Titre 1
+## Titre 2
+
+**Gras** *Italique*
+
+- [ ] Case à cocher &lt;!-- DINUM --&gt;
+- [x] Case cochée &lt;!-- DINUM --&gt;
+
+[Lien](https://example.com)
+
+| Colonne 1 | Colonne 2 |
+|-----------|-----------|
+| Valeur A  | Valeur B  |
+</code></pre>
+<p><strong>Extensions :</strong>
+- <code>pymdownx.superfences</code> : Blocs code + Mermaid
+- <code>attr_list</code> : Attributs HTML
+- <code>tables</code> : Tableaux</p>
+<hr/>
+<h3 id="mermaid">Mermaid</h3>
+<p><strong>Définition :</strong> Langage de diagrammes textuels (flowcharts, sequences, etc.).</p>
+<p><strong>Types utilisés SPAN SG :</strong>
+- <code>graph TB</code> : Flowchart vertical
+- <code>graph LR</code> : Flowchart horizontal
+- <code>sequenceDiagram</code> : Diagramme de séquences
+- <code>pie</code> : Diagramme camembert
+- <code>gitGraph</code> : Historique Git
+- <code>journey</code> : Parcours utilisateur</p>
+<p><strong>Exemple :</strong></p>
+<pre><code class="language-mermaid">graph LR
+    A[Début] --&gt; B{Décision?}
+    B --&gt;|Oui| C[Action 1]
+    B --&gt;|Non| D[Action 2]
+    C --&gt; E[Fin]
+    D --&gt; E
+</code></pre>
+<p><strong>Documentation :</strong> https://mermaid.js.org/</p>
+<hr/>
+<h3 id="mkdocs">MkDocs</h3>
+<p><strong>Définition :</strong> Générateur de site statique spécialisé documentation technique.</p>
+<p><strong>Version :</strong> 1.6.1</p>
+<p><strong>Configuration SPAN SG :</strong>
+- Principale : <code>mkdocs-dsfr.yml</code> (HTML)
+- PDF : <code>mkdocs-dsfr-pdf.yml</code> (PDF)</p>
+<p><strong>Build :</strong></p>
+<pre><code class="language-bash">mkdocs build --config-file mkdocs-dsfr.yml --strict
+# → site/ (HTML)
+
+ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml
+# → exports/span-sg.pdf
+</code></pre>
+<p><strong>Référence :</strong> <a href="../dev-local/">dev-local.md</a></p>
+<hr/>
+<h2 id="p">P</h2>
+<h3 id="pdf-portable-document-format">PDF (Portable Document Format)</h3>
+<p><strong>Définition :</strong> Format de document portable cross-platform.</p>
+<p><strong>Génération SPAN SG :</strong></p>
+<pre><code class="language-mermaid">graph LR
+    A[mkdocs-dsfr-pdf.yml] --&gt; B[MkDocs build]
+    B --&gt; C[WeasyPrint]
+    C --&gt; D[PDF brut]
+    D --&gt; E[enrich_pdf_metadata.py]
+    E --&gt; F[exports/span-sg.pdf&lt;br/&gt;Métadonnées enrichies]
+
+    style F fill:#ffc9c9,stroke:#ff4d4f,stroke-width:2px
+</code></pre>
+<p><strong>Métadonnées enrichies :</strong></p>
+<pre><code class="language-python">{
+    "Title": "SPAN SG - Schéma Pluriannuel Accessibilité Numérique",
+    "Author": "Secrétariat Général MEFSIN",
+    "Subject": "Conformité RGAA 4.1",
+    "Keywords": "SPAN, RGAA, accessibilité, DINUM",
+    "Producer": "MkDocs + WeasyPrint",
+}
+</code></pre>
+<p><strong>Référence :</strong> <a href="../adr/003-isolation-pdf-build/">ADR-003</a></p>
+<hr/>
+<h3 id="pytest">Pytest</h3>
+<p><strong>Définition :</strong> Framework de tests unitaires Python.</p>
+<p><strong>Tests SPAN SG :</strong>
+- <strong>33 tests unitaires</strong> (scripts + hooks)
+- <strong>9 scénarios E2E</strong>
+- <strong>Coverage 89%+</strong> (seuil enforced)</p>
+<p><strong>Exécution :</strong></p>
+<pre><code class="language-bash">pytest --cov=scripts --cov-fail-under=89
+# 33 passed, 92.03% coverage
+</code></pre>
+<p><strong>Référence :</strong> <a href="../dev/api-reference/">docs/dev/api-reference.md</a></p>
+<hr/>
+<h2 id="r">R</h2>
+<h3 id="rgaa-referentiel-general-damelioration-de-laccessibilite">RGAA (Référentiel Général d'Amélioration de l'Accessibilité)</h3>
+<p><strong>Définition :</strong> Standard français d'accessibilité numérique (basé WCAG 2.1).</p>
+<p><strong>Version :</strong> RGAA 4.1 (2021)</p>
+<p><strong>Structure :</strong>
+- 13 thématiques
+- 106 critères
+- 258 tests</p>
+<p><strong>Niveaux conformité :</strong>
+- <strong>A</strong> : Basique
+- <strong>AA</strong> : Intermédiaire (requis administrations)
+- <strong>AAA</strong> : Avancé (optionnel)</p>
+<p><strong>Site officiel :</strong> https://accessibilite.numerique.gouv.fr/</p>
+<hr/>
+<h2 id="s">S</h2>
+<h3 id="span-schema-pluriannuel-daccessibilite-numerique">SPAN (Schéma Pluriannuel d'Accessibilité Numérique)</h3>
+<p><strong>Définition :</strong> Document obligatoire administrations publiques (&gt;50 agents) planifiant mise en conformité accessibilité numérique sur 3 ans.</p>
+<p><strong>Obligation légale :</strong>
+- Loi n° 2005-102 du 11/02/2005
+- Décret n° 2019-768 du 24/07/2019</p>
+<p><strong>Structure SPAN SG :</strong>
+- <strong>1 SPAN global</strong> (Secrétariat Général)
+- <strong>6 modules services</strong> (SIRCOM, SNUM, SRH, SIEP, SAFI, BGS)
+- <strong>33 critères DINUM</strong> (checklist officielle)
+- <strong>Synthèse HTML</strong> (tableau agrégé)</p>
+<p><strong>Format :</strong></p>
+<pre><code class="language-markdown"># SPAN [Service]
+
+## 1. Périmètre
+[Sites, applications, services numériques]
+
+## 2. État des lieux
+[Audit conformité, taux accessibilité]
+
+## 3. Organisation
+[Référent, équipes, budget]
+
+## 4. Plan d'action
+[Actions prioritaires 2025-2027]
+
+## 5. Indicateurs
+[KPI suivi, objectifs chiffrés]
+</code></pre>
+<p><strong>Référence :</strong> <a href="https://github.com/Alexmacapple/span-sg/blob/main/PRD-v3.3.md">PRD-v3.3.md</a></p>
+<hr/>
+<h2 id="w">W</h2>
+<h3 id="weasyprint">WeasyPrint</h3>
+<p><strong>Définition :</strong> Bibliothèque Python de génération PDF depuis HTML/CSS.</p>
+<p><strong>Version :</strong> 62.3</p>
+<p><strong>Dépendances système :</strong></p>
+<pre><code class="language-bash">libpango-1.0-0      # Text rendering
+libcairo2           # Vector graphics
+libgdk-pixbuf2.0-0  # Image loading
+libharfbuzz-dev     # Text shaping
+</code></pre>
+<p><strong>Usage SPAN SG :</strong></p>
+<pre><code class="language-python"># mkdocs-pdf-export-plugin utilise WeasyPrint
+weasyprint.HTML(
+    string=html_content,
+    base_url=base_url
+).write_pdf(output_path)
+</code></pre>
+<p><strong>Référence :</strong> <a href="../adr/003-isolation-pdf-build/">ADR-003</a></p>
+<hr/>
+<h2 id="acronymes">Acronymes</h2>
+<table>
+<thead>
+<tr>
+<th>Acronyme</th>
+<th>Signification</th>
+<th>Contexte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADR</td>
+<td>Architecture Decision Record</td>
+<td>Documentation décisions techniques</td>
+</tr>
+<tr>
+<td>CI/CD</td>
+<td>Continuous Integration/Deployment</td>
+<td>Pipeline automatisé</td>
+</tr>
+<tr>
+<td>DINUM</td>
+<td>Direction Interministérielle du Numérique</td>
+<td>Administration État</td>
+</tr>
+<tr>
+<td>DSFR</td>
+<td>Design System de l'État Français</td>
+<td>Charte graphique gouvernementale</td>
+</tr>
+<tr>
+<td>E2E</td>
+<td>End-to-End</td>
+<td>Tests bout-en-bout</td>
+</tr>
+<tr>
+<td>PDF</td>
+<td>Portable Document Format</td>
+<td>Format document</td>
+</tr>
+<tr>
+<td>RGAA</td>
+<td>Référentiel Général Amélioration Accessibilité</td>
+<td>Standard français</td>
+</tr>
+<tr>
+<td>SPAN</td>
+<td>Schéma Pluriannuel Accessibilité Numérique</td>
+<td>Document obligatoire</td>
+</tr>
+<tr>
+<td>WCAG</td>
+<td>Web Content Accessibility Guidelines</td>
+<td>Standard international W3C</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="references">Références</h2>
+<ul>
+<li><a href="https://www.mkdocs.org/">Documentation MkDocs</a></li>
+<li><a href="https://www.systeme-de-design.gouv.fr/">DSFR Documentation</a></li>
+<li><a href="https://accessibilite.numerique.gouv.fr/">RGAA 4.1 Référentiel</a></li>
+<li><a href="https://www.numerique.gouv.fr/">DINUM Site Officiel</a></li>
+<li><a href="https://mermaid.js.org/">Mermaid Documentation</a></li>
+<li><a href="https://adr.github.io/">ADR GitHub Organization</a></li>
+</ul>
+</div>
+</div><footer>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg" style="color: #fcfcfc"> GitHub</a>
+</span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>

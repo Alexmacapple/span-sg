@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg/architecture/infrastructure/" rel="canonical"/>
+<link href="../../img/favicon.ico" rel="shortcut icon"/>
+<title>Architecture Infrastructure - Runtime et Déploiement</title>
+<link href="../../css/theme.css" rel="stylesheet"/>
+<link href="../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Architecture Infrastructure - Runtime et D\u00e9ploiement";
+        var mkdocs_page_input_path = "architecture/infrastructure.md";
+        var mkdocs_page_url = "/span-sg/architecture/infrastructure/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../..">
+</a><div role="search">
+<form action="../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../..">SPAN (SG)</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SPAN (services)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/bgs/">BGS</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/safi/">SAFI</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/siep/">SIEP</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/sircom/">SIRCOM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/snum/">SNUM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/srh/">SRH</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../synthese/">Synthèse</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../processus/">Processus</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Guide contributeur</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-local/">Développement local</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg">Code source GitHub</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../.."></a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href="../.."></a></li>
+<li class="breadcrumb-item active">Architecture Infrastructure - Runtime et Déploiement</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg/edit/master/docs/architecture/infrastructure.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="architecture-infrastructure-runtime-et-deploiement">Architecture Infrastructure - Runtime et Déploiement</h1>
+<p>Documentation détaillée de l'infrastructure runtime, ressources système et architecture de déploiement SPAN SG.</p>
+<p>Version: 1.0.1-dsfr
+Dernière mise à jour: 2025-10-22</p>
+<hr/>
+<h2 id="1-vue-densemble-infrastructure">1. Vue d'ensemble Infrastructure</h2>
+<p>Architecture cloud-native basée sur GitHub Actions et GitHub Pages.</p>
+<pre><code class="language-mermaid">graph TB
+    subgraph "Developer Workstation"
+        DEV[fa:fa-laptop Poste développeur&lt;br/&gt;macOS/Linux/Windows]
+        DOCKER[fa:fa-docker Docker Desktop&lt;br/&gt;mkdocs-dsfr:latest]
+        VSCODE[fa:fa-code VS Code&lt;br/&gt;Extension MkDocs]
+    end
+
+    subgraph "GitHub Cloud"
+        direction TB
+        subgraph "GitHub Repository"
+            REPO[fa:fa-code span-sg&lt;br/&gt;Git Repository]
+            ISSUES[fa:fa-bug Issues&lt;br/&gt;Suivi bugs]
+            PR[fa:fa-code-branch Pull Requests&lt;br/&gt;Review process]
+        end
+
+        subgraph "GitHub Actions Runners"
+            RUNNER[fa:fa-server ubuntu-latest&lt;br/&gt;8 vCPU, 14 GB RAM]
+            CACHE[fa:fa-hdd Build Cache&lt;br/&gt;Docker layers + pip]
+        end
+
+        subgraph "GitHub Pages"
+            GHP[fa:fa-globe GitHub Pages&lt;br/&gt;CDN CloudFlare]
+            DRAFT[fa:fa-folder /draft/&lt;br/&gt;Preview org-only]
+            PROD[fa:fa-folder / racine&lt;br/&gt;Production public]
+        end
+
+        subgraph "Artifacts Storage"
+            ART[fa:fa-archive Artifacts&lt;br/&gt;Retention 30-90j]
+        end
+    end
+
+    subgraph "External Services"
+        DINUM[fa:fa-landmark DINUM&lt;br/&gt;Référentiel RGAA]
+        NPM[fa:fa-cube npm registry&lt;br/&gt;Dependencies JS]
+        PYPI[fa:fa-cube PyPI&lt;br/&gt;Dependencies Python]
+    end
+
+    DEV --&gt;|git push| REPO
+    DEV --&gt;|docker-compose up| DOCKER
+
+    REPO --&gt;|Webhook| RUNNER
+    RUNNER --&gt;|Cache Docker| CACHE
+    RUNNER --&gt;|Upload| ART
+    RUNNER --&gt;|Deploy| GHP
+
+    GHP --&gt; DRAFT
+    GHP --&gt; PROD
+
+    RUNNER --&gt;|Download deps| NPM
+    RUNNER --&gt;|pip install| PYPI
+
+    DEV --&gt;|Référence| DINUM
+
+    style RUNNER fill:#b5f5ec,stroke:#13c2c2,stroke-width:3px
+    style GHP fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
+    style REPO fill:#ffc9c9,stroke:#ff4d4f,stroke-width:2px
+</code></pre>
+<hr/>
+<h2 id="2-cicd-runner-infrastructure">2. CI/CD Runner Infrastructure</h2>
+<h3 id="github-actions-runner-specs">GitHub Actions Runner Specs</h3>
+<pre><code class="language-yaml">Runner: ubuntu-latest (Ubuntu 22.04 LTS)
+vCPU: 8 cores
+RAM: 14 GB
+Disk: 14 GB SSD
+Network: 1 Gbps
+Runtime: ~15min (draft), ~20min (main)
+</code></pre>
+<h3 id="software-stack-runner">Software Stack Runner</h3>
+<pre><code class="language-mermaid">graph TB
+    subgraph "OS Layer"
+        UBUNTU[Ubuntu 22.04 LTS&lt;br/&gt;Kernel 5.15+]
+    end
+
+    subgraph "Runtime Layer"
+        PYTHON[Python 3.11.13&lt;br/&gt;CPython]
+        NODE[Node.js 20 LTS&lt;br/&gt;npm 10]
+        DOCKER[Docker 24.x&lt;br/&gt;Buildx]
+    end
+
+    subgraph "Build Tools"
+        PIP[pip 24.3.1&lt;br/&gt;Package installer]
+        GIT[Git 2.47&lt;br/&gt;Version control]
+        APT[apt-get&lt;br/&gt;System packages]
+    end
+
+    subgraph "System Libraries"
+        PANGO[libpango-1.0&lt;br/&gt;Text rendering]
+        CAIRO[libcairo2&lt;br/&gt;Vector graphics]
+        GDK[libgdk-pixbuf&lt;br/&gt;Image loading]
+        HARFBUZZ[libharfbuzz&lt;br/&gt;Text shaping]
+    end
+
+    subgraph "Python Packages"
+        MKDOCS[mkdocs==1.6.1&lt;br/&gt;Site generator]
+        DSFR[mkdocs-dsfr==0.17&lt;br/&gt;Theme DSFR]
+        WEASY[weasyprint==62.3&lt;br/&gt;PDF generator]
+        PYTEST[pytest==8.3.4&lt;br/&gt;Test framework]
+    end
+
+    UBUNTU --&gt; PYTHON
+    UBUNTU --&gt; NODE
+    UBUNTU --&gt; DOCKER
+
+    PYTHON --&gt; PIP
+    UBUNTU --&gt; GIT
+    UBUNTU --&gt; APT
+
+    APT --&gt; PANGO
+    APT --&gt; CAIRO
+    APT --&gt; GDK
+    APT --&gt; HARFBUZZ
+
+    PIP --&gt; MKDOCS
+    PIP --&gt; DSFR
+    PIP --&gt; WEASY
+    PIP --&gt; PYTEST
+
+    WEASY -.-&gt;|requires| PANGO
+    WEASY -.-&gt;|requires| CAIRO
+
+    style PYTHON fill:#91d5ff,stroke:#1890ff,stroke-width:2px
+    style MKDOCS fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
+    style WEASY fill:#ffc9c9,stroke:#ff4d4f,stroke-width:2px
+</code></pre>
+<hr/>
+<h2 id="3-build-pipeline-detaille">3. Build Pipeline Détaillé</h2>
+<h3 id="phases-de-build">Phases de Build</h3>
+<pre><code class="language-mermaid">graph LR
+    subgraph "Phase 1: Setup (30s)"
+        A[Checkout code]
+        B[Setup Python 3.11]
+        C[Install deps DSFR]
+        D[Install deps dev]
+    end
+
+    subgraph "Phase 2: Quality (60s)"
+        E[Black formatter]
+        F[Ruff linter]
+        G[Pytest 33 tests]
+        H[Coverage 89%+]
+    end
+
+    subgraph "Phase 3: Security (45s)"
+        I[Bandit scan]
+        J[Safety CVE check]
+        K[Upload reports]
+    end
+
+    subgraph "Phase 4: Build (90s)"
+        L[Calculate scores]
+        M[Build HTML DSFR]
+        N[Verify DSFR theme]
+        O[Generate PDF]
+        P[Enrich metadata]
+        Q[Validate qpdf]
+    end
+
+    subgraph "Phase 5: E2E (300s main)"
+        R[Docker Buildx]
+        S[Run 9 scenarios]
+        T[Upload E2E report]
+    end
+
+    subgraph "Phase 6: Deploy (60s)"
+        U[Clone gh-pages]
+        V[Copy site/]
+        W[Git push]
+    end
+
+    A --&gt; B --&gt; C --&gt; D
+    D --&gt; E --&gt; F --&gt; G --&gt; H
+    H --&gt; I --&gt; J --&gt; K
+    K --&gt; L --&gt; M --&gt; N --&gt; O --&gt; P --&gt; Q
+    Q --&gt; R --&gt; S --&gt; T
+    T --&gt; U --&gt; V --&gt; W
+
+    style W fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
+</code></pre>
+<h3 id="temps-dexecution">Temps d'exécution</h3>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Draft</th>
+<th>Main</th>
+<th>Critique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Setup</td>
+<td>30s</td>
+<td>30s</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>Quality</td>
+<td>60s</td>
+<td>60s</td>
+<td>Oui (fail-fast)</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>45s</td>
+<td>45s</td>
+<td>Oui (bloquant)</td>
+</tr>
+<tr>
+<td>Build</td>
+<td>90s</td>
+<td>90s</td>
+<td>Oui (strict mode)</td>
+</tr>
+<tr>
+<td>E2E</td>
+<td>-</td>
+<td>300s</td>
+<td>Oui (main only)</td>
+</tr>
+<tr>
+<td>Deploy</td>
+<td>60s</td>
+<td>60s</td>
+<td>Non</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>~6min</strong></td>
+<td><strong>~10min</strong></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="4-caching-strategy">4. Caching Strategy</h2>
+<h3 id="docker-layer-cache">Docker Layer Cache</h3>
+<pre><code class="language-yaml">Cache key: ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile.mkdocs-test') }}
+Storage: /tmp/.buildx-cache
+Size: ~500 MB
+Hit rate: 95% (runs consécutifs)
+Miss penalty: +2min build
+</code></pre>
+<h3 id="pip-dependencies-cache">Pip Dependencies Cache</h3>
+<pre><code class="language-yaml">Cache key: ${{ runner.os }}-pip-${{ hashFiles('requirements-dsfr.txt') }}
+Storage: ~/.cache/pip
+Size: ~200 MB
+Hit rate: 98%
+Miss penalty: +30s install
+</code></pre>
+<h3 id="build-cache-effectiveness">Build Cache Effectiveness</h3>
+<pre><code class="language-mermaid">pie title "Cache Hit Rate (30 derniers builds)"
+    "Cache Hit (13min)" : 85
+    "Cache Miss (15min)" : 15
+</code></pre>
+<hr/>
+<h2 id="5-deploiement-github-pages">5. Déploiement GitHub Pages</h2>
+<h3 id="architecture-cdn">Architecture CDN</h3>
+<pre><code class="language-mermaid">graph TB
+    subgraph "GitHub Pages Infrastructure"
+        GHP[GitHub Pages&lt;br/&gt;Static hosting]
+        CF[CloudFlare CDN&lt;br/&gt;Global edge network]
+    end
+
+    subgraph "Edge Locations"
+        EU[Europe&lt;br/&gt;Frankfurt, Paris]
+        US[USA&lt;br/&gt;Virginia, California]
+        ASIA[Asia&lt;br/&gt;Singapore, Tokyo]
+    end
+
+    subgraph "Content"
+        HTML[site/*.html&lt;br/&gt;~2 MB]
+        CSS[assets/*.css&lt;br/&gt;~500 KB]
+        JS[assets/*.js&lt;br/&gt;~300 KB]
+        PDF[exports/*.pdf&lt;br/&gt;~8 MB]
+    end
+
+    GHP --&gt; CF
+    CF --&gt; EU
+    CF --&gt; US
+    CF --&gt; ASIA
+
+    HTML --&gt; GHP
+    CSS --&gt; GHP
+    JS --&gt; GHP
+    PDF --&gt; GHP
+
+    style CF fill:#ffec3d,stroke:#faad14,stroke-width:2px
+    style GHP fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
+</code></pre>
+<h3 id="strategie-branching-gh-pages">Stratégie Branching gh-pages</h3>
+<pre><code class="language-mermaid">gitGraph
+    commit id: "Initial gh-pages"
+    branch main-deploy
+    commit id: "Deploy draft v0.9"
+    checkout main
+    commit id: "Deploy prod v1.0"
+    checkout draft-deploy
+    commit id: "Deploy draft v1.1-rc1"
+    checkout main
+    merge draft-deploy tag: "v1.1"
+    commit id: "Deploy prod v1.1"
+</code></pre>
+<h3 id="urls-et-acces">URLs et Accès</h3>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>Branche source</th>
+<th>Déploiement</th>
+<th>Accès</th>
+<th>Latency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>main</td>
+<td>gh-pages racine</td>
+<td>Public</td>
+<td>&lt;100ms</td>
+</tr>
+<tr>
+<td><code>/draft/</code></td>
+<td>draft</td>
+<td>gh-pages/draft/</td>
+<td>Org-only</td>
+<td>&lt;100ms</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="6-ressources-et-quotas">6. Ressources et Quotas</h2>
+<h3 id="github-actions-quotas">GitHub Actions Quotas</h3>
+<pre><code class="language-yaml">Free tier (public repo):
+  - Minutes: Unlimited
+  - Concurrent jobs: 20
+  - Storage artifacts: 500 MB
+  - Retention: 90 jours max
+
+Consommation SPAN SG:
+  - Minutes/mois: ~300 min (60 builds × 5 min)
+  - Concurrent jobs: 2 (draft + main)
+  - Storage: ~50 MB (reports + PDF)
+  - Retention: 30-90j selon type
+</code></pre>
+<h3 id="github-pages-quotas">GitHub Pages Quotas</h3>
+<pre><code class="language-yaml">Soft limits:
+  - Bandwidth: 100 GB/mois
+  - Build time: 10 min/build
+  - Site size: 1 GB
+  - Files: 100k max
+
+Consommation SPAN SG:
+  - Bandwidth: &lt;1 GB/mois (usage interne)
+  - Build time: 1-2 min (MkDocs)
+  - Site size: ~10 MB (HTML + assets)
+  - Files: ~200 fichiers
+</code></pre>
+<hr/>
+<h2 id="7-monitoring-et-observabilite">7. Monitoring et Observabilité</h2>
+<h3 id="metriques-cicd">Métriques CI/CD</h3>
+<p>Métriques trackées automatiquement par GitHub Actions :</p>
+<pre><code class="language-mermaid">graph LR
+    A[Build Duration] --&gt; E[Grafana&lt;br/&gt;Dashboard]
+    B[Test Success Rate] --&gt; E
+    C[Cache Hit Rate] --&gt; E
+    D[Deploy Frequency] --&gt; E
+
+    E --&gt; F[Alertes&lt;br/&gt;Slack/Email]
+
+    style E fill:#ffe7ba,stroke:#fa8c16,stroke-width:2px
+</code></pre>
+<h3 id="health-checks">Health Checks</h3>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Fréquence</th>
+<th>Seuil alerte</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Build success rate</td>
+<td>Par build</td>
+<td>&lt;95%</td>
+<td>Investigation</td>
+</tr>
+<tr>
+<td>Build duration</td>
+<td>Par build</td>
+<td>&gt;20min</td>
+<td>Optimisation</td>
+</tr>
+<tr>
+<td>Test coverage</td>
+<td>Par build</td>
+<td>&lt;89%</td>
+<td>Fail build</td>
+</tr>
+<tr>
+<td>Deployment success</td>
+<td>Par deploy</td>
+<td>&lt;100%</td>
+<td>Rollback</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="8-disaster-recovery">8. Disaster Recovery</h2>
+<h3 id="strategie-de-sauvegarde">Stratégie de Sauvegarde</h3>
+<pre><code class="language-mermaid">graph TB
+    subgraph "Sources"
+        REPO[GitHub Repo&lt;br/&gt;Git history]
+        PAGES[GitHub Pages&lt;br/&gt;Static site]
+        ART[Artifacts&lt;br/&gt;30-90j retention]
+    end
+
+    subgraph "Backups"
+        GIT_MIRROR[Git Mirror&lt;br/&gt;Backup repo]
+        PDF_ARCHIVE[PDF Archive&lt;br/&gt;Releases]
+        LOCAL[Local clones&lt;br/&gt;Développeurs]
+    end
+
+    subgraph "Recovery Points"
+        RTO[RTO: 15 min&lt;br/&gt;Rebuild from main]
+        RPO[RPO: 1 commit&lt;br/&gt;Git history]
+    end
+
+    REPO -.-&gt;|Mirror| GIT_MIRROR
+    PAGES -.-&gt;|Export| PDF_ARCHIVE
+    REPO -.-&gt;|Clone| LOCAL
+
+    GIT_MIRROR --&gt; RTO
+    PDF_ARCHIVE --&gt; RPO
+
+    style RTO fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
+    style RPO fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
+</code></pre>
+<h3 id="procedure-recovery">Procédure Recovery</h3>
+<p>En cas de perte totale GitHub Pages :</p>
+<ol>
+<li>
+<p><strong>Rebuild from Git</strong> (15 min) :
+   <code>bash
+   git clone https://github.com/Alexmacapple/span-sg.git
+   docker compose -f docker-compose-dsfr.yml up -d
+   mkdocs build --config-file mkdocs-dsfr.yml
+   # Deploy to alternative hosting</code></p>
+</li>
+<li>
+<p><strong>Restore from Releases</strong> (5 min) :
+   <code>bash
+   gh release download latest --pattern "*.pdf"
+   # PDF contient tout le contenu SPAN</code></p>
+</li>
+<li>
+<p><strong>Alternative Hosting</strong> :</p>
+</li>
+<li>Netlify : <code>netlify deploy --dir=site --prod</code></li>
+<li>Vercel : <code>vercel --prod</code></li>
+<li>GitLab Pages : Migrate repo + CI</li>
+</ol>
+<hr/>
+<h2 id="9-securite-infrastructure">9. Sécurité Infrastructure</h2>
+<h3 id="secrets-management">Secrets Management</h3>
+<pre><code class="language-yaml">GitHub Secrets utilisés:
+  GITHUB_TOKEN: Auto-generated (push gh-pages)
+  # Pas d'autres secrets requis (sécurité minimale)
+
+Rotation:
+  GITHUB_TOKEN: Automatique par GitHub
+</code></pre>
+<h3 id="surface-dattaque">Surface d'Attaque</h3>
+<p>Analyse surface d'attaque réduite :</p>
+<pre><code class="language-mermaid">graph TB
+    A[Attaquant potentiel]
+
+    subgraph "Vecteurs d'attaque"
+        B[Compromission repo]
+        C[Injection CI/CD]
+        D[Malicious PR]
+        E[Dependency hijacking]
+    end
+
+    subgraph "Défenses"
+        F[Branch protection&lt;br/&gt;main + draft]
+        G[Code review&lt;br/&gt;requis]
+        H[Dependabot&lt;br/&gt;alerts]
+        I[Safety + Bandit&lt;br/&gt;scans]
+    end
+
+    A --&gt; B
+    A --&gt; C
+    A --&gt; D
+    A --&gt; E
+
+    B --&gt;|Blocked by| F
+    C --&gt;|Blocked by| G
+    D --&gt;|Blocked by| G
+    E --&gt;|Detected by| H
+    E --&gt;|Blocked by| I
+
+    style F fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
+    style G fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
+    style H fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
+    style I fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
+</code></pre>
+<hr/>
+<h2 id="10-performance-et-optimisations">10. Performance et Optimisations</h2>
+<h3 id="optimisations-appliquees">Optimisations Appliquées</h3>
+<table>
+<thead>
+<tr>
+<th>Optimisation</th>
+<th>Impact</th>
+<th>Métrique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Docker layer cache</td>
+<td>-40% build time</td>
+<td>5min → 3min</td>
+</tr>
+<tr>
+<td>Pip dependencies cache</td>
+<td>-20% install time</td>
+<td>90s → 72s</td>
+</tr>
+<tr>
+<td>Strict mode MkDocs</td>
+<td>+5% build time</td>
+<td>Qualité +++</td>
+</tr>
+<tr>
+<td>PDF isolation (--site-dir)</td>
+<td>Évite rebuild HTML</td>
+<td>-30s</td>
+</tr>
+<tr>
+<td>Shallow git clone</td>
+<td>-10s checkout</td>
+<td>depth=1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="performance-metrics">Performance Metrics</h3>
+<pre><code class="language-mermaid">graph LR
+    A[Build Time Evolution]
+    B[v0.9: 18min]
+    C[v1.0: 12min]
+    D[v1.1: 6min]
+
+    B --&gt;|Docker cache| C
+    C --&gt;|Pip cache| D
+
+    style D fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
+</code></pre>
+<hr/>
+<h2 id="references">Références</h2>
+<ul>
+<li><a href="../c4-diagrams/">C4 Diagrams (Architecture)</a></li>
+<li><a href="../diagrams/">Diagrammes Mermaid (6 existants)</a></li>
+<li><a href="../../adr/003-isolation-pdf-build/">ADR-003: Isolation PDF Build</a></li>
+<li><a href="https://github.com/Alexmacapple/span-sg/blob/main/SECURITY.md">SECURITY.md Politique Sécurité</a></li>
+<li><a href="https://docs.github.com/en/actions">GitHub Actions Documentation</a></li>
+</ul>
+</div>
+</div><footer>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg" style="color: #fcfcfc"> GitHub</a>
+</span>
+</span>
+</div>
+<script src="../../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "../..";</script>
+<script src="../../js/theme_extra.js"></script>
+<script src="../../js/theme.js"></script>
+<script src="../../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>
