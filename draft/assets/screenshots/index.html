@@ -129,7 +129,7 @@ Public cible: Contributeurs documentation</p>
 <p><strong>Exemple capture</strong> :</p>
 <pre><code>URL visible : https://github.com/Alexmacapple/span-sg/pull/42
 Zones importantes :
-- Sélecteur branches (base: draft, compare: feature/...)
+- Sélecteur branches (base: main, compare: feature/...)
 - Bouton "Create Pull Request"
 - Description PR (template)
 - Reviewers (Bertrand, Alex)
@@ -303,12 +303,12 @@ du -sh docs/assets/screenshots/github-pr-creation-1920x1080.png
 <h2 id="referencement-dans-documentation">Référencement dans Documentation</h2>
 <h3 id="syntaxe-markdown">Syntaxe Markdown</h3>
 <p><strong>Basique (obligatoire)</strong> :</p>
-<pre><code class="language-markdown">![Création Pull Request sur GitHub avec sélection base draft et compare feature](../assets/screenshots/github-pr-creation-1920x1080.png)
+<pre><code class="language-markdown">![Création Pull Request sur GitHub avec sélection base main et compare feature](../assets/screenshots/github-pr-creation-1920x1080.png)
 </code></pre>
 <p><strong>Avec légende</strong> :</p>
 <pre><code class="language-markdown">![Interface GitHub Actions logs montrant succès build draft en 6 minutes](../assets/screenshots/ci-logs-build-success-1920x1080.png)
 
-*Figure 1 : Logs GitHub Actions après merge PR vers draft (durée totale : 6min 12s)*
+*Figure 1 : Logs GitHub Actions après merge PR vers main (durée totale : 6min 12s)*
 </code></pre>
 <p><strong>Avec lien cliquable</strong> :</p>
 <pre><code class="language-markdown">[![Tableau synthèse SPAN avec badges DSFR validé/en cours](../assets/screenshots/dsfr-table-synthese-1920x1080.png)](https://alexmacapple.github.io/span-sg/synthese/)
@@ -322,7 +322,7 @@ du -sh docs/assets/screenshots/github-pr-creation-1920x1080.png
 <li>
 <p>[ ] <strong>Alt text descriptif</strong> : Décrit contenu image sans contexte externe (RGAA 1.1.1)
   <code>markdown
-  ✅ ![Création PR GitHub avec base draft et compare feature/update-sircom](...)
+  ✅ ![Création PR GitHub avec base main et compare feature/update-sircom](...)
   ❌ ![Screenshot PR](...)
   ❌ ![](screenshot.png) # Alt text vide = ÉCHEC RGAA</code></p>
 </li>

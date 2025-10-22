@@ -343,7 +343,7 @@ Standard: <a href="https://www.omg.org/spec/UML/">UML 2.5</a></p>
 <p>Cycle de vie d'une contribution depuis création jusqu'au déploiement.</p>
 <pre><code class="language-mermaid">stateDiagram-v2
     [*] --&gt; BranchCreated: Contributeur crée branche feature
-    BranchCreated --&gt; DraftPR: Créer PR draft ← feature
+    BranchCreated --&gt; DraftPR: Créer PR main ← feature
     DraftPR --&gt; InReview: Request review (@bertrand @alex)
 
     InReview --&gt; ChangesRequested: Commentaires validateur
@@ -362,7 +362,7 @@ Standard: <a href="https://www.omg.org/spec/UML/">UML 2.5</a></p>
     CISuccess --&gt; DeployedDraft: Deploy /draft/ (org-only)
 
     DeployedDraft --&gt; WaitingRelease: Accumulation contributions
-    WaitingRelease --&gt; ProdPR: Validateur crée PR draft → main
+    WaitingRelease --&gt; ProdPR: Validateur crée PR main → main
 
     ProdPR --&gt; ChefApproval: Chef SNUM review
     ChefApproval --&gt; ProdMerge: Approbation release

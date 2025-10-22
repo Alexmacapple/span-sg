@@ -278,24 +278,23 @@ services:
 <p><strong>Workflow SPAN SG :</strong></p>
 <pre><code class="language-mermaid">gitGraph
     commit id: "Initial"
-    branch draft
-    checkout draft
-    commit id: "feat: SIRCOM"
+    branch main
 
     branch feature/sircom
     checkout feature/sircom
     commit id: "ajoute 3 actions"
 
-    checkout draft
-    merge feature/sircom
-
     checkout main
-    merge draft tag: "v1.0"
+    merge feature/sircom tag: "v1.0"
+    commit id: "Deploy staging"
+    commit id: "Approval Chef SNUM"
+    commit id: "Deploy production"
 </code></pre>
-<p><strong>Branches :</strong>
-- <code>main</code> : Production (gh-pages racine)
-- <code>draft</code> : Preview (gh-pages /draft/)
-- <code>feature/*</code> : Contributions services</p>
+<p><strong>Architecture (depuis 22/10/2025) :</strong>
+- <code>main</code> : Branche unique (source de vérité)
+- <code>feature/*</code> : Contributions services (PR vers main)
+- GitHub Environment <code>staging</code> : Auto-deploy /draft/
+- GitHub Environment <code>production</code> : Deploy / (approval Chef SNUM requis)</p>
 <p><strong>Référence :</strong> <a href="../contributing/#option-b--git-local-avancs">CONTRIBUTING.md</a></p>
 <hr/>
 <h3 id="github-actions">GitHub Actions</h3>
@@ -305,25 +304,35 @@ services:
 - vCPU : 8 cores
 - RAM : 14 GB
 - Durée : 15-20 min/build</p>
-<p><strong>Workflow :</strong></p>
+<p><strong>Workflow (3 jobs séquentiels) :</strong></p>
 <pre><code class="language-yaml"># .github/workflows/build.yml
 jobs:
-  build-and-deploy-draft:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Linting, Security, Tests, Build, E2E
       ...
+
+  deploy-staging:
+    needs: build-and-test
+    environment: staging
+    ...
+
+  deploy-production:
+    needs: build-and-test
+    environment: production  # Requires approval Chef SNUM
+    ...
 </code></pre>
 <p><strong>Référence :</strong> <a href="../architecture/infrastructure/">docs/architecture/infrastructure.md</a></p>
 <hr/>
 <h3 id="github-pages">GitHub Pages</h3>
 <p><strong>Définition :</strong> Hébergement gratuit de sites statiques par GitHub.</p>
 <p><strong>URLs SPAN SG :</strong>
-- Production : https://alexmacapple.github.io/span-sg/
-- Preview : https://alexmacapple.github.io/span-sg/draft/ (org-only)</p>
+- Staging (auto-deploy) : https://alexmacapple.github.io/span-sg/draft/ (org-only)
+- Production (approval requis) : https://alexmacapple.github.io/span-sg/ (org-only)</p>
 <p><strong>Branche :</strong> <code>gh-pages</code></p>
+<p><strong>Architecture :</strong> GitHub Environments (staging/production) - Voir <a href="../adr/009-migration-github-environments/">ADR-009</a></p>
 <p><strong>CDN :</strong> CloudFlare (latence &lt;100ms)</p>
 <hr/>
 <h2 id="h">H</h2>

@@ -29,6 +29,10 @@
          <lastmod>2025-10-22</lastmod>
     </url>
     <url>
+         <loc>https://alexmacapple.github.io/span-sg/guide-chef-snum-approvals/</loc>
+         <lastmod>2025-10-22</lastmod>
+    </url>
+    <url>
          <loc>https://alexmacapple.github.io/span-sg/mentions-legales/</loc>
          <lastmod>2025-10-22</lastmod>
     </url>
@@ -86,6 +90,10 @@
     </url>
     <url>
          <loc>https://alexmacapple.github.io/span-sg/adr/008-exclusion-search-label-tests-wcag/</loc>
+         <lastmod>2025-10-22</lastmod>
+    </url>
+    <url>
+         <loc>https://alexmacapple.github.io/span-sg/adr/009-migration-github-environments/</loc>
          <lastmod>2025-10-22</lastmod>
     </url>
     <url>

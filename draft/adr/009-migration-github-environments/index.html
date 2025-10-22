@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg/adr/009-migration-github-environments/" rel="canonical"/>
+<link href="../../img/favicon.ico" rel="shortcut icon"/>
+<title>ADR-009 : Migration Architecture 2 Branches → GitHub Environments</title>
+<link href="../../css/theme.css" rel="stylesheet"/>
+<link href="../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "ADR-009 : Migration Architecture 2 Branches \u2192 GitHub Environments";
+        var mkdocs_page_input_path = "adr/009-migration-github-environments.md";
+        var mkdocs_page_url = "/span-sg/adr/009-migration-github-environments/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../..">
+</a><div role="search">
+<form action="../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../..">SPAN (SG)</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SPAN (services)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/bgs/">BGS</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/safi/">SAFI</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/siep/">SIEP</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/sircom/">SIRCOM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/snum/">SNUM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/srh/">SRH</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../synthese/">Synthèse</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../processus/">Processus</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Guide contributeur</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-local/">Développement local</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg">Code source GitHub</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../.."></a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href="../.."></a></li>
+<li class="breadcrumb-item active">ADR-009 : Migration Architecture 2 Branches → GitHub Environments</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg/edit/master/docs/adr/009-migration-github-environments.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="adr-009-migration-architecture-2-branches-github-environments">ADR-009 : Migration Architecture 2 Branches → GitHub Environments</h1>
+<p><strong>Statut</strong> : Proposition (en attente décision)
+<strong>Date</strong> : 2025-10-22
+<strong>Auteur</strong> : Claude Code (analyse ultrathink)
+<strong>Décideurs</strong> : Chef SNUM, Validateurs (Bertrand, Alex)</p>
+<hr/>
+<h2 id="contexte">Contexte</h2>
+<h3 id="probleme-actuel">Problème actuel</h3>
+<p>Le projet SPAN SG utilise une architecture à 2 branches (<code>main</code>, <code>draft</code>) pour gérer staging et production :</p>
+<pre><code>feature/update-sircom → PR → draft → /draft/ (org-only)
+                                ↓
+                        PR draft → main → / (production)
+</code></pre>
+<p><strong>Divergence détectée</strong> (2025-10-22) :
+- <code>main</code> : 2 commits en avance (02a52e7 documentation + 3c06ca1 rollback strict PDF)
+- <code>draft</code> : 7 commits anciens non synchronisés
+- Risque : Perte commits lors prochain merge</p>
+<p><strong>Problèmes identifiés</strong> :</p>
+<ol>
+<li><strong>Divergence branches</strong> : Synchronisation manuelle nécessaire après chaque release</li>
+<li><strong>Complexité cognitive</strong> : Contributeurs confus sur branche cible (main vs draft)</li>
+<li><strong>Maintenance élevée</strong> : 2 workflows CI/CD identiques à maintenir</li>
+<li><strong>Risque perte données</strong> : Commits non mergés entre branches</li>
+<li><strong>Pas de rollback facile</strong> : Nécessite revert + nouveau déploiement</li>
+</ol>
+<h3 id="objectifs-migration">Objectifs migration</h3>
+<ul>
+<li><strong>Simplifier workflow</strong> : 1 branche cible unique (<code>main</code>)</li>
+<li><strong>Conserver 3 URLs</strong> : local, /draft/ (staging), / (production)</li>
+<li><strong>Réduire maintenance</strong> : 67% réduction temps (6h/an → 2h/an)</li>
+<li><strong>Améliorer observabilité</strong> : Dashboard deployments centralisé</li>
+<li><strong>Faciliter rollback</strong> : Instantané (2 min au lieu de 10 min)</li>
+</ul>
+<hr/>
+<h2 id="decision-proposee-github-environments">Décision Proposée : GitHub Environments</h2>
+<p>Migrer vers architecture <strong>1 branche + 2 Environments GitHub</strong> :</p>
+<pre><code>feature/update-sircom → PR → main
+                                ↓
+                    Environment "staging" → /draft/ (auto-deploy)
+                                ↓
+                    Approval Chef SNUM (manual gate)
+                                ↓
+                    Environment "production" → / (production)
+</code></pre>
+<h3 id="architecture-technique">Architecture technique</h3>
+<p><strong>Branche unique</strong> : <code>main</code></p>
+<p><strong>Environments GitHub</strong> :
+1. <strong>staging</strong>
+   - Déploiement automatique sur push <code>main</code>
+   - URL : https://alexmacapple.github.io/span-sg/draft/
+   - Accès : Org-only (inchangé)
+   - Protection : Aucune (auto-deploy)</p>
+<ol>
+<li><strong>production</strong></li>
+<li>Déploiement sur approval manuel Chef SNUM</li>
+<li>URL : https://alexmacapple.github.io/span-sg/</li>
+<li>Accès : Public (inchangé)</li>
+<li>Protection : Required reviewers [Chef SNUM], wait timer 0-60 min (configurable)</li>
+</ol>
+<p><strong>Workflow CI/CD</strong> : 1 job unique avec 3 étapes séquentielles
+1. <code>build-and-test</code> : Linting + Tests + Security + Build HTML/PDF + E2E
+2. <code>deploy-staging</code> : Deploy /draft/ (needs: build-and-test)
+3. <code>deploy-production</code> : Deploy / (needs: build-and-test, environment: production)</p>
+<hr/>
+<h2 id="analyse-detaillee">Analyse Détaillée</h2>
+<h3 id="1-changements-techniques-requis">1. Changements Techniques Requis</h3>
+<h4 id="a-github-settings-manuel-10-min">A. GitHub Settings (manuel, 10 min)</h4>
+<p><strong>Créer Environments</strong> (Settings → Environments → New environment) :</p>
+<pre><code class="language-yaml"># Environment: staging
+name: staging
+deployment_branches: main
+protection_rules: none
+url: https://alexmacapple.github.io/span-sg/draft/
+
+# Environment: production
+name: production
+deployment_branches: main
+protection_rules:
+  required_reviewers:
+    - [username_chef_snum]  # À configurer
+  wait_timer: 0  # minutes (optionnel: 30-60 pour safety delay)
+url: https://alexmacapple.github.io/span-sg/
+</code></pre>
+<p><strong>Branch Protection main</strong> (Settings → Branches) :</p>
+<pre><code class="language-yaml">Require pull request before merging: true
+Require approvals: 1
+Dismiss stale reviews: true
+Require status checks: true
+  - build-and-test
+Restrict push: true (admins excepted)
+</code></pre>
+<h4 id="b-workflow-cicd-githubworkflowsbuildyml">B. Workflow CI/CD (.github/workflows/build.yml)</h4>
+<p><strong>Structure nouvelle</strong> (simplification 456 lignes → 300 lignes estimé) :</p>
+<pre><code class="language-yaml">name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Setup
+      - uses: actions/checkout@v3
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # 2. Dependencies
+      - name: Install dependencies
+        run: pip install -r requirements-dsfr.txt
+      - name: Install dev dependencies
+        run: pip install -r requirements-dev.txt
+
+      # 3. Quality (fail-fast)
+      - name: Run Black formatter check
+        run: python -m black --check scripts/
+      - name: Run Ruff linter
+        run: python -m ruff check scripts/
+
+      # 4. Security (fail-fast)
+      - name: Run Bandit security linter
+        run: bandit -r scripts/ hooks/ -ll
+      - name: Check dependencies vulnerabilities
+        run: safety check -r requirements-dsfr.txt
+      - name: Upload security reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-reports
+          retention-days: 90
+
+      # 5. Tests (fail-fast)
+      - name: Run unit tests
+        run: pytest scripts/ -v --cov=scripts
+      - name: Run production scripts coverage (89%+)
+        run: pytest --cov-fail-under=89 scripts/test_*.py
+      - name: Run hooks coverage (100%)
+        run: pytest tests/test_hooks_*.py --cov=hooks --cov-fail-under=100
+
+      # 6. Build
+      - name: Calculate SPAN scores
+        run: python scripts/calculate_scores.py
+      - name: Build HTML DSFR (strict mode)
+        run: mkdocs build --config-file mkdocs-dsfr.yml --strict
+      - name: Verify DSFR theme applied
+        run: grep -q 'fr-header' site/index.html
+      - name: Generate PDF
+        run: |
+          ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml
+          python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
+          qpdf --check exports/span-sg.pdf
+
+      # 7. E2E Tests (only on push main, skip PR)
+      - name: Run E2E accessibility tests
+        if: github.event_name == 'push'
+        run: |
+          docker buildx build -f Dockerfile.mkdocs-test -t mkdocs-test:latest .
+          docker run --rm mkdocs-test:latest bash tests/e2e/ci_runner.sh
+      - name: Upload E2E report
+        if: always() &amp;&amp; github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-report
+          retention-days: 30
+
+      # 8. Upload artifacts
+      - name: Upload site HTML
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: site/
+      - name: Upload exports PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: exports
+          path: exports/
+          retention-days: 90
+
+  deploy-staging:
+    needs: build-and-test
+    if: github.event_name == 'push' &amp;&amp; github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: https://alexmacapple.github.io/span-sg/draft/
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: site/
+
+      - name: Download exports artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: exports
+          path: exports/
+
+      - name: Deploy to /draft/ (staging)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Nettoyer /draft/ existant
+          rm -rf draft
+          mkdir -p draft
+
+          # Copier nouveau build
+          cp -r site/* draft/
+          cp -r exports draft/
+
+          # Commit et push
+          git add draft
+          git commit -m "Deploy staging from ${{ github.sha }}" || exit 0
+          git push origin gh-pages
+
+  deploy-production:
+    needs: build-and-test
+    if: github.event_name == 'push' &amp;&amp; github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://alexmacapple.github.io/span-sg/
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: site/
+
+      - name: Download exports artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: exports
+          path: exports/
+
+      - name: Deploy to / (production)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Nettoyer racine (conserver /draft/)
+          find . -mindepth 1 -maxdepth 1 ! -name 'draft' ! -name '.git' -exec rm -rf {} +
+
+          # Copier nouveau build
+          cp -r site/* .
+          cp -r exports .
+
+          # Commit et push
+          git add .
+          git commit -m "Deploy production from ${{ github.sha }}" || exit 0
+          git push origin gh-pages
+</code></pre>
+<p><strong>Différences clés</strong> :
+- Suppression job <code>build-and-deploy-draft</code> (lignes 1-235 actuelles)
+- Transformation job <code>build-and-deploy-main</code> en 3 jobs séquentiels
+- <code>environment:</code> déclaré dans deploy-staging et deploy-production
+- Artifacts partagés entre jobs (upload dans build-and-test, download dans deploy-*)
+- E2E tests exécutés AVANT déploiement staging (fail-fast)</p>
+<h4 id="c-documentation-markdown-15-fichiers">C. Documentation Markdown (15 fichiers)</h4>
+<p><strong>Fichiers à mettre à jour</strong> :</p>
+<ol>
+<li><strong>CONTRIBUTING.md</strong> (100 lignes modifiées)</li>
+<li>Ligne 6 : <code>draft</code> → <code>main</code></li>
+<li>Ligne 16 : URL blob/draft → blob/main</li>
+<li>Ligne 49 : Base <code>draft</code> → Base <code>main</code></li>
+<li>
+<p>Section nouvelle : "Processus approval production"</p>
+</li>
+<li>
+<p><strong>docs/onboarding-visual.md</strong> (50 lignes modifiées)</p>
+</li>
+<li>Flowcharts Mermaid : base draft → main</li>
+<li>Timeline : Ajouter étape approval Chef SNUM</li>
+<li>
+<p>FAQ : Expliquer nouveaux délais déploiement</p>
+</li>
+<li>
+<p><strong>docs/architecture/infrastructure.md</strong> (30 lignes)</p>
+</li>
+<li>Section 5 "Déploiement GitHub Pages" : 2 environments au lieu de 2 branches</li>
+<li>
+<p>Diagrammes Mermaid branching gh-pages</p>
+</li>
+<li>
+<p><strong>docs/architecture/c4-diagrams.md</strong> (20 lignes)</p>
+</li>
+<li>Diagramme containers : 1 branche, 2 environments</li>
+<li>
+<p>Flux déploiement avec approval gate</p>
+</li>
+<li>
+<p><strong>docs/architecture/diagrams.md</strong> (40 lignes)</p>
+</li>
+<li>Workflow Git : Simplifier (enlever branche draft)</li>
+<li>
+<p>Diagramme déploiement</p>
+</li>
+<li>
+<p><strong>docs/processus.md</strong> (si existe)</p>
+</li>
+<li>
+<p>Processus validation production</p>
+</li>
+<li>
+<p><strong>README.md</strong> (10 lignes)</p>
+</li>
+<li>Badge CI/CD : 1 workflow au lieu de 2</li>
+<li>
+<p>URLs documentation inchangées</p>
+</li>
+<li>
+<p><strong>CLAUDE.md</strong> (20 lignes)</p>
+</li>
+<li>Section "Workflow Git" : feature → main</li>
+<li>Supprimer références branche draft</li>
+<li>
+<p>Ajouter concept Environments</p>
+</li>
+<li>
+<p><strong>docs/dev-local.md</strong></p>
+</li>
+<li>
+<p>Pas de changement (local reste identique)</p>
+</li>
+<li>
+<p><strong>docs/glossary.md</strong></p>
+<ul>
+<li>Définition "GitHub Environments"</li>
+<li>Mise à jour définition "Branches"</li>
+</ul>
+</li>
+<li>
+<p><strong>docs/architecture/uml-diagrams.md</strong> (30 lignes)</p>
+<ul>
+<li>Diagramme états PR : Base main au lieu de draft</li>
+<li>Diagramme activité contributeur</li>
+</ul>
+</li>
+<li>
+<p><strong>docs/accompagnement.md</strong> (si existe)</p>
+<ul>
+<li>Workflow contributeur</li>
+</ul>
+</li>
+<li>
+<p><strong>.github/PULL_REQUEST_TEMPLATE.md</strong> (si existe)</p>
+<ul>
+<li>Base branch <code>main</code> par défaut</li>
+</ul>
+</li>
+<li>
+<p><strong>mkdocs-dsfr.yml et mkdocs-dsfr-pdf.yml</strong></p>
+<ul>
+<li>Pas de changement (build identique)</li>
+</ul>
+</li>
+<li>
+<p><strong>Créer ADR-009</strong> (ce fichier)</p>
+</li>
+</ol>
+<p><strong>Exemple modification CONTRIBUTING.md</strong> :</p>
+<pre><code class="language-diff">- Les modifications passent par une **Pull Request** vers `draft` pour validation.
++ Les modifications passent par une **Pull Request** vers `main` pour validation.
+
+- https://github.com/Alexmacapple/span-sg-repo/blob/draft/docs/modules/[votre-service].md
++ https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/modules/[votre-service].md
+
+- **Base** : `draft` (important !)
++ **Base** : `main` (important !)
+
++ ## Processus déploiement production
++
++ Après merge de votre PR sur `main` :
++
++ 1. **Déploiement staging automatique** : Votre contribution est visible sur /draft/ (org-only) sous 10 minutes
++ 2. **Notification Chef SNUM** : Email automatique "Deployment to production pending"
++ 3. **Approval Chef SNUM** : Review /draft/ puis approve deployment (délai variable 0-60j)
++ 4. **Déploiement production automatique** : Contribution visible publiquement sur / sous 5 minutes
+</code></pre>
+<hr/>
+<h3 id="2-impact-workflow-contributeur">2. Impact Workflow Contributeur</h3>
+<h4 id="avant-architecture-2-branches">Avant (architecture 2 branches)</h4>
+<pre><code class="language-mermaid">flowchart TD
+    A[Contributeur crée feature/update-sircom] --&gt; B[Édite docs/modules/sircom.md]
+    B --&gt; C[git commit -m feat...]
+    C --&gt; D[git push origin feature/update-sircom]
+    D --&gt; E[Créer PR vers draft]
+    E --&gt; F[Review validateur 2-5j]
+    F --&gt; G{Approved?}
+    G --&gt;|Changes requested| H[Corriger]
+    H --&gt; C
+    G --&gt;|Approved| I[Merge PR vers draft]
+    I --&gt; J[CI/CD build-deploy-draft]
+    J --&gt; K[Deploy /draft/ automatique]
+    K --&gt; L[Accumulation contributions 30-60j]
+    L --&gt; M[Validateur crée PR draft → main]
+    M --&gt; N[Review Chef SNUM]
+    N --&gt; O{Approved?}
+    O --&gt;|Non| P[Discussion]
+    P --&gt; N
+    O --&gt;|Oui| Q[Merge PR vers main]
+    Q --&gt; R[CI/CD build-deploy-main]
+    R --&gt; S[E2E tests 300s]
+    S --&gt; T[Deploy / production]
+
+    style A fill:#91d5ff
+    style T fill:#b7eb8f
+</code></pre>
+<p><strong>Étapes</strong> : 14 étapes
+<strong>Délai total</strong> : 33-67 jours (2-5j review + 30-60j accumulation + 1-2j Chef SNUM)
+<strong>Points de friction</strong> : 2 PR reviews (validateur + Chef SNUM)</p>
+<h4 id="apres-architecture-1-branche-environments">Après (architecture 1 branche + Environments)</h4>
+<pre><code class="language-mermaid">flowchart TD
+    A[Contributeur crée feature/update-sircom] --&gt; B[Édite docs/modules/sircom.md]
+    B --&gt; C[git commit -m feat...]
+    C --&gt; D[git push origin feature/update-sircom]
+    D --&gt; E[Créer PR vers main]
+    E --&gt; F[Review validateur 2-5j]
+    F --&gt; G{Approved?}
+    G --&gt;|Changes requested| H[Corriger]
+    H --&gt; C
+    G --&gt;|Approved| I[Merge PR vers main]
+    I --&gt; J[CI/CD build-and-test]
+    J --&gt; K[E2E tests 300s]
+    K --&gt; L{Tests pass?}
+    L --&gt;|Failed| M[Investigation]
+    L --&gt;|Success| N[Deploy staging /draft/]
+    N --&gt; O[Notification Chef SNUM]
+    O --&gt; P[Chef SNUM review /draft/]
+    P --&gt; Q{Approve deployment?}
+    Q --&gt;|Not yet| R[Attente accumulation]
+    R --&gt; P
+    Q --&gt;|Approve| S[Deploy production /]
+    S --&gt; T[Public visible]
+
+    style A fill:#91d5ff
+    style T fill:#b7eb8f
+    style Q fill:#ffe7ba
+</code></pre>
+<p><strong>Étapes</strong> : 11 étapes (réduction 21%)
+<strong>Délai total</strong> : 2-5j review + variable approval Chef SNUM (0-60j selon stratégie)
+<strong>Points de friction</strong> : 1 PR review (validateur) + 1 deployment approval (Chef SNUM)</p>
+<p><strong>Différences clés</strong> :</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Avant</th>
+<th>Après</th>
+<th>Gain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Branche cible PR</td>
+<td>draft</td>
+<td>main</td>
+<td>Simplicité</td>
+</tr>
+<tr>
+<td>Nombre PR</td>
+<td>2 (feature→draft, draft→main)</td>
+<td>1 (feature→main)</td>
+<td>50% réduction</td>
+</tr>
+<tr>
+<td>Type validation production</td>
+<td>PR review</td>
+<td>Deployment approval</td>
+<td>UX différente</td>
+</tr>
+<tr>
+<td>Accumulation contributions</td>
+<td>Imposée (architecture)</td>
+<td>Flexible (Chef SNUM décide)</td>
+<td>Contrôle</td>
+</tr>
+<tr>
+<td>Rollback</td>
+<td>Revert commit + rebuild</td>
+<td>Re-run deployment</td>
+<td>80% plus rapide</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h3 id="3-timeline-deploiement-comparee">3. Timeline Déploiement Comparée</h3>
+<h4 id="scenario-a-contribution-urgente-hotfix-critique">Scénario A : Contribution urgente (hotfix critique)</h4>
+<p><strong>Avant (2 branches)</strong> :</p>
+<pre><code>J+0  09:00 : Contributeur crée PR vers draft
+J+0  14:00 : Validateur approve et merge (5h review express)
+J+0  14:10 : Deploy /draft/ automatique
+J+0  14:15 : Validateur crée PR draft → main
+J+0  14:30 : Chef SNUM notifié
+J+1  10:00 : Chef SNUM approve (19.5h délai nuit)
+J+1  10:01 : Merge vers main
+J+1  10:11 : Deploy / production
+
+Total : 25h (1j 1h)
+</code></pre>
+<p><strong>Après (1 branche + Environments)</strong> :</p>
+<pre><code>J+0  09:00 : Contributeur crée PR vers main
+J+0  14:00 : Validateur approve et merge (5h review express)
+J+0  14:10 : Deploy /draft/ staging automatique
+J+0  14:10 : Notification Chef SNUM "Deployment pending"
+J+0  14:30 : Chef SNUM review /draft/ puis approve (20 min)
+J+0  14:35 : Deploy / production automatique
+
+Total : 5h35 (même jour)
+</code></pre>
+<p><strong>Gain</strong> : 77% réduction délai (25h → 5h35)</p>
+<h4 id="scenario-b-contribution-normale-accumulation-releases">Scénario B : Contribution normale (accumulation releases)</h4>
+<p><strong>Avant (2 branches)</strong> :</p>
+<pre><code>J+0      : Contributeur crée PR vers draft
+J+2      : Merge draft (2j review)
+J+2      : Deploy /draft/
+J+2-60   : Accumulation 10 contributions
+J+60     : Validateur crée PR draft → main
+J+61     : Chef SNUM approve
+J+61     : Deploy / production
+
+Total : 61 jours
+</code></pre>
+<p><strong>Après (1 branche + Environments)</strong> :</p>
+<pre><code>J+0      : Contributeur crée PR vers main
+J+2      : Merge main (2j review)
+J+2      : Deploy /draft/ staging automatique
+J+2      : Notification Chef SNUM
+J+2-60   : Chef SNUM attend accumulation 10 contributions
+J+60     : Chef SNUM approve deployment (batch)
+J+60     : Deploy / production
+
+Total : 60 jours
+</code></pre>
+<p><strong>Gain</strong> : Identique (mais plus flexible : Chef SNUM peut approuver à J+2 si besoin)</p>
+<hr/>
+<h3 id="4-protection-et-securite">4. Protection et Sécurité</h3>
+<h4 id="a-branch-protection">A. Branch Protection</h4>
+<p><strong>Avant</strong> :</p>
+<pre><code class="language-yaml">Branch: main
+  Require PR: true
+  Require reviews: 1
+  Status checks: [build-and-deploy-main]
+
+Branch: draft
+  Require PR: true
+  Require reviews: 1
+  Status checks: [build-and-deploy-draft]
+</code></pre>
+<p><strong>Après</strong> :</p>
+<pre><code class="language-yaml">Branch: main
+  Require PR: true
+  Require reviews: 1
+  Status checks: [build-and-test]
+  Restrict push: true
+</code></pre>
+<p><strong>Amélioration</strong> :
+- Plus de divergence possible (1 branche)
+- Status check unifié (build-and-test)
+- Push restreint (force PR workflow)</p>
+<h4 id="b-environment-protection">B. Environment Protection</h4>
+<p><strong>Nouveau (après)</strong> :</p>
+<pre><code class="language-yaml">Environment: staging
+  Protection rules: none
+  Deployment: auto (on push main)
+
+Environment: production
+  Required reviewers: [Chef SNUM]
+  Wait timer: 0-60 min (configurable)
+  Deployment: manual approval required
+</code></pre>
+<p><strong>Avantages sécurité</strong> :
+- Approval gate production (humain dans la boucle)
+- Wait timer optionnel (safety delay avant production)
+- Audit trail : Qui a approuvé, quand, quel commit
+- Environment secrets isolés (si besoin futur : API keys staging ≠ prod)</p>
+<h4 id="c-cicd-gates">C. CI/CD Gates</h4>
+<p><strong>Avant (2 workflows)</strong> :</p>
+<pre><code>Job draft : Linting → Tests → Security → Build → Deploy /draft/
+Job main  : Linting → Tests → Security → Build → E2E → Deploy /
+</code></pre>
+<p><strong>Après (1 workflow, 3 jobs)</strong> :</p>
+<pre><code>Job 1 : Linting → Tests → Security → Build → E2E
+Job 2 : Deploy /draft/ (needs: Job 1)
+Job 3 : Deploy / (needs: Job 1, environment: production)
+</code></pre>
+<p><strong>Amélioration</strong> :
+- E2E tests AVANT staging (fail-fast, aucun deploy si échec)
+- Artifacts partagés entre jobs (consistance)
+- Déploiements séquentiels (staging puis production après approval)</p>
+<hr/>
+<h3 id="5-observabilite-et-monitoring">5. Observabilité et Monitoring</h3>
+<h4 id="dashboard-github">Dashboard GitHub</h4>
+<p><strong>Avant</strong> :
+- Actions tab : 2 workflows à surveiller (build-deploy-draft, build-deploy-main)
+- Pas de vue centralisée deployments
+- Logs éparpillés entre branches</p>
+<p><strong>Après</strong> :
+- Actions tab : 1 workflow simplifié (build-deploy)
+- <strong>Deployments tab</strong> : Vue centralisée staging + production
+  - URL : https://github.com/Alexmacapple/span-sg/deployments
+  - Timeline déploiements
+  - Historique approvals Chef SNUM
+  - Status : Active, Pending, Failed
+  - Environnement : staging ou production
+  - Commit SHA déployé</p>
+<p><strong>Nouveau dashboard Deployments</strong> :</p>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│ Deployments                                                 │
+├─────────────────────────────────────────────────────────────┤
+│ Environment: production                                     │
+│ Status: ✅ Active                                           │
+│ Deployed: 2025-10-22 14:35 (02a52e7)                       │
+│ Approved by: Chef SNUM                                      │
+│ URL: https://alexmacapple.github.io/span-sg/               │
+├─────────────────────────────────────────────────────────────┤
+│ Environment: staging                                        │
+│ Status: ✅ Active                                           │
+│ Deployed: 2025-10-22 14:10 (02a52e7)                       │
+│ Auto-deployed                                               │
+│ URL: https://alexmacapple.github.io/span-sg/draft/         │
+└─────────────────────────────────────────────────────────────┘
+</code></pre>
+<h4 id="metriques-dora">Métriques DORA</h4>
+<p><strong>Accessibles après migration</strong> :</p>
+<table>
+<thead>
+<tr>
+<th>Métrique</th>
+<th>Définition</th>
+<th>Comment mesurer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deployment Frequency</td>
+<td>Combien de déploiements production/semaine</td>
+<td>Deployments tab → Filter: production</td>
+</tr>
+<tr>
+<td>Lead Time for Changes</td>
+<td>Délai commit → production</td>
+<td>Commit timestamp → Deployment timestamp</td>
+</tr>
+<tr>
+<td>Change Failure Rate</td>
+<td>% déploiements échoués</td>
+<td>Failed deployments / Total deployments</td>
+</tr>
+<tr>
+<td>Time to Restore</td>
+<td>Délai détection erreur → rollback</td>
+<td>Incident timestamp → Rollback timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemple mesure</strong> :</p>
+<pre><code class="language-bash"># Lister déploiements production (GitHub CLI)
+gh api repos/Alexmacapple/span-sg/deployments \
+  --jq '.[] | select(.environment=="production") | {created_at, sha}'
+
+# Output :
+# {"created_at":"2025-10-22T14:35:00Z","sha":"02a52e7"}
+# {"created_at":"2025-10-15T10:20:00Z","sha":"3c06ca1"}
+# ...
+</code></pre>
+<hr/>
+<h3 id="6-gestion-erreurs-et-rollback">6. Gestion Erreurs et Rollback</h3>
+<h4 id="a-rollback-production">A. Rollback Production</h4>
+<p><strong>Avant (2 branches)</strong> :</p>
+<pre><code class="language-bash"># Étapes rollback (RTO : 10-15 min)
+1. git revert &lt;bad-commit&gt;
+2. git commit -m "revert: rollback production"
+3. git push origin main
+4. Attendre CI/CD rebuild (10 min)
+5. Vérifier / production restaurée
+
+Total : 10-15 min (+ temps détection)
+</code></pre>
+<p><strong>Après (1 branche + Environments)</strong> :</p>
+<p><strong>Option 1 : Re-run deployment (recommandé)</strong> :</p>
+<pre><code class="language-bash"># Étapes rollback (RTO : 2-5 min)
+1. Aller sur https://github.com/Alexmacapple/span-sg/deployments
+2. Sélectionner deployment production précédent (version stable)
+3. Cliquer "Re-run all jobs"
+4. Approve deployment immédiatement
+5. Vérifier / production restaurée
+
+Total : 2-5 min (+ temps détection)
+</code></pre>
+<p><strong>Option 2 : Revert commit (si re-run impossible)</strong> :</p>
+<pre><code class="language-bash"># Identique workflow avant (10-15 min)
+</code></pre>
+<p><strong>Gain</strong> : 67-80% réduction RTO (Recovery Time Objective)</p>
+<h4 id="b-rollback-staging">B. Rollback Staging</h4>
+<p><strong>Avant</strong> :
+- Rarement nécessaire (staging = preview)
+- Si besoin : revert sur branche draft</p>
+<p><strong>Après</strong> :
+- Identique production : Re-run deployment staging
+- RTO : 2 min (aucune approval nécessaire)</p>
+<hr/>
+<h3 id="7-risques-et-mitigations">7. Risques et Mitigations</h3>
+<h4 id="risque-1-chef-snum-oublie-dapprouver-deployments">Risque 1 : Chef SNUM oublie d'approuver deployments</h4>
+<p><strong>Impact</strong> :
+- Contributions restent bloquées en staging
+- Jamais visibles en production
+- Frustration contributeurs</p>
+<p><strong>Probabilité</strong> : Moyenne (humain dans la boucle)</p>
+<p><strong>Mitigation</strong> :</p>
+<ol>
+<li><strong>Notifications automatiques</strong> :
+   ```yaml
+   # Email GitHub natif (activé par défaut)
+   "Deployment to production pending review"</li>
+</ol>
+<p># Optionnel : Slack webhook
+   - name: Notify Slack
+     uses: 8398a7/action-slack@v3
+     with:
+       status: pending
+       text: "Deployment production en attente @chef-snum"
+   ```</p>
+<ol>
+<li><strong>Dashboard URL bookmark</strong> :</li>
+<li>https://github.com/Alexmacapple/span-sg/deployments</li>
+<li>
+<p>Ajouter aux favoris Chef SNUM</p>
+</li>
+<li>
+<p><strong>Weekly reminder</strong> (optionnel) :
+   ```bash
+   # GitHub Action scheduled weekly</p>
+</li>
+<li>
+<p>cron: '0 9 * * MON'  # Lundi 9h
+   # Vérifier deployments pending &gt; 7 jours
+   # Notifier Chef SNUM
+   ```</p>
+</li>
+<li>
+<p><strong>Délégation</strong> :</p>
+</li>
+<li>Ajouter 2e reviewer (Chef SNUM adjoint)</li>
+<li>N'importe quel reviewer peut approuver</li>
+</ol>
+<p><strong>Seuil échec</strong> : Si &gt; 50% deployments oubliés → Revert architecture</p>
+<h4 id="risque-2-contributeurs-confus-pr-vers-main-au-lieu-de-draft">Risque 2 : Contributeurs confus (PR vers main au lieu de draft)</h4>
+<p><strong>Impact</strong> :
+- Erreurs création PR (mauvaise branche base)
+- Frustration contributeurs débutants
+- Support validateurs augmenté</p>
+<p><strong>Probabilité</strong> : Faible (documentation claire + branche draft supprimée)</p>
+<p><strong>Mitigation</strong> :</p>
+<ol>
+<li><strong>Documentation mise à jour</strong> :</li>
+<li>CONTRIBUTING.md : Instructions claires (PR vers main)</li>
+<li>onboarding-visual.md : Flowcharts mis à jour</li>
+<li>
+<p>Template PR : Base main par défaut</p>
+</li>
+<li>
+<p><strong>Branche draft supprimée</strong> :
+   <code>bash
+   git push origin :draft  # Force contributeurs vers main</code></p>
+</li>
+<li>
+<p><strong>Message commit migration</strong> :
+   ```
+   BREAKING CHANGE: Branche draft supprimée</p>
+</li>
+</ol>
+<p>Toutes les PRs doivent maintenant cibler main.
+   Voir CONTRIBUTING.md pour nouveau workflow.
+   ```</p>
+<ol>
+<li><strong>Communication proactive</strong> :</li>
+<li>Email tous contributeurs</li>
+<li>Annonce GitHub Discussions</li>
+<li>README.md mis à jour</li>
+</ol>
+<p><strong>Seuil échec</strong> : Si &gt; 30% PRs mal ciblées 1er mois → Améliorer doc</p>
+<h4 id="risque-3-deploy-staging-et-production-trop-rapproches">Risque 3 : Deploy staging et production trop rapprochés</h4>
+<p><strong>Impact</strong> :
+- Moins de temps review staging avant production
+- Erreurs passent en production trop vite
+- RTO production augmenté si erreur</p>
+<p><strong>Probabilité</strong> : Faible (approval manuel requis)</p>
+<p><strong>Mitigation</strong> :</p>
+<ol>
+<li>
+<p><strong>Wait timer environment production</strong> :
+   <code>yaml
+   # Settings → Environments → production → Protection rules
+   wait_timer: 60  # minutes (1h minimum entre staging et production)</code></p>
+</li>
+<li>
+<p><strong>Checklist review Chef SNUM</strong> :
+   ```markdown
+   ## Checklist approval production</p>
+</li>
+</ol>
+<p>Avant d'approuver deployment production :</p>
+<ul>
+<li>[ ] Review /draft/ staging (navigation, contenu)</li>
+<li>[ ] Vérifier E2E tests passés (GitHub Actions)</li>
+<li>[ ] Vérifier aucune régression visuelle</li>
+<li>[ ] Vérifier PDF exports/ généré</li>
+<li>[ ] Vérifier logs CI/CD (warnings, errors)</li>
+<li>[ ] Attendre minimum 1h depuis staging deploy</li>
+</ul>
+<p>Si tout OK : Approve deployment production
+   ```</p>
+<ol>
+<li><strong>E2E tests bloquants</strong> :</li>
+<li>Exécutés AVANT staging deploy</li>
+<li>Si échec : STOP, aucun deploy (staging ni production)</li>
+</ol>
+<p><strong>Seuil échec</strong> : Si &gt; 3 erreurs production/mois → Augmenter wait timer (4h)</p>
+<h4 id="risque-4-perte-historique-branche-draft">Risque 4 : Perte historique branche draft</h4>
+<p><strong>Impact</strong> :
+- Commits draft non mergés perdus définitivement
+- Travail contributeurs potentiellement perdu</p>
+<p><strong>Probabilité</strong> : Très faible (procédure migration)</p>
+<p><strong>Mitigation</strong> :</p>
+<ol>
+<li>
+<p><strong>Vérification commits non mergés</strong> :
+   <code>bash
+   # Avant suppression draft, vérifier divergence
+   git log main..draft
+   # Attendu : vide (tous commits mergés)</code></p>
+</li>
+<li>
+<p><strong>Backup branche draft</strong> :
+   ```bash
+   # Créer tag archive avant suppression
+   git tag draft-archived-2025-10-22 draft
+   git push origin draft-archived-2025-10-22</p>
+</li>
+</ol>
+<p># La branche reste accessible via tag même après suppression
+   ```</p>
+<ol>
+<li><strong>Merge final main → draft</strong> :
+   ```bash
+   # Synchroniser draft avec main avant suppression
+   git checkout draft
+   git merge main
+   git push origin draft</li>
+</ol>
+<p># Vérifier divergence nulle
+   git log main..draft  # Doit être vide
+   git log draft..main  # Doit être vide
+   ```</p>
+<ol>
+<li><strong>Communication 1 semaine avant</strong> :</li>
+<li>Notifier tous contributeurs</li>
+<li>"Branche draft sera supprimée le 2025-10-29"</li>
+<li>"Merci de merger toutes PR draft en cours"</li>
+</ol>
+<p><strong>Seuil échec</strong> : Si commits non mergés détectés → Annuler suppression draft</p>
+<hr/>
+<h3 id="8-checklist-migration-6-phases-7h-estimation">8. Checklist Migration (6 phases, 7h estimation)</h3>
+<h4 id="phase-1-preparation-1h">Phase 1 : Préparation (1h)</h4>
+<p><strong>Objectif</strong> : Vérifier état actuel, sauvegarder branche draft</p>
+<pre><code class="language-bash"># ✅ Vérifier divergence branches
+git log main..draft
+# Attendu : Liste commits draft pas dans main
+
+git log draft..main
+# Attendu : 2 commits (02a52e7 docs, 3c06ca1 rollback)
+
+# ✅ Merger main → draft (synchronisation finale)
+git checkout draft
+git merge main --no-ff -m "sync: final merge main → draft avant migration Environments"
+git push origin draft
+
+# ✅ Vérifier aucun commit non mergé
+git log main..draft
+# Attendu : vide (tous commits mergés)
+
+# ✅ Créer tag backup draft
+git tag draft-archived-2025-10-22 draft
+git push origin draft-archived-2025-10-22
+
+# ✅ Vérifier tag créé
+git tag -l | grep draft-archived
+</code></pre>
+<p><strong>Checklist</strong> :
+- [ ] Merger main → draft (synchronisation)
+- [ ] Vérifier <code>git log main..draft</code> vide
+- [ ] Créer tag <code>draft-archived-2025-10-22</code>
+- [ ] Push tag vers origin
+- [ ] Vérifier tag visible GitHub (Tags tab)</p>
+<h4 id="phase-2-configuration-github-30-min">Phase 2 : Configuration GitHub (30 min)</h4>
+<p><strong>Objectif</strong> : Créer environments, configurer protection rules</p>
+<p><strong>Étapes</strong> :</p>
+<ol>
+<li>
+<p><strong>Créer environment "staging"</strong> :
+   <code>Settings → Environments → New environment
+   Name: staging
+   Deployment branches: Selected branches → main
+   Protection rules: None
+   Save</code></p>
+</li>
+<li>
+<p><strong>Créer environment "production"</strong> :
+   <code>Settings → Environments → New environment
+   Name: production
+   Deployment branches: Selected branches → main
+   Protection rules:
+     ☑ Required reviewers
+       Add: [username_chef_snum]
+     ☑ Wait timer: 0 minutes (ou 30-60 si souhaité)
+   Save</code></p>
+</li>
+<li>
+<p><strong>Configurer branch protection main</strong> :
+   <code>Settings → Branches → Branch protection rules → main → Edit
+   ☑ Require pull request before merging
+   ☑ Require approvals: 1
+   ☑ Dismiss stale reviews
+   ☑ Require status checks to pass: [build-and-test]
+   ☑ Require branches to be up to date
+   ☑ Restrict pushes (admins excepted)
+   Save changes</code></p>
+</li>
+<li>
+<p><strong>Tester protection rules</strong> :
+   ```bash
+   # Créer PR test vers main
+   git checkout -b test/environment-setup
+   echo "test" &gt;&gt; README.md
+   git commit -m "test: validation environment setup"
+   git push -u origin test/environment-setup</p>
+</li>
+</ol>
+<p># Créer PR sur GitHub
+   # Vérifier status check required (build-and-test)
+   # Merger PR (après approval)
+   # Vérifier notification deployment production pending
+   ```</p>
+<p><strong>Checklist</strong> :
+- [ ] Environment "staging" créé
+- [ ] Environment "production" créé avec reviewer Chef SNUM
+- [ ] Branch protection main configurée
+- [ ] Test PR créée et mergée
+- [ ] Notification deployment reçue</p>
+<h4 id="phase-3-workflow-cicd-2h">Phase 3 : Workflow CI/CD (2h)</h4>
+<p><strong>Objectif</strong> : Modifier <code>.github/workflows/build.yml</code> (1 job, 3 steps)</p>
+<p><strong>Étapes</strong> :</p>
+<ol>
+<li>
+<p><strong>Créer branche feature</strong> :
+   <code>bash
+   git checkout main
+   git pull origin main
+   git checkout -b feature/migrate-github-environments</code></p>
+</li>
+<li>
+<p><strong>Sauvegarder workflow actuel</strong> :
+   <code>bash
+   cp .github/workflows/build.yml .github/workflows/build.yml.backup-2025-10-22
+   git add .github/workflows/build.yml.backup-2025-10-22
+   git commit -m "backup: sauvegarder workflow avant migration Environments"</code></p>
+</li>
+<li>
+<p><strong>Modifier workflow</strong> :</p>
+</li>
+<li>Supprimer job <code>build-and-deploy-draft</code> (lignes 10-235)</li>
+<li>Renommer job <code>build-and-deploy-main</code> → <code>build-and-test</code></li>
+<li>Extraire étapes déploiement dans 2 jobs séparés :<ul>
+<li><code>deploy-staging</code> (environment: staging)</li>
+<li><code>deploy-production</code> (environment: production)</li>
+</ul>
+</li>
+<li>Ajouter <code>uses: actions/upload-artifact@v4</code> fin build-and-test</li>
+<li>Ajouter <code>uses: actions/download-artifact@v4</code> début deploy-staging et deploy-production</li>
+<li>
+<p>Modifier trigger : <code>branches: [main]</code> uniquement (enlever draft)</p>
+</li>
+<li>
+<p><strong>Tester workflow localement</strong> (act ou nektos) :
+   <code>bash
+   # Optionnel si act installé
+   act push -j build-and-test</code></p>
+</li>
+<li>
+<p><strong>Commit et push</strong> :
+   ```bash
+   git add .github/workflows/build.yml
+   git commit -m "feat(ci): migrer architecture Environments (1 branche, 2 environments)</p>
+</li>
+<li>
+<p>Supprimer job build-and-deploy-draft</p>
+</li>
+<li>Créer 3 jobs séquentiels (build-and-test, deploy-staging, deploy-production)</li>
+<li>Ajouter environment: staging et production</li>
+<li>Artifacts partagés entre jobs</li>
+<li>E2E tests avant staging deploy (fail-fast)</li>
+</ol>
+<p>Refs: ADR-009"
+   git push -u origin feature/migrate-github-environments
+   ```</p>
+<ol>
+<li>
+<p><strong>Créer PR</strong> :
+   ```
+   Base: main
+   Compare: feature/migrate-github-environments
+   Title: feat(ci): migrer architecture GitHub Environments
+   Description:
+     Implémente ADR-009 : Migration 2 branches → 1 branche + 2 Environments</p>
+<p>Changes:
+ - Workflow simplifié (456 → 300 lignes)
+ - 3 jobs séquentiels au lieu de 2 parallèles
+ - Environments staging/production
+ - Approval gate Chef SNUM</p>
+<p>Testing:
+ - [ ] Workflow passe sur PR
+ - [ ] Build-and-test OK
+ - [ ] (Après merge) Deploy staging OK
+ - [ ] (Après merge) Notification production pending
+ - [ ] (Approval) Deploy production OK
+   ```</p>
+</li>
+</ol>
+<p><strong>Checklist</strong> :
+- [ ] Backup workflow actuel créé
+- [ ] Workflow modifié (3 jobs)
+- [ ] Commit avec message détaillé
+- [ ] PR créée vers main
+- [ ] CI/CD passe sur PR (build-and-test)</p>
+<h4 id="phase-4-documentation-2h">Phase 4 : Documentation (2h)</h4>
+<p><strong>Objectif</strong> : Mettre à jour 15 fichiers Markdown</p>
+<p><strong>Fichiers à modifier</strong> (par priorité) :</p>
+<ol>
+<li><strong>CONTRIBUTING.md</strong> (15 min)
+   ```bash
+   # Modifications principales :</li>
+<li>Ligne 6 : draft → main</li>
+<li>Ligne 16 : blob/draft → blob/main</li>
+<li>Ligne 49 : Base draft → Base main</li>
+<li>
+<p>Ajouter section "Processus déploiement production"
+   ```</p>
+</li>
+<li>
+<p><strong>docs/onboarding-visual.md</strong> (20 min)
+   ```bash
+   # Modifications :</p>
+</li>
+<li>Flowcharts base: draft → main</li>
+<li>Timeline : Ajouter approval Chef SNUM</li>
+<li>
+<p>FAQ : Expliquer délais déploiement
+   ```</p>
+</li>
+<li>
+<p><strong>docs/architecture/infrastructure.md</strong> (15 min)
+   ```bash
+   # Section 5 "Déploiement GitHub Pages" :</p>
+</li>
+<li>2 environments au lieu de 2 branches</li>
+<li>
+<p>Diagrammes Mermaid
+   ```</p>
+</li>
+<li>
+<p><strong>docs/architecture/c4-diagrams.md</strong> (10 min)
+   ```bash
+   # Diagramme containers :</p>
+</li>
+<li>1 branche, 2 environments</li>
+<li>
+<p>Flux avec approval gate
+   ```</p>
+</li>
+<li>
+<p><strong>docs/architecture/uml-diagrams.md</strong> (15 min)
+   ```bash
+   # Diagramme états PR :</p>
+</li>
+<li>
+<p>Base main au lieu de draft
+   # Diagramme activité contributeur
+   ```</p>
+</li>
+<li>
+<p><strong>docs/architecture/diagrams.md</strong> (10 min)
+   ```bash
+   # Workflow Git :</p>
+</li>
+<li>
+<p>Simplifier (enlever draft)
+   ```</p>
+</li>
+<li>
+<p><strong>README.md</strong> (5 min)
+   ```bash
+   # Badge CI/CD :</p>
+</li>
+<li>
+<p>1 workflow au lieu de 2
+   ```</p>
+</li>
+<li>
+<p><strong>CLAUDE.md</strong> (10 min)
+   ```bash
+   # Section Workflow Git :</p>
+</li>
+<li>feature → main</li>
+<li>Supprimer références draft</li>
+<li>
+<p>Ajouter concept Environments
+   ```</p>
+</li>
+<li>
+<p><strong>docs/glossary.md</strong> (10 min)
+   ```bash
+   # Ajouter définition :</p>
+</li>
+<li>GitHub Environments
+   # Mettre à jour :</li>
+<li>
+<p>Branches (1 au lieu de 2)
+   ```</p>
+</li>
+<li>
+<p><strong>Créer ADR-009</strong> (30 min)
+    <code>bash
+    # Ce fichier actuel</code></p>
+</li>
+</ol>
+<p><strong>Script automatisation</strong> (optionnel) :</p>
+<pre><code class="language-bash">#!/bin/bash
+# scripts/update_docs_after_environments.sh
+
+# Remplacements globaux
+find docs/ -name "*.md" -type f -exec sed -i.bak \
+  's/blob\/draft/blob\/main/g' {} \;
+
+find docs/ -name "*.md" -type f -exec sed -i.bak \
+  's/Base: `draft`/Base: `main`/g' {} \;
+
+# Nettoyer backups
+find docs/ -name "*.md.bak" -delete
+
+echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
+</code></pre>
+<p><strong>Checklist</strong> :
+- [ ] CONTRIBUTING.md modifié
+- [ ] onboarding-visual.md modifié
+- [ ] architecture/*.md modifiés (4 fichiers)
+- [ ] README.md modifié
+- [ ] CLAUDE.md modifié
+- [ ] glossary.md modifié
+- [ ] ADR-009 créé
+- [ ] Vérifier diffs (<code>git diff docs/</code>)</p>
+<h4 id="phase-5-migration-finale-1h">Phase 5 : Migration Finale (1h)</h4>
+<p><strong>Objectif</strong> : Merger PR, supprimer branche draft, vérifier déploiements</p>
+<p><strong>Étapes</strong> :</p>
+<ol>
+<li>
+<p><strong>Merger PR workflow</strong> (Phase 3) :
+   <code># Sur GitHub
+   PR feature/migrate-github-environments
+   Review: Approved by validateur
+   Merge: Squash and merge (ou merge commit)</code></p>
+</li>
+<li>
+<p><strong>Observer déploiement staging</strong> :
+   ```
+   # GitHub Actions : Workflow déclenché automatiquement
+   Job 1: build-and-test → ✅ (6 min)
+   Job 2: deploy-staging → ✅ (2 min)
+   Job 3: deploy-production → ⏳ Waiting for approval</p>
+</li>
+</ol>
+<p># Vérifier /draft/
+   https://alexmacapple.github.io/span-sg/draft/
+   ```</p>
+<ol>
+<li><strong>Approuver déploiement production (test)</strong> :
+   ```
+   # Deployments tab
+   Environment: production
+   Status: Pending approval
+   Reviewer: Chef SNUM
+   Action: Review deployment → Approve</li>
+</ol>
+<p># Observer déploiement
+   Job 3: deploy-production → ✅ (2 min)</p>
+<p># Vérifier / production
+   https://alexmacapple.github.io/span-sg/
+   ```</p>
+<ol>
+<li>
+<p><strong>Merger PR documentation</strong> (Phase 4) :
+   ```bash
+   # Créer PR docs/
+   git checkout -b feature/update-docs-environments
+   git add docs/ CONTRIBUTING.md README.md CLAUDE.md
+   git commit -m "docs: mettre à jour workflow (2 branches → Environments)</p>
+</li>
+<li>
+<p>CONTRIBUTING.md : PR vers main</p>
+</li>
+<li>onboarding-visual.md : Flowcharts mis à jour</li>
+<li>architecture/*.md : Diagrammes Environments</li>
+<li>glossary.md : Définition Environments</li>
+<li>ADR-009 : Documentation migration</li>
+</ol>
+<p>Refs: ADR-009"
+   git push -u origin feature/update-docs-environments</p>
+<p># Créer PR, merger
+   ```</p>
+<ol>
+<li><strong>Supprimer branche draft</strong> :
+   ```bash
+   # ATTENTION : Vérifier backup tag existe
+   git tag -l | grep draft-archived-2025-10-22
+   # Attendu : draft-archived-2025-10-22</li>
+</ol>
+<p># Supprimer branche remote
+   git push origin :draft</p>
+<p># Vérifier branche supprimée
+   git ls-remote --heads origin | grep draft
+   # Attendu : vide</p>
+<p># Nettoyer tracking local
+   git branch -d draft
+   ```</p>
+<ol>
+<li><strong>Vérifier 3 URLs</strong> :
+   ```bash
+   # Local (inchangé)
+   docker compose -f docker-compose-dsfr.yml up
+   curl -I http://localhost:8000/span-sg/
+   # Attendu : 200 OK</li>
+</ol>
+<p># Staging /draft/
+   curl -I https://alexmacapple.github.io/span-sg/draft/
+   # Attendu : 200 OK</p>
+<p># Production /
+   curl -I https://alexmacapple.github.io/span-sg/
+   # Attendu : 200 OK
+   ```</p>
+<p><strong>Checklist</strong> :
+- [ ] PR workflow mergée sur main
+- [ ] Deploy staging automatique réussi
+- [ ] Notification production pending reçue
+- [ ] Approval production test réussi
+- [ ] Deploy production réussi
+- [ ] PR documentation mergée
+- [ ] Tag <code>draft-archived-2025-10-22</code> vérifié
+- [ ] Branche <code>draft</code> supprimée (remote)
+- [ ] Branche <code>draft</code> supprimée (local)
+- [ ] 3 URLs vérifiées (local, /draft/, /)</p>
+<h4 id="phase-6-communication-30-min">Phase 6 : Communication (30 min)</h4>
+<p><strong>Objectif</strong> : Notifier équipe, mettre à jour documentation publique</p>
+<p><strong>Étapes</strong> :</p>
+<ol>
+<li><strong>Notifier validateurs</strong> (Bertrand, Alex) :
+   ```markdown
+   Sujet: [SPAN SG] Migration GitHub Environments terminée</li>
+</ol>
+<p>Bonjour Bertrand et Alex,</p>
+<p>La migration architecture 2 branches → GitHub Environments est terminée.</p>
+<p><strong>Changements pour vous</strong> :
+   - Toutes les PRs ciblent maintenant <code>main</code> (plus de <code>draft</code>)
+   - Branche <code>draft</code> supprimée (backup : tag draft-archived-2025-10-22)
+   - Workflow simplifié : 1 seul workflow CI/CD
+   - Dashboard deployments : https://github.com/Alexmacapple/span-sg/deployments</p>
+<p><strong>Actions requises</strong> :
+   - Mettre à jour bookmarks (plus de branche draft)
+   - Review PRs vers main (inchangé pour vous)
+   - Consulter dashboard deployments si besoin</p>
+<p>Documentation mise à jour :
+   - CONTRIBUTING.md
+   - docs/onboarding-visual.md
+   - ADR-009</p>
+<p>Merci,
+   [Votre nom]
+   ```</p>
+<ol>
+<li><strong>Notifier Chef SNUM</strong> :
+   ```markdown
+   Sujet: [SPAN SG] Nouveau processus approval déploiements production</li>
+</ol>
+<p>Bonjour [Chef SNUM],</p>
+<p>Le projet SPAN SG a migré vers GitHub Environments pour simplifier les déploiements.</p>
+<p><strong>Nouveau processus pour vous</strong> :</p>
+<p>Vous recevrez maintenant des notifications email GitHub :
+   "Deployment to production pending review"</p>
+<p>Pour approuver un déploiement :
+   1. Aller sur https://github.com/Alexmacapple/span-sg/deployments
+   2. Cliquer environment "production" → Status "Pending"
+   3. Review staging /draft/ (preview avant production)
+   4. Cliquer "Review deployment" → "Approve"
+   5. Production déployée automatiquement sous 5 minutes</p>
+<p><strong>Avantages pour vous</strong> :
+   - Plus flexible : approuver immédiatement (hotfix) ou attendre accumulation (batch)
+   - Rollback instantané : Re-run deployment précédent (2 min au lieu de 10 min)
+   - Dashboard centralisé : Vue complète déploiements staging + production</p>
+<p>Guide détaillé : [URL vers guide Chef SNUM]</p>
+<p>N'hésitez pas si questions,
+   [Votre nom]
+   ```</p>
+<ol>
+<li><strong>Notifier contributeurs</strong> :
+   ```markdown
+   # GitHub Discussions ou email groupe</li>
+</ol>
+<p>Sujet: [SPAN SG] Nouveau workflow contribution (branche draft supprimée)</p>
+<p>Bonjour à tous,</p>
+<p>Le workflow contribution SPAN SG a été simplifié :</p>
+<p><strong>Changement principal</strong> :
+   Toutes les Pull Requests ciblent maintenant la branche <code>main</code> (au lieu de <code>draft</code>)</p>
+<p><strong>Workflow mis à jour</strong> :
+   1. Créer branche feature/update-[service]
+   2. Éditer docs/modules/[service].md
+   3. Créer PR vers <code>main</code> (changement ici)
+   4. Review validateur (2-5j, inchangé)
+   5. Merge → deploy /draft/ staging automatique
+   6. Approval Chef SNUM → deploy / production</p>
+<p><strong>Documentation</strong> :
+   - CONTRIBUTING.md : Instructions mises à jour
+   - docs/onboarding-visual.md : Flowcharts mis à jour</p>
+<p>La branche <code>draft</code> a été supprimée (sauvegarde : tag draft-archived-2025-10-22)</p>
+<p>Merci de votre compréhension,
+   [Votre nom]
+   ```</p>
+<ol>
+<li><strong>Mettre à jour README.md</strong> (si badge CI/CD) :
+   ```markdown
+   # Avant
+   <img alt="Build Draft" src="https://github.com/Alexmacapple/span-sg/actions/workflows/build.yml/badge.svg?branch=draft"/>
+<img alt="Build Main" src="https://github.com/Alexmacapple/span-sg/actions/workflows/build.yml/badge.svg?branch=main"/></li>
+</ol>
+<p># Après
+   <img alt="Build and Deploy" src="https://github.com/Alexmacapple/span-sg/actions/workflows/build.yml/badge.svg?branch=main"/>
+   ```</p>
+<p><strong>Checklist</strong> :
+- [ ] Email validateurs envoyé
+- [ ] Email Chef SNUM envoyé
+- [ ] Annonce contributeurs publiée (Discussions/Slack)
+- [ ] README.md badge mis à jour
+- [ ] Guide Chef SNUM créé (optionnel)</p>
+<hr/>
+<h3 id="9-comparaison-couts-maintenance">9. Comparaison Coûts Maintenance</h3>
+<h4 id="temps-maintenance-annuel">Temps maintenance annuel</h4>
+<p><strong>Avant (2 branches)</strong> :</p>
+<table>
+<thead>
+<tr>
+<th>Tâche</th>
+<th>Fréquence</th>
+<th>Durée</th>
+<th>Total/an</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sync manuel main → draft après release</td>
+<td>12/an (1/mois)</td>
+<td>15 min</td>
+<td>3h</td>
+</tr>
+<tr>
+<td>Résolution conflits divergence</td>
+<td>4/an (1/trim)</td>
+<td>30 min</td>
+<td>2h</td>
+</tr>
+<tr>
+<td>Support contributeurs (mauvaise branche)</td>
+<td>8/an</td>
+<td>15 min</td>
+<td>2h</td>
+</tr>
+<tr>
+<td>Maintenance 2 workflows CI/CD</td>
+<td>4/an</td>
+<td>30 min</td>
+<td>2h</td>
+</tr>
+<tr>
+<td>Debug divergence branches</td>
+<td>2/an</td>
+<td>1h</td>
+<td>2h</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total : 11h/an</strong></p>
+<p><strong>Après (1 branche + Environments)</strong> :</p>
+<table>
+<thead>
+<tr>
+<th>Tâche</th>
+<th>Fréquence</th>
+<th>Durée</th>
+<th>Total/an</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sync branches</td>
+<td>0 (plus nécessaire)</td>
+<td>-</td>
+<td>0h</td>
+</tr>
+<tr>
+<td>Résolution conflits</td>
+<td>0 (impossible)</td>
+<td>-</td>
+<td>0h</td>
+</tr>
+<tr>
+<td>Support contributeurs</td>
+<td>2/an (réduction 75%)</td>
+<td>15 min</td>
+<td>0.5h</td>
+</tr>
+<tr>
+<td>Maintenance 1 workflow CI/CD</td>
+<td>4/an</td>
+<td>20 min</td>
+<td>1.3h</td>
+</tr>
+<tr>
+<td>Gestion approvals Chef SNUM</td>
+<td>12/an</td>
+<td>5 min</td>
+<td>1h</td>
+</tr>
+<tr>
+<td>Debug environments</td>
+<td>1/an</td>
+<td>30 min</td>
+<td>0.5h</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total : 3.3h/an</strong></p>
+<p><strong>Gain : 7.7h/an (70% réduction)</strong></p>
+<h4 id="cout-initial-migration">Coût initial migration</h4>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Durée</th>
+<th>Acteur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phase 1 : Préparation</td>
+<td>1h</td>
+<td>Développeur</td>
+</tr>
+<tr>
+<td>Phase 2 : Configuration GitHub</td>
+<td>30 min</td>
+<td>Développeur</td>
+</tr>
+<tr>
+<td>Phase 3 : Workflow CI/CD</td>
+<td>2h</td>
+<td>Développeur</td>
+</tr>
+<tr>
+<td>Phase 4 : Documentation</td>
+<td>2h</td>
+<td>Développeur</td>
+</tr>
+<tr>
+<td>Phase 5 : Migration finale</td>
+<td>1h</td>
+<td>Développeur + Chef SNUM</td>
+</tr>
+<tr>
+<td>Phase 6 : Communication</td>
+<td>30 min</td>
+<td>Développeur</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total : 7h développeur + 15 min Chef SNUM</strong></p>
+<p><strong>ROI (Return on Investment)</strong> :
+- Coût migration : 7h
+- Gain annuel : 7.7h/an
+- ROI : 7.7h / 7h = <strong>110% la première année</strong>
+- Rentabilisé après : <strong>11 mois</strong></p>
+<hr/>
+<h3 id="10-metriques-succes">10. Métriques Succès</h3>
+<h4 id="objectifs-mesurables">Objectifs mesurables</h4>
+<table>
+<thead>
+<tr>
+<th>Métrique</th>
+<th>Avant</th>
+<th>Cible après</th>
+<th>Mesure</th>
+<th>Seuil échec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Délai contribution → production (hotfix)</td>
+<td>25h</td>
+<td>&lt; 8h</td>
+<td>Deployments tab timestamps</td>
+<td>&gt; 12h</td>
+</tr>
+<tr>
+<td>Nombre conflits merge/trimestre</td>
+<td>2</td>
+<td>0</td>
+<td>Git log</td>
+<td>&gt; 1</td>
+</tr>
+<tr>
+<td>Temps maintenance workflows/an</td>
+<td>11h</td>
+<td>&lt; 4h</td>
+<td>Time tracking</td>
+<td>&gt; 6h</td>
+</tr>
+<tr>
+<td>Satisfaction contributeurs</td>
+<td>?</td>
+<td>8/10</td>
+<td>Survey post-migration</td>
+<td>&lt; 6/10</td>
+</tr>
+<tr>
+<td>Nombre rollbacks réussis</td>
+<td>0 (jamais testé)</td>
+<td>100%</td>
+<td>Tests rollback</td>
+<td>&lt; 90%</td>
+</tr>
+<tr>
+<td>Délai moyen approval Chef SNUM</td>
+<td>N/A</td>
+<td>&lt; 7j</td>
+<td>Deployments tab</td>
+<td>&gt; 14j</td>
+</tr>
+<tr>
+<td>Taux oubli approval Chef SNUM</td>
+<td>N/A</td>
+<td>&lt; 10%</td>
+<td>Deployments pending &gt; 30j</td>
+<td>&gt; 30%</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tests-validation-post-migration">Tests validation post-migration</h4>
+<p><strong>Test 1 : Contribution normale</strong> :</p>
+<pre><code class="language-bash"># Créer PR test vers main
+git checkout -b test/post-migration
+echo "test" &gt;&gt; README.md
+git commit -m "test: validation post-migration"
+git push -u origin test/post-migration
+
+# Créer PR, merger
+# Vérifier :
+- [ ] Deploy staging automatique (&lt; 10 min)
+- [ ] Notification Chef SNUM reçue
+- [ ] /draft/ accessible
+</code></pre>
+<p><strong>Test 2 : Approval production</strong> :</p>
+<pre><code class="language-bash"># Chef SNUM approve deployment
+# Vérifier :
+- [ ] Deploy production automatique (&lt; 5 min)
+- [ ] / production accessible
+- [ ] Deployments tab affiche status Active
+</code></pre>
+<p><strong>Test 3 : Rollback production</strong> :</p>
+<pre><code class="language-bash"># Re-run deployment précédent
+# Vérifier :
+- [ ] Rollback réussi (&lt; 5 min)
+- [ ] / production restaurée version précédente
+- [ ] Aucun rebuild CI/CD nécessaire
+</code></pre>
+<p><strong>Test 4 : Workflow contributeur débutant</strong> :</p>
+<pre><code class="language-bash"># Demander contributeur service créer PR
+# Vérifier :
+- [ ] PR ciblée vers main (pas d'erreur)
+- [ ] Review validateur OK
+- [ ] Merge réussi
+- [ ] Contributeur satisfait (feedback)
+</code></pre>
+<h4 id="seuils-decision-revert">Seuils décision revert</h4>
+<p><strong>Conditions revert architecture (retour 2 branches)</strong> :</p>
+<ol>
+<li><strong>Approvals oubliés</strong> : Si Chef SNUM oublie &gt; 50% approvals (&gt; 6/12 par an)</li>
+<li><strong>Délais production</strong> : Si délai moyen approval &gt; 14 jours (objectif &lt; 7j)</li>
+<li><strong>Conflits merge</strong> : Si &gt; 3 conflits/trimestre (objectif 0)</li>
+<li><strong>Satisfaction contributeurs</strong> : Si satisfaction &lt; 6/10 (objectif 8/10)</li>
+<li><strong>Incidents production</strong> : Si &gt; 3 incidents/mois liés à déploiements rapides</li>
+</ol>
+<p><strong>Procédure revert</strong> (si seuils atteints) :</p>
+<pre><code class="language-bash"># 1. Recréer branche draft depuis main
+git checkout -b draft main
+git push -u origin draft
+
+# 2. Restaurer workflow 2 jobs depuis backup
+cp .github/workflows/build.yml.backup-2025-10-22 .github/workflows/build.yml
+
+# 3. Supprimer environments GitHub (Settings → Environments → Delete)
+
+# 4. Mettre à jour documentation (revert modifications Phase 4)
+
+# 5. Notifier équipe
+</code></pre>
+<hr/>
+<h2 id="alternatives-considerees">Alternatives Considérées</h2>
+<h3 id="alternative-1-workflow-strict-2-branches-auto-sync">Alternative 1 : Workflow strict 2 branches + Auto-sync</h3>
+<p><strong>Architecture</strong> :</p>
+<pre><code>feature → draft → /draft/
+draft (batch) → main → /
+main → GitHub Action auto-sync → draft (automatique)
+</code></pre>
+<p><strong>Avantages</strong> :
+- Conserve architecture 2 branches (familière)
+- Auto-sync évite divergence
+- Staging clair (/draft/ = branche draft)</p>
+<p><strong>Inconvénients</strong> :
+- Maintenance 2 workflows CI/CD (inchangé)
+- Complexité cognitive (2 branches)
+- Auto-sync peut échouer (conflits)
+- Pas de rollback facile</p>
+<p><strong>Raison rejet</strong> : Complexité identique, pas de gain maintenance</p>
+<h3 id="alternative-2-tag-based-deployments">Alternative 2 : Tag-based deployments</h3>
+<p><strong>Architecture</strong> :</p>
+<pre><code>feature → main
+Tag vX.Y.Z-rc → /draft/ staging
+Tag vX.Y.Z → / production
+</code></pre>
+<p><strong>Avantages</strong> :
+- Versioning explicite
+- Rollback facile (retag)
+- 1 branche unique</p>
+<p><strong>Inconvénients</strong> :
+- Contributeurs doivent comprendre tags (complexité)
+- Chef SNUM crée tags manuellement (friction)
+- Pas de preview automatique staging</p>
+<p><strong>Raison rejet</strong> : Complexité accrue contributeurs, moins flexible</p>
+<h3 id="alternative-3-stacked-prs-draft-pr-main-pr">Alternative 3 : Stacked PRs (draft PR → main PR)</h3>
+<p><strong>Architecture</strong> :</p>
+<pre><code>feature → PR draft (no merge)
+PR draft reviewed → Convert to main → Merge
+</code></pre>
+<p><strong>Avantages</strong> :
+- 1 branche unique
+- Review en 2 temps (draft puis main)</p>
+<p><strong>Inconvénients</strong> :
+- Pas de feature GitHub native (workaround)
+- Complexité review process
+- Pas de staging automatique</p>
+<p><strong>Raison rejet</strong> : Workaround fragile, pas de gain clair</p>
+<hr/>
+<h2 id="consequences">Conséquences</h2>
+<h3 id="positives">Positives</h3>
+<ol>
+<li><strong>Workflow simplifié</strong> : 1 branche cible unique (<code>main</code>)</li>
+<li>Contributeurs : Moins de confusion (PR vers main)</li>
+<li>Validateurs : 1 workflow CI/CD à surveiller</li>
+<li>
+<p>Maintenance : 70% réduction temps (11h → 3.3h/an)</p>
+</li>
+<li>
+<p><strong>Observabilité améliorée</strong> :</p>
+</li>
+<li>Dashboard Deployments centralisé</li>
+<li>Métriques DORA accessibles</li>
+<li>
+<p>Historique approvals Chef SNUM</p>
+</li>
+<li>
+<p><strong>Rollback instantané</strong> :</p>
+</li>
+<li>RTO : 10-15 min → 2-5 min (67-80% réduction)</li>
+<li>Re-run deployment au lieu de rebuild</li>
+<li>
+<p>Moins de stress incidents production</p>
+</li>
+<li>
+<p><strong>Protection renforcée</strong> :</p>
+</li>
+<li>Approval gate production (humain dans la boucle)</li>
+<li>Environment secrets isolés (si besoin futur)</li>
+<li>
+<p>Audit trail complet</p>
+</li>
+<li>
+<p><strong>Flexibilité déploiements</strong> :</p>
+</li>
+<li>Chef SNUM décide délai staging → production</li>
+<li>Hotfix urgent : &lt; 8h contribution → production</li>
+<li>Batch releases : Accumulation 30-60j si souhaité</li>
+</ol>
+<h3 id="negatives">Négatives</h3>
+<ol>
+<li><strong>Changement processus Chef SNUM</strong> :</li>
+<li>Nouveau workflow approval deployments</li>
+<li>Nécessite formation (15 min)</li>
+<li>
+<p>Risque oubli approval (mitigé par notifications)</p>
+</li>
+<li>
+<p><strong>Migration initiale 7h</strong> :</p>
+</li>
+<li>Coût développeur</li>
+<li>Risque downtime si erreur (mitigé par tests)</li>
+<li>
+<p>Communication équipe nécessaire</p>
+</li>
+<li>
+<p><strong>Perte familiarité architecture 2 branches</strong> :</p>
+</li>
+<li>Contributeurs habitués à draft</li>
+<li>Documentation à mettre à jour</li>
+<li>
+<p>Période adaptation 1-2 semaines</p>
+</li>
+<li>
+<p><strong>Dépendance GitHub Environments</strong> :</p>
+</li>
+<li>Feature GitHub (pas open source portable)</li>
+<li>Si GitHub down : Pas de déploiements</li>
+<li>Lock-in plateforme</li>
+</ol>
+<hr/>
+<h2 id="decision">Décision</h2>
+<p><strong>Recommandation</strong> : <strong>APPROUVER</strong> migration GitHub Environments</p>
+<p><strong>Justification</strong> :</p>
+<ol>
+<li><strong>Gain mesurable</strong> : 70% réduction maintenance (11h → 3.3h/an)</li>
+<li><strong>ROI rapide</strong> : Rentabilisé après 11 mois</li>
+<li><strong>Risques maîtrisés</strong> : 4 risques identifiés avec mitigations</li>
+<li><strong>Rollback possible</strong> : Procédure revert si seuils échec atteints</li>
+<li><strong>Conservation 3 URLs</strong> : Objectif utilisateur respecté (local, /draft/, /)</li>
+</ol>
+<p><strong>Conditions succès</strong> :</p>
+<ul>
+<li>Formation Chef SNUM (15 min) avant migration</li>
+<li>Tests validation post-migration (4 tests)</li>
+<li>Communication proactive équipe (1 semaine avant)</li>
+<li>Monitoring métriques succès (6 mois post-migration)</li>
+</ul>
+<p><strong>Next steps</strong> :</p>
+<ol>
+<li><strong>Validation décision</strong> : Chef SNUM + Validateurs review ADR-009</li>
+<li><strong>Planification migration</strong> : Date migration (ex: 2025-10-29, semaine calme)</li>
+<li><strong>Exécution migration</strong> : Suivre checklist 6 phases (7h)</li>
+<li><strong>Monitoring post-migration</strong> : Métriques succès pendant 6 mois</li>
+</ol>
+<hr/>
+<h2 id="references">Références</h2>
+<ul>
+<li><a href="https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment">GitHub Environments Documentation</a></li>
+<li><a href="../003-isolation-pdf-build/">ADR-003 : Isolation PDF Build</a></li>
+<li><a href="../006-migration-checklist-33-criteres/">ADR-006 : Migration Checklist 33 Critères</a></li>
+<li><a href="https://github.com/Alexmacapple/span-sg/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a></li>
+<li><a href="../../onboarding-visual/">docs/onboarding-visual.md</a></li>
+</ul>
+<hr/>
+<h2 id="changelog">Changelog</h2>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Version</th>
+<th>Auteur</th>
+<th>Changements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025-10-22</td>
+<td>1.0</td>
+<td>Claude Code</td>
+<td>Création initiale ADR-009 (analyse ultrathink)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><footer>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg" style="color: #fcfcfc"> GitHub</a>
+</span>
+</span>
+</div>
+<script src="../../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "../..";</script>
+<script src="../../js/theme_extra.js"></script>
+<script src="../../js/theme.js"></script>
+<script src="../../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>

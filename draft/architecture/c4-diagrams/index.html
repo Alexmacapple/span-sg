@@ -164,7 +164,7 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
         direction TB
         REPO[fa:fa-code Repository&lt;br/&gt;span-sg&lt;br/&gt;Git + Markdown]
         BRANCH_MAIN[fa:fa-code-branch main&lt;br/&gt;Production]
-        BRANCH_DRAFT[fa:fa-code-branch draft&lt;br/&gt;Preview]
+        BRANCH_DRAFT[fa:fa-code-branch main&lt;br/&gt;Preview]
     end
 
     subgraph "CI/CD Pipeline (GitHub Actions)"
@@ -347,7 +347,7 @@ weasyprint==62.3
 
     Note over C,G: 1. Contribution
     C-&gt;&gt;G: Push feature/update-sircom
-    C-&gt;&gt;G: Create PR draft ← feature
+    C-&gt;&gt;G: Create PR main ← feature
 
     Note over G,CI: 2. CI Validation
     G-&gt;&gt;CI: Trigger workflow (draft)
