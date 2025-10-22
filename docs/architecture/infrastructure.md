@@ -2,7 +2,7 @@
 
 Documentation détaillée de l'infrastructure runtime, ressources système et architecture de déploiement SPAN SG.
 
-Version: 1.0.1-dsfr
+Version: 1.2.0-environments
 Dernière mise à jour: 2025-10-22
 
 ---
@@ -188,10 +188,16 @@ graph LR
         T[Upload E2E report]
     end
 
-    subgraph "Phase 6: Deploy (60s)"
+    subgraph "Phase 6: Deploy Staging (60s)"
         U[Clone gh-pages]
-        V[Copy site/]
-        W[Git push]
+        V[Deploy to /draft/]
+        W[Push staging]
+    end
+
+    subgraph "Phase 7: Deploy Production (60s)"
+        X[Pull staging changes]
+        Y[Deploy to / root]
+        Z[Push production]
     end
 
     A --> B --> C --> D
@@ -200,21 +206,25 @@ graph LR
     K --> L --> M --> N --> O --> P --> Q
     Q --> R --> S --> T
     T --> U --> V --> W
+    W --> X --> Y --> Z
 
-    style W fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
+    style Z fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
 ```
 
 ### Temps d'exécution
 
-| Phase | Draft | Main | Critique |
-|-------|-------|------|----------|
-| Setup | 30s | 30s | Non |
-| Quality | 60s | 60s | Oui (fail-fast) |
-| Security | 45s | 45s | Oui (bloquant) |
-| Build | 90s | 90s | Oui (strict mode) |
-| E2E | - | 300s | Oui (main only) |
-| Deploy | 60s | 60s | Non |
-| **Total** | **~6min** | **~10min** | - |
+| Phase | Push main | Critique |
+|-------|-----------|----------|
+| Setup | 30s | Non |
+| Quality | 60s | Oui (fail-fast) |
+| Security | 45s | Oui (bloquant) |
+| Build | 90s | Oui (strict mode) |
+| E2E | 300s | Oui (main only) |
+| Deploy Staging | 60s | Non |
+| Deploy Production | 60s | Non (séquentiel) |
+| **Total** | **~11min** | - |
+
+Note: Déploiement séquentiel depuis v1.2.0 (staging puis production) pour éviter conflits gh-pages.
 
 ---
 
@@ -288,28 +298,30 @@ graph TB
     style GHP fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
 ```
 
-### Stratégie Branching gh-pages
+### Stratégie Déploiement avec GitHub Environments
 
 ```mermaid
 gitGraph
     commit id: "Initial gh-pages"
-    branch main-deploy
-    commit id: "Deploy draft v0.9"
-    checkout main
-    commit id: "Deploy prod v1.0"
-    checkout draft-deploy
-    commit id: "Deploy draft v1.1-rc1"
-    checkout main
-    merge draft-deploy tag: "v1.1"
-    commit id: "Deploy prod v1.1"
+    branch main
+    commit id: "Push main"
+    commit id: "CI: build-and-test"
+    commit id: "Deploy staging /draft/" tag: "staging"
+    commit id: "Deploy production /" tag: "production"
+    commit id: "v1.2.0-environments" type: HIGHLIGHT
 ```
+
+Architecture 1-branche + 2 Environments (depuis v1.2.0):
+- Branche unique `main` pour développement
+- Environnement `staging` : déploiement automatique vers /draft/
+- Environnement `production` : déploiement séquentiel vers /
 
 ### URLs et Accès
 
-| URL | Branche source | Déploiement | Accès | Latency |
-|-----|----------------|-------------|-------|---------|
-| `/` | main | gh-pages racine | Public | <100ms |
-| `/draft/` | draft | gh-pages/draft/ | Org-only | <100ms |
+| URL | Environment GitHub | Déploiement gh-pages | Accès | Latency |
+|-----|-------------------|---------------------|-------|---------|
+| `/` | production | gh-pages racine | Public | <100ms |
+| `/draft/` | staging | gh-pages/draft/ | Org-only | <100ms |
 
 ---
 
