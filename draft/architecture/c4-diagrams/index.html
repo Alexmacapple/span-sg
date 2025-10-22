@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg/architecture/c4-diagrams/" rel="canonical"/>
+<link href="../../img/favicon.ico" rel="shortcut icon"/>
+<title>Architecture C4 - Diagrammes Contexte et Containers</title>
+<link href="../../css/theme.css" rel="stylesheet"/>
+<link href="../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Architecture C4 - Diagrammes Contexte et Containers";
+        var mkdocs_page_input_path = "architecture/c4-diagrams.md";
+        var mkdocs_page_url = "/span-sg/architecture/c4-diagrams/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../..">
+</a><div role="search">
+<form action="../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../..">SPAN (SG)</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SPAN (services)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/bgs/">BGS</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/safi/">SAFI</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/siep/">SIEP</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/sircom/">SIRCOM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/snum/">SNUM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/srh/">SRH</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../synthese/">Synthèse</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../processus/">Processus</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Guide contributeur</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-local/">Développement local</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg">Code source GitHub</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../.."></a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href="../.."></a></li>
+<li class="breadcrumb-item active">Architecture C4 - Diagrammes Contexte et Containers</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg/edit/master/docs/architecture/c4-diagrams.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="architecture-c4-diagrammes-contexte-et-containers">Architecture C4 - Diagrammes Contexte et Containers</h1>
+<p>Représentations architecture C4 (Context, Containers, Components, Code) du projet SPAN SG.</p>
+<p>Version: 1.0.1-dsfr
+Dernière mise à jour: 2025-10-22
+Standard: <a href="https://c4model.com/">C4 Model</a></p>
+<hr/>
+<h2 id="introduction-c4">Introduction C4</h2>
+<p>Le modèle C4 décompose l'architecture en 4 niveaux de zoom :</p>
+<ol>
+<li><strong>Context</strong> : Vue système dans son écosystème (personnes, systèmes externes)</li>
+<li><strong>Containers</strong> : Applications, services, bases de données</li>
+<li><strong>Components</strong> : Modules logiques internes</li>
+<li><strong>Code</strong> : Classes, fonctions (optionnel)</li>
+</ol>
+<p>Ce document couvre les niveaux 1-2.</p>
+<hr/>
+<h2 id="1-c4-level-1-diagramme-de-contexte">1. C4 Level 1 : Diagramme de Contexte</h2>
+<p>Vue macro du système SPAN SG et ses acteurs.</p>
+<pre><code class="language-mermaid">graph TB
+    subgraph "Acteurs"
+        CONTRIB[fa:fa-user Contributeur Service&lt;br/&gt;SIRCOM, SNUM, SRH, etc.]
+        VALID[fa:fa-user-check Validateur&lt;br/&gt;Bertrand, Alex]
+        SPONSOR[fa:fa-user-tie Sponsor&lt;br/&gt;Chef SNUM]
+        PUBLIC[fa:fa-users Public&lt;br/&gt;Consultation SPAN]
+    end
+
+    subgraph "Système SPAN SG"
+        SPAN[fa:fa-file-alt SPAN SG&lt;br/&gt;Documentation Accessibilité&lt;br/&gt;MkDocs + DSFR]
+    end
+
+    subgraph "Systèmes Externes"
+        GITHUB[fa:fa-github GitHub&lt;br/&gt;Hébergement repo + Pages]
+        CI[fa:fa-cog GitHub Actions&lt;br/&gt;CI/CD Pipeline]
+        DINUM[fa:fa-landmark DINUM&lt;br/&gt;Référentiel 33 critères]
+    end
+
+    CONTRIB --&gt;|Édite modules| SPAN
+    VALID --&gt;|Valide PRs| SPAN
+    SPONSOR --&gt;|Approuve releases| SPAN
+    PUBLIC --&gt;|Consulte| SPAN
+
+    SPAN --&gt;|Versionné sur| GITHUB
+    SPAN --&gt;|Validé par| CI
+    SPAN --&gt;|Conforme à| DINUM
+    GITHUB --&gt;|Déclenche| CI
+    CI --&gt;|Déploie sur| GITHUB
+
+    style SPAN fill:#91d5ff,stroke:#1890ff,stroke-width:3px
+    style GITHUB fill:#ffc9c9,stroke:#ff4d4f,stroke-width:2px
+    style CI fill:#b5f5ec,stroke:#13c2c2,stroke-width:2px
+    style DINUM fill:#ffe7ba,stroke:#fa8c16,stroke-width:2px
+</code></pre>
+<p><strong>Acteurs principaux :</strong>
+- Contributeurs services (6 modules : SIRCOM, SNUM, SRH, SIEP, SAFI, BGS)
+- Validateurs (review PRs, merge)
+- Sponsor (validation conceptuelle, releases officielles)
+- Public (consultation SPAN publié)</p>
+<p><strong>Systèmes externes :</strong>
+- GitHub : Hébergement repo + Pages
+- GitHub Actions : CI/CD automatisé
+- DINUM : Référentiel 33 critères accessibilité</p>
+<hr/>
+<h2 id="2-c4-level-2-diagramme-containers">2. C4 Level 2 : Diagramme Containers</h2>
+<p>Détail des composants applicatifs du système SPAN SG.</p>
+<pre><code class="language-mermaid">graph TB
+    subgraph "GitHub Repository"
+        direction TB
+        REPO[fa:fa-code Repository&lt;br/&gt;span-sg&lt;br/&gt;Git + Markdown]
+        BRANCH_MAIN[fa:fa-code-branch main&lt;br/&gt;Production]
+        BRANCH_DRAFT[fa:fa-code-branch draft&lt;br/&gt;Preview]
+    end
+
+    subgraph "CI/CD Pipeline (GitHub Actions)"
+        direction TB
+        JOB_DRAFT[fa:fa-cog Job: build-deploy-draft&lt;br/&gt;Python 3.11 + MkDocs]
+        JOB_MAIN[fa:fa-cog Job: build-deploy-main&lt;br/&gt;Python 3.11 + MkDocs + E2E]
+        TESTS[fa:fa-check-circle Tests&lt;br/&gt;Pytest + Coverage 89%+]
+        SECURITY[fa:fa-shield-alt Sécurité&lt;br/&gt;Bandit + Safety]
+    end
+
+    subgraph "Build Artifacts"
+        direction TB
+        SITE_HTML[fa:fa-file-code site/&lt;br/&gt;HTML DSFR]
+        PDF[fa:fa-file-pdf exports/&lt;br/&gt;span-sg.pdf]
+        REPORTS[fa:fa-chart-bar Reports&lt;br/&gt;E2E + Security + Coverage]
+    end
+
+    subgraph "Deployment Targets"
+        direction TB
+        PAGES_DRAFT[fa:fa-globe gh-pages/draft/&lt;br/&gt;Preview privée]
+        PAGES_PROD[fa:fa-globe gh-pages/&lt;br/&gt;Production publique]
+    end
+
+    subgraph "Build Tools"
+        direction TB
+        MKDOCS[fa:fa-book MkDocs 1.6&lt;br/&gt;Générateur site statique]
+        DSFR[fa:fa-paint-brush mkdocs-dsfr 0.17&lt;br/&gt;Thème DSFR]
+        WEASY[fa:fa-file-pdf WeasyPrint&lt;br/&gt;Générateur PDF]
+    end
+
+    REPO --&gt; BRANCH_MAIN
+    REPO --&gt; BRANCH_DRAFT
+
+    BRANCH_DRAFT --&gt; JOB_DRAFT
+    BRANCH_MAIN --&gt; JOB_MAIN
+
+    JOB_DRAFT --&gt; TESTS
+    JOB_DRAFT --&gt; SECURITY
+    JOB_MAIN --&gt; TESTS
+    JOB_MAIN --&gt; SECURITY
+
+    TESTS --&gt; MKDOCS
+    SECURITY --&gt; MKDOCS
+
+    MKDOCS --&gt; DSFR
+    MKDOCS --&gt; WEASY
+
+    DSFR --&gt; SITE_HTML
+    WEASY --&gt; PDF
+
+    JOB_DRAFT --&gt; REPORTS
+    JOB_MAIN --&gt; REPORTS
+
+    SITE_HTML --&gt; PAGES_DRAFT
+    SITE_HTML --&gt; PAGES_PROD
+    PDF --&gt; PAGES_DRAFT
+    PDF --&gt; PAGES_PROD
+
+    style REPO fill:#f0f0f0,stroke:#333,stroke-width:2px
+    style JOB_DRAFT fill:#b5f5ec,stroke:#13c2c2,stroke-width:2px
+    style JOB_MAIN fill:#b5f5ec,stroke:#13c2c2,stroke-width:2px
+    style SITE_HTML fill:#91d5ff,stroke:#1890ff,stroke-width:2px
+    style PDF fill:#ffc9c9,stroke:#ff4d4f,stroke-width:2px
+    style PAGES_PROD fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
+</code></pre>
+<p><strong>Containers identifiés :</strong></p>
+<ol>
+<li><strong>Repository Git</strong> :</li>
+<li>Markdown sources (docs/modules/*.md)</li>
+<li>Configurations (mkdocs-dsfr.yml, mkdocs-dsfr-pdf.yml)</li>
+<li>Scripts Python (calculate_scores.py, enrich_pdf_metadata.py)</li>
+<li>
+<p>Hooks MkDocs (dsfr_table_wrapper.py, title_cleaner.py)</p>
+</li>
+<li>
+<p><strong>CI/CD Pipeline</strong> :</p>
+</li>
+<li>Job draft : Build + déploiement preview</li>
+<li>Job main : Build + E2E + sécurité + déploiement production</li>
+<li>Tests : Pytest (33 tests unitaires, 9 scénarios E2E)</li>
+<li>
+<p>Sécurité : Bandit (code security) + Safety (CVE dependencies)</p>
+</li>
+<li>
+<p><strong>Build Artifacts</strong> :</p>
+</li>
+<li>site/ : HTML DSFR (thème gouvernemental)</li>
+<li>exports/span-sg.pdf : PDF avec métadonnées enrichies</li>
+<li>
+<p>Reports : E2E HTML, Security JSON, Coverage HTML</p>
+</li>
+<li>
+<p><strong>Deployment Targets</strong> :</p>
+</li>
+<li>gh-pages/draft/ : Preview privée (org-only)</li>
+<li>
+<p>gh-pages/ racine : Production publique</p>
+</li>
+<li>
+<p><strong>Build Tools</strong> :</p>
+</li>
+<li>MkDocs 1.6 : Générateur site statique</li>
+<li>mkdocs-dsfr 0.17 : Thème DSFR officiel</li>
+<li>WeasyPrint : Générateur PDF (CSS Paged Media)</li>
+</ol>
+<hr/>
+<h2 id="3-technologies-et-dependances">3. Technologies et Dépendances</h2>
+<h3 id="stack-technique">Stack technique</h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technologie</th>
+<th>Version</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source</td>
+<td>Markdown + YAML</td>
+<td>-</td>
+<td>Format documentation</td>
+</tr>
+<tr>
+<td>Build</td>
+<td>MkDocs</td>
+<td>1.6+</td>
+<td>Générateur site statique</td>
+</tr>
+<tr>
+<td>Theme</td>
+<td>mkdocs-dsfr</td>
+<td>0.17.0</td>
+<td>Design System État</td>
+</tr>
+<tr>
+<td>PDF</td>
+<td>WeasyPrint</td>
+<td>62.3</td>
+<td>Générateur PDF</td>
+</tr>
+<tr>
+<td>Tests</td>
+<td>Pytest</td>
+<td>8.3.4</td>
+<td>Tests unitaires + E2E</td>
+</tr>
+<tr>
+<td>CI/CD</td>
+<td>GitHub Actions</td>
+<td>-</td>
+<td>Pipeline automatisé</td>
+</tr>
+<tr>
+<td>Hosting</td>
+<td>GitHub Pages</td>
+<td>-</td>
+<td>Hébergement statique</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dependances-critiques">Dépendances critiques</h3>
+<pre><code class="language-python"># requirements-dsfr.txt
+mkdocs==1.6.1
+mkdocs-dsfr==0.17.0
+mkdocs-git-revision-date-localized-plugin==1.3.0
+pymdown-extensions==10.12
+mkdocs-pdf-export-plugin==0.5.10
+weasyprint==62.3
+</code></pre>
+<hr/>
+<h2 id="4-flux-de-donnees">4. Flux de Données</h2>
+<p>Parcours typique d'une modification SPAN :</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant C as Contributeur
+    participant G as GitHub
+    participant CI as GitHub Actions
+    participant P as GitHub Pages
+
+    Note over C,G: 1. Contribution
+    C-&gt;&gt;G: Push feature/update-sircom
+    C-&gt;&gt;G: Create PR draft ← feature
+
+    Note over G,CI: 2. CI Validation
+    G-&gt;&gt;CI: Trigger workflow (draft)
+    CI-&gt;&gt;CI: Linting (Black, Ruff)
+    CI-&gt;&gt;CI: Tests (33 unitaires)
+    CI-&gt;&gt;CI: Security (Bandit, Safety)
+    CI-&gt;&gt;CI: Build HTML DSFR
+    CI-&gt;&gt;CI: Generate PDF
+    CI-&gt;&gt;G: Status: ✅ Success / ❌ Failed
+
+    Note over C,G: 3. Review
+    C-&gt;&gt;G: Request review (Bertrand/Alex)
+    G-&gt;&gt;C: Approve + Merge PR
+
+    Note over G,CI: 4. Déploiement
+    G-&gt;&gt;CI: Trigger workflow (draft merge)
+    CI-&gt;&gt;CI: Run all checks + E2E (si main)
+    CI-&gt;&gt;P: Deploy gh-pages/draft/ (ou /)
+
+    Note over C,P: 5. Publication
+    P-&gt;&gt;C: Preview visible org-only
+</code></pre>
+<hr/>
+<h2 id="5-strategie-de-deploiement">5. Stratégie de Déploiement</h2>
+<h3 id="environnements">Environnements</h3>
+<table>
+<thead>
+<tr>
+<th>Environnement</th>
+<th>Branche</th>
+<th>URL</th>
+<th>Accès</th>
+<th>Déploiement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Preview</td>
+<td>draft</td>
+<td>/draft/</td>
+<td>Org-only</td>
+<td>Auto (push draft)</td>
+</tr>
+<tr>
+<td>Production</td>
+<td>main</td>
+<td>/ racine</td>
+<td>Public</td>
+<td>Auto (push main)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="workflow-deploiement">Workflow déploiement</h3>
+<pre><code class="language-mermaid">graph LR
+    A[Commit main/draft] --&gt; B{Tests pass?}
+    B --&gt;|❌ Failed| C[STOP - Fix errors]
+    B --&gt;|✅ Success| D[Build HTML + PDF]
+    D --&gt; E{Branche?}
+    E --&gt;|draft| F[Deploy /draft/]
+    E --&gt;|main| G[Run E2E tests]
+    G --&gt; H{E2E pass?}
+    H --&gt;|❌| I[STOP - Check E2E report]
+    H --&gt;|✅| J[Deploy / racine]
+
+    style C fill:#ff6b6b
+    style I fill:#ff6b6b
+    style F fill:#91d5ff
+    style J fill:#b7eb8f
+</code></pre>
+<hr/>
+<h2 id="6-securite-et-qualite">6. Sécurité et Qualité</h2>
+<h3 id="gates-qualite-cicd">Gates qualité CI/CD</h3>
+<p>Chaque build passe par 7 gates obligatoires :</p>
+<ol>
+<li><strong>Black formatter</strong> : Formatage code uniforme</li>
+<li><strong>Ruff linter</strong> : Détection bugs, style, complexité</li>
+<li><strong>Bandit</strong> : Analyse sécurité code (HIGH/CRITICAL)</li>
+<li><strong>Safety</strong> : Scan CVE dependencies</li>
+<li><strong>Pytest</strong> : 33 tests unitaires (0 failed)</li>
+<li><strong>Coverage</strong> : Seuil 89%+ scripts, 100% hooks</li>
+<li><strong>E2E</strong> (main only) : 9 scénarios bout-en-bout</li>
+</ol>
+<h3 id="artefacts-securite">Artefacts sécurité</h3>
+<p>Conservés en GitHub Actions Artifacts :</p>
+<ul>
+<li><strong>security-reports</strong> : Bandit JSON + Safety JSON (90 jours)</li>
+<li><strong>e2e-report</strong> : Rapport HTML scénarios (30 jours)</li>
+<li><strong>accessibility-report</strong> : Tests RGAA Selenium (30 jours)</li>
+<li><strong>exports</strong> : PDF SPAN (persistant)</li>
+</ul>
+<hr/>
+<h2 id="references">Références</h2>
+<ul>
+<li><a href="https://c4model.com/">C4 Model Official</a></li>
+<li><a href="../diagrams/">Diagrammes Mermaid (6 existants)</a></li>
+<li><a href="../../adr/">ADR Architecture Decision Records</a></li>
+<li><a href="../../dev/api-reference/">API Reference Scripts</a></li>
+</ul>
+</div>
+</div><footer>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg" style="color: #fcfcfc"> GitHub</a>
+</span>
+</span>
+</div>
+<script src="../../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "../..";</script>
+<script src="../../js/theme_extra.js"></script>
+<script src="../../js/theme.js"></script>
+<script src="../../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>

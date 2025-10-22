@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg/onboarding-visual/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Guide Onboarding Visuel - Contributeur SPAN SG</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Guide Onboarding Visuel - Contributeur SPAN SG";
+        var mkdocs_page_input_path = "onboarding-visual.md";
+        var mkdocs_page_url = "/span-sg/onboarding-visual/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="..">
+</a><div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">SPAN (SG)</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SPAN (services)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/bgs/">BGS</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/safi/">SAFI</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/siep/">SIEP</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/sircom/">SIRCOM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/snum/">SNUM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/srh/">SRH</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../synthese/">Synthèse</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processus/">Processus</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/">Guide contributeur</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev-local/">Développement local</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg">Code source GitHub</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href=".."></a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item active">Guide Onboarding Visuel - Contributeur SPAN SG</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg/edit/master/docs/onboarding-visual.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="guide-onboarding-visuel-contributeur-span-sg">Guide Onboarding Visuel - Contributeur SPAN SG</h1>
+<p>Guide visuel interactif pour démarrer la contribution au projet SPAN SG en 5 étapes.</p>
+<p>Version: 1.0.1-dsfr
+Dernière mise à jour: 2025-10-22
+Public cible: Contributeurs services (débutants Git)</p>
+<hr/>
+<h2 id="parcours-contributeur">Parcours Contributeur</h2>
+<p>Votre voyage de la première modification au déploiement production.</p>
+<pre><code class="language-mermaid">journey
+    title Parcours Contributeur SPAN SG
+    section Préparation
+      Comprendre le SPAN: 3: Contributeur
+      Identifier mon module: 5: Contributeur
+      Lire CONTRIBUTING.md: 4: Contributeur
+    section Première Contribution
+      Éditer sur GitHub: 5: Contributeur
+      Cocher 3 critères: 5: Contributeur
+      Créer Pull Request: 4: Contributeur
+    section Validation
+      Attendre review: 3: Validateur
+      Répondre commentaires: 4: Contributeur
+      Approbation: 5: Validateur
+    section Déploiement
+      Merge sur draft: 5: Validateur
+      CI/CD automatique: 5: Système
+      Preview disponible: 5: Contributeur
+    section Production
+      Merge draft → main: 5: Chef SNUM
+      Déploiement public: 5: Système
+      Consultation publique: 5: Public
+</code></pre>
+<hr/>
+<h2 id="etape-1-preparation-10-minutes">Étape 1 : Préparation (10 minutes)</h2>
+<h3 id="11-comprendre-votre-role">1.1 Comprendre votre rôle</h3>
+<pre><code class="language-mermaid">graph LR
+    A[fa:fa-user Vous&lt;br/&gt;Contributeur Service] --&gt; B{Votre module?}
+    B --&gt;|SIRCOM| C[docs/modules/sircom.md]
+    B --&gt;|SNUM| D[docs/modules/snum.md]
+    B --&gt;|SRH| E[docs/modules/srh.md]
+    B --&gt;|SIEP| F[docs/modules/siep.md]
+    B --&gt;|SAFI| G[docs/modules/safi.md]
+    B --&gt;|BGS| H[docs/modules/bgs.md]
+
+    style A fill:#91d5ff,stroke:#1890ff,stroke-width:2px
+    style C fill:#b7eb8f,stroke:#52c41a
+    style D fill:#b7eb8f,stroke:#52c41a
+    style E fill:#b7eb8f,stroke:#52c41a
+    style F fill:#b7eb8f,stroke:#52c41a
+    style G fill:#b7eb8f,stroke:#52c41a
+    style H fill:#b7eb8f,stroke:#52c41a
+</code></pre>
+<h3 id="12-checklist-preparation">1.2 Checklist préparation</h3>
+<ul>
+<li>[ ] J'ai un compte GitHub</li>
+<li>[ ] Je connais mon service (SIRCOM, SNUM, etc.)</li>
+<li>[ ] J'ai lu le <a href="../contributing/">CONTRIBUTING.md</a></li>
+<li>[ ] Je sais qui contacter (Bertrand, Alex)</li>
+</ul>
+<h3 id="13-ressources-utiles">1.3 Ressources utiles</h3>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Description</th>
+<th>Lien</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Template module</td>
+<td>Structure 33 critères DINUM</td>
+<td><a href="../modules/_template/">_template.md</a></td>
+</tr>
+<tr>
+<td>Checklist DINUM</td>
+<td>33 points officiels</td>
+<td><a href="../adr/006-migration-checklist-33-criteres/">ADR-006</a></td>
+</tr>
+<tr>
+<td>Guide local</td>
+<td>Développement Docker</td>
+<td><a href="../dev-local/">dev-local.md</a></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="etape-2-premiere-modification-15-minutes">Étape 2 : Première Modification (15 minutes)</h2>
+<h3 id="21-interface-github-recommande">2.1 Interface GitHub (recommandé)</h3>
+<p>Workflow simplifié sans installation Git.</p>
+<pre><code class="language-mermaid">flowchart TD
+    A[Ouvrir GitHub&lt;br/&gt;span-sg/docs/modules/] --&gt; B[Cliquer votre fichier&lt;br/&gt;Ex: sircom.md]
+    B --&gt; C[Cliquer icône ✏️&lt;br/&gt;Edit this file]
+    C --&gt; D{Que faire?}
+
+    D --&gt;|Cocher critères| E[Remplacer [ ] par [x]&lt;br/&gt;Lignes avec DINUM]
+    D --&gt;|Ajouter actions| F[Compléter tableau&lt;br/&gt;Plan d'actions 2025]
+    D --&gt;|URL déclaration| G[Section Déclaration&lt;br/&gt;Renseigner URL]
+
+    E --&gt; H[Scroll en bas]
+    F --&gt; H
+    G --&gt; H
+
+    H --&gt; I[Commit message&lt;br/&gt;Ex: feat sircom ajoute 3 actions]
+    I --&gt; J[Create new branch&lt;br/&gt;update-sircom-221022]
+    J --&gt; K[Propose changes]
+
+    K --&gt; L[Create Pull Request]
+    L --&gt; M{Base: draft?}
+    M --&gt;|✅ Oui| N[Create PR]
+    M --&gt;|❌ Non| O[Changer base → draft]
+    O --&gt; N
+
+    style C fill:#91d5ff,stroke:#1890ff,stroke-width:2px
+    style N fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
+</code></pre>
+<h3 id="22-exemple-modification">2.2 Exemple modification</h3>
+<p><strong>Avant :</strong></p>
+<pre><code class="language-markdown">- [ ] 1.1.1 Nommer un référent accessibilité &lt;!-- DINUM --&gt;
+</code></pre>
+<p><strong>Après :</strong></p>
+<pre><code class="language-markdown">- [x] 1.1.1 Nommer un référent accessibilité &lt;!-- DINUM --&gt;
+</code></pre>
+<p><strong>ATTENTION :</strong>
+- ✅ Cocher/décocher <code>[x]</code> ou <code>[ ]</code>
+- ✅ Modifier texte sections 1-5
+- ❌ NE PAS supprimer <code>&lt;!-- DINUM --&gt;</code>
+- ❌ NE PAS ajouter de nouvelles lignes DINUM</p>
+<hr/>
+<h2 id="etape-3-review-et-validation-2-5-jours">Étape 3 : Review et Validation (2-5 jours)</h2>
+<h3 id="31-cycle-de-review">3.1 Cycle de review</h3>
+<pre><code class="language-mermaid">stateDiagram-v2
+    [*] --&gt; Draft: Vous créez PR
+    Draft --&gt; InReview: Validateur notifié
+    InReview --&gt; ChangesRequested: Commentaires
+    InReview --&gt; Approved: Validation OK
+    ChangesRequested --&gt; Draft: Vous corrigez
+    Approved --&gt; Merged: Validateur merge
+    Merged --&gt; [*]: Déployé /draft/
+
+    note right of InReview
+        Bertrand ou Alex
+        Délai: 2-5 jours
+    end note
+
+    note left of ChangesRequested
+        Vous recevez email
+        Corrigez puis re-push
+    end note
+</code></pre>
+<h3 id="32-notifications-email">3.2 Notifications email</h3>
+<p>Vous recevrez automatiquement :</p>
+<ol>
+<li><strong>PR créée</strong> : Confirmation création</li>
+<li><strong>Review comments</strong> : Demandes de modifications</li>
+<li><strong>Approved</strong> : Validation par validateur</li>
+<li><strong>Merged</strong> : PR intégrée à draft</li>
+<li><strong>CI/CD success</strong> : Build et déploiement OK</li>
+</ol>
+<h3 id="33-dashboard-pr">3.3 Dashboard PR</h3>
+<p>Suivez l'état de votre PR sur GitHub :</p>
+<pre><code>https://github.com/Alexmacapple/span-sg/pulls
+</code></pre>
+<p>Filtres utiles :
+- <code>is:pr author:@me</code> : Vos PRs
+- <code>is:pr is:open</code> : PRs en attente
+- <code>is:pr is:merged</code> : PRs intégrées</p>
+<hr/>
+<h2 id="etape-4-cicd-automatique-10-minutes">Étape 4 : CI/CD Automatique (10 minutes)</h2>
+<h3 id="41-pipeline-de-validation">4.1 Pipeline de validation</h3>
+<p>Après merge de votre PR, le pipeline CI/CD s'exécute automatiquement.</p>
+<pre><code class="language-mermaid">graph LR
+    A[PR Merged] --&gt; B[GitHub Actions&lt;br/&gt;Trigger]
+    B --&gt; C[Linting&lt;br/&gt;Black + Ruff]
+    C --&gt; D{Code OK?}
+    D --&gt;|❌| E[FAIL&lt;br/&gt;Corrigez]
+    D --&gt;|✅| F[Tests 33&lt;br/&gt;Pytest]
+
+    F --&gt; G{Tests pass?}
+    G --&gt;|❌| E
+    G --&gt;|✅| H[Security&lt;br/&gt;Bandit + Safety]
+
+    H --&gt; I{Sécurité OK?}
+    I --&gt;|❌| E
+    I --&gt;|✅| J[Build HTML&lt;br/&gt;MkDocs DSFR]
+
+    J --&gt; K[Generate PDF&lt;br/&gt;WeasyPrint]
+    K --&gt; L[Deploy /draft/&lt;br/&gt;GitHub Pages]
+
+    L --&gt; M[✅ Preview&lt;br/&gt;disponible]
+
+    style E fill:#ff6b6b
+    style M fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
+</code></pre>
+<h3 id="42-monitoring-build">4.2 Monitoring build</h3>
+<p>Suivez le build en temps réel :</p>
+<pre><code>https://github.com/Alexmacapple/span-sg/actions
+</code></pre>
+<p>Statuts possibles :
+- ⏳ <strong>In progress</strong> (jaune) : Build en cours (~6 min)
+- ✅ <strong>Success</strong> (vert) : Déployé avec succès
+- ❌ <strong>Failed</strong> (rouge) : Erreur (contactez validateur)</p>
+<h3 id="43-logs-utiles">4.3 Logs utiles</h3>
+<p>En cas d'erreur, consultez :</p>
+<ol>
+<li><strong>Calculate SPAN scores</strong> : Erreur comptage critères</li>
+<li><strong>Build site DSFR</strong> : Erreur Markdown/YAML</li>
+<li><strong>Validate PDF</strong> : Erreur génération PDF</li>
+</ol>
+<hr/>
+<h2 id="etape-5-deploiement-production-sur-demande">Étape 5 : Déploiement Production (sur demande)</h2>
+<h3 id="51-de-draft-a-main">5.1 De draft à main</h3>
+<p>Votre contribution est maintenant sur <code>/draft/</code>. Pour passer en production :</p>
+<pre><code class="language-mermaid">graph TB
+    A[Votre PR merged&lt;br/&gt;sur draft] --&gt; B[Validation interne&lt;br/&gt;Bertrand + Alex]
+    B --&gt; C{Prêt prod?}
+    C --&gt;|Non| D[Attente autres&lt;br/&gt;contributions]
+    C --&gt;|Oui| E[Chef SNUM&lt;br/&gt;Approuve release]
+
+    E --&gt; F[PR draft → main&lt;br/&gt;Créée par validateur]
+    F --&gt; G[Tests E2E&lt;br/&gt;9 scénarios]
+    G --&gt; H{E2E pass?}
+    H --&gt;|❌| I[Rollback&lt;br/&gt;Investigation]
+    H --&gt;|✅| J[Merge main&lt;br/&gt;Déploiement /]
+
+    J --&gt; K[✅ Production&lt;br/&gt;Public]
+
+    style D fill:#ffe7ba,stroke:#fa8c16
+    style I fill:#ff6b6b
+    style K fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
+</code></pre>
+<h3 id="52-timeline-typique">5.2 Timeline typique</h3>
+<table>
+<thead>
+<tr>
+<th>Événement</th>
+<th>Délai</th>
+<th>Acteur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contribution initiale</td>
+<td>J+0</td>
+<td>Vous</td>
+</tr>
+<tr>
+<td>Review PR</td>
+<td>J+2-5</td>
+<td>Validateur</td>
+</tr>
+<tr>
+<td>Merge draft</td>
+<td>J+5</td>
+<td>Validateur</td>
+</tr>
+<tr>
+<td>Accumulation contributions</td>
+<td>J+5-30</td>
+<td>Équipe</td>
+</tr>
+<tr>
+<td>Release v1.x</td>
+<td>J+30-60</td>
+<td>Chef SNUM</td>
+</tr>
+<tr>
+<td>Production publique</td>
+<td>J+30-60</td>
+<td>Automatique</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="faq-contributeur">FAQ Contributeur</h2>
+<h3 id="combien-de-temps-prend-une-contribution">Combien de temps prend une contribution ?</h3>
+<ul>
+<li>✏️ <strong>Modification</strong> : 15 minutes</li>
+<li>🔍 <strong>Review</strong> : 2-5 jours</li>
+<li>🚀 <strong>Déploiement draft</strong> : 10 minutes (automatique)</li>
+<li>🌐 <strong>Production</strong> : 30-60 jours (groupé avec autres contributions)</li>
+</ul>
+<h3 id="puis-je-voir-ma-contribution-avant-production">Puis-je voir ma contribution avant production ?</h3>
+<p>Non, la preview <code>/draft/</code> est désactivée (accès org-only). Options :</p>
+<ol>
+<li><strong>Build local</strong> : Suivre <a href="../dev-local/">dev-local.md</a> (Docker)</li>
+<li><strong>PDF</strong> : Télécharger depuis Artifacts CI (nécessite compte GitHub)</li>
+<li><strong>Attendre production</strong> : Visible après merge main</li>
+</ol>
+<h3 id="que-faire-si-ma-pr-est-rejetee">Que faire si ma PR est rejetée ?</h3>
+<ol>
+<li>Lire les commentaires du validateur</li>
+<li>Corriger les points soulevés</li>
+<li>Push les modifications (même branche)</li>
+<li>Notifier le validateur (@bertrand @alex)</li>
+</ol>
+<h3 id="puis-je-modifier-plusieurs-services">Puis-je modifier plusieurs services ?</h3>
+<p>Oui, mais créez une PR par service :</p>
+<ul>
+<li>✅ <code>PR #1</code> : <code>feat(sircom): ajoute 3 actions</code></li>
+<li>✅ <code>PR #2</code> : <code>feat(snum): coche 5 critères</code></li>
+<li>❌ <code>PR #3</code> : <code>feat(sircom,snum): modifications multiples</code> (découragé)</li>
+</ul>
+<h3 id="puis-je-contribuer-sans-github">Puis-je contribuer sans GitHub ?</h3>
+<p>Non, GitHub est obligatoire. Alternative :</p>
+<ol>
+<li>Créer compte GitHub gratuit : https://github.com/signup</li>
+<li>Demander ajout organisation : Contacter Bertrand/Alex</li>
+<li>Suivre ce guide onboarding</li>
+</ol>
+<hr/>
+<h2 id="ressources-et-support">Ressources et Support</h2>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li><a href="../contributing/">CONTRIBUTING.md</a> : Guide détaillé Git + GitHub</li>
+<li><a href="https://github.com/Alexmacapple/span-sg/blob/main/HOWTO.md">HOWTO.md</a> : Commandes utiles Docker + MkDocs</li>
+<li><a href="../dev-local/">dev-local.md</a> : Setup environnement local</li>
+</ul>
+<h3 id="contacts">Contacts</h3>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Contact</th>
+<th>Email</th>
+<th>Disponibilité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Validateur</td>
+<td>Bertrand</td>
+<td>@bertrand</td>
+<td>Sous 48h</td>
+</tr>
+<tr>
+<td>Validateur</td>
+<td>Alex</td>
+<td>@alex</td>
+<td>Sous 48h</td>
+</tr>
+<tr>
+<td>Sponsor</td>
+<td>Chef SNUM</td>
+<td>(via validateurs)</td>
+<td>Sur demande</td>
+</tr>
+</tbody>
+</table>
+<h3 id="canaux-support">Canaux support</h3>
+<ol>
+<li><strong>GitHub Issues</strong> : https://github.com/Alexmacapple/span-sg/issues</li>
+<li><strong>GitHub Discussions</strong> : Q&amp;A et suggestions</li>
+<li><strong>Email</strong> : Contacter validateurs directement</li>
+</ol>
+<hr/>
+<h2 id="diagramme-recapitulatif">Diagramme Récapitulatif</h2>
+<p>Vue d'ensemble complète du workflow contributeur.</p>
+<pre><code class="language-mermaid">graph TB
+    subgraph "Vous - Contributeur"
+        A[1. Éditer module GitHub]
+        B[2. Créer PR → draft]
+        C[3. Répondre review]
+    end
+
+    subgraph "Validateurs"
+        D[4. Review PR]
+        E[5. Merge draft]
+        F[6. Créer PR main]
+    end
+
+    subgraph "Chef SNUM"
+        G[7. Approuve release]
+        H[8. Merge main]
+    end
+
+    subgraph "CI/CD Automatique"
+        I[9. Build + Tests]
+        J[10. Deploy /draft/]
+        K[11. E2E tests]
+        L[12. Deploy / prod]
+    end
+
+    subgraph "Résultats"
+        M[✅ Preview org-only]
+        N[✅ Production public]
+    end
+
+    A --&gt; B
+    B --&gt; D
+    D --&gt; C
+    C --&gt; D
+    D --&gt; E
+    E --&gt; I
+    I --&gt; J
+    J --&gt; M
+
+    E --&gt; F
+    F --&gt; G
+    G --&gt; H
+    H --&gt; K
+    K --&gt; L
+    L --&gt; N
+
+    style A fill:#91d5ff,stroke:#1890ff,stroke-width:2px
+    style M fill:#ffe7ba,stroke:#fa8c16,stroke-width:2px
+    style N fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
+</code></pre>
+<hr/>
+<h2 id="prochaines-etapes">Prochaines Étapes</h2>
+<p>Félicitations ! Vous êtes prêt à contribuer.</p>
+<p><strong>Actions recommandées :</strong></p>
+<ol>
+<li>[ ] Créer votre première PR (modification simple)</li>
+<li>[ ] Suivre le build CI/CD sur Actions</li>
+<li>[ ] Attendre review (2-5 jours)</li>
+<li>[ ] Setup build local (optionnel, voir <a href="../dev-local/">dev-local.md</a>)</li>
+<li>[ ] Contribuer régulièrement (mise à jour trimestrielle SPAN)</li>
+</ol>
+<p><strong>Besoin d'aide ?</strong></p>
+<p>Contactez Bertrand (@bertrand) ou Alex (@alex) via GitHub.</p>
+<p>Bonne contribution ! 🚀</p>
+</div>
+</div><footer>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg" style="color: #fcfcfc"> GitHub</a>
+</span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>

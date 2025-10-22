@@ -1,619 +1,106 @@
-
 <!DOCTYPE html>
-<html lang="fr" data-fr-scheme="system">
+
+<html class="writer-html5" lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../../dsfr.min.css">
-    <link rel="stylesheet" href="../../utility/utility.min.css">
-    <link rel="stylesheet" href="../../css/theme.css">
-
-    <meta name="theme-color" content="#000091">
-    <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
-    <link rel="apple-touch-icon" href="../../ favicon /apple-touch-icon.png">
-    <!-- 180×180 -->
-    <link rel="icon" href="../../favicon/favicon.svg" type="image/svg+xml">
-    <link rel="shortcut icon" href="../../favicon/favicon.ico">
-    <!-- 32×32 -->
-    <link rel="manifest" href="../../favicon/manifest.webmanifest" crossorigin="use-credentials">
-    <script src="../../js/postprocess.js" defer></script>
-
-    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
-    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
-    
-
-    <title>Guide Composants DSFR</title>
-    
-    
-</head>
-<body>
-    <div class="fr-skiplinks">
-  <nav role="navigation" aria-label="Accès rapide" class="fr-container">
-    <ul class="fr-skiplinks__list">
-      <li>
-        <a class="fr-link" href="#content">Contenu</a>
-      </li>
-      <li>
-        <a class="fr-link" href="#header-navigation">Menu</a>
-      </li>
-      
-      <li>
-        <a class="fr-link" href="#search-modal">Recherche</a>
-      </li>
-      
-      <li>
-        <a class="fr-link" href="#footer">Pied de page</a>
-      </li>
-    </ul>
-  </nav>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg/dev/dsfr-components-guide/" rel="canonical"/>
+<link href="../../img/favicon.ico" rel="shortcut icon"/>
+<title>Guide d'utilisation des composants DSFR</title>
+<link href="../../css/theme.css" rel="stylesheet"/>
+<link href="../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Guide d\u0027utilisation des composants DSFR";
+        var mkdocs_page_input_path = "dev/dsfr-components-guide.md";
+        var mkdocs_page_url = "/span-sg/dev/dsfr-components-guide/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../..">
+</a><div role="search">
+<form action="../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
 </div>
-    <header role="banner" class="fr-header">
-    <div class="fr-header__body">
-        <div class="fr-container">
-            <div class="fr-header__body-row">
-                <div class="fr-header__brand fr-enlarge-link">
-                    <div class="fr-header__brand-top">
-                        <div class="fr-header__logo">
-                            <p class="fr-logo" style="">
-                                GOUVERNEMENT
-                            </p>
-                        </div>
-
-                        <div class="fr-header__navbar">
-                            
-                            <button
-                                class="fr-btn--search fr-btn"
-                                data-fr-opened="false"
-                                aria-controls="modal-541"
-                                id="button-542"
-                                title="Rechercher"
-                            >
-                                Rechercher
-                            </button>
-                            
-                            <button
-                                class="fr-btn--menu fr-btn"
-                                data-fr-opened="false"
-                                aria-controls="modal-543"
-                                aria-haspopup="menu"
-                                id="button-544"
-                                title="Menu"
-                            >
-                                Menu
-                            </button>
-                        </div>
-                    </div>
-                    <div class="fr-header__service">
-                        <a href="/" title="Retour à l'accueil du site - SPAN SG">
-                            <p class="fr-header__service-title">
-                                SPAN SG
-                            </p>
-                        </a>
-                        <p class="fr-header__service-tagline">
-                            Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général
-                        </p>
-                    </div>
-                </div>
-                <div class="fr-header__tools">
-                    
-                    <div class="fr-header__tools-links">
-                        <ul class="fr-btns-group">
-                            <li>
-                                <a
-                                    href="https://github.com/Alexmacapple/span-sg/blob/main/docs/dev/dsfr-components-guide.md"
-                                    target="_blank"
-                                    rel="noopener"
-                                    class="fr-btn"
-                                    >Éditer dans GitHub</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="fr-header__search fr-modal" id="search-modal">
-                        <div class="fr-container fr-container-lg--fluid">
-                            <button
-                                class="fr-btn--close fr-btn"
-                                aria-controls="modal-541"
-                                title="Fermer"
-                            >
-                                Fermer
-                            </button>
-                            
-                            <form action="../../search.html">
-                                <div
-                                    class="fr-search-bar"
-                                    id="search-540"
-                                    role="search"
-                                >
-                                    <label
-                                        class="fr-label"
-                                        for="mkdocs-search-query"
-                                    >
-                                        Rechercher
-                                    </label>
-                                    <input
-                                        class="fr-input search_input search-query ui-autocomplete-input"
-                                        placeholder="Rechercher"
-                                        type="text"
-                                        id="mkdocs-search-query"
-                                        name="q"
-                                    />
-                                    <button
-                                        class="fr-btn"
-                                        title="Rechercher"
-                                        type="submit"
-                                    >
-                                        Rechercher
-                                    </button>
-                                </div>
-                            </form>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div
-        class="fr-header__menu fr-modal"
-        id="modal-543"
-        aria-labelledby="button-544"
-    >
-        <div class="fr-container">
-            <button
-                class="fr-btn--close fr-btn"
-                aria-controls="modal-543"
-                title="Fermer"
-            >
-                Fermer
-            </button>
-            <div class="fr-header__menu-links"></div>
-            <nav
-    class="fr-nav navbar-header"
-    id="header-navigation"
-    role="navigation"
-    aria-label="Menu principal"
->
-    <ul class="fr-nav__list">
-         
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../.."
-                target="_self"
-                
-                >SPAN (SG)</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
-                target="_self"
-                
-                >Contexte réglementaire</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <button
-                class="fr-nav__btn"
-                aria-expanded="false"
-                aria-controls="menu-7763"
-                
-            >
-                SPAN (services)
-            </button>
-            <div class="fr-collapse fr-menu" id="menu-7763">
-                <ul class="fr-menu__list">
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../modules/bgs/"
-                            target="_self"
-                            >BGS</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../modules/safi/"
-                            target="_self"
-                            >SAFI</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../modules/siep/"
-                            target="_self"
-                            >SIEP</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../modules/sircom/"
-                            target="_self"
-                            >SIRCOM</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../modules/snum/"
-                            target="_self"
-                            >SNUM</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../modules/srh/"
-                            target="_self"
-                            >SRH</a
-                        >
-                    </li>
-                    
-                </ul>
-            </div>
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../processus/"
-                target="_self"
-                
-                >Processus</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../accompagnement/"
-                target="_self"
-                
-                >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <button
-                class="fr-nav__btn"
-                aria-expanded="false"
-                aria-controls="menu-7767"
-                
-                aria-current="true"
-                
-            >
-                Documentation technique
-            </button>
-            <div class="fr-collapse fr-menu" id="menu-7767">
-                <ul class="fr-menu__list">
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../api-reference/"
-                            target="_self"
-                            >API Reference</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../hooks-guide/"
-                            target="_self"
-                            >Guide Hooks</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            aria-current="page"
-                            
-                            href="./"
-                            target="_self"
-                            >Guide Composants DSFR</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../dev-local/"
-                            target="_self"
-                            >Développement local</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../contributing/"
-                            target="_self"
-                            >Guide contributeur</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../.."
-                            target="_self"
-                            >ADR (Décisions)</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../architecture/diagrams/"
-                            target="_self"
-                            >Diagrammes</a
-                        >
-                    </li>
-                    
-                </ul>
-            </div>
-        </li>
-          
-        <li class="fr-nav__item">
-            <button
-                class="fr-nav__btn"
-                aria-expanded="false"
-                aria-controls="menu-7768"
-                
-            >
-                Informations légales
-            </button>
-            <div class="fr-collapse fr-menu" id="menu-7768">
-                <ul class="fr-menu__list">
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../accessibilite/"
-                            target="_self"
-                            >Accessibilité</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../mentions-legales/"
-                            target="_self"
-                            >Mentions légales</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../donnees-personnelles/"
-                            target="_self"
-                            >Données personnelles</a
-                        >
-                    </li>
-                    
-                </ul>
-            </div>
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="https://github.com/Alexmacapple/span-sg-repo"
-                target="_self"
-                
-                >Code source GitHub</a
-            >
-        </li>
-         
-    </ul>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../..">SPAN (SG)</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SPAN (services)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/bgs/">BGS</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/safi/">SAFI</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/siep/">SIEP</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/sircom/">SIRCOM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/snum/">SNUM</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/srh/">SRH</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../synthese/">Synthèse</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../processus/">Processus</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Guide contributeur</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-local/">Développement local</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg">Code source GitHub</a>
+</li>
+</ul>
+</div>
+</div>
 </nav>
-        </div>
-    </div>
-</header>
-    <main id="content" role="main">
-        
-        <div class="fr-container markdown-content">
-            <div class="fr-grid-row">
-                
-                
-                    
-                
-
-                
-                    
-<div class="fr-col-12 fr-col-md-3 fr-py-1v">
-    <nav
-        class="fr-sidemenu fr-sidemenu--sticky-full-height fr-mb-0-5v"
-        role="navigation"
-        aria-label="Menu latéral"
-    >
-        
-        <div class="fr-sidemenu__inner">
-            <button
-                class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
-                aria-expanded="true"
-            >
-                Guide d'utilisation des composants DSFR
-            </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
-                <div class="fr-sidemenu__title">Guide d'utilisation des composants DSFR</div>
-                <ul class="fr-sidemenu__list">
-                     
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#table-des-matieres"
-                            target="_self"
-                            >Table des matières</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#introduction"
-                            target="_self"
-                            >Introduction</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#cards-cartes-de-navigation"
-                            target="_self"
-                            >Cards - Cartes de navigation</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#callouts-encadres-informatifs"
-                            target="_self"
-                            >Callouts - Encadrés informatifs</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#badges-indicateurs-detat"
-                            target="_self"
-                            >Badges - Indicateurs d'état</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#alerts-notifications"
-                            target="_self"
-                            >Alerts - Notifications</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#grid-grilles-responsives"
-                            target="_self"
-                            >Grid - Grilles responsives</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#tables-tableaux-accessibles"
-                            target="_self"
-                            >Tables - Tableaux accessibles</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#snippets-reutilisables"
-                            target="_self"
-                            >Snippets réutilisables</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#accordions-accordeons-pliables"
-                            target="_self"
-                            >Accordions - Accordéons pliables</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#tabs-onglets"
-                            target="_self"
-                            >Tabs - Onglets</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#references-complementaires"
-                            target="_self"
-                            >Références complémentaires</a
-                        >
-                    </li>
-                     
-                </ul>
-            </div>
-        </div>
-        
-    </nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../.."></a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href="../.."></a></li>
+<li class="breadcrumb-item active">Guide d'utilisation des composants DSFR</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg/edit/master/docs/dev/dsfr-components-guide.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
 </div>
-
-                    
-                        <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
-                    
-                
-
-                
-
-                
-                        
-                        <h1 id="guide-dutilisation-des-composants-dsfr">Guide d'utilisation des composants DSFR</h1>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="guide-dutilisation-des-composants-dsfr">Guide d'utilisation des composants DSFR</h1>
 <p>Ce guide documente l'utilisation des composants du Système de Design de l'État (DSFR) dans le projet SPAN SG avec le thème mkdocs-dsfr v0.17.0.</p>
 <p>Version: 1.0.0
 Date: 2025-10-14
 Auteur: Équipe technique SPAN SG</p>
-<hr />
+<hr/>
 <h2 id="table-des-matieres">Table des matières</h2>
 <ol>
 <li><a href="#introduction">Introduction</a></li>
@@ -627,7 +114,7 @@ Auteur: Équipe technique SPAN SG</p>
 <li><a href="#tabs-onglets">Tabs - Onglets</a></li>
 <li><a href="#snippets-reutilisables">Snippets réutilisables</a></li>
 </ol>
-<hr />
+<hr/>
 <h2 id="introduction">Introduction</h2>
 <p>Le thème mkdocs-dsfr utilise l'extension <code>dsfr_structure.extension.all_extensions</code> qui permet d'écrire des composants DSFR en syntaxe Markdown simplifiée.</p>
 <h3 id="reference-officielle">Référence officielle</h3>
@@ -638,25 +125,23 @@ Auteur: Équipe technique SPAN SG</p>
 </ul>
 <h3 id="configuration-requise">Configuration requise</h3>
 <p>Dans <code>mkdocs-dsfr.yml</code> :</p>
-<div class="highlight"><pre><span></span><code><span class="nt">markdown_extensions</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dsfr_structure.extension.all_extensions</span><span class="w">  </span><span class="c1"># Active tous composants DSFR</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.superfences</span><span class="w">  </span><span class="c1"># Support syntaxe ///</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attr_list</span><span class="w">  </span><span class="c1"># Support attributs HTML</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">def_list</span><span class="w">   </span><span class="c1"># Support listes définitions</span>
-</code></pre></div>
-<hr />
+<pre><code class="language-yaml">markdown_extensions:
+  - dsfr_structure.extension.all_extensions  # Active tous composants DSFR
+  - pymdownx.superfences  # Support syntaxe ///
+  - attr_list  # Support attributs HTML
+  - def_list   # Support listes définitions
+</code></pre>
+<hr/>
 <h2 id="cards-cartes-de-navigation">Cards - Cartes de navigation</h2>
 <p>Les cards DSFR sont utilisées pour créer des cartes de navigation visuelles avec badges et liens.</p>
 <h3 id="syntaxe-de-base">Syntaxe de base</h3>
-<div class="highlight"><pre><span></span><code>/// card | Titre de la card
+<pre><code class="language-markdown">/// card | Titre de la card
     target: chemin/vers/page.md
     badge: Texte badge | type
 Description de la card affichée en bas
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="parametres">Paramètres</h3>
-<div class="fr-table">
-<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -693,8 +178,6 @@ Description de la card affichée en bas
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <h3 id="types-de-badges">Types de badges</h3>
 <ul>
 <li><code>success</code> : Vert (validé, conforme)</li>
@@ -703,46 +186,44 @@ Description de la card affichée en bas
 <li><code>info</code> : Bleu (information)</li>
 </ul>
 <h3 id="exemple-complet-docsindexmd125-129">Exemple complet (docs/index.md:125-129)</h3>
-<div class="highlight"><pre><span></span><code>/// card | SIRCOM
+<pre><code class="language-markdown">/// card | SIRCOM
     target: modules/sircom.md
     badge: Validé | success
 Service de la Communication - Portails ministériels, sites internet/intranet
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="rendu-html-genere">Rendu HTML généré</h3>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-card fr-enlarge-link&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;card-0&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-card__body&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-card__content&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">h5</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-card__title&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;sircom&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;modules/sircom/&quot;</span><span class="p">&gt;</span>SIRCOM<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-card__start&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-badge fr-badge--success&quot;</span><span class="p">&gt;</span>Validé<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-card__end&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-card__detail&quot;</span><span class="p">&gt;</span>Service de la Communication...<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;div class="fr-card fr-enlarge-link" id="card-0"&gt;
+  &lt;div class="fr-card__body"&gt;
+    &lt;div class="fr-card__content"&gt;
+      &lt;h5 class="fr-card__title" id="sircom"&gt;
+        &lt;a href="modules/sircom/"&gt;SIRCOM&lt;/a&gt;
+      &lt;/h5&gt;
+      &lt;div class="fr-card__start"&gt;
+        &lt;p class="fr-badge fr-badge--success"&gt;Validé&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="fr-card__end"&gt;
+        &lt;p class="fr-card__detail"&gt;Service de la Communication...&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 <h3 id="cas-dusage">Cas d'usage</h3>
 <p>Navigation homepage vers modules de services (docs/index.md:119-167)</p>
-<hr />
+<hr/>
 <h2 id="callouts-encadres-informatifs">Callouts - Encadrés informatifs</h2>
 <p>Les callouts sont des encadrés visuels pour mettre en avant des informations importantes.</p>
 <h3 id="syntaxe-de-base_1">Syntaxe de base</h3>
-<div class="highlight"><pre><span></span><code>/// callout | Titre du callout
+<pre><code class="language-markdown">/// callout | Titre du callout
     icon: nom-icon-remixicon
     color: couleur-dsfr
     link_label: Texte lien
     link_url: https://example.com
 Contenu du callout en Markdown
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="parametres_1">Paramètres</h3>
-<div class="fr-table">
-<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -785,8 +266,6 @@ Contenu du callout en Markdown
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <h3 id="couleurs-dsfr-disponibles">Couleurs DSFR disponibles</h3>
 <ul>
 <li><code>blue-france</code> : Bleu France (défaut, informatif)</li>
@@ -804,42 +283,40 @@ Contenu du callout en Markdown
 - <code>building-line</code> : Bâtiment
 - <code>user-line</code> : Utilisateur</p>
 <h3 id="exemple-1-callout-informatif-docsaccompagnementmd">Exemple 1 : Callout informatif (docs/accompagnement.md)</h3>
-<div class="highlight"><pre><span></span><code>/// callout | Besoin d&#39;aide ?
+<pre><code class="language-markdown">/// callout | Besoin d'aide ?
     icon: question-line
     color: blue-france
     link_label: Contacter la MiWeb
     link_url: mailto:accessibilite.miweb@finances.gouv.fr
 La MiWeb accompagne les référents de service dans la complétion de leur SPAN.
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="exemple-2-callout-alerte-docsprocessusmd92-96">Exemple 2 : Callout alerte (docs/processus.md:92-96)</h3>
-<div class="highlight"><pre><span></span><code>/// callout | Actions critiques pour le succès
+<pre><code class="language-markdown">/// callout | Actions critiques pour le succès
     icon: alert-line
     color: orange-terre-battue
-Ces 6 actions préalables conditionnent la réussite de votre SPAN. Ne pas les réaliser expose à l&#39;échec du projet, à des sanctions financières (jusqu&#39;à 75K€/site) et à un risque réputationnel important.
+Ces 6 actions préalables conditionnent la réussite de votre SPAN. Ne pas les réaliser expose à l'échec du projet, à des sanctions financières (jusqu'à 75K€/site) et à un risque réputationnel important.
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="exemple-3-callout-financement-docsprocessusmd99-104">Exemple 3 : Callout financement (docs/processus.md:99-104)</h3>
-<div class="highlight"><pre><span></span><code>/// callout | Financement FIPHFP disponible
+<pre><code class="language-markdown">/// callout | Financement FIPHFP disponible
     icon: money-euro-circle-line
     color: green-menthe
     link_label: En savoir plus sur le FIPHFP
     link_url: https://www.fiphfp.fr/
-Le FIPHFP peut financer jusqu&#39;à 10 000€ par an pendant 3 ans (30 000€ total) pour vos actions d&#39;accessibilité : formations, audits RGAA, outils spécialisés.
+Le FIPHFP peut financer jusqu'à 10 000€ par an pendant 3 ans (30 000€ total) pour vos actions d'accessibilité : formations, audits RGAA, outils spécialisés.
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="exemple-4-callout-critique-exemple">Exemple 4 : Callout critique (exemple)</h3>
-<div class="highlight"><pre><span></span><code>/// callout | Échéance légale imminente
+<pre><code class="language-markdown">/// callout | Échéance légale imminente
     icon: time-line
     color: red-marianne
     link_label: Voir le calendrier
     link_url: /processus/#calendrier
 Tous les services publics doivent publier leur SPAN avant le 31 décembre 2025 sous peine de sanctions Arcom.
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="difference-avec-alerts">Différence avec Alerts</h3>
-<div class="fr-table">
-<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -866,19 +343,15 @@ Tous les services publics doivent publier leur SPAN avant le 31 décembre 2025 s
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<hr />
+<hr/>
 <h2 id="badges-indicateurs-detat">Badges - Indicateurs d'état</h2>
 <p>Les badges DSFR sont utilisés pour indiquer l'état ou le statut d'un élément.</p>
 <h3 id="pourquoi-html-au-lieu-de-markdown">Pourquoi HTML au lieu de Markdown ?</h3>
 <p><strong>Contexte (ADR-002)</strong> : La syntaxe Markdown <code>/// badge</code> ne fonctionne pas dans les tableaux HTML. Le projet utilise donc la syntaxe HTML DSFR native pour les badges dans les tableaux.</p>
 <h3 id="syntaxe-html-dsfr">Syntaxe HTML DSFR</h3>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-badge fr-badge--{type}&quot;</span><span class="p">&gt;</span>{Texte}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;p class="fr-badge fr-badge--{type}"&gt;{Texte}&lt;/p&gt;
+</code></pre>
 <h3 id="types-de-badges_1">Types de badges</h3>
-<div class="fr-table">
-<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -915,53 +388,49 @@ Tous les services publics doivent publier leur SPAN avant le 31 décembre 2025 s
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <h3 id="exemple-1-badge-dans-tableau-docssynthesemd">Exemple 1 : Badge dans tableau (docs/synthese.md)</h3>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-badge fr-badge--success&quot;</span><span class="p">&gt;</span>Validé<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;td&gt;
+    &lt;p class="fr-badge fr-badge--success"&gt;Validé&lt;/p&gt;
+&lt;/td&gt;
+</code></pre>
 <h3 id="exemple-2-badge-warning">Exemple 2 : Badge warning</h3>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-badge fr-badge--warning&quot;</span><span class="p">&gt;</span>Brouillon<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;p class="fr-badge fr-badge--warning"&gt;Brouillon&lt;/p&gt;
+</code></pre>
 <h3 id="exemple-3-badge-error">Exemple 3 : Badge error</h3>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-badge fr-badge--error&quot;</span><span class="p">&gt;</span>Non renseigné<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;p class="fr-badge fr-badge--error"&gt;Non renseigné&lt;/p&gt;
+</code></pre>
 <h3 id="exemple-4-badge-info">Exemple 4 : Badge info</h3>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-badge fr-badge--info&quot;</span><span class="p">&gt;</span>En cours<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;p class="fr-badge fr-badge--info"&gt;En cours&lt;/p&gt;
+</code></pre>
 <h3 id="generation-dynamique-scriptscalculate_scorespy42-66">Génération dynamique (scripts/calculate_scores.py:42-66)</h3>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate_status_badge</span><span class="p">(</span><span class="n">checked</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">total</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Génère badge HTML DSFR selon score.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">total</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;&lt;p class=&quot;fr-badge fr-badge--error&quot;&gt;Non renseigné&lt;/p&gt;&#39;</span>
-    <span class="k">elif</span> <span class="n">checked</span> <span class="o">==</span> <span class="n">total</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;&lt;p class=&quot;fr-badge fr-badge--success&quot;&gt;Conforme&lt;/p&gt;&#39;</span>
-    <span class="k">elif</span> <span class="n">checked</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;&lt;p class=&quot;fr-badge fr-badge--info&quot;&gt;En cours&lt;/p&gt;&#39;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;&lt;p class=&quot;fr-badge fr-badge--warning&quot;&gt;À démarrer&lt;/p&gt;&#39;</span>
-</code></pre></div>
+<pre><code class="language-python">def generate_status_badge(checked: int, total: int) -&gt; str:
+    """Génère badge HTML DSFR selon score."""
+    if total == 0:
+        return '&lt;p class="fr-badge fr-badge--error"&gt;Non renseigné&lt;/p&gt;'
+    elif checked == total:
+        return '&lt;p class="fr-badge fr-badge--success"&gt;Conforme&lt;/p&gt;'
+    elif checked &gt; 0:
+        return '&lt;p class="fr-badge fr-badge--info"&gt;En cours&lt;/p&gt;'
+    else:
+        return '&lt;p class="fr-badge fr-badge--warning"&gt;À démarrer&lt;/p&gt;'
+</code></pre>
 <h3 id="badges-dans-cards-syntaxe-markdown">Badges dans Cards (syntaxe Markdown)</h3>
 <p>Dans les cards, utiliser la syntaxe Markdown simplifiée :</p>
-<div class="highlight"><pre><span></span><code>/// card | Titre
+<pre><code class="language-markdown">/// card | Titre
     badge: Validé | success
 ///
-</code></pre></div>
+</code></pre>
 <p>Le type <code>success</code>, <code>warning</code>, <code>error</code>, <code>info</code> sera converti en classe CSS <code>fr-badge--{type}</code>.</p>
-<hr />
+<hr/>
 <h2 id="alerts-notifications">Alerts - Notifications</h2>
 <p>Les alerts DSFR sont des notifications système pour informer l'utilisateur.</p>
 <h3 id="syntaxe-de-base_2">Syntaxe de base</h3>
-<div class="highlight"><pre><span></span><code>/// alert | Titre de l&#39;alerte
+<pre><code class="language-markdown">/// alert | Titre de l'alerte
     type: info
-Contenu de l&#39;alerte en Markdown
+Contenu de l'alerte en Markdown
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="types-disponibles">Types disponibles</h3>
-<div class="fr-table">
-<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -998,35 +467,31 @@ Contenu de l&#39;alerte en Markdown
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <h3 id="exemple-1-alert-info">Exemple 1 : Alert info</h3>
-<div class="highlight"><pre><span></span><code>/// alert | Information
+<pre><code class="language-markdown">/// alert | Information
     type: info
 Le site est accessible en mode prévisualisation pendant les travaux.
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="exemple-2-alert-warning">Exemple 2 : Alert warning</h3>
-<div class="highlight"><pre><span></span><code>/// alert | Attention
+<pre><code class="language-markdown">/// alert | Attention
     type: warning
 Cette page sera archivée le 31 décembre 2025. Consultez la nouvelle version.
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="exemple-3-alert-error">Exemple 3 : Alert error</h3>
-<div class="highlight"><pre><span></span><code>/// alert | Erreur de configuration
+<pre><code class="language-markdown">/// alert | Erreur de configuration
     type: error
-Le fichier <span class="sb">`mkdocs.yml`</span> contient des erreurs. Corrigez-les avant de continuer.
+Le fichier `mkdocs.yml` contient des erreurs. Corrigez-les avant de continuer.
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="exemple-4-alert-success">Exemple 4 : Alert success</h3>
-<div class="highlight"><pre><span></span><code>/// alert | Validation réussie
+<pre><code class="language-markdown">/// alert | Validation réussie
     type: success
 Votre SPAN a été validé par le comité de pilotage. Publication prévue le 15/11/2025.
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="alert-vs-callout-quand-utiliser-quoi">Alert vs Callout : Quand utiliser quoi ?</h3>
-<div class="fr-table">
-<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -1058,13 +523,11 @@ Votre SPAN a été validé par le comité de pilotage. Publication prévue le 15
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<hr />
+<hr/>
 <h2 id="grid-grilles-responsives">Grid - Grilles responsives</h2>
 <p>Le système de grille DSFR permet de créer des layouts responsives sur 12 colonnes.</p>
 <h3 id="syntaxe-de-base_3">Syntaxe de base</h3>
-<div class="highlight"><pre><span></span><code>/// row | fr-grid-row--gutters
+<pre><code class="language-markdown">/// row | fr-grid-row--gutters
 /// col | 12 md-6 lg-4
 Contenu colonne 1
 ///
@@ -1075,7 +538,7 @@ Contenu colonne 2
 Contenu colonne 3
 ///
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="structure">Structure</h3>
 <ol>
 <li><strong>Ligne</strong> : <code>/// row | fr-grid-row--gutters</code></li>
@@ -1083,8 +546,6 @@ Contenu colonne 3
 <li><strong>Fermeture</strong> : Trois <code>///</code> pour fermer row</li>
 </ol>
 <h3 id="breakpoints">Breakpoints</h3>
-<div class="fr-table">
-<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -1115,10 +576,8 @@ Contenu colonne 3
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <h3 id="exemple-complet-grille-3-colonnes-docsindexmd123-167">Exemple complet : Grille 3 colonnes (docs/index.md:123-167)</h3>
-<div class="highlight"><pre><span></span><code>/// row | fr-grid-row--gutters
+<pre><code class="language-markdown">/// row | fr-grid-row--gutters
 /// col | 12 md-6 lg-4
 /// card | SIRCOM
     target: modules/sircom.md
@@ -1141,7 +600,7 @@ Service des Ressources Humaines
 ///
 ///
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="rendu-responsive">Rendu responsive</h3>
 <ul>
 <li><strong>Mobile</strong> : 3 cards empilées verticalement (12/12)</li>
@@ -1149,8 +608,6 @@ Service des Ressources Humaines
 <li><strong>Desktop</strong> : 3 cards par ligne (4/12 + 4/12 + 4/12)</li>
 </ul>
 <h3 id="variantes-de-row">Variantes de row</h3>
-<div class="fr-table">
-<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -1177,10 +634,8 @@ Service des Ressources Humaines
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <h3 id="exemple-2-grille-2-colonnes">Exemple 2 : Grille 2 colonnes</h3>
-<div class="highlight"><pre><span></span><code>/// row | fr-grid-row--gutters
+<pre><code class="language-markdown">/// row | fr-grid-row--gutters
 /// col | 12 md-6
 Colonne gauche (50% tablette+)
 ///
@@ -1188,9 +643,9 @@ Colonne gauche (50% tablette+)
 Colonne droite (50% tablette+)
 ///
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="exemple-3-grille-4-colonnes-desktop">Exemple 3 : Grille 4 colonnes desktop</h3>
-<div class="highlight"><pre><span></span><code>/// row | fr-grid-row--gutters
+<pre><code class="language-markdown">/// row | fr-grid-row--gutters
 /// col | 12 sm-6 lg-3
 Colonne 1 (25% desktop)
 ///
@@ -1204,81 +659,79 @@ Colonne 3 (25% desktop)
 Colonne 4 (25% desktop)
 ///
 ///
-</code></pre></div>
-<hr />
+</code></pre>
+<hr/>
 <h2 id="tables-tableaux-accessibles">Tables - Tableaux accessibles</h2>
 <p>Le projet utilise un hook Python pour rendre automatiquement les tableaux Markdown accessibles RGAA.</p>
 <h3 id="hook-automatique-hooksdsfr_table_wrapperpy">Hook automatique (hooks/dsfr_table_wrapper.py)</h3>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_page_content</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">page</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Encapsule les tableaux Markdown dans divs DSFR.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">wrap_tables_dsfr</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
-</code></pre></div>
-<p>Transforme :
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
-</code></pre></div></p>
-<p>En :
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table fr-table--bordered&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table__wrapper&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table__container&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table__content&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div></p>
+<pre><code class="language-python">def on_page_content(html, page, **kwargs):
+    """Encapsule les tableaux Markdown dans divs DSFR."""
+    return wrap_tables_dsfr(html)
+</code></pre>
+<p>Transforme :</p>
+<pre><code class="language-html">&lt;table&gt;...&lt;/table&gt;
+</code></pre>
+<p>En :</p>
+<pre><code class="language-html">&lt;div class="fr-table fr-table--bordered"&gt;
+  &lt;div class="fr-table__wrapper"&gt;
+    &lt;div class="fr-table__container"&gt;
+      &lt;div class="fr-table__content"&gt;
+        &lt;table&gt;...&lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 <h3 id="syntaxe-markdown-standard">Syntaxe Markdown standard</h3>
-<div class="highlight"><pre><span></span><code>| Colonne 1 | Colonne 2 | Colonne 3 |
+<pre><code class="language-markdown">| Colonne 1 | Colonne 2 | Colonne 3 |
 |-----------|-----------|-----------|
 | Ligne 1   | Donnée 1  | Donnée 2  |
 | Ligne 2   | Donnée 3  | Donnée 4  |
-</code></pre></div>
+</code></pre>
 <p>Le wrapper DSFR est ajouté automatiquement par le hook.</p>
 <h3 id="caption-rgaa-obligatoire">Caption RGAA (obligatoire)</h3>
 <p>Pour les tableaux de données, ajouter un caption HTML :</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">table</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;table-span-modules&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>
+<pre><code class="language-html">&lt;table id="table-span-modules"&gt;
+    &lt;caption&gt;
         Synthèse des modules SPAN par service
-    <span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+    &lt;/caption&gt;
+    &lt;thead&gt;
         ...
-    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
-</code></pre></div>
+    &lt;/thead&gt;
+&lt;/table&gt;
+</code></pre>
 <h3 id="tableaux-avec-badges-html-docssynthesemd">Tableaux avec badges HTML (docs/synthese.md)</h3>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table fr-table--bordered&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;table-synthese-span&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table__wrapper&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table__container&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table__content&quot;</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">table</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;table-span-modules&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>
+<pre><code class="language-html">&lt;div class="fr-table fr-table--bordered" id="table-synthese-span"&gt;
+    &lt;div class="fr-table__wrapper"&gt;
+        &lt;div class="fr-table__container"&gt;
+            &lt;div class="fr-table__content"&gt;
+                &lt;table id="table-span-modules"&gt;
+                    &lt;caption&gt;
                         Synthèse des modules SPAN par service
-                    <span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
-                        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Service<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Score<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Statut<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-                        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-                    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
-                        <span class="p">&lt;</span><span class="nt">tr</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;table-span-row-sircom&quot;</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>SIRCOM<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>24/33 (72.7%)<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
-                                <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-badge fr-badge--success&quot;</span><span class="p">&gt;</span>Validé<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-                            <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-                    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+                    &lt;/caption&gt;
+                    &lt;thead&gt;
+                        &lt;tr&gt;
+                            &lt;th scope="col"&gt;Service&lt;/th&gt;
+                            &lt;th scope="col"&gt;Score&lt;/th&gt;
+                            &lt;th scope="col"&gt;Statut&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr id="table-span-row-sircom"&gt;
+                            &lt;td&gt;SIRCOM&lt;/td&gt;
+                            &lt;td&gt;24/33 (72.7%)&lt;/td&gt;
+                            &lt;td&gt;
+                                &lt;p class="fr-badge fr-badge--success"&gt;Validé&lt;/p&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 <h3 id="attributs-rgaa-obligatoires">Attributs RGAA obligatoires</h3>
-<div class="fr-table">
-<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -1309,62 +762,60 @@ Colonne 4 (25% desktop)
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <h3 id="responsive-dsfr">Responsive DSFR</h3>
 <p>Le wrapper DSFR rend le tableau scrollable horizontalement sur mobile si nécessaire.</p>
-<hr />
+<hr/>
 <h2 id="snippets-reutilisables">Snippets réutilisables</h2>
 <p>Bibliothèque de composants DSFR prêts à l'emploi.</p>
 <h3 id="card-module-standard">Card module standard</h3>
-<div class="highlight"><pre><span></span><code>/// card | [NOM_SERVICE]
+<pre><code class="language-markdown">/// card | [NOM_SERVICE]
     target: modules/[service].md
     badge: Brouillon | warning
 [Description du service]
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="callout-aide-generique">Callout aide générique</h3>
-<div class="highlight"><pre><span></span><code>/// callout | Besoin d&#39;aide ?
+<pre><code class="language-markdown">/// callout | Besoin d'aide ?
     icon: question-line
     color: blue-france
     link_label: Contacter le support
     link_url: mailto:support@example.com
 Pour toute question sur ce contenu, contactez notre équipe support.
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="callout-avertissement">Callout avertissement</h3>
-<div class="highlight"><pre><span></span><code>/// callout | Attention
+<pre><code class="language-markdown">/// callout | Attention
     icon: alert-line
     color: orange-terre-battue
 Cette information est critique pour la conformité de votre service.
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="callout-financement">Callout financement</h3>
-<div class="highlight"><pre><span></span><code>/// callout | Financement disponible
+<pre><code class="language-markdown">/// callout | Financement disponible
     icon: money-euro-circle-line
     color: green-menthe
     link_label: Demander un financement
     link_url: https://fiphfp.fr/
-Des aides financières sont disponibles pour vos actions d&#39;accessibilité.
+Des aides financières sont disponibles pour vos actions d'accessibilité.
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="alert-maintenance">Alert maintenance</h3>
-<div class="highlight"><pre><span></span><code>/// alert | Maintenance programmée
+<pre><code class="language-markdown">/// alert | Maintenance programmée
     type: warning
 Le site sera indisponible le [DATE] de [HEURE] à [HEURE] pour maintenance.
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="alert-succes-validation">Alert succès validation</h3>
-<div class="highlight"><pre><span></span><code>/// alert | Validation réussie
+<pre><code class="language-markdown">/// alert | Validation réussie
     type: success
 Votre module a été validé par le comité de pilotage.
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="badge-inline-personnalise">Badge inline personnalisé</h3>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-badge fr-badge--info&quot;</span><span class="p">&gt;</span>Nouveau<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;p class="fr-badge fr-badge--info"&gt;Nouveau&lt;/p&gt;
+</code></pre>
 <h3 id="grille-3-cards-template">Grille 3 cards template</h3>
-<div class="highlight"><pre><span></span><code>/// row | fr-grid-row--gutters
+<pre><code class="language-markdown">/// row | fr-grid-row--gutters
 /// col | 12 md-6 lg-4
 /// card | Card 1
     target: page1.md
@@ -1387,45 +838,43 @@ Description card 3
 ///
 ///
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="tableau-scores-template">Tableau scores template</h3>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table fr-table--bordered&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table__wrapper&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table__container&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table__content&quot;</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>Titre du tableau<span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
-                        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Colonne 1<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Colonne 2<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-                        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-                    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
-                        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Donnée 1<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
-                                <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-badge fr-badge--success&quot;</span><span class="p">&gt;</span>Badge<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-                            <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-                    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
-<hr />
+<pre><code class="language-html">&lt;div class="fr-table fr-table--bordered"&gt;
+    &lt;div class="fr-table__wrapper"&gt;
+        &lt;div class="fr-table__container"&gt;
+            &lt;div class="fr-table__content"&gt;
+                &lt;table&gt;
+                    &lt;caption&gt;Titre du tableau&lt;/caption&gt;
+                    &lt;thead&gt;
+                        &lt;tr&gt;
+                            &lt;th scope="col"&gt;Colonne 1&lt;/th&gt;
+                            &lt;th scope="col"&gt;Colonne 2&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr&gt;
+                            &lt;td&gt;Donnée 1&lt;/td&gt;
+                            &lt;td&gt;
+                                &lt;p class="fr-badge fr-badge--success"&gt;Badge&lt;/p&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<hr/>
 <h2 id="accordions-accordeons-pliables">Accordions - Accordéons pliables</h2>
 <p>Les accordéons permettent de masquer/afficher du contenu de manière interactive. Idéal pour FAQ, sections longues ou documentation technique.</p>
 <h3 id="syntaxe-de-base_4">Syntaxe de base</h3>
-<div class="highlight"><pre><span></span><code>/// accordion | Titre de l&#39;accordéon
+<pre><code class="language-markdown">/// accordion | Titre de l'accordéon
 Contenu masqué par défaut
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="parametres-disponibles">Paramètres disponibles</h3>
-<div class="fr-table">
-<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -1456,55 +905,54 @@ Contenu masqué par défaut
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <h3 id="exemple-1-faq-simple">Exemple 1 : FAQ simple</h3>
-<div class="highlight"><pre><span></span><code>/// accordion | Comment contribuer au projet ?
-Consultez le [<span class="nt">Guide contributeur</span>](<span class="na">../contributing.md</span>) pour les instructions détaillées.
+<pre><code class="language-markdown">/// accordion | Comment contribuer au projet ?
+Consultez le [Guide contributeur](../contributing.md) pour les instructions détaillées.
 
 Processus en 3 étapes :
-<span class="k">1.</span> Fork du dépôt
-<span class="k">2.</span> Créer une branche feature
-<span class="k">3.</span> Ouvrir une Pull Request
+1. Fork du dépôt
+2. Créer une branche feature
+3. Ouvrir une Pull Request
 ///
 
 /// accordion | Où trouver la documentation API ?
     expanded: true
-La documentation complète est disponible dans [<span class="nt">API Reference</span>](<span class="na">api-reference.md</span>).
+La documentation complète est disponible dans [API Reference](api-reference.md).
 ///
-</code></pre></div>
+</code></pre>
 <h3 id="exemple-2-documentation-technique-pliable">Exemple 2 : Documentation technique pliable</h3>
-<div class="highlight"><pre><span></span><code>/// accordion | Détails techniques du hook dsfr_table_wrapper.py
-<span class="gs">**Fonction**</span> : Encapsule automatiquement les tableaux Markdown dans <span class="sb">`&lt;div class=&quot;fr-table&quot;&gt;`</span>.
+<pre><code class="language-markdown">/// accordion | Détails techniques du hook dsfr_table_wrapper.py
+**Fonction** : Encapsule automatiquement les tableaux Markdown dans `&lt;div class="fr-table"&gt;`.
 
-<span class="gs">**Code source**</span> :
+**Code source** :
 ```python
 def on_page_content(html, page, config, files):
-    soup = BeautifulSoup(html, &#39;html.parser&#39;)
-    for table in soup.find_all(&#39;table&#39;):
-        wrapper = soup.new_tag(&#39;div&#39;, **{&#39;class&#39;: &#39;fr-table&#39;})
+    soup = BeautifulSoup(html, 'html.parser')
+    for table in soup.find_all('table'):
+        wrapper = soup.new_tag('div', **{'class': 'fr-table'})
         table.wrap(wrapper)
     return str(soup)
-</code></pre></div>
+</code></pre>
 <p><strong>Tests</strong> : Voir <code>tests/test_hooks_dsfr_table_wrapper.py</code> (100% coverage).
-///
-<div class="highlight"><pre><span></span><code>### Exemple 3 : Sections multiples (groupe)
+///</p>
+<pre><code>
+### Exemple 3 : Sections multiples (groupe)
 
 ```markdown
 /// accordion | SIRCOM - Service de la Communication
 **Score** : 24/33 (72.7%)
 **Référent** : Équipe Communication
 
-Plan d&#39;action 2025 : 9 actions en cours.
+Plan d'action 2025 : 9 actions en cours.
 ///
 
 /// accordion | SNUM - Service du Numérique
 **Score** : 21/33 (63.6%)
 **Référent** : Chef de mission numérique
 
-Plan d&#39;action 2025 : 12 actions prioritaires.
+Plan d'action 2025 : 12 actions prioritaires.
 ///
-</code></pre></div></p>
+</code></pre>
 <h3 id="difference-avec-collapsible-divs">Différence avec Collapsible divs</h3>
 <ul>
 <li><strong>Accordions</strong> : Syntaxe markdown, intégration native mkdocs-dsfr</li>
@@ -1516,22 +964,23 @@ Plan d&#39;action 2025 : 12 actions prioritaires.
 - <code>role="button"</code> sur le titre
 - <code>aria-expanded="true/false"</code> selon l'état
 - Navigation clavier (Entrée/Espace pour toggle)</p>
-<hr />
+<hr/>
 <h2 id="tabs-onglets">Tabs - Onglets</h2>
 <p>Les onglets permettent d'organiser du contenu alternatif (exemples multi-langages, configurations alternatives).</p>
 <h3 id="syntaxe-de-base_5">Syntaxe de base</h3>
-<p><div class="highlight"><pre><span></span><code>/// tabs
+<pre><code class="language-markdown">/// tabs
 /// tab | Python
 ```python
-print(&quot;Hello SPAN&quot;)
-</code></pre></div>
+print("Hello SPAN")
+</code></pre>
+<p>///</p>
+<p>/// tab | Bash</p>
+<pre><code class="language-bash">echo "Hello SPAN"
+</code></pre>
+<p>///
 ///</p>
-<p>/// tab | Bash
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello SPAN&quot;</span>
-</code></pre></div>
-///
-///
-<div class="highlight"><pre><span></span><code>### Exemple 1 : Exemples multi-langages
+<pre><code>
+### Exemple 1 : Exemples multi-langages
 
 ```markdown
 /// tabs
@@ -1539,25 +988,26 @@ print(&quot;Hello SPAN&quot;)
 ```python
 import yaml
 
-with open(&#39;mkdocs-dsfr.yml&#39;) as f:
+with open('mkdocs-dsfr.yml') as f:
     config = yaml.safe_load(f)
-    print(config[&#39;site_name&#39;])
-</code></pre></div>
-///</p>
-<p>/// tab | JavaScript
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">yaml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;js-yaml&#39;</span><span class="p">);</span>
+    print(config['site_name'])
+</code></pre>
+<p>///</p>
+<p>/// tab | JavaScript</p>
+<pre><code class="language-javascript">const fs = require('fs');
+const yaml = require('js-yaml');
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yaml</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s1">&#39;mkdocs-dsfr.yml&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;utf8&#39;</span><span class="p">));</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">site_name</span><span class="p">);</span>
-</code></pre></div>
+const config = yaml.load(fs.readFileSync('mkdocs-dsfr.yml', 'utf8'));
+console.log(config.site_name);
+</code></pre>
+<p>///</p>
+<p>/// tab | Bash</p>
+<pre><code class="language-bash">grep "^site_name:" mkdocs-dsfr.yml | cut -d: -f2
+</code></pre>
+<p>///
 ///</p>
-<p>/// tab | Bash
-<div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s2">&quot;^site_name:&quot;</span><span class="w"> </span>mkdocs-dsfr.yml<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d:<span class="w"> </span>-f2
-</code></pre></div>
-///
-///
-<div class="highlight"><pre><span></span><code>### Exemple 2 : Configurations alternatives
+<pre><code>
+### Exemple 2 : Configurations alternatives
 
 ```markdown
 /// tabs
@@ -1565,24 +1015,25 @@ with open(&#39;mkdocs-dsfr.yml&#39;) as f:
 ```bash
 docker compose -f docker-compose-dsfr.yml up -d
 # Accès : http://localhost:8000/span-sg-repo/
-</code></pre></div></p>
+</code></pre>
 <p><strong>Avantages</strong> : Isolation, pas de dépendances locales.
 ///</p>
-<p>/// tab | Python local
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-dsfr.txt
-mkdocs<span class="w"> </span>serve<span class="w"> </span>--config-file<span class="w"> </span>mkdocs-dsfr.yml
-</code></pre></div></p>
+<p>/// tab | Python local</p>
+<pre><code class="language-bash">pip install -r requirements-dsfr.txt
+mkdocs serve --config-file mkdocs-dsfr.yml
+</code></pre>
 <p><strong>Prérequis</strong> : Python 3.11+, pip.
 ///</p>
-<p>/// tab | macOS Homebrew
-<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>mkdocs
-pip3<span class="w"> </span>install<span class="w"> </span>mkdocs-dsfr
-mkdocs<span class="w"> </span>serve<span class="w"> </span>--config-file<span class="w"> </span>mkdocs-dsfr.yml
-</code></pre></div></p>
+<p>/// tab | macOS Homebrew</p>
+<pre><code class="language-bash">brew install mkdocs
+pip3 install mkdocs-dsfr
+mkdocs serve --config-file mkdocs-dsfr.yml
+</code></pre>
 <p><strong>Note</strong> : Utiliser Python 3 de Homebrew.
 ///
-///
-<div class="highlight"><pre><span></span><code>### Exemple 3 : Workflows Git
+///</p>
+<pre><code>
+### Exemple 3 : Workflows Git
 
 ```markdown
 /// tabs
@@ -1591,33 +1042,31 @@ mkdocs<span class="w"> </span>serve<span class="w"> </span>--config-file<span cl
 git checkout -b feature/update-sircom
 # Modifications dans docs/modules/sircom.md
 git add docs/modules/sircom.md
-git commit -m &quot;feat(sircom): mise à jour plan 2025&quot;
+git commit -m "feat(sircom): mise à jour plan 2025"
 git push -u origin feature/update-sircom
 # Créer PR vers draft
-</code></pre></div>
-///</p>
-<p>/// tab | Hotfix (production)
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>hotfix/fix-typo-synthese
-<span class="c1"># Corrections dans docs/synthese.md</span>
-git<span class="w"> </span>add<span class="w"> </span>docs/synthese.md
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix(synthese): correction typo tableau&quot;</span>
-git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>hotfix/fix-typo-synthese
-<span class="c1"># Créer PR vers main</span>
-</code></pre></div>
-///</p>
-<p>/// tab | Sync draft → main
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>main
-git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
-git<span class="w"> </span>merge<span class="w"> </span>draft<span class="w"> </span>--no-ff
-git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
-<span class="c1"># Déclenche déploiement production</span>
-</code></pre></div>
-///
+</code></pre>
+<p>///</p>
+<p>/// tab | Hotfix (production)</p>
+<pre><code class="language-bash">git checkout -b hotfix/fix-typo-synthese
+# Corrections dans docs/synthese.md
+git add docs/synthese.md
+git commit -m "fix(synthese): correction typo tableau"
+git push -u origin hotfix/fix-typo-synthese
+# Créer PR vers main
+</code></pre>
+<p>///</p>
+<p>/// tab | Sync draft → main</p>
+<pre><code class="language-bash">git checkout main
+git pull origin main
+git merge draft --no-ff
+git push origin main
+# Déclenche déploiement production
+</code></pre>
+<p>///
 ///
 ```</p>
 <h3 id="parametres-tabs">Paramètres tabs</h3>
-<div class="fr-table">
-<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -1644,8 +1093,6 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <h3 id="accessibilite_1">Accessibilité</h3>
 <p>Les onglets génèrent automatiquement :
 - <code>role="tablist"</code> sur le conteneur
@@ -1659,7 +1106,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <li>Workflows Git différents (feature vs hotfix)</li>
 <li>Configurations environnements (dev, staging, prod)</li>
 </ul>
-<hr />
+<hr/>
 <h2 id="references-complementaires">Références complémentaires</h2>
 <ul>
 <li><strong>ADR-001</strong> : <a href="../../adr/001-choix-theme-dsfr/">Choix thème DSFR</a></li>
@@ -1667,209 +1114,37 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <li><strong>ADR-004</strong> : <a href="../../adr/004-hooks-python-mkdocs/">Hooks Python</a> - Table wrapper</li>
 <li><strong>API Reference</strong> : <a href="../api-reference/">Scripts Python</a> - Génération badges dynamiques</li>
 </ul>
-<hr />
+<hr/>
 <p><strong>Note finale</strong> : Ce guide est maintenu à jour avec chaque nouvelle utilisation de composant DSFR dans le projet. Pour proposer des ajouts, ouvrez une issue ou PR sur GitHub.</p>
-                        
-                        
-                        <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
-                        
-                    </div>
-                    <hr />
-                    
-	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
-		<ul class="fr-pagination__list">
-			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../hooks-guide/" title="Guide Hooks" >
-				Page précédente
-			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../../dev-local/" title="Développement local" >
-				Page suivante
-			</a></li>
-		</ul>
-	</nav>
-
-                </div>
-            </div>
-            <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
-                <div class="fr-container fr-container--fluid fr-container-md">
-                    <div class="fr-grid-row fr-grid-row--center">
-                        <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
-                            <div class="fr-modal__body">
-                                <div class="fr-modal__header">
-                                    <button class="fr-btn--close fr-btn" aria-controls="fr-theme-modal" title="Fermer">
-                                        Fermer
-                                    </button>
-                                </div>
-                                <div class="fr-modal__content">
-                                    <h1 id="fr-theme-modal-title" class="fr-modal__title">
-                                        Paramètres d’affichage </h1>
-                                    <div id="fr-display" class="fr-display">
-                                        <div class="fr-form-group">
-                                            <fieldset class="fr-fieldset">
-                                                <legend class="fr-fieldset__legend fr-text--regular" id='-legend'>
-                                                    Choisissez un thème pour personnaliser l’apparence du site.
-                                                </legend>
-                                                <div class="fr-fieldset__content">
-                                                    <div class="fr-radio-group fr-radio-rich"><input value="light"
-                                                            type="radio" id="fr-radios-theme-light"
-                                                            name="fr-radios-theme">
-                                                        <label class="fr-label" for="fr-radios-theme-light"> Thème
-                                                            clair </label>
-                                                        <div class="fr-radio-rich__img">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
-                                                                width="80px" height="80px" viewBox="0 0 80 80">
-                                                                <use class="fr-artwork-decorative"
-                                                                    xlink:href="../../artwork/light.svg#artwork-decorative">
-                                                                </use>
-                                                                <use class="fr-artwork-minor"
-                                                                    xlink:href="../../artwork/light.svg#artwork-minor">
-                                                                </use>
-                                                                <use class="fr-artwork-major"
-                                                                    xlink:href="../../artwork/light.svg#artwork-major">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="fr-radio-group fr-radio-rich"><input value="dark"
-                                                            type="radio" id="fr-radios-theme-dark"
-                                                            name="fr-radios-theme">
-                                                        <label class="fr-label" for="fr-radios-theme-dark"> Thème
-                                                            sombre </label>
-                                                        <div class="fr-radio-rich__img">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
-                                                                width="80px" height="80px" viewBox="0 0 80 80">
-                                                                <use class="fr-artwork-decorative"
-                                                                    xlink:href="../../artwork/dark.svg#artwork-decorative">
-                                                                </use>
-                                                                <use class="fr-artwork-minor"
-                                                                    xlink:href="../../artwork/dark.svg#artwork-minor">
-                                                                </use>
-                                                                <use class="fr-artwork-major"
-                                                                    xlink:href="../../artwork/dark.svg#artwork-major">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="fr-radio-group fr-radio-rich"><input value="system"
-                                                            type="radio" id="fr-radios-theme-system"
-                                                            name="fr-radios-theme">
-                                                        <label class="fr-label" for="fr-radios-theme-system"> Système
-                                                            <span class="fr-hint-text">Utilise les paramètres
-                                                                système.</span>
-                                                        </label>
-                                                        <div class="fr-radio-rich__img">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
-                                                                width="80px" height="80px" viewBox="0 0 80 80">
-                                                                <use class="fr-artwork-decorative"
-                                                                    xlink:href="../../artwork/system.svg#artwork-decorative">
-                                                                </use>
-                                                                <use class="fr-artwork-minor"
-                                                                    xlink:href="../../artwork/system.svg#artwork-minor">
-                                                                </use>
-                                                                <use class="fr-artwork-major"
-                                                                    xlink:href="../../artwork/system.svg#artwork-major">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </dialog>
-    </main>
-    <footer class="fr-footer" role="contentinfo" id="footer">
-    <div class="fr-container">
-        <div class="fr-footer__body">
-            <div class="fr-footer__brand fr-enlarge-link">
-                <a href="/"
-                    title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
-                    <p class="fr-logo">
-                        GOUVERNEMENT
-                    </p>
-                </a>
-            </div>
-            <div class="fr-footer__content">
-                <p class="fr-footer__content-desc">Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique</p>
-                <ul class="fr-footer__content-list">
-                    
-                    
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" target="_blank" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
-                    </li>
-                    
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" target="_blank" href="https://service-public.fr">service-public.fr</a>
-                    </li>
-                    
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" target="_blank" href="https://data.gouv.fr">data.gouv.fr</a>
-                    </li>
-                    
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" target="_blank" href="https://info.gouv.fr">info.gouv.fr</a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="fr-footer__bottom">
-            <ul class="fr-footer__bottom-list">
-                
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="/span-sg-repo/accessibilite/">Accessibilité : conformité partielle</a>
-                </li>
-                
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="/span-sg-repo/mentions-legales/">Mentions légales</a>
-                </li>
-                
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="/span-sg-repo/donnees-personnelles/">Données personnelles</a>
-                </li>
-                
-                <li class="fr-footer__bottom-item">
-                    <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
-                        aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
-                </li>
-            </ul>
-            <div class="fr-footer__bottom-copy">
-                <p>Sauf mention contraire, tous les contenus de ce site sont sous <a
-                        href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence
-                        etalab-2.0</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-    
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="21 octobre 2025 12:46:02 UTC">21 octobre 2025</span> 
+</div>
+</div><footer>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
 </div>
 
-
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg" style="color: #fcfcfc"> GitHub</a>
+</span>
+</span>
+</div>
+<script src="../../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "../..";</script>
+<script src="../../js/theme_extra.js"></script>
+<script src="../../js/theme.js"></script>
+<script src="../../search/main.js"></script>
 <script>
-    var base_url = "../..";
-</script>
-
-<script type="module" src="../../dsfr.module.min.js"></script>
-<script
-    type="text/javascript"
-    nomodule
-    src="../../dsfr.nomodule.min.js"
-></script>
-<script src="../../search/lunr.js"></script>
-<script src="../../search/lunr.stemmer.support.js"></script>
-<script src="../../search/lunr.fr.js"></script>
-<script src="../../assets/extra.js" defer></script>
-<script src="../../search/main.js" defer></script>
-<script src="../../js/open_in_new_tab.js" defer></script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
 </body>
-
 </html>
