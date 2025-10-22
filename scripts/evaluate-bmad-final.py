@@ -7,6 +7,7 @@ Après toutes les améliorations (Phase 1-4)
 import re
 from datetime import datetime
 from pathlib import Path
+from typing import Any
 
 # Poids par dimension
 WEIGHTS = {
@@ -21,11 +22,11 @@ WEIGHTS = {
 }
 
 
-def score_story(file_path: Path) -> dict:
+def score_story(file_path: Path) -> dict[str, Any]:
     """Score une story selon critères BMAD"""
 
     content = file_path.read_text(encoding="utf-8")
-    scores = {}
+    scores: dict[str, float] = {}
 
     # Structure BMAD (25 pts)
     has_context = bool(re.search(r"##\s+Contexte\s+projet", content, re.I))
@@ -82,14 +83,11 @@ def score_story(file_path: Path) -> dict:
     # References (5 pts) - CRITÈRE AMÉLIORÉ
     has_refs = bool(re.search(r"##\s+Références", content, re.I))
     has_bmad_header = content.startswith("---\nbmad_phase:")
+    refs_match = re.search(r"##\s+Références.*?(?=##|\Z)", content, re.DOTALL)
     ref_count = len(
         re.findall(
             r"\*\*[A-Z]",
-            (
-                re.search(r"##\s+Références.*?(?=##|\Z)", content, re.DOTALL).group()
-                if re.search(r"##\s+Références", content, re.I)
-                else ""
-            ),
+            refs_match.group() if refs_match else "",
         )
     )
     scores["refs"] = (has_refs * 2) + (ref_count >= 3) * 2 + (has_bmad_header * 1)
@@ -97,16 +95,13 @@ def score_story(file_path: Path) -> dict:
     # Risks/Notes (5 pts)
     has_risks = bool(re.search(r"##\s+Notes\s+et\s+risques", content, re.I))
     has_post = bool(re.search(r"##\s+Post-tâche", content, re.I))
+    risks_match = re.search(
+        r"##\s+Notes\s+et\s+risques.*?(?=##|\Z)", content, re.DOTALL
+    )
     risk_count = len(
         re.findall(
             r"\*\*[A-Z][a-z]+.*\*\*",
-            (
-                re.search(
-                    r"##\s+Notes\s+et\s+risques.*?(?=##|\Z)", content, re.DOTALL
-                ).group()
-                if re.search(r"##\s+Notes\s+et\s+risques", content, re.I)
-                else ""
-            ),
+            risks_match.group() if risks_match else "",
         )
     )
     scores["risks"] = (has_risks * 2) + (has_post * 1) + min(risk_count / 3, 2)
@@ -209,7 +204,7 @@ def main():
     print("=" * 100)
 
     # Distribution grades
-    grades_count = {}
+    grades_count: dict[str, int] = {}
     for s in all_scores:
         grade = s["grade"]
         grades_count[grade] = grades_count.get(grade, 0) + 1
