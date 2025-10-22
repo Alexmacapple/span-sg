@@ -190,7 +190,7 @@ services:
     command: mkdocs serve --config-file mkdocs-dsfr.yml
 ```
 
-**Référence :** [HOWTO.md](../HOWTO.md#docker)
+**Référence :** [HOWTO.md](https://github.com/Alexmacapple/span-sg/blob/main/HOWTO.md#docker)
 
 ---
 
@@ -282,7 +282,7 @@ gitGraph
 - GitHub Environment `staging` : Auto-deploy /draft/
 - GitHub Environment `production` : Deploy / (approval Chef SNUM requis)
 
-**Référence :** [CONTRIBUTING.md](contributing.md#workflow-git)
+**Référence :** [CONTRIBUTING.md](contributing.md#option-b--git-local-avancs)
 
 ---
 
@@ -553,7 +553,7 @@ pytest --cov=scripts --cov-fail-under=89
 [KPI suivi, objectifs chiffrés]
 ```
 
-**Référence :** [PRD-v3.3.md](../PRD-v3.3.md)
+**Référence :** [PRD-v3.3.md](https://github.com/Alexmacapple/span-sg/blob/main/PRD-v3.3.md)
 
 ---
 

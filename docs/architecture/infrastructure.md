@@ -525,5 +525,5 @@ graph LR
 - [C4 Diagrams (Architecture)](c4-diagrams.md)
 - [Diagrammes Mermaid (6 existants)](diagrams.md)
 - [ADR-003: Isolation PDF Build](../adr/003-isolation-pdf-build.md)
-- [SECURITY.md Politique Sécurité](../../SECURITY.md)
+- [SECURITY.md Politique Sécurité](https://github.com/Alexmacapple/span-sg/blob/main/SECURITY.md)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)

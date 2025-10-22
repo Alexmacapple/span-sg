@@ -323,7 +323,7 @@ Non, GitHub est obligatoire. Alternative :
 ### Documentation
 
 - [CONTRIBUTING.md](contributing.md) : Guide détaillé Git + GitHub
-- [HOWTO.md](../HOWTO.md) : Commandes utiles Docker + MkDocs
+- [HOWTO.md](https://github.com/Alexmacapple/span-sg/blob/main/HOWTO.md) : Commandes utiles Docker + MkDocs
 - [dev-local.md](dev-local.md) : Setup environnement local
 
 ### Contacts
