@@ -293,7 +293,7 @@ graph TB
 ```mermaid
 gitGraph
     commit id: "Initial gh-pages"
-    branch draft-deploy
+    branch main-deploy
     commit id: "Deploy draft v0.9"
     checkout main
     commit id: "Deploy prod v1.0"

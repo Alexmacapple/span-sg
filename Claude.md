@@ -58,18 +58,18 @@ python scripts/calculate_scores.py
 
 ### CI et artefacts
 ```bash
-# Télécharger PDF depuis dernière CI draft
-./scripts/download_latest_pdf.sh
-
-# Télécharger depuis branche main
+# Télécharger PDF depuis dernière CI main
 ./scripts/download_latest_pdf.sh main
 
-# Télécharger depuis site déployé
+# Télécharger depuis staging (auto-deploy)
 curl -O https://alexmacapple.github.io/span-sg/draft/exports/span-sg.pdf
 
+# Télécharger depuis production
+curl -O https://alexmacapple.github.io/span-sg/exports/span-sg.pdf
+
 # Commande manuelle équivalente
-RUN_ID=$(gh run list --branch draft --limit 1 --json databaseId --jq '.[0].databaseId')
-gh run download "$RUN_ID" --name exports --repo Alexmacapple/span-sg
+RUN_ID=$(gh run list --branch main --limit 1 --json databaseId --jq '.[0].databaseId')
+gh run download "$RUN_ID" --name exports-$COMMIT_SHA --repo Alexmacapple/span-sg
 # → Télécharge exports/span-sg.pdf
 ```
 
@@ -82,7 +82,7 @@ git checkout -b feature/update-[service]
 git add docs/modules/[service].md
 git commit -m "feat(service): description concise"
 git push -u origin feature/update-[service]
-# → créer PR vers draft
+# → créer PR vers main (validateur approve, puis auto-deploy staging)
 ```
 
 ## Architecture technique
@@ -130,23 +130,50 @@ Le thème DSFR utilise des hooks Python pour améliorer l'accessibilité :
 - `hooks/title_cleaner.py`: Nettoie les titres HTML redondants (regex post-processing)
 
 ### CI/CD GitHub Actions
-Workflow `.github/workflows/build.yml`:
-1. Install Python + dépendances MkDocs
-2. Calcul scores (`python scripts/calculate_scores.py`)
-3. Build site (`mkdocs build`)
-4. Génération PDF (`mkdocs build --config-file mkdocs-pdf.yml`)
-5. Upload artefacts (site/ + exports/)
-6. Déploiement conditionnel:
-   - `draft` → `gh-pages/draft/` (preview)
-   - `main` → `gh-pages/` (production)
+Workflow `.github/workflows/build.yml` (3 jobs séquentiels):
+
+1. **build-and-test** (toujours):
+   - Install Python + dépendances MkDocs
+   - Linting (Black, Ruff), Security (Bandit, Safety)
+   - Tests unitaires (pytest, coverage 89%+)
+   - Calcul scores (`python scripts/calculate_scores.py`)
+   - Build site HTML (`mkdocs build`)
+   - Génération PDF (`mkdocs build --config-file mkdocs-dsfr-pdf.yml`)
+   - Tests E2E accessibilité (Selenium, 9 scénarios)
+   - Upload artefacts (site/ + exports/)
+
+2. **deploy-staging** (si push sur main):
+   - Environment: `staging`
+   - Auto-deploy vers `gh-pages/draft/`
+   - URL: https://alexmacapple.github.io/span-sg/draft/
+
+3. **deploy-production** (si push sur main):
+   - Environment: `production` (nécessite approval Chef SNUM)
+   - Deploy vers `gh-pages/` (racine)
+   - URL: https://alexmacapple.github.io/span-sg/
 
 ### Branches et déploiements
-- `main`: production (déployé sur Pages racine)
-- `draft`: preview privée (déployé sur Pages /draft/)
-- `feature/*`: modifications par service (PR vers draft)
+
+**Architecture GitHub Environments** (depuis 22/10/2025):
+- **1 branche unique**: `main` (source de vérité)
+- **2 Environments GitHub**:
+  - `staging`: Auto-deploy /draft/ (pas de gate approval)
+  - `production`: Deploy / avec approval Chef SNUM (manual gate)
+
+**Branches de travail**:
+- `feature/*`: modifications par service (PR vers main)
 - `hotfix/*`: corrections urgentes (PR vers main)
 
-**Preview privée**: GitHub Pages restreint aux membres de l'organisation (paramètre org-only).
+**Workflow contributeur**:
+1. Créer branche feature → PR vers main
+2. Validateur approve PR (code review)
+3. Merge → Auto-deploy staging (/draft/)
+4. Chef SNUM approve production (deployment review)
+5. Deploy production (/)
+
+**Pages privées**: Restreint aux membres organisation (paramètre org-only).
+
+**Documentation complète**: Voir [ADR-009](docs/adr/009-migration-github-environments.md) et [Guide Chef SNUM](docs/guide-chef-snum-approvals.md).
 
 ## Règles de modification
 
@@ -186,8 +213,9 @@ git push origin vX.Y.Z
 - [ ] Front-matter complet (service, referent, updated)
 - [ ] Blocs légaux remplis ou TODO explicite
 - [ ] Liens valides, pas de secrets
-- [ ] CI passe (build + scoring + PDF)
-- [ ] Preview draft accessible (org-only)
+- [ ] CI passe (build-and-test + deploy-staging + deploy-production)
+- [ ] Staging accessible (/draft/, org-only)
+- [ ] Production déployée après approval Chef SNUM (/, org-only)
 
 ## Contacts et gouvernance
 - **Owner**: Alexandra (@alexandra)

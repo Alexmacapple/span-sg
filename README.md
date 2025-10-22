@@ -5,23 +5,27 @@
 
 Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/deploy.
 
-## État actuel du projet (08/10/2025)
+## État actuel du projet (22/10/2025)
 
-**Version** : v1.0.1-dsfr - Migration thème DSFR complète
+**Version** : v1.0.1-dsfr - Migration thème DSFR complète + Architecture GitHub Environments
 
 - **Infrastructure** : Production-ready (CI/CD, tests E2E automatisés, sécurité renforcée)
+- **Architecture** : 1 branche (main) + 2 Environments (staging, production) avec approval gates
 - **2 modules validés** : SIRCOM (24/31 - 77.4%), SNUM (21/31 - 67.7%)
 - **4 modules optionnels** : BGS, SAFI, SIEP, SRH (structure créée, enrichissement progressif)
 - **Roadmaps** : 32 archivées (Sprints 0-6), 5 actives (modules optionnels)
-- **Prochaine étape** : Release v1.0.0 officielle (merge draft → main)
+- **Prochaine étape** : Complétion modules optionnels (POC-FINALISATION terminé)
 
 ## Liens utiles
 
-- **Draft (preview)** : Désactivé — revue locale/PDF (voir `.github/PAGES-ACCESS-CHECKLIST.md`)
-- **Production** : https://alexmacapple.github.io/span-sg/
+- **Local** : http://localhost:8000/span-sg/ (développement, hot-reload)
+- **Staging** : https://alexmacapple.github.io/span-sg/draft/ (preview auto-deploy depuis main)
+- **Production** : https://alexmacapple.github.io/span-sg/ (nécessite approval Chef SNUM)
 - **PDF production** : https://github.com/Alexmacapple/span-sg/releases/latest
 - **Changelog** : [CHANGELOG.md](CHANGELOG.md) - Historique versions
 - **Migration** : [MIGRATION.md](MIGRATION.md) - Guides upgrade path
+
+**Architecture déploiement** : Voir [ADR-009](docs/adr/009-migration-github-environments.md) et [Guide Chef SNUM](docs/guide-chef-snum-approvals.md)
 
 ## Architecture et Documentation
 
@@ -90,9 +94,9 @@ docker --version && docker compose version
 - ROADMAP-INDEX.md créé (master index)
 
 **Prochaines étapes** :
-1. **POC-FINALISATION** : Release v1.0.0 officielle (merge draft → main, GitHub Release)
-2. **Modules optionnels** (P1) : Compléter BGS, SAFI, SIEP, SRH (S6-03 à S6-06)
-3. **Infrastructure optionnelle** (P3) : Notifications CI + Rollback (S6-02)
+1. **Modules optionnels** (P1) : Compléter BGS, SAFI, SIEP, SRH (S6-03 à S6-06)
+2. **Infrastructure optionnelle** (P3) : Notifications CI + Rollback (S6-02)
+3. **Release v1.1.0** : Documentation GitHub Environments complète + modules enrichis
 
 ## Commandes utiles
 
@@ -144,12 +148,12 @@ Le site est exportable en PDF avec métadonnées accessibilité (RGAA).
 ### Téléchargement
 
 **Depuis le site web** :
-- Draft : https://alexmacapple.github.io/span-sg/draft/ (bouton "Télécharger PDF")
+- Staging : https://alexmacapple.github.io/span-sg/draft/ (bouton "Télécharger PDF")
 - Production : https://alexmacapple.github.io/span-sg/ (bouton "Télécharger PDF")
 
 **Depuis GitHub Actions** :
 ```bash
-./scripts/download_latest_pdf.sh [branche]
+./scripts/download_latest_pdf.sh main
 ```
 
 ### Génération locale
@@ -281,7 +285,8 @@ docker compose logs mkdocs
 - **PDF manquant** : Utiliser l'impression navigateur sur « Synthèse » (Cmd+P / Ctrl+P) ou vérifier que `exports/span-sg.pdf` existe après `mkdocs build --config-file mkdocs-pdf.yml`
 - **Metadata PDF absentes** : Exécuter `python scripts/enrich_pdf_metadata.py exports/span-sg.pdf` (nécessite `pikepdf`)
 - **Scores incohérents** : S'assurer que seuls les 31 points portent `<!-- DINUM -->`
-- **Preview désactivée** : Utiliser revue locale (`mkdocs serve`) et PDF CI
+- **Staging non mis à jour** : Vérifier que le push est sur `main` (auto-deploy vers /draft/)
+- **Production non mise à jour** : Vérifier approval Chef SNUM (Dashboard Deployments)
 - **Docker ne démarre pas** : Vérifier que Docker Desktop est lancé et fonctionnel (`docker ps`)
 - **Dépendances manquantes** : Installer avec `pip install -r requirements.txt`
 
@@ -330,11 +335,22 @@ Pour contribuer au projet, consulter le [Guide contributeur](CONTRIBUTING.md).
 - Utiliser `Claude.md` pour Claude Code (format spécifique Anthropic)
 - Conserver le périmètre MVP, ne pas modifier la logique des 31 points DINUM
 
-## Preview et revue (Draft)
+## Preview et revue
 
-Sur ce dépôt public, la preview GitHub Pages est désactivée pour éviter toute exposition avant validation.
+Le projet utilise 3 environnements de revue :
 
-- Revue locale: `mkdocs serve -f mkdocs.yml -a 0.0.0.0:8000`
-- Build strict: `mkdocs build -f mkdocs.yml`
-- PDF: `mkdocs build -f mkdocs-pdf.yml` ou artefact CI (voir `scripts/download_latest_pdf.sh`)
-- Politique: consulter `.github/PAGES-ACCESS-CHECKLIST.md` (Scénario B) et `docs/dev-local.md`.
+1. **Local** : `docker compose -f docker-compose-dsfr.yml up` → http://localhost:8000/span-sg/
+   - Hot-reload temps réel
+   - Tests modifications avant commit
+
+2. **Staging** : https://alexmacapple.github.io/span-sg/draft/
+   - Auto-deploy depuis branche `main`
+   - Revue validateurs avant production
+   - Accessible membres organisation uniquement
+
+3. **Production** : https://alexmacapple.github.io/span-sg/
+   - Deploy après approval Chef SNUM
+   - Version stable validée
+   - Public (organisation uniquement)
+
+**Architecture déploiement** : Voir [ADR-009](docs/adr/009-migration-github-environments.md) pour comprendre le workflow complet.

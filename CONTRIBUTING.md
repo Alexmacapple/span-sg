@@ -3,7 +3,7 @@
 ## Principe
 
 Chaque service gère son propre module dans `docs/modules/[service].md`.
-Les modifications passent par une **Pull Request** vers `draft` pour validation.
+Les modifications passent par une **Pull Request** vers `main` pour validation.
 
 ---
 
@@ -13,7 +13,7 @@ Les modifications passent par une **Pull Request** vers `draft` pour validation.
 
 ### 1. Aller sur le fichier de votre service
 
-https://github.com/Alexmacapple/span-sg-repo/blob/draft/docs/modules/[votre-service].md
+https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/modules/[votre-service].md
 
 Exemple : `sircom.md`, `snum.md`, `srh.md`, etc.
 
@@ -46,7 +46,7 @@ En bas de la page :
 
 Sur la page suivante :
 
-- **Base** : `draft` (important !)
+- **Base** : `main` (important !)
 - **Compare** : votre branche
 - Cliquer **Create Pull Request**
 
@@ -55,7 +55,7 @@ Sur la page suivante :
 Bertrand ou Alex reviendra la PR et la mergera si OK.
 Vous recevrez une notification par email.
 
-Preview désactivée : revue locale/PDF. Voir `docs/dev-local.md` et `.github/PAGES-ACCESS-CHECKLIST.md`.
+Après merge vers main : Auto-deploy Staging (https://alexmacapple.github.io/span-sg/draft/) puis approval Chef SNUM pour Production. Voir ADR-009.
 
 ---
 
@@ -73,8 +73,8 @@ cd span-sg-repo
 ### 2. Créer une branche feature
 
 ```bash
-git checkout draft
-git pull origin draft
+git checkout main
+git pull origin main
 git checkout -b feature/update-[votre-service]
 ```
 
@@ -109,7 +109,7 @@ Sur GitHub :
 
 - Cliquer le lien affiché dans le terminal
 - OU aller sur https://github.com/Alexmacapple/span-sg-repo/pulls → New Pull Request
-- **Base** : `draft`
+- **Base** : `main`
 - **Compare** : votre branche
 
 ---
@@ -287,7 +287,7 @@ open tests/e2e/reports/e2e-report.html
 ### CI Integration
 
 Tests E2E exécutés automatiquement sur :
-- ✅ Push vers `draft` ou `main`
+- ✅ Push vers `main`
 - ✅ Pull Requests
 - ✅ Job séparé dans GitHub Actions
 - ✅ Rapport HTML disponible dans Actions artifacts (30 jours)
@@ -323,18 +323,22 @@ Chaque PR est vérifiée automatiquement (CI) et manuellement (Bertrand/Alex) :
 ## Workflow complet
 
 ```
-Service modifie son module
+Service modifie son module (branche feature)
           ↓
-   PR vers draft
+   PR vers main (code review)
           ↓
-Revue Bertrand/Alex
+Revue Bertrand/Alex (validateur)
           ↓
-Merge dans draft → Revue locale/PDF (sans Pages)
+Merge PR → Auto-deploy Staging (/draft/)
           ↓
-PR draft → main (mensuel)
+Revue Chef SNUM sur Staging
           ↓
-Présentation Stéphane → Validation Chef SNUM → Production
+Approval Chef SNUM (deployment review)
+          ↓
+Deploy Production (/)
 ```
+
+**Détails architecture** : Voir [ADR-009](docs/adr/009-migration-github-environments.md) et [Guide Chef SNUM](docs/guide-chef-snum-approvals.md).
 
 ---
 

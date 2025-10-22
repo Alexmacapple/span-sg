@@ -139,7 +139,7 @@ Stratégie branching et releases.
 ```mermaid
 gitGraph
     commit id: "Initial"
-    branch draft
+    branch main
     checkout draft
     commit id: "feat: SIRCOM"
     commit id: "feat: SNUM"

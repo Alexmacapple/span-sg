@@ -223,7 +223,7 @@ Cycle de vie d'une contribution depuis création jusqu'au déploiement.
 ```mermaid
 stateDiagram-v2
     [*] --> BranchCreated: Contributeur crée branche feature
-    BranchCreated --> DraftPR: Créer PR draft ← feature
+    BranchCreated --> DraftPR: Créer PR main ← feature
     DraftPR --> InReview: Request review (@bertrand @alex)
 
     InReview --> ChangesRequested: Commentaires validateur
@@ -242,7 +242,7 @@ stateDiagram-v2
     CISuccess --> DeployedDraft: Deploy /draft/ (org-only)
 
     DeployedDraft --> WaitingRelease: Accumulation contributions
-    WaitingRelease --> ProdPR: Validateur crée PR draft → main
+    WaitingRelease --> ProdPR: Validateur crée PR main → main
 
     ProdPR --> ChefApproval: Chef SNUM review
     ChefApproval --> ProdMerge: Approbation release

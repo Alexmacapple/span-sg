@@ -84,7 +84,7 @@ graph TB
         direction TB
         REPO[fa:fa-code Repository<br/>span-sg<br/>Git + Markdown]
         BRANCH_MAIN[fa:fa-code-branch main<br/>Production]
-        BRANCH_DRAFT[fa:fa-code-branch draft<br/>Preview]
+        BRANCH_DRAFT[fa:fa-code-branch main<br/>Preview]
     end
 
     subgraph "CI/CD Pipeline (GitHub Actions)"
@@ -222,7 +222,7 @@ sequenceDiagram
 
     Note over C,G: 1. Contribution
     C->>G: Push feature/update-sircom
-    C->>G: Create PR draft ← feature
+    C->>G: Create PR main ← feature
 
     Note over G,CI: 2. CI Validation
     G->>CI: Trigger workflow (draft)
