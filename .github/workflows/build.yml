@@ -291,6 +291,10 @@ jobs:
           # Commit and push
           git add .
           git commit -m "Deploy production from ${{ github.sha }}" || exit 0
+
+          # Pull staging changes before push (avoid conflicts)
+          git pull --rebase origin gh-pages
+
           git push origin gh-pages
 
       - name: Deployment summary
