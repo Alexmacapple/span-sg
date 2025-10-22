@@ -243,7 +243,7 @@ jobs:
           echo "Commit: ${{ github.sha }}"
 
   deploy-production:
-    needs: build-and-test
+    needs: [build-and-test, deploy-staging]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
