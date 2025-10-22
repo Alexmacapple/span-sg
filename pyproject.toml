@@ -37,4 +37,4 @@ ignore = [
 testpaths = ["tests"]
 python_files = "test_*.py"
 pythonpath = ["."]
-addopts = "-v --cov=scripts --cov=hooks --cov-report=term-missing"
+addopts = "-v"
