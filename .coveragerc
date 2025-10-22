@@ -11,6 +11,8 @@ omit =
     scripts/check_prerequisites.sh
     scripts/check_coverage.sh
     scripts/calculate_scores_v1_31dinum.py
+    scripts/benchmark.py
+    scripts/analyze_benchmarks.py
 
 [report]
 # Exclusions lignes
