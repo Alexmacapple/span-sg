@@ -19,6 +19,14 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements-dsfr.txt', 'requirements-dev.txt', 'requirements-security.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       # ===== DEPENDENCIES =====
       - name: Install dependencies
         run: pip install -r requirements-dsfr.txt
@@ -138,9 +146,8 @@ jobs:
       - name: Validate PDF structure
         run: qpdf --check exports/span-sg.pdf
 
-      # ===== E2E TESTS (only on push, skip PR) =====
+      # ===== E2E TESTS (run on all events) =====
       - name: Install system dependencies for E2E
-        if: github.event_name == 'push'
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -151,11 +158,9 @@ jobs:
             shared-mime-info
 
       - name: Setup Docker Buildx
-        if: github.event_name == 'push'
         uses: docker/setup-buildx-action@v2
 
       - name: Build test Docker image
-        if: github.event_name == 'push'
         run: |
           docker buildx build \
             -f Dockerfile.mkdocs-test \
@@ -164,13 +169,12 @@ jobs:
             .
 
       - name: Run E2E accessibility tests
-        if: github.event_name == 'push'
         continue-on-error: true
         run: |
           docker run --rm mkdocs-test:latest bash tests/e2e/ci_runner.sh
 
       - name: Upload E2E report
-        if: always() && github.event_name == 'push'
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: e2e-report-${{ github.run_number }}
@@ -178,7 +182,7 @@ jobs:
           retention-days: 30
 
       - name: Upload accessibility report
-        if: always() && github.event_name == 'push'
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: accessibility-report-${{ github.run_number }}
@@ -199,6 +203,25 @@ jobs:
           name: exports-${{ github.sha }}
           path: exports/
           retention-days: 90
+
+      # ===== NOTIFICATIONS =====
+      - name: Send failure notification
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "[SPAN SG] CI Build Failed - ${{ github.repository }}"
+          to: alexandra.guiderdoni@gmail.com
+          from: GitHub Actions
+          body: |
+            Build failed for commit ${{ github.sha }}
+            Branch: ${{ github.ref }}
+            Workflow: ${{ github.workflow }}
+
+            Details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
   deploy-staging:
     needs: build-and-test
