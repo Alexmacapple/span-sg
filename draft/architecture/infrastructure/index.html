@@ -97,7 +97,7 @@
 <div class="section" itemprop="articleBody">
 <h1 id="architecture-infrastructure-runtime-et-deploiement">Architecture Infrastructure - Runtime et Déploiement</h1>
 <p>Documentation détaillée de l'infrastructure runtime, ressources système et architecture de déploiement SPAN SG.</p>
-<p>Version: 1.0.1-dsfr
+<p>Version: 1.2.0-environments
 Dernière mise à jour: 2025-10-22</p>
 <hr/>
 <h2 id="1-vue-densemble-infrastructure">1. Vue d'ensemble Infrastructure</h2>
@@ -265,10 +265,16 @@ Runtime: ~15min (draft), ~20min (main)
         T[Upload E2E report]
     end
 
-    subgraph "Phase 6: Deploy (60s)"
+    subgraph "Phase 6: Deploy Staging (60s)"
         U[Clone gh-pages]
-        V[Copy site/]
-        W[Git push]
+        V[Deploy to /draft/]
+        W[Push staging]
+    end
+
+    subgraph "Phase 7: Deploy Production (60s)"
+        X[Pull staging changes]
+        Y[Deploy to / root]
+        Z[Push production]
     end
 
     A --&gt; B --&gt; C --&gt; D
@@ -277,16 +283,16 @@ Runtime: ~15min (draft), ~20min (main)
     K --&gt; L --&gt; M --&gt; N --&gt; O --&gt; P --&gt; Q
     Q --&gt; R --&gt; S --&gt; T
     T --&gt; U --&gt; V --&gt; W
+    W --&gt; X --&gt; Y --&gt; Z
 
-    style W fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
+    style Z fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
 </code></pre>
 <h3 id="temps-dexecution">Temps d'exécution</h3>
 <table>
 <thead>
 <tr>
 <th>Phase</th>
-<th>Draft</th>
-<th>Main</th>
+<th>Push main</th>
 <th>Critique</th>
 </tr>
 </thead>
@@ -294,47 +300,46 @@ Runtime: ~15min (draft), ~20min (main)
 <tr>
 <td>Setup</td>
 <td>30s</td>
-<td>30s</td>
 <td>Non</td>
 </tr>
 <tr>
 <td>Quality</td>
-<td>60s</td>
 <td>60s</td>
 <td>Oui (fail-fast)</td>
 </tr>
 <tr>
 <td>Security</td>
 <td>45s</td>
-<td>45s</td>
 <td>Oui (bloquant)</td>
 </tr>
 <tr>
 <td>Build</td>
 <td>90s</td>
-<td>90s</td>
 <td>Oui (strict mode)</td>
 </tr>
 <tr>
 <td>E2E</td>
-<td>-</td>
 <td>300s</td>
 <td>Oui (main only)</td>
 </tr>
 <tr>
-<td>Deploy</td>
-<td>60s</td>
+<td>Deploy Staging</td>
 <td>60s</td>
 <td>Non</td>
 </tr>
 <tr>
+<td>Deploy Production</td>
+<td>60s</td>
+<td>Non (séquentiel)</td>
+</tr>
+<tr>
 <td><strong>Total</strong></td>
-<td><strong>~6min</strong></td>
-<td><strong>~10min</strong></td>
+<td><strong>~11min</strong></td>
 <td>-</td>
 </tr>
 </tbody>
 </table>
+<p>Note: Déploiement séquentiel depuis v1.2.0 (staging puis production) pour éviter conflits gh-pages.</p>
 <hr/>
 <h2 id="4-caching-strategy">4. Caching Strategy</h2>
 <h3 id="docker-layer-cache">Docker Layer Cache</h3>
@@ -391,26 +396,27 @@ Miss penalty: +30s install
     style CF fill:#ffec3d,stroke:#faad14,stroke-width:2px
     style GHP fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
 </code></pre>
-<h3 id="strategie-branching-gh-pages">Stratégie Branching gh-pages</h3>
+<h3 id="strategie-deploiement-avec-github-environments">Stratégie Déploiement avec GitHub Environments</h3>
 <pre><code class="language-mermaid">gitGraph
     commit id: "Initial gh-pages"
-    branch main-deploy
-    commit id: "Deploy draft v0.9"
-    checkout main
-    commit id: "Deploy prod v1.0"
-    checkout draft-deploy
-    commit id: "Deploy draft v1.1-rc1"
-    checkout main
-    merge draft-deploy tag: "v1.1"
-    commit id: "Deploy prod v1.1"
+    branch main
+    commit id: "Push main"
+    commit id: "CI: build-and-test"
+    commit id: "Deploy staging /draft/" tag: "staging"
+    commit id: "Deploy production /" tag: "production"
+    commit id: "v1.2.0-environments" type: HIGHLIGHT
 </code></pre>
+<p>Architecture 1-branche + 2 Environments (depuis v1.2.0):
+- Branche unique <code>main</code> pour développement
+- Environnement <code>staging</code> : déploiement automatique vers /draft/
+- Environnement <code>production</code> : déploiement séquentiel vers /</p>
 <h3 id="urls-et-acces">URLs et Accès</h3>
 <table>
 <thead>
 <tr>
 <th>URL</th>
-<th>Branche source</th>
-<th>Déploiement</th>
+<th>Environment GitHub</th>
+<th>Déploiement gh-pages</th>
 <th>Accès</th>
 <th>Latency</th>
 </tr>
@@ -418,14 +424,14 @@ Miss penalty: +30s install
 <tbody>
 <tr>
 <td><code>/</code></td>
-<td>main</td>
+<td>production</td>
 <td>gh-pages racine</td>
 <td>Public</td>
 <td>&lt;100ms</td>
 </tr>
 <tr>
 <td><code>/draft/</code></td>
-<td>draft</td>
+<td>staging</td>
 <td>gh-pages/draft/</td>
 <td>Org-only</td>
 <td>&lt;100ms</td>
