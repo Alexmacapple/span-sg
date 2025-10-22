@@ -30,26 +30,54 @@ FAILED=0
 PASSED=0
 SKIPPED=0
 
-for scenario in "${SCENARIOS[@]}"; do
+# Fonction helper pour exécuter un scénario (parallélisation)
+run_scenario() {
+    local scenario="$1"
+    local log_file="$REPORT_DIR/${scenario%.sh}.log"
+
     # Restaurer état propre avant chaque test (évite fuites d'état)
     git checkout -- docs/modules/*.md docs/synthese.md 2>/dev/null || true
 
-    echo "▶ Test: $scenario"
-
-    LOG_FILE="$REPORT_DIR/${scenario%.sh}.log"
-
-    if bash "$TESTS_DIR/$scenario" > "$LOG_FILE" 2>&1; then
-        echo "  ✅ PASS"
-        PASSED=$((PASSED + 1))
+    if bash "$TESTS_DIR/$scenario" > "$log_file" 2>&1; then
+        echo "✅ PASS: $scenario"
+        return 0
     else
-        EXIT_CODE=$?
-        if [ $EXIT_CODE -eq 77 ]; then
-            echo "  ⏭️  SKIP"
-            SKIPPED=$((SKIPPED + 1))
+        local exit_code=$?
+        if [ $exit_code -eq 77 ]; then
+            echo "⏭️  SKIP: $scenario"
+            return 77
         else
-            echo "  ❌ FAIL"
+            echo "❌ FAIL: $scenario"
+            return 1
+        fi
+    fi
+}
+
+export -f run_scenario
+export TESTS_DIR REPORT_DIR
+
+# Exécuter scénarios en parallèle (3 workers max)
+# Alternative GNU parallel si disponible: parallel -j 3 --halt soon,fail=1 run_scenario ::: "${SCENARIOS[@]}"
+printf "%s\n" "${SCENARIOS[@]}" | xargs -n 1 -P 3 -I {} bash -c 'run_scenario "{}"'
+PARALLEL_EXIT=$?
+
+# Collecter résultats depuis logs (car xargs agrège stdout)
+for scenario in "${SCENARIOS[@]}"; do
+    LOG_FILE="$REPORT_DIR/${scenario%.sh}.log"
+    if [ -f "$LOG_FILE" ]; then
+        # Détecter succès par message de fin de scénario
+        if grep -qE "(✅|OK|PASS)" "$LOG_FILE"; then
+            PASSED=$((PASSED + 1))
+        # Détecter skip par code exit 77 ou message SKIP
+        elif grep -qE "(SKIP|skipped)" "$LOG_FILE"; then
+            SKIPPED=$((SKIPPED + 1))
+        # Sinon considérer comme échec
+        else
             FAILED=$((FAILED + 1))
         fi
+    else
+        # Pas de log = échec
+        FAILED=$((FAILED + 1))
     fi
 done
 

@@ -13,9 +13,13 @@ Usage :
 
 import shutil
 from pathlib import Path
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    pass
 
 
-def on_post_build(config):
+def on_post_build(config: Any) -> None:
     """
     Hook exécuté après génération site MkDocs.
 

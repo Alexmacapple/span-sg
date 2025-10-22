@@ -12,7 +12,7 @@ def load_text(p: Path) -> str:
     return FENCE_RE.sub("", p.read_text(encoding="utf-8"))
 
 
-def score_module(p: Path):
+def score_module(p: Path) -> tuple[int, int]:
     boxes = BOX_RE.findall(load_text(p))
     total = len(boxes)
     checked = sum(1 for b in boxes if b.lower() == "x")
@@ -66,7 +66,7 @@ def validation_to_badge(validation_state: str) -> str:
     return validation_state
 
 
-def generate_summary():
+def generate_summary() -> int:
     modules_dir = Path("docs/modules")
 
     # Disclaimer en-tête (option e Q35 : ton neutre pour synthèse)

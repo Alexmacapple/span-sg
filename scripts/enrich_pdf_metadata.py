@@ -17,6 +17,7 @@ Dépendances:
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Optional
 
 try:
     import pikepdf
@@ -26,7 +27,7 @@ except ImportError:
     sys.exit(1)
 
 
-def enrich_pdf_metadata(input_path: Path, output_path: Path = None):
+def enrich_pdf_metadata(input_path: Path, output_path: Optional[Path] = None):
     """
     Enrichit les metadata d'un PDF existant.
 
@@ -91,7 +92,7 @@ def enrich_pdf_metadata(input_path: Path, output_path: Path = None):
         sys.exit(1)
 
 
-def main():
+def main() -> None:
     """Point d'entrée du script."""
     # Parser arguments
     if len(sys.argv) > 1:

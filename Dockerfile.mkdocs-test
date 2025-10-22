@@ -1,18 +1,30 @@
-FROM squidfunk/mkdocs-material:9.5
+# Stage 1: Builder - Compile dependencies as wheels
+FROM squidfunk/mkdocs-material:9.5 as builder
 
-# Installer build-essentials pour compiler libsass (Alpine Linux)
-# Note: gcc/g++ nécessaires pour mkdocs-with-pdf (libsass compilation)
+# Install build tools for compilation (Alpine Linux)
+# gcc/g++ needed for mkdocs-with-pdf (libsass compilation)
 RUN apk add --no-cache \
     gcc \
     g++ \
     musl-dev \
     python3-dev
 
+WORKDIR /build
+
+# Copy requirements and build wheels (cached layer)
+COPY requirements.txt .
+RUN pip wheel --no-cache-dir --wheel-dir=/wheels -r requirements.txt
+
+# Stage 2: Runtime - Minimal image with pre-compiled wheels
+FROM squidfunk/mkdocs-material:9.5
+
 WORKDIR /docs
 
-# Copier requirements et installer dépendances
-# Layer séparé pour optimiser cache Docker (invalide uniquement si requirements.txt change)
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy pre-compiled wheels from builder
+COPY --from=builder /wheels /wheels
+
+# Install from wheels (fast, no compilation needed)
+RUN pip install --no-cache-dir --no-index --find-links=/wheels /wheels/*.whl && \
+    rm -rf /wheels
 
 CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:8000"]

@@ -39,3 +39,12 @@ repos:
       - id: ruff
         name: Ruff Linter
         args: [--fix]
+
+  # Type checking
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: 'v1.8.0'
+    hooks:
+      - id: mypy
+        name: Mypy Type Checker
+        args: [--ignore-missing-imports, --check-untyped-defs]
+        additional_dependencies: [pikepdf, types-requests]

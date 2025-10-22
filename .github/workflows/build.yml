@@ -53,6 +53,9 @@ jobs:
       - name: Run Ruff linter
         run: python -m ruff check scripts/
 
+      - name: Run mypy type checker
+        run: python -m mypy scripts/ hooks/ --ignore-missing-imports --check-untyped-defs
+
       # ===== SECURITY CHECKS =====
       - name: Run Bandit security linter
         run: |
@@ -203,6 +206,21 @@ jobs:
           name: exports-${{ github.sha }}
           path: exports/
           retention-days: 90
+
+      # ===== BENCHMARK =====
+      - name: Run benchmark
+        run: |
+          echo "Running performance benchmarks..."
+          python scripts/benchmark.py > benchmark-${{ github.sha }}.json
+          echo "Benchmark complete"
+          cat benchmark-${{ github.sha }}.json
+
+      - name: Upload benchmark metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-${{ github.run_number }}
+          path: benchmark-${{ github.sha }}.json
+          retention-days: 365
 
       # ===== NOTIFICATIONS =====
       - name: Send failure notification
