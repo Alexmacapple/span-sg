@@ -578,7 +578,7 @@ gh api repos/Alexmacapple/span-sg/deployments \
 ### Ressources documentation
 
 - [ADR-009 : Migration GitHub Environments](adr/009-migration-github-environments.md)
-- [CONTRIBUTING.md](CONTRIBUTING.md)
+- [CONTRIBUTING.md](https://github.com/Alexmacapple/span-sg/blob/main/CONTRIBUTING.md)
 - [GitHub Deployments Documentation](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment)
 
 ---

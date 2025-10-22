@@ -1682,7 +1682,7 @@ PR draft reviewed → Convert to main → Merge
 - [GitHub Environments Documentation](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment)
 - [ADR-003 : Isolation PDF Build](003-isolation-pdf-build.md)
 - [ADR-006 : Migration Checklist 33 Critères](006-migration-checklist-33-criteres.md)
-- [CONTRIBUTING.md](../../CONTRIBUTING.md)
+- [CONTRIBUTING.md](https://github.com/Alexmacapple/span-sg/blob/main/CONTRIBUTING.md)
 - [docs/onboarding-visual.md](../onboarding-visual.md)
 
 ---
