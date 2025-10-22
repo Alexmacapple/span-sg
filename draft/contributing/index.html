@@ -101,7 +101,9 @@
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#tests-unitaires">Tests unitaires</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#formatting-et-linting">Formatting et linting</a>
+<li class="toctree-l3"><a class="reference internal" href="#pre-commit-hooks-fortement-recommande">Pre-commit hooks (fortement recommandé)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#formatting-et-linting-manuels">Formatting et linting manuels</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#installation-environnement-dev">Installation environnement dev</a>
 </li>
@@ -236,22 +238,77 @@ git push -u origin feature/update-[votre-service]
 <h2 id="qualite-code-python">Qualité code Python</h2>
 <p>Si vous contribuez au code Python (<code>scripts/</code>), suivez ces règles :</p>
 <h3 id="tests-unitaires">Tests unitaires</h3>
-<ul>
-<li>Exécuter les tests avant commit : <code>pytest scripts/ -v --cov=scripts</code></li>
-<li>Coverage minimum : ≥85% global, ≥90% pour calculate_scores.py</li>
-<li>Tous les tests doivent passer</li>
-</ul>
-<h3 id="formatting-et-linting">Formatting et linting</h3>
-<ul>
-<li>Formater avec Black : <code>black scripts/</code></li>
-<li>Vérifier avec Ruff : <code>ruff check scripts/</code></li>
-<li>Hooks pre-commit : <code>pre-commit install</code> (recommandé)</li>
-</ul>
+<p>Le projet utilise pytest avec une structure organisée :</p>
+<pre><code>tests/
+├── unit/              # Tests unitaires (scripts et hooks)
+│   ├── scripts/       # Tests pour scripts/calculate_scores.py, enrich_pdf_metadata.py
+│   └── hooks/         # Tests pour hooks MkDocs DSFR
+├── e2e/               # Tests end-to-end (Selenium + accessibility)
+└── test_*.py          # Tests d'intégration
+</code></pre>
+<p><strong>Commandes essentielles :</strong></p>
+<pre><code class="language-bash"># Tous les tests unitaires
+pytest tests/unit/ -v
+
+# Tests scripts avec coverage (89% requis)
+pytest tests/unit/scripts/ --cov=scripts --cov-fail-under=89
+
+# Tests hooks avec coverage strict (100% requis)
+pytest tests/unit/hooks/ --cov=hooks --cov-config=.coveragerc-hooks --cov-fail-under=100
+</code></pre>
+<p>Voir <code>tests/README.md</code> pour la documentation complète.</p>
+<h3 id="pre-commit-hooks-fortement-recommande">Pre-commit hooks (fortement recommandé)</h3>
+<p>Les pre-commit hooks <strong>valident automatiquement votre code avant chaque commit</strong>, évitant ainsi les erreurs CI.</p>
+<p><strong>Configuration incluse :</strong> <code>.pre-commit-config.yaml</code></p>
+<p>Hooks actifs :
+1. <strong>Bandit</strong> : Détection failles sécurité (scripts/, hooks/)
+2. <strong>Safety</strong> : Vérification vulnérabilités dépendances (CVE)
+3. <strong>Black</strong> : Formatage code Python automatique
+4. <strong>Ruff</strong> : Linting avec auto-fix activé</p>
+<p><strong>Installation (une fois) :</strong></p>
+<pre><code class="language-bash"># Installer pre-commit
+pip install pre-commit
+
+# Activer les hooks dans votre clone local
+pre-commit install
+
+# Tester sur tous les fichiers
+pre-commit run --all-files
+</code></pre>
+<p><strong>Utilisation :</strong>
+Une fois installé, les hooks s'exécutent automatiquement à chaque <code>git commit</code>.</p>
+<p>Si un hook échoue :
+- <strong>Black</strong> : Le code est reformaté automatiquement → Re-commiter
+- <strong>Ruff</strong> : Les erreurs sont corrigées si possible → Re-commiter
+- <strong>Bandit</strong> : Failles détectées → Corriger manuellement
+- <strong>Safety</strong> : Vulnérabilités trouvées → Mettre à jour dépendances</p>
+<p><strong>Bypass temporaire (déconseillé) :</strong></p>
+<pre><code class="language-bash">git commit --no-verify -m "message"
+</code></pre>
+<h3 id="formatting-et-linting-manuels">Formatting et linting manuels</h3>
+<p>Si vous préférez valider manuellement avant commit :</p>
+<pre><code class="language-bash"># Formater avec Black
+black scripts/ hooks/
+
+# Vérifier avec Ruff
+ruff check scripts/ hooks/
+
+# Sécurité Bandit
+bandit -r scripts/ hooks/ -ll
+
+# Vulnérabilités Safety
+safety check -r requirements-dsfr.txt
+</code></pre>
 <h3 id="installation-environnement-dev">Installation environnement dev</h3>
-<pre><code class="language-bash">pip install -r requirements-dev.txt
+<pre><code class="language-bash"># Dépendances dev (pytest, coverage, etc.)
+pip install -r requirements-dev.txt
+
+# Dépendances sécurité (bandit, safety)
+pip install -r requirements-security.txt
+
+# Activer pre-commit
 pre-commit install
 </code></pre>
-<p>Les hooks pre-commit exécutent automatiquement Black et Ruff avant chaque commit.</p>
 <hr/>
 <h2 id="regles-de-validation-des-pr">Règles de validation des PR</h2>
 <p>Chaque PR est vérifiée automatiquement (CI) et manuellement (Bertrand/Alex) :</p>
