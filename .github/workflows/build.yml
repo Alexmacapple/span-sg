@@ -123,6 +123,9 @@ jobs:
       - name: Enrich PDF metadata
         run: python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
 
+      - name: Install qpdf
+        run: sudo apt-get update && sudo apt-get install -y qpdf
+
       - name: Validate PDF structure
         run: qpdf --check exports/span-sg.pdf
 
