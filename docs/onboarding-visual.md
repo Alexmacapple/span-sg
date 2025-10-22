@@ -250,7 +250,7 @@ graph TB
     C -->|Non| D[Attente autres<br/>contributions]
     C -->|Oui| E[Chef SNUM<br/>Approuve release]
 
-    E --> F[PR draft → main<br/>Créée par validateur]
+    E --> F[PR main → main<br/>Créée par validateur]
     F --> G[Tests E2E<br/>9 scénarios]
     G --> H{E2E pass?}
     H -->|❌| I[Rollback<br/>Investigation]

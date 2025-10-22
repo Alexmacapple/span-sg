@@ -263,25 +263,24 @@ services:
 ```mermaid
 gitGraph
     commit id: "Initial"
-    branch draft
-    checkout draft
-    commit id: "feat: SIRCOM"
+    branch main
 
     branch feature/sircom
     checkout feature/sircom
     commit id: "ajoute 3 actions"
 
-    checkout draft
-    merge feature/sircom
-
     checkout main
-    merge draft tag: "v1.0"
+    merge feature/sircom tag: "v1.0"
+    commit id: "Deploy staging"
+    commit id: "Approval Chef SNUM"
+    commit id: "Deploy production"
 ```
 
-**Branches :**
-- `main` : Production (gh-pages racine)
-- `draft` : Preview (gh-pages /draft/)
-- `feature/*` : Contributions services
+**Architecture (depuis 22/10/2025) :**
+- `main` : Branche unique (source de vérité)
+- `feature/*` : Contributions services (PR vers main)
+- GitHub Environment `staging` : Auto-deploy /draft/
+- GitHub Environment `production` : Deploy / (approval Chef SNUM requis)
 
 **Référence :** [CONTRIBUTING.md](contributing.md#workflow-git)
 
@@ -297,17 +296,26 @@ gitGraph
 - RAM : 14 GB
 - Durée : 15-20 min/build
 
-**Workflow :**
+**Workflow (3 jobs séquentiels) :**
 ```yaml
 # .github/workflows/build.yml
 jobs:
-  build-and-deploy-draft:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Linting, Security, Tests, Build, E2E
       ...
+
+  deploy-staging:
+    needs: build-and-test
+    environment: staging
+    ...
+
+  deploy-production:
+    needs: build-and-test
+    environment: production  # Requires approval Chef SNUM
+    ...
 ```
 
 **Référence :** [docs/architecture/infrastructure.md](architecture/infrastructure.md)
@@ -319,10 +327,12 @@ jobs:
 **Définition :** Hébergement gratuit de sites statiques par GitHub.
 
 **URLs SPAN SG :**
-- Production : https://alexmacapple.github.io/span-sg/
-- Preview : https://alexmacapple.github.io/span-sg/draft/ (org-only)
+- Staging (auto-deploy) : https://alexmacapple.github.io/span-sg/draft/ (org-only)
+- Production (approval requis) : https://alexmacapple.github.io/span-sg/ (org-only)
 
 **Branche :** `gh-pages`
+
+**Architecture :** GitHub Environments (staging/production) - Voir [ADR-009](adr/009-migration-github-environments.md)
 
 **CDN :** CloudFlare (latence <100ms)
 

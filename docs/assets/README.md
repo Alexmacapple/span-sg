@@ -169,7 +169,7 @@ cp animation-opt.gif docs/assets/gifs/onboarding-create-pr-10fps.gif
 ![Création Pull Request sur GitHub interface web](../assets/screenshots/github-pr-creation-1920x1080.png)
 
 # GIF avec alt text descriptif
-![Animation démonstration workflow contributeur : édition module SIRCOM puis création PR vers branche draft](../assets/gifs/onboarding-create-pr-10fps.gif)
+![Animation démonstration workflow contributeur : édition module SIRCOM puis création PR vers branche main](../assets/gifs/onboarding-create-pr-10fps.gif)
 ```
 
 ### 5. Valider Accessibilité
@@ -195,7 +195,7 @@ docker compose -f docker-compose-dsfr.yml up
 
 Pour créer une PR vers `draft`, suivre ces étapes :
 
-![Interface GitHub création Pull Request avec sélection branche base draft et branche compare feature/update-sircom](../assets/screenshots/github-pr-creation-1920x1080.png)
+![Interface GitHub création Pull Request avec sélection branche base main et branche compare feature/update-sircom](../assets/screenshots/github-pr-creation-1920x1080.png)
 
 1. Sélectionner branche base : `draft`
 2. Sélectionner branche compare : `feature/update-sircom`

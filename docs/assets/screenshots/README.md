@@ -46,7 +46,7 @@ Avant de capturer un screenshot, vérifier :
 ```
 URL visible : https://github.com/Alexmacapple/span-sg/pull/42
 Zones importantes :
-- Sélecteur branches (base: draft, compare: feature/...)
+- Sélecteur branches (base: main, compare: feature/...)
 - Bouton "Create Pull Request"
 - Description PR (template)
 - Reviewers (Bertrand, Alex)
@@ -252,7 +252,7 @@ du -sh docs/assets/screenshots/github-pr-creation-1920x1080.png
 **Basique (obligatoire)** :
 
 ```markdown
-![Création Pull Request sur GitHub avec sélection base draft et compare feature](../assets/screenshots/github-pr-creation-1920x1080.png)
+![Création Pull Request sur GitHub avec sélection base main et compare feature](../assets/screenshots/github-pr-creation-1920x1080.png)
 ```
 
 **Avec légende** :
@@ -260,7 +260,7 @@ du -sh docs/assets/screenshots/github-pr-creation-1920x1080.png
 ```markdown
 ![Interface GitHub Actions logs montrant succès build draft en 6 minutes](../assets/screenshots/ci-logs-build-success-1920x1080.png)
 
-*Figure 1 : Logs GitHub Actions après merge PR vers draft (durée totale : 6min 12s)*
+*Figure 1 : Logs GitHub Actions après merge PR vers main (durée totale : 6min 12s)*
 ```
 
 **Avec lien cliquable** :
@@ -279,7 +279,7 @@ Avant commit, valider :
 
 - [ ] **Alt text descriptif** : Décrit contenu image sans contexte externe (RGAA 1.1.1)
   ```markdown
-  ✅ ![Création PR GitHub avec base draft et compare feature/update-sircom](...)
+  ✅ ![Création PR GitHub avec base main et compare feature/update-sircom](...)
   ❌ ![Screenshot PR](...)
   ❌ ![](screenshot.png) # Alt text vide = ÉCHEC RGAA
   ```

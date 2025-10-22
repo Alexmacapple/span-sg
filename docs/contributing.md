@@ -13,7 +13,7 @@ Les modifications passent par une **Pull Request** vers `draft` pour validation.
 
 ### 1. Aller sur le fichier de votre service
 
-https://github.com/Alexmacapple/span-sg-repo/blob/draft/docs/modules/[votre-service].md
+https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/modules/[votre-service].md
 
 Exemple : `sircom.md`, `snum.md`, `srh.md`, etc.
 
@@ -162,13 +162,13 @@ Chaque PR est vérifiée automatiquement (CI) et manuellement (Bertrand/Alex) :
 ```
 Service modifie son module
           ↓
-   PR vers draft
+   PR vers main
           ↓
 Revue Bertrand/Alex
           ↓
 Merge dans draft → Revue locale/PDF (sans Pages)
           ↓
-PR draft → main (mensuel)
+PR main → main (mensuel)
           ↓
 Validation Yves → Production
 ```

@@ -112,7 +112,7 @@ ffmpeg -i input.mp4 -vf "fps=10,scale=1280:-1:flags=lanczos,split[s0][s1];[s0]pa
 ```
 Objectif : Démontrer édition module SIRCOM sur GitHub
 Actions :
-1. Naviguer https://github.com/Alexmacapple/span-sg/blob/draft/docs/modules/sircom.md
+1. Naviguer https://github.com/Alexmacapple/span-sg/blob/main/docs/modules/sircom.md
 2. Cliquer icône Edit (crayon)
 3. Scroller ligne 50 (critère 1.1.1)
 4. Cocher case : - [ ] → - [x]
@@ -299,7 +299,7 @@ du -sh docs/assets/gifs/onboarding-create-pr-10fps.gif
 **Basique (obligatoire)** :
 
 ```markdown
-![Animation démonstration création Pull Request : édition module SIRCOM puis création PR vers draft](../assets/gifs/onboarding-create-pr-10fps.gif)
+![Animation démonstration création Pull Request : édition module SIRCOM puis création PR vers main](../assets/gifs/onboarding-create-pr-10fps.gif)
 ```
 
 **Avec légende** :
