@@ -273,13 +273,16 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Clean root (preserve /draft/ and .git)
-          find . -mindepth 1 -maxdepth 1 ! -name 'draft' ! -name '.git' -exec rm -rf {} +
+          # Clean root (preserve /draft/, .git, site, exports)
+          find . -mindepth 1 -maxdepth 1 ! -name 'draft' ! -name '.git' ! -name 'site' ! -name 'exports' -exec rm -rf {} +
 
           # Copy new build
           cp -r site/* .
           mkdir -p exports
           cp -r exports/* exports/
+
+          # Clean temporary directories
+          rm -rf site
 
           # Commit and push
           git add .
