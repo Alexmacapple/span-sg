@@ -16,6 +16,10 @@ Format basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 - Pre-commit hook mypy pour vérification types locale
 - Cache Docker layers pour build test image (gain ~30-60s)
 - Documentation architecture cache et performance (`.github/PERFORMANCE.md`)
+- CODEOWNERS pour reviews obligatoires par domaine (docs, CI/CD, scripts, tests)
+- Releases GitHub formelles (v1.2.0-environments, v1.2.1-quality avec notes complètes)
+- Badges README.md : coverage (89%), license (MIT), release, pre-commit enabled
+- Documentation branch protection rules (`.github/BRANCH-PROTECTION.md`)
 
 ### Changed
 - Tests E2E parallélisés (xargs -P 3, 3 workers simultanés)

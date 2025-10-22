@@ -1,0 +1,62 @@
+# CODEOWNERS - Code ownership pour reviews obligatoires
+#
+# Format: path/to/file @owner1 @owner2
+# Documentation: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# ===== DEFAULT OWNERS =====
+# Alexandra est owner principal du projet
+* @Alexmacapple
+
+# ===== DOCUMENTATION =====
+# Modules SPAN - validation requise par validateurs
+/docs/modules/ @Alexmacapple @bertrand @alex
+
+# Documentation technique et ADR
+/docs/architecture/ @Alexmacapple @alex
+/docs/adr/ @Alexmacapple @alex
+
+# Documentation utilisateur
+/docs/*.md @Alexmacapple @bertrand
+
+# README et guides contributeurs
+/README.md @Alexmacapple @bertrand @alex
+/CONTRIBUTING.md @Alexmacapple @alex
+/CLAUDE.md @Alexmacapple @alex
+
+# ===== CONFIGURATION CI/CD =====
+/.github/workflows/ @Alexmacapple @alex
+/.github/scripts/ @Alexmacapple @alex
+
+# Templates issues et PR
+/.github/ISSUE_TEMPLATE/ @Alexmacapple
+/.github/PULL_REQUEST_TEMPLATE/ @Alexmacapple
+
+# ===== SCRIPTS ET HOOKS =====
+# Scripts Python production (scoring, PDF)
+/scripts/calculate_scores.py @Alexmacapple @alex
+/scripts/enrich_pdf_metadata.py @Alexmacapple @alex
+
+# Hooks pre-commit
+/hooks/ @Alexmacapple @alex
+
+# ===== TESTS =====
+/tests/ @Alexmacapple @alex
+
+# ===== CONFIGURATION PROJET =====
+# MkDocs configuration
+/mkdocs*.yml @Alexmacapple @alex
+
+# Python dependencies et config
+/requirements*.txt @Alexmacapple @alex
+/pyproject.toml @Alexmacapple @alex
+/.coveragerc* @Alexmacapple @alex
+
+# Pre-commit hooks
+/.pre-commit-config.yaml @Alexmacapple @alex
+
+# Docker
+/Dockerfile* @Alexmacapple @alex
+/docker-compose*.yml @Alexmacapple @alex
+
+# ===== CHANGELOG ET VERSIONING =====
+/CHANGELOG.md @Alexmacapple @bertrand

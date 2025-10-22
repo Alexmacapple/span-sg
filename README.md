@@ -2,6 +2,10 @@
 
 ![Build Status](https://github.com/Alexmacapple/span-sg/workflows/Build%20SPAN/badge.svg)
 ![E2E Tests](https://github.com/Alexmacapple/span-sg/actions/workflows/build.yml/badge.svg?event=push)
+![Coverage](https://img.shields.io/badge/coverage-89%25-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Release](https://img.shields.io/github/v/release/Alexmacapple/span-sg)
+![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)
 
 Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/deploy.
 
