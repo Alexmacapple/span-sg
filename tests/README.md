@@ -1,115 +1,300 @@
-# Tests SPAN SG
+# Structure des Tests SPAN SG
 
-Ce dossier contient les tests end-to-end (E2E) et les outils de validation CI locale.
+Documentation de l'organisation des tests et des conventions de test pour le projet SPAN SG.
 
-## Tests E2E
+Version: 1.0.0
+Dernière mise à jour: 2025-10-22
 
-**Objectif** : Valider le workflow complet (edit → scoring → build → PDF → deploy)
+---
 
-### Exécution
+## Vue d'ensemble
 
+Le projet utilise pytest comme framework de test avec une organisation claire en trois catégories :
+
+```
+tests/
+├── unit/              # Tests unitaires (isolés, rapides)
+│   ├── scripts/       # Tests pour scripts de production
+│   └── hooks/         # Tests pour hooks MkDocs
+├── e2e/               # Tests end-to-end (complets, lents)
+└── test_*.py          # Tests d'intégration (au niveau racine)
+```
+
+---
+
+## Tests Unitaires (`tests/unit/`)
+
+Tests isolés qui vérifient le comportement d'une seule fonction ou classe.
+
+### Scripts de production (`tests/unit/scripts/`)
+
+Tests pour les scripts Python de production :
+
+| Fichier | Script testé | Coverage requis |
+|---------|--------------|-----------------|
+| `test_calculate_scores.py` | `scripts/calculate_scores.py` | 89%+ |
+| `test_calculate_scores_extended.py` | `scripts/calculate_scores.py` | 89%+ |
+| `test_enrich_pdf_metadata.py` | `scripts/enrich_pdf_metadata.py` | 89%+ |
+| `test_enrich_pdf_extended.py` | `scripts/enrich_pdf_metadata.py` | 89%+ |
+
+**Exécution :**
 ```bash
-# Test principal
-./tests/e2e/test_full_workflow.sh
+# Tous les tests unitaires scripts
+pytest tests/unit/scripts/ -v
 
-# Tous scénarios
-./tests/e2e/run_all.sh
-
-# Scénario spécifique
-./tests/e2e/scenario_multi_modules.sh
+# Avec coverage (89% requis)
+pytest tests/unit/scripts/ --cov=scripts --cov-fail-under=89
 ```
 
-### Scénarios disponibles
+### Hooks MkDocs (`tests/unit/hooks/`)
 
-1. **test_full_workflow.sh** : Workflow complet (11 tests)
-2. **scenario_multi_modules.sh** : Modification simultanée 3 modules
-3. **scenario_erreur_perimetre.sh** : Détection erreur périmètre (exit 2)
-4. **scenario_erreur_markdown.sh** : Détection lien cassé (strict mode)
-5. **scenario_performance.sh** : Build < 10s
-6. **scenario_pdf_complet.sh** : PDF complet > 100 KB
-7. **scenario_rollback.sh** : Rollback complet tous modules
-8. **scenario_preview_http.sh** : Preview HTTP Docker
-9. **scenario_frontmatter.sh** : Validation YAML 6 modules
+Tests pour les hooks Python utilisés par MkDocs DSFR :
 
-### Intégration CI
+| Fichier | Hook testé | Coverage requis |
+|---------|-----------|-----------------|
+| `test_hooks_dsfr_table_wrapper.py` | `hooks/dsfr_table_wrapper.py` | 100% |
+| `test_hooks_title_cleaner.py` | `hooks/title_cleaner.py` | 100% |
+| `test_hooks_pdf_copy.py` | `hooks/pdf_copy.py` | 100% |
 
-Les tests E2E sont exécutés automatiquement par GitHub Actions :
-
-```yaml
-- name: Run E2E tests
-  run: ./tests/e2e/run_all.sh
-```
-
-## Tests CI locaux avec `act`
-
-**Objectif** : Valider GitHub Actions avant push
-
-### Installation
-
+**Exécution :**
 ```bash
-brew install act  # macOS
+# Tous les tests hooks
+pytest tests/unit/hooks/ -v
+
+# Avec coverage strict (100% requis)
+pytest tests/unit/hooks/ \
+  --cov=hooks \
+  --cov-config=.coveragerc-hooks \
+  --cov-fail-under=100
 ```
 
-### Configuration
+**Important :** Les hooks nécessitent une couverture de 100% car ils impactent directement l'accessibilité RGAA du site.
 
-Fichier `.actrc` à la racine :
+---
 
+## Tests d'Intégration (`tests/*.py`)
+
+Tests au niveau racine vérifiant l'interaction entre plusieurs composants.
+
+| Fichier | Description |
+|---------|-------------|
+| `test_accessibility.py` | Tests d'accessibilité RGAA globaux |
+
+**Exécution :**
 ```bash
--P ubuntu-latest=catthehacker/ubuntu:act-latest
---secret-file .secrets
--v
+pytest tests/test_accessibility.py -v
 ```
 
-Créer `.secrets` (ne pas commiter) :
+---
 
+## Tests End-to-End (`tests/e2e/`)
+
+Tests complets simulant le parcours utilisateur réel via Selenium.
+
+```
+tests/e2e/
+├── test_accessibility_scenarios.py   # 9 scénarios RGAA
+├── ci_runner.sh                       # Script CI pour Docker
+├── accessibility_report.json          # Rapport JSON généré
+└── report.html                        # Rapport HTML détaillé
+```
+
+**Scénarios couverts :**
+1. Navigation clavier complète
+2. Titres de page accessibles
+3. Landmarks ARIA présents
+4. Skip links fonctionnels
+5. Contraste conforme WCAG AA
+6. Images avec alt text
+7. Formulaires accessibles
+8. Ordre de tabulation logique
+9. Liens descriptifs
+
+**Exécution locale :**
 ```bash
-GITHUB_TOKEN=ghp_fake_token
+# Démarrer le serveur MkDocs
+docker compose -f docker-compose-dsfr.yml up -d
+
+# Lancer les tests E2E (dans le container)
+docker run --rm mkdocs-test:latest bash tests/e2e/ci_runner.sh
 ```
 
-### Utilisation
+**Exécution CI :**
+Les tests E2E s'exécutent automatiquement sur push vers `main` (GitHub Actions).
 
+---
+
+## Configuration Coverage
+
+Deux fichiers de configuration distincts :
+
+### `.coveragerc` (scripts production)
+```ini
+[run]
+omit = tests/*  # Exclure tous les tests
+
+[report]
+fail_under = 89  # Seuil minimum 89%
+```
+
+### `.coveragerc-hooks` (hooks MkDocs)
+```ini
+[run]
+source = hooks/
+omit = tests/*, scripts/*
+
+[report]
+fail_under = 100  # Seuil strict 100%
+```
+
+---
+
+## Commandes Utiles
+
+### Exécuter tous les tests
 ```bash
-# Tester job build
-act -j build
+# Tous les tests unitaires
+pytest tests/unit/ -v
 
-# Lister jobs
-act -l
+# Tous les tests (unit + intégration)
+pytest tests/ -v --ignore=tests/e2e/
 
-# Simuler push draft
-act push --ref refs/heads/draft
-
-# Script wrapper
-./scripts/test-ci-local.sh
+# Avec coverage combiné
+pytest tests/unit/ --cov=scripts --cov=hooks --cov-report=term-missing
 ```
 
-### Troubleshooting
-
-**Erreur "Docker daemon not running"** :
-- Lancer Docker Desktop
-
-**Erreur "image not found"** :
-- Utiliser image medium : `-P ubuntu-latest=catthehacker/ubuntu:act-latest`
-
-**Erreur "secrets not found"** :
-- Créer `.secrets` avec `GITHUB_TOKEN=fake_token`
-
-**Step échoue en local mais OK en CI** :
-- Vérifier compatibilité action avec act
-- Utiliser `if: ${{ !env.ACT }}` pour skip step
-
-## Pré-commit hook (optionnel)
-
-Exécuter tests E2E avant commit :
-
-`.git/hooks/pre-commit` :
-
+### Vérifier coverage individuellement
 ```bash
-#!/bin/bash
-./tests/e2e/test_full_workflow.sh
+# Scripts uniquement (89% requis)
+pytest tests/unit/scripts/ \
+  --cov=scripts \
+  --cov-fail-under=89
+
+# Hooks uniquement (100% requis)
+pytest tests/unit/hooks/ \
+  --cov=hooks \
+  --cov-config=.coveragerc-hooks \
+  --cov-fail-under=100
 ```
 
-Activer :
-
+### Générer rapports HTML
 ```bash
-chmod +x .git/hooks/pre-commit
+# Coverage HTML pour scripts
+pytest tests/unit/scripts/ \
+  --cov=scripts \
+  --cov-report=html
+# → htmlcov/index.html
+
+# Coverage HTML pour hooks
+pytest tests/unit/hooks/ \
+  --cov=hooks \
+  --cov-config=.coveragerc-hooks \
+  --cov-report=html:htmlcov-hooks
+# → htmlcov-hooks/index.html
 ```
+
+---
+
+## Conventions de Nommage
+
+| Convention | Usage | Exemple |
+|------------|-------|---------|
+| `test_*.py` | Fichiers de test | `test_calculate_scores.py` |
+| `test_*()` | Fonctions de test | `def test_valid_score():` |
+| `Test*` | Classes de test | `class TestScoreCalculation:` |
+| `*_extended.py` | Tests étendus/edge cases | `test_calculate_scores_extended.py` |
+
+---
+
+## Bonnes Pratiques
+
+### 1. Isolation des tests
+Chaque test doit être indépendant et ne pas dépendre de l'état d'autres tests.
+
+```python
+# Bon : utiliser des fixtures
+@pytest.fixture
+def sample_module():
+    return {"service": "SNUM", "checked": 10, "total": 33}
+
+def test_score_calculation(sample_module):
+    assert calculate_score(sample_module) == 30.3
+```
+
+### 2. Nommage descriptif
+Les noms de tests doivent décrire clairement le comportement testé.
+
+```python
+# Bon
+def test_calculate_scores_returns_zero_when_no_criteria_checked():
+    pass
+
+# Mauvais
+def test_scores():
+    pass
+```
+
+### 3. Coverage ≠ Qualité
+Un coverage de 100% ne garantit pas l'absence de bugs. Privilégiez des tests pertinents.
+
+### 4. Tests rapides pour unit, lents pour E2E
+- Tests unitaires : < 1s par fichier
+- Tests intégration : < 10s par fichier
+- Tests E2E : < 5min par suite
+
+---
+
+## CI/CD Workflow
+
+Le workflow GitHub Actions (`.github/workflows/build.yml`) exécute :
+
+1. **Pre-commit verification** : Validation hooks pre-commit
+2. **Unit tests** : Tous les tests unitaires
+3. **Coverage checks** :
+   - Scripts production : 89%+
+   - Hooks MkDocs : 100%
+4. **E2E tests** : Uniquement sur push `main` (300s timeout)
+
+**Durée totale CI :** ~11 minutes (avec E2E), ~6 minutes (sans E2E sur PR)
+
+---
+
+## Debugging Tests
+
+### Afficher stdout/stderr
+```bash
+pytest tests/unit/ -v -s
+```
+
+### Stopper au premier échec
+```bash
+pytest tests/unit/ -x
+```
+
+### Exécuter un seul test
+```bash
+pytest tests/unit/scripts/test_calculate_scores.py::test_valid_module -v
+```
+
+### Mode debug interactif
+```bash
+pytest tests/unit/ --pdb
+```
+
+---
+
+## Références
+
+- [pytest Documentation](https://docs.pytest.org/)
+- [pytest-cov Plugin](https://pytest-cov.readthedocs.io/)
+- [Selenium WebDriver](https://selenium-python.readthedocs.io/)
+- [RGAA 4.1 Critères](https://accessibilite.numerique.gouv.fr/)
+- [Coverage.py Configuration](https://coverage.readthedocs.io/en/latest/config.html)
+
+---
+
+## Contacts
+
+- **Mainteneur tests** : Alex (@alex)
+- **Validation accessibilité** : Bertrand (@bertrand)
+- **Questions** : GitHub Issues ou Discussions

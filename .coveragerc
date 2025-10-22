@@ -1,7 +1,7 @@
 [run]
 # Configuration coverage pour scripts production
 omit =
-    scripts/test_*.py
+    tests/*
     scripts/add-bmad-headers.py
     scripts/evaluate-bmad-final.py
     scripts/create-module.sh

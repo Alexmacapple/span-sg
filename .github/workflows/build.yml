@@ -29,6 +29,15 @@ jobs:
       - name: Install security tools
         run: pip install -r requirements-security.txt
 
+      # ===== PRE-COMMIT VERIFICATION =====
+      - name: Verify pre-commit hooks configuration
+        run: |
+          echo "=== Pre-commit Hooks Verification ==="
+          pip install pre-commit
+          pre-commit run --all-files || true
+          echo ""
+          echo "=== Pre-commit hooks verified ==="
+
       # ===== QUALITY CHECKS =====
       - name: Run Black formatter check
         run: python -m black --check scripts/
@@ -45,10 +54,10 @@ jobs:
           echo ""
 
           # Generate JSON report (non-blocking)
-          bandit -r scripts/ hooks/ -ll -x scripts/test_*.py,tests/ -f json -o bandit-report.json || true
+          bandit -r scripts/ hooks/ -ll -x tests/ -f json -o bandit-report.json || true
 
           # Display summary and fail on HIGH/CRITICAL
-          bandit -r scripts/ hooks/ -ll -x scripts/test_*.py,tests/ --format screen
+          bandit -r scripts/ hooks/ -ll -x tests/ --format screen
 
           echo ""
           echo "=== Bandit analysis complete ==="
@@ -80,7 +89,7 @@ jobs:
 
       # ===== TESTS =====
       - name: Run unit tests
-        run: python -m pytest scripts/ -v --cov=scripts --cov-report=term-missing
+        run: python -m pytest tests/unit/ -v --cov=scripts --cov=hooks --cov-report=term-missing
 
       - name: Run production scripts coverage check (89%+ required)
         run: |
@@ -89,12 +98,12 @@ jobs:
             --cov-report=term-missing \
             --cov-report=html \
             --cov-fail-under=89 \
-            scripts/test_calculate_scores*.py scripts/test_enrich_pdf*.py
+            tests/unit/scripts/test_calculate_scores*.py tests/unit/scripts/test_enrich_pdf*.py
 
       - name: Run hooks coverage check (100% required)
         run: |
           python -m pytest \
-            tests/test_hooks_*.py \
+            tests/unit/hooks/test_hooks_*.py \
             --cov=hooks \
             --cov-config=.coveragerc-hooks \
             --cov-report=term-missing \

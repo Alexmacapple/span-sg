@@ -119,22 +119,99 @@ Sur GitHub :
 Si vous contribuez au code Python (`scripts/`), suivez ces règles :
 
 ### Tests unitaires
-- Exécuter les tests avant commit : `pytest scripts/ -v --cov=scripts`
-- Coverage minimum : ≥85% global, ≥90% pour calculate_scores.py
-- Tous les tests doivent passer
 
-### Formatting et linting
-- Formater avec Black : `black scripts/`
-- Vérifier avec Ruff : `ruff check scripts/`
-- Hooks pre-commit : `pre-commit install` (recommandé)
+Le projet utilise pytest avec une structure organisée :
+
+```
+tests/
+├── unit/              # Tests unitaires (scripts et hooks)
+│   ├── scripts/       # Tests pour scripts/calculate_scores.py, enrich_pdf_metadata.py
+│   └── hooks/         # Tests pour hooks MkDocs DSFR
+├── e2e/               # Tests end-to-end (Selenium + accessibility)
+└── test_*.py          # Tests d'intégration
+```
+
+**Commandes essentielles :**
+```bash
+# Tous les tests unitaires
+pytest tests/unit/ -v
+
+# Tests scripts avec coverage (89% requis)
+pytest tests/unit/scripts/ --cov=scripts --cov-fail-under=89
+
+# Tests hooks avec coverage strict (100% requis)
+pytest tests/unit/hooks/ --cov=hooks --cov-config=.coveragerc-hooks --cov-fail-under=100
+```
+
+Voir `tests/README.md` pour la documentation complète.
+
+### Pre-commit hooks (fortement recommandé)
+
+Les pre-commit hooks **valident automatiquement votre code avant chaque commit**, évitant ainsi les erreurs CI.
+
+**Configuration incluse :** `.pre-commit-config.yaml`
+
+Hooks actifs :
+1. **Bandit** : Détection failles sécurité (scripts/, hooks/)
+2. **Safety** : Vérification vulnérabilités dépendances (CVE)
+3. **Black** : Formatage code Python automatique
+4. **Ruff** : Linting avec auto-fix activé
+
+**Installation (une fois) :**
+```bash
+# Installer pre-commit
+pip install pre-commit
+
+# Activer les hooks dans votre clone local
+pre-commit install
+
+# Tester sur tous les fichiers
+pre-commit run --all-files
+```
+
+**Utilisation :**
+Une fois installé, les hooks s'exécutent automatiquement à chaque `git commit`.
+
+Si un hook échoue :
+- **Black** : Le code est reformaté automatiquement → Re-commiter
+- **Ruff** : Les erreurs sont corrigées si possible → Re-commiter
+- **Bandit** : Failles détectées → Corriger manuellement
+- **Safety** : Vulnérabilités trouvées → Mettre à jour dépendances
+
+**Bypass temporaire (déconseillé) :**
+```bash
+git commit --no-verify -m "message"
+```
+
+### Formatting et linting manuels
+
+Si vous préférez valider manuellement avant commit :
+
+```bash
+# Formater avec Black
+black scripts/ hooks/
+
+# Vérifier avec Ruff
+ruff check scripts/ hooks/
+
+# Sécurité Bandit
+bandit -r scripts/ hooks/ -ll
+
+# Vulnérabilités Safety
+safety check -r requirements-dsfr.txt
+```
 
 ### Installation environnement dev
 ```bash
+# Dépendances dev (pytest, coverage, etc.)
 pip install -r requirements-dev.txt
+
+# Dépendances sécurité (bandit, safety)
+pip install -r requirements-security.txt
+
+# Activer pre-commit
 pre-commit install
 ```
-
-Les hooks pre-commit exécutent automatiquement Black et Ruff avant chaque commit.
 
 ---
 

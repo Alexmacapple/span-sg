@@ -76,6 +76,7 @@ graph LR
 | Template module | Structure 33 critères DINUM | [_template.md](modules/_template.md) |
 | Checklist DINUM | 33 points officiels | [ADR-006](adr/006-migration-checklist-33-criteres.md) |
 | Guide local | Développement Docker | [dev-local.md](dev-local.md) |
+| Pre-commit hooks | Validation code automatique | [CONTRIBUTING.md](contributing.md#pre-commit-hooks-fortement-recommandé) |
 
 ---
 
@@ -315,6 +316,16 @@ Non, GitHub est obligatoire. Alternative :
 1. Créer compte GitHub gratuit : https://github.com/signup
 2. Demander ajout organisation : Contacter Bertrand/Alex
 3. Suivre ce guide onboarding
+
+### Dois-je installer les pre-commit hooks ?
+
+Recommandé pour contributeurs code Python, optionnel pour contributeurs contenu :
+
+- **Contributeurs contenu** (docs/modules/*.md) : Non requis, interface GitHub suffit
+- **Contributeurs code** (scripts/, hooks/) : Fortement recommandé
+  - Validation automatique avant commit
+  - Installation : `pip install pre-commit && pre-commit install`
+  - Voir [CONTRIBUTING.md](contributing.md#pre-commit-hooks-fortement-recommandé)
 
 ---
 
