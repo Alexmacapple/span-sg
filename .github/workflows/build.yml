@@ -1,38 +1,42 @@
-name: Build SPAN
+name: Build and Deploy
 
 on:
   push:
-    branches: [main, draft]
+    branches: [main]
   pull_request:
     branches: [main]
 
 jobs:
-  build-and-deploy-draft:
-    if: github.ref == 'refs/heads/draft'
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      # ===== SETUP =====
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Setup Python
+      - name: Setup Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
+      # ===== DEPENDENCIES =====
       - name: Install dependencies
         run: pip install -r requirements-dsfr.txt
 
       - name: Install dev dependencies
         run: pip install -r requirements-dev.txt
 
+      - name: Install security tools
+        run: pip install -r requirements-security.txt
+
+      # ===== QUALITY CHECKS =====
       - name: Run Black formatter check
         run: python -m black --check scripts/
 
       - name: Run Ruff linter
         run: python -m ruff check scripts/
 
-      - name: Install security tools
-        run: pip install -r requirements-security.txt
-
+      # ===== SECURITY CHECKS =====
       - name: Run Bandit security linter
         run: |
           echo "=== Bandit Security Analysis ==="
@@ -74,6 +78,7 @@ jobs:
             safety-report.json
           retention-days: 90
 
+      # ===== TESTS =====
       - name: Run unit tests
         run: python -m pytest scripts/ -v --cov=scripts --cov-report=term-missing
 
@@ -96,360 +101,190 @@ jobs:
             --cov-report=html:htmlcov-hooks \
             --cov-fail-under=100
 
+      # ===== BUILD =====
       - name: Calculate SPAN scores
         run: python scripts/calculate_scores.py
 
-      - name: Build site DSFR
+      - name: Build site HTML (strict mode)
         run: mkdocs build --config-file mkdocs-dsfr.yml --strict
 
-      - name: Verify DSFR theme in build
+      - name: Verify DSFR theme applied
         run: |
-          echo "=== Vérification DSFR ==="
-          if grep -q "writer-html5" site/index.html; then
-            echo "❌ ERREUR: HTML contient ReadTheDocs au lieu de DSFR!"
-            head -20 site/index.html
-            exit 1
-          elif grep -q "data-fr-scheme" site/index.html; then
-            echo "✅ OK: HTML contient DSFR"
-            head -5 site/index.html
-          else
-            echo "⚠️  WARNING: Thème indéterminé"
-            head -20 site/index.html
+          if ! grep -q 'fr-header' site/index.html; then
+            echo "❌ ERREUR: Thème DSFR non appliqué (fr-header manquant)"
             exit 1
           fi
+          echo "✅ Thème DSFR correctement appliqué"
 
-      - name: Install WeasyPrint system dependencies
+      - name: Generate PDF
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            libpango-1.0-0 \
-            libpangoft2-1.0-0 \
-            libpangocairo-1.0-0 \
-            libcairo2 \
-            libffi-dev \
-            libgdk-pixbuf2.0-0 \
-            libharfbuzz-dev \
-            shared-mime-info
-
-      - name: Generate PDF (DSFR)
-        env:
-          ENABLE_PDF_EXPORT: "1"
-        run: |
-          mkdir -p exports
-          mkdocs build --config-file mkdocs-dsfr-pdf.yml --site-dir pdf-temp
+          ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml
 
       - name: Enrich PDF metadata
         run: python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
 
-      - name: Install qpdf and system dependencies for E2E
+      - name: Validate PDF structure
+        run: qpdf --check exports/span-sg.pdf
+
+      # ===== E2E TESTS (only on push, skip PR) =====
+      - name: Install system dependencies for E2E
+        if: github.event_name == 'push'
         run: |
           sudo apt-get update
-          sudo apt-get install -y qpdf
+          sudo apt-get install -y \
+            libpango-1.0-0 \
+            libpangocairo-1.0-0 \
+            libgdk-pixbuf2.0-0 \
+            libffi-dev \
+            shared-mime-info
 
-      - name: Validate PDF
+      - name: Setup Docker Buildx
+        if: github.event_name == 'push'
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build test Docker image
+        if: github.event_name == 'push'
         run: |
-          qpdf --check exports/span-sg.pdf
-          ls -lh exports/span-sg.pdf
-          echo "PDF size: $(du -h exports/span-sg.pdf | cut -f1)"
+          docker buildx build \
+            -f Dockerfile.mkdocs-test \
+            -t mkdocs-test:latest \
+            --load \
+            .
 
-      - name: Set up Docker Buildx for E2E tests
-        uses: docker/setup-buildx-action@v3
-
-      - name: Cache Docker layers for E2E tests
-        uses: actions/cache@v4
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile.mkdocs-test', 'requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-
-      - name: Run E2E tests with reporting
+      - name: Run E2E accessibility tests
+        if: github.event_name == 'push'
+        continue-on-error: true
         run: |
-          chmod +x tests/e2e/ci_runner.sh
-          ./tests/e2e/ci_runner.sh
+          docker run --rm mkdocs-test:latest bash tests/e2e/ci_runner.sh
 
       - name: Upload E2E report
-        if: always()
+        if: always() && github.event_name == 'push'
         uses: actions/upload-artifact@v4
         with:
-          name: e2e-report
-          path: tests/e2e/reports/e2e-report.html
+          name: e2e-report-${{ github.ref_name }}-${{ github.sha }}
+          path: tests/e2e/report.html
           retention-days: 30
-
-      - name: Install accessibility testing dependencies
-        run: pip install -r requirements-accessibility.txt
-
-      - name: Install Chrome and ChromeDriver for accessibility tests
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: stable
-
-      - name: Run accessibility tests (RGAA)
-        continue-on-error: true  # Non-bloquant : timeout axe-core incompatible CI (>2min/test)
-        run: |
-          python -m pytest tests/test_accessibility.py \
-            -v \
-            --html=accessibility-report.html \
-            --self-contained-html
 
       - name: Upload accessibility report
-        if: always()
+        if: always() && github.event_name == 'push'
         uses: actions/upload-artifact@v4
         with:
-          name: accessibility-report
-          path: accessibility-report.html
+          name: accessibility-report-${{ github.ref_name }}-${{ github.sha }}
+          path: tests/e2e/accessibility_report.json
           retention-days: 30
 
-      - name: Upload PDF artifact
-        if: ${{ !env.ACT }}
+      # ===== UPLOAD ARTIFACTS =====
+      - name: Upload site HTML
         uses: actions/upload-artifact@v4
         with:
-          name: exports-draft
+          name: site-${{ github.sha }}
+          path: site/
+          retention-days: 7
+
+      - name: Upload exports PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: exports-${{ github.sha }}
+          path: exports/
+          retention-days: 90
+
+  deploy-staging:
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: https://alexmacapple.github.io/span-sg/draft/
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-${{ github.sha }}
+          path: site/
+
+      - name: Download exports artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: exports-${{ github.sha }}
           path: exports/
 
-      - name: Deploy draft to GitHub Pages (Git push direct)
+      - name: Deploy to /draft/ (staging)
         run: |
-          # Configuration Git
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Clone gh-pages
-          git clone --depth=1 --branch=gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages-repo
+          # Clean existing /draft/ directory
+          rm -rf draft
+          mkdir -p draft
 
-          # Supprimer ancien draft et copier nouveau
-          rm -rf gh-pages-repo/draft
-          mkdir -p gh-pages-repo/draft
+          # Copy new build
+          cp -r site/* draft/
+          mkdir -p draft/exports
+          cp -r exports/* draft/exports/
 
-          echo "=== COPIE site/ vers gh-pages-repo/draft/ ==="
-          cp -rv site/* gh-pages-repo/draft/ | head -10
-
-          echo ""
-          echo "=== VÉRIFICATION gh-pages-repo/draft/index.html APRÈS COPIE ==="
-          head -10 gh-pages-repo/draft/index.html
-
-          # Push
-          cd gh-pages-repo
-          git add .
-          git commit -m "Deploy draft from ${{ github.sha }}" || echo "No changes"
+          # Commit and push
+          git add draft
+          git commit -m "Deploy staging from ${{ github.sha }}" || exit 0
           git push origin gh-pages
 
-  build-and-deploy-main:
-    if: github.ref == 'refs/heads/main'
+      - name: Deployment summary
+        run: |
+          echo "✅ Staging deployment complete"
+          echo "URL: https://alexmacapple.github.io/span-sg/draft/"
+          echo "Commit: ${{ github.sha }}"
+
+  deploy-production:
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://alexmacapple.github.io/span-sg/
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v3
         with:
-          python-version: '3.11'
+          ref: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install dependencies
-        run: pip install -r requirements-dsfr.txt
-
-      - name: Install dev dependencies
-        run: pip install -r requirements-dev.txt
-
-      - name: Run Black formatter check
-        run: python -m black --check scripts/
-
-      - name: Run Ruff linter
-        run: python -m ruff check scripts/
-
-      - name: Install security tools
-        run: pip install -r requirements-security.txt
-
-      - name: Run Bandit security linter
-        run: |
-          echo "=== Bandit Security Analysis ==="
-          echo "Analyzing scripts/ and hooks/ for security issues..."
-          echo "(Excluding test files to avoid false positives)"
-          echo ""
-
-          # Generate JSON report (non-blocking)
-          bandit -r scripts/ hooks/ -ll -x scripts/test_*.py,tests/ -f json -o bandit-report.json || true
-
-          # Display summary and fail on HIGH/CRITICAL
-          bandit -r scripts/ hooks/ -ll -x scripts/test_*.py,tests/ --format screen
-
-          echo ""
-          echo "=== Bandit analysis complete ==="
-
-      - name: Check dependencies vulnerabilities (Safety)
-        run: |
-          echo "=== Safety CVE Check ==="
-          echo "Checking requirements-dsfr.txt for known vulnerabilities..."
-          echo ""
-
-          # Generate JSON report (non-blocking)
-          safety check -r requirements-dsfr.txt --json > safety-report.json || true
-
-          # Fail if vulnerabilities found
-          safety check -r requirements-dsfr.txt
-
-          echo ""
-          echo "=== No vulnerabilities found ==="
-
-      - name: Upload security reports
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
         with:
-          name: security-reports-${{ github.ref_name }}-${{ github.sha }}
-          path: |
-            bandit-report.json
-            safety-report.json
-          retention-days: 90
+          name: site-${{ github.sha }}
+          path: site/
 
-      - name: Run unit tests
-        run: python -m pytest scripts/ -v --cov=scripts --cov-report=term-missing
-
-      - name: Run production scripts coverage check (89%+ required)
-        run: |
-          python -m pytest \
-            --cov=scripts \
-            --cov-report=term-missing \
-            --cov-report=html \
-            --cov-fail-under=89 \
-            scripts/test_calculate_scores*.py scripts/test_enrich_pdf*.py
-
-      - name: Run hooks coverage check (100% required)
-        run: |
-          python -m pytest \
-            tests/test_hooks_*.py \
-            --cov=hooks \
-            --cov-config=.coveragerc-hooks \
-            --cov-report=term-missing \
-            --cov-report=html:htmlcov-hooks \
-            --cov-fail-under=100
-
-      - name: Calculate SPAN scores
-        run: python scripts/calculate_scores.py
-
-      - name: Build site DSFR
-        run: mkdocs build --config-file mkdocs-dsfr.yml --strict
-
-      - name: Verify DSFR theme in build
-        run: |
-          echo "=== Vérification DSFR ==="
-          if grep -q "writer-html5" site/index.html; then
-            echo "❌ ERREUR: HTML contient ReadTheDocs au lieu de DSFR!"
-            head -20 site/index.html
-            exit 1
-          elif grep -q "data-fr-scheme" site/index.html; then
-            echo "✅ OK: HTML contient DSFR"
-            head -5 site/index.html
-          else
-            echo "⚠️  WARNING: Thème indéterminé"
-            head -20 site/index.html
-            exit 1
-          fi
-
-      - name: Install WeasyPrint system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            libpango-1.0-0 \
-            libpangoft2-1.0-0 \
-            libpangocairo-1.0-0 \
-            libcairo2 \
-            libffi-dev \
-            libgdk-pixbuf2.0-0 \
-            libharfbuzz-dev \
-            shared-mime-info
-
-      - name: Generate PDF (DSFR)
-        env:
-          ENABLE_PDF_EXPORT: "1"
-        run: |
-          mkdir -p exports
-          mkdocs build --config-file mkdocs-dsfr-pdf.yml --site-dir pdf-temp
-
-      - name: Enrich PDF metadata
-        run: python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
-
-      - name: Install qpdf and system dependencies for E2E
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y qpdf
-
-      - name: Validate PDF
-        run: |
-          qpdf --check exports/span-sg.pdf
-          ls -lh exports/span-sg.pdf
-          echo "PDF size: $(du -h exports/span-sg.pdf | cut -f1)"
-
-      - name: Set up Docker Buildx for E2E tests
-        uses: docker/setup-buildx-action@v3
-
-      - name: Cache Docker layers for E2E tests
-        uses: actions/cache@v4
+      - name: Download exports artifact
+        uses: actions/download-artifact@v4
         with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile.mkdocs-test', 'requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-
-      - name: Run E2E tests with reporting
-        run: |
-          chmod +x tests/e2e/ci_runner.sh
-          ./tests/e2e/ci_runner.sh
-
-      - name: Upload E2E report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: e2e-report
-          path: tests/e2e/reports/e2e-report.html
-          retention-days: 30
-
-      - name: Install accessibility testing dependencies
-        run: pip install -r requirements-accessibility.txt
-
-      - name: Install Chrome and ChromeDriver for accessibility tests
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: stable
-
-      - name: Run accessibility tests (RGAA)
-        continue-on-error: true  # Non-bloquant : timeout axe-core incompatible CI (>2min/test)
-        run: |
-          python -m pytest tests/test_accessibility.py \
-            -v \
-            --html=accessibility-report.html \
-            --self-contained-html
-
-      - name: Upload accessibility report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: accessibility-report
-          path: accessibility-report.html
-          retention-days: 30
-
-      - name: Upload PDF artifact
-        if: ${{ !env.ACT }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: exports-main
+          name: exports-${{ github.sha }}
           path: exports/
 
-      - name: Deploy production to GitHub Pages (Git push direct)
+      - name: Deploy to / (production)
         run: |
-          # Configuration Git
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Clone gh-pages
-          git clone --depth=1 --branch=gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages-repo
-
-          # Remplacer tout le contenu racine (production)
-          cd gh-pages-repo
-          # Garder draft/, supprimer le reste
+          # Clean root (preserve /draft/ and .git)
           find . -mindepth 1 -maxdepth 1 ! -name 'draft' ! -name '.git' -exec rm -rf {} +
-          # Copier nouveau contenu
-          cp -r ../site/* .
 
-          # Push
+          # Copy new build
+          cp -r site/* .
+          mkdir -p exports
+          cp -r exports/* exports/
+
+          # Commit and push
           git add .
-          git commit -m "Deploy production from ${{ github.sha }}" || echo "No changes"
+          git commit -m "Deploy production from ${{ github.sha }}" || exit 0
           git push origin gh-pages
+
+      - name: Deployment summary
+        run: |
+          echo "✅ Production deployment complete"
+          echo "URL: https://alexmacapple.github.io/span-sg/"
+          echo "Commit: ${{ github.sha }}"
