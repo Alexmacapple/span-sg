@@ -1,0 +1,78 @@
+name: Amelioration documentation
+description: Signaler un probleme ou proposer une amelioration de la documentation
+title: "[Docs] "
+labels: ["documentation", "status:triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de contribuer a l'amelioration de la documentation.
+
+  - type: dropdown
+    id: doc_type
+    attributes:
+      label: Type de documentation
+      description: Quel type de documentation est concerne ?
+      options:
+        - README.md
+        - CONTRIBUTING.md
+        - CHANGELOG.md
+        - CLAUDE.md
+        - Documentation MkDocs (docs/)
+        - ADR (Architecture Decision Records)
+        - Commentaires code
+        - Autre
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Type de probleme
+      description: Quelle est la nature du probleme ?
+      options:
+        - Information manquante
+        - Information incorrecte ou obsolete
+        - Amelioration clarte ou lisibilite
+        - Exemple manquant
+        - Lien casse
+        - Autre
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description du probleme
+      description: Quel est le probleme avec la documentation actuelle ?
+      placeholder: "La section X ne documente pas..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Amelioration proposee
+      description: Comment la documentation pourrait-elle etre amelioree ?
+      placeholder: "Ajouter une section expliquant..."
+    validations:
+      required: false
+
+  - type: input
+    id: location
+    attributes:
+      label: Emplacement
+      description: "Fichier et ligne concernes (ex: CONTRIBUTING.md:42)"
+      placeholder: "docs/index.md:120"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: J'ai verifie que cette documentation existe bien dans main
+          required: true
+        - label: J'ai cherche si une issue similaire n'existe pas deja
+          required: true

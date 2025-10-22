@@ -1,0 +1,105 @@
+name: Signaler un bug
+description: Signaler un probleme technique (build, CI, tests, scoring)
+title: "[Bug] "
+labels: ["bug", "status:triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de signaler ce bug. Veuillez fournir un maximum de details pour faciliter le diagnostic.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Zone concernee
+      description: Quelle partie du projet est affectee ?
+      options:
+        - CI/CD (GitHub Actions, workflows)
+        - Tests (unitaires, E2E, accessibilite)
+        - Build (MkDocs, PDF, site generation)
+        - Scoring (calculate_scores.py)
+        - Documentation (MkDocs, README, guides)
+        - Infrastructure (Docker, dependances)
+        - Autre
+    validations:
+      required: true
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module concerne
+      description: Si le bug concerne un module specifique
+      options:
+        - SNUM
+        - SIRCOM
+        - SRH
+        - SIEP
+        - SAFI
+        - BGS
+        - "Non applicable (infrastructure)"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description du probleme
+      description: Decrivez le bug rencontre
+      placeholder: "Le scoring echoue avec l'erreur..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Etapes de reproduction
+      description: Comment reproduire le bug ?
+      placeholder: |
+        1. Modifier docs/modules/snum.md
+        2. Executer python scripts/calculate_scores.py
+        3. Erreur affichee : ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportement attendu
+      description: Que devrait-il se passer normalement ?
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Messages d'erreur
+      description: Coller les logs pertinents (GitHub Actions, terminal)
+      render: shell
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priorite
+      description: Niveau de severite du bug
+      options:
+        - Low (amelioration souhaitee)
+        - Medium (gene mineure)
+        - High (bloque une fonctionnalite)
+        - Critical (bloque la CI ou le deploiement)
+      default: 1
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: J'ai consulte CONTRIBUTING.md
+          required: true
+        - label: J'ai verifie qu'une issue similaire n'existe pas deja
+          required: true
+        - label: J'ai teste sur la derniere version de main
+          required: false

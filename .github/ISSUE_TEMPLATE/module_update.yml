@@ -1,0 +1,95 @@
+name: Mise a jour module SPAN
+description: Planifier ou tracker une mise a jour de module (coches, plan 2025, contenu)
+title: "[Module] "
+labels: ["enhancement", "status:triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cette issue permet de planifier les mises a jour d'un module SPAN (validation criteres, plan d'action, etc.).
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module concerne
+      description: Quel service/module est concerne ?
+      options:
+        - SNUM
+        - SIRCOM
+        - SRH
+        - SIEP
+        - SAFI
+        - BGS
+    validations:
+      required: true
+
+  - type: dropdown
+    id: update_type
+    attributes:
+      label: Type de mise a jour
+      description: Quelle partie du module sera modifiee ?
+      options:
+        - Validation criteres DINUM (cocher cases [x])
+        - Plan d'actions 2025 (ajout actions)
+        - Sections 1-5 (Perimetre, Etat, Organisation, Plan, Indicateurs)
+        - Declaration accessibilite (URL)
+        - Front-matter (referent, date)
+        - Autre
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description des changements
+      description: Quelles modifications seront apportees ?
+      placeholder: |
+        - Valider criteres 1.1, 1.2, 1.3
+        - Ajouter 3 actions au plan 2025 (formation, audit, support)
+        - Mettre a jour URL declaration accessibilite
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexte
+      description: Pourquoi ces modifications sont-elles necessaires ?
+      placeholder: "Avancement projet accessibilite du service..."
+    validations:
+      required: false
+
+  - type: input
+    id: target_score
+    attributes:
+      label: Score vise
+      description: "Score de conformite cible (ex: 15/33)"
+      placeholder: "15/33"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priorite
+      description: Urgence de cette mise a jour
+      options:
+        - Low (mise a jour non urgente)
+        - Medium (mise a jour planifiee)
+        - High (mise a jour importante)
+        - Critical (mise a jour bloquante pour release)
+      default: 1
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: J'ai consulte CONTRIBUTING.md pour le workflow de modification
+          required: true
+        - label: Je ne modifierai pas les balises <!-- CHECKLIST -->
+          required: true
+        - label: Je mettrai a jour la date dans le front-matter
+          required: false

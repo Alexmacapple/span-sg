@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Guide contributeur
+    url: https://github.com/Alexmacapple/span-sg/blob/main/CONTRIBUTING.md
+    about: Consulter le guide de contribution avant d'ouvrir une issue
+  - name: Documentation technique
+    url: https://alexmacapple.github.io/span-sg/
+    about: Documentation MkDocs du projet SPAN SG

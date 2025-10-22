@@ -9,6 +9,82 @@ Format basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- Benchmarking performance automatique (`scripts/benchmark.py`, `scripts/analyze_benchmarks.py`)
+- Métriques CI : temps build MkDocs, génération PDF, calcul scores (rétention 365 jours)
+- Détection régressions performance (seuil 20%)
+- Type hints Python complets (mypy 1.8.0 configuré)
+- Pre-commit hook mypy pour vérification types locale
+
+### Changed
+- Tests E2E parallélisés (xargs -P 3, 3 workers simultanés)
+- Dockerfile.mkdocs-test : multi-stage build avec wheels pré-compilés
+- Tous les scripts Python annotés avec type hints (`tuple[int, int]`, `dict[str, Any]`, `Optional[Path]`)
+- Configuration mypy dans `pyproject.toml` (Python 3.11, check_untyped_defs)
+- Tests accessibilité CI non-bloquants (continue-on-error: true, timeouts 240s)
+
+### Fixed
+- Corrections multiples scénarios E2E (pattern grep, réinitialisation état Git)
+- Timeouts Selenium triplés (80s → 240s) pour stabilité CI
+- Configuration timeout urllib3 (300s au niveau module)
+- Strict mode MkDocs : correction liens CONTRIBUTING.md
+
+---
+
+## v1.2.0-environments – 2025-10-20
+
+**Migration GitHub Environments** : Architecture déploiement staging/production optimisée
+
+### Infrastructure CI/CD
+- Migration architecture 2-environnements GitHub (staging, production)
+- Déploiements séquencés : staging → production (après validation)
+- Workflow optimisé : 456 lignes → 291 lignes (-36%)
+- Protection branches via GitHub Environments (deployment protection rules)
+- ADR-009 : Documentation architecture déploiement 3 itérations (+14% coût réel vs estimé)
+
+### Documentation
+- `docs/architecture/infrastructure.md` : Architecture GitHub Environments mise à jour
+- CONTRIBUTING.md : Correction liens pour strict mode MkDocs
+
+### Commits
+10 commits du 20/10/2025 (8dbc530 à 2cf3e20) :
+- feat(ci): migrer architecture GitHub Environments (ADR-009)
+- docs(architecture): mise à jour infrastructure.md
+- fix(ci): séquencer deploy-production après deploy-staging
+- fix(ci): résoudre conflits push gh-pages entre staging/production
+- fix(docs): corriger liens CONTRIBUTING.md (strict mode)
+
+---
+
+## v1.2.1-quality – 2025-10-22
+
+**Qualité Code 10/10** : Linting statique, tests E2E optimisés, benchmarking
+
+### Qualité et Tests
+- mypy intégré en pre-commit et CI (vérification types statiques)
+- Type hints Python 3.11+ (6 fichiers annotés : scripts/, hooks/)
+- Tests E2E 3x plus rapides (parallélisation xargs -P 3)
+- Multi-stage Docker build (wheels pré-compilés, temps build réduit)
+- Benchmarking automatique CI avec métriques performance
+- Coverage excluant scripts benchmarking (89%+ production code)
+
+### Amélioration Documentation
+- `docs/architecture/infrastructure.md` : Finalisation documentation technique 10/10
+- Clarifications ADR-009, process déploiement, rollback
+
+### Commits
+4 commits du 22/10/2025 (8216382 à a07737e) :
+- feat(quality): achieve 10/10 code quality score
+- fix(ci): add mypy and types-requests to requirements-dev.txt
+- fix(mypy): add type hints to evaluate-bmad-final.py
+- fix(coverage): exclude benchmark scripts from coverage
+
+---
+
+## v1.2.0-pdf – 2025-10-15
+
+**Export PDF Accessible** : Génération PDF automatique avec métadonnées RGAA
+
+### Added
 - Génération PDF automatique en CI (GitHub Actions)
 - Bouton téléchargement PDF sur page d'accueil (composant DSFR fr-download)
 - Hook `pdf_copy.py` : Copie PDF vers docs/ et site/ pour download web

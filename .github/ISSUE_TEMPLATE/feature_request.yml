@@ -1,0 +1,78 @@
+name: Demande de fonctionnalite
+description: Proposer une nouvelle fonctionnalite ou amelioration
+title: "[Feature] "
+labels: ["enhancement", "status:triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de proposer cette amelioration. Veuillez decrire le besoin et la solution envisagee.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Zone concernee
+      description: Quelle partie du projet serait amelioree ?
+      options:
+        - CI/CD (GitHub Actions, workflows)
+        - Tests (unitaires, E2E, accessibilite)
+        - Build (MkDocs, PDF, site generation)
+        - Scoring (calculate_scores.py)
+        - Documentation (MkDocs, README, guides)
+        - Infrastructure (Docker, dependances)
+        - Modules (contenu SPAN)
+        - Autre
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Probleme ou besoin
+      description: Quel probleme cette fonctionnalite resoudrait-elle ?
+      placeholder: "Actuellement, il n'est pas possible de..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution proposee
+      description: Comment envisagez-vous de resoudre ce probleme ?
+      placeholder: "Ajouter un script qui..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives envisagees
+      description: Y a-t-il d'autres approches possibles ?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priorite
+      description: Niveau d'importance de cette fonctionnalite
+      options:
+        - Low (nice to have)
+        - Medium (amelioration significative)
+        - High (besoin important)
+        - Critical (bloquant pour le projet)
+      default: 1
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: J'ai consulte la roadmap et le CHANGELOG
+          required: true
+        - label: Cette fonctionnalite n'existe pas deja
+          required: true
+        - label: Cette fonctionnalite respecte le perimetre MVP du projet
+          required: false
