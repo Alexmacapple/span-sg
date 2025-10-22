@@ -18,14 +18,11 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-
-      - name: Cache pip dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements-dsfr.txt', 'requirements-dev.txt', 'requirements-security.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          cache: 'pip'
+          cache-dependency-path: |
+            requirements-dsfr.txt
+            requirements-dev.txt
+            requirements-security.txt
 
       # ===== DEPENDENCIES =====
       - name: Install dependencies
@@ -163,13 +160,28 @@ jobs:
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v2
 
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile.mkdocs-test', 'requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
       - name: Build test Docker image
         run: |
           docker buildx build \
             -f Dockerfile.mkdocs-test \
             -t mkdocs-test:latest \
+            --cache-from type=local,src=/tmp/.buildx-cache \
+            --cache-to type=local,dest=/tmp/.buildx-cache-new,mode=max \
             --load \
             .
+
+      - name: Move Docker cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache || true
 
       - name: Run E2E accessibility tests
         continue-on-error: true

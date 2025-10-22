@@ -14,6 +14,8 @@ Format basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 - Détection régressions performance (seuil 20%)
 - Type hints Python complets (mypy 1.8.0 configuré)
 - Pre-commit hook mypy pour vérification types locale
+- Cache Docker layers pour build test image (gain ~30-60s)
+- Documentation architecture cache et performance (`.github/PERFORMANCE.md`)
 
 ### Changed
 - Tests E2E parallélisés (xargs -P 3, 3 workers simultanés)
@@ -21,6 +23,7 @@ Format basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 - Tous les scripts Python annotés avec type hints (`tuple[int, int]`, `dict[str, Any]`, `Optional[Path]`)
 - Configuration mypy dans `pyproject.toml` (Python 3.11, check_untyped_defs)
 - Tests accessibilité CI non-bloquants (continue-on-error: true, timeouts 240s)
+- Cache pip migré vers setup-python natif (amélioration efficacité)
 
 ### Fixed
 - Corrections multiples scénarios E2E (pattern grep, réinitialisation état Git)
