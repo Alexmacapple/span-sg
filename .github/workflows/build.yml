@@ -185,7 +185,7 @@ jobs:
 
       - name: Run E2E accessibility tests
         run: |
-          docker run --rm --entrypoint bash mkdocs-test:latest tests/e2e/ci_runner.sh
+          docker run --rm -v $PWD:/docs --entrypoint bash mkdocs-test:latest tests/e2e/ci_runner.sh
 
       - name: Upload E2E report
         if: always()
