@@ -482,7 +482,7 @@ Dernière mise à jour: 2025-10-22</p>
 
         subgraph "GitHub Pages"
             GHP[fa:fa-globe GitHub Pages&lt;br/&gt;CDN CloudFlare]
-            DRAFT[fa:fa-folder /draft/&lt;br/&gt;Preview org-only]
+            DRAFT[fa:fa-folder /staging/&lt;br/&gt;Preview org-only]
             PROD[fa:fa-folder / racine&lt;br/&gt;Production public]
         end
 
@@ -623,7 +623,7 @@ Dernière mise à jour: 2025-10-22</p>
 
     subgraph "Phase 6: Deploy Staging (60s)"
         U[Clone gh-pages]
-        V[Deploy to /draft/]
+        V[Deploy to /staging/]
         W[Push staging]
     end
 
@@ -759,12 +759,12 @@ Dernière mise à jour: 2025-10-22</p>
     branch main
     commit id: "Push main"
     commit id: "CI: build-and-test"
-    commit id: "Deploy staging /draft/" tag: "staging"
+    commit id: "Deploy staging /staging/" tag: "staging"
     commit id: "Deploy production /" tag: "production"
     commit id: "v1.2.0-environments" type: HIGHLIGHT</code></pre>
 <p>Architecture 1-branche + 2 Environments (depuis v1.2.0):
 - Branche unique <code>main</code> pour développement
-- Environnement <code>staging</code> : déploiement automatique vers /draft/
+- Environnement <code>staging</code> : déploiement automatique vers /staging/
 - Environnement <code>production</code> : déploiement séquentiel vers /</p>
 <h3 id="urls-et-acces">URLs et Accès</h3>
 <div class="fr-table">
@@ -788,9 +788,9 @@ Dernière mise à jour: 2025-10-22</p>
 <td>&lt;100ms</td>
 </tr>
 <tr>
-<td><code>/draft/</code></td>
+<td><code>/staging/</code></td>
 <td>staging</td>
-<td>gh-pages/draft/</td>
+<td>gh-pages/staging/</td>
 <td>Org-only</td>
 <td>&lt;100ms</td>
 </tr>
@@ -1199,7 +1199,7 @@ mkdocs<span class="w"> </span>build<span class="w"> </span>--config-file<span cl
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 19:25:57 UTC">23 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 20:28:48 UTC">23 octobre 2025</span> 
 </div>
 
 

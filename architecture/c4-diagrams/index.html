@@ -514,7 +514,7 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
 
     subgraph "Deployment Targets"
         direction TB
-        PAGES_DRAFT[fa:fa-globe gh-pages/draft/&lt;br/&gt;Preview privée]
+        PAGES_DRAFT[fa:fa-globe gh-pages/staging/&lt;br/&gt;Preview privée]
         PAGES_PROD[fa:fa-globe gh-pages/&lt;br/&gt;Production publique]
     end
 
@@ -588,7 +588,7 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
 <li>
 <p><strong>Deployment Targets</strong> :</p>
 </li>
-<li>gh-pages/draft/ : Preview privée (org-only)</li>
+<li>gh-pages/staging/ : Preview privée (org-only)</li>
 <li>
 <p>gh-pages/ racine : Production publique</p>
 </li>
@@ -698,7 +698,7 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
     Note over G,CI: 4. Déploiement
     G-&gt;&gt;CI: Trigger workflow (draft merge)
     CI-&gt;&gt;CI: Run all checks + E2E (si main)
-    CI-&gt;&gt;P: Deploy gh-pages/draft/ (ou /)
+    CI-&gt;&gt;P: Deploy gh-pages/staging/ (ou /)
 
     Note over C,P: 5. Publication
     P-&gt;&gt;C: Preview visible org-only</code></pre>
@@ -721,7 +721,7 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
 <tr>
 <td>Preview</td>
 <td>draft</td>
-<td>/draft/</td>
+<td>/staging/</td>
 <td>Org-only</td>
 <td>Auto (push draft)</td>
 </tr>
@@ -742,7 +742,7 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
     B --&gt;|❌ Failed| C[STOP - Fix errors]
     B --&gt;|✅ Success| D[Build HTML + PDF]
     D --&gt; E{Branche?}
-    E --&gt;|draft| F[Deploy /draft/]
+    E --&gt;|draft| F[Deploy /staging/]
     E --&gt;|main| G[Run E2E tests]
     G --&gt; H{E2E pass?}
     H --&gt;|❌| I[STOP - Check E2E report]
@@ -939,7 +939,7 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 19:25:57 UTC">23 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 20:28:48 UTC">23 octobre 2025</span> 
 </div>
 
 

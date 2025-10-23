@@ -467,7 +467,7 @@ Public cible: Contributeurs services (débutants Git)</p>
       Répondre commentaires: 4: Contributeur
       Approbation: 5: Validateur
     section Déploiement
-      Merge sur draft: 5: Validateur
+      Merge sur staging: 5: Validateur
       CI/CD automatique: 5: Système
       Preview disponible: 5: Contributeur
     section Production
@@ -587,7 +587,7 @@ Public cible: Contributeurs services (débutants Git)</p>
     InReview --&gt; Approved: Validation OK
     ChangesRequested --&gt; Draft: Vous corrigez
     Approved --&gt; Merged: Validateur merge
-    Merged --&gt; [*]: Déployé /draft/
+    Merged --&gt; [*]: Déployé /staging/
 
     note right of InReview
         Bertrand ou Alex
@@ -635,7 +635,7 @@ Public cible: Contributeurs services (débutants Git)</p>
     I --&gt;|✅| J[Build HTML&lt;br/&gt;MkDocs DSFR]
 
     J --&gt; K[Generate PDF&lt;br/&gt;WeasyPrint]
-    K --&gt; L[Deploy /draft/&lt;br/&gt;GitHub Pages]
+    K --&gt; L[Deploy /staging/&lt;br/&gt;GitHub Pages]
 
     L --&gt; M[✅ Preview&lt;br/&gt;disponible]
 
@@ -659,9 +659,9 @@ Public cible: Contributeurs services (débutants Git)</p>
 <hr />
 <h2 id="etape-5-deploiement-production-sur-demande">Étape 5 : Déploiement Production (sur demande)</h2>
 <h3 id="51-de-draft-a-main">5.1 De draft à main</h3>
-<p>Votre contribution est maintenant sur <code>/draft/</code>. Pour passer en production :</p>
+<p>Votre contribution est maintenant sur <code>/staging/</code>. Pour passer en production :</p>
 <pre class="mermaid"><code>graph TB
-    A[Votre PR merged&lt;br/&gt;sur draft] --&gt; B[Validation interne&lt;br/&gt;Bertrand + Alex]
+    A[Votre PR merged&lt;br/&gt;sur staging] --&gt; B[Validation interne&lt;br/&gt;Bertrand + Alex]
     B --&gt; C{Prêt prod?}
     C --&gt;|Non| D[Attente autres&lt;br/&gt;contributions]
     C --&gt;|Oui| E[Chef SNUM&lt;br/&gt;Approuve release]
@@ -733,7 +733,7 @@ Public cible: Contributeurs services (débutants Git)</p>
 <li>🌐 <strong>Production</strong> : 30-60 jours (groupé avec autres contributions)</li>
 </ul>
 <h3 id="puis-je-voir-ma-contribution-avant-production">Puis-je voir ma contribution avant production ?</h3>
-<p>Non, la preview <code>/draft/</code> est désactivée (accès org-only). Options :</p>
+<p>Non, la preview <code>/staging/</code> est désactivée (accès org-only). Options :</p>
 <ol>
 <li><strong>Build local</strong> : Suivre <a href="../dev-local/">dev-local.md</a> (Docker)</li>
 <li><strong>PDF</strong> : Télécharger depuis Artifacts CI (nécessite compte GitHub)</li>
@@ -841,7 +841,7 @@ Public cible: Contributeurs services (débutants Git)</p>
 
     subgraph "CI/CD Automatique"
         I[9. Build + Tests]
-        J[10. Deploy /draft/]
+        J[10. Deploy /staging/]
         K[11. E2E tests]
         L[12. Deploy / prod]
     end
@@ -1042,7 +1042,7 @@ Public cible: Contributeurs services (débutants Git)</p>
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 19:25:57 UTC">23 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 20:28:48 UTC">23 octobre 2025</span> 
 </div>
 
 

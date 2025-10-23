@@ -455,7 +455,7 @@ Durée lecture: 10 minutes</p>
 <p>Depuis la migration GitHub Environments (ADR-009), vous êtes <strong>gate-keeper</strong> des déploiements production.</p>
 <p><strong>Votre rôle</strong> :
 - Recevoir notifications "Deployment to production pending"
-- Review staging https://alexmacapple.github.io/span-sg/draft/
+- Review staging https://alexmacapple.github.io/span-sg/staging/
 - Approuver déploiement production https://alexmacapple.github.io/span-sg/</p>
 <p><strong>Délai typique</strong> :
 - Hotfix urgent : Approuver immédiatement (&lt; 1h)
@@ -496,7 +496,7 @@ Review deployment: https://github.com/Alexmacapple/span-sg/deployments/...
 │ - feat(sircom): ajoute 3 actions plan 2025               │
 │ - fix(accessibility): corriger timeout urllib3            │
 │                                                           │
-│ Preview staging: https://...github.io/span-sg/draft/      │
+│ Preview staging: https://...github.io/span-sg/staging/      │
 │                                                           │
 │ [Review deployment]                                       │
 └───────────────────────────────────────────────────────────┘
@@ -508,7 +508,7 @@ Review deployment: https://github.com/Alexmacapple/span-sg/deployments/...
 - Timestamp demande approval</p>
 <hr />
 <h3 id="etape-3-review-staging">Étape 3 : Review Staging</h3>
-<p><strong>URL staging</strong> : https://alexmacapple.github.io/span-sg/draft/</p>
+<p><strong>URL staging</strong> : https://alexmacapple.github.io/span-sg/staging/</p>
 <p><strong>Checklist review</strong> (5-10 minutes) :</p>
 <ul>
 <li>[ ] <strong>Navigation générale</strong> : Ouvrir site, tester menu latéral</li>
@@ -537,7 +537,7 @@ Review deployment: https://github.com/Alexmacapple/span-sg/deployments/...
   ✅ E2E tests (9 scenarios)
 
 Job: deploy-staging
-  ✅ Deploy /draft/
+  ✅ Deploy /staging/
 
 Job: deploy-production
   ⏳ Waiting for approval (vous)
@@ -776,7 +776,7 @@ Status: [All] [Active] [Pending] [Failed]
 <span class="c1"># Nécessite configuration externe (payant)</span>
 </code></pre></div></p>
 <p><strong>Option 3 : Manuel</strong> :
-<div class="highlight"><pre><span></span><code>1. Ouvrir /draft/ (staging)
+<div class="highlight"><pre><span></span><code>1. Ouvrir /staging/ (staging)
 2. Ouvrir / (production) dans onglet séparé
 3. Comparer visuellement côte-à-côte
 </code></pre></div></p>
@@ -794,10 +794,10 @@ Status: [All] [Active] [Pending] [Failed]
 - Normal : Hebdomadaire (vendredis)
 - Batch : Trimestriel (rapports SPAN)</p>
 <hr />
-<h3 id="q8-que-faire-si-staging-draft-inaccessible-404">Q8 : Que faire si staging /draft/ inaccessible (404) ?</h3>
+<h3 id="q8-que-faire-si-staging-staging-inaccessible-404">Q8 : Que faire si staging /staging/ inaccessible (404) ?</h3>
 <p><strong>R</strong> : Vérifier :</p>
 <ol>
-<li><strong>URL correcte</strong> : https://alexmacapple.github.io/span-sg/draft/ (pas /draft sans trailing slash)</li>
+<li><strong>URL correcte</strong> : https://alexmacapple.github.io/span-sg/staging/ (pas /draft sans trailing slash)</li>
 <li><strong>Accès org-only</strong> : Connecté GitHub avec compte org (pas mode incognito)</li>
 <li><strong>Déploiement staging réussi</strong> : Vérifier GitHub Actions logs</li>
 </ol>
@@ -879,7 +879,7 @@ Contributeur(s): _____________
 
 <span class="gu">### 1. Review Staging (5-10 min)</span>
 
-<span class="k">- [ ]</span> Ouvrir https://alexmacapple.github.io/span-sg/draft/
+<span class="k">- [ ]</span> Ouvrir https://alexmacapple.github.io/span-sg/staging/
 <span class="k">- [ ]</span> Tester navigation menu latéral (6 modules services)
 <span class="k">- [ ]</span> Ouvrir 2-3 modules (ex: SIRCOM, SNUM)
 <span class="k">- [ ]</span> Vérifier tableau Synthèse (scores cohérents, badges visibles)
@@ -898,7 +898,7 @@ Contributeur(s): _____________
 <span class="k">- [ ]</span> E2E tests (9 scenarios) : ✅
 <span class="k">- [ ]</span> Build HTML DSFR (strict mode) : ✅
 <span class="k">- [ ]</span> Generate PDF (metadata enrichies) : ✅
-<span class="k">- [ ]</span> Job deploy-staging : ✅ Deployed to /draft/
+<span class="k">- [ ]</span> Job deploy-staging : ✅ Deployed to /staging/
 <span class="k">- [ ]</span> Aucune erreur bloquante dans logs
 
 <span class="gu">### 3. Décision</span>
@@ -1081,7 +1081,7 @@ Contributeur(s): _____________
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 19:25:57 UTC">23 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 20:28:48 UTC">23 octobre 2025</span> 
 </div>
 
 
