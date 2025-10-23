@@ -185,11 +185,6 @@ Documentation complète de l'architecture déploiement : [ADR-009](docs/adr/009-
 
 Pour toute question de sécurité, consultez [SECURITY.md](SECURITY.md).
 
-## Contacts
+## Contact
 
-- **Owner** : Alexandra (@alexandra)
-- **Validateurs** : Bertrand (@bertrand), Alex (@alex)
-- **Sponsor** : Stéphane (Chef mission numérique SNUM-SG, validation conceptuelle)
-- **Approval production** : Chef SNUM
-
-Pour toute question technique, consulter [CONTRIBUTING.md](CONTRIBUTING.md) ou créer une issue.
+Alexandra : alexandra.guiderdoni@gmail.com
