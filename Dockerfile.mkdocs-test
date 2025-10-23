@@ -20,6 +20,9 @@ FROM squidfunk/mkdocs-material:9.5
 
 WORKDIR /docs
 
+# Install bash for E2E test scripts (Alpine doesn't have it by default)
+RUN apk add --no-cache bash
+
 # Copy pre-compiled wheels from builder
 COPY --from=builder /wheels /wheels
 
