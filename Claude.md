@@ -69,7 +69,7 @@ python scripts/calculate_scores.py
 ./scripts/download_latest_pdf.sh main
 
 # Télécharger depuis staging (auto-deploy)
-curl -O https://alexmacapple.github.io/span-sg/draft/exports/span-sg.pdf
+curl -O https://alexmacapple.github.io/span-sg/staging/exports/span-sg.pdf
 
 # Télécharger depuis production
 curl -O https://alexmacapple.github.io/span-sg/exports/span-sg.pdf
@@ -150,9 +150,9 @@ Workflow `.github/workflows/build.yml` (3 jobs séquentiels):
    - Upload artefacts (site/ + exports/)
 
 2. **deploy-staging** (si push sur main):
-   - Environment: `staging`
-   - Auto-deploy vers `gh-pages/draft/`
-   - URL: https://alexmacapple.github.io/span-sg/draft/
+   - Environment: `staging` (nécessite approval)
+   - Deploy vers `gh-pages/staging/` après validation
+   - URL: https://alexmacapple.github.io/span-sg/staging/
 
 3. **deploy-production** (si push sur main):
    - Environment: `production` (nécessite approval Chef SNUM)
@@ -161,11 +161,11 @@ Workflow `.github/workflows/build.yml` (3 jobs séquentiels):
 
 ### Branches et déploiements
 
-**Architecture GitHub Environments** (depuis 22/10/2025):
+**Architecture GitHub Environments** (depuis 23/10/2025):
 - **1 branche unique**: `main` (source de vérité)
-- **2 Environments GitHub**:
-  - `staging`: Auto-deploy /draft/ (pas de gate approval)
-  - `production`: Deploy / avec approval Chef SNUM (manual gate)
+- **2 Environments GitHub** (double approbation):
+  - `staging`: Deploy /staging/ avec approval (manuel)
+  - `production`: Deploy / avec approval Chef SNUM (manuel)
 
 **Branches de travail**:
 - `feature/*`: modifications par service (PR vers main)
@@ -174,9 +174,9 @@ Workflow `.github/workflows/build.yml` (3 jobs séquentiels):
 **Workflow contributeur**:
 1. Créer branche feature → PR vers main
 2. Validateur approve PR (code review)
-3. Merge → Auto-deploy staging (/draft/)
-4. Chef SNUM approve production (deployment review)
-5. Deploy production (/)
+3. Merge → Pause staging (attente approval)
+4. Approve staging → Deploy /staging/ (tests recette)
+5. Approve production → Deploy / (Chef SNUM)
 
 **Pages privées**: Restreint aux membres organisation (paramètre org-only).
 
@@ -274,7 +274,7 @@ git push origin vX.Y.Z
 - [ ] Blocs légaux remplis ou TODO explicite
 - [ ] Liens valides, pas de secrets
 - [ ] CI passe (build-and-test + deploy-staging + deploy-production)
-- [ ] Staging accessible (/draft/, org-only)
+- [ ] Staging accessible (/staging/, org-only, après approval)
 - [ ] Production déployée après approval Chef SNUM (/, org-only)
 
 ## Contacts et gouvernance

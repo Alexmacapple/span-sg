@@ -33,7 +33,7 @@
 ## 4. Configuration GitHub Pages
 - [ ] Organisation → Settings → Pages → Restreindre accès **membres organisation**
 - [x] Dépôt → Settings → Pages → Branche `gh-pages` déployée
-- [x] Preview draft accessible (/draft/)
+- [x] Preview staging accessible (/staging/, après approval)
 - [ ] Production racine accessible (après merge vers main)
 - [ ] Test d'accès externe validé (non-membre bloqué)
 

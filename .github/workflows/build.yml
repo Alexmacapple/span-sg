@@ -305,7 +305,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: staging
-      url: https://alexmacapple.github.io/span-sg/draft/
+      url: https://alexmacapple.github.io/span-sg/staging/
     steps:
       - name: Checkout gh-pages branch
         uses: actions/checkout@v3
@@ -325,29 +325,29 @@ jobs:
           name: exports-${{ github.sha }}
           path: exports/
 
-      - name: Deploy to /draft/ (staging)
+      - name: Deploy to /staging/ (staging)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Clean existing /draft/ directory
-          rm -rf draft
-          mkdir -p draft
+          # Clean existing /staging/ directory
+          rm -rf staging
+          mkdir -p staging
 
           # Copy new build
-          cp -r site/* draft/
-          mkdir -p draft/exports
-          cp -r exports/* draft/exports/
+          cp -r site/* staging/
+          mkdir -p staging/exports
+          cp -r exports/* staging/exports/
 
           # Commit and push
-          git add draft
+          git add staging
           git commit -m "Deploy staging from ${{ github.sha }}" || exit 0
           git push origin gh-pages
 
       - name: Deployment summary
         run: |
           echo "✅ Staging deployment complete"
-          echo "URL: https://alexmacapple.github.io/span-sg/draft/"
+          echo "URL: https://alexmacapple.github.io/span-sg/staging/"
           echo "Commit: ${{ github.sha }}"
 
   deploy-production:
@@ -385,8 +385,8 @@ jobs:
           mv site site-tmp
           mv exports exports-tmp
 
-          # Clean root (preserve /draft/ and .git only)
-          find . -mindepth 1 -maxdepth 1 ! -name 'draft' ! -name '.git' ! -name 'site-tmp' ! -name 'exports-tmp' -exec rm -rf {} +
+          # Clean root (preserve /staging/ and .git only)
+          find . -mindepth 1 -maxdepth 1 ! -name 'staging' ! -name '.git' ! -name 'site-tmp' ! -name 'exports-tmp' -exec rm -rf {} +
 
           # Deploy new build
           cp -r site-tmp/* .
