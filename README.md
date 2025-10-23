@@ -183,19 +183,7 @@ Documentation complète de l'architecture déploiement : [ADR-009](docs/adr/009-
 
 **Documentation complète** : Consultez [CONTRIBUTING.md](CONTRIBUTING.md) pour le guide détaillé, les conventions de commit et le processus release.
 
-## Sécurité
-
-Mesures actives :
-- **Dependabot** : Scan automatique hebdomadaire des vulnérabilités CVE (lundi 9h)
-- **GitHub Vulnerability Alerts** : Notifications automatiques activées
-- **Gitleaks** : Scan secrets en pre-commit (API keys, tokens, credentials)
-- **Bandit** : Analyse statique sécurité Python (pre-commit + CI)
-- **Safety** : Vérification CVE des dépendances (pre-commit + CI)
-- **Git history** : Fichiers sensibles purgés (BFG Repo-Cleaner)
-
-**Signaler une vulnérabilité** : Consultez [SECURITY.md](SECURITY.md) pour la procédure de responsible disclosure.
-
-**Ne créez PAS d'issue publique pour les vulnérabilités.**
+Pour toute question de sécurité, consultez [SECURITY.md](SECURITY.md).
 
 ## Contacts
 
