@@ -122,7 +122,14 @@ jobs:
       - name: Calculate SPAN scores
         run: python scripts/calculate_scores.py
 
-      - name: Build site HTML (strict mode)
+      - name: Generate PDF (builds site/ with ReadTheDocs theme for PDF compat)
+        run: |
+          ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml
+
+      - name: Enrich PDF metadata
+        run: python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
+
+      - name: Build site HTML (strict mode - overwrites site/ with DSFR theme)
         run: mkdocs build --config-file mkdocs-dsfr.yml --strict
 
       - name: Verify DSFR theme applied
@@ -132,13 +139,6 @@ jobs:
             exit 1
           fi
           echo "✅ Thème DSFR correctement appliqué"
-
-      - name: Generate PDF
-        run: |
-          ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml
-
-      - name: Enrich PDF metadata
-        run: python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
 
       - name: Install qpdf
         run: sudo apt-get update && sudo apt-get install -y qpdf
