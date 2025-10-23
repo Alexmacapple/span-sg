@@ -161,6 +161,20 @@ jobs:
           path: benchmark-${{ github.sha }}.json
           retention-days: 365
 
+      # ===== FIX: Rebuild DSFR après benchmark =====
+      # Le benchmark.py écrase site/ avec Material lors de la génération PDF
+      # Ce rebuild garantit que le thème DSFR est appliqué pour le déploiement
+      - name: Rebuild site HTML (final DSFR, après benchmark)
+        run: mkdocs build --config-file mkdocs-dsfr.yml --clean
+
+      - name: Verify DSFR theme applied (final check)
+        run: |
+          if ! grep -q 'fr-header' site/index.html; then
+            echo "❌ ERREUR: Thème DSFR non appliqué (fr-header manquant)"
+            exit 1
+          fi
+          echo "✅ Thème DSFR correctement appliqué (vérification finale)"
+
       # ===== E2E TESTS (run on all events) =====
       # Phase 1: E2E native (GitHub Actions environment)
       - name: Run E2E tests (native environment)
