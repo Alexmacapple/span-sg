@@ -246,8 +246,11 @@ jobs:
       # CRITIQUE: Les E2E tests (scenario_erreur_markdown.sh) font `mkdocs build --strict`
       # sans --config-file ni --site-dir, écrasant site/ avec Material theme.
       # Ce rebuild final garantit que l'artifact uploadé contient bien DSFR.
+      - name: Clean site directory (remove Docker root-owned files)
+        run: sudo rm -rf site/
+
       - name: Rebuild site HTML (final DSFR, après E2E)
-        run: mkdocs build --config-file mkdocs-dsfr.yml --clean
+        run: mkdocs build --config-file mkdocs-dsfr.yml
 
       - name: Verify DSFR theme applied (final check)
         run: |
