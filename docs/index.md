@@ -29,7 +29,7 @@ La MiWeb accompagne les services du SG dans la mise en œuvre de leur SPAN.
 
 ---
 
-## Modules services
+## SPAN par service du Secrétariat Général (SG)
 
 Accédez directement aux SPAN de chaque service du Secrétariat Général :
 

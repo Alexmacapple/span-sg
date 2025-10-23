@@ -64,7 +64,7 @@ plugins:
 nav:
   - SPAN (SG): index.md
   - Contexte réglementaire: mise-en-application-circulaire.md
-  - SPAN (services):
+  - SPAN par service du Secrétariat Général (SG):
     - BGS: modules/bgs.md
     - SAFI: modules/safi.md
     - SIEP: modules/siep.md
