@@ -185,8 +185,6 @@ Documentation complète de l'architecture déploiement : [ADR-009](docs/adr/009-
 
 ## Sécurité
 
-**Score sécurité** : 9.5/10
-
 Mesures actives :
 - **Dependabot** : Scan automatique hebdomadaire des vulnérabilités CVE (lundi 9h)
 - **GitHub Vulnerability Alerts** : Notifications automatiques activées
