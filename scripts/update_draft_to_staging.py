@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Script pour remplacer draft par staging dans la documentation."""
 
-import os
 import re
 from pathlib import Path
 
