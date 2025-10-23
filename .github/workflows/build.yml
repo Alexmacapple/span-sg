@@ -34,14 +34,16 @@ jobs:
       - name: Install security tools
         run: pip install -r requirements-security.txt
 
-      # ===== PRE-COMMIT VERIFICATION =====
-      - name: Verify pre-commit hooks configuration
+      - name: Install system dependencies (qpdf + WeasyPrint + E2E libs)
         run: |
-          echo "=== Pre-commit Hooks Verification ==="
-          pip install pre-commit
-          pre-commit run --all-files || true
-          echo ""
-          echo "=== Pre-commit hooks verified ==="
+          sudo apt-get update
+          sudo apt-get install -y \
+            qpdf \
+            libpango-1.0-0 \
+            libpangocairo-1.0-0 \
+            libgdk-pixbuf2.0-0 \
+            libffi-dev \
+            shared-mime-info
 
       # ===== QUALITY CHECKS =====
       - name: Run Black formatter check
@@ -140,14 +142,12 @@ jobs:
           fi
           echo "✅ Thème DSFR correctement appliqué"
 
-      - name: Install qpdf
-        run: sudo apt-get update && sudo apt-get install -y qpdf
-
       - name: Validate PDF structure
         run: qpdf --check exports/span-sg.pdf
 
-      # ===== BENCHMARK =====
+      # ===== BENCHMARK (main only) =====
       - name: Run benchmark
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           echo "Running performance benchmarks..."
           python scripts/benchmark.py > benchmark-${{ github.sha }}.json
@@ -155,6 +155,7 @@ jobs:
           cat benchmark-${{ github.sha }}.json
 
       - name: Upload benchmark metrics
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v4
         with:
           name: benchmark-${{ github.run_number }}
@@ -162,7 +163,6 @@ jobs:
           retention-days: 365
 
       # ===== E2E TESTS (run on all events) =====
-      # Phase 1: E2E native (GitHub Actions environment)
       - name: Run E2E tests (native environment)
         run: |
           echo "🧪 Running E2E tests in native GitHub Actions environment..."
@@ -181,64 +181,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: e2e-native-accessibility-${{ github.run_number }}
-          path: tests/e2e/accessibility_report.json
-          retention-days: 30
-
-      # Phase 2: E2E Docker (containerized environment)
-      - name: Install system dependencies for E2E
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            libpango-1.0-0 \
-            libpangocairo-1.0-0 \
-            libgdk-pixbuf2.0-0 \
-            libffi-dev \
-            shared-mime-info
-
-      - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Cache Docker layers
-        uses: actions/cache@v3
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile.mkdocs-test', 'requirements-dsfr.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-
-      - name: Build E2E test Docker image (with mkdocs-dsfr)
-        run: |
-          docker buildx build \
-            -f Dockerfile.mkdocs-test \
-            -t mkdocs-test:latest \
-            --cache-from type=local,src=/tmp/.buildx-cache \
-            --cache-to type=local,dest=/tmp/.buildx-cache-new,mode=max \
-            --load \
-            .
-
-      - name: Move Docker cache
-        run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache || true
-
-      - name: Run E2E tests (Docker environment)
-        continue-on-error: true  # TODO: Remove once Docker environment validated
-        run: |
-          docker run --rm -v $PWD:/docs --entrypoint bash mkdocs-test:latest tests/e2e/ci_runner.sh
-
-      - name: Upload E2E Docker report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: e2e-docker-report-${{ github.run_number }}
-          path: tests/e2e/report.html
-          retention-days: 30
-
-      - name: Upload E2E Docker accessibility report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: e2e-docker-accessibility-${{ github.run_number }}
           path: tests/e2e/accessibility_report.json
           retention-days: 30
 
