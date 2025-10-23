@@ -1,589 +1,685 @@
 
-<!DOCTYPE html>
-<html lang="fr" data-fr-scheme="system">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../../dsfr.min.css">
-    <link rel="stylesheet" href="../../utility/utility.min.css">
-    <link rel="stylesheet" href="../../css/theme.css">
-
-    <meta name="theme-color" content="#000091">
-    <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
-    <link rel="apple-touch-icon" href="../../ favicon /apple-touch-icon.png">
-    <!-- 180×180 -->
-    <link rel="icon" href="../../favicon/favicon.svg" type="image/svg+xml">
-    <link rel="shortcut icon" href="../../favicon/favicon.ico">
-    <!-- 32×32 -->
-    <link rel="manifest" href="../../favicon/manifest.webmanifest" crossorigin="use-credentials">
-    <script src="../../js/postprocess.js" defer></script>
-
-    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
-    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
     
-
-    <title>API Reference</title>
-    
-    
-</head>
-<body>
-    <div class="fr-skiplinks">
-  <nav role="navigation" aria-label="Accès rapide" class="fr-container">
-    <ul class="fr-skiplinks__list">
-      <li>
-        <a class="fr-link" href="#content">Contenu</a>
-      </li>
-      <li>
-        <a class="fr-link" href="#header-navigation">Menu</a>
-      </li>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
       
-      <li>
-        <a class="fr-link" href="#search-modal">Recherche</a>
-      </li>
       
-      <li>
-        <a class="fr-link" href="#footer">Pied de page</a>
-      </li>
-    </ul>
+      
+        <link rel="canonical" href="https://alexmacapple.github.io/span-sg/dev/api-reference/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>API Reference - Scripts et Hooks - SPAN SG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference-scripts-et-hooks" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="SPAN SG" class="md-header__button md-logo" aria-label="SPAN SG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SPAN SG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API Reference - Scripts et Hooks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Alexmacapple/span-sg" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
   </nav>
-</div>
-    <header role="banner" class="fr-header">
-    <div class="fr-header__body">
-        <div class="fr-container">
-            <div class="fr-header__body-row">
-                <div class="fr-header__brand fr-enlarge-link">
-                    <div class="fr-header__brand-top">
-                        <div class="fr-header__logo">
-                            <p class="fr-logo" style="">
-                                GOUVERNEMENT
-                            </p>
-                        </div>
-
-                        <div class="fr-header__navbar">
-                            
-                            <button
-                                class="fr-btn--search fr-btn"
-                                data-fr-opened="false"
-                                aria-controls="modal-541"
-                                id="button-542"
-                                title="Rechercher"
-                            >
-                                Rechercher
-                            </button>
-                            
-                            <button
-                                class="fr-btn--menu fr-btn"
-                                data-fr-opened="false"
-                                aria-controls="modal-543"
-                                aria-haspopup="menu"
-                                id="button-544"
-                                title="Menu"
-                            >
-                                Menu
-                            </button>
-                        </div>
-                    </div>
-                    <div class="fr-header__service">
-                        <a href="/" title="Retour à l'accueil du site - SPAN SG">
-                            <p class="fr-header__service-title">
-                                SPAN SG
-                            </p>
-                        </a>
-                        <p class="fr-header__service-tagline">
-                            Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général
-                        </p>
-                    </div>
-                </div>
-                <div class="fr-header__tools">
-                    
-                    <div class="fr-header__tools-links">
-                        <ul class="fr-btns-group">
-                            <li>
-                                <a
-                                    href="https://github.com/Alexmacapple/span-sg/blob/main/docs/dev/api-reference.md"
-                                    target="_blank"
-                                    rel="noopener"
-                                    class="fr-btn"
-                                    >Éditer dans GitHub</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="fr-header__search fr-modal" id="search-modal">
-                        <div class="fr-container fr-container-lg--fluid">
-                            <button
-                                class="fr-btn--close fr-btn"
-                                aria-controls="modal-541"
-                                title="Fermer"
-                            >
-                                Fermer
-                            </button>
-                            
-                            <form action="../../search.html">
-                                <div
-                                    class="fr-search-bar"
-                                    id="search-540"
-                                    role="search"
-                                >
-                                    <label
-                                        class="fr-label"
-                                        for="mkdocs-search-query"
-                                    >
-                                        Rechercher
-                                    </label>
-                                    <input
-                                        class="fr-input search_input search-query ui-autocomplete-input"
-                                        placeholder="Rechercher"
-                                        type="text"
-                                        id="mkdocs-search-query"
-                                        name="q"
-                                    />
-                                    <button
-                                        class="fr-btn"
-                                        title="Rechercher"
-                                        type="submit"
-                                    >
-                                        Rechercher
-                                    </button>
-                                </div>
-                            </form>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div
-        class="fr-header__menu fr-modal"
-        id="modal-543"
-        aria-labelledby="button-544"
-    >
-        <div class="fr-container">
-            <button
-                class="fr-btn--close fr-btn"
-                aria-controls="modal-543"
-                title="Fermer"
-            >
-                Fermer
-            </button>
-            <div class="fr-header__menu-links"></div>
-            <nav
-    class="fr-nav navbar-header"
-    id="header-navigation"
-    role="navigation"
-    aria-label="Menu principal"
->
-    <ul class="fr-nav__list">
-         
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../.."
-                target="_self"
-                
-                >SPAN (SG)</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
-                target="_self"
-                
-                >Contexte réglementaire</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <button
-                class="fr-nav__btn"
-                aria-expanded="false"
-                aria-controls="menu-7763"
-                
-            >
-                SPAN (services)
-            </button>
-            <div class="fr-collapse fr-menu" id="menu-7763">
-                <ul class="fr-menu__list">
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../modules/bgs/"
-                            target="_self"
-                            >BGS</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../modules/safi/"
-                            target="_self"
-                            >SAFI</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../modules/siep/"
-                            target="_self"
-                            >SIEP</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../modules/sircom/"
-                            target="_self"
-                            >SIRCOM</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../modules/snum/"
-                            target="_self"
-                            >SNUM</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../modules/srh/"
-                            target="_self"
-                            >SRH</a
-                        >
-                    </li>
-                    
-                </ul>
-            </div>
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../processus/"
-                target="_self"
-                
-                >Processus</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../accompagnement/"
-                target="_self"
-                
-                >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <button
-                class="fr-nav__btn"
-                aria-expanded="false"
-                aria-controls="menu-7767"
-                
-                aria-current="true"
-                
-            >
-                Documentation technique
-            </button>
-            <div class="fr-collapse fr-menu" id="menu-7767">
-                <ul class="fr-menu__list">
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../.."
-                            target="_self"
-                            >Architecture</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            aria-current="page"
-                            
-                            href="./"
-                            target="_self"
-                            >API Reference</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../hooks-guide/"
-                            target="_self"
-                            >Guide Hooks</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../dsfr-components-guide/"
-                            target="_self"
-                            >Guide Composants DSFR</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../glossary/"
-                            target="_self"
-                            >Glossaire</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../onboarding-visual/"
-                            target="_self"
-                            >Onboarding visuel</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../dev-local/"
-                            target="_self"
-                            >Développement local</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../contributing/"
-                            target="_self"
-                            >Guide contributeur</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../.."
-                            target="_self"
-                            >ADR (Décisions)</a
-                        >
-                    </li>
-                    
-                </ul>
-            </div>
-        </li>
-          
-        <li class="fr-nav__item">
-            <button
-                class="fr-nav__btn"
-                aria-expanded="false"
-                aria-controls="menu-7768"
-                
-            >
-                Informations légales
-            </button>
-            <div class="fr-collapse fr-menu" id="menu-7768">
-                <ul class="fr-menu__list">
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../accessibilite/"
-                            target="_self"
-                            >Accessibilité</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../mentions-legales/"
-                            target="_self"
-                            >Mentions légales</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../../donnees-personnelles/"
-                            target="_self"
-                            >Données personnelles</a
-                        >
-                    </li>
-                    
-                </ul>
-            </div>
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="https://github.com/Alexmacapple/span-sg-repo"
-                target="_self"
-                
-                >Code source GitHub</a
-            >
-        </li>
-         
-    </ul>
-</nav>
-        </div>
-    </div>
+  
 </header>
-    <main id="content" role="main">
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
-        <div class="fr-container markdown-content">
-            <div class="fr-grid-row">
-                
-                
-                    
-                
-
-                
-                    
-<div class="fr-col-12 fr-col-md-3 fr-py-1v">
-    <nav
-        class="fr-sidemenu fr-sidemenu--sticky-full-height fr-mb-0-5v"
-        role="navigation"
-        aria-label="Menu latéral"
-    >
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
         
-        <div class="fr-sidemenu__inner">
-            <button
-                class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
-                aria-expanded="true"
-            >
-                API Reference - Scripts et Hooks
-            </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
-                <div class="fr-sidemenu__title">API Reference - Scripts et Hooks</div>
-                <ul class="fr-sidemenu__list">
-                     
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#scripts-production"
-                            target="_self"
-                            >Scripts Production</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#hooks-mkdocs"
-                            target="_self"
-                            >Hooks MkDocs</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#bonnes-pratiques"
-                            target="_self"
-                            >Bonnes pratiques</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#references"
-                            target="_self"
-                            >Références</a
-                        >
-                    </li>
-                     
-                </ul>
-            </div>
-        </div>
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
-    </nav>
-</div>
+  
+  
+    
+  
+  SPAN (SG)
 
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modules/bgs/" class="md-tabs__link">
+          
+  
+  
+  SPAN (services)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../synthese/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Synthèse
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../processus/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Processus
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Guide contributeur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../dev-local/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Développement local
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
                     
-                        <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
-                    
-                
 
-                
 
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SPAN SG" class="md-nav__button md-logo" aria-label="SPAN SG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SPAN SG
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Alexmacapple/span-sg" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SPAN (SG)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SPAN (services)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SPAN (services)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
                 
-                        
-                        <h1 id="api-reference-scripts-et-hooks">API Reference - Scripts et Hooks</h1>
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/bgs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BGS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/safi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SAFI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/siep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SIEP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/sircom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SIRCOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/snum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SNUM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/srh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../synthese/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Synthèse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../processus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Processus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Guide contributeur
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev-local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Développement local
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="api-reference-scripts-et-hooks">API Reference - Scripts et Hooks<a class="headerlink" href="#api-reference-scripts-et-hooks" title="Permanent link">&para;</a></h1>
 <p>Documentation technique complète des scripts Python et hooks MkDocs du projet SPAN SG.</p>
 <p>Version: 1.0.1-dsfr
 Dernière mise à jour: 2025-10-11</p>
 <hr />
-<h2 id="scripts-production">Scripts Production</h2>
-<h3 id="calculate_scorespy">calculate_scores.py</h3>
+<h2 id="scripts-production">Scripts Production<a class="headerlink" href="#scripts-production" title="Permanent link">&para;</a></h2>
+<h3 id="calculate_scorespy">calculate_scores.py<a class="headerlink" href="#calculate_scorespy" title="Permanent link">&para;</a></h3>
 <p>Calcul automatique des scores SPAN par module (31 points DINUM).</p>
 <p><strong>Localisation:</strong> <code>scripts/calculate_scores.py</code>
 <strong>Coverage:</strong> 100%
 <strong>Tests:</strong> <code>scripts/test_calculate_scores*.py</code> (26 tests)</p>
-<p><strong>Usage:</strong>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>scripts/calculate_scores.py
-<span class="c1"># Génère: docs/synthese.md</span>
-<span class="c1"># Exit code: 0 (succès) ou 2 (erreur périmètre)</span>
-</code></pre></div></p>
-<p><strong>Workflow CI:</strong>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Calculate SPAN scores</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python scripts/calculate_scores.py</span>
-</code></pre></div></p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash">python scripts/calculate_scores.py
+# Génère: docs/synthese.md
+# Exit code: 0 (succès) ou 2 (erreur périmètre)
+</code></pre>
+<p><strong>Workflow CI:</strong></p>
+<pre><code class="language-yaml">- name: Calculate SPAN scores
+  run: python scripts/calculate_scores.py
+</code></pre>
 <hr />
-<h4 id="constantes">Constantes</h4>
-<div class="highlight"><pre><span></span><code><span class="n">CHECK_TAG</span> <span class="o">=</span> <span class="s2">&quot;DINUM&quot;</span>                    <span class="c1"># Tag marqueur des 31 points officiels</span>
-<span class="n">FENCE_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;```.*?```&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>  <span class="c1"># Regex code fences</span>
-<span class="n">BOX_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;- \[(x|X| )\].*?&lt;!--\s*DINUM\s*--&gt;&quot;</span><span class="p">)</span>  <span class="c1"># Regex checkboxes</span>
-</code></pre></div>
+<h4 id="constantes">Constantes<a class="headerlink" href="#constantes" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">CHECK_TAG = &quot;DINUM&quot;                    # Tag marqueur des 31 points officiels
+FENCE_RE = re.compile(r&quot;```.*?```&quot;, re.S)  # Regex code fences
+BOX_RE = re.compile(r&quot;- \[(x|X| )\].*?&lt;!--\s*DINUM\s*--&gt;&quot;)  # Regex checkboxes
+</code></pre>
 <hr />
-<h4 id="load_textp-path-str"><code>load_text(p: Path) -&gt; str</code></h4>
+<h4 id="load_textp-path-str"><code>load_text(p: Path) -&gt; str</code><a class="headerlink" href="#load_textp-path-str" title="Permanent link">&para;</a></h4>
 <p>Charge le contenu d'un module Markdown en excluant les blocs de code.</p>
 <p><strong>Args:</strong>
 - <code>p</code> (Path): Chemin vers fichier .md du module</p>
@@ -591,17 +687,17 @@ Dernière mise à jour: 2025-10-11</p>
 - <code>str</code>: Contenu Markdown sans code fences (<code>...</code>)</p>
 <p><strong>Justification:</strong>
 Les blocs de code peuvent contenir des checkboxes exemples qui ne doivent pas être comptées.</p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scripts.calculate_scores</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_text</span>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">from pathlib import Path
+from scripts.calculate_scores import load_text
 
-<span class="n">content</span> <span class="o">=</span> <span class="n">load_text</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;docs/modules/sircom.md&quot;</span><span class="p">))</span>
-<span class="c1"># Returns: Markdown sans code blocks</span>
-</code></pre></div></p>
+content = load_text(Path(&quot;docs/modules/sircom.md&quot;))
+# Returns: Markdown sans code blocks
+</code></pre>
 <p><strong>Tests:</strong>
 - <code>test_removes_code_fences()</code>: Vérifie exclusion code blocks</p>
 <hr />
-<h4 id="score_modulep-path-tupleint-int"><code>score_module(p: Path) -&gt; tuple[int, int]</code></h4>
+<h4 id="score_modulep-path-tupleint-int"><code>score_module(p: Path) -&gt; tuple[int, int]</code><a class="headerlink" href="#score_modulep-path-tupleint-int" title="Permanent link">&para;</a></h4>
 <p>Compte les cases cochées parmi les 31 points DINUM d'un module.</p>
 <p><strong>Args:</strong>
 - <code>p</code> (Path): Chemin vers module (docs/modules/*.md)</p>
@@ -612,25 +708,25 @@ Les blocs de code peuvent contenir des checkboxes exemples qui ne doivent pas ê
 <p><strong>Validation:</strong>
 - <code>total</code> doit être 0 (module vide) ou 31 (périmètre complet)
 - Sinon erreur détectée par <code>generate_summary()</code></p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scripts.calculate_scores</span><span class="w"> </span><span class="kn">import</span> <span class="n">score_module</span>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">from pathlib import Path
+from scripts.calculate_scores import score_module
 
-<span class="n">checked</span><span class="p">,</span> <span class="n">total</span> <span class="o">=</span> <span class="n">score_module</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;docs/modules/sircom.md&quot;</span><span class="p">))</span>
-<span class="c1"># Returns: (24, 31) pour SIRCOM actuel</span>
-<span class="c1"># Pourcentage: 24/31 = 77.4%</span>
-</code></pre></div></p>
-<p><strong>Format attendu dans .md:</strong>
-<div class="highlight"><pre><span></span><code><span class="k">- [x]</span> Point validé &lt;!-- DINUM --&gt;
-<span class="k">- [ ]</span> Point non validé &lt;!-- DINUM --&gt;
-</code></pre></div></p>
+checked, total = score_module(Path(&quot;docs/modules/sircom.md&quot;))
+# Returns: (24, 31) pour SIRCOM actuel
+# Pourcentage: 24/31 = 77.4%
+</code></pre>
+<p><strong>Format attendu dans .md:</strong></p>
+<pre><code class="language-markdown">- [x] Point validé &lt;!-- DINUM --&gt;
+- [ ] Point non validé &lt;!-- DINUM --&gt;
+</code></pre>
 <p><strong>Tests:</strong>
 - <code>test_module_0_of_31()</code>: Module vide
 - <code>test_module_6_of_31_sircom()</code>: Module partiel
 - <code>test_module_31_of_31()</code>: Module complet
 - <code>test_module_invalid_30_points()</code>: Erreur périmètre</p>
 <hr />
-<h4 id="get_validation_statusp-path-str"><code>get_validation_status(p: Path) -&gt; str</code></h4>
+<h4 id="get_validation_statusp-path-str"><code>get_validation_status(p: Path) -&gt; str</code><a class="headerlink" href="#get_validation_statusp-path-str" title="Permanent link">&para;</a></h4>
 <p>Extrait le statut de validation depuis le front-matter YAML du module.</p>
 <p><strong>Args:</strong>
 - <code>p</code> (Path): Chemin vers module</p>
@@ -639,28 +735,28 @@ Les blocs de code peuvent contenir des checkboxes exemples qui ne doivent pas ê
   - <code>"Validé"</code> si <code>validation_status: validated</code>
   - <code>"En cours"</code> si <code>validation_status: in_progress</code>
   - <code>"Brouillon"</code> si <code>validation_status: draft</code> ou absent</p>
-<p><strong>Front-matter attendu:</strong>
-<div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SIRCOM</span>
-<span class="nt">referent</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Pôle</span><span class="nv"> </span><span class="s">web&quot;</span>
-<span class="nt">updated</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2025-10-02&quot;</span>
-<span class="nt">validation_status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">validated</span><span class="w">  </span><span class="c1"># validated | in_progress | draft</span>
-<span class="nn">---</span>
-</code></pre></div></p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scripts.calculate_scores</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_validation_status</span>
+<p><strong>Front-matter attendu:</strong></p>
+<pre><code class="language-yaml">---
+service: SIRCOM
+referent: &quot;Pôle web&quot;
+updated: &quot;2025-10-02&quot;
+validation_status: validated  # validated | in_progress | draft
+---
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">from pathlib import Path
+from scripts.calculate_scores import get_validation_status
 
-<span class="n">status</span> <span class="o">=</span> <span class="n">get_validation_status</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;docs/modules/sircom.md&quot;</span><span class="p">))</span>
-<span class="c1"># Returns: &quot;Validé&quot;</span>
-</code></pre></div></p>
+status = get_validation_status(Path(&quot;docs/modules/sircom.md&quot;))
+# Returns: &quot;Validé&quot;
+</code></pre>
 <p><strong>Tests:</strong>
 - <code>test_validated_status_returns_valide()</code>
 - <code>test_in_progress_status_returns_en_cours()</code>
 - <code>test_draft_status_returns_brouillon()</code>
 - <code>test_missing_validation_status_returns_brouillon()</code></p>
 <hr />
-<h4 id="generate_summary-int"><code>generate_summary() -&gt; int</code></h4>
+<h4 id="generate_summary-int"><code>generate_summary() -&gt; int</code><a class="headerlink" href="#generate_summary-int" title="Permanent link">&para;</a></h4>
 <p>Point d'entrée principal. Génère <code>docs/synthese.md</code> avec tableau HTML DSFR des scores.</p>
 <p><strong>Returns:</strong>
 - <code>int</code>: Exit code
@@ -674,63 +770,63 @@ Les blocs de code peuvent contenir des checkboxes exemples qui ne doivent pas ê
    - Calcule pourcentage et statut global
 3. Génère tableau HTML DSFR dans <code>docs/synthese.md</code>
 4. Valide périmètre (0 ou 31 points par module)</p>
-<p><strong>Format output (HTML DSFR):</strong>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table fr-table--bordered&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;table-synthese-span&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">table</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;table-span-modules&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>SIRCOM<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>24/31 (77.4%)<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Conforme<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Validé<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>TOTAL<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>24/186 (12.9%)<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<p><strong>Format output (HTML DSFR):</strong></p>
+<pre><code class="language-html">&lt;div class=&quot;fr-table fr-table--bordered&quot; id=&quot;table-synthese-span&quot;&gt;
+    &lt;table id=&quot;table-span-modules&quot;&gt;
+        &lt;tr&gt;
+            &lt;td&gt;SIRCOM&lt;/td&gt;
+            &lt;td&gt;24/31 (77.4%)&lt;/td&gt;
+            &lt;td&gt;Conforme&lt;/td&gt;
+            &lt;td&gt;Validé&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;strong&gt;TOTAL&lt;/strong&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;strong&gt;24/186 (12.9%)&lt;/strong&gt;&lt;/td&gt;
             ...
-        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div></p>
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
 <p><strong>Statuts calculés:</strong>
 - <code>"Conforme"</code>: ≥ 75% (≥ 24/31)
 - <code>"En cours"</code>: &gt; 0% et &lt; 75%
 - <code>"Non renseigné"</code>: 0%</p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">scripts.calculate_scores</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_summary</span>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">from scripts.calculate_scores import generate_summary
 
-<span class="n">exit_code</span> <span class="o">=</span> <span class="n">generate_summary</span><span class="p">()</span>
-<span class="c1"># Génère: docs/synthese.md</span>
-<span class="c1"># Returns: 0 (succès) ou 2 (erreur)</span>
-</code></pre></div></p>
-<p><strong>Validation périmètre:</strong>
-<div class="highlight"><pre><span></span><code><span class="c1"># Erreur affichée si total ≠ 0 ou 31</span>
-<span class="n">Erreurs</span> <span class="n">de</span> <span class="n">périmètre</span><span class="p">:</span>
- <span class="o">-</span> <span class="n">sircom</span><span class="o">.</span><span class="n">md</span><span class="p">:</span> <span class="mi">30</span> <span class="n">points</span> <span class="n">tagués</span> <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">DINUM</span> <span class="o">--&gt;</span> <span class="p">(</span><span class="n">attendu</span> <span class="mi">31</span> <span class="n">ou</span> <span class="mi">0</span><span class="p">)</span>
-</code></pre></div></p>
+exit_code = generate_summary()
+# Génère: docs/synthese.md
+# Returns: 0 (succès) ou 2 (erreur)
+</code></pre>
+<p><strong>Validation périmètre:</strong></p>
+<pre><code class="language-python"># Erreur affichée si total ≠ 0 ou 31
+Erreurs de périmètre:
+ - sircom.md: 30 points tagués &lt;!-- DINUM --&gt; (attendu 31 ou 0)
+</code></pre>
 <p><strong>Tests:</strong>
 - <code>test_valid_modules_exit_0()</code>: Modules valides (0 ou 31)
 - <code>test_invalid_module_exit_2()</code>: Module invalide (30 points)
 - <code>test_status_calculation[...]</code>: 6 scénarios calcul statut</p>
 <hr />
-<h3 id="enrich_pdf_metadatapy">enrich_pdf_metadata.py</h3>
+<h3 id="enrich_pdf_metadatapy">enrich_pdf_metadata.py<a class="headerlink" href="#enrich_pdf_metadatapy" title="Permanent link">&para;</a></h3>
 <p>Enrichit les métadonnées XMP/PDF pour conformité accessibilité RGAA.</p>
 <p><strong>Localisation:</strong> <code>scripts/enrich_pdf_metadata.py</code>
 <strong>Coverage:</strong> 78%
 <strong>Tests:</strong> <code>scripts/test_enrich_pdf*.py</code> (7 tests)
 <strong>Dépendances:</strong> <code>pikepdf&gt;=8.0.0</code></p>
-<p><strong>Usage:</strong>
-<div class="highlight"><pre><span></span><code><span class="c1"># Modifier sur place (défaut)</span>
-python<span class="w"> </span>scripts/enrich_pdf_metadata.py<span class="w"> </span>exports/span-sg.pdf
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash"># Modifier sur place (défaut)
+python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
 
-<span class="c1"># Input/output explicites</span>
-python<span class="w"> </span>scripts/enrich_pdf_metadata.py<span class="w"> </span>input.pdf<span class="w"> </span>output.pdf
-</code></pre></div></p>
-<p><strong>Workflow CI:</strong>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Enrich PDF metadata</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python scripts/enrich_pdf_metadata.py exports/span-sg.pdf</span>
-</code></pre></div></p>
+# Input/output explicites
+python scripts/enrich_pdf_metadata.py input.pdf output.pdf
+</code></pre>
+<p><strong>Workflow CI:</strong></p>
+<pre><code class="language-yaml">- name: Enrich PDF metadata
+  run: python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
+</code></pre>
 <hr />
-<h4 id="enrich_pdf_metadatainput_path-path-output_path-path-none-none"><code>enrich_pdf_metadata(input_path: Path, output_path: Path = None) -&gt; None</code></h4>
+<h4 id="enrich_pdf_metadatainput_path-path-output_path-path-none-none"><code>enrich_pdf_metadata(input_path: Path, output_path: Path = None) -&gt; None</code><a class="headerlink" href="#enrich_pdf_metadatainput_path-path-output_path-path-none-none" title="Permanent link">&para;</a></h4>
 <p>Ajoute métadonnées Dublin Core et XMP au PDF généré par MkDocs.</p>
 <p><strong>Args:</strong>
 - <code>input_path</code> (Path): Chemin vers PDF source
@@ -743,76 +839,76 @@ python<span class="w"> </span>scripts/enrich_pdf_metadata.py<span class="w"> </s
 - <code>ImportError</code>: Si <code>pikepdf</code> non installé
 - <code>Exception</code>: Si erreur lors du traitement PDF (corrompu, etc.)</p>
 <p><strong>Métadonnées ajoutées:</strong></p>
-<p><strong>Dublin Core (DC):</strong>
-<div class="highlight"><pre><span></span><code><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;dc:title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;SPAN SG&quot;</span>
-<span class="n">meta</span><span class="p">[</span><span class="s2">&quot;dc:language&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;fr-FR&quot;</span>
-<span class="n">meta</span><span class="p">[</span><span class="s2">&quot;dc:creator&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Secrétariat Général&quot;</span><span class="p">]</span>
-<span class="n">meta</span><span class="p">[</span><span class="s2">&quot;dc:subject&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Schéma Pluriannuel d&#39;Accessibilité Numérique&quot;</span>
-<span class="n">meta</span><span class="p">[</span><span class="s2">&quot;dc:description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Plan d&#39;accessibilité numérique du SG 2025-2027...&quot;</span>
-</code></pre></div></p>
-<p><strong>PDF spécifiques:</strong>
-<div class="highlight"><pre><span></span><code><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;pdf:Keywords&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;SPAN, accessibilité, SG, numérique, RGAA, DINUM&quot;</span>
-<span class="n">meta</span><span class="p">[</span><span class="s2">&quot;pdf:Producer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MkDocs Material + mkdocs-with-pdf + pikepdf&quot;</span>
-</code></pre></div></p>
-<p><strong>XMP:</strong>
-<div class="highlight"><pre><span></span><code><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;xmp:CreatorTool&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MkDocs Material 9.x&quot;</span>
-<span class="n">meta</span><span class="p">[</span><span class="s2">&quot;xmp:CreateDate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-<span class="n">meta</span><span class="p">[</span><span class="s2">&quot;xmp:MetadataDate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-</code></pre></div></p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scripts.enrich_pdf_metadata</span><span class="w"> </span><span class="kn">import</span> <span class="n">enrich_pdf_metadata</span>
+<p><strong>Dublin Core (DC):</strong></p>
+<pre><code class="language-python">meta[&quot;dc:title&quot;] = &quot;SPAN SG&quot;
+meta[&quot;dc:language&quot;] = &quot;fr-FR&quot;
+meta[&quot;dc:creator&quot;] = [&quot;Secrétariat Général&quot;]
+meta[&quot;dc:subject&quot;] = &quot;Schéma Pluriannuel d'Accessibilité Numérique&quot;
+meta[&quot;dc:description&quot;] = &quot;Plan d'accessibilité numérique du SG 2025-2027...&quot;
+</code></pre>
+<p><strong>PDF spécifiques:</strong></p>
+<pre><code class="language-python">meta[&quot;pdf:Keywords&quot;] = &quot;SPAN, accessibilité, SG, numérique, RGAA, DINUM&quot;
+meta[&quot;pdf:Producer&quot;] = &quot;MkDocs Material + mkdocs-with-pdf + pikepdf&quot;
+</code></pre>
+<p><strong>XMP:</strong></p>
+<pre><code class="language-python">meta[&quot;xmp:CreatorTool&quot;] = &quot;MkDocs Material 9.x&quot;
+meta[&quot;xmp:CreateDate&quot;] = datetime.now(timezone.utc).isoformat()
+meta[&quot;xmp:MetadataDate&quot;] = datetime.now(timezone.utc).isoformat()
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">from pathlib import Path
+from scripts.enrich_pdf_metadata import enrich_pdf_metadata
 
-<span class="c1"># Modification sur place</span>
-<span class="n">enrich_pdf_metadata</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;exports/span-sg.pdf&quot;</span><span class="p">))</span>
+# Modification sur place
+enrich_pdf_metadata(Path(&quot;exports/span-sg.pdf&quot;))
 
-<span class="c1"># Avec output distinct</span>
-<span class="n">enrich_pdf_metadata</span><span class="p">(</span>
-    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;exports/span-sg.pdf&quot;</span><span class="p">),</span>
-    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;exports/span-sg-enriched.pdf&quot;</span><span class="p">)</span>
-<span class="p">)</span>
-</code></pre></div></p>
-<p><strong>Gestion erreurs:</strong>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Import manquant</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">pikepdf</span>
-<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;❌ Erreur: pikepdf non installé&quot;</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+# Avec output distinct
+enrich_pdf_metadata(
+    Path(&quot;exports/span-sg.pdf&quot;),
+    Path(&quot;exports/span-sg-enriched.pdf&quot;)
+)
+</code></pre>
+<p><strong>Gestion erreurs:</strong></p>
+<pre><code class="language-python"># 1. Import manquant
+try:
+    import pikepdf
+except ImportError:
+    print(&quot;❌ Erreur: pikepdf non installé&quot;)
+    sys.exit(1)
 
-<span class="c1"># 2. Fichier inexistant</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">input_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ Fichier introuvable: </span><span class="si">{</span><span class="n">input_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+# 2. Fichier inexistant
+if not input_path.exists():
+    print(f&quot;❌ Fichier introuvable: {input_path}&quot;)
+    sys.exit(1)
 
-<span class="c1"># 3. Erreur traitement</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="k">with</span> <span class="n">pikepdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">input_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">pdf</span><span class="p">:</span>
-        <span class="c1"># ... traitement</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ Erreur lors de l&#39;enrichissement: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div></p>
+# 3. Erreur traitement
+try:
+    with pikepdf.open(input_path) as pdf:
+        # ... traitement
+except Exception as e:
+    print(f&quot;❌ Erreur lors de l'enrichissement: {e}&quot;)
+    sys.exit(1)
+</code></pre>
 <p><strong>Tests:</strong>
 - <code>test_file_not_found_exits_1()</code>: Fichier inexistant
 - <code>test_enrich_valid_pdf_adds_metadata()</code>: Enrichissement réussi
 - <code>test_corrupted_pdf_raises_exception()</code>: PDF corrompu
 - <code>test_pdf_save_error_caught()</code>: Erreur sauvegarde</p>
 <hr />
-<h2 id="hooks-mkdocs">Hooks MkDocs</h2>
-<h3 id="dsfr_table_wrapperpy">dsfr_table_wrapper.py</h3>
+<h2 id="hooks-mkdocs">Hooks MkDocs<a class="headerlink" href="#hooks-mkdocs" title="Permanent link">&para;</a></h2>
+<h3 id="dsfr_table_wrapperpy">dsfr_table_wrapper.py<a class="headerlink" href="#dsfr_table_wrapperpy" title="Permanent link">&para;</a></h3>
 <p>Wrappe automatiquement les <code>&lt;table&gt;</code> avec <code>&lt;div class="fr-table"&gt;</code> pour conformité DSFR.</p>
 <p><strong>Localisation:</strong> <code>hooks/dsfr_table_wrapper.py</code>
 <strong>Coverage:</strong> 100%
 <strong>Tests:</strong> <code>tests/test_hooks_dsfr_table_wrapper.py</code> (7 tests)</p>
 <p><strong>Hook MkDocs:</strong> <code>on_page_content</code></p>
-<p><strong>Usage automatique:</strong>
-<div class="highlight"><pre><span></span><code><span class="c1"># mkdocs-dsfr.yml</span>
-<span class="nt">hooks</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hooks/dsfr_table_wrapper.py</span>
-</code></pre></div></p>
+<p><strong>Usage automatique:</strong></p>
+<pre><code class="language-yaml"># mkdocs-dsfr.yml
+hooks:
+  - hooks/dsfr_table_wrapper.py
+</code></pre>
 <hr />
-<h4 id="on_page_contenthtml-str-page-page-config-config-files-files-str"><code>on_page_content(html: str, page: "Page", config: "Config", files: "Files") -&gt; str</code></h4>
+<h4 id="on_page_contenthtml-str-page-page-config-config-files-files-str"><code>on_page_content(html: str, page: "Page", config: "Config", files: "Files") -&gt; str</code><a class="headerlink" href="#on_page_contenthtml-str-page-page-config-config-files-files-str" title="Permanent link">&para;</a></h4>
 <p>Hook appelé après conversion Markdown → HTML. Wrappe toutes les tables.</p>
 <p><strong>Args:</strong>
 - <code>html</code> (str): Contenu HTML de la page après conversion Markdown
@@ -825,24 +921,24 @@ python<span class="w"> </span>scripts/enrich_pdf_metadata.py<span class="w"> </s
 - Détecte toutes balises <code>&lt;table&gt;</code> (avec ou sans attributs id, class, etc.)
 - Wrappe avec <code>&lt;div class="fr-table"&gt;\n{table}\n&lt;/div&gt;</code>
 - Évite double-wrapping avec lookahead négatif regex</p>
-<p><strong>Regex utilisée:</strong>
-<div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;(?&lt;!&lt;div class=&quot;fr-table&quot;&gt;)\s*(&lt;table[^&gt;]*&gt;.*?&lt;/table&gt;)&#39;</span>
-<span class="c1">#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Lookahead négatif (pas déjà wrappé)</span>
-<span class="c1">#                                        ^^^^^^^^ Match attributs optionnels</span>
-</code></pre></div></p>
-<p><strong>Example transformation:</strong>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- INPUT --&gt;</span>
-<span class="p">&lt;</span><span class="nt">table</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;my-table&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;custom&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Data<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<p><strong>Regex utilisée:</strong></p>
+<pre><code class="language-python">pattern = r'(?&lt;!&lt;div class=&quot;fr-table&quot;&gt;)\s*(&lt;table[^&gt;]*&gt;.*?&lt;/table&gt;)'
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Lookahead négatif (pas déjà wrappé)
+#                                        ^^^^^^^^ Match attributs optionnels
+</code></pre>
+<p><strong>Example transformation:</strong></p>
+<pre><code class="language-html">&lt;!-- INPUT --&gt;
+&lt;table id=&quot;my-table&quot; class=&quot;custom&quot;&gt;
+    &lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
 
-<span class="cm">&lt;!-- OUTPUT --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-table&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">table</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;my-table&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;custom&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Data<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div></p>
+&lt;!-- OUTPUT --&gt;
+&lt;div class=&quot;fr-table&quot;&gt;
+&lt;table id=&quot;my-table&quot; class=&quot;custom&quot;&gt;
+    &lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
 <p><strong>Justification:</strong>
 Le thème mkdocs-dsfr supprime les divs HTML lors du preprocessing Markdown.
 Ce hook post-traite le HTML pour réinjecter le wrapper DSFR requis pour :
@@ -856,27 +952,27 @@ Ce hook post-traite le HTML pour réinjecter le wrapper DSFR requis pour :
 - <code>test_complex_table_multiline()</code>: Table avec thead/tbody
 - <code>test_table_with_attributes()</code>: Table avec id/class préservés
 - <code>test_malformed_html_graceful()</code>: HTML malformé (graceful fallback)</p>
-<p><strong>Bug historique corrigé (2025-10-11):</strong>
-<div class="highlight"><pre><span></span><code><span class="c1"># AVANT (bug)</span>
-<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&lt;table&gt;.*?&lt;/table&gt;&#39;</span>  <span class="c1"># ❌ Ne matche pas &lt;table id=&quot;...&quot;&gt;</span>
+<p><strong>Bug historique corrigé (2025-10-11):</strong></p>
+<pre><code class="language-python"># AVANT (bug)
+pattern = r'&lt;table&gt;.*?&lt;/table&gt;'  # ❌ Ne matche pas &lt;table id=&quot;...&quot;&gt;
 
-<span class="c1"># APRÈS (fixé)</span>
-<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&lt;table[^&gt;]*&gt;.*?&lt;/table&gt;&#39;</span>  <span class="c1"># ✅ Matche tous attributs</span>
-</code></pre></div></p>
+# APRÈS (fixé)
+pattern = r'&lt;table[^&gt;]*&gt;.*?&lt;/table&gt;'  # ✅ Matche tous attributs
+</code></pre>
 <hr />
-<h3 id="title_cleanerpy">title_cleaner.py</h3>
+<h3 id="title_cleanerpy">title_cleaner.py<a class="headerlink" href="#title_cleanerpy" title="Permanent link">&para;</a></h3>
 <p>Nettoie les titres HTML redondants quand <code>site_name</code> est vide (thème DSFR).</p>
 <p><strong>Localisation:</strong> <code>hooks/title_cleaner.py</code>
 <strong>Coverage:</strong> 100%
 <strong>Tests:</strong> <code>tests/test_hooks_title_cleaner.py</code> (6 tests)</p>
 <p><strong>Hook MkDocs:</strong> <code>on_post_page</code></p>
-<p><strong>Usage automatique:</strong>
-<div class="highlight"><pre><span></span><code><span class="c1"># mkdocs-dsfr.yml</span>
-<span class="nt">hooks</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hooks/title_cleaner.py</span>
-</code></pre></div></p>
+<p><strong>Usage automatique:</strong></p>
+<pre><code class="language-yaml"># mkdocs-dsfr.yml
+hooks:
+  - hooks/title_cleaner.py
+</code></pre>
 <hr />
-<h4 id="on_post_pageoutput-str-page-page-config-config-str"><code>on_post_page(output: str, page: "Page", config: "Config") -&gt; str</code></h4>
+<h4 id="on_post_pageoutput-str-page-page-config-config-str"><code>on_post_page(output: str, page: "Page", config: "Config") -&gt; str</code><a class="headerlink" href="#on_post_pageoutput-str-page-page-config-config-str" title="Permanent link">&para;</a></h4>
 <p>Hook appelé après génération HTML complète de la page. Nettoie titres.</p>
 <p><strong>Args:</strong>
 - <code>output</code> (str): HTML complet de la page après génération
@@ -886,29 +982,29 @@ Ce hook post-traite le HTML pour réinjecter le wrapper DSFR requis pour :
 - <code>str</code>: HTML modifié avec titre nettoyé</p>
 <p><strong>Comportement:</strong>
 Transforme <code>&lt;title&gt;Page  -  &lt;/title&gt;</code> en <code>&lt;title&gt;Page&lt;/title&gt;</code></p>
-<p><strong>Regex utilisée:</strong>
-<div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&lt;title&gt;\s*(.*?)\s*-\s*\s*&lt;/title&gt;&quot;</span>
-<span class="n">replacement</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&lt;title&gt;\1&lt;/title&gt;&quot;</span>
-</code></pre></div></p>
-<p><strong>Example transformation:</strong>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- INPUT --&gt;</span>
-<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>
+<p><strong>Regex utilisée:</strong></p>
+<pre><code class="language-python">pattern = r&quot;&lt;title&gt;\s*(.*?)\s*-\s*\s*&lt;/title&gt;&quot;
+replacement = r&quot;&lt;title&gt;\1&lt;/title&gt;&quot;
+</code></pre>
+<p><strong>Example transformation:</strong></p>
+<pre><code class="language-html">&lt;!-- INPUT --&gt;
+&lt;title&gt;
         SPAN (SG)
         -
 
-    <span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    &lt;/title&gt;
 
-<span class="cm">&lt;!-- OUTPUT --&gt;</span>
-<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>SPAN (SG)<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-</code></pre></div></p>
+&lt;!-- OUTPUT --&gt;
+&lt;title&gt;SPAN (SG)&lt;/title&gt;
+</code></pre>
 <p><strong>Justification:</strong>
 Lorsque <code>site_name</code> est vide dans <code>mkdocs.yml</code>, MkDocs génère des titres avec tirets orphelins et espaces superflus. Ce hook nettoie ces artefacts pour améliorer :
 - SEO (titres propres indexés par moteurs recherche)
 - Accessibilité (lecteurs d'écran lisent titres propres)</p>
-<p><strong>Config déclencheuse:</strong>
-<div class="highlight"><pre><span></span><code><span class="c1"># mkdocs-dsfr.yml</span>
-<span class="nt">site_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">  </span><span class="c1"># Vide → titres avec tirets orphelins</span>
-</code></pre></div></p>
+<p><strong>Config déclencheuse:</strong></p>
+<pre><code class="language-yaml"># mkdocs-dsfr.yml
+site_name: &quot;&quot;  # Vide → titres avec tirets orphelins
+</code></pre>
 <p><strong>Tests coverage 100%:</strong>
 - <code>test_clean_title_with_dash_and_spaces()</code>: Titre multiligne avec tiret
 - <code>test_clean_title_simple_dash()</code>: Tiret simple
@@ -917,44 +1013,44 @@ Lorsque <code>site_name</code> est vide dans <code>mkdocs.yml</code>, MkDocs gé
 - <code>test_title_with_rich_content()</code>: Contenu riche préservé
 - <code>test_multiple_titles()</code>: Plusieurs titres nettoyés</p>
 <hr />
-<h2 id="bonnes-pratiques">Bonnes pratiques</h2>
-<h3 id="type-hints-modernes-pep-563">Type hints modernes (PEP 563)</h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+<h2 id="bonnes-pratiques">Bonnes pratiques<a class="headerlink" href="#bonnes-pratiques" title="Permanent link">&para;</a></h2>
+<h3 id="type-hints-modernes-pep-563">Type hints modernes (PEP 563)<a class="headerlink" href="#type-hints-modernes-pep-563" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from typing import TYPE_CHECKING
 
-<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">mkdocs.structure.pages</span><span class="w"> </span><span class="kn">import</span> <span class="n">Page</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">mkdocs.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+if TYPE_CHECKING:
+    from mkdocs.structure.pages import Page
+    from mkdocs.config import Config
 
-<span class="k">def</span><span class="w"> </span><span class="nf">on_page_content</span><span class="p">(</span><span class="n">html</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">page</span><span class="p">:</span> <span class="s2">&quot;Page&quot;</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="s2">&quot;Config&quot;</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="c1"># TYPE_CHECKING = False en runtime (pas d&#39;import réel)</span>
-    <span class="c1"># Mais IDE/mypy voient les types</span>
-    <span class="k">pass</span>
-</code></pre></div>
-<h3 id="gestion-erreurs-robuste">Gestion erreurs robuste</h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 3 niveaux (enrich_pdf_metadata.py)</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">pikepdf</span>  <span class="c1"># 1. Import</span>
-<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+def on_page_content(html: str, page: &quot;Page&quot;, config: &quot;Config&quot;, files) -&gt; str:
+    # TYPE_CHECKING = False en runtime (pas d'import réel)
+    # Mais IDE/mypy voient les types
+    pass
+</code></pre>
+<h3 id="gestion-erreurs-robuste">Gestion erreurs robuste<a class="headerlink" href="#gestion-erreurs-robuste" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># 3 niveaux (enrich_pdf_metadata.py)
+try:
+    import pikepdf  # 1. Import
+except ImportError:
+    sys.exit(1)
 
-<span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>  <span class="c1"># 2. Validation input</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+if not path.exists():  # 2. Validation input
+    sys.exit(1)
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="c1"># ... traitement  # 3. Erreurs runtime</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="tests-exhaustifs">Tests exhaustifs</h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Minimum 5 scénarios par fonction</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">test_nominal</span><span class="p">():</span>        <span class="c1"># Cas nominal</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">test_edge_case</span><span class="p">():</span>      <span class="c1"># Cas limite</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">test_empty_input</span><span class="p">():</span>    <span class="c1"># Input vide</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">test_invalid_input</span><span class="p">():</span>  <span class="c1"># Input invalide</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">test_multiple</span><span class="p">():</span>       <span class="c1"># Plusieurs éléments</span>
-</code></pre></div>
+try:
+    # ... traitement  # 3. Erreurs runtime
+except Exception as e:
+    sys.exit(1)
+</code></pre>
+<h3 id="tests-exhaustifs">Tests exhaustifs<a class="headerlink" href="#tests-exhaustifs" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># Minimum 5 scénarios par fonction
+def test_nominal():        # Cas nominal
+def test_edge_case():      # Cas limite
+def test_empty_input():    # Input vide
+def test_invalid_input():  # Input invalide
+def test_multiple():       # Plusieurs éléments
+</code></pre>
 <hr />
-<h2 id="references">Références</h2>
+<h2 id="references">Références<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <p><strong>Tests:</strong>
 - <code>scripts/test_calculate_scores*.py</code>: 26 tests, 100% coverage
 - <code>scripts/test_enrich_pdf*.py</code>: 7 tests, 78% coverage
@@ -966,207 +1062,59 @@ Lorsque <code>site_name</code> est vide dans <code>mkdocs.yml</code>, MkDocs gé
 - Black: Code formatter (line-length 88)
 - Ruff: Linter (select E,W,F,I,N)</p>
 <p><strong>Coverage global ciblé:</strong> 92% (seuil 89%+)</p>
-                        
-                        
-                        <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
-                        
-                    </div>
-                    <hr />
-                    
-	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
-		<ul class="fr-pagination__list">
-			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../../architecture/uml-diagrams/" title="Diagrammes UML" >
-				Page précédente
-			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../hooks-guide/" title="Guide Hooks" >
-				Page suivante
-			</a></li>
-		</ul>
-	</nav>
 
-                </div>
-            </div>
-            <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
-                <div class="fr-container fr-container--fluid fr-container-md">
-                    <div class="fr-grid-row fr-grid-row--center">
-                        <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
-                            <div class="fr-modal__body">
-                                <div class="fr-modal__header">
-                                    <button class="fr-btn--close fr-btn" aria-controls="fr-theme-modal" title="Fermer">
-                                        Fermer
-                                    </button>
-                                </div>
-                                <div class="fr-modal__content">
-                                    <h1 id="fr-theme-modal-title" class="fr-modal__title">
-                                        Paramètres d’affichage </h1>
-                                    <div id="fr-display" class="fr-display">
-                                        <div class="fr-form-group">
-                                            <fieldset class="fr-fieldset">
-                                                <legend class="fr-fieldset__legend fr-text--regular" id='-legend'>
-                                                    Choisissez un thème pour personnaliser l’apparence du site.
-                                                </legend>
-                                                <div class="fr-fieldset__content">
-                                                    <div class="fr-radio-group fr-radio-rich"><input value="light"
-                                                            type="radio" id="fr-radios-theme-light"
-                                                            name="fr-radios-theme">
-                                                        <label class="fr-label" for="fr-radios-theme-light"> Thème
-                                                            clair </label>
-                                                        <div class="fr-radio-rich__img">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
-                                                                width="80px" height="80px" viewBox="0 0 80 80">
-                                                                <use class="fr-artwork-decorative"
-                                                                    xlink:href="../../artwork/light.svg#artwork-decorative">
-                                                                </use>
-                                                                <use class="fr-artwork-minor"
-                                                                    xlink:href="../../artwork/light.svg#artwork-minor">
-                                                                </use>
-                                                                <use class="fr-artwork-major"
-                                                                    xlink:href="../../artwork/light.svg#artwork-major">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="fr-radio-group fr-radio-rich"><input value="dark"
-                                                            type="radio" id="fr-radios-theme-dark"
-                                                            name="fr-radios-theme">
-                                                        <label class="fr-label" for="fr-radios-theme-dark"> Thème
-                                                            sombre </label>
-                                                        <div class="fr-radio-rich__img">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
-                                                                width="80px" height="80px" viewBox="0 0 80 80">
-                                                                <use class="fr-artwork-decorative"
-                                                                    xlink:href="../../artwork/dark.svg#artwork-decorative">
-                                                                </use>
-                                                                <use class="fr-artwork-minor"
-                                                                    xlink:href="../../artwork/dark.svg#artwork-minor">
-                                                                </use>
-                                                                <use class="fr-artwork-major"
-                                                                    xlink:href="../../artwork/dark.svg#artwork-major">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="fr-radio-group fr-radio-rich"><input value="system"
-                                                            type="radio" id="fr-radios-theme-system"
-                                                            name="fr-radios-theme">
-                                                        <label class="fr-label" for="fr-radios-theme-system"> Système
-                                                            <span class="fr-hint-text">Utilise les paramètres
-                                                                système.</span>
-                                                        </label>
-                                                        <div class="fr-radio-rich__img">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
-                                                                width="80px" height="80px" viewBox="0 0 80 80">
-                                                                <use class="fr-artwork-decorative"
-                                                                    xlink:href="../../artwork/system.svg#artwork-decorative">
-                                                                </use>
-                                                                <use class="fr-artwork-minor"
-                                                                    xlink:href="../../artwork/system.svg#artwork-minor">
-                                                                </use>
-                                                                <use class="fr-artwork-major"
-                                                                    xlink:href="../../artwork/system.svg#artwork-major">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </dialog>
-    </main>
-    <footer class="fr-footer" role="contentinfo" id="footer">
-    <div class="fr-container">
-        <div class="fr-footer__body">
-            <div class="fr-footer__brand fr-enlarge-link">
-                <a href="/"
-                    title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
-                    <p class="fr-logo">
-                        GOUVERNEMENT
-                    </p>
-                </a>
-            </div>
-            <div class="fr-footer__content">
-                <p class="fr-footer__content-desc">Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique</p>
-                <ul class="fr-footer__content-list">
-                    
-                    
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" target="_blank" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
-                    </li>
-                    
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" target="_blank" href="https://service-public.fr">service-public.fr</a>
-                    </li>
-                    
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" target="_blank" href="https://data.gouv.fr">data.gouv.fr</a>
-                    </li>
-                    
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" target="_blank" href="https://info.gouv.fr">info.gouv.fr</a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="fr-footer__bottom">
-            <ul class="fr-footer__bottom-list">
-                
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="/span-sg-repo/accessibilite/">Accessibilité : conformité partielle</a>
-                </li>
-                
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="/span-sg-repo/mentions-legales/">Mentions légales</a>
-                </li>
-                
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="/span-sg-repo/donnees-personnelles/">Données personnelles</a>
-                </li>
-                
-                <li class="fr-footer__bottom-item">
-                    <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
-                        aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
-                </li>
-            </ul>
-            <div class="fr-footer__bottom-copy">
-                <p>Sauf mention contraire, tous les contenus de ce site sont sous <a
-                        href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence
-                        etalab-2.0</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
 
-    
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 10:37:05 UTC">23 octobre 2025</span> 
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-
-
-<script>
-    var base_url = "../..";
-</script>
-
-<script type="module" src="../../dsfr.module.min.js"></script>
-<script
-    type="text/javascript"
-    nomodule
-    src="../../dsfr.nomodule.min.js"
-></script>
-<script src="../../search/lunr.js"></script>
-<script src="../../search/lunr.stemmer.support.js"></script>
-<script src="../../search/lunr.fr.js"></script>
-<script src="../../assets/extra.js" defer></script>
-<script src="../../search/main.js" defer></script>
-<script src="../../js/open_in_new_tab.js" defer></script>
-</body>
-
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
 </html>
