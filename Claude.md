@@ -26,6 +26,13 @@ docker compose -f docker-compose-dsfr.yml up
 # Sans Docker
 pip install mkdocs-dsfr
 mkdocs serve --config-file mkdocs-dsfr.yml
+
+# Après modification de fichiers de configuration (mkdocs-dsfr.yml, navigation, etc.)
+# Redémarrer le serveur pour voir les changements :
+docker compose -f docker-compose-dsfr.yml restart
+
+# Si le restart simple ne suffit pas, forcer la régénération complète :
+docker compose -f docker-compose-dsfr.yml down && docker compose -f docker-compose-dsfr.yml up -d
 ```
 
 ### Build et génération
@@ -271,8 +278,7 @@ git push origin vX.Y.Z
 - [ ] Production déployée après approval Chef SNUM (/, org-only)
 
 ## Contacts et gouvernance
-- **Owner**: Alexandra (@alexandra)
-- **Validateurs**: Bertrand (@bertrand), Alex (@alex)
+- **Owner/Validateur**: Alexandra (alexandra.guiderdoni@gmail.com)
 - **Sponsor**: Stéphane (Chef mission numérique SNUM-SG, validation conceptuelle)
 - **Validation finale production**: Chef SNUM
 
