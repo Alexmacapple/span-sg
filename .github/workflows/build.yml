@@ -146,6 +146,21 @@ jobs:
       - name: Validate PDF structure
         run: qpdf --check exports/span-sg.pdf
 
+      # ===== BENCHMARK =====
+      - name: Run benchmark
+        run: |
+          echo "Running performance benchmarks..."
+          python scripts/benchmark.py > benchmark-${{ github.sha }}.json
+          echo "Benchmark complete"
+          cat benchmark-${{ github.sha }}.json
+
+      - name: Upload benchmark metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-${{ github.run_number }}
+          path: benchmark-${{ github.sha }}.json
+          retention-days: 365
+
       # ===== E2E TESTS (run on all events) =====
       - name: Install system dependencies for E2E
         run: |
@@ -218,21 +233,6 @@ jobs:
           name: exports-${{ github.sha }}
           path: exports/
           retention-days: 90
-
-      # ===== BENCHMARK =====
-      - name: Run benchmark
-        run: |
-          echo "Running performance benchmarks..."
-          python scripts/benchmark.py > benchmark-${{ github.sha }}.json
-          echo "Benchmark complete"
-          cat benchmark-${{ github.sha }}.json
-
-      - name: Upload benchmark metrics
-        uses: actions/upload-artifact@v4
-        with:
-          name: benchmark-${{ github.run_number }}
-          path: benchmark-${{ github.sha }}.json
-          retention-days: 365
 
       # ===== NOTIFICATIONS =====
       - name: Send failure notification
