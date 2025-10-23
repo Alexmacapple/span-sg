@@ -1,595 +1,664 @@
 
-<!DOCTYPE html>
-<html lang="fr" data-fr-scheme="system">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../dsfr.min.css">
-    <link rel="stylesheet" href="../utility/utility.min.css">
-    <link rel="stylesheet" href="../css/theme.css">
-
-    <meta name="theme-color" content="#000091">
-    <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
-    <link rel="apple-touch-icon" href="../ favicon /apple-touch-icon.png">
-    <!-- 180×180 -->
-    <link rel="icon" href="../favicon/favicon.svg" type="image/svg+xml">
-    <link rel="shortcut icon" href="../favicon/favicon.ico">
-    <!-- 32×32 -->
-    <link rel="manifest" href="../favicon/manifest.webmanifest" crossorigin="use-credentials">
-    <script src="../js/postprocess.js" defer></script>
-
-    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
-    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
     
-
-    <title>Index</title>
-    
-    
-</head>
-<body>
-    <div class="fr-skiplinks">
-  <nav role="navigation" aria-label="Accès rapide" class="fr-container">
-    <ul class="fr-skiplinks__list">
-      <li>
-        <a class="fr-link" href="#content">Contenu</a>
-      </li>
-      <li>
-        <a class="fr-link" href="#header-navigation">Menu</a>
-      </li>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
       
-      <li>
-        <a class="fr-link" href="#search-modal">Recherche</a>
-      </li>
       
-      <li>
-        <a class="fr-link" href="#footer">Pied de page</a>
-      </li>
-    </ul>
+      
+        <link rel="canonical" href="https://alexmacapple.github.io/span-sg/adr/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Architecture Decision Records (ADR) - SPAN SG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#architecture-decision-records-adr" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="SPAN SG" class="md-header__button md-logo" aria-label="SPAN SG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SPAN SG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Architecture Decision Records (ADR)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Alexmacapple/span-sg" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
   </nav>
-</div>
-    <header role="banner" class="fr-header">
-    <div class="fr-header__body">
-        <div class="fr-container">
-            <div class="fr-header__body-row">
-                <div class="fr-header__brand fr-enlarge-link">
-                    <div class="fr-header__brand-top">
-                        <div class="fr-header__logo">
-                            <p class="fr-logo" style="">
-                                GOUVERNEMENT
-                            </p>
-                        </div>
-
-                        <div class="fr-header__navbar">
-                            
-                            <button
-                                class="fr-btn--search fr-btn"
-                                data-fr-opened="false"
-                                aria-controls="modal-541"
-                                id="button-542"
-                                title="Rechercher"
-                            >
-                                Rechercher
-                            </button>
-                            
-                            <button
-                                class="fr-btn--menu fr-btn"
-                                data-fr-opened="false"
-                                aria-controls="modal-543"
-                                aria-haspopup="menu"
-                                id="button-544"
-                                title="Menu"
-                            >
-                                Menu
-                            </button>
-                        </div>
-                    </div>
-                    <div class="fr-header__service">
-                        <a href="/" title="Retour à l'accueil du site - SPAN SG">
-                            <p class="fr-header__service-title">
-                                SPAN SG
-                            </p>
-                        </a>
-                        <p class="fr-header__service-tagline">
-                            Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général
-                        </p>
-                    </div>
-                </div>
-                <div class="fr-header__tools">
-                    
-                    <div class="fr-header__tools-links">
-                        <ul class="fr-btns-group">
-                            <li>
-                                <a
-                                    href="https://github.com/Alexmacapple/span-sg/blob/main/docs/adr/README.md"
-                                    target="_blank"
-                                    rel="noopener"
-                                    class="fr-btn"
-                                    >Éditer dans GitHub</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="fr-header__search fr-modal" id="search-modal">
-                        <div class="fr-container fr-container-lg--fluid">
-                            <button
-                                class="fr-btn--close fr-btn"
-                                aria-controls="modal-541"
-                                title="Fermer"
-                            >
-                                Fermer
-                            </button>
-                            
-                            <form action="../search.html">
-                                <div
-                                    class="fr-search-bar"
-                                    id="search-540"
-                                    role="search"
-                                >
-                                    <label
-                                        class="fr-label"
-                                        for="mkdocs-search-query"
-                                    >
-                                        Rechercher
-                                    </label>
-                                    <input
-                                        class="fr-input search_input search-query ui-autocomplete-input"
-                                        placeholder="Rechercher"
-                                        type="text"
-                                        id="mkdocs-search-query"
-                                        name="q"
-                                    />
-                                    <button
-                                        class="fr-btn"
-                                        title="Rechercher"
-                                        type="submit"
-                                    >
-                                        Rechercher
-                                    </button>
-                                </div>
-                            </form>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div
-        class="fr-header__menu fr-modal"
-        id="modal-543"
-        aria-labelledby="button-544"
-    >
-        <div class="fr-container">
-            <button
-                class="fr-btn--close fr-btn"
-                aria-controls="modal-543"
-                title="Fermer"
-            >
-                Fermer
-            </button>
-            <div class="fr-header__menu-links"></div>
-            <nav
-    class="fr-nav navbar-header"
-    id="header-navigation"
-    role="navigation"
-    aria-label="Menu principal"
->
-    <ul class="fr-nav__list">
-         
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href=".."
-                target="_self"
-                
-                >SPAN (SG)</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../mise-en-application-circulaire/"
-                target="_self"
-                
-                >Contexte réglementaire</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <button
-                class="fr-nav__btn"
-                aria-expanded="false"
-                aria-controls="menu-7763"
-                
-            >
-                SPAN (services)
-            </button>
-            <div class="fr-collapse fr-menu" id="menu-7763">
-                <ul class="fr-menu__list">
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../modules/bgs/"
-                            target="_self"
-                            >BGS</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../modules/safi/"
-                            target="_self"
-                            >SAFI</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../modules/siep/"
-                            target="_self"
-                            >SIEP</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../modules/sircom/"
-                            target="_self"
-                            >SIRCOM</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../modules/snum/"
-                            target="_self"
-                            >SNUM</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../modules/srh/"
-                            target="_self"
-                            >SRH</a
-                        >
-                    </li>
-                    
-                </ul>
-            </div>
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../processus/"
-                target="_self"
-                
-                >Processus</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../accompagnement/"
-                target="_self"
-                
-                >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../synthese/"
-                target="_self"
-                
-                >Synthèse</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <button
-                class="fr-nav__btn"
-                aria-expanded="false"
-                aria-controls="menu-7767"
-                
-            >
-                Documentation technique
-            </button>
-            <div class="fr-collapse fr-menu" id="menu-7767">
-                <ul class="fr-menu__list">
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href=".."
-                            target="_self"
-                            >Architecture</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../dev/api-reference/"
-                            target="_self"
-                            >API Reference</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../dev/hooks-guide/"
-                            target="_self"
-                            >Guide Hooks</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../dev/dsfr-components-guide/"
-                            target="_self"
-                            >Guide Composants DSFR</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../glossary/"
-                            target="_self"
-                            >Glossaire</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../onboarding-visual/"
-                            target="_self"
-                            >Onboarding visuel</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../dev-local/"
-                            target="_self"
-                            >Développement local</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../contributing/"
-                            target="_self"
-                            >Guide contributeur</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            aria-current="page"
-                            
-                            href=".."
-                            target="_self"
-                            >ADR (Décisions)</a
-                        >
-                    </li>
-                    
-                </ul>
-            </div>
-        </li>
-          
-        <li class="fr-nav__item">
-            <button
-                class="fr-nav__btn"
-                aria-expanded="false"
-                aria-controls="menu-7768"
-                
-            >
-                Informations légales
-            </button>
-            <div class="fr-collapse fr-menu" id="menu-7768">
-                <ul class="fr-menu__list">
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../accessibilite/"
-                            target="_self"
-                            >Accessibilité</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../mentions-legales/"
-                            target="_self"
-                            >Mentions légales</a
-                        >
-                    </li>
-                    
-                    <li>
-                        <a
-                            class="fr-nav__link"
-                            
-                            href="../donnees-personnelles/"
-                            target="_self"
-                            >Données personnelles</a
-                        >
-                    </li>
-                    
-                </ul>
-            </div>
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="https://github.com/Alexmacapple/span-sg-repo"
-                target="_self"
-                
-                >Code source GitHub</a
-            >
-        </li>
-         
-    </ul>
-</nav>
-        </div>
-    </div>
+  
 </header>
-    <main id="content" role="main">
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
-        <div class="fr-container markdown-content">
-            <div class="fr-grid-row">
-                
-                
-                    
-                
-
-                
-                    
-<div class="fr-col-12 fr-col-md-3 fr-py-1v">
-    <nav
-        class="fr-sidemenu fr-sidemenu--sticky-full-height fr-mb-0-5v"
-        role="navigation"
-        aria-label="Menu latéral"
-    >
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
         
-        <div class="fr-sidemenu__inner">
-            <button
-                class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
-                aria-expanded="true"
-            >
-                Architecture Decision Records (ADR)
-            </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
-                <div class="fr-sidemenu__title">Architecture Decision Records (ADR)</div>
-                <ul class="fr-sidemenu__list">
-                     
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#index"
-                            target="_self"
-                            >Index</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#legende-statuts"
-                            target="_self"
-                            >Légende statuts</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#template-adr"
-                            target="_self"
-                            >Template ADR</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#principes-adr"
-                            target="_self"
-                            >Principes ADR</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#quand-creer-un-adr"
-                            target="_self"
-                            >Quand créer un ADR ?</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#process-validation"
-                            target="_self"
-                            >Process validation</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#references"
-                            target="_self"
-                            >Références</a
-                        >
-                    </li>
-                     
-                </ul>
-            </div>
-        </div>
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
         
-    </nav>
-</div>
+  
+  
+    
+  
+  SPAN (SG)
 
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../modules/bgs/" class="md-tabs__link">
+          
+  
+  
+  SPAN (services)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../synthese/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Synthèse
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../processus/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Processus
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Guide contributeur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../dev-local/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Développement local
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
                     
-                        <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
-                    
-                
 
-                
 
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SPAN SG" class="md-nav__button md-logo" aria-label="SPAN SG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SPAN SG
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Alexmacapple/span-sg" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SPAN (SG)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SPAN (services)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SPAN (services)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
                 
-                        
-                        <h1 id="architecture-decision-records-adr">Architecture Decision Records (ADR)</h1>
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/bgs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BGS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/safi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SAFI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/siep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SIEP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/sircom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SIRCOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/snum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SNUM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/srh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../synthese/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Synthèse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../processus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Processus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Guide contributeur
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Développement local
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="architecture-decision-records-adr">Architecture Decision Records (ADR)<a class="headerlink" href="#architecture-decision-records-adr" title="Permanent link">&para;</a></h1>
 <p>Historique des décisions techniques majeures du projet SPAN SG.</p>
 <p>Format: <a href="https://adr.github.io/madr/">MADR (Markdown Any Decision Records)</a></p>
 <p>Version: 1.0.1-dsfr
 Dernière mise à jour: 2025-10-11</p>
 <hr />
-<h2 id="index">Index</h2>
-<div class="fr-table">
-<div class="fr-table">
+<h2 id="index">Index<a class="headerlink" href="#index" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -650,10 +719,8 @@ Dernière mise à jour: 2025-10-11</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <hr />
-<h2 id="legende-statuts">Légende statuts</h2>
+<h2 id="legende-statuts">Légende statuts<a class="headerlink" href="#legende-statuts" title="Permanent link">&para;</a></h2>
 <ul>
 <li>✅ <strong>Accepted</strong>: Décision adoptée et implémentée en production</li>
 <li>⏳ <strong>Proposed</strong>: En discussion, pas encore implémentée</li>
@@ -661,54 +728,54 @@ Dernière mise à jour: 2025-10-11</p>
 <li>🔄 <strong>Superseded</strong>: Remplacée par ADR-XXX (voir lien)</li>
 </ul>
 <hr />
-<h2 id="template-adr">Template ADR</h2>
+<h2 id="template-adr">Template ADR<a class="headerlink" href="#template-adr" title="Permanent link">&para;</a></h2>
 <p>Pour créer un nouveau ADR, copier <code>template.md</code> et suivre la structure MADR :</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># ADR-XXX: [Titre court]</span>
+<pre><code class="language-markdown"># ADR-XXX: [Titre court]
 
-<span class="gs">**Date**</span>: YYYY-MM-DD
-<span class="gs">**Statut**</span>: ⏳ Proposed / ✅ Accepted / ❌ Deprecated / 🔄 Superseded
-<span class="gs">**Décideurs**</span>: [Noms]
-<span class="gs">**Sponsor**</span>: [Chef projet/Sponsor]
+**Date**: YYYY-MM-DD
+**Statut**: ⏳ Proposed / ✅ Accepted / ❌ Deprecated / 🔄 Superseded
+**Décideurs**: [Noms]
+**Sponsor**: [Chef projet/Sponsor]
 
-<span class="gu">## Contexte</span>
+## Contexte
 
 [Problème à résoudre, contraintes, contexte métier]
 
-<span class="gu">## Décision</span>
+## Décision
 
 [Solution choisie, justification courte]
 
-<span class="gu">## Alternatives considérées</span>
+## Alternatives considérées
 
-<span class="gu">### Option A: [Nom]</span>
-<span class="k">-</span><span class="w"> </span>Avantages: ...
-<span class="k">-</span><span class="w"> </span>Inconvénients: ...
-<span class="k">-</span><span class="w"> </span><span class="gs">**Rejeté**</span>: [Raison]
+### Option A: [Nom]
+- Avantages: ...
+- Inconvénients: ...
+- **Rejeté**: [Raison]
 
-<span class="gu">### Option B: [Nom choisi]</span>
-<span class="k">-</span><span class="w"> </span>Avantages: ...
-<span class="k">-</span><span class="w"> </span>Inconvénients: ...
-<span class="k">-</span><span class="w"> </span><span class="gs">**Choisi**</span>: [Raison]
+### Option B: [Nom choisi]
+- Avantages: ...
+- Inconvénients: ...
+- **Choisi**: [Raison]
 
-<span class="gu">## Conséquences</span>
+## Conséquences
 
-<span class="gs">**Positives:**</span>
-<span class="k">-</span><span class="w"> </span>[Bénéfices]
+**Positives:**
+- [Bénéfices]
 
-<span class="gs">**Négatives:**</span>
-<span class="k">-</span><span class="w"> </span>[Coûts, limitations]
+**Négatives:**
+- [Coûts, limitations]
 
-<span class="gu">## Validation</span>
+## Validation
 
-<span class="k">-</span><span class="w"> </span>[Critères succès]
-<span class="k">-</span><span class="w"> </span>[Tests validation]
+- [Critères succès]
+- [Tests validation]
 
-<span class="gu">## Références</span>
+## Références
 
-<span class="k">-</span><span class="w"> </span>[Commits, issues, docs]
-</code></pre></div>
+- [Commits, issues, docs]
+</code></pre>
 <hr />
-<h2 id="principes-adr">Principes ADR</h2>
+<h2 id="principes-adr">Principes ADR<a class="headerlink" href="#principes-adr" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Immutables</strong>: Un ADR ne se modifie pas après acceptation</li>
 <li><strong>Traçables</strong>: Chaque décision technique majeure → ADR</li>
@@ -717,7 +784,7 @@ Dernière mise à jour: 2025-10-11</p>
 <li><strong>Datés</strong>: Date décision pour historique chronologique</li>
 </ol>
 <hr />
-<h2 id="quand-creer-un-adr">Quand créer un ADR ?</h2>
+<h2 id="quand-creer-un-adr">Quand créer un ADR ?<a class="headerlink" href="#quand-creer-un-adr" title="Permanent link">&para;</a></h2>
 <p><strong>Créer un ADR pour:</strong>
 - ✅ Choix technologiques structurants (frameworks, libs majeures)
 - ✅ Changements architecture (formats, workflows, CI/CD)
@@ -729,7 +796,7 @@ Dernière mise à jour: 2025-10-11</p>
 - ❌ Ajout features mineures
 - ❌ Changements réversibles facilement</p>
 <hr />
-<h2 id="process-validation">Process validation</h2>
+<h2 id="process-validation">Process validation<a class="headerlink" href="#process-validation" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Rédiger ADR avec statut <code>⏳ Proposed</code></li>
 <li>Discussion équipe (review, alternatives)</li>
@@ -738,213 +805,65 @@ Dernière mise à jour: 2025-10-11</p>
 <li>Si déprécié plus tard → Créer nouvel ADR + statut <code>🔄 Superseded by ADR-YYY</code></li>
 </ol>
 <hr />
-<h2 id="references">Références</h2>
+<h2 id="references">Références<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://adr.github.io/madr/">MADR Documentation</a></li>
 <li><a href="https://adr.github.io/">ADR GitHub Organization</a></li>
 <li><a href="https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records">Thoughtworks Technology Radar - ADR</a></li>
 </ul>
-                        
-                        
-                        <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
-                        
-                    </div>
-                    <hr />
-                    
-	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
-		<ul class="fr-pagination__list">
-			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../contributing/" title="Guide contributeur" >
-				Page précédente
-			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="001-choix-theme-dsfr/" title="ADR-001 Thème DSFR" >
-				Page suivante
-			</a></li>
-		</ul>
-	</nav>
 
-                </div>
-            </div>
-            <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
-                <div class="fr-container fr-container--fluid fr-container-md">
-                    <div class="fr-grid-row fr-grid-row--center">
-                        <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
-                            <div class="fr-modal__body">
-                                <div class="fr-modal__header">
-                                    <button class="fr-btn--close fr-btn" aria-controls="fr-theme-modal" title="Fermer">
-                                        Fermer
-                                    </button>
-                                </div>
-                                <div class="fr-modal__content">
-                                    <h1 id="fr-theme-modal-title" class="fr-modal__title">
-                                        Paramètres d’affichage </h1>
-                                    <div id="fr-display" class="fr-display">
-                                        <div class="fr-form-group">
-                                            <fieldset class="fr-fieldset">
-                                                <legend class="fr-fieldset__legend fr-text--regular" id='-legend'>
-                                                    Choisissez un thème pour personnaliser l’apparence du site.
-                                                </legend>
-                                                <div class="fr-fieldset__content">
-                                                    <div class="fr-radio-group fr-radio-rich"><input value="light"
-                                                            type="radio" id="fr-radios-theme-light"
-                                                            name="fr-radios-theme">
-                                                        <label class="fr-label" for="fr-radios-theme-light"> Thème
-                                                            clair </label>
-                                                        <div class="fr-radio-rich__img">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
-                                                                width="80px" height="80px" viewBox="0 0 80 80">
-                                                                <use class="fr-artwork-decorative"
-                                                                    xlink:href="../artwork/light.svg#artwork-decorative">
-                                                                </use>
-                                                                <use class="fr-artwork-minor"
-                                                                    xlink:href="../artwork/light.svg#artwork-minor">
-                                                                </use>
-                                                                <use class="fr-artwork-major"
-                                                                    xlink:href="../artwork/light.svg#artwork-major">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="fr-radio-group fr-radio-rich"><input value="dark"
-                                                            type="radio" id="fr-radios-theme-dark"
-                                                            name="fr-radios-theme">
-                                                        <label class="fr-label" for="fr-radios-theme-dark"> Thème
-                                                            sombre </label>
-                                                        <div class="fr-radio-rich__img">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
-                                                                width="80px" height="80px" viewBox="0 0 80 80">
-                                                                <use class="fr-artwork-decorative"
-                                                                    xlink:href="../artwork/dark.svg#artwork-decorative">
-                                                                </use>
-                                                                <use class="fr-artwork-minor"
-                                                                    xlink:href="../artwork/dark.svg#artwork-minor">
-                                                                </use>
-                                                                <use class="fr-artwork-major"
-                                                                    xlink:href="../artwork/dark.svg#artwork-major">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="fr-radio-group fr-radio-rich"><input value="system"
-                                                            type="radio" id="fr-radios-theme-system"
-                                                            name="fr-radios-theme">
-                                                        <label class="fr-label" for="fr-radios-theme-system"> Système
-                                                            <span class="fr-hint-text">Utilise les paramètres
-                                                                système.</span>
-                                                        </label>
-                                                        <div class="fr-radio-rich__img">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
-                                                                width="80px" height="80px" viewBox="0 0 80 80">
-                                                                <use class="fr-artwork-decorative"
-                                                                    xlink:href="../artwork/system.svg#artwork-decorative">
-                                                                </use>
-                                                                <use class="fr-artwork-minor"
-                                                                    xlink:href="../artwork/system.svg#artwork-minor">
-                                                                </use>
-                                                                <use class="fr-artwork-major"
-                                                                    xlink:href="../artwork/system.svg#artwork-major">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </dialog>
-    </main>
-    <footer class="fr-footer" role="contentinfo" id="footer">
-    <div class="fr-container">
-        <div class="fr-footer__body">
-            <div class="fr-footer__brand fr-enlarge-link">
-                <a href="/"
-                    title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
-                    <p class="fr-logo">
-                        GOUVERNEMENT
-                    </p>
-                </a>
-            </div>
-            <div class="fr-footer__content">
-                <p class="fr-footer__content-desc">Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique</p>
-                <ul class="fr-footer__content-list">
-                    
-                    
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" target="_blank" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
-                    </li>
-                    
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" target="_blank" href="https://service-public.fr">service-public.fr</a>
-                    </li>
-                    
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" target="_blank" href="https://data.gouv.fr">data.gouv.fr</a>
-                    </li>
-                    
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" target="_blank" href="https://info.gouv.fr">info.gouv.fr</a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="fr-footer__bottom">
-            <ul class="fr-footer__bottom-list">
-                
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="/span-sg-repo/accessibilite/">Accessibilité : conformité partielle</a>
-                </li>
-                
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="/span-sg-repo/mentions-legales/">Mentions légales</a>
-                </li>
-                
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="/span-sg-repo/donnees-personnelles/">Données personnelles</a>
-                </li>
-                
-                <li class="fr-footer__bottom-item">
-                    <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
-                        aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
-                </li>
-            </ul>
-            <div class="fr-footer__bottom-copy">
-                <p>Sauf mention contraire, tous les contenus de ce site sont sous <a
-                        href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence
-                        etalab-2.0</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
 
-    
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 10:37:05 UTC">23 octobre 2025</span> 
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-
-
-<script>
-    var base_url = "..";
-</script>
-
-<script type="module" src="../dsfr.module.min.js"></script>
-<script
-    type="text/javascript"
-    nomodule
-    src="../dsfr.nomodule.min.js"
-></script>
-<script src="../search/lunr.js"></script>
-<script src="../search/lunr.stemmer.support.js"></script>
-<script src="../search/lunr.fr.js"></script>
-<script src="../assets/extra.js" defer></script>
-<script src="../search/main.js" defer></script>
-<script src="../js/open_in_new_tab.js" defer></script>
-</body>
-
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
 </html>
