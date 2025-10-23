@@ -24,6 +24,7 @@ SCENARIOS=(
     "scenario_rollback.sh"
     "scenario_preview_http.sh"
     "scenario_frontmatter.sh"
+    "test_dsfr_theme_preserved.sh"
 )
 
 FAILED=0
