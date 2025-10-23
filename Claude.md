@@ -282,6 +282,8 @@ git push origin vX.Y.Z
 - **Sponsor**: Stéphane (Chef mission numérique SNUM-SG, validation conceptuelle)
 - **Validation finale production**: Chef SNUM
 
+Note: Configuration Required Reviewers validée le 2025-10-23
+
 ## Références
 - PRD complet: `PRD-v3.3.md`
 - Checklist GO: `GO-CHECKLIST.md`
