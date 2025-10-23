@@ -1,10 +1,10 @@
-# Guide Chef SNUM - Approval Déploiements Production
+# Guide Chef Validateur - Approval Déploiements Production
 
 Guide pour approuver les déploiements production SPAN SG via GitHub Environments.
 
 Version: 1.0.0
 Date: 2025-10-22
-Public cible: Chef SNUM
+Public cible: Alexandra (chef.validateur@sg.gouv.fr)
 Durée lecture: 10 minutes
 
 ---
@@ -511,7 +511,7 @@ https://github.com/Alexmacapple/span-sg/compare/production...staging
 2. **Accès org-only** : Connecté GitHub avec compte org (pas mode incognito)
 3. **Déploiement staging réussi** : Vérifier GitHub Actions logs
 
-Si toujours inaccessible : Contacter validateurs (Bertrand/Alex).
+Si toujours inaccessible : Contacter Alexandra.
 
 ---
 
@@ -571,8 +571,7 @@ gh api repos/Alexmacapple/span-sg/deployments \
 
 | Rôle | Personne | Email | Disponibilité |
 |------|----------|-------|---------------|
-| Validateur | Bertrand | @bertrand | Sous 48h |
-| Validateur | Alex | @alex | Sous 48h |
+| Chef Validateur | Alexandra | alexandra.guiderdoni@gmail.com | Sous 48h |
 | Admin GitHub | [Nom admin] | admin@... | Sous 24h |
 
 ### Ressources documentation

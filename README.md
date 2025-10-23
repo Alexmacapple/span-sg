@@ -163,9 +163,9 @@ Documentation complète de l'architecture déploiement : [ADR-009](docs/adr/009-
 1. Créer une branche feature : `git checkout -b feature/update-[service]`
 2. Modifier les modules dans `docs/modules/[service].md`
 3. Créer une Pull Request vers `main`
-4. Validation par Bertrand ou Alex (code review)
+4. Validation par Alexandra (code review)
 5. Merge → Auto-deploy staging (/draft/)
-6. Approval Chef SNUM → Deploy production (/)
+6. Approval Alexandra → Deploy production (/)
 
 ### Règles de modification
 

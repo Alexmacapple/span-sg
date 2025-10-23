@@ -46,15 +46,14 @@
 **Note** : URLs actuelles basées sur compte utilisateur. Migration vers organisation GitHub prévue lors de mise en production.
 
 ## 6. Validation intermédiaire (roadmap S4)
-- [ ] **S4-01** : Review Bertrand/Alexandra → EN COURS
+- [ ] **S4-01** : Review Alexandra → EN COURS
 - [ ] **S4-02** : Présentation Stéphane (validation conceptuelle)
 - [ ] **S4-03** : Tag v1.0.0 + CHANGELOG finalisé
 - [ ] **S4-04** : Merge draft → main + déploiement production
-- [ ] **Validation finale** : Chef SNUM (GO/NO-GO production)
+- [ ] **Validation finale** : Alexandra (GO/NO-GO production)
 
 ## 7. Gouvernance et accès
-- [x] Owner défini : Alexandra (@alexandra)
-- [x] Validateurs identifiés : Bertrand (@bertrand), Alex (@alex)
+- [x] Owner/Validateur : Alexandra (alexandra.guiderdoni@gmail.com)
 - [x] Sponsor : Stéphane (Chef mission numérique SNUM-SG)
 - [ ] Restriction Pages organisation (accès membres uniquement)
 - [ ] Procédure offboarding définie (désactivation accès sortants)

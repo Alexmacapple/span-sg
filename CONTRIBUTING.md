@@ -52,10 +52,10 @@ Sur la page suivante :
 
 ### 5. Validation
 
-Bertrand ou Alex reviendra la PR et la mergera si OK.
+Alexandra reviendra la PR et la mergera si OK.
 Vous recevrez une notification par email.
 
-Après merge vers main : Auto-deploy Staging (https://alexmacapple.github.io/span-sg/draft/) puis approval Chef SNUM pour Production. Voir ADR-009.
+Après merge vers main : Auto-deploy Staging (https://alexmacapple.github.io/span-sg/draft/) puis approval Alexandra pour Production. Voir ADR-009.
 
 ---
 
@@ -316,7 +316,7 @@ Tests E2E exécutés automatiquement sur :
 
 ## Règles de validation des PR
 
-Chaque PR est vérifiée automatiquement (CI) et manuellement (Bertrand/Alex) :
+Chaque PR est vérifiée automatiquement (CI) et manuellement (Alexandra) :
 
 ### Vérifications automatiques (CI)
 - ✅ Exactement 33 critères `<!-- CHECKLIST -->` présents (ou 0 si module vide)
@@ -338,13 +338,13 @@ Service modifie son module (branche feature)
           ↓
    PR vers main (code review)
           ↓
-Revue Bertrand/Alex (validateur)
+Revue Alexandra (validateur)
           ↓
 Merge PR → Auto-deploy Staging (/draft/)
           ↓
-Revue Chef SNUM sur Staging
+Revue Alexandra sur Staging
           ↓
-Approval Chef SNUM (deployment review)
+Approval Alexandra (deployment review)
           ↓
 Deploy Production (/)
 ```
@@ -660,8 +660,7 @@ Le projet utilise Dependabot pour détecter automatiquement les vulnérabilités
 
 ## Besoin d'aide ?
 
-- **Questions techniques** : Bertrand (@bertrand), Alex (@alex)
-- **Questions contenu** : Alexandra (@alexandra)
+- **Questions techniques** : Alexandra (alexandra.guiderdoni@gmail.com)
 - **Vulnérabilités sécurité** : Voir [SECURITY.md](SECURITY.md)
 - **Issues GitHub** : <https://github.com/Alexmacapple/span-sg-repo/issues>
 

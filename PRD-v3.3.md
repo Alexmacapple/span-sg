@@ -3,7 +3,7 @@
 **Version** 3.3
 **Date** 30 septembre 2025
 **Owner** Alexandra
-**Validateurs** Bertrand, Alex
+**Validateur** Alexandra (alexandra.guiderdoni@gmail.com)
 **Sponsor** Stéphane (Chef mission numérique SNUM-SG, validation conceptuelle)
 
 ---

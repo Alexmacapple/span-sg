@@ -4,7 +4,7 @@
 **Date décision** : 2025-10-22
 **Date implémentation** : 2025-10-22
 **Auteur** : Claude Code (analyse ultrathink)
-**Décideurs** : Chef SNUM, Validateurs (Bertrand, Alex)
+**Décideurs** : Chef SNUM, Validateur (Alexandra)
 
 ---
 
@@ -1282,11 +1282,11 @@ echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
 
 **Étapes** :
 
-1. **Notifier validateurs** (Bertrand, Alex) :
+1. **Notifier validateurs**  :
    ```markdown
    Sujet: [SPAN SG] Migration GitHub Environments terminée
 
-   Bonjour Bertrand et Alex,
+   Bonjour Alexandra,
 
    La migration architecture 2 branches → GitHub Environments est terminée.
 
