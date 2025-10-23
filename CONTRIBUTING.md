@@ -370,6 +370,8 @@ Lors de la création d'une release (tag vX.Y.Z) :
 2. Ajouter lien release en bas de fichier
 3. Créer nouvelle section `[Unreleased]` vide
 
+Note : Le processus de release est automatisé via le script `scripts/release.sh`. Voir section [Processus de Release Automatisé](#processus-de-release-automatisé) pour la documentation complète.
+
 ### Semantic Versioning
 
 SPAN SG suit [SemVer 2.0.0](https://semver.org/lang/fr/) :
@@ -389,6 +391,215 @@ Pour migrer entre versions majeures, consultez [MIGRATION.md](MIGRATION.md).
 Guides disponibles :
 - v0.x → v1.0 : Migration POC vers production
 - v1.x → v2.0 : Migration vers checklist officielle 33 critères DINUM (voir ADR-006)
+
+---
+
+## Processus de Release Automatisé
+
+Le projet inclut un script de release automatisé qui standardise et sécurise la création de nouvelles versions.
+
+### Vue d'ensemble
+
+Le script `scripts/release.sh` automatise l'ensemble du workflow de release :
+- Validation des prérequis (branche, working tree, CI)
+- Vérification CHANGELOG.md
+- Calcul des scores actuels
+- Test build MkDocs
+- Création du tag annoté
+- Génération des release notes
+- Instructions pour publication GitHub Release
+
+### Prérequis
+
+Avant d'exécuter le script, assurez-vous que :
+- Vous êtes sur la branche `main` (ou prêt à checkout)
+- Votre working tree est propre (pas de modifications non committées)
+- La CI GitHub Actions est verte sur `main`
+- Le CHANGELOG.md contient une section pour la version à publier
+
+Note : Le script `release.sh` a été créé avant la migration GitHub Environments (ADR-009) et vérifie toujours la branche `draft`. Cette branche n'existe plus depuis le 22/10/2025. Le script checkout automatiquement `main` si vous n'êtes pas sur `draft`
+
+### Utilisation de base
+
+```bash
+# Syntaxe
+./scripts/release.sh vX.Y.Z
+
+# Exemples
+./scripts/release.sh v1.0.1    # Patch (correction bug)
+./scripts/release.sh v1.1.0    # Minor (nouvelle fonctionnalité)
+./scripts/release.sh v2.0.0    # Major (breaking change)
+```
+
+### Ce que fait le script automatiquement
+
+1. **Vérifications prérequis** :
+   - Checkout branche `main` si nécessaire
+   - Vérification working tree propre
+   - Vérification que le tag n'existe pas déjà
+   - Vérification présence CHANGELOG.md
+
+2. **Validation contenu** :
+   - Vérification section version dans CHANGELOG.md
+   - Proposition d'édition CHANGELOG si section manquante
+   - Calcul scores SPAN actuels (via `calculate_scores.py`)
+   - Test build MkDocs en mode strict
+
+3. **Préparation release** :
+   - Commit préparatoire (CHANGELOG + synthèse)
+   - Push vers origin
+   - Attente validation CI (confirmation manuelle)
+
+4. **Création tag** :
+   - Génération message tag détaillé (score, highlights, changelog)
+   - Création tag annoté Git
+   - Push tag vers origin
+
+5. **Génération artefacts** :
+   - Création fichier `RELEASE-NOTES-vX.Y.Z.md`
+   - Instructions pour téléchargement PDF depuis CI
+   - Commandes prêtes à copier pour GitHub Release
+
+### Étapes post-release
+
+Après exécution du script, effectuer manuellement :
+
+1. **Créer GitHub Release** :
+   ```bash
+   # Aller sur https://github.com/Alexmacapple/span-sg/releases/new
+   # - Tag : vX.Y.Z (sélectionner tag créé)
+   # - Title : SPAN SG vX.Y.Z
+   # - Description : Copier depuis RELEASE-NOTES-vX.Y.Z.md
+   # - Assets : Télécharger exports/span-sg.pdf depuis CI et joindre
+   ```
+
+2. **Vérifier déploiement production** :
+   - Consulter https://alexmacapple.github.io/span-sg/
+   - Vérifier version déployée correspond au tag
+
+3. **Communication** :
+   - Annoncer release à l'équipe
+   - Notifier les référents de services si applicable
+
+### Exemples d'utilisation
+
+**Cas 1 : Correction bug (PATCH)**
+```bash
+# Contexte : Fix lien cassé dans module SIRCOM
+git checkout main
+git pull origin main
+
+# Vérifier CHANGELOG.md contient section v1.0.1
+# Section présente : ## [1.0.1] - 2025-10-23 avec entry "Fixed"
+
+./scripts/release.sh v1.0.1
+
+# Suivre les prompts :
+# - Committer préparation ? Y
+# - CI est verte ? Y (vérifier Actions)
+# - Pusher tag ? Y
+
+# Créer GitHub Release manuellement (instructions affichées)
+```
+
+**Cas 2 : Nouvelle fonctionnalité (MINOR)**
+```bash
+# Contexte : Ajout nouveau module SRH
+git checkout main
+git pull origin main
+
+# Éditer CHANGELOG.md pour ajouter section v1.1.0
+# Ajouter entrée "Added" pour nouveau module
+
+./scripts/release.sh v1.1.0
+
+# Script propose d'éditer CHANGELOG.md si section manquante
+# Suivre workflow complet
+```
+
+**Cas 3 : Breaking change (MAJOR)**
+```bash
+# Contexte : Migration vers nouvelle structure checklist
+git checkout main
+git pull origin main
+
+# CHANGELOG.md doit documenter breaking changes
+# Section v2.0.0 avec détails migration
+
+./scripts/release.sh v2.0.0
+
+# Vérifier MIGRATION.md à jour pour utilisateurs
+# Communiquer largement breaking changes
+```
+
+### Troubleshooting
+
+**Erreur : "Working tree pas propre"**
+```bash
+# Vérifier modifications
+git status
+
+# Committer ou stash modifications
+git add .
+git commit -m "chore: prepare for release"
+# OU
+git stash
+```
+
+**Erreur : "Tag vX.Y.Z existe déjà"**
+```bash
+# Lister tags existants
+git tag -l
+
+# Supprimer tag local si erreur
+git tag -d vX.Y.Z
+
+# Supprimer tag remote (ATTENTION : seulement si pas encore publié)
+git push origin :refs/tags/vX.Y.Z
+```
+
+**Erreur : "CHANGELOG.md toujours sans section"**
+```bash
+# Éditer CHANGELOG.md manuellement
+vim CHANGELOG.md
+
+# Ajouter section au format Keep a Changelog :
+## [X.Y.Z] - AAAA-MM-JJ
+
+### Added
+- Nouvelles fonctionnalités
+
+### Fixed
+- Corrections bugs
+
+# Relancer script
+./scripts/release.sh vX.Y.Z
+```
+
+**CI pas verte**
+```bash
+# Consulter Actions GitHub
+# Attendre fin CI ou corriger erreurs
+
+# Vérifier statut
+gh run list --branch main --limit 5
+
+# Re-vérifier après corrections
+./scripts/release.sh vX.Y.Z
+```
+
+**PDF manquant dans artefacts CI**
+```bash
+# Vérifier job build-and-test terminé avec succès
+gh run view --log
+
+# Télécharger artefacts manuellement
+RUN_ID=$(gh run list --branch main --limit 1 --json databaseId --jq '.[0].databaseId')
+gh run download "$RUN_ID" --name exports-* --repo Alexmacapple/span-sg
+
+# OU utiliser script utilitaire
+./scripts/download_latest_pdf.sh main
+```
 
 ---
 
