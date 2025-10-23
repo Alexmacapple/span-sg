@@ -6,12 +6,8 @@ repo_url: https://github.com/Alexmacapple/span-sg
 strict: true
 
 theme:
-  name: material
+  name: dsfr
   language: fr
-  features:
-    - navigation.tabs
-    - navigation.sections
-    - toc.integrate
 
 plugins:
   - search:
