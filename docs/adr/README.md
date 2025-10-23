@@ -4,8 +4,8 @@ Historique des décisions techniques majeures du projet SPAN SG.
 
 Format: [MADR (Markdown Any Decision Records)](https://adr.github.io/madr/)
 
-Version: 1.0.1-dsfr
-Dernière mise à jour: 2025-10-11
+Version: 1.0.2
+Dernière mise à jour: 2025-10-23
 
 ---
 
@@ -21,6 +21,8 @@ Dernière mise à jour: 2025-10-11
 | [006](006-migration-checklist-33-criteres.md) | Migration 31 → 33 critères DINUM officiels | 2025-10-11 | ✅ Accepted |
 | [007](007-mkdocs-dsfr-language-divergence.md) | Divergence mkdocs-dsfr locale vs language | 2025-10-14 | ✅ Accepted |
 | [008](008-exclusion-search-label-tests-wcag.md) | Exclusion temporaire search label tests WCAG | 2025-10-14 | ✅ Accepted (temporaire) |
+| [009](009-migration-github-environments.md) | Migration Architecture 2 Branches → GitHub Environments | 2025-10-20 | ✅ Accepted |
+| [010](010-gestion-dependances-sans-lockfile.md) | Gestion dépendances sans lockfile | 2025-10-23 | ✅ Accepted |
 
 ---
 
