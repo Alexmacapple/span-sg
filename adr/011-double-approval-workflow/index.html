@@ -437,14 +437,25 @@
 1. <strong>Manque de contrôle</strong> : Impossible de tester staging avant que les modifications soient publiquement accessibles
 2. <strong>Incohérence nomenclature</strong> : Environment "staging" → URL "/staging/"</p>
 <h2 id="decision">Décision</h2>
-<h3 id="1-activation-required-reviewers-sur-staging">1. Activation Required Reviewers sur staging</h3>
-<p>Configurer l'environnement GitHub "staging" avec Required Reviewers (Alexmacapple) pour forcer une approbation manuelle avant tout déploiement.</p>
-<h3 id="2-renommage-staging-staging">2. Renommage /staging/ → /staging/</h3>
+<h3 id="1-renommage-draft-staging">1. Renommage /draft/ → /staging/</h3>
 <p>Modifier toutes les références pour utiliser <code>/staging/</code> afin d'assurer la cohérence entre :
 - Nom de l'environnement GitHub : <code>staging</code>
 - URL publique : <code>https://alexmacapple.github.io/span-sg/staging/</code></p>
+<h3 id="2-configuration-hybride-des-approbations-option-c">2. Configuration hybride des approbations (Option C)</h3>
+<p><strong>Environnement staging</strong> :
+- Required Reviewers : Alexmacapple
+- <strong>Prevent self-review : NON</strong> (auto-deploy pour tests rapides)
+- Résultat : Push → Auto-approve → Deploy <code>/staging/</code> immédiat</p>
+<p><strong>Environnement production</strong> :
+- Required Reviewers : Alexmacapple + Chef SNUM
+- <strong>Prevent self-review : OUI</strong> (protection finale)
+- Résultat : Push → Attente approbation Chef SNUM → Deploy <code>/</code> après validation</p>
+<p><strong>Justification Option C</strong> :
+- Staging auto-deploy : Vélocité maximale pour tests et itérations
+- Production gate manuel : Sécurité et gouvernance conformes au cahier des charges
+- Équilibre optimal entre rapidité développement et contrôle qualité</p>
 <h3 id="3-architecture-resultante">3. Architecture résultante</h3>
-<div class="highlight"><pre><span></span><code>Workflow : Double approbation (3 niveaux de contrôle)
+<div class="highlight"><pre><span></span><code>Workflow : Approbation hybride (2 niveaux de contrôle)
 
 1. Local (Docker)
    ↓ git push vers main
@@ -452,35 +463,36 @@
 2. build-and-test (automatique)
    ↓ CI passed
 
-3. deploy-staging PAUSE → ATTENTE APPROVAL
-   ↓ Approve staging
+3. deploy-staging (auto-approve Alexmacapple)
+   ↓ Deploy immédiat
 
 4. Déploiement /staging/ (recette)
    ↓ Tests manuels sur staging
 
-5. deploy-production PAUSE → ATTENTE APPROVAL
-   ↓ Approve production (Chef SNUM)
+5. deploy-production PAUSE → ATTENTE APPROVAL Chef SNUM
+   ↓ Approve production (Chef SNUM uniquement)
 
 6. Déploiement / (production)
 </code></pre></div>
 <h2 id="consequences">Conséquences</h2>
 <h3 id="positives">Positives</h3>
 <ol>
-<li><strong>Contrôle total</strong> : 3 niveaux distincts (local, staging validé, production validée)</li>
+<li><strong>Vélocité développement</strong> : Staging auto-deploy permet tests rapides sans friction</li>
+<li><strong>Contrôle production</strong> : Gate manuel Chef SNUM garantit validation finale</li>
 <li><strong>Tests isolés</strong> : Possibilité de valider staging sans impacter production</li>
 <li><strong>Cohérence</strong> : Nomenclature uniforme environment ↔ URL</li>
-<li><strong>Traçabilité</strong> : GitHub conserve l'historique des approbations</li>
-<li><strong>Rollback sûr</strong> : Si staging échoue, production reste intacte</li>
+<li><strong>Traçabilité</strong> : GitHub conserve l'historique des approbations production</li>
+<li><strong>Équilibre optimal</strong> : Rapidité en dev, sécurité en prod</li>
 </ol>
 <h3 id="negatives">Négatives</h3>
 <ol>
-<li><strong>Processus plus lent</strong> : 2 approbations manuelles par commit</li>
-<li><strong>Charge opérationnelle</strong> : Nécessite vigilance sur notifications GitHub</li>
+<li><strong>Staging public</strong> : Auto-deploy expose <code>/staging/</code> sans validation (acceptable car org-only)</li>
+<li><strong>Dépendance Chef SNUM</strong> : Workflow production bloqué si Chef SNUM indisponible</li>
 </ol>
 <h3 id="neutres">Neutres</h3>
 <ol>
-<li><strong>Migration progressive</strong> : Ancien dossier <code>/staging/</code> reste sur gh-pages jusqu'à nettoyage manuel</li>
-<li><strong>Bookmarks</strong> : URLs <code>/staging/</code> à mettre à jour vers <code>/staging/</code> (coexistence temporaire)</li>
+<li><strong>Migration progressive</strong> : Ancien dossier <code>/draft/</code> reste sur gh-pages jusqu'à nettoyage manuel</li>
+<li><strong>Bookmarks</strong> : URLs <code>/draft/</code> à mettre à jour vers <code>/staging/</code> (coexistence temporaire)</li>
 </ol>
 <h2 id="fichiers-modifies">Fichiers modifiés</h2>
 <h3 id="infrastructure">Infrastructure</h3>
@@ -540,24 +552,43 @@
 <p>Résultat : Configuration fonctionnelle validée</p>
 <h2 id="notes-dimplementation">Notes d'implémentation</h2>
 <h3 id="configuration-github-environments">Configuration GitHub Environments</h3>
-<p><strong>Staging</strong> :
+<p><strong>Staging</strong> (auto-deploy) :
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;staging&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;protection_rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;branch_policy&quot;</span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;required_reviewers&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;reviewers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;login&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alexmacapple&quot;</span><span class="p">}]}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;required_reviewers&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;reviewers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;login&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alexmacapple&quot;</span><span class="p">}],</span>
+<span class="w">      </span><span class="nt">&quot;prevent_self_review&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div></p>
-<p><strong>Production</strong> :
+<p>Configuration manuelle requise :
+1. Aller sur https://github.com/Alexmacapple/span-sg/settings/environments/staging
+2. Vérifier que "Prevent self-review" est <strong>décoché</strong> (auto-approve Alexmacapple)</p>
+<p><strong>Production</strong> (gate manuel) :
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;production&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;protection_rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;branch_policy&quot;</span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;required_reviewers&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;reviewers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;login&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alexmacapple&quot;</span><span class="p">}]}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;required_reviewers&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;reviewers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;login&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alexmacapple&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;login&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Chef-SNUM&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;prevent_self_review&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div></p>
+<p>Configuration manuelle requise :
+1. Aller sur https://github.com/Alexmacapple/span-sg/settings/environments/production
+2. Ajouter <strong>Chef SNUM</strong> comme Required Reviewer
+3. <strong>Cocher "Prevent self-review"</strong> (Alexmacapple ne peut plus auto-approuver)
+4. Résultat : Seul Chef SNUM peut approuver les déploiements production</p>
 <h3 id="nettoyage-futur-optionnel">Nettoyage futur (optionnel)</h3>
 <p>Pour supprimer l'ancien dossier <code>/staging/</code> de gh-pages :
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>gh-pages
@@ -729,7 +760,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 20:28:48 UTC">23 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 20:47:07 UTC">23 octobre 2025</span> 
 </div>
 
 
