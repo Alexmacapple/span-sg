@@ -68,28 +68,6 @@ nav:
   - Processus: processus.md
   - Guide d'accompagnement: accompagnement.md
   - Synthèse: synthese.md
-  - Documentation technique:
-    - Architecture:
-      - Diagrammes existants: architecture/diagrams.md
-      - Diagrammes C4: architecture/c4-diagrams.md
-      - Infrastructure Runtime: architecture/infrastructure.md
-      - Diagrammes UML: architecture/uml-diagrams.md
-    - API Reference: dev/api-reference.md
-    - Guide Hooks: dev/hooks-guide.md
-    - Guide Composants DSFR: dev/dsfr-components-guide.md
-    - Glossaire: glossary.md
-    - Onboarding visuel: onboarding-visual.md
-    - Développement local: dev-local.md
-    - Guide contributeur: contributing.md
-    - ADR (Décisions):
-      - Index: adr/README.md
-      - ADR-001 Thème DSFR: adr/001-choix-theme-dsfr.md
-      - ADR-002 Format synthèse HTML: adr/002-format-synthese-html.md
-      - ADR-003 Isolation PDF build: adr/003-isolation-pdf-build.md
-      - ADR-004 Hooks Python: adr/004-hooks-python-mkdocs.md
-      - ADR-005 Coverage 89%: adr/005-coverage-89-percent.md
-      - ADR-006 Checklist 33 critères: adr/006-migration-checklist-33-criteres.md
-      - ADR-007 Divergence locale/language: adr/007-mkdocs-dsfr-language-divergence.md
   - "Code source GitHub": "https://github.com/Alexmacapple/span-sg-repo"
 
 hooks:
