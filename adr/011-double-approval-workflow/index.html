@@ -22,7 +22,7 @@
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
 
-    <title>ADR-003: Isolation build PDF avec --site-dir pdf-temp</title>
+    <title>ADR-011 : Double approbation et renommage /staging/</title>
     
     
 </head>
@@ -100,7 +100,7 @@
                         <ul class="fr-btns-group">
                             <li>
                                 <a
-                                    href="https://github.com/Alexmacapple/span-sg/blob/main/docs/adr/003-isolation-pdf-build.md"
+                                    href="https://github.com/Alexmacapple/span-sg/blob/main/docs/adr/011-double-approval-workflow.md"
                                     target="_blank"
                                     rel="noopener"
                                     class="fr-btn"
@@ -332,10 +332,10 @@
                 aria-controls="fr-sidemenu-wrapper"
                 aria-expanded="true"
             >
-                ADR-003: Isolation build PDF avec --site-dir pdf-temp
+                ADR-011 : Double approbation et renommage /staging/
             </button>
             <div class="fr-collapse" id="fr-sidemenu-wrapper">
-                <div class="fr-sidemenu__title">ADR-003: Isolation build PDF avec --site-dir pdf-temp</div>
+                <div class="fr-sidemenu__title">ADR-011 : Double approbation et renommage /staging/</div>
                 <ul class="fr-sidemenu__list">
                      
                     <li class="fr-sidemenu__item">
@@ -359,15 +359,6 @@
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#alternatives-considerees"
-                            target="_self"
-                            >Alternatives considérées</a
-                        >
-                    </li>
-                      
-                    <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
                             href="#consequences"
                             target="_self"
                             >Conséquences</a
@@ -377,18 +368,36 @@
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#validation"
+                            href="#fichiers-modifies"
                             target="_self"
-                            >Validation</a
+                            >Fichiers modifiés</a
                         >
                     </li>
                       
                     <li class="fr-sidemenu__item">
                         <a
                             class="fr-sidemenu__link"
-                            href="#lecons-apprises"
+                            href="#urls-finales"
                             target="_self"
-                            >Leçons apprises</a
+                            >URLs finales</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#test-de-validation"
+                            target="_self"
+                            >Test de validation</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#notes-dimplementation"
+                            target="_self"
+                            >Notes d'implémentation</a
                         >
                     </li>
                       
@@ -417,89 +426,150 @@
 
                 
                         
-                        <h1 id="adr-003-isolation-build-pdf-avec-site-dir-pdf-temp">ADR-003: Isolation build PDF avec --site-dir pdf-temp</h1>
-<p><strong>Date</strong>: 2025-10-10
-<strong>Statut</strong>: ✅ Accepted
-<strong>Décideurs</strong>: Claude Code, Alexandra
-<strong>Contexte</strong>: Bug déploiement DSFR (ReadTheDocs écrasait HTML)</p>
+                        <h1 id="adr-011-double-approbation-et-renommage-staging">ADR-011 : Double approbation et renommage /staging/</h1>
+<p><strong>Statut</strong> : Accepté
+<strong>Date</strong> : 2025-10-23
+<strong>Décideurs</strong> : Alexandra (Owner/Validateur)
+<strong>Référence</strong> : <a href="../009-migration-github-environments/">ADR-009</a></p>
 <h2 id="contexte">Contexte</h2>
-<p>Le workflow CI générait 2 builds séquentiels:
-1. HTML DSFR: <code>mkdocs build --config-file mkdocs-dsfr.yml</code> → <code>site/</code>
-2. PDF: <code>mkdocs build --config-file mkdocs-dsfr-pdf.yml</code> → <code>site/</code> (ÉCRASE!)</p>
-<p><strong>Problème:</strong> Build PDF (thème ReadTheDocs) écrasait build HTML (thème DSFR), déployant ReadTheDocs sur GitHub Pages au lieu de DSFR.</p>
-<p><strong>Symptômes:</strong>
-- Local: DSFR fonctionne ✅
-- CI validation: HTML contient DSFR ✅
-- GitHub Pages: ReadTheDocs déployé ❌</p>
-<p><strong>Root cause:</strong> Deux builds utilisent même répertoire output <code>site/</code>, le second écrase le premier.</p>
+<p>Après la migration vers GitHub Environments (ADR-009), l'environnement <code>staging</code> était configuré en auto-deploy vers <code>/draft/</code> sans gate d'approbation. Seul l'environnement <code>production</code> nécessitait une validation manuelle.</p>
+<p>Cette configuration présentait deux problèmes :
+1. <strong>Manque de contrôle</strong> : Impossible de tester staging avant que les modifications soient publiquement accessibles
+2. <strong>Incohérence nomenclature</strong> : Environment "staging" → URL "/draft/"</p>
 <h2 id="decision">Décision</h2>
-<p>Isoler build PDF dans répertoire temporaire distinct avec <code>--site-dir pdf-temp</code>.</p>
-<p><strong>Modification:</strong> <code>.github/workflows/build.yml</code>
-<div class="highlight"><pre><span></span><code><span class="c1"># AVANT</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generate PDF (DSFR)</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">mkdir -p exports</span>
-<span class="w">    </span><span class="no">mkdocs build --config-file mkdocs-dsfr-pdf.yml</span>
+<h3 id="1-activation-required-reviewers-sur-staging">1. Activation Required Reviewers sur staging</h3>
+<p>Configurer l'environnement GitHub "staging" avec Required Reviewers (Alexmacapple) pour forcer une approbation manuelle avant tout déploiement.</p>
+<h3 id="2-renommage-draft-staging">2. Renommage /draft/ → /staging/</h3>
+<p>Modifier toutes les références pour utiliser <code>/staging/</code> afin d'assurer la cohérence entre :
+- Nom de l'environnement GitHub : <code>staging</code>
+- URL publique : <code>https://alexmacapple.github.io/span-sg/staging/</code></p>
+<h3 id="3-architecture-resultante">3. Architecture résultante</h3>
+<div class="highlight"><pre><span></span><code>Workflow : Double approbation (3 niveaux de contrôle)
 
-<span class="c1"># APRÈS</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generate PDF (DSFR)</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">mkdir -p exports</span>
-<span class="w">    </span><span class="no">mkdocs build --config-file mkdocs-dsfr-pdf.yml --site-dir pdf-temp</span>
-</code></pre></div></p>
-<p><strong>Justification:</strong> Build HTML et PDF utilisent thèmes différents, doivent être isolés. PDF final copié vers <code>exports/</code>, pas <code>site/</code>.</p>
-<h2 id="alternatives-considerees">Alternatives considérées</h2>
-<h3 id="option-a-meme-theme-dsfr-pour-html-et-pdf-rejete">Option A: Même thème (DSFR) pour HTML et PDF (rejeté)</h3>
-<ul>
-<li><strong>Problème</strong>: mkdocs-with-pdf ne supporte pas mkdocs-dsfr</li>
-<li><strong>Rejeté</strong>: Incompatibilité technique</li>
-</ul>
-<h3 id="option-b-build-pdf-en-premier-rejete">Option B: Build PDF en premier (rejeté)</h3>
-<ul>
-<li><strong>Problème</strong>: HTML DSFR écrasé quand même, ordre inversé ne change rien</li>
-<li><strong>Rejeté</strong>: Ne résout pas le problème</li>
-</ul>
-<h3 id="option-c-site-dir-pdf-temp-choisi">Option C: --site-dir pdf-temp (choisi)</h3>
-<ul>
-<li><strong>Avantages</strong>: ✅ Isolation complète, ✅ Change 1 ligne, ✅ Rétrocompatible, ✅ Aucune refonte</li>
-<li><strong>Choisi</strong>: Solution élégante et minimale</li>
-</ul>
+1. Local (Docker)
+   ↓ git push vers main
+
+2. build-and-test (automatique)
+   ↓ CI passed
+
+3. deploy-staging PAUSE → ATTENTE APPROVAL
+   ↓ Approve staging
+
+4. Déploiement /staging/ (recette)
+   ↓ Tests manuels sur staging
+
+5. deploy-production PAUSE → ATTENTE APPROVAL
+   ↓ Approve production (Chef SNUM)
+
+6. Déploiement / (production)
+</code></pre></div>
 <h2 id="consequences">Conséquences</h2>
-<p><strong>Positives:</strong>
-- ✅ <code>site/</code> contient toujours DSFR
-- ✅ <code>pdf-temp/</code> isolé (ajouté à .gitignore)
-- ✅ Déploiement DSFR fonctionne
-- ✅ Build time inchangé</p>
-<p><strong>Négatives:</strong>
-- ⚠️ Nouveau répertoire temporaire (pdf-temp/)
-- ⚠️ Ajout .gitignore requis</p>
-<h2 id="validation">Validation</h2>
-<p><strong>Tests locaux:</strong>
-<div class="highlight"><pre><span></span><code><span class="c1"># Build HTML</span>
-mkdocs<span class="w"> </span>build<span class="w"> </span>--config-file<span class="w"> </span>mkdocs-dsfr.yml
-grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;data-fr-scheme&quot;</span><span class="w"> </span>site/index.html<span class="w">  </span><span class="c1"># ✅ DSFR</span>
-
-<span class="c1"># Build PDF</span>
-mkdocs<span class="w"> </span>build<span class="w"> </span>--config-file<span class="w"> </span>mkdocs-dsfr-pdf.yml<span class="w"> </span>--site-dir<span class="w"> </span>pdf-temp
-grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;data-fr-scheme&quot;</span><span class="w"> </span>site/index.html<span class="w">  </span><span class="c1"># ✅ TOUJOURS DSFR</span>
-<span class="nb">test</span><span class="w"> </span>-f<span class="w"> </span>exports/span-sg.pdf<span class="w">                </span><span class="c1"># ✅ PDF généré</span>
+<h3 id="positives">Positives</h3>
+<ol>
+<li><strong>Contrôle total</strong> : 3 niveaux distincts (local, staging validé, production validée)</li>
+<li><strong>Tests isolés</strong> : Possibilité de valider staging sans impacter production</li>
+<li><strong>Cohérence</strong> : Nomenclature uniforme environment ↔ URL</li>
+<li><strong>Traçabilité</strong> : GitHub conserve l'historique des approbations</li>
+<li><strong>Rollback sûr</strong> : Si staging échoue, production reste intacte</li>
+</ol>
+<h3 id="negatives">Négatives</h3>
+<ol>
+<li><strong>Processus plus lent</strong> : 2 approbations manuelles par commit</li>
+<li><strong>Charge opérationnelle</strong> : Nécessite vigilance sur notifications GitHub</li>
+</ol>
+<h3 id="neutres">Neutres</h3>
+<ol>
+<li><strong>Migration progressive</strong> : Ancien dossier <code>/draft/</code> reste sur gh-pages jusqu'à nettoyage manuel</li>
+<li><strong>Bookmarks</strong> : URLs <code>/draft/</code> à mettre à jour vers <code>/staging/</code> (coexistence temporaire)</li>
+</ol>
+<h2 id="fichiers-modifies">Fichiers modifiés</h2>
+<h3 id="infrastructure">Infrastructure</h3>
+<ul>
+<li><code>.github/workflows/build.yml</code> :</li>
+<li><code>url: .../staging/</code> (environment staging)</li>
+<li>Renommage dossiers <code>draft</code> → <code>staging</code></li>
+<li>Commentaires mis à jour</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li><code>Claude.md</code> : 6 occurrences draft → staging, dates workflow actualisées</li>
+<li><code>GO-CHECKLIST.md</code> : URL preview staging</li>
+<li><code>docs/adr/009-migration-github-environments.md</code> : Référence à ADR-011</li>
+<li><code>docs/guide-chef-snum-approvals.md</code> : URLs d'exemple</li>
+</ul>
+<h3 id="nouveau-fichier">Nouveau fichier</h3>
+<ul>
+<li><code>docs/adr/011-double-approval-workflow.md</code> (ce document)</li>
+</ul>
+<h2 id="urls-finales">URLs finales</h2>
+<div class="fr-table">
+<div class="fr-table">
+<table>
+<thead>
+<tr>
+<th>Environnement</th>
+<th>URL</th>
+<th>Approbation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Local</td>
+<td>http://localhost:8000/span-sg/</td>
+<td>Aucune</td>
+</tr>
+<tr>
+<td>Staging</td>
+<td>https://alexmacapple.github.io/span-sg/staging/</td>
+<td>Alexmacapple</td>
+</tr>
+<tr>
+<td>Production</td>
+<td>https://alexmacapple.github.io/span-sg/</td>
+<td>Chef SNUM</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h2 id="test-de-validation">Test de validation</h2>
+<p>Le workflow a été testé le 2025-10-23 (commit 6e50c65) :
+- Job <code>build-and-test</code> : completed
+- Job <code>deploy-staging</code> : waiting (pause correcte)
+- Job <code>deploy-production</code> : waiting (pause correcte après approval staging)</p>
+<p>Résultat : Configuration fonctionnelle validée</p>
+<h2 id="notes-dimplementation">Notes d'implémentation</h2>
+<h3 id="configuration-github-environments">Configuration GitHub Environments</h3>
+<p><strong>Staging</strong> :
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;staging&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;protection_rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;branch_policy&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;required_reviewers&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;reviewers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;login&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alexmacapple&quot;</span><span class="p">}]}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
 </code></pre></div></p>
-<p><strong>Résultat:</strong> Draft GitHub Pages déploie DSFR ✅</p>
-<h2 id="lecons-apprises">Leçons apprises</h2>
-<p><strong>Ce qui a bien fonctionné:</strong>
-- Tests locaux reproductibles (Docker)
-- Validation HTML à chaque étape
-- Solution minimale (1 paramètre)</p>
-<p><strong>Ce qui aurait aidé:</strong>
-- ADR documenté lors première décision thème
-- Tests E2E validant thème déployé
-- CI validation post-déploiement</p>
+<p><strong>Production</strong> :
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;production&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;protection_rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;branch_policy&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;required_reviewers&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;reviewers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;login&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alexmacapple&quot;</span><span class="p">}]}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="nettoyage-futur-optionnel">Nettoyage futur (optionnel)</h3>
+<p>Pour supprimer l'ancien dossier <code>/draft/</code> de gh-pages :
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>gh-pages
+rm<span class="w"> </span>-rf<span class="w"> </span>draft
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;cleanup: remove deprecated /draft/ directory&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>gh-pages
+</code></pre></div></p>
 <h2 id="references">Références</h2>
 <ul>
-<li>Debug session: 2025-10-10 (5h intensive)</li>
-<li>Commit fix: <code>e7a5b7c</code> (fix: isoler build PDF)</li>
-<li>Tests: Draft Pages déploie DSFR ✅</li>
-<li>Production: v1.0.1-dsfr</li>
+<li><a href="../009-migration-github-environments/">ADR-009 : Migration GitHub Environments</a></li>
+<li><a href="../../guide-chef-snum-approvals/">Guide Chef SNUM Approvals</a></li>
+<li><a href="https://docs.github.com/en/actions/deployment/targeting-different-environments">Documentation GitHub Environments</a></li>
 </ul>
                         
                         
