@@ -1,114 +1,616 @@
-<!DOCTYPE html>
 
-<html class="writer-html5" lang="en">
+<!DOCTYPE html>
+<html lang="fr" data-fr-scheme="system">
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg/adr/009-migration-github-environments/" rel="canonical"/>
-<link href="../../img/favicon.ico" rel="shortcut icon"/>
-<title>ADR-009 : Migration Architecture 2 Branches → GitHub Environments</title>
-<link href="../../css/theme.css" rel="stylesheet"/>
-<link href="../../css/theme_extra.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
-<script>
-        // Current page data
-        var mkdocs_page_name = "ADR-009 : Migration Architecture 2 Branches \u2192 GitHub Environments";
-        var mkdocs_page_input_path = "adr/009-migration-github-environments.md";
-        var mkdocs_page_url = "/span-sg/adr/009-migration-github-environments/";
-      </script>
-<!--[if lt IE 9]>
-      <script src="../../js/html5shiv.min.js"></script>
-    <![endif]-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
-<link href="../../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
-<body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href="../..">
-</a><div role="search">
-<form action="../../search.html" class="wy-form" id="rtd-search-form" method="get">
-<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
-</form>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../../dsfr.min.css">
+    <link rel="stylesheet" href="../../utility/utility.min.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+
+    <meta name="theme-color" content="#000091">
+    <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+    <link rel="apple-touch-icon" href="../../ favicon /apple-touch-icon.png">
+    <!-- 180×180 -->
+    <link rel="icon" href="../../favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../../favicon/favicon.ico">
+    <!-- 32×32 -->
+    <link rel="manifest" href="../../favicon/manifest.webmanifest" crossorigin="use-credentials">
+    <script src="../../js/postprocess.js" defer></script>
+
+    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
+    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
+    
+
+    <title>ADR-009 : Migration Architecture 2 Branches → GitHub Environments</title>
+    
+    
+</head>
+<body>
+    <div class="fr-skiplinks">
+  <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+    <ul class="fr-skiplinks__list">
+      <li>
+        <a class="fr-link" href="#content">Contenu</a>
+      </li>
+      <li>
+        <a class="fr-link" href="#header-navigation">Menu</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#search-modal">Recherche</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#footer">Pied de page</a>
+      </li>
+    </ul>
+  </nav>
 </div>
-</div>
-<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../..">SPAN (SG)</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">SPAN (services)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/bgs/">BGS</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/safi/">SAFI</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/siep/">SIEP</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/sircom/">SIRCOM</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/snum/">SNUM</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/srh/">SRH</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../synthese/">Synthèse</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../processus/">Processus</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Guide contributeur</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../dev-local/">Développement local</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg">Code source GitHub</a>
-</li>
-</ul>
-</div>
-</div>
+    <header role="banner" class="fr-header">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row">
+                <div class="fr-header__brand fr-enlarge-link">
+                    <div class="fr-header__brand-top">
+                        <div class="fr-header__logo">
+                            <p class="fr-logo" style="">
+                                GOUVERNEMENT
+                            </p>
+                        </div>
+
+                        <div class="fr-header__navbar">
+                            
+                            <button
+                                class="fr-btn--search fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-541"
+                                id="button-542"
+                                title="Rechercher"
+                            >
+                                Rechercher
+                            </button>
+                            
+                            <button
+                                class="fr-btn--menu fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-543"
+                                aria-haspopup="menu"
+                                id="button-544"
+                                title="Menu"
+                            >
+                                Menu
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fr-header__service">
+                        <a href="/" title="Retour à l'accueil du site - SPAN SG">
+                            <p class="fr-header__service-title">
+                                SPAN SG
+                            </p>
+                        </a>
+                        <p class="fr-header__service-tagline">
+                            Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général
+                        </p>
+                    </div>
+                </div>
+                <div class="fr-header__tools">
+                    
+                    <div class="fr-header__tools-links">
+                        <ul class="fr-btns-group">
+                            <li>
+                                <a
+                                    href="https://github.com/Alexmacapple/span-sg/blob/main/docs/adr/009-migration-github-environments.md"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="fr-btn"
+                                    >Éditer dans GitHub</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="fr-header__search fr-modal" id="search-modal">
+                        <div class="fr-container fr-container-lg--fluid">
+                            <button
+                                class="fr-btn--close fr-btn"
+                                aria-controls="modal-541"
+                                title="Fermer"
+                            >
+                                Fermer
+                            </button>
+                            
+                            <form action="../../search.html">
+                                <div
+                                    class="fr-search-bar"
+                                    id="search-540"
+                                    role="search"
+                                >
+                                    <label
+                                        class="fr-label"
+                                        for="mkdocs-search-query"
+                                    >
+                                        Rechercher
+                                    </label>
+                                    <input
+                                        class="fr-input search_input search-query ui-autocomplete-input"
+                                        placeholder="Rechercher"
+                                        type="text"
+                                        id="mkdocs-search-query"
+                                        name="q"
+                                    />
+                                    <button
+                                        class="fr-btn"
+                                        title="Rechercher"
+                                        type="submit"
+                                    >
+                                        Rechercher
+                                    </button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="fr-header__menu fr-modal"
+        id="modal-543"
+        aria-labelledby="button-544"
+    >
+        <div class="fr-container">
+            <button
+                class="fr-btn--close fr-btn"
+                aria-controls="modal-543"
+                title="Fermer"
+            >
+                Fermer
+            </button>
+            <div class="fr-header__menu-links"></div>
+            <nav
+    class="fr-nav navbar-header"
+    id="header-navigation"
+    role="navigation"
+    aria-label="Menu principal"
+>
+    <ul class="fr-nav__list">
+         
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../.."
+                target="_self"
+                
+                >SPAN (SG)</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../mise-en-application-circulaire/"
+                target="_self"
+                
+                >Contexte réglementaire</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7763"
+                
+            >
+                SPAN (services)
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7763">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/bgs/"
+                            target="_self"
+                            >BGS</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/safi/"
+                            target="_self"
+                            >SAFI</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/siep/"
+                            target="_self"
+                            >SIEP</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/sircom/"
+                            target="_self"
+                            >SIRCOM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/snum/"
+                            target="_self"
+                            >SNUM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/srh/"
+                            target="_self"
+                            >SRH</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../processus/"
+                target="_self"
+                
+                >Processus</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../accompagnement/"
+                target="_self"
+                
+                >Guide d'accompagnement</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../synthese/"
+                target="_self"
+                
+                >Synthèse</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7767"
+                
+            >
+                Documentation technique
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7767">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../.."
+                            target="_self"
+                            >Architecture</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../dev/api-reference/"
+                            target="_self"
+                            >API Reference</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../dev/hooks-guide/"
+                            target="_self"
+                            >Guide Hooks</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../dev/dsfr-components-guide/"
+                            target="_self"
+                            >Guide Composants DSFR</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../glossary/"
+                            target="_self"
+                            >Glossaire</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../onboarding-visual/"
+                            target="_self"
+                            >Onboarding visuel</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../dev-local/"
+                            target="_self"
+                            >Développement local</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../contributing/"
+                            target="_self"
+                            >Guide contributeur</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../.."
+                            target="_self"
+                            >ADR (Décisions)</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7768"
+                
+            >
+                Informations légales
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7768">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../accessibilite/"
+                            target="_self"
+                            >Accessibilité</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../mentions-legales/"
+                            target="_self"
+                            >Mentions légales</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../donnees-personnelles/"
+                            target="_self"
+                            >Données personnelles</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="https://github.com/Alexmacapple/span-sg-repo"
+                target="_self"
+                
+                >Code source GitHub</a
+            >
+        </li>
+         
+    </ul>
 </nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href="../.."></a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a aria-label="Docs" class="icon icon-home" href="../.."></a></li>
-<li class="breadcrumb-item active">ADR-009 : Migration Architecture 2 Branches → GitHub Environments</li>
-<li class="wy-breadcrumbs-aside">
-<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg/edit/master/docs/adr/009-migration-github-environments.md"> Edit on GitHub</a>
-</li>
-</ul>
-<hr/>
+        </div>
+    </div>
+</header>
+    <main id="content" role="main">
+        
+        <div class="fr-container markdown-content">
+            <div class="fr-grid-row">
+                
+                
+                    
+                
+
+                
+                    
+<div class="fr-col-12 fr-col-md-3 fr-py-1v">
+    <nav
+        class="fr-sidemenu fr-sidemenu--sticky-full-height fr-mb-0-5v"
+        role="navigation"
+        aria-label="Menu latéral"
+    >
+        
+        <div class="fr-sidemenu__inner">
+            <button
+                class="fr-sidemenu__btn"
+                aria-controls="fr-sidemenu-wrapper"
+                aria-expanded="true"
+            >
+                ADR-009 : Migration Architecture 2 Branches → GitHub Environments
+            </button>
+            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+                <div class="fr-sidemenu__title">ADR-009 : Migration Architecture 2 Branches → GitHub Environments</div>
+                <ul class="fr-sidemenu__list">
+                     
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#contexte"
+                            target="_self"
+                            >Contexte</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#decision-proposee-github-environments"
+                            target="_self"
+                            >Décision Proposée : GitHub Environments</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#analyse-detaillee"
+                            target="_self"
+                            >Analyse Détaillée</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#alternatives-considerees"
+                            target="_self"
+                            >Alternatives Considérées</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#consequences"
+                            target="_self"
+                            >Conséquences</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#decision"
+                            target="_self"
+                            >Décision</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#resultat-de-limplementation"
+                            target="_self"
+                            >Résultat de l'Implémentation</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#references"
+                            target="_self"
+                            >Références</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#changelog"
+                            target="_self"
+                            >Changelog</a
+                        >
+                    </li>
+                     
+                </ul>
+            </div>
+        </div>
+        
+    </nav>
 </div>
-<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
-<div class="section" itemprop="articleBody">
-<h1 id="adr-009-migration-architecture-2-branches-github-environments">ADR-009 : Migration Architecture 2 Branches → GitHub Environments</h1>
+
+                    
+                        <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
+                    
+                
+
+                
+
+                
+                        
+                        <h1 id="adr-009-migration-architecture-2-branches-github-environments">ADR-009 : Migration Architecture 2 Branches → GitHub Environments</h1>
 <p><strong>Statut</strong> : Accepté et Implémenté
 <strong>Date décision</strong> : 2025-10-22
 <strong>Date implémentation</strong> : 2025-10-22
 <strong>Auteur</strong> : Claude Code (analyse ultrathink)
 <strong>Décideurs</strong> : Chef SNUM, Validateurs (Bertrand, Alex)</p>
-<hr/>
+<hr />
 <h2 id="contexte">Contexte</h2>
 <h3 id="probleme-actuel">Problème actuel</h3>
 <p>Le projet SPAN SG utilise une architecture à 2 branches (<code>main</code>, <code>draft</code>) pour gérer staging et production :</p>
-<pre><code>feature/update-sircom → PR → draft → /draft/ (org-only)
+<div class="highlight"><pre><span></span><code>feature/update-sircom → PR → draft → /draft/ (org-only)
                                 ↓
                         PR draft → main → / (production)
-</code></pre>
+</code></pre></div>
 <p><strong>Divergence détectée</strong> (2025-10-22) :
 - <code>main</code> : 2 commits en avance (02a52e7 documentation + 3c06ca1 rollback strict PDF)
 - <code>draft</code> : 7 commits anciens non synchronisés
@@ -129,17 +631,17 @@
 <li><strong>Améliorer observabilité</strong> : Dashboard deployments centralisé</li>
 <li><strong>Faciliter rollback</strong> : Instantané (2 min au lieu de 10 min)</li>
 </ul>
-<hr/>
+<hr />
 <h2 id="decision-proposee-github-environments">Décision Proposée : GitHub Environments</h2>
 <p>Migrer vers architecture <strong>1 branche + 2 Environments GitHub</strong> :</p>
-<pre><code>feature/update-sircom → PR → main
+<div class="highlight"><pre><span></span><code>feature/update-sircom → PR → main
                                 ↓
-                    Environment "staging" → /draft/ (auto-deploy)
+                    Environment &quot;staging&quot; → /draft/ (auto-deploy)
                                 ↓
                     Approval Chef SNUM (manual gate)
                                 ↓
-                    Environment "production" → / (production)
-</code></pre>
+                    Environment &quot;production&quot; → / (production)
+</code></pre></div>
 <h3 id="architecture-technique">Architecture technique</h3>
 <p><strong>Branche unique</strong> : <code>main</code></p>
 <p><strong>Environments GitHub</strong> :
@@ -159,210 +661,210 @@
 1. <code>build-and-test</code> : Linting + Tests + Security + Build HTML/PDF + E2E
 2. <code>deploy-staging</code> : Deploy /draft/ (needs: build-and-test)
 3. <code>deploy-production</code> : Deploy / (needs: build-and-test, environment: production)</p>
-<hr/>
+<hr />
 <h2 id="analyse-detaillee">Analyse Détaillée</h2>
 <h3 id="1-changements-techniques-requis">1. Changements Techniques Requis</h3>
 <h4 id="a-github-settings-manuel-10-min">A. GitHub Settings (manuel, 10 min)</h4>
 <p><strong>Créer Environments</strong> (Settings → Environments → New environment) :</p>
-<pre><code class="language-yaml"># Environment: staging
-name: staging
-deployment_branches: main
-protection_rules: none
-url: https://alexmacapple.github.io/span-sg/draft/
+<div class="highlight"><pre><span></span><code><span class="c1"># Environment: staging</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">staging</span>
+<span class="nt">deployment_branches</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="nt">protection_rules</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+<span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://alexmacapple.github.io/span-sg/draft/</span>
 
-# Environment: production
-name: production
-deployment_branches: main
-protection_rules:
-  required_reviewers:
-    - [username_chef_snum]  # À configurer
-  wait_timer: 0  # minutes (optionnel: 30-60 pour safety delay)
-url: https://alexmacapple.github.io/span-sg/
-</code></pre>
+<span class="c1"># Environment: production</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
+<span class="nt">deployment_branches</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="nt">protection_rules</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">required_reviewers</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">username_chef_snum</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># À configurer</span>
+<span class="w">  </span><span class="nt">wait_timer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">  </span><span class="c1"># minutes (optionnel: 30-60 pour safety delay)</span>
+<span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://alexmacapple.github.io/span-sg/</span>
+</code></pre></div>
 <p><strong>Branch Protection main</strong> (Settings → Branches) :</p>
-<pre><code class="language-yaml">Require pull request before merging: true
-Require approvals: 1
-Dismiss stale reviews: true
-Require status checks: true
-  - build-and-test
-Restrict push: true (admins excepted)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">Require pull request before merging</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">Require approvals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">Dismiss stale reviews</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">Require status checks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">- build-and-test</span>
+<span class="nt">Restrict push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true (admins excepted)</span>
+</code></pre></div>
 <h4 id="b-workflow-cicd-githubworkflowsbuildyml">B. Workflow CI/CD (.github/workflows/build.yml)</h4>
 <p><strong>Structure nouvelle</strong> (simplification 456 lignes → 300 lignes estimé) :</p>
-<pre><code class="language-yaml">name: Build and Deploy
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and Deploy</span>
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
 
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      # 1. Setup
-      - uses: actions/checkout@v3
-      - name: Setup Python 3.11
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build-and-test</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># 1. Setup</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup Python 3.11</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.11&#39;</span>
 
-      # 2. Dependencies
-      - name: Install dependencies
-        run: pip install -r requirements-dsfr.txt
-      - name: Install dev dependencies
-        run: pip install -r requirements-dev.txt
+<span class="w">      </span><span class="c1"># 2. Dependencies</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -r requirements-dsfr.txt</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dev dependencies</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -r requirements-dev.txt</span>
 
-      # 3. Quality (fail-fast)
-      - name: Run Black formatter check
-        run: python -m black --check scripts/
-      - name: Run Ruff linter
-        run: python -m ruff check scripts/
+<span class="w">      </span><span class="c1"># 3. Quality (fail-fast)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Black formatter check</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python -m black --check scripts/</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Ruff linter</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python -m ruff check scripts/</span>
 
-      # 4. Security (fail-fast)
-      - name: Run Bandit security linter
-        run: bandit -r scripts/ hooks/ -ll
-      - name: Check dependencies vulnerabilities
-        run: safety check -r requirements-dsfr.txt
-      - name: Upload security reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: security-reports
-          retention-days: 90
+<span class="w">      </span><span class="c1"># 4. Security (fail-fast)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Bandit security linter</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bandit -r scripts/ hooks/ -ll</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Check dependencies vulnerabilities</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">safety check -r requirements-dsfr.txt</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload security reports</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">security-reports</span>
+<span class="w">          </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90</span>
 
-      # 5. Tests (fail-fast)
-      - name: Run unit tests
-        run: pytest scripts/ -v --cov=scripts
-      - name: Run production scripts coverage (89%+)
-        run: pytest --cov-fail-under=89 scripts/test_*.py
-      - name: Run hooks coverage (100%)
-        run: pytest tests/test_hooks_*.py --cov=hooks --cov-fail-under=100
+<span class="w">      </span><span class="c1"># 5. Tests (fail-fast)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run unit tests</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest scripts/ -v --cov=scripts</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run production scripts coverage (89%+)</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest --cov-fail-under=89 scripts/test_*.py</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run hooks coverage (100%)</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest tests/test_hooks_*.py --cov=hooks --cov-fail-under=100</span>
 
-      # 6. Build
-      - name: Calculate SPAN scores
-        run: python scripts/calculate_scores.py
-      - name: Build HTML DSFR (strict mode)
-        run: mkdocs build --config-file mkdocs-dsfr.yml --strict
-      - name: Verify DSFR theme applied
-        run: grep -q 'fr-header' site/index.html
-      - name: Generate PDF
-        run: |
-          ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml
-          python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
-          qpdf --check exports/span-sg.pdf
+<span class="w">      </span><span class="c1"># 6. Build</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Calculate SPAN scores</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python scripts/calculate_scores.py</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build HTML DSFR (strict mode)</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mkdocs build --config-file mkdocs-dsfr.yml --strict</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Verify DSFR theme applied</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grep -q &#39;fr-header&#39; site/index.html</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generate PDF</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml</span>
+<span class="w">          </span><span class="no">python scripts/enrich_pdf_metadata.py exports/span-sg.pdf</span>
+<span class="w">          </span><span class="no">qpdf --check exports/span-sg.pdf</span>
 
-      # 7. E2E Tests (only on push main, skip PR)
-      - name: Run E2E accessibility tests
-        if: github.event_name == 'push'
-        run: |
-          docker buildx build -f Dockerfile.mkdocs-test -t mkdocs-test:latest .
-          docker run --rm mkdocs-test:latest bash tests/e2e/ci_runner.sh
-      - name: Upload E2E report
-        if: always() &amp;&amp; github.event_name == 'push'
-        uses: actions/upload-artifact@v4
-        with:
-          name: e2e-report
-          retention-days: 30
+<span class="w">      </span><span class="c1"># 7. E2E Tests (only on push main, skip PR)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run E2E accessibility tests</span>
+<span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">docker buildx build -f Dockerfile.mkdocs-test -t mkdocs-test:latest .</span>
+<span class="w">          </span><span class="no">docker run --rm mkdocs-test:latest bash tests/e2e/ci_runner.sh</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload E2E report</span>
+<span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always() &amp;&amp; github.event_name == &#39;push&#39;</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e2e-report</span>
+<span class="w">          </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
 
-      # 8. Upload artifacts
-      - name: Upload site HTML
-        uses: actions/upload-artifact@v4
-        with:
-          name: site
-          path: site/
-      - name: Upload exports PDF
-        uses: actions/upload-artifact@v4
-        with:
-          name: exports
-          path: exports/
-          retention-days: 90
+<span class="w">      </span><span class="c1"># 8. Upload artifacts</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload site HTML</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">site</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">site/</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload exports PDF</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exports</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exports/</span>
+<span class="w">          </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90</span>
 
-  deploy-staging:
-    needs: build-and-test
-    if: github.event_name == 'push' &amp;&amp; github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    environment:
-      name: staging
-      url: https://alexmacapple.github.io/span-sg/draft/
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: gh-pages
-          token: ${{ secrets.GITHUB_TOKEN }}
+<span class="w">  </span><span class="nt">deploy-staging</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build-and-test</span>
+<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39; &amp;&amp; github.ref == &#39;refs/heads/main&#39;</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">staging</span>
+<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://alexmacapple.github.io/span-sg/draft/</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gh-pages</span>
+<span class="w">          </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
 
-      - name: Download site artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: site
-          path: site/
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Download site artifact</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/download-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">site</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">site/</span>
 
-      - name: Download exports artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: exports
-          path: exports/
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Download exports artifact</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/download-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exports</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exports/</span>
 
-      - name: Deploy to /draft/ (staging)
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to /draft/ (staging)</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">git config user.name &quot;github-actions[bot]&quot;</span>
+<span class="w">          </span><span class="no">git config user.email &quot;github-actions[bot]@users.noreply.github.com&quot;</span>
 
-          # Nettoyer /draft/ existant
-          rm -rf draft
-          mkdir -p draft
+<span class="w">          </span><span class="no"># Nettoyer /draft/ existant</span>
+<span class="w">          </span><span class="no">rm -rf draft</span>
+<span class="w">          </span><span class="no">mkdir -p draft</span>
 
-          # Copier nouveau build
-          cp -r site/* draft/
-          cp -r exports draft/
+<span class="w">          </span><span class="no"># Copier nouveau build</span>
+<span class="w">          </span><span class="no">cp -r site/* draft/</span>
+<span class="w">          </span><span class="no">cp -r exports draft/</span>
 
-          # Commit et push
-          git add draft
-          git commit -m "Deploy staging from ${{ github.sha }}" || exit 0
-          git push origin gh-pages
+<span class="w">          </span><span class="no"># Commit et push</span>
+<span class="w">          </span><span class="no">git add draft</span>
+<span class="w">          </span><span class="no">git commit -m &quot;Deploy staging from ${{ github.sha }}&quot; || exit 0</span>
+<span class="w">          </span><span class="no">git push origin gh-pages</span>
 
-  deploy-production:
-    needs: build-and-test
-    if: github.event_name == 'push' &amp;&amp; github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: https://alexmacapple.github.io/span-sg/
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: gh-pages
-          token: ${{ secrets.GITHUB_TOKEN }}
+<span class="w">  </span><span class="nt">deploy-production</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build-and-test</span>
+<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39; &amp;&amp; github.ref == &#39;refs/heads/main&#39;</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
+<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://alexmacapple.github.io/span-sg/</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gh-pages</span>
+<span class="w">          </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
 
-      - name: Download site artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: site
-          path: site/
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Download site artifact</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/download-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">site</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">site/</span>
 
-      - name: Download exports artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: exports
-          path: exports/
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Download exports artifact</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/download-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exports</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exports/</span>
 
-      - name: Deploy to / (production)
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to / (production)</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">git config user.name &quot;github-actions[bot]&quot;</span>
+<span class="w">          </span><span class="no">git config user.email &quot;github-actions[bot]@users.noreply.github.com&quot;</span>
 
-          # Nettoyer racine (conserver /draft/)
-          find . -mindepth 1 -maxdepth 1 ! -name 'draft' ! -name '.git' -exec rm -rf {} +
+<span class="w">          </span><span class="no"># Nettoyer racine (conserver /draft/)</span>
+<span class="w">          </span><span class="no">find . -mindepth 1 -maxdepth 1 ! -name &#39;draft&#39; ! -name &#39;.git&#39; -exec rm -rf {} +</span>
 
-          # Copier nouveau build
-          cp -r site/* .
-          cp -r exports .
+<span class="w">          </span><span class="no"># Copier nouveau build</span>
+<span class="w">          </span><span class="no">cp -r site/* .</span>
+<span class="w">          </span><span class="no">cp -r exports .</span>
 
-          # Commit et push
-          git add .
-          git commit -m "Deploy production from ${{ github.sha }}" || exit 0
-          git push origin gh-pages
-</code></pre>
+<span class="w">          </span><span class="no"># Commit et push</span>
+<span class="w">          </span><span class="no">git add .</span>
+<span class="w">          </span><span class="no">git commit -m &quot;Deploy production from ${{ github.sha }}&quot; || exit 0</span>
+<span class="w">          </span><span class="no">git push origin gh-pages</span>
+</code></pre></div>
 <p><strong>Différences clés</strong> :
 - Suppression job <code>build-and-deploy-draft</code> (lignes 1-235 actuelles)
 - Transformation job <code>build-and-deploy-main</code> en 3 jobs séquentiels
@@ -472,28 +974,28 @@ jobs:
 </li>
 </ol>
 <p><strong>Exemple modification CONTRIBUTING.md</strong> :</p>
-<pre><code class="language-diff">- Les modifications passent par une **Pull Request** vers `draft` pour validation.
-+ Les modifications passent par une **Pull Request** vers `main` pour validation.
+<div class="highlight"><pre><span></span><code><span class="gd">- Les modifications passent par une **Pull Request** vers `draft` pour validation.</span>
+<span class="gi">+ Les modifications passent par une **Pull Request** vers `main` pour validation.</span>
 
-- https://github.com/Alexmacapple/span-sg-repo/blob/draft/docs/modules/[votre-service].md
-+ https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/modules/[votre-service].md
+<span class="gd">- https://github.com/Alexmacapple/span-sg-repo/blob/draft/docs/modules/[votre-service].md</span>
+<span class="gi">+ https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/modules/[votre-service].md</span>
 
-- **Base** : `draft` (important !)
-+ **Base** : `main` (important !)
+<span class="gd">- **Base** : `draft` (important !)</span>
+<span class="gi">+ **Base** : `main` (important !)</span>
 
-+ ## Processus déploiement production
-+
-+ Après merge de votre PR sur `main` :
-+
-+ 1. **Déploiement staging automatique** : Votre contribution est visible sur /draft/ (org-only) sous 10 minutes
-+ 2. **Notification Chef SNUM** : Email automatique "Deployment to production pending"
-+ 3. **Approval Chef SNUM** : Review /draft/ puis approve deployment (délai variable 0-60j)
-+ 4. **Déploiement production automatique** : Contribution visible publiquement sur / sous 5 minutes
-</code></pre>
-<hr/>
+<span class="gi">+ ## Processus déploiement production</span>
+<span class="gi">+</span>
+<span class="gi">+ Après merge de votre PR sur `main` :</span>
+<span class="gi">+</span>
+<span class="gi">+ 1. **Déploiement staging automatique** : Votre contribution est visible sur /draft/ (org-only) sous 10 minutes</span>
+<span class="gi">+ 2. **Notification Chef SNUM** : Email automatique &quot;Deployment to production pending&quot;</span>
+<span class="gi">+ 3. **Approval Chef SNUM** : Review /draft/ puis approve deployment (délai variable 0-60j)</span>
+<span class="gi">+ 4. **Déploiement production automatique** : Contribution visible publiquement sur / sous 5 minutes</span>
+</code></pre></div>
+<hr />
 <h3 id="2-impact-workflow-contributeur">2. Impact Workflow Contributeur</h3>
 <h4 id="avant-architecture-2-branches">Avant (architecture 2 branches)</h4>
-<pre><code class="language-mermaid">flowchart TD
+<pre class="mermaid"><code>flowchart TD
     A[Contributeur crée feature/update-sircom] --&gt; B[Édite docs/modules/sircom.md]
     B --&gt; C[git commit -m feat...]
     C --&gt; D[git push origin feature/update-sircom]
@@ -517,13 +1019,12 @@ jobs:
     S --&gt; T[Deploy / production]
 
     style A fill:#91d5ff
-    style T fill:#b7eb8f
-</code></pre>
+    style T fill:#b7eb8f</code></pre>
 <p><strong>Étapes</strong> : 14 étapes
 <strong>Délai total</strong> : 33-67 jours (2-5j review + 30-60j accumulation + 1-2j Chef SNUM)
 <strong>Points de friction</strong> : 2 PR reviews (validateur + Chef SNUM)</p>
 <h4 id="apres-architecture-1-branche-environments">Après (architecture 1 branche + Environments)</h4>
-<pre><code class="language-mermaid">flowchart TD
+<pre class="mermaid"><code>flowchart TD
     A[Contributeur crée feature/update-sircom] --&gt; B[Édite docs/modules/sircom.md]
     B --&gt; C[git commit -m feat...]
     C --&gt; D[git push origin feature/update-sircom]
@@ -548,12 +1049,13 @@ jobs:
 
     style A fill:#91d5ff
     style T fill:#b7eb8f
-    style Q fill:#ffe7ba
-</code></pre>
+    style Q fill:#ffe7ba</code></pre>
 <p><strong>Étapes</strong> : 11 étapes (réduction 21%)
 <strong>Délai total</strong> : 2-5j review + variable approval Chef SNUM (0-60j selon stratégie)
 <strong>Points de friction</strong> : 1 PR review (validateur) + 1 deployment approval (Chef SNUM)</p>
 <p><strong>Différences clés</strong> :</p>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -596,11 +1098,13 @@ jobs:
 </tr>
 </tbody>
 </table>
-<hr/>
+</div>
+</div>
+<hr />
 <h3 id="3-timeline-deploiement-comparee">3. Timeline Déploiement Comparée</h3>
 <h4 id="scenario-a-contribution-urgente-hotfix-critique">Scénario A : Contribution urgente (hotfix critique)</h4>
-<p><strong>Avant (2 branches)</strong> :</p>
-<pre><code>J+0  09:00 : Contributeur crée PR vers draft
+<p><strong>Avant (2 branches)</strong> :
+<div class="highlight"><pre><span></span><code>J+0  09:00 : Contributeur crée PR vers draft
 J+0  14:00 : Validateur approve et merge (5h review express)
 J+0  14:10 : Deploy /draft/ automatique
 J+0  14:15 : Validateur crée PR draft → main
@@ -610,21 +1114,21 @@ J+1  10:01 : Merge vers main
 J+1  10:11 : Deploy / production
 
 Total : 25h (1j 1h)
-</code></pre>
-<p><strong>Après (1 branche + Environments)</strong> :</p>
-<pre><code>J+0  09:00 : Contributeur crée PR vers main
+</code></pre></div></p>
+<p><strong>Après (1 branche + Environments)</strong> :
+<div class="highlight"><pre><span></span><code>J+0  09:00 : Contributeur crée PR vers main
 J+0  14:00 : Validateur approve et merge (5h review express)
 J+0  14:10 : Deploy /draft/ staging automatique
-J+0  14:10 : Notification Chef SNUM "Deployment pending"
+J+0  14:10 : Notification Chef SNUM &quot;Deployment pending&quot;
 J+0  14:30 : Chef SNUM review /draft/ puis approve (20 min)
 J+0  14:35 : Deploy / production automatique
 
 Total : 5h35 (même jour)
-</code></pre>
+</code></pre></div></p>
 <p><strong>Gain</strong> : 77% réduction délai (25h → 5h35)</p>
 <h4 id="scenario-b-contribution-normale-accumulation-releases">Scénario B : Contribution normale (accumulation releases)</h4>
-<p><strong>Avant (2 branches)</strong> :</p>
-<pre><code>J+0      : Contributeur crée PR vers draft
+<p><strong>Avant (2 branches)</strong> :
+<div class="highlight"><pre><span></span><code>J+0      : Contributeur crée PR vers draft
 J+2      : Merge draft (2j review)
 J+2      : Deploy /draft/
 J+2-60   : Accumulation 10 contributions
@@ -633,9 +1137,9 @@ J+61     : Chef SNUM approve
 J+61     : Deploy / production
 
 Total : 61 jours
-</code></pre>
-<p><strong>Après (1 branche + Environments)</strong> :</p>
-<pre><code>J+0      : Contributeur crée PR vers main
+</code></pre></div></p>
+<p><strong>Après (1 branche + Environments)</strong> :
+<div class="highlight"><pre><span></span><code>J+0      : Contributeur crée PR vers main
 J+2      : Merge main (2j review)
 J+2      : Deploy /draft/ staging automatique
 J+2      : Notification Chef SNUM
@@ -644,64 +1148,64 @@ J+60     : Chef SNUM approve deployment (batch)
 J+60     : Deploy / production
 
 Total : 60 jours
-</code></pre>
+</code></pre></div></p>
 <p><strong>Gain</strong> : Identique (mais plus flexible : Chef SNUM peut approuver à J+2 si besoin)</p>
-<hr/>
+<hr />
 <h3 id="4-protection-et-securite">4. Protection et Sécurité</h3>
 <h4 id="a-branch-protection">A. Branch Protection</h4>
-<p><strong>Avant</strong> :</p>
-<pre><code class="language-yaml">Branch: main
-  Require PR: true
-  Require reviews: 1
-  Status checks: [build-and-deploy-main]
+<p><strong>Avant</strong> :
+<div class="highlight"><pre><span></span><code><span class="nt">Branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Require PR</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Require reviews</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Status checks</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">build-and-deploy-main</span><span class="p p-Indicator">]</span>
 
-Branch: draft
-  Require PR: true
-  Require reviews: 1
-  Status checks: [build-and-deploy-draft]
-</code></pre>
-<p><strong>Après</strong> :</p>
-<pre><code class="language-yaml">Branch: main
-  Require PR: true
-  Require reviews: 1
-  Status checks: [build-and-test]
-  Restrict push: true
-</code></pre>
+<span class="nt">Branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">draft</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Require PR</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Require reviews</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Status checks</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">build-and-deploy-draft</span><span class="p p-Indicator">]</span>
+</code></pre></div></p>
+<p><strong>Après</strong> :
+<div class="highlight"><pre><span></span><code><span class="nt">Branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Require PR</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Require reviews</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Status checks</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">build-and-test</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">Restrict push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div></p>
 <p><strong>Amélioration</strong> :
 - Plus de divergence possible (1 branche)
 - Status check unifié (build-and-test)
 - Push restreint (force PR workflow)</p>
 <h4 id="b-environment-protection">B. Environment Protection</h4>
-<p><strong>Nouveau (après)</strong> :</p>
-<pre><code class="language-yaml">Environment: staging
-  Protection rules: none
-  Deployment: auto (on push main)
+<p><strong>Nouveau (après)</strong> :
+<div class="highlight"><pre><span></span><code><span class="nt">Environment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">staging</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Protection rules</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">auto (on push main)</span>
 
-Environment: production
-  Required reviewers: [Chef SNUM]
-  Wait timer: 0-60 min (configurable)
-  Deployment: manual approval required
-</code></pre>
+<span class="nt">Environment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Required reviewers</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">Chef SNUM</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">Wait timer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0-60 min (configurable)</span>
+<span class="w">  </span><span class="nt">Deployment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">manual approval required</span>
+</code></pre></div></p>
 <p><strong>Avantages sécurité</strong> :
 - Approval gate production (humain dans la boucle)
 - Wait timer optionnel (safety delay avant production)
 - Audit trail : Qui a approuvé, quand, quel commit
 - Environment secrets isolés (si besoin futur : API keys staging ≠ prod)</p>
 <h4 id="c-cicd-gates">C. CI/CD Gates</h4>
-<p><strong>Avant (2 workflows)</strong> :</p>
-<pre><code>Job draft : Linting → Tests → Security → Build → Deploy /draft/
+<p><strong>Avant (2 workflows)</strong> :
+<div class="highlight"><pre><span></span><code>Job draft : Linting → Tests → Security → Build → Deploy /draft/
 Job main  : Linting → Tests → Security → Build → E2E → Deploy /
-</code></pre>
-<p><strong>Après (1 workflow, 3 jobs)</strong> :</p>
-<pre><code>Job 1 : Linting → Tests → Security → Build → E2E
+</code></pre></div></p>
+<p><strong>Après (1 workflow, 3 jobs)</strong> :
+<div class="highlight"><pre><span></span><code>Job 1 : Linting → Tests → Security → Build → E2E
 Job 2 : Deploy /draft/ (needs: Job 1)
 Job 3 : Deploy / (needs: Job 1, environment: production)
-</code></pre>
+</code></pre></div></p>
 <p><strong>Amélioration</strong> :
 - E2E tests AVANT staging (fail-fast, aucun deploy si échec)
 - Artifacts partagés entre jobs (consistance)
 - Déploiements séquentiels (staging puis production après approval)</p>
-<hr/>
+<hr />
 <h3 id="5-observabilite-et-monitoring">5. Observabilité et Monitoring</h3>
 <h4 id="dashboard-github">Dashboard GitHub</h4>
 <p><strong>Avant</strong> :
@@ -718,7 +1222,7 @@ Job 3 : Deploy / (needs: Job 1, environment: production)
   - Environnement : staging ou production
   - Commit SHA déployé</p>
 <p><strong>Nouveau dashboard Deployments</strong> :</p>
-<pre><code>┌─────────────────────────────────────────────────────────────┐
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────────┐
 │ Deployments                                                 │
 ├─────────────────────────────────────────────────────────────┤
 │ Environment: production                                     │
@@ -733,9 +1237,11 @@ Job 3 : Deploy / (needs: Job 1, environment: production)
 │ Auto-deployed                                               │
 │ URL: https://alexmacapple.github.io/span-sg/draft/         │
 └─────────────────────────────────────────────────────────────┘
-</code></pre>
+</code></pre></div>
 <h4 id="metriques-dora">Métriques DORA</h4>
 <p><strong>Accessibles après migration</strong> :</p>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -767,43 +1273,45 @@ Job 3 : Deploy / (needs: Job 1, environment: production)
 </tr>
 </tbody>
 </table>
-<p><strong>Exemple mesure</strong> :</p>
-<pre><code class="language-bash"># Lister déploiements production (GitHub CLI)
-gh api repos/Alexmacapple/span-sg/deployments \
-  --jq '.[] | select(.environment=="production") | {created_at, sha}'
+</div>
+</div>
+<p><strong>Exemple mesure</strong> :
+<div class="highlight"><pre><span></span><code><span class="c1"># Lister déploiements production (GitHub CLI)</span>
+gh<span class="w"> </span>api<span class="w"> </span>repos/Alexmacapple/span-sg/deployments<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--jq<span class="w"> </span><span class="s1">&#39;.[] | select(.environment==&quot;production&quot;) | {created_at, sha}&#39;</span>
 
-# Output :
-# {"created_at":"2025-10-22T14:35:00Z","sha":"02a52e7"}
-# {"created_at":"2025-10-15T10:20:00Z","sha":"3c06ca1"}
-# ...
-</code></pre>
-<hr/>
+<span class="c1"># Output :</span>
+<span class="c1"># {&quot;created_at&quot;:&quot;2025-10-22T14:35:00Z&quot;,&quot;sha&quot;:&quot;02a52e7&quot;}</span>
+<span class="c1"># {&quot;created_at&quot;:&quot;2025-10-15T10:20:00Z&quot;,&quot;sha&quot;:&quot;3c06ca1&quot;}</span>
+<span class="c1"># ...</span>
+</code></pre></div></p>
+<hr />
 <h3 id="6-gestion-erreurs-et-rollback">6. Gestion Erreurs et Rollback</h3>
 <h4 id="a-rollback-production">A. Rollback Production</h4>
-<p><strong>Avant (2 branches)</strong> :</p>
-<pre><code class="language-bash"># Étapes rollback (RTO : 10-15 min)
-1. git revert &lt;bad-commit&gt;
-2. git commit -m "revert: rollback production"
-3. git push origin main
-4. Attendre CI/CD rebuild (10 min)
-5. Vérifier / production restaurée
+<p><strong>Avant (2 branches)</strong> :
+<div class="highlight"><pre><span></span><code><span class="c1"># Étapes rollback (RTO : 10-15 min)</span>
+<span class="m">1</span>.<span class="w"> </span>git<span class="w"> </span>revert<span class="w"> </span>&lt;bad-commit&gt;
+<span class="m">2</span>.<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;revert: rollback production&quot;</span>
+<span class="m">3</span>.<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+<span class="m">4</span>.<span class="w"> </span>Attendre<span class="w"> </span>CI/CD<span class="w"> </span>rebuild<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>min<span class="o">)</span>
+<span class="m">5</span>.<span class="w"> </span>Vérifier<span class="w"> </span>/<span class="w"> </span>production<span class="w"> </span>restaurée
 
-Total : 10-15 min (+ temps détection)
-</code></pre>
+Total<span class="w"> </span>:<span class="w"> </span><span class="m">10</span>-15<span class="w"> </span>min<span class="w"> </span><span class="o">(</span>+<span class="w"> </span>temps<span class="w"> </span>détection<span class="o">)</span>
+</code></pre></div></p>
 <p><strong>Après (1 branche + Environments)</strong> :</p>
-<p><strong>Option 1 : Re-run deployment (recommandé)</strong> :</p>
-<pre><code class="language-bash"># Étapes rollback (RTO : 2-5 min)
-1. Aller sur https://github.com/Alexmacapple/span-sg/deployments
-2. Sélectionner deployment production précédent (version stable)
-3. Cliquer "Re-run all jobs"
-4. Approve deployment immédiatement
-5. Vérifier / production restaurée
+<p><strong>Option 1 : Re-run deployment (recommandé)</strong> :
+<div class="highlight"><pre><span></span><code><span class="c1"># Étapes rollback (RTO : 2-5 min)</span>
+<span class="m">1</span>.<span class="w"> </span>Aller<span class="w"> </span>sur<span class="w"> </span>https://github.com/Alexmacapple/span-sg/deployments
+<span class="m">2</span>.<span class="w"> </span>Sélectionner<span class="w"> </span>deployment<span class="w"> </span>production<span class="w"> </span>précédent<span class="w"> </span><span class="o">(</span>version<span class="w"> </span>stable<span class="o">)</span>
+<span class="m">3</span>.<span class="w"> </span>Cliquer<span class="w"> </span><span class="s2">&quot;Re-run all jobs&quot;</span>
+<span class="m">4</span>.<span class="w"> </span>Approve<span class="w"> </span>deployment<span class="w"> </span>immédiatement
+<span class="m">5</span>.<span class="w"> </span>Vérifier<span class="w"> </span>/<span class="w"> </span>production<span class="w"> </span>restaurée
 
-Total : 2-5 min (+ temps détection)
-</code></pre>
-<p><strong>Option 2 : Revert commit (si re-run impossible)</strong> :</p>
-<pre><code class="language-bash"># Identique workflow avant (10-15 min)
-</code></pre>
+Total<span class="w"> </span>:<span class="w"> </span><span class="m">2</span>-5<span class="w"> </span>min<span class="w"> </span><span class="o">(</span>+<span class="w"> </span>temps<span class="w"> </span>détection<span class="o">)</span>
+</code></pre></div></p>
+<p><strong>Option 2 : Revert commit (si re-run impossible)</strong> :
+<div class="highlight"><pre><span></span><code><span class="c1"># Identique workflow avant (10-15 min)</span>
+</code></pre></div></p>
 <p><strong>Gain</strong> : 67-80% réduction RTO (Recovery Time Objective)</p>
 <h4 id="b-rollback-staging">B. Rollback Staging</h4>
 <p><strong>Avant</strong> :
@@ -812,7 +1320,7 @@ Total : 2-5 min (+ temps détection)
 <p><strong>Après</strong> :
 - Identique production : Re-run deployment staging
 - RTO : 2 min (aucune approval nécessaire)</p>
-<hr/>
+<hr />
 <h3 id="7-risques-et-mitigations">7. Risques et Mitigations</h3>
 <h4 id="risque-1-chef-snum-oublie-dapprouver-deployments">Risque 1 : Chef SNUM oublie d'approuver deployments</h4>
 <p><strong>Impact</strong> :
@@ -822,34 +1330,33 @@ Total : 2-5 min (+ temps détection)
 <p><strong>Probabilité</strong> : Moyenne (humain dans la boucle)</p>
 <p><strong>Mitigation</strong> :</p>
 <ol>
-<li><strong>Notifications automatiques</strong> :
-   ```yaml
-   # Email GitHub natif (activé par défaut)
-   "Deployment to production pending review"</li>
-</ol>
-<p># Optionnel : Slack webhook
-   - name: Notify Slack
-     uses: 8398a7/action-slack@v3
-     with:
-       status: pending
-       text: "Deployment production en attente @chef-snum"
-   ```</p>
-<ol>
-<li><strong>Dashboard URL bookmark</strong> :</li>
+<li>
+<p><strong>Notifications automatiques</strong> :
+   <div class="highlight"><pre><span></span><code><span class="c1"># Email GitHub natif (activé par défaut)</span>
+<span class="s">&quot;Deployment</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">production</span><span class="nv"> </span><span class="s">pending</span><span class="nv"> </span><span class="s">review&quot;</span>
+
+<span class="c1"># Optionnel : Slack webhook</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Notify Slack</span>
+<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8398a7/action-slack@v3</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pending</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Deployment</span><span class="nv"> </span><span class="s">production</span><span class="nv"> </span><span class="s">en</span><span class="nv"> </span><span class="s">attente</span><span class="nv"> </span><span class="s">@chef-snum&quot;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Dashboard URL bookmark</strong> :</p>
+</li>
 <li>https://github.com/Alexmacapple/span-sg/deployments</li>
 <li>
 <p>Ajouter aux favoris Chef SNUM</p>
 </li>
 <li>
 <p><strong>Weekly reminder</strong> (optionnel) :
-   ```bash
-   # GitHub Action scheduled weekly</p>
-</li>
-<li>
-<p>cron: '0 9 * * MON'  # Lundi 9h
-   # Vérifier deployments pending &gt; 7 jours
-   # Notifier Chef SNUM
-   ```</p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># GitHub Action scheduled weekly</span>
+-<span class="w"> </span>cron:<span class="w"> </span><span class="s1">&#39;0 9 * * MON&#39;</span><span class="w">  </span><span class="c1"># Lundi 9h</span>
+<span class="c1"># Vérifier deployments pending &gt; 7 jours</span>
+<span class="c1"># Notifier Chef SNUM</span>
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Délégation</strong> :</p>
@@ -874,20 +1381,20 @@ Total : 2-5 min (+ temps détection)
 </li>
 <li>
 <p><strong>Branche draft supprimée</strong> :
-   <code>bash
-   git push origin :draft  # Force contributeurs vers main</code></p>
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>:draft<span class="w">  </span><span class="c1"># Force contributeurs vers main</span>
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Message commit migration</strong> :
-   ```
-   BREAKING CHANGE: Branche draft supprimée</p>
+   <div class="highlight"><pre><span></span><code>BREAKING CHANGE: Branche draft supprimée
+
+Toutes les PRs doivent maintenant cibler main.
+Voir CONTRIBUTING.md pour nouveau workflow.
+</code></pre></div></p>
 </li>
-</ol>
-<p>Toutes les PRs doivent maintenant cibler main.
-   Voir CONTRIBUTING.md pour nouveau workflow.
-   ```</p>
-<ol>
-<li><strong>Communication proactive</strong> :</li>
+<li>
+<p><strong>Communication proactive</strong> :</p>
+</li>
 <li>Email tous contributeurs</li>
 <li>Annonce GitHub Discussions</li>
 <li>README.md mis à jour</li>
@@ -903,29 +1410,29 @@ Total : 2-5 min (+ temps détection)
 <ol>
 <li>
 <p><strong>Wait timer environment production</strong> :
-   <code>yaml
-   # Settings → Environments → production → Protection rules
-   wait_timer: 60  # minutes (1h minimum entre staging et production)</code></p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Settings → Environments → production → Protection rules</span>
+<span class="nt">wait_timer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60</span><span class="w">  </span><span class="c1"># minutes (1h minimum entre staging et production)</span>
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Checklist review Chef SNUM</strong> :
-   ```markdown
-   ## Checklist approval production</p>
+   <div class="highlight"><pre><span></span><code><span class="gu">## Checklist approval production</span>
+
+Avant d&#39;approuver deployment production :
+
+<span class="k">- [ ]</span> Review /draft/ staging (navigation, contenu)
+<span class="k">- [ ]</span> Vérifier E2E tests passés (GitHub Actions)
+<span class="k">- [ ]</span> Vérifier aucune régression visuelle
+<span class="k">- [ ]</span> Vérifier PDF exports/ généré
+<span class="k">- [ ]</span> Vérifier logs CI/CD (warnings, errors)
+<span class="k">- [ ]</span> Attendre minimum 1h depuis staging deploy
+
+Si tout OK : Approve deployment production
+</code></pre></div></p>
 </li>
-</ol>
-<p>Avant d'approuver deployment production :</p>
-<ul>
-<li>[ ] Review /draft/ staging (navigation, contenu)</li>
-<li>[ ] Vérifier E2E tests passés (GitHub Actions)</li>
-<li>[ ] Vérifier aucune régression visuelle</li>
-<li>[ ] Vérifier PDF exports/ généré</li>
-<li>[ ] Vérifier logs CI/CD (warnings, errors)</li>
-<li>[ ] Attendre minimum 1h depuis staging deploy</li>
-</ul>
-<p>Si tout OK : Approve deployment production
-   ```</p>
-<ol>
-<li><strong>E2E tests bloquants</strong> :</li>
+<li>
+<p><strong>E2E tests bloquants</strong> :</p>
+</li>
 <li>Exécutés AVANT staging deploy</li>
 <li>Si échec : STOP, aucun deploy (staging ni production)</li>
 </ol>
@@ -939,67 +1446,67 @@ Total : 2-5 min (+ temps détection)
 <ol>
 <li>
 <p><strong>Vérification commits non mergés</strong> :
-   <code>bash
-   # Avant suppression draft, vérifier divergence
-   git log main..draft
-   # Attendu : vide (tous commits mergés)</code></p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Avant suppression draft, vérifier divergence</span>
+git<span class="w"> </span>log<span class="w"> </span>main..draft
+<span class="c1"># Attendu : vide (tous commits mergés)</span>
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Backup branche draft</strong> :
-   ```bash
-   # Créer tag archive avant suppression
-   git tag draft-archived-2025-10-22 draft
-   git push origin draft-archived-2025-10-22</p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Créer tag archive avant suppression</span>
+git<span class="w"> </span>tag<span class="w"> </span>draft-archived-2025-10-22<span class="w"> </span>draft
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>draft-archived-2025-10-22
+
+<span class="c1"># La branche reste accessible via tag même après suppression</span>
+</code></pre></div></p>
 </li>
-</ol>
-<p># La branche reste accessible via tag même après suppression
-   ```</p>
-<ol>
-<li><strong>Merge final main → draft</strong> :
-   ```bash
-   # Synchroniser draft avec main avant suppression
-   git checkout draft
-   git merge main
-   git push origin draft</li>
-</ol>
-<p># Vérifier divergence nulle
-   git log main..draft  # Doit être vide
-   git log draft..main  # Doit être vide
-   ```</p>
-<ol>
-<li><strong>Communication 1 semaine avant</strong> :</li>
+<li>
+<p><strong>Merge final main → draft</strong> :
+   <div class="highlight"><pre><span></span><code><span class="c1"># Synchroniser draft avec main avant suppression</span>
+git<span class="w"> </span>checkout<span class="w"> </span>draft
+git<span class="w"> </span>merge<span class="w"> </span>main
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>draft
+
+<span class="c1"># Vérifier divergence nulle</span>
+git<span class="w"> </span>log<span class="w"> </span>main..draft<span class="w">  </span><span class="c1"># Doit être vide</span>
+git<span class="w"> </span>log<span class="w"> </span>draft..main<span class="w">  </span><span class="c1"># Doit être vide</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Communication 1 semaine avant</strong> :</p>
+</li>
 <li>Notifier tous contributeurs</li>
 <li>"Branche draft sera supprimée le 2025-10-29"</li>
 <li>"Merci de merger toutes PR draft en cours"</li>
 </ol>
 <p><strong>Seuil échec</strong> : Si commits non mergés détectés → Annuler suppression draft</p>
-<hr/>
+<hr />
 <h3 id="8-checklist-migration-6-phases-7h-estimation">8. Checklist Migration (6 phases, 7h estimation)</h3>
 <h4 id="phase-1-preparation-1h">Phase 1 : Préparation (1h)</h4>
 <p><strong>Objectif</strong> : Vérifier état actuel, sauvegarder branche draft</p>
-<pre><code class="language-bash"># ✅ Vérifier divergence branches
-git log main..draft
-# Attendu : Liste commits draft pas dans main
+<div class="highlight"><pre><span></span><code><span class="c1"># ✅ Vérifier divergence branches</span>
+git<span class="w"> </span>log<span class="w"> </span>main..draft
+<span class="c1"># Attendu : Liste commits draft pas dans main</span>
 
-git log draft..main
-# Attendu : 2 commits (02a52e7 docs, 3c06ca1 rollback)
+git<span class="w"> </span>log<span class="w"> </span>draft..main
+<span class="c1"># Attendu : 2 commits (02a52e7 docs, 3c06ca1 rollback)</span>
 
-# ✅ Merger main → draft (synchronisation finale)
-git checkout draft
-git merge main --no-ff -m "sync: final merge main → draft avant migration Environments"
-git push origin draft
+<span class="c1"># ✅ Merger main → draft (synchronisation finale)</span>
+git<span class="w"> </span>checkout<span class="w"> </span>draft
+git<span class="w"> </span>merge<span class="w"> </span>main<span class="w"> </span>--no-ff<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;sync: final merge main → draft avant migration Environments&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>draft
 
-# ✅ Vérifier aucun commit non mergé
-git log main..draft
-# Attendu : vide (tous commits mergés)
+<span class="c1"># ✅ Vérifier aucun commit non mergé</span>
+git<span class="w"> </span>log<span class="w"> </span>main..draft
+<span class="c1"># Attendu : vide (tous commits mergés)</span>
 
-# ✅ Créer tag backup draft
-git tag draft-archived-2025-10-22 draft
-git push origin draft-archived-2025-10-22
+<span class="c1"># ✅ Créer tag backup draft</span>
+git<span class="w"> </span>tag<span class="w"> </span>draft-archived-2025-10-22<span class="w"> </span>draft
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>draft-archived-2025-10-22
 
-# ✅ Vérifier tag créé
-git tag -l | grep draft-archived
-</code></pre>
+<span class="c1"># ✅ Vérifier tag créé</span>
+git<span class="w"> </span>tag<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>draft-archived
+</code></pre></div>
 <p><strong>Checklist</strong> :
 - [ ] Merger main → draft (synchronisation)
 - [ ] Vérifier <code>git log main..draft</code> vide
@@ -1012,49 +1519,52 @@ git tag -l | grep draft-archived
 <ol>
 <li>
 <p><strong>Créer environment "staging"</strong> :
-   <code>Settings → Environments → New environment
-   Name: staging
-   Deployment branches: Selected branches → main
-   Protection rules: None
-   Save</code></p>
+   <div class="highlight"><pre><span></span><code>Settings → Environments → New environment
+Name: staging
+Deployment branches: Selected branches → main
+Protection rules: None
+Save
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Créer environment "production"</strong> :
-   <code>Settings → Environments → New environment
-   Name: production
-   Deployment branches: Selected branches → main
-   Protection rules:
-     ☑ Required reviewers
-       Add: [username_chef_snum]
-     ☑ Wait timer: 0 minutes (ou 30-60 si souhaité)
-   Save</code></p>
+   <div class="highlight"><pre><span></span><code>Settings → Environments → New environment
+Name: production
+Deployment branches: Selected branches → main
+Protection rules:
+  ☑ Required reviewers
+    Add: [username_chef_snum]
+  ☑ Wait timer: 0 minutes (ou 30-60 si souhaité)
+Save
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Configurer branch protection main</strong> :
-   <code>Settings → Branches → Branch protection rules → main → Edit
-   ☑ Require pull request before merging
-   ☑ Require approvals: 1
-   ☑ Dismiss stale reviews
-   ☑ Require status checks to pass: [build-and-test]
-   ☑ Require branches to be up to date
-   ☑ Restrict pushes (admins excepted)
-   Save changes</code></p>
+   <div class="highlight"><pre><span></span><code>Settings → Branches → Branch protection rules → main → Edit
+☑ Require pull request before merging
+☑ Require approvals: 1
+☑ Dismiss stale reviews
+☑ Require status checks to pass: [build-and-test]
+☑ Require branches to be up to date
+☑ Restrict pushes (admins excepted)
+Save changes
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Tester protection rules</strong> :
-   ```bash
-   # Créer PR test vers main
-   git checkout -b test/environment-setup
-   echo "test" &gt;&gt; README.md
-   git commit -m "test: validation environment setup"
-   git push -u origin test/environment-setup</p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Créer PR test vers main</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>test/environment-setup
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;test: validation environment setup&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>test/environment-setup
+
+<span class="c1"># Créer PR sur GitHub</span>
+<span class="c1"># Vérifier status check required (build-and-test)</span>
+<span class="c1"># Merger PR (après approval)</span>
+<span class="c1"># Vérifier notification deployment production pending</span>
+</code></pre></div></p>
 </li>
 </ol>
-<p># Créer PR sur GitHub
-   # Vérifier status check required (build-and-test)
-   # Merger PR (après approval)
-   # Vérifier notification deployment production pending
-   ```</p>
 <p><strong>Checklist</strong> :
 - [ ] Environment "staging" créé
 - [ ] Environment "production" créé avec reviewer Chef SNUM
@@ -1067,17 +1577,17 @@ git tag -l | grep draft-archived
 <ol>
 <li>
 <p><strong>Créer branche feature</strong> :
-   <code>bash
-   git checkout main
-   git pull origin main
-   git checkout -b feature/migrate-github-environments</code></p>
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/migrate-github-environments
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Sauvegarder workflow actuel</strong> :
-   <code>bash
-   cp .github/workflows/build.yml .github/workflows/build.yml.backup-2025-10-22
-   git add .github/workflows/build.yml.backup-2025-10-22
-   git commit -m "backup: sauvegarder workflow avant migration Environments"</code></p>
+   <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>.github/workflows/build.yml<span class="w"> </span>.github/workflows/build.yml.backup-2025-10-22
+git<span class="w"> </span>add<span class="w"> </span>.github/workflows/build.yml.backup-2025-10-22
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;backup: sauvegarder workflow avant migration Environments&quot;</span>
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Modifier workflow</strong> :</p>
@@ -1096,48 +1606,46 @@ git tag -l | grep draft-archived
 </li>
 <li>
 <p><strong>Tester workflow localement</strong> (act ou nektos) :
-   <code>bash
-   # Optionnel si act installé
-   act push -j build-and-test</code></p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Optionnel si act installé</span>
+act<span class="w"> </span>push<span class="w"> </span>-j<span class="w"> </span>build-and-test
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Commit et push</strong> :
-   ```bash
-   git add .github/workflows/build.yml
-   git commit -m "feat(ci): migrer architecture Environments (1 branche, 2 environments)</p>
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.github/workflows/build.yml
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat(ci): migrer architecture Environments (1 branche, 2 environments)</span>
+
+<span class="s2">- Supprimer job build-and-deploy-draft</span>
+<span class="s2">- Créer 3 jobs séquentiels (build-and-test, deploy-staging, deploy-production)</span>
+<span class="s2">- Ajouter environment: staging et production</span>
+<span class="s2">- Artifacts partagés entre jobs</span>
+<span class="s2">- E2E tests avant staging deploy (fail-fast)</span>
+
+<span class="s2">Refs: ADR-009&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/migrate-github-environments
+</code></pre></div></p>
 </li>
-<li>
-<p>Supprimer job build-and-deploy-draft</p>
-</li>
-<li>Créer 3 jobs séquentiels (build-and-test, deploy-staging, deploy-production)</li>
-<li>Ajouter environment: staging et production</li>
-<li>Artifacts partagés entre jobs</li>
-<li>E2E tests avant staging deploy (fail-fast)</li>
-</ol>
-<p>Refs: ADR-009"
-   git push -u origin feature/migrate-github-environments
-   ```</p>
-<ol>
 <li>
 <p><strong>Créer PR</strong> :
-   ```
-   Base: main
-   Compare: feature/migrate-github-environments
-   Title: feat(ci): migrer architecture GitHub Environments
-   Description:
-     Implémente ADR-009 : Migration 2 branches → 1 branche + 2 Environments</p>
-<p>Changes:
- - Workflow simplifié (456 → 300 lignes)
- - 3 jobs séquentiels au lieu de 2 parallèles
- - Environments staging/production
- - Approval gate Chef SNUM</p>
-<p>Testing:
- - [ ] Workflow passe sur PR
- - [ ] Build-and-test OK
- - [ ] (Après merge) Deploy staging OK
- - [ ] (Après merge) Notification production pending
- - [ ] (Approval) Deploy production OK
-   ```</p>
+   <div class="highlight"><pre><span></span><code>Base: main
+Compare: feature/migrate-github-environments
+Title: feat(ci): migrer architecture GitHub Environments
+Description:
+  Implémente ADR-009 : Migration 2 branches → 1 branche + 2 Environments
+
+  Changes:
+  - Workflow simplifié (456 → 300 lignes)
+  - 3 jobs séquentiels au lieu de 2 parallèles
+  - Environments staging/production
+  - Approval gate Chef SNUM
+
+  Testing:
+  - [ ] Workflow passe sur PR
+  - [ ] Build-and-test OK
+  - [ ] (Après merge) Deploy staging OK
+  - [ ] (Après merge) Notification production pending
+  - [ ] (Approval) Deploy production OK
+</code></pre></div></p>
 </li>
 </ol>
 <p><strong>Checklist</strong> :
@@ -1150,119 +1658,94 @@ git tag -l | grep draft-archived
 <p><strong>Objectif</strong> : Mettre à jour 15 fichiers Markdown</p>
 <p><strong>Fichiers à modifier</strong> (par priorité) :</p>
 <ol>
-<li><strong>CONTRIBUTING.md</strong> (15 min)
-   ```bash
-   # Modifications principales :</li>
-<li>Ligne 6 : draft → main</li>
-<li>Ligne 16 : blob/draft → blob/main</li>
-<li>Ligne 49 : Base draft → Base main</li>
 <li>
-<p>Ajouter section "Processus déploiement production"
-   ```</p>
+<p><strong>CONTRIBUTING.md</strong> (15 min)
+   <div class="highlight"><pre><span></span><code><span class="c1"># Modifications principales :</span>
+-<span class="w"> </span>Ligne<span class="w"> </span><span class="m">6</span><span class="w"> </span>:<span class="w"> </span>draft<span class="w"> </span>→<span class="w"> </span>main
+-<span class="w"> </span>Ligne<span class="w"> </span><span class="m">16</span><span class="w"> </span>:<span class="w"> </span>blob/draft<span class="w"> </span>→<span class="w"> </span>blob/main
+-<span class="w"> </span>Ligne<span class="w"> </span><span class="m">49</span><span class="w"> </span>:<span class="w"> </span>Base<span class="w"> </span>draft<span class="w"> </span>→<span class="w"> </span>Base<span class="w"> </span>main
+-<span class="w"> </span>Ajouter<span class="w"> </span>section<span class="w"> </span><span class="s2">&quot;Processus déploiement production&quot;</span>
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>docs/onboarding-visual.md</strong> (20 min)
-   ```bash
-   # Modifications :</p>
-</li>
-<li>Flowcharts base: draft → main</li>
-<li>Timeline : Ajouter approval Chef SNUM</li>
-<li>
-<p>FAQ : Expliquer délais déploiement
-   ```</p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Modifications :</span>
+-<span class="w"> </span>Flowcharts<span class="w"> </span>base:<span class="w"> </span>draft<span class="w"> </span>→<span class="w"> </span>main
+-<span class="w"> </span>Timeline<span class="w"> </span>:<span class="w"> </span>Ajouter<span class="w"> </span>approval<span class="w"> </span>Chef<span class="w"> </span>SNUM
+-<span class="w"> </span>FAQ<span class="w"> </span>:<span class="w"> </span>Expliquer<span class="w"> </span>délais<span class="w"> </span>déploiement
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>docs/architecture/infrastructure.md</strong> (15 min)
-   ```bash
-   # Section 5 "Déploiement GitHub Pages" :</p>
-</li>
-<li>2 environments au lieu de 2 branches</li>
-<li>
-<p>Diagrammes Mermaid
-   ```</p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Section 5 &quot;Déploiement GitHub Pages&quot; :</span>
+-<span class="w"> </span><span class="m">2</span><span class="w"> </span>environments<span class="w"> </span>au<span class="w"> </span>lieu<span class="w"> </span>de<span class="w"> </span><span class="m">2</span><span class="w"> </span>branches
+-<span class="w"> </span>Diagrammes<span class="w"> </span>Mermaid
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>docs/architecture/c4-diagrams.md</strong> (10 min)
-   ```bash
-   # Diagramme containers :</p>
-</li>
-<li>1 branche, 2 environments</li>
-<li>
-<p>Flux avec approval gate
-   ```</p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Diagramme containers :</span>
+-<span class="w"> </span><span class="m">1</span><span class="w"> </span>branche,<span class="w"> </span><span class="m">2</span><span class="w"> </span>environments
+-<span class="w"> </span>Flux<span class="w"> </span>avec<span class="w"> </span>approval<span class="w"> </span>gate
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>docs/architecture/uml-diagrams.md</strong> (15 min)
-   ```bash
-   # Diagramme états PR :</p>
-</li>
-<li>
-<p>Base main au lieu de draft
-   # Diagramme activité contributeur
-   ```</p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Diagramme états PR :</span>
+-<span class="w"> </span>Base<span class="w"> </span>main<span class="w"> </span>au<span class="w"> </span>lieu<span class="w"> </span>de<span class="w"> </span>draft
+<span class="c1"># Diagramme activité contributeur</span>
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>docs/architecture/diagrams.md</strong> (10 min)
-   ```bash
-   # Workflow Git :</p>
-</li>
-<li>
-<p>Simplifier (enlever draft)
-   ```</p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Workflow Git :</span>
+-<span class="w"> </span>Simplifier<span class="w"> </span><span class="o">(</span>enlever<span class="w"> </span>draft<span class="o">)</span>
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>README.md</strong> (5 min)
-   ```bash
-   # Badge CI/CD :</p>
-</li>
-<li>
-<p>1 workflow au lieu de 2
-   ```</p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Badge CI/CD :</span>
+-<span class="w"> </span><span class="m">1</span><span class="w"> </span>workflow<span class="w"> </span>au<span class="w"> </span>lieu<span class="w"> </span>de<span class="w"> </span><span class="m">2</span>
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>CLAUDE.md</strong> (10 min)
-   ```bash
-   # Section Workflow Git :</p>
-</li>
-<li>feature → main</li>
-<li>Supprimer références draft</li>
-<li>
-<p>Ajouter concept Environments
-   ```</p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Section Workflow Git :</span>
+-<span class="w"> </span>feature<span class="w"> </span>→<span class="w"> </span>main
+-<span class="w"> </span>Supprimer<span class="w"> </span>références<span class="w"> </span>draft
+-<span class="w"> </span>Ajouter<span class="w"> </span>concept<span class="w"> </span>Environments
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>docs/glossary.md</strong> (10 min)
-   ```bash
-   # Ajouter définition :</p>
-</li>
-<li>GitHub Environments
-   # Mettre à jour :</li>
-<li>
-<p>Branches (1 au lieu de 2)
-   ```</p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Ajouter définition :</span>
+-<span class="w"> </span>GitHub<span class="w"> </span>Environments
+<span class="c1"># Mettre à jour :</span>
+-<span class="w"> </span>Branches<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>au<span class="w"> </span>lieu<span class="w"> </span>de<span class="w"> </span><span class="m">2</span><span class="o">)</span>
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Créer ADR-009</strong> (30 min)
-    <code>bash
-    # Ce fichier actuel</code></p>
+    <div class="highlight"><pre><span></span><code><span class="c1"># Ce fichier actuel</span>
+</code></pre></div></p>
 </li>
 </ol>
 <p><strong>Script automatisation</strong> (optionnel) :</p>
-<pre><code class="language-bash">#!/bin/bash
-# scripts/update_docs_after_environments.sh
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1"># scripts/update_docs_after_environments.sh</span>
 
-# Remplacements globaux
-find docs/ -name "*.md" -type f -exec sed -i.bak \
-  's/blob\/draft/blob\/main/g' {} \;
+<span class="c1"># Remplacements globaux</span>
+find<span class="w"> </span>docs/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.md&quot;</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-exec<span class="w"> </span>sed<span class="w"> </span>-i.bak<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;s/blob\/draft/blob\/main/g&#39;</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
 
-find docs/ -name "*.md" -type f -exec sed -i.bak \
-  's/Base: `draft`/Base: `main`/g' {} \;
+find<span class="w"> </span>docs/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.md&quot;</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-exec<span class="w"> </span>sed<span class="w"> </span>-i.bak<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;s/Base: `draft`/Base: `main`/g&#39;</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
 
-# Nettoyer backups
-find docs/ -name "*.md.bak" -delete
+<span class="c1"># Nettoyer backups</span>
+find<span class="w"> </span>docs/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.md.bak&quot;</span><span class="w"> </span>-delete
 
-echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
-</code></pre>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Documentation mise à jour (vérifier diffs avant commit)&quot;</span>
+</code></pre></div>
 <p><strong>Checklist</strong> :
 - [ ] CONTRIBUTING.md modifié
 - [ ] onboarding-visual.md modifié
@@ -1278,88 +1761,91 @@ echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
 <ol>
 <li>
 <p><strong>Merger PR workflow</strong> (Phase 3) :
-   <code># Sur GitHub
-   PR feature/migrate-github-environments
-   Review: Approved by validateur
-   Merge: Squash and merge (ou merge commit)</code></p>
+   <div class="highlight"><pre><span></span><code># Sur GitHub
+PR feature/migrate-github-environments
+Review: Approved by validateur
+Merge: Squash and merge (ou merge commit)
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Observer déploiement staging</strong> :
-   ```
-   # GitHub Actions : Workflow déclenché automatiquement
-   Job 1: build-and-test → ✅ (6 min)
-   Job 2: deploy-staging → ✅ (2 min)
-   Job 3: deploy-production → ⏳ Waiting for approval</p>
+   <div class="highlight"><pre><span></span><code># GitHub Actions : Workflow déclenché automatiquement
+Job 1: build-and-test → ✅ (6 min)
+Job 2: deploy-staging → ✅ (2 min)
+Job 3: deploy-production → ⏳ Waiting for approval
+
+# Vérifier /draft/
+https://alexmacapple.github.io/span-sg/draft/
+</code></pre></div></p>
 </li>
-</ol>
-<p># Vérifier /draft/
-   https://alexmacapple.github.io/span-sg/draft/
-   ```</p>
-<ol>
-<li><strong>Approuver déploiement production (test)</strong> :
-   ```
-   # Deployments tab
-   Environment: production
-   Status: Pending approval
-   Reviewer: Chef SNUM
-   Action: Review deployment → Approve</li>
-</ol>
-<p># Observer déploiement
-   Job 3: deploy-production → ✅ (2 min)</p>
-<p># Vérifier / production
-   https://alexmacapple.github.io/span-sg/
-   ```</p>
-<ol>
+<li>
+<p><strong>Approuver déploiement production (test)</strong> :
+   <div class="highlight"><pre><span></span><code># Deployments tab
+Environment: production
+Status: Pending approval
+Reviewer: Chef SNUM
+Action: Review deployment → Approve
+
+# Observer déploiement
+Job 3: deploy-production → ✅ (2 min)
+
+# Vérifier / production
+https://alexmacapple.github.io/span-sg/
+</code></pre></div></p>
+</li>
 <li>
 <p><strong>Merger PR documentation</strong> (Phase 4) :
-   ```bash
-   # Créer PR docs/
-   git checkout -b feature/update-docs-environments
-   git add docs/ CONTRIBUTING.md README.md CLAUDE.md
-   git commit -m "docs: mettre à jour workflow (2 branches → Environments)</p>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Créer PR docs/</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/update-docs-environments
+git<span class="w"> </span>add<span class="w"> </span>docs/<span class="w"> </span>CONTRIBUTING.md<span class="w"> </span>README.md<span class="w"> </span>CLAUDE.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs: mettre à jour workflow (2 branches → Environments)</span>
+
+<span class="s2">- CONTRIBUTING.md : PR vers main</span>
+<span class="s2">- onboarding-visual.md : Flowcharts mis à jour</span>
+<span class="s2">- architecture/*.md : Diagrammes Environments</span>
+<span class="s2">- glossary.md : Définition Environments</span>
+<span class="s2">- ADR-009 : Documentation migration</span>
+
+<span class="s2">Refs: ADR-009&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/update-docs-environments
+
+<span class="c1"># Créer PR, merger</span>
+</code></pre></div></p>
 </li>
 <li>
-<p>CONTRIBUTING.md : PR vers main</p>
+<p><strong>Supprimer branche draft</strong> :
+   <div class="highlight"><pre><span></span><code><span class="c1"># ATTENTION : Vérifier backup tag existe</span>
+git<span class="w"> </span>tag<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>draft-archived-2025-10-22
+<span class="c1"># Attendu : draft-archived-2025-10-22</span>
+
+<span class="c1"># Supprimer branche remote</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>:draft
+
+<span class="c1"># Vérifier branche supprimée</span>
+git<span class="w"> </span>ls-remote<span class="w"> </span>--heads<span class="w"> </span>origin<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>draft
+<span class="c1"># Attendu : vide</span>
+
+<span class="c1"># Nettoyer tracking local</span>
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>draft
+</code></pre></div></p>
 </li>
-<li>onboarding-visual.md : Flowcharts mis à jour</li>
-<li>architecture/*.md : Diagrammes Environments</li>
-<li>glossary.md : Définition Environments</li>
-<li>ADR-009 : Documentation migration</li>
+<li>
+<p><strong>Vérifier 3 URLs</strong> :
+   <div class="highlight"><pre><span></span><code><span class="c1"># Local (inchangé)</span>
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-dsfr.yml<span class="w"> </span>up
+curl<span class="w"> </span>-I<span class="w"> </span>http://localhost:8000/span-sg/
+<span class="c1"># Attendu : 200 OK</span>
+
+<span class="c1"># Staging /draft/</span>
+curl<span class="w"> </span>-I<span class="w"> </span>https://alexmacapple.github.io/span-sg/draft/
+<span class="c1"># Attendu : 200 OK</span>
+
+<span class="c1"># Production /</span>
+curl<span class="w"> </span>-I<span class="w"> </span>https://alexmacapple.github.io/span-sg/
+<span class="c1"># Attendu : 200 OK</span>
+</code></pre></div></p>
+</li>
 </ol>
-<p>Refs: ADR-009"
-   git push -u origin feature/update-docs-environments</p>
-<p># Créer PR, merger
-   ```</p>
-<ol>
-<li><strong>Supprimer branche draft</strong> :
-   ```bash
-   # ATTENTION : Vérifier backup tag existe
-   git tag -l | grep draft-archived-2025-10-22
-   # Attendu : draft-archived-2025-10-22</li>
-</ol>
-<p># Supprimer branche remote
-   git push origin :draft</p>
-<p># Vérifier branche supprimée
-   git ls-remote --heads origin | grep draft
-   # Attendu : vide</p>
-<p># Nettoyer tracking local
-   git branch -d draft
-   ```</p>
-<ol>
-<li><strong>Vérifier 3 URLs</strong> :
-   ```bash
-   # Local (inchangé)
-   docker compose -f docker-compose-dsfr.yml up
-   curl -I http://localhost:8000/span-sg/
-   # Attendu : 200 OK</li>
-</ol>
-<p># Staging /draft/
-   curl -I https://alexmacapple.github.io/span-sg/draft/
-   # Attendu : 200 OK</p>
-<p># Production /
-   curl -I https://alexmacapple.github.io/span-sg/
-   # Attendu : 200 OK
-   ```</p>
 <p><strong>Checklist</strong> :
 - [ ] PR workflow mergée sur main
 - [ ] Deploy staging automatique réussi
@@ -1375,96 +1861,119 @@ echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
 <p><strong>Objectif</strong> : Notifier équipe, mettre à jour documentation publique</p>
 <p><strong>Étapes</strong> :</p>
 <ol>
-<li><strong>Notifier validateurs</strong> (Bertrand, Alex) :
-   ```markdown
-   Sujet: [SPAN SG] Migration GitHub Environments terminée</li>
+<li>
+<p><strong>Notifier validateurs</strong> (Bertrand, Alex) :
+   <div class="highlight"><pre><span></span><code>Sujet: [SPAN SG] Migration GitHub Environments terminée
+
+Bonjour Bertrand et Alex,
+
+La migration architecture 2 branches → GitHub Environments est terminée.
+
+<span class="gs">**Changements pour vous**</span> :
+<span class="k">-</span><span class="w"> </span>Toutes les PRs ciblent maintenant <span class="sb">`main`</span> (plus de <span class="sb">`draft`</span>)
+<span class="k">-</span><span class="w"> </span>Branche <span class="sb">`draft`</span> supprimée (backup : tag draft-archived-2025-10-22)
+<span class="k">-</span><span class="w"> </span>Workflow simplifié : 1 seul workflow CI/CD
+<span class="k">-</span><span class="w"> </span>Dashboard deployments : https://github.com/Alexmacapple/span-sg/deployments
+
+<span class="gs">**Actions requises**</span> :
+<span class="k">-</span><span class="w"> </span>Mettre à jour bookmarks (plus de branche draft)
+<span class="k">-</span><span class="w"> </span>Review PRs vers main (inchangé pour vous)
+<span class="k">-</span><span class="w"> </span>Consulter dashboard deployments si besoin
+
+Documentation mise à jour :
+<span class="k">-</span><span class="w"> </span>CONTRIBUTING.md
+<span class="k">-</span><span class="w"> </span>docs/onboarding-visual.md
+<span class="k">-</span><span class="w"> </span>ADR-009
+
+Merci,
+[Votre nom]
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Notifier Chef SNUM</strong> :
+   <div class="highlight"><pre><span></span><code>Sujet: [SPAN SG] Nouveau processus approval déploiements production
+
+Bonjour [Chef SNUM],
+
+Le projet SPAN SG a migré vers GitHub Environments pour simplifier les déploiements.
+
+<span class="gs">**Nouveau processus pour vous**</span> :
+
+Vous recevrez maintenant des notifications email GitHub :
+&quot;Deployment to production pending review&quot;
+
+Pour approuver un déploiement :
+<span class="k">1.</span> Aller sur https://github.com/Alexmacapple/span-sg/deployments
+<span class="k">2.</span> Cliquer environment &quot;production&quot; → Status &quot;Pending&quot;
+<span class="k">3.</span> Review staging /draft/ (preview avant production)
+<span class="k">4.</span> Cliquer &quot;Review deployment&quot; → &quot;Approve&quot;
+<span class="k">5.</span> Production déployée automatiquement sous 5 minutes
+
+<span class="gs">**Avantages pour vous**</span> :
+<span class="k">-</span><span class="w"> </span>Plus flexible : approuver immédiatement (hotfix) ou attendre accumulation (batch)
+<span class="k">-</span><span class="w"> </span>Rollback instantané : Re-run deployment précédent (2 min au lieu de 10 min)
+<span class="k">-</span><span class="w"> </span>Dashboard centralisé : Vue complète déploiements staging + production
+
+Guide détaillé : [URL vers guide Chef SNUM]
+
+N&#39;hésitez pas si questions,
+[Votre nom]
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Notifier contributeurs</strong> :
+   <div class="highlight"><pre><span></span><code><span class="gh"># GitHub Discussions ou email groupe</span>
+
+Sujet: [SPAN SG] Nouveau workflow contribution (branche draft supprimée)
+
+Bonjour à tous,
+
+Le workflow contribution SPAN SG a été simplifié :
+
+<span class="gs">**Changement principal**</span> :
+Toutes les Pull Requests ciblent maintenant la branche <span class="sb">`main`</span> (au lieu de <span class="sb">`draft`</span>)
+
+<span class="gs">**Workflow mis à jour**</span> :
+<span class="k">1.</span> Créer branche feature/update-[service]
+<span class="k">2.</span> Éditer docs/modules/[service].md
+<span class="k">3.</span> Créer PR vers <span class="sb">`main`</span> (changement ici)
+<span class="k">4.</span> Review validateur (2-5j, inchangé)
+<span class="k">5.</span> Merge → deploy /draft/ staging automatique
+<span class="k">6.</span> Approval Chef SNUM → deploy / production
+
+<span class="gs">**Documentation**</span> :
+<span class="k">-</span><span class="w"> </span>CONTRIBUTING.md : Instructions mises à jour
+<span class="k">-</span><span class="w"> </span>docs/onboarding-visual.md : Flowcharts mis à jour
+
+La branche <span class="sb">`draft`</span> a été supprimée (sauvegarde : tag draft-archived-2025-10-22)
+
+Merci de votre compréhension,
+[Votre nom]
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Mettre à jour README.md</strong> (si badge CI/CD) :
+   <div class="highlight"><pre><span></span><code><span class="gh"># Avant</span>
+![<span class="nt">Build Draft</span>](<span class="na">https://github.com/Alexmacapple/span-sg/actions/workflows/build.yml/badge.svg?branch=draft</span>)
+![<span class="nt">Build Main</span>](<span class="na">https://github.com/Alexmacapple/span-sg/actions/workflows/build.yml/badge.svg?branch=main</span>)
+
+<span class="gh"># Après</span>
+![<span class="nt">Build and Deploy</span>](<span class="na">https://github.com/Alexmacapple/span-sg/actions/workflows/build.yml/badge.svg?branch=main</span>)
+</code></pre></div></p>
+</li>
 </ol>
-<p>Bonjour Bertrand et Alex,</p>
-<p>La migration architecture 2 branches → GitHub Environments est terminée.</p>
-<p><strong>Changements pour vous</strong> :
-   - Toutes les PRs ciblent maintenant <code>main</code> (plus de <code>draft</code>)
-   - Branche <code>draft</code> supprimée (backup : tag draft-archived-2025-10-22)
-   - Workflow simplifié : 1 seul workflow CI/CD
-   - Dashboard deployments : https://github.com/Alexmacapple/span-sg/deployments</p>
-<p><strong>Actions requises</strong> :
-   - Mettre à jour bookmarks (plus de branche draft)
-   - Review PRs vers main (inchangé pour vous)
-   - Consulter dashboard deployments si besoin</p>
-<p>Documentation mise à jour :
-   - CONTRIBUTING.md
-   - docs/onboarding-visual.md
-   - ADR-009</p>
-<p>Merci,
-   [Votre nom]
-   ```</p>
-<ol>
-<li><strong>Notifier Chef SNUM</strong> :
-   ```markdown
-   Sujet: [SPAN SG] Nouveau processus approval déploiements production</li>
-</ol>
-<p>Bonjour [Chef SNUM],</p>
-<p>Le projet SPAN SG a migré vers GitHub Environments pour simplifier les déploiements.</p>
-<p><strong>Nouveau processus pour vous</strong> :</p>
-<p>Vous recevrez maintenant des notifications email GitHub :
-   "Deployment to production pending review"</p>
-<p>Pour approuver un déploiement :
-   1. Aller sur https://github.com/Alexmacapple/span-sg/deployments
-   2. Cliquer environment "production" → Status "Pending"
-   3. Review staging /draft/ (preview avant production)
-   4. Cliquer "Review deployment" → "Approve"
-   5. Production déployée automatiquement sous 5 minutes</p>
-<p><strong>Avantages pour vous</strong> :
-   - Plus flexible : approuver immédiatement (hotfix) ou attendre accumulation (batch)
-   - Rollback instantané : Re-run deployment précédent (2 min au lieu de 10 min)
-   - Dashboard centralisé : Vue complète déploiements staging + production</p>
-<p>Guide détaillé : [URL vers guide Chef SNUM]</p>
-<p>N'hésitez pas si questions,
-   [Votre nom]
-   ```</p>
-<ol>
-<li><strong>Notifier contributeurs</strong> :
-   ```markdown
-   # GitHub Discussions ou email groupe</li>
-</ol>
-<p>Sujet: [SPAN SG] Nouveau workflow contribution (branche draft supprimée)</p>
-<p>Bonjour à tous,</p>
-<p>Le workflow contribution SPAN SG a été simplifié :</p>
-<p><strong>Changement principal</strong> :
-   Toutes les Pull Requests ciblent maintenant la branche <code>main</code> (au lieu de <code>draft</code>)</p>
-<p><strong>Workflow mis à jour</strong> :
-   1. Créer branche feature/update-[service]
-   2. Éditer docs/modules/[service].md
-   3. Créer PR vers <code>main</code> (changement ici)
-   4. Review validateur (2-5j, inchangé)
-   5. Merge → deploy /draft/ staging automatique
-   6. Approval Chef SNUM → deploy / production</p>
-<p><strong>Documentation</strong> :
-   - CONTRIBUTING.md : Instructions mises à jour
-   - docs/onboarding-visual.md : Flowcharts mis à jour</p>
-<p>La branche <code>draft</code> a été supprimée (sauvegarde : tag draft-archived-2025-10-22)</p>
-<p>Merci de votre compréhension,
-   [Votre nom]
-   ```</p>
-<ol>
-<li><strong>Mettre à jour README.md</strong> (si badge CI/CD) :
-   ```markdown
-   # Avant
-   <img alt="Build Draft" src="https://github.com/Alexmacapple/span-sg/actions/workflows/build.yml/badge.svg?branch=draft"/>
-<img alt="Build Main" src="https://github.com/Alexmacapple/span-sg/actions/workflows/build.yml/badge.svg?branch=main"/></li>
-</ol>
-<p># Après
-   <img alt="Build and Deploy" src="https://github.com/Alexmacapple/span-sg/actions/workflows/build.yml/badge.svg?branch=main"/>
-   ```</p>
 <p><strong>Checklist</strong> :
 - [ ] Email validateurs envoyé
 - [ ] Email Chef SNUM envoyé
 - [ ] Annonce contributeurs publiée (Discussions/Slack)
 - [ ] README.md badge mis à jour
 - [ ] Guide Chef SNUM créé (optionnel)</p>
-<hr/>
+<hr />
 <h3 id="9-comparaison-couts-maintenance">9. Comparaison Coûts Maintenance</h3>
 <h4 id="temps-maintenance-annuel">Temps maintenance annuel</h4>
 <p><strong>Avant (2 branches)</strong> :</p>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -1507,8 +2016,12 @@ echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <p><strong>Total : 11h/an</strong></p>
 <p><strong>Après (1 branche + Environments)</strong> :</p>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -1557,9 +2070,13 @@ echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <p><strong>Total : 3.3h/an</strong></p>
 <p><strong>Gain : 7.7h/an (70% réduction)</strong></p>
 <h4 id="cout-initial-migration">Coût initial migration</h4>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -1601,15 +2118,19 @@ echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <p><strong>Total : 7h développeur + 15 min Chef SNUM</strong></p>
 <p><strong>ROI (Return on Investment)</strong> :
 - Coût migration : 7h
 - Gain annuel : 7.7h/an
 - ROI : 7.7h / 7h = <strong>110% la première année</strong>
 - Rentabilisé après : <strong>11 mois</strong></p>
-<hr/>
+<hr />
 <h3 id="10-metriques-succes">10. Métriques Succès</h3>
 <h4 id="objectifs-mesurables">Objectifs mesurables</h4>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -1672,42 +2193,44 @@ echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <h4 id="tests-validation-post-migration">Tests validation post-migration</h4>
-<p><strong>Test 1 : Contribution normale</strong> :</p>
-<pre><code class="language-bash"># Créer PR test vers main
-git checkout -b test/post-migration
-echo "test" &gt;&gt; README.md
-git commit -m "test: validation post-migration"
-git push -u origin test/post-migration
+<p><strong>Test 1 : Contribution normale</strong> :
+<div class="highlight"><pre><span></span><code><span class="c1"># Créer PR test vers main</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>test/post-migration
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;test: validation post-migration&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>test/post-migration
 
-# Créer PR, merger
-# Vérifier :
-- [ ] Deploy staging automatique (&lt; 10 min)
-- [ ] Notification Chef SNUM reçue
-- [ ] /draft/ accessible
-</code></pre>
-<p><strong>Test 2 : Approval production</strong> :</p>
-<pre><code class="language-bash"># Chef SNUM approve deployment
-# Vérifier :
-- [ ] Deploy production automatique (&lt; 5 min)
-- [ ] / production accessible
-- [ ] Deployments tab affiche status Active
-</code></pre>
-<p><strong>Test 3 : Rollback production</strong> :</p>
-<pre><code class="language-bash"># Re-run deployment précédent
-# Vérifier :
-- [ ] Rollback réussi (&lt; 5 min)
-- [ ] / production restaurée version précédente
-- [ ] Aucun rebuild CI/CD nécessaire
-</code></pre>
-<p><strong>Test 4 : Workflow contributeur débutant</strong> :</p>
-<pre><code class="language-bash"># Demander contributeur service créer PR
-# Vérifier :
-- [ ] PR ciblée vers main (pas d'erreur)
-- [ ] Review validateur OK
-- [ ] Merge réussi
-- [ ] Contributeur satisfait (feedback)
-</code></pre>
+<span class="c1"># Créer PR, merger</span>
+<span class="c1"># Vérifier :</span>
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>Deploy<span class="w"> </span>staging<span class="w"> </span>automatique<span class="w"> </span><span class="o">(</span>&lt;<span class="w"> </span><span class="m">10</span><span class="w"> </span>min<span class="o">)</span>
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>Notification<span class="w"> </span>Chef<span class="w"> </span>SNUM<span class="w"> </span>reçue
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>/draft/<span class="w"> </span>accessible
+</code></pre></div></p>
+<p><strong>Test 2 : Approval production</strong> :
+<div class="highlight"><pre><span></span><code><span class="c1"># Chef SNUM approve deployment</span>
+<span class="c1"># Vérifier :</span>
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>Deploy<span class="w"> </span>production<span class="w"> </span>automatique<span class="w"> </span><span class="o">(</span>&lt;<span class="w"> </span><span class="m">5</span><span class="w"> </span>min<span class="o">)</span>
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>/<span class="w"> </span>production<span class="w"> </span>accessible
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>Deployments<span class="w"> </span>tab<span class="w"> </span>affiche<span class="w"> </span>status<span class="w"> </span>Active
+</code></pre></div></p>
+<p><strong>Test 3 : Rollback production</strong> :
+<div class="highlight"><pre><span></span><code><span class="c1"># Re-run deployment précédent</span>
+<span class="c1"># Vérifier :</span>
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>Rollback<span class="w"> </span>réussi<span class="w"> </span><span class="o">(</span>&lt;<span class="w"> </span><span class="m">5</span><span class="w"> </span>min<span class="o">)</span>
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>/<span class="w"> </span>production<span class="w"> </span>restaurée<span class="w"> </span>version<span class="w"> </span>précédente
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>Aucun<span class="w"> </span>rebuild<span class="w"> </span>CI/CD<span class="w"> </span>nécessaire
+</code></pre></div></p>
+<p><strong>Test 4 : Workflow contributeur débutant</strong> :
+<div class="highlight"><pre><span></span><code><span class="c1"># Demander contributeur service créer PR</span>
+<span class="c1"># Vérifier :</span>
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>PR<span class="w"> </span>ciblée<span class="w"> </span>vers<span class="w"> </span>main<span class="w"> </span><span class="o">(</span>pas<span class="w"> </span>d<span class="err">&#39;</span>erreur<span class="o">)</span>
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>Review<span class="w"> </span>validateur<span class="w"> </span>OK
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>Merge<span class="w"> </span>réussi
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>Contributeur<span class="w"> </span>satisfait<span class="w"> </span><span class="o">(</span>feedback<span class="o">)</span>
+</code></pre></div></p>
 <h4 id="seuils-decision-revert">Seuils décision revert</h4>
 <p><strong>Conditions revert architecture (retour 2 branches)</strong> :</p>
 <ol>
@@ -1718,27 +2241,27 @@ git push -u origin test/post-migration
 <li><strong>Incidents production</strong> : Si &gt; 3 incidents/mois liés à déploiements rapides</li>
 </ol>
 <p><strong>Procédure revert</strong> (si seuils atteints) :</p>
-<pre><code class="language-bash"># 1. Recréer branche draft depuis main
-git checkout -b draft main
-git push -u origin draft
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Recréer branche draft depuis main</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>draft<span class="w"> </span>main
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>draft
 
-# 2. Restaurer workflow 2 jobs depuis backup
-cp .github/workflows/build.yml.backup-2025-10-22 .github/workflows/build.yml
+<span class="c1"># 2. Restaurer workflow 2 jobs depuis backup</span>
+cp<span class="w"> </span>.github/workflows/build.yml.backup-2025-10-22<span class="w"> </span>.github/workflows/build.yml
 
-# 3. Supprimer environments GitHub (Settings → Environments → Delete)
+<span class="c1"># 3. Supprimer environments GitHub (Settings → Environments → Delete)</span>
 
-# 4. Mettre à jour documentation (revert modifications Phase 4)
+<span class="c1"># 4. Mettre à jour documentation (revert modifications Phase 4)</span>
 
-# 5. Notifier équipe
-</code></pre>
-<hr/>
+<span class="c1"># 5. Notifier équipe</span>
+</code></pre></div>
+<hr />
 <h2 id="alternatives-considerees">Alternatives Considérées</h2>
 <h3 id="alternative-1-workflow-strict-2-branches-auto-sync">Alternative 1 : Workflow strict 2 branches + Auto-sync</h3>
-<p><strong>Architecture</strong> :</p>
-<pre><code>feature → draft → /draft/
+<p><strong>Architecture</strong> :
+<div class="highlight"><pre><span></span><code>feature → draft → /draft/
 draft (batch) → main → /
 main → GitHub Action auto-sync → draft (automatique)
-</code></pre>
+</code></pre></div></p>
 <p><strong>Avantages</strong> :
 - Conserve architecture 2 branches (familière)
 - Auto-sync évite divergence
@@ -1750,11 +2273,11 @@ main → GitHub Action auto-sync → draft (automatique)
 - Pas de rollback facile</p>
 <p><strong>Raison rejet</strong> : Complexité identique, pas de gain maintenance</p>
 <h3 id="alternative-2-tag-based-deployments">Alternative 2 : Tag-based deployments</h3>
-<p><strong>Architecture</strong> :</p>
-<pre><code>feature → main
+<p><strong>Architecture</strong> :
+<div class="highlight"><pre><span></span><code>feature → main
 Tag vX.Y.Z-rc → /draft/ staging
 Tag vX.Y.Z → / production
-</code></pre>
+</code></pre></div></p>
 <p><strong>Avantages</strong> :
 - Versioning explicite
 - Rollback facile (retag)
@@ -1765,10 +2288,10 @@ Tag vX.Y.Z → / production
 - Pas de preview automatique staging</p>
 <p><strong>Raison rejet</strong> : Complexité accrue contributeurs, moins flexible</p>
 <h3 id="alternative-3-stacked-prs-draft-pr-main-pr">Alternative 3 : Stacked PRs (draft PR → main PR)</h3>
-<p><strong>Architecture</strong> :</p>
-<pre><code>feature → PR draft (no merge)
+<p><strong>Architecture</strong> :
+<div class="highlight"><pre><span></span><code>feature → PR draft (no merge)
 PR draft reviewed → Convert to main → Merge
-</code></pre>
+</code></pre></div></p>
 <p><strong>Avantages</strong> :
 - 1 branche unique
 - Review en 2 temps (draft puis main)</p>
@@ -1777,7 +2300,7 @@ PR draft reviewed → Convert to main → Merge
 - Complexité review process
 - Pas de staging automatique</p>
 <p><strong>Raison rejet</strong> : Workaround fragile, pas de gain clair</p>
-<hr/>
+<hr />
 <h2 id="consequences">Conséquences</h2>
 <h3 id="positives">Positives</h3>
 <ol>
@@ -1849,7 +2372,7 @@ PR draft reviewed → Convert to main → Merge
 <li>Si GitHub down : Pas de déploiements</li>
 <li>Lock-in plateforme</li>
 </ol>
-<hr/>
+<hr />
 <h2 id="decision">Décision</h2>
 <p><strong>Recommandation</strong> : <strong>APPROUVER</strong> migration GitHub Environments</p>
 <p><strong>Justification</strong> :</p>
@@ -1874,7 +2397,7 @@ PR draft reviewed → Convert to main → Merge
 <li><strong>Exécution migration</strong> : Suivre checklist 6 phases (7h)</li>
 <li><strong>Monitoring post-migration</strong> : Métriques succès pendant 6 mois</li>
 </ol>
-<hr/>
+<hr />
 <h2 id="resultat-de-limplementation">Résultat de l'Implémentation</h2>
 <h3 id="statut-final-migration-complete-et-operationnelle">Statut Final : MIGRATION COMPLÈTE ET OPÉRATIONNELLE</h3>
 <p><strong>Date implémentation</strong> : 2025-10-22
@@ -1912,13 +2435,13 @@ PR draft reviewed → Convert to main → Merge
 <li>Reviewers : null (désactivé pour éviter self-approval)</li>
 <li>URL : https://alexmacapple.github.io/span-sg/</li>
 </ul>
-<p><strong>Workflow CI/CD Final :</strong></p>
-<pre><code>Push main → build-and-test (~5min)
+<p><strong>Workflow CI/CD Final :</strong>
+<div class="highlight"><pre><span></span><code>Push main → build-and-test (~5min)
            ├─ deploy-staging → /draft/ (~1min) [séquentiel]
            └─ deploy-production → / (~1min) [séquentiel après staging]
 
 Temps total : ~7min (vs ~6-10min avant, acceptable pour fiabilité)
-</code></pre>
+</code></pre></div></p>
 <h3 id="metriques-de-validation">Métriques de Validation</h3>
 <p><strong>Tests post-migration (4/4 réussis) :</strong>
 1. Build réussit : ✓ (run 18721249064)
@@ -1944,6 +2467,8 @@ Temps total : ~7min (vs ~6-10min avant, acceptable pour fiabilité)
 <li>Rollback difficile : ✓ Simplifié (revert Git classique)</li>
 </ol>
 <h3 id="cout-reel-vs-estime">Coût Réel vs Estimé</h3>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -1986,6 +2511,8 @@ Temps total : ~7min (vs ~6-10min avant, acceptable pour fiabilité)
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <p><strong>Analyse écart :</strong> +1h dû aux 3 corrections itératives (non anticipées). Acceptable car architecture finale 100% stable.</p>
 <h3 id="gains-mesurables-confirmes">Gains Mesurables Confirmés</h3>
 <p><strong>Gains immédiats :</strong>
@@ -2017,7 +2544,7 @@ Temps total : ~7min (vs ~6-10min avant, acceptable pour fiabilité)
 - 3 URLs conservées (local, /draft/, /)
 - Documentation complète et à jour
 - Version taguée et tracée (v1.2.0-environments)</p>
-<hr/>
+<hr />
 <h2 id="references">Références</h2>
 <ul>
 <li><a href="https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment">GitHub Environments Documentation</a></li>
@@ -2026,8 +2553,10 @@ Temps total : ~7min (vs ~6-10min avant, acceptable pour fiabilité)
 <li><a href="https://github.com/Alexmacapple/span-sg/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a></li>
 <li><a href="../../onboarding-visual/">docs/onboarding-visual.md</a></li>
 </ul>
-<hr/>
+<hr />
 <h2 id="changelog">Changelog</h2>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -2053,34 +2582,197 @@ Temps total : ~7min (vs ~6-10min avant, acceptable pour fiabilité)
 </tbody>
 </table>
 </div>
-</div><footer>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
+</div>
+                        
+                        
+                        <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
+                        
+                    </div>
+                    <hr />
+                    
+                </div>
+            </div>
+            <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
+                <div class="fr-container fr-container--fluid fr-container-md">
+                    <div class="fr-grid-row fr-grid-row--center">
+                        <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
+                            <div class="fr-modal__body">
+                                <div class="fr-modal__header">
+                                    <button class="fr-btn--close fr-btn" aria-controls="fr-theme-modal" title="Fermer">
+                                        Fermer
+                                    </button>
+                                </div>
+                                <div class="fr-modal__content">
+                                    <h1 id="fr-theme-modal-title" class="fr-modal__title">
+                                        Paramètres d’affichage </h1>
+                                    <div id="fr-display" class="fr-display">
+                                        <div class="fr-form-group">
+                                            <fieldset class="fr-fieldset">
+                                                <legend class="fr-fieldset__legend fr-text--regular" id='-legend'>
+                                                    Choisissez un thème pour personnaliser l’apparence du site.
+                                                </legend>
+                                                <div class="fr-fieldset__content">
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="light"
+                                                            type="radio" id="fr-radios-theme-light"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-light"> Thème
+                                                            clair </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../../artwork/light.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../../artwork/light.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../../artwork/light.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="dark"
+                                                            type="radio" id="fr-radios-theme-dark"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-dark"> Thème
+                                                            sombre </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../../artwork/dark.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../../artwork/dark.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../../artwork/dark.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="system"
+                                                            type="radio" id="fr-radios-theme-system"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-system"> Système
+                                                            <span class="fr-hint-text">Utilise les paramètres
+                                                                système.</span>
+                                                        </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../../artwork/system.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../../artwork/system.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../../artwork/system.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dialog>
+    </main>
+    <footer class="fr-footer" role="contentinfo" id="footer">
+    <div class="fr-container">
+        <div class="fr-footer__body">
+            <div class="fr-footer__brand fr-enlarge-link">
+                <a href="/"
+                    title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
+                    <p class="fr-logo">
+                        GOUVERNEMENT
+                    </p>
+                </a>
+            </div>
+            <div class="fr-footer__content">
+                <p class="fr-footer__content-desc">Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique</p>
+                <ul class="fr-footer__content-list">
+                    
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://service-public.fr">service-public.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://data.gouv.fr">data.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://info.gouv.fr">info.gouv.fr</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="fr-footer__bottom">
+            <ul class="fr-footer__bottom-list">
+                
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="/span-sg-repo/accessibilite/">Accessibilité : conformité partielle</a>
+                </li>
+                
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="/span-sg-repo/mentions-legales/">Mentions légales</a>
+                </li>
+                
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="/span-sg-repo/donnees-personnelles/">Données personnelles</a>
+                </li>
+                
+                <li class="fr-footer__bottom-item">
+                    <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+                        aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+                </li>
+            </ul>
+            <div class="fr-footer__bottom-copy">
+                <p>Sauf mention contraire, tous les contenus de ce site sont sous <a
+                        href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence
+                        etalab-2.0</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+<div class="revision-date">
+    
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 10:37:05 UTC">23 octobre 2025</span> 
 </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-</div>
-</div>
-</section>
-</div>
-<div aria-label="Versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<span>
-<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg" style="color: #fcfcfc"> GitHub</a>
-</span>
-</span>
-</div>
-<script src="../../js/jquery-3.6.0.min.js"></script>
-<script>var base_url = "../..";</script>
-<script src="../../js/theme_extra.js"></script>
-<script src="../../js/theme.js"></script>
-<script src="../../search/main.js"></script>
+
 <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
+    var base_url = "../..";
+</script>
+
+<script type="module" src="../../dsfr.module.min.js"></script>
+<script
+    type="text/javascript"
+    nomodule
+    src="../../dsfr.nomodule.min.js"
+></script>
+<script src="../../search/lunr.js"></script>
+<script src="../../search/lunr.stemmer.support.js"></script>
+<script src="../../search/lunr.fr.js"></script>
+<script src="../../assets/extra.js" defer></script>
+<script src="../../search/main.js" defer></script>
+<script src="../../js/open_in_new_tab.js" defer></script>
 </body>
+
 </html>

@@ -1,106 +1,601 @@
-<!DOCTYPE html>
 
-<html class="writer-html5" lang="en">
+<!DOCTYPE html>
+<html lang="fr" data-fr-scheme="system">
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg/architecture/c4-diagrams/" rel="canonical"/>
-<link href="../../img/favicon.ico" rel="shortcut icon"/>
-<title>Architecture C4 - Diagrammes Contexte et Containers</title>
-<link href="../../css/theme.css" rel="stylesheet"/>
-<link href="../../css/theme_extra.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
-<script>
-        // Current page data
-        var mkdocs_page_name = "Architecture C4 - Diagrammes Contexte et Containers";
-        var mkdocs_page_input_path = "architecture/c4-diagrams.md";
-        var mkdocs_page_url = "/span-sg/architecture/c4-diagrams/";
-      </script>
-<!--[if lt IE 9]>
-      <script src="../../js/html5shiv.min.js"></script>
-    <![endif]-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
-<link href="../../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
-<body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href="../..">
-</a><div role="search">
-<form action="../../search.html" class="wy-form" id="rtd-search-form" method="get">
-<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
-</form>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../../dsfr.min.css">
+    <link rel="stylesheet" href="../../utility/utility.min.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+
+    <meta name="theme-color" content="#000091">
+    <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+    <link rel="apple-touch-icon" href="../../ favicon /apple-touch-icon.png">
+    <!-- 180×180 -->
+    <link rel="icon" href="../../favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../../favicon/favicon.ico">
+    <!-- 32×32 -->
+    <link rel="manifest" href="../../favicon/manifest.webmanifest" crossorigin="use-credentials">
+    <script src="../../js/postprocess.js" defer></script>
+
+    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
+    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
+    
+
+    <title>Diagrammes C4</title>
+    
+    
+</head>
+<body>
+    <div class="fr-skiplinks">
+  <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+    <ul class="fr-skiplinks__list">
+      <li>
+        <a class="fr-link" href="#content">Contenu</a>
+      </li>
+      <li>
+        <a class="fr-link" href="#header-navigation">Menu</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#search-modal">Recherche</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#footer">Pied de page</a>
+      </li>
+    </ul>
+  </nav>
 </div>
-</div>
-<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../..">SPAN (SG)</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">SPAN (services)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/bgs/">BGS</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/safi/">SAFI</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/siep/">SIEP</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/sircom/">SIRCOM</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/snum/">SNUM</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/srh/">SRH</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../synthese/">Synthèse</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../processus/">Processus</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Guide contributeur</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../dev-local/">Développement local</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg">Code source GitHub</a>
-</li>
-</ul>
-</div>
-</div>
+    <header role="banner" class="fr-header">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row">
+                <div class="fr-header__brand fr-enlarge-link">
+                    <div class="fr-header__brand-top">
+                        <div class="fr-header__logo">
+                            <p class="fr-logo" style="">
+                                GOUVERNEMENT
+                            </p>
+                        </div>
+
+                        <div class="fr-header__navbar">
+                            
+                            <button
+                                class="fr-btn--search fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-541"
+                                id="button-542"
+                                title="Rechercher"
+                            >
+                                Rechercher
+                            </button>
+                            
+                            <button
+                                class="fr-btn--menu fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-543"
+                                aria-haspopup="menu"
+                                id="button-544"
+                                title="Menu"
+                            >
+                                Menu
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fr-header__service">
+                        <a href="/" title="Retour à l'accueil du site - SPAN SG">
+                            <p class="fr-header__service-title">
+                                SPAN SG
+                            </p>
+                        </a>
+                        <p class="fr-header__service-tagline">
+                            Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général
+                        </p>
+                    </div>
+                </div>
+                <div class="fr-header__tools">
+                    
+                    <div class="fr-header__tools-links">
+                        <ul class="fr-btns-group">
+                            <li>
+                                <a
+                                    href="https://github.com/Alexmacapple/span-sg/blob/main/docs/architecture/c4-diagrams.md"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="fr-btn"
+                                    >Éditer dans GitHub</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="fr-header__search fr-modal" id="search-modal">
+                        <div class="fr-container fr-container-lg--fluid">
+                            <button
+                                class="fr-btn--close fr-btn"
+                                aria-controls="modal-541"
+                                title="Fermer"
+                            >
+                                Fermer
+                            </button>
+                            
+                            <form action="../../search.html">
+                                <div
+                                    class="fr-search-bar"
+                                    id="search-540"
+                                    role="search"
+                                >
+                                    <label
+                                        class="fr-label"
+                                        for="mkdocs-search-query"
+                                    >
+                                        Rechercher
+                                    </label>
+                                    <input
+                                        class="fr-input search_input search-query ui-autocomplete-input"
+                                        placeholder="Rechercher"
+                                        type="text"
+                                        id="mkdocs-search-query"
+                                        name="q"
+                                    />
+                                    <button
+                                        class="fr-btn"
+                                        title="Rechercher"
+                                        type="submit"
+                                    >
+                                        Rechercher
+                                    </button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="fr-header__menu fr-modal"
+        id="modal-543"
+        aria-labelledby="button-544"
+    >
+        <div class="fr-container">
+            <button
+                class="fr-btn--close fr-btn"
+                aria-controls="modal-543"
+                title="Fermer"
+            >
+                Fermer
+            </button>
+            <div class="fr-header__menu-links"></div>
+            <nav
+    class="fr-nav navbar-header"
+    id="header-navigation"
+    role="navigation"
+    aria-label="Menu principal"
+>
+    <ul class="fr-nav__list">
+         
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../.."
+                target="_self"
+                
+                >SPAN (SG)</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../mise-en-application-circulaire/"
+                target="_self"
+                
+                >Contexte réglementaire</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7763"
+                
+            >
+                SPAN (services)
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7763">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/bgs/"
+                            target="_self"
+                            >BGS</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/safi/"
+                            target="_self"
+                            >SAFI</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/siep/"
+                            target="_self"
+                            >SIEP</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/sircom/"
+                            target="_self"
+                            >SIRCOM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/snum/"
+                            target="_self"
+                            >SNUM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/srh/"
+                            target="_self"
+                            >SRH</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../processus/"
+                target="_self"
+                
+                >Processus</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../accompagnement/"
+                target="_self"
+                
+                >Guide d'accompagnement</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../synthese/"
+                target="_self"
+                
+                >Synthèse</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7767"
+                
+            >
+                Documentation technique
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7767">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            aria-current="page"
+                            
+                            href="../.."
+                            target="_self"
+                            >Architecture</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../dev/api-reference/"
+                            target="_self"
+                            >API Reference</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../dev/hooks-guide/"
+                            target="_self"
+                            >Guide Hooks</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../dev/dsfr-components-guide/"
+                            target="_self"
+                            >Guide Composants DSFR</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../glossary/"
+                            target="_self"
+                            >Glossaire</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../onboarding-visual/"
+                            target="_self"
+                            >Onboarding visuel</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../dev-local/"
+                            target="_self"
+                            >Développement local</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../contributing/"
+                            target="_self"
+                            >Guide contributeur</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../.."
+                            target="_self"
+                            >ADR (Décisions)</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7768"
+                
+            >
+                Informations légales
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7768">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../accessibilite/"
+                            target="_self"
+                            >Accessibilité</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../mentions-legales/"
+                            target="_self"
+                            >Mentions légales</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../donnees-personnelles/"
+                            target="_self"
+                            >Données personnelles</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="https://github.com/Alexmacapple/span-sg-repo"
+                target="_self"
+                
+                >Code source GitHub</a
+            >
+        </li>
+         
+    </ul>
 </nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href="../.."></a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a aria-label="Docs" class="icon icon-home" href="../.."></a></li>
-<li class="breadcrumb-item active">Architecture C4 - Diagrammes Contexte et Containers</li>
-<li class="wy-breadcrumbs-aside">
-<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg/edit/master/docs/architecture/c4-diagrams.md"> Edit on GitHub</a>
-</li>
-</ul>
-<hr/>
+        </div>
+    </div>
+</header>
+    <main id="content" role="main">
+        
+        <div class="fr-container markdown-content">
+            <div class="fr-grid-row">
+                
+                
+                    
+                
+
+                
+                    
+<div class="fr-col-12 fr-col-md-3 fr-py-1v">
+    <nav
+        class="fr-sidemenu fr-sidemenu--sticky-full-height fr-mb-0-5v"
+        role="navigation"
+        aria-label="Menu latéral"
+    >
+        
+        <div class="fr-sidemenu__inner">
+            <button
+                class="fr-sidemenu__btn"
+                aria-controls="fr-sidemenu-wrapper"
+                aria-expanded="true"
+            >
+                Architecture C4 - Diagrammes Contexte et Containers
+            </button>
+            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+                <div class="fr-sidemenu__title">Architecture C4 - Diagrammes Contexte et Containers</div>
+                <ul class="fr-sidemenu__list">
+                     
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#introduction-c4"
+                            target="_self"
+                            >Introduction C4</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#1-c4-level-1-diagramme-de-contexte"
+                            target="_self"
+                            >1. C4 Level 1 : Diagramme de Contexte</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#2-c4-level-2-diagramme-containers"
+                            target="_self"
+                            >2. C4 Level 2 : Diagramme Containers</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#3-technologies-et-dependances"
+                            target="_self"
+                            >3. Technologies et Dépendances</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#4-flux-de-donnees"
+                            target="_self"
+                            >4. Flux de Données</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#5-strategie-de-deploiement"
+                            target="_self"
+                            >5. Stratégie de Déploiement</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#6-securite-et-qualite"
+                            target="_self"
+                            >6. Sécurité et Qualité</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#references"
+                            target="_self"
+                            >Références</a
+                        >
+                    </li>
+                     
+                </ul>
+            </div>
+        </div>
+        
+    </nav>
 </div>
-<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
-<div class="section" itemprop="articleBody">
-<h1 id="architecture-c4-diagrammes-contexte-et-containers">Architecture C4 - Diagrammes Contexte et Containers</h1>
+
+                    
+                        <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
+                    
+                
+
+                
+
+                
+                        
+                        <h1 id="architecture-c4-diagrammes-contexte-et-containers">Architecture C4 - Diagrammes Contexte et Containers</h1>
 <p>Représentations architecture C4 (Context, Containers, Components, Code) du projet SPAN SG.</p>
 <p>Version: 1.0.1-dsfr
 Dernière mise à jour: 2025-10-22
 Standard: <a href="https://c4model.com/">C4 Model</a></p>
-<hr/>
+<hr />
 <h2 id="introduction-c4">Introduction C4</h2>
 <p>Le modèle C4 décompose l'architecture en 4 niveaux de zoom :</p>
 <ol>
@@ -110,10 +605,10 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
 <li><strong>Code</strong> : Classes, fonctions (optionnel)</li>
 </ol>
 <p>Ce document couvre les niveaux 1-2.</p>
-<hr/>
+<hr />
 <h2 id="1-c4-level-1-diagramme-de-contexte">1. C4 Level 1 : Diagramme de Contexte</h2>
 <p>Vue macro du système SPAN SG et ses acteurs.</p>
-<pre><code class="language-mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "Acteurs"
         CONTRIB[fa:fa-user Contributeur Service&lt;br/&gt;SIRCOM, SNUM, SRH, etc.]
         VALID[fa:fa-user-check Validateur&lt;br/&gt;Bertrand, Alex]
@@ -145,8 +640,7 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
     style SPAN fill:#91d5ff,stroke:#1890ff,stroke-width:3px
     style GITHUB fill:#ffc9c9,stroke:#ff4d4f,stroke-width:2px
     style CI fill:#b5f5ec,stroke:#13c2c2,stroke-width:2px
-    style DINUM fill:#ffe7ba,stroke:#fa8c16,stroke-width:2px
-</code></pre>
+    style DINUM fill:#ffe7ba,stroke:#fa8c16,stroke-width:2px</code></pre>
 <p><strong>Acteurs principaux :</strong>
 - Contributeurs services (6 modules : SIRCOM, SNUM, SRH, SIEP, SAFI, BGS)
 - Validateurs (review PRs, merge)
@@ -156,10 +650,10 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
 - GitHub : Hébergement repo + Pages
 - GitHub Actions : CI/CD automatisé
 - DINUM : Référentiel 33 critères accessibilité</p>
-<hr/>
+<hr />
 <h2 id="2-c4-level-2-diagramme-containers">2. C4 Level 2 : Diagramme Containers</h2>
 <p>Détail des composants applicatifs du système SPAN SG.</p>
-<pre><code class="language-mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "GitHub Repository"
         direction TB
         REPO[fa:fa-code Repository&lt;br/&gt;span-sg&lt;br/&gt;Git + Markdown]
@@ -228,8 +722,7 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
     style JOB_MAIN fill:#b5f5ec,stroke:#13c2c2,stroke-width:2px
     style SITE_HTML fill:#91d5ff,stroke:#1890ff,stroke-width:2px
     style PDF fill:#ffc9c9,stroke:#ff4d4f,stroke-width:2px
-    style PAGES_PROD fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
-</code></pre>
+    style PAGES_PROD fill:#b7eb8f,stroke:#52c41a,stroke-width:3px</code></pre>
 <p><strong>Containers identifiés :</strong></p>
 <ol>
 <li><strong>Repository Git</strong> :</li>
@@ -270,9 +763,11 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
 <li>mkdocs-dsfr 0.17 : Thème DSFR officiel</li>
 <li>WeasyPrint : Générateur PDF (CSS Paged Media)</li>
 </ol>
-<hr/>
+<hr />
 <h2 id="3-technologies-et-dependances">3. Technologies et Dépendances</h2>
 <h3 id="stack-technique">Stack technique</h3>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -327,19 +822,21 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <h3 id="dependances-critiques">Dépendances critiques</h3>
-<pre><code class="language-python"># requirements-dsfr.txt
-mkdocs==1.6.1
-mkdocs-dsfr==0.17.0
-mkdocs-git-revision-date-localized-plugin==1.3.0
-pymdown-extensions==10.12
-mkdocs-pdf-export-plugin==0.5.10
-weasyprint==62.3
-</code></pre>
-<hr/>
+<div class="highlight"><pre><span></span><code><span class="c1"># requirements-dsfr.txt</span>
+<span class="n">mkdocs</span><span class="o">==</span><span class="mf">1.6.1</span>
+<span class="n">mkdocs</span><span class="o">-</span><span class="n">dsfr</span><span class="o">==</span><span class="mf">0.17.0</span>
+<span class="n">mkdocs</span><span class="o">-</span><span class="n">git</span><span class="o">-</span><span class="n">revision</span><span class="o">-</span><span class="n">date</span><span class="o">-</span><span class="n">localized</span><span class="o">-</span><span class="n">plugin</span><span class="o">==</span><span class="mf">1.3.0</span>
+<span class="n">pymdown</span><span class="o">-</span><span class="n">extensions</span><span class="o">==</span><span class="mf">10.12</span>
+<span class="n">mkdocs</span><span class="o">-</span><span class="n">pdf</span><span class="o">-</span><span class="n">export</span><span class="o">-</span><span class="n">plugin</span><span class="o">==</span><span class="mf">0.5.10</span>
+<span class="n">weasyprint</span><span class="o">==</span><span class="mf">62.3</span>
+</code></pre></div>
+<hr />
 <h2 id="4-flux-de-donnees">4. Flux de Données</h2>
 <p>Parcours typique d'une modification SPAN :</p>
-<pre><code class="language-mermaid">sequenceDiagram
+<pre class="mermaid"><code>sequenceDiagram
     participant C as Contributeur
     participant G as GitHub
     participant CI as GitHub Actions
@@ -368,11 +865,12 @@ weasyprint==62.3
     CI-&gt;&gt;P: Deploy gh-pages/draft/ (ou /)
 
     Note over C,P: 5. Publication
-    P-&gt;&gt;C: Preview visible org-only
-</code></pre>
-<hr/>
+    P-&gt;&gt;C: Preview visible org-only</code></pre>
+<hr />
 <h2 id="5-strategie-de-deploiement">5. Stratégie de Déploiement</h2>
 <h3 id="environnements">Environnements</h3>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -400,8 +898,10 @@ weasyprint==62.3
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <h3 id="workflow-deploiement">Workflow déploiement</h3>
-<pre><code class="language-mermaid">graph LR
+<pre class="mermaid"><code>graph LR
     A[Commit main/draft] --&gt; B{Tests pass?}
     B --&gt;|❌ Failed| C[STOP - Fix errors]
     B --&gt;|✅ Success| D[Build HTML + PDF]
@@ -415,9 +915,8 @@ weasyprint==62.3
     style C fill:#ff6b6b
     style I fill:#ff6b6b
     style F fill:#91d5ff
-    style J fill:#b7eb8f
-</code></pre>
-<hr/>
+    style J fill:#b7eb8f</code></pre>
+<hr />
 <h2 id="6-securite-et-qualite">6. Sécurité et Qualité</h2>
 <h3 id="gates-qualite-cicd">Gates qualité CI/CD</h3>
 <p>Chaque build passe par 7 gates obligatoires :</p>
@@ -438,7 +937,7 @@ weasyprint==62.3
 <li><strong>accessibility-report</strong> : Tests RGAA Selenium (30 jours)</li>
 <li><strong>exports</strong> : PDF SPAN (persistant)</li>
 </ul>
-<hr/>
+<hr />
 <h2 id="references">Références</h2>
 <ul>
 <li><a href="https://c4model.com/">C4 Model Official</a></li>
@@ -446,35 +945,207 @@ weasyprint==62.3
 <li><a href="../../adr/">ADR Architecture Decision Records</a></li>
 <li><a href="../../dev/api-reference/">API Reference Scripts</a></li>
 </ul>
-</div>
-</div><footer>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
+                        
+                        
+                        <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
+                        
+                    </div>
+                    <hr />
+                    
+	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
+		<ul class="fr-pagination__list">
+			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../diagrams/" title="Diagrammes existants" >
+				Page précédente
+			</a></li>
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../infrastructure/" title="Infrastructure Runtime" >
+				Page suivante
+			</a></li>
+		</ul>
+	</nav>
+
+                </div>
+            </div>
+            <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
+                <div class="fr-container fr-container--fluid fr-container-md">
+                    <div class="fr-grid-row fr-grid-row--center">
+                        <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
+                            <div class="fr-modal__body">
+                                <div class="fr-modal__header">
+                                    <button class="fr-btn--close fr-btn" aria-controls="fr-theme-modal" title="Fermer">
+                                        Fermer
+                                    </button>
+                                </div>
+                                <div class="fr-modal__content">
+                                    <h1 id="fr-theme-modal-title" class="fr-modal__title">
+                                        Paramètres d’affichage </h1>
+                                    <div id="fr-display" class="fr-display">
+                                        <div class="fr-form-group">
+                                            <fieldset class="fr-fieldset">
+                                                <legend class="fr-fieldset__legend fr-text--regular" id='-legend'>
+                                                    Choisissez un thème pour personnaliser l’apparence du site.
+                                                </legend>
+                                                <div class="fr-fieldset__content">
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="light"
+                                                            type="radio" id="fr-radios-theme-light"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-light"> Thème
+                                                            clair </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../../artwork/light.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../../artwork/light.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../../artwork/light.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="dark"
+                                                            type="radio" id="fr-radios-theme-dark"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-dark"> Thème
+                                                            sombre </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../../artwork/dark.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../../artwork/dark.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../../artwork/dark.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="system"
+                                                            type="radio" id="fr-radios-theme-system"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-system"> Système
+                                                            <span class="fr-hint-text">Utilise les paramètres
+                                                                système.</span>
+                                                        </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../../artwork/system.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../../artwork/system.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../../artwork/system.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dialog>
+    </main>
+    <footer class="fr-footer" role="contentinfo" id="footer">
+    <div class="fr-container">
+        <div class="fr-footer__body">
+            <div class="fr-footer__brand fr-enlarge-link">
+                <a href="/"
+                    title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
+                    <p class="fr-logo">
+                        GOUVERNEMENT
+                    </p>
+                </a>
+            </div>
+            <div class="fr-footer__content">
+                <p class="fr-footer__content-desc">Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique</p>
+                <ul class="fr-footer__content-list">
+                    
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://service-public.fr">service-public.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://data.gouv.fr">data.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://info.gouv.fr">info.gouv.fr</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="fr-footer__bottom">
+            <ul class="fr-footer__bottom-list">
+                
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="/span-sg-repo/accessibilite/">Accessibilité : conformité partielle</a>
+                </li>
+                
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="/span-sg-repo/mentions-legales/">Mentions légales</a>
+                </li>
+                
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="/span-sg-repo/donnees-personnelles/">Données personnelles</a>
+                </li>
+                
+                <li class="fr-footer__bottom-item">
+                    <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+                        aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+                </li>
+            </ul>
+            <div class="fr-footer__bottom-copy">
+                <p>Sauf mention contraire, tous les contenus de ce site sont sous <a
+                        href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence
+                        etalab-2.0</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+<div class="revision-date">
+    
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 10:37:05 UTC">23 octobre 2025</span> 
 </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-</div>
-</div>
-</section>
-</div>
-<div aria-label="Versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<span>
-<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg" style="color: #fcfcfc"> GitHub</a>
-</span>
-</span>
-</div>
-<script src="../../js/jquery-3.6.0.min.js"></script>
-<script>var base_url = "../..";</script>
-<script src="../../js/theme_extra.js"></script>
-<script src="../../js/theme.js"></script>
-<script src="../../search/main.js"></script>
+
 <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
+    var base_url = "../..";
+</script>
+
+<script type="module" src="../../dsfr.module.min.js"></script>
+<script
+    type="text/javascript"
+    nomodule
+    src="../../dsfr.nomodule.min.js"
+></script>
+<script src="../../search/lunr.js"></script>
+<script src="../../search/lunr.stemmer.support.js"></script>
+<script src="../../search/lunr.fr.js"></script>
+<script src="../../assets/extra.js" defer></script>
+<script src="../../search/main.js" defer></script>
+<script src="../../js/open_in_new_tab.js" defer></script>
 </body>
+
 </html>

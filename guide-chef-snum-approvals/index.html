@@ -1,107 +1,618 @@
-<!DOCTYPE html>
 
-<html class="writer-html5" lang="en">
+<!DOCTYPE html>
+<html lang="fr" data-fr-scheme="system">
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg/guide-chef-snum-approvals/" rel="canonical"/>
-<link href="../img/favicon.ico" rel="shortcut icon"/>
-<title>Guide Chef SNUM - Approval Déploiements Production</title>
-<link href="../css/theme.css" rel="stylesheet"/>
-<link href="../css/theme_extra.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
-<script>
-        // Current page data
-        var mkdocs_page_name = "Guide Chef SNUM - Approval D\u00e9ploiements Production";
-        var mkdocs_page_input_path = "guide-chef-snum-approvals.md";
-        var mkdocs_page_url = "/span-sg/guide-chef-snum-approvals/";
-      </script>
-<!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
-<link href="../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
-<body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href="..">
-</a><div role="search">
-<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
-<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
-</form>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../dsfr.min.css">
+    <link rel="stylesheet" href="../utility/utility.min.css">
+    <link rel="stylesheet" href="../css/theme.css">
+
+    <meta name="theme-color" content="#000091">
+    <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+    <link rel="apple-touch-icon" href="../ favicon /apple-touch-icon.png">
+    <!-- 180×180 -->
+    <link rel="icon" href="../favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../favicon/favicon.ico">
+    <!-- 32×32 -->
+    <link rel="manifest" href="../favicon/manifest.webmanifest" crossorigin="use-credentials">
+    <script src="../js/postprocess.js" defer></script>
+
+    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
+    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
+    
+
+    <title>Guide Chef SNUM - Approval Déploiements Production</title>
+    
+    
+</head>
+<body>
+    <div class="fr-skiplinks">
+  <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+    <ul class="fr-skiplinks__list">
+      <li>
+        <a class="fr-link" href="#content">Contenu</a>
+      </li>
+      <li>
+        <a class="fr-link" href="#header-navigation">Menu</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#search-modal">Recherche</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#footer">Pied de page</a>
+      </li>
+    </ul>
+  </nav>
 </div>
-</div>
-<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="..">SPAN (SG)</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">SPAN (services)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../modules/bgs/">BGS</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/safi/">SAFI</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/siep/">SIEP</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/sircom/">SIRCOM</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/snum/">SNUM</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/srh/">SRH</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../synthese/">Synthèse</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../processus/">Processus</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/">Guide contributeur</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../dev-local/">Développement local</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg">Code source GitHub</a>
-</li>
-</ul>
-</div>
-</div>
+    <header role="banner" class="fr-header">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row">
+                <div class="fr-header__brand fr-enlarge-link">
+                    <div class="fr-header__brand-top">
+                        <div class="fr-header__logo">
+                            <p class="fr-logo" style="">
+                                GOUVERNEMENT
+                            </p>
+                        </div>
+
+                        <div class="fr-header__navbar">
+                            
+                            <button
+                                class="fr-btn--search fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-541"
+                                id="button-542"
+                                title="Rechercher"
+                            >
+                                Rechercher
+                            </button>
+                            
+                            <button
+                                class="fr-btn--menu fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-543"
+                                aria-haspopup="menu"
+                                id="button-544"
+                                title="Menu"
+                            >
+                                Menu
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fr-header__service">
+                        <a href="/" title="Retour à l'accueil du site - SPAN SG">
+                            <p class="fr-header__service-title">
+                                SPAN SG
+                            </p>
+                        </a>
+                        <p class="fr-header__service-tagline">
+                            Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général
+                        </p>
+                    </div>
+                </div>
+                <div class="fr-header__tools">
+                    
+                    <div class="fr-header__tools-links">
+                        <ul class="fr-btns-group">
+                            <li>
+                                <a
+                                    href="https://github.com/Alexmacapple/span-sg/blob/main/docs/guide-chef-snum-approvals.md"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="fr-btn"
+                                    >Éditer dans GitHub</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="fr-header__search fr-modal" id="search-modal">
+                        <div class="fr-container fr-container-lg--fluid">
+                            <button
+                                class="fr-btn--close fr-btn"
+                                aria-controls="modal-541"
+                                title="Fermer"
+                            >
+                                Fermer
+                            </button>
+                            
+                            <form action="../search.html">
+                                <div
+                                    class="fr-search-bar"
+                                    id="search-540"
+                                    role="search"
+                                >
+                                    <label
+                                        class="fr-label"
+                                        for="mkdocs-search-query"
+                                    >
+                                        Rechercher
+                                    </label>
+                                    <input
+                                        class="fr-input search_input search-query ui-autocomplete-input"
+                                        placeholder="Rechercher"
+                                        type="text"
+                                        id="mkdocs-search-query"
+                                        name="q"
+                                    />
+                                    <button
+                                        class="fr-btn"
+                                        title="Rechercher"
+                                        type="submit"
+                                    >
+                                        Rechercher
+                                    </button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="fr-header__menu fr-modal"
+        id="modal-543"
+        aria-labelledby="button-544"
+    >
+        <div class="fr-container">
+            <button
+                class="fr-btn--close fr-btn"
+                aria-controls="modal-543"
+                title="Fermer"
+            >
+                Fermer
+            </button>
+            <div class="fr-header__menu-links"></div>
+            <nav
+    class="fr-nav navbar-header"
+    id="header-navigation"
+    role="navigation"
+    aria-label="Menu principal"
+>
+    <ul class="fr-nav__list">
+         
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href=".."
+                target="_self"
+                
+                >SPAN (SG)</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../mise-en-application-circulaire/"
+                target="_self"
+                
+                >Contexte réglementaire</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7763"
+                
+            >
+                SPAN (services)
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7763">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../modules/bgs/"
+                            target="_self"
+                            >BGS</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../modules/safi/"
+                            target="_self"
+                            >SAFI</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../modules/siep/"
+                            target="_self"
+                            >SIEP</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../modules/sircom/"
+                            target="_self"
+                            >SIRCOM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../modules/snum/"
+                            target="_self"
+                            >SNUM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../modules/srh/"
+                            target="_self"
+                            >SRH</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../processus/"
+                target="_self"
+                
+                >Processus</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../accompagnement/"
+                target="_self"
+                
+                >Guide d'accompagnement</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../synthese/"
+                target="_self"
+                
+                >Synthèse</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7767"
+                
+            >
+                Documentation technique
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7767">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href=".."
+                            target="_self"
+                            >Architecture</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../dev/api-reference/"
+                            target="_self"
+                            >API Reference</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../dev/hooks-guide/"
+                            target="_self"
+                            >Guide Hooks</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../dev/dsfr-components-guide/"
+                            target="_self"
+                            >Guide Composants DSFR</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../glossary/"
+                            target="_self"
+                            >Glossaire</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../onboarding-visual/"
+                            target="_self"
+                            >Onboarding visuel</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../dev-local/"
+                            target="_self"
+                            >Développement local</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../contributing/"
+                            target="_self"
+                            >Guide contributeur</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href=".."
+                            target="_self"
+                            >ADR (Décisions)</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7768"
+                
+            >
+                Informations légales
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7768">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../accessibilite/"
+                            target="_self"
+                            >Accessibilité</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../mentions-legales/"
+                            target="_self"
+                            >Mentions légales</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../donnees-personnelles/"
+                            target="_self"
+                            >Données personnelles</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="https://github.com/Alexmacapple/span-sg-repo"
+                target="_self"
+                
+                >Code source GitHub</a
+            >
+        </li>
+         
+    </ul>
 </nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href=".."></a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
-<li class="breadcrumb-item active">Guide Chef SNUM - Approval Déploiements Production</li>
-<li class="wy-breadcrumbs-aside">
-<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg/edit/master/docs/guide-chef-snum-approvals.md"> Edit on GitHub</a>
-</li>
-</ul>
-<hr/>
+        </div>
+    </div>
+</header>
+    <main id="content" role="main">
+        
+        <div class="fr-container markdown-content">
+            <div class="fr-grid-row">
+                
+                
+                    
+                
+
+                
+                    
+<div class="fr-col-12 fr-col-md-3 fr-py-1v">
+    <nav
+        class="fr-sidemenu fr-sidemenu--sticky-full-height fr-mb-0-5v"
+        role="navigation"
+        aria-label="Menu latéral"
+    >
+        
+        <div class="fr-sidemenu__inner">
+            <button
+                class="fr-sidemenu__btn"
+                aria-controls="fr-sidemenu-wrapper"
+                aria-expanded="true"
+            >
+                Guide Chef SNUM - Approval Déploiements Production
+            </button>
+            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+                <div class="fr-sidemenu__title">Guide Chef SNUM - Approval Déploiements Production</div>
+                <ul class="fr-sidemenu__list">
+                     
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#vue-densemble"
+                            target="_self"
+                            >Vue d'ensemble</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#processus-approval-5-etapes"
+                            target="_self"
+                            >Processus Approval (5 étapes)</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#cas-dusage"
+                            target="_self"
+                            >Cas d'Usage</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#dashboard-centralise"
+                            target="_self"
+                            >Dashboard Centralisé</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#rollback-production"
+                            target="_self"
+                            >Rollback Production</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#notifications"
+                            target="_self"
+                            >Notifications</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#faq"
+                            target="_self"
+                            >FAQ</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#metriques-et-reporting"
+                            target="_self"
+                            >Métriques et Reporting</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#support-et-contacts"
+                            target="_self"
+                            >Support et Contacts</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#annexe-checklist-approval-complete"
+                            target="_self"
+                            >Annexe : Checklist Approval Complète</a
+                        >
+                    </li>
+                     
+                </ul>
+            </div>
+        </div>
+        
+    </nav>
 </div>
-<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
-<div class="section" itemprop="articleBody">
-<h1 id="guide-chef-snum-approval-deploiements-production">Guide Chef SNUM - Approval Déploiements Production</h1>
+
+                    
+                        <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
+                    
+                
+
+                
+
+                
+                        
+                        <h1 id="guide-chef-snum-approval-deploiements-production">Guide Chef SNUM - Approval Déploiements Production</h1>
 <p>Guide pour approuver les déploiements production SPAN SG via GitHub Environments.</p>
 <p>Version: 1.0.0
 Date: 2025-10-22
 Public cible: Chef SNUM
 Durée lecture: 10 minutes</p>
-<hr/>
+<hr />
 <h2 id="vue-densemble">Vue d'ensemble</h2>
 <p>Depuis la migration GitHub Environments (ADR-009), vous êtes <strong>gate-keeper</strong> des déploiements production.</p>
 <p><strong>Votre rôle</strong> :
@@ -112,11 +623,11 @@ Durée lecture: 10 minutes</p>
 - Hotfix urgent : Approuver immédiatement (&lt; 1h)
 - Contribution normale : Variable selon stratégie (0-60 jours)
 - Batch releases : Accumulation 10-20 contributions puis approval groupée</p>
-<hr/>
+<hr />
 <h2 id="processus-approval-5-etapes">Processus Approval (5 étapes)</h2>
 <h3 id="etape-1-recevoir-notification">Étape 1 : Recevoir Notification</h3>
 <p><strong>Email GitHub</strong> :</p>
-<pre><code>From: notifications@github.com
+<div class="highlight"><pre><span></span><code>From: notifications@github.com
 Subject: [Alexmacapple/span-sg] Deployment to production pending review
 
 Environment: production
@@ -126,14 +637,14 @@ Commit: 02a52e7 (docs: amélioration documentation 8/10 → 10/10)
 
 You have been requested to review this deployment.
 Review deployment: https://github.com/Alexmacapple/span-sg/deployments/...
-</code></pre>
+</code></pre></div>
 <p><strong>Fréquence</strong> : Variable selon activité contributeurs (1-5 notifications/semaine estimé)</p>
 <p><strong>Action</strong> : Cliquer lien "Review deployment" ou aller manuellement sur dashboard</p>
-<hr/>
+<hr />
 <h3 id="etape-2-consulter-dashboard-deployments">Étape 2 : Consulter Dashboard Deployments</h3>
 <p><strong>URL</strong> : https://github.com/Alexmacapple/span-sg/deployments</p>
 <p><strong>Interface</strong> :</p>
-<pre><code>┌───────────────────────────────────────────────────────────┐
+<div class="highlight"><pre><span></span><code>┌───────────────────────────────────────────────────────────┐
 │ Deployments                                               │
 ├───────────────────────────────────────────────────────────┤
 │ Environment: production                                   │
@@ -151,13 +662,13 @@ Review deployment: https://github.com/Alexmacapple/span-sg/deployments/...
 │                                                           │
 │ [Review deployment]                                       │
 └───────────────────────────────────────────────────────────┘
-</code></pre>
+</code></pre></div>
 <p><strong>Informations disponibles</strong> :
 - Commit SHA et message
 - Liste changements depuis dernier déploiement production
 - Lien staging preview
 - Timestamp demande approval</p>
-<hr/>
+<hr />
 <h3 id="etape-3-review-staging">Étape 3 : Review Staging</h3>
 <p><strong>URL staging</strong> : https://alexmacapple.github.io/span-sg/draft/</p>
 <p><strong>Checklist review</strong> (5-10 minutes) :</p>
@@ -174,12 +685,12 @@ Review deployment: https://github.com/Alexmacapple/span-sg/deployments/...
 - Optionnel : Lighthouse accessibility score (devrait être 90+)
 - Optionnel : Compare staging vs production (outil diff visuel)</p>
 <p><strong>Durée</strong> : 5-10 minutes selon ampleur changements</p>
-<hr/>
+<hr />
 <h3 id="etape-4-verifier-logs-cicd">Étape 4 : Vérifier Logs CI/CD</h3>
 <p><strong>URL GitHub Actions</strong> : https://github.com/Alexmacapple/span-sg/actions</p>
 <p><strong>Workflow à vérifier</strong> : Dernier run "Build and Deploy"</p>
 <p><strong>Statuts à vérifier</strong> :</p>
-<pre><code>Job: build-and-test
+<div class="highlight"><pre><span></span><code>Job: build-and-test
   ✅ Linting (Black + Ruff)
   ✅ Security (Bandit + Safety)
   ✅ Tests (33 unitaires, coverage 89%+)
@@ -192,7 +703,7 @@ Job: deploy-staging
 
 Job: deploy-production
   ⏳ Waiting for approval (vous)
-</code></pre>
+</code></pre></div>
 <p><strong>Vérifier logs</strong> :
 - Aucune erreur bloquante
 - Coverage scripts ≥ 89%, hooks 100%
@@ -202,7 +713,7 @@ Job: deploy-production
 - git-revision-date plugin warnings (non bloquant)
 - RGAA timeouts accessibilité (tests non bloquants, continue-on-error: true)</p>
 <p><strong>Durée</strong> : 2-3 minutes</p>
-<hr/>
+<hr />
 <h3 id="etape-5-approuver-ou-rejeter">Étape 5 : Approuver ou Rejeter</h3>
 <h4 id="option-a-approuver-cas-nominal">Option A : Approuver (cas nominal)</h4>
 <p><strong>Action</strong> :</p>
@@ -224,8 +735,9 @@ Job: deploy-production
 <li>Cliquer "Review deployment"</li>
 <li>Sélectionner "Reject deployment"</li>
 <li>Ajouter commentaire expliquant raison rejet :
-   <code>Régression détectée : Tableau synthèse cassé (badges non visibles)
-   Merci de corriger avant re-déploiement</code></li>
+   <div class="highlight"><pre><span></span><code>Régression détectée : Tableau synthèse cassé (badges non visibles)
+Merci de corriger avant re-déploiement
+</code></pre></div></li>
 <li>Cliquer "Reject"</li>
 </ol>
 <p><strong>Résultat</strong> :
@@ -242,31 +754,31 @@ Job: deploy-production
 <li>Approuver plus tard quand batch suffisant (ex: 10 contributions)</li>
 </ol>
 <p><strong>Note</strong> : Pas de limite temporelle, vous décidez quand approuver</p>
-<hr/>
+<hr />
 <h2 id="cas-dusage">Cas d'Usage</h2>
 <h3 id="cas-1-hotfix-urgent">Cas 1 : Hotfix Urgent</h3>
 <p><strong>Contexte</strong> : Bug critique production détecté, correctif développé</p>
 <p><strong>Workflow</strong> :</p>
-<pre><code>10:00 : Bug détecté production (lien cassé page Synthèse)
+<div class="highlight"><pre><span></span><code>10:00 : Bug détecté production (lien cassé page Synthèse)
 10:15 : Validateur crée hotfix branch, corrige, merge main
 10:20 : CI/CD build-and-test passe
 10:22 : Deploy staging automatique
-10:22 : Vous recevez notification "Pending approval"
+10:22 : Vous recevez notification &quot;Pending approval&quot;
 10:25 : Vous review staging (3 min) : Bug corrigé
 10:28 : Vous approuvez immédiatement
 10:33 : Deploy production terminé, bug résolu
 
 Total : 33 minutes bug détecté → production
-</code></pre>
+</code></pre></div>
 <p><strong>Action recommandée</strong> : <strong>Approuver immédiatement</strong> après review rapide</p>
-<hr/>
+<hr />
 <h3 id="cas-2-contribution-normale">Cas 2 : Contribution Normale</h3>
 <p><strong>Contexte</strong> : Contributeur service complète module SIRCOM (3 critères cochés)</p>
 <p><strong>Workflow</strong> :</p>
-<pre><code>J+0  : Contributeur crée PR vers main
+<div class="highlight"><pre><span></span><code>J+0  : Contributeur crée PR vers main
 J+2  : Validateur review et merge
 J+2  : Deploy staging automatique
-J+2  : Vous recevez notification "Pending approval"
+J+2  : Vous recevez notification &quot;Pending approval&quot;
 J+2-30 : Vous laissez pending (accumulation autres contributions)
 J+30 : 8 contributions accumulées en staging
 J+30 : Vous review staging (10 min) : Tout OK
@@ -274,36 +786,36 @@ J+30 : Vous approuvez batch 8 contributions
 J+30 : Deploy production terminé
 
 Total : 30 jours contribution → production (délai voulu)
-</code></pre>
+</code></pre></div>
 <p><strong>Action recommandée</strong> : <strong>Différer</strong> jusqu'à accumulation suffisante (votre décision)</p>
-<hr/>
+<hr />
 <h3 id="cas-3-regression-detectee">Cas 3 : Régression Détectée</h3>
 <p><strong>Contexte</strong> : Erreur staging détectée lors review</p>
 <p><strong>Workflow</strong> :</p>
-<pre><code>14:00 : Vous recevez notification "Pending approval"
+<div class="highlight"><pre><span></span><code>14:00 : Vous recevez notification &quot;Pending approval&quot;
 14:05 : Vous review staging
 14:08 : Problème détecté : Badges DSFR non visibles (CSS cassé)
 14:10 : Vous rejetez deployment avec commentaire
 14:15 : Validateur notifié, investigation
 15:00 : Correctif mergé sur main
 15:05 : Nouveau deployment staging automatique
-15:05 : Nouvelle notification "Pending approval"
+15:05 : Nouvelle notification &quot;Pending approval&quot;
 15:10 : Vous review staging : Bug corrigé
 15:12 : Vous approuvez
 15:17 : Deploy production terminé
 
 Total : 1h17 (dont 45 min correction)
-</code></pre>
+</code></pre></div>
 <p><strong>Action recommandée</strong> : <strong>Rejeter</strong> avec commentaire explicite</p>
-<hr/>
+<hr />
 <h2 id="dashboard-centralise">Dashboard Centralisé</h2>
 <h3 id="acces">Accès</h3>
 <p><strong>URL bookmark</strong> : https://github.com/Alexmacapple/span-sg/deployments</p>
 <p>Ajouter aux favoris navigateur pour accès rapide.</p>
 <h3 id="filtres">Filtres</h3>
-<pre><code>Environment: [All] [staging] [production]
+<div class="highlight"><pre><span></span><code>Environment: [All] [staging] [production]
 Status: [All] [Active] [Pending] [Failed]
-</code></pre>
+</code></pre></div>
 <p><strong>Exemples filtres</strong> :</p>
 <ul>
 <li>Voir déploiements production uniquement : Filter "Environment: production"</li>
@@ -312,19 +824,19 @@ Status: [All] [Active] [Pending] [Failed]
 </ul>
 <h3 id="historique">Historique</h3>
 <p><strong>Timeline déploiements</strong> (scrollable) :</p>
-<pre><code>2025-10-22 14:35 : production → 02a52e7 (docs 10/10) [Active]
+<div class="highlight"><pre><span></span><code>2025-10-22 14:35 : production → 02a52e7 (docs 10/10) [Active]
 2025-10-22 14:10 : staging → 02a52e7 (docs 10/10) [Active]
 2025-10-15 10:20 : production → 3c06ca1 (rollback strict) [Superseded]
 2025-10-15 10:18 : staging → 3c06ca1 (rollback strict) [Superseded]
 2025-10-08 16:45 : production → 1b11fea (sync main-draft) [Superseded]
 ...
-</code></pre>
+</code></pre></div>
 <p><strong>Utilité</strong> :
 - Audit trail complet
 - Voir qui a approuvé (nom reviewer)
 - Voir délai entre staging et production
 - Rollback : Re-run deployment précédent</p>
-<hr/>
+<hr />
 <h2 id="rollback-production">Rollback Production</h2>
 <h3 id="quand-rollback">Quand Rollback ?</h3>
 <p><strong>Situations</strong> :
@@ -334,66 +846,66 @@ Status: [All] [Active] [Pending] [Failed]
 - Erreur 500 site production</p>
 <h3 id="procedure-rollback-2-5-minutes">Procédure Rollback (2-5 minutes)</h3>
 <p><strong>Étape 1</strong> : Identifier version stable précédente</p>
-<pre><code>Dashboard Deployments
+<div class="highlight"><pre><span></span><code>Dashboard Deployments
 → Environment: production
 → Historique : Voir déploiement précédent [Active] avant actuel
 → Exemple : 3c06ca1 (rollback strict) était stable
-</code></pre>
+</code></pre></div>
 <p><strong>Étape 2</strong> : Re-run deployment</p>
-<pre><code>1. Cliquer déploiement stable précédent (3c06ca1)
-2. Cliquer "Re-run all jobs" (icône en haut à droite)
-3. Confirmation : "Re-run workflow?"
-4. Cliquer "Re-run jobs"
-</code></pre>
+<div class="highlight"><pre><span></span><code>1. Cliquer déploiement stable précédent (3c06ca1)
+2. Cliquer &quot;Re-run all jobs&quot; (icône en haut à droite)
+3. Confirmation : &quot;Re-run workflow?&quot;
+4. Cliquer &quot;Re-run jobs&quot;
+</code></pre></div>
 <p><strong>Étape 3</strong> : Approuver rollback</p>
-<pre><code>1. Notification "Deployment to production pending" (rollback 3c06ca1)
+<div class="highlight"><pre><span></span><code>1. Notification &quot;Deployment to production pending&quot; (rollback 3c06ca1)
 2. Approuver immédiatement (pas de review nécessaire, version connue stable)
-</code></pre>
+</code></pre></div>
 <p><strong>Étape 4</strong> : Vérifier production restaurée</p>
-<pre><code>1. Ouvrir https://alexmacapple.github.io/span-sg/
+<div class="highlight"><pre><span></span><code>1. Ouvrir https://alexmacapple.github.io/span-sg/
 2. Vérifier version affichée (footer ou CHANGELOG)
 3. Tester fonctionnalité qui était cassée
 4. Confirmer bug résolu
-</code></pre>
+</code></pre></div>
 <p><strong>Durée totale</strong> : 2-5 minutes (vs 10-15 minutes rebuild classique)</p>
 <p><strong>Avantage</strong> : Pas de rebuild CI/CD, réutilisation artifacts précédents</p>
-<hr/>
+<hr />
 <h2 id="notifications">Notifications</h2>
 <h3 id="configuration-email">Configuration Email</h3>
 <p><strong>Par défaut</strong> : Notifications actives</p>
 <p><strong>Vérifier configuration</strong> :</p>
-<pre><code>GitHub → Settings (profil) → Notifications
+<div class="highlight"><pre><span></span><code>GitHub → Settings (profil) → Notifications
 → Email notification preferences
 → ☑ Actions: Deployment review requested
-</code></pre>
+</code></pre></div>
 <p><strong>Fréquence attendue</strong> :
 - 5-10 notifications/semaine (selon activité contributeurs)
 - Peak : Fin trimestre (rapports SPAN)
 - Creux : Été, vacances</p>
 <h3 id="notifications-slack-optionnel">Notifications Slack (optionnel)</h3>
 <p><strong>Si souhaité</strong> : Webhook Slack configurable</p>
-<pre><code class="language-yaml"># .github/workflows/build.yml
-- name: Notify Slack deployment pending
-  uses: 8398a7/action-slack@v3
-  with:
-    status: pending
-    text: "Deployment production en attente @chef-snum"
-    webhook_url: ${{ secrets.SLACK_WEBHOOK }}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># .github/workflows/build.yml</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Notify Slack deployment pending</span>
+<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8398a7/action-slack@v3</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pending</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Deployment</span><span class="nv"> </span><span class="s">production</span><span class="nv"> </span><span class="s">en</span><span class="nv"> </span><span class="s">attente</span><span class="nv"> </span><span class="s">@chef-snum&quot;</span>
+<span class="w">    </span><span class="nt">webhook_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.SLACK_WEBHOOK }}</span>
+</code></pre></div>
 <p><strong>Nécessite</strong> : Configuration Slack webhook (demander admin GitHub)</p>
-<hr/>
+<hr />
 <h2 id="faq">FAQ</h2>
 <h3 id="q1-que-se-passe-t-il-si-jignore-notification">Q1 : Que se passe-t-il si j'ignore notification ?</h3>
 <p><strong>R</strong> : Déploiement reste "Pending approval" indéfiniment. Aucune limite temporelle.</p>
 <p>Contributions ultérieures s'accumulent en staging. Vous approuvez quand prêt (batch).</p>
-<hr/>
+<hr />
 <h3 id="q2-puis-je-deleguer-approval-a-quelquun">Q2 : Puis-je déléguer approval à quelqu'un ?</h3>
 <p><strong>R</strong> : Oui, demander admin GitHub ajouter reviewer supplémentaire :</p>
-<pre><code>Settings → Environments → production → Required reviewers
+<div class="highlight"><pre><span></span><code>Settings → Environments → production → Required reviewers
 → Add: [username_adjoint]
-</code></pre>
+</code></pre></div>
 <p>N'importe quel reviewer peut alors approuver (pas besoin tous approuver).</p>
-<hr/>
+<hr />
 <h3 id="q3-combien-de-temps-prend-deploiement-apres-approval">Q3 : Combien de temps prend déploiement après approval ?</h3>
 <p><strong>R</strong> : 2-5 minutes automatique.</p>
 <p>Étapes :
@@ -404,33 +916,33 @@ Status: [All] [Active] [Pending] [Failed]
 5. Git push gh-pages
 6. CloudFlare CDN propagation (&lt; 1 min)</p>
 <p>Total : 2-5 minutes.</p>
-<hr/>
+<hr />
 <h3 id="q4-puis-je-annuler-approval-apres-avoir-clique">Q4 : Puis-je annuler approval après avoir cliqué ?</h3>
 <p><strong>R</strong> : Non, approval irréversible. Déploiement démarre immédiatement.</p>
 <p>Si erreur détectée après : Faire rollback (procédure ci-dessus, 2-5 min).</p>
-<hr/>
+<hr />
 <h3 id="q5-que-faire-si-e2e-tests-echouent">Q5 : Que faire si E2E tests échouent ?</h3>
 <p><strong>R</strong> : Déploiement staging n'aura pas lieu (fail-fast).</p>
 <p>Vous ne recevrez PAS de notification approval car job deploy-staging nécessite build-and-test success.</p>
 <p>Validateurs corrigent tests, nouveau push main, nouveau build.</p>
-<hr/>
+<hr />
 <h3 id="q6-puis-je-voir-diff-staging-vs-production">Q6 : Puis-je voir diff staging vs production ?</h3>
 <p><strong>R</strong> : Oui, outils :</p>
-<p><strong>Option 1 : GitHub Compare</strong> :</p>
-<pre><code>https://github.com/Alexmacapple/span-sg/compare/production...staging
+<p><strong>Option 1 : GitHub Compare</strong> :
+<div class="highlight"><pre><span></span><code>https://github.com/Alexmacapple/span-sg/compare/production...staging
 
 # Voir commits pas encore en production
-</code></pre>
-<p><strong>Option 2 : Visual diff</strong> (optionnel) :</p>
-<pre><code class="language-bash"># Percy.io ou Chromatic (tools visuels)
-# Nécessite configuration externe (payant)
-</code></pre>
-<p><strong>Option 3 : Manuel</strong> :</p>
-<pre><code>1. Ouvrir /draft/ (staging)
+</code></pre></div></p>
+<p><strong>Option 2 : Visual diff</strong> (optionnel) :
+<div class="highlight"><pre><span></span><code><span class="c1"># Percy.io ou Chromatic (tools visuels)</span>
+<span class="c1"># Nécessite configuration externe (payant)</span>
+</code></pre></div></p>
+<p><strong>Option 3 : Manuel</strong> :
+<div class="highlight"><pre><span></span><code>1. Ouvrir /draft/ (staging)
 2. Ouvrir / (production) dans onglet séparé
 3. Comparer visuellement côte-à-côte
-</code></pre>
-<hr/>
+</code></pre></div></p>
+<hr />
 <h3 id="q7-combien-de-contributions-attendre-avant-approuver-batch">Q7 : Combien de contributions attendre avant approuver batch ?</h3>
 <p><strong>R</strong> : Votre décision, basée sur stratégie :</p>
 <p><strong>Stratégie fréquente</strong> (recommandé début) :
@@ -443,7 +955,7 @@ Status: [All] [Active] [Pending] [Failed]
 - Hotfix : Immédiat (&lt; 1h)
 - Normal : Hebdomadaire (vendredis)
 - Batch : Trimestriel (rapports SPAN)</p>
-<hr/>
+<hr />
 <h3 id="q8-que-faire-si-staging-draft-inaccessible-404">Q8 : Que faire si staging /draft/ inaccessible (404) ?</h3>
 <p><strong>R</strong> : Vérifier :</p>
 <ol>
@@ -452,39 +964,41 @@ Status: [All] [Active] [Pending] [Failed]
 <li><strong>Déploiement staging réussi</strong> : Vérifier GitHub Actions logs</li>
 </ol>
 <p>Si toujours inaccessible : Contacter validateurs (Bertrand/Alex).</p>
-<hr/>
+<hr />
 <h3 id="q9-puis-je-approuver-depuis-mobile">Q9 : Puis-je approuver depuis mobile ?</h3>
 <p><strong>R</strong> : Oui, interface GitHub mobile fonctionne.</p>
 <p>App GitHub Mobile :
 - iOS : https://apps.apple.com/app/github/id1477376905
 - Android : https://play.google.com/store/apps/details?id=com.github.android</p>
 <p>Notifications push + approval possible mobile.</p>
-<hr/>
+<hr />
 <h3 id="q10-quel-delai-attendre-avant-approuver-securite">Q10 : Quel délai attendre avant approuver (sécurité) ?</h3>
 <p><strong>R</strong> : Configurable via "Wait timer" environment production.</p>
 <p><strong>Actuellement</strong> : 0 minutes (approval immédiat possible)</p>
 <p><strong>Optionnel</strong> : Configurer 30-60 min safety delay :</p>
-<pre><code>Settings → Environments → production
+<div class="highlight"><pre><span></span><code>Settings → Environments → production
 → Wait timer: 60 minutes
-</code></pre>
+</code></pre></div>
 <p>Empêche approval &lt; 1h après staging deploy (temps reflection).</p>
-<hr/>
+<hr />
 <h2 id="metriques-et-reporting">Métriques et Reporting</h2>
 <h3 id="metriques-personnelles">Métriques personnelles</h3>
 <p><strong>Dashboard personnel</strong> :</p>
-<pre><code class="language-bash"># Nombre approvals/mois
-gh api repos/Alexmacapple/span-sg/deployments \
-  --jq '.[] | select(.environment=="production") | select(.created_at | startswith("2025-10")) | length'
+<div class="highlight"><pre><span></span><code><span class="c1"># Nombre approvals/mois</span>
+gh<span class="w"> </span>api<span class="w"> </span>repos/Alexmacapple/span-sg/deployments<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--jq<span class="w"> </span><span class="s1">&#39;.[] | select(.environment==&quot;production&quot;) | select(.created_at | startswith(&quot;2025-10&quot;)) | length&#39;</span>
 
-# Délai moyen staging → production
-# (Nécessite script custom, ou Insights GitHub)
-</code></pre>
+<span class="c1"># Délai moyen staging → production</span>
+<span class="c1"># (Nécessite script custom, ou Insights GitHub)</span>
+</code></pre></div>
 <p><strong>Insights GitHub</strong> (Admin uniquement) :
 - Settings → Insights → Deployments
 - Frequency, lead time, success rate</p>
-<hr/>
+<hr />
 <h2 id="support-et-contacts">Support et Contacts</h2>
 <h3 id="contacts-techniques">Contacts techniques</h3>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -515,95 +1029,258 @@ gh api repos/Alexmacapple/span-sg/deployments \
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <h3 id="ressources-documentation">Ressources documentation</h3>
 <ul>
 <li><a href="../adr/009-migration-github-environments/">ADR-009 : Migration GitHub Environments</a></li>
 <li><a href="https://github.com/Alexmacapple/span-sg/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a></li>
 <li><a href="https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment">GitHub Deployments Documentation</a></li>
 </ul>
-<hr/>
+<hr />
 <h2 id="annexe-checklist-approval-complete">Annexe : Checklist Approval Complète</h2>
-<pre><code class="language-markdown">## Checklist Approval Déploiement Production
+<div class="highlight"><pre><span></span><code><span class="gu">## Checklist Approval Déploiement Production</span>
 
 Date: _____________
 Commit SHA: _____________
 Contributeur(s): _____________
 
-### 1. Review Staging (5-10 min)
+<span class="gu">### 1. Review Staging (5-10 min)</span>
 
-- [ ] Ouvrir https://alexmacapple.github.io/span-sg/draft/
-- [ ] Tester navigation menu latéral (6 modules services)
-- [ ] Ouvrir 2-3 modules (ex: SIRCOM, SNUM)
-- [ ] Vérifier tableau Synthèse (scores cohérents, badges visibles)
-- [ ] Télécharger exports/span-sg.pdf
-- [ ] Ouvrir PDF (metadata OK, contenu lisible)
-- [ ] Comparer staging vs production (aucune régression visuelle)
+<span class="k">- [ ]</span> Ouvrir https://alexmacapple.github.io/span-sg/draft/
+<span class="k">- [ ]</span> Tester navigation menu latéral (6 modules services)
+<span class="k">- [ ]</span> Ouvrir 2-3 modules (ex: SIRCOM, SNUM)
+<span class="k">- [ ]</span> Vérifier tableau Synthèse (scores cohérents, badges visibles)
+<span class="k">- [ ]</span> Télécharger exports/span-sg.pdf
+<span class="k">- [ ]</span> Ouvrir PDF (metadata OK, contenu lisible)
+<span class="k">- [ ]</span> Comparer staging vs production (aucune régression visuelle)
 
-### 2. Vérifier Logs CI/CD (2-3 min)
+<span class="gu">### 2. Vérifier Logs CI/CD (2-3 min)</span>
 
-- [ ] Ouvrir GitHub Actions : https://github.com/Alexmacapple/span-sg/actions
-- [ ] Workflow "Build and Deploy" : Status ✅ Success
-- [ ] Job build-and-test : Tous steps ✅
-- [ ] Linting (Black + Ruff) : ✅
-- [ ] Security (Bandit + Safety) : ✅
-- [ ] Tests (33 unitaires, coverage 89%+) : ✅
-- [ ] E2E tests (9 scenarios) : ✅
-- [ ] Build HTML DSFR (strict mode) : ✅
-- [ ] Generate PDF (metadata enrichies) : ✅
-- [ ] Job deploy-staging : ✅ Deployed to /draft/
-- [ ] Aucune erreur bloquante dans logs
+<span class="k">- [ ]</span> Ouvrir GitHub Actions : https://github.com/Alexmacapple/span-sg/actions
+<span class="k">- [ ]</span> Workflow &quot;Build and Deploy&quot; : Status ✅ Success
+<span class="k">- [ ]</span> Job build-and-test : Tous steps ✅
+<span class="k">- [ ]</span> Linting (Black + Ruff) : ✅
+<span class="k">- [ ]</span> Security (Bandit + Safety) : ✅
+<span class="k">- [ ]</span> Tests (33 unitaires, coverage 89%+) : ✅
+<span class="k">- [ ]</span> E2E tests (9 scenarios) : ✅
+<span class="k">- [ ]</span> Build HTML DSFR (strict mode) : ✅
+<span class="k">- [ ]</span> Generate PDF (metadata enrichies) : ✅
+<span class="k">- [ ]</span> Job deploy-staging : ✅ Deployed to /draft/
+<span class="k">- [ ]</span> Aucune erreur bloquante dans logs
 
-### 3. Décision
+<span class="gu">### 3. Décision</span>
 
-- [ ] **Approuver** : Staging OK, logs OK, aucune régression
-- [ ] **Rejeter** : Problème détecté (commentaire : ________________)
-- [ ] **Différer** : Attendre accumulation (prochaine review : __________)
+<span class="k">- [ ]</span> <span class="gs">**Approuver**</span> : Staging OK, logs OK, aucune régression
+<span class="k">- [ ]</span> <span class="gs">**Rejeter**</span> : Problème détecté (commentaire : ________________)
+<span class="k">- [ ]</span> <span class="gs">**Différer**</span> : Attendre accumulation (prochaine review : __________)
 
-### 4. Post-Approval (si approuvé)
+<span class="gu">### 4. Post-Approval (si approuvé)</span>
 
-- [ ] Attendre notification "Deployment to production succeeded" (2-5 min)
-- [ ] Vérifier https://alexmacapple.github.io/span-sg/ accessible
-- [ ] Test rapide navigation production (1 min)
-- [ ] Confirmer déploiement réussi
+<span class="k">- [ ]</span> Attendre notification &quot;Deployment to production succeeded&quot; (2-5 min)
+<span class="k">- [ ]</span> Vérifier https://alexmacapple.github.io/span-sg/ accessible
+<span class="k">- [ ]</span> Test rapide navigation production (1 min)
+<span class="k">- [ ]</span> Confirmer déploiement réussi
 
 ---
 
-**Signature** : _____________
-**Date/Heure** : _____________
-</code></pre>
-<hr/>
+<span class="gs">**Signature**</span> : _____________
+<span class="gs">**Date/Heure**</span> : _____________
+</code></pre></div>
+<hr />
 <p><strong>Dernière mise à jour</strong> : 2025-10-22
 <strong>Version</strong> : 1.0.0
 <strong>Auteur</strong> : Claude Code</p>
-</div>
-</div><footer>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
+                        
+                        
+                        <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
+                        
+                    </div>
+                    <hr />
+                    
+                </div>
+            </div>
+            <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
+                <div class="fr-container fr-container--fluid fr-container-md">
+                    <div class="fr-grid-row fr-grid-row--center">
+                        <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
+                            <div class="fr-modal__body">
+                                <div class="fr-modal__header">
+                                    <button class="fr-btn--close fr-btn" aria-controls="fr-theme-modal" title="Fermer">
+                                        Fermer
+                                    </button>
+                                </div>
+                                <div class="fr-modal__content">
+                                    <h1 id="fr-theme-modal-title" class="fr-modal__title">
+                                        Paramètres d’affichage </h1>
+                                    <div id="fr-display" class="fr-display">
+                                        <div class="fr-form-group">
+                                            <fieldset class="fr-fieldset">
+                                                <legend class="fr-fieldset__legend fr-text--regular" id='-legend'>
+                                                    Choisissez un thème pour personnaliser l’apparence du site.
+                                                </legend>
+                                                <div class="fr-fieldset__content">
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="light"
+                                                            type="radio" id="fr-radios-theme-light"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-light"> Thème
+                                                            clair </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../artwork/light.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../artwork/light.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../artwork/light.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="dark"
+                                                            type="radio" id="fr-radios-theme-dark"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-dark"> Thème
+                                                            sombre </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../artwork/dark.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../artwork/dark.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../artwork/dark.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="system"
+                                                            type="radio" id="fr-radios-theme-system"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-system"> Système
+                                                            <span class="fr-hint-text">Utilise les paramètres
+                                                                système.</span>
+                                                        </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../artwork/system.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../artwork/system.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../artwork/system.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dialog>
+    </main>
+    <footer class="fr-footer" role="contentinfo" id="footer">
+    <div class="fr-container">
+        <div class="fr-footer__body">
+            <div class="fr-footer__brand fr-enlarge-link">
+                <a href="/"
+                    title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
+                    <p class="fr-logo">
+                        GOUVERNEMENT
+                    </p>
+                </a>
+            </div>
+            <div class="fr-footer__content">
+                <p class="fr-footer__content-desc">Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique</p>
+                <ul class="fr-footer__content-list">
+                    
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://service-public.fr">service-public.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://data.gouv.fr">data.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://info.gouv.fr">info.gouv.fr</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="fr-footer__bottom">
+            <ul class="fr-footer__bottom-list">
+                
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="/span-sg-repo/accessibilite/">Accessibilité : conformité partielle</a>
+                </li>
+                
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="/span-sg-repo/mentions-legales/">Mentions légales</a>
+                </li>
+                
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="/span-sg-repo/donnees-personnelles/">Données personnelles</a>
+                </li>
+                
+                <li class="fr-footer__bottom-item">
+                    <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+                        aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+                </li>
+            </ul>
+            <div class="fr-footer__bottom-copy">
+                <p>Sauf mention contraire, tous les contenus de ce site sont sous <a
+                        href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence
+                        etalab-2.0</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+<div class="revision-date">
+    
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 10:37:05 UTC">23 octobre 2025</span> 
 </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-</div>
-</div>
-</section>
-</div>
-<div aria-label="Versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<span>
-<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg" style="color: #fcfcfc"> GitHub</a>
-</span>
-</span>
-</div>
-<script src="../js/jquery-3.6.0.min.js"></script>
-<script>var base_url = "..";</script>
-<script src="../js/theme_extra.js"></script>
-<script src="../js/theme.js"></script>
-<script src="../search/main.js"></script>
+
 <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
+    var base_url = "..";
+</script>
+
+<script type="module" src="../dsfr.module.min.js"></script>
+<script
+    type="text/javascript"
+    nomodule
+    src="../dsfr.nomodule.min.js"
+></script>
+<script src="../search/lunr.js"></script>
+<script src="../search/lunr.stemmer.support.js"></script>
+<script src="../search/lunr.fr.js"></script>
+<script src="../assets/extra.js" defer></script>
+<script src="../search/main.js" defer></script>
+<script src="../js/open_in_new_tab.js" defer></script>
 </body>
+
 </html>
