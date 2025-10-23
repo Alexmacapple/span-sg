@@ -15,7 +15,7 @@
 Le projet SPAN SG utilise une architecture à 2 branches (`main`, `draft`) pour gérer staging et production :
 
 ```
-feature/update-sircom → PR → draft → /draft/ (org-only)
+feature/update-sircom → PR → staging → /staging/ (org-only)
                                 ↓
                         PR draft → main → / (production)
 ```
@@ -36,7 +36,7 @@ feature/update-sircom → PR → draft → /draft/ (org-only)
 ### Objectifs migration
 
 - **Simplifier workflow** : 1 branche cible unique (`main`)
-- **Conserver 3 URLs** : local, /draft/ (staging), / (production)
+- **Conserver 3 URLs** : local, /staging/ (staging), / (production)
 - **Réduire maintenance** : 67% réduction temps (6h/an → 2h/an)
 - **Améliorer observabilité** : Dashboard deployments centralisé
 - **Faciliter rollback** : Instantané (2 min au lieu de 10 min)
@@ -50,7 +50,7 @@ Migrer vers architecture **1 branche + 2 Environments GitHub** :
 ```
 feature/update-sircom → PR → main
                                 ↓
-                    Environment "staging" → /draft/ (auto-deploy)
+                    Environment "staging" → /staging/ (auto-deploy)
                                 ↓
                     Approval Chef SNUM (manual gate)
                                 ↓
@@ -64,7 +64,7 @@ feature/update-sircom → PR → main
 **Environments GitHub** :
 1. **staging**
    - Déploiement automatique sur push `main`
-   - URL : https://alexmacapple.github.io/span-sg/draft/
+   - URL : https://alexmacapple.github.io/span-sg/staging/
    - Accès : Org-only (inchangé)
    - Protection : Aucune (auto-deploy)
 
@@ -76,7 +76,7 @@ feature/update-sircom → PR → main
 
 **Workflow CI/CD** : 1 job unique avec 3 étapes séquentielles
 1. `build-and-test` : Linting + Tests + Security + Build HTML/PDF + E2E
-2. `deploy-staging` : Deploy /draft/ (needs: build-and-test)
+2. `deploy-staging` : Deploy /staging/ (needs: build-and-test)
 3. `deploy-production` : Deploy / (needs: build-and-test, environment: production)
 
 ---
@@ -94,7 +94,7 @@ feature/update-sircom → PR → main
 name: staging
 deployment_branches: main
 protection_rules: none
-url: https://alexmacapple.github.io/span-sg/draft/
+url: https://alexmacapple.github.io/span-sg/staging/
 
 # Environment: production
 name: production
@@ -217,7 +217,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: staging
-      url: https://alexmacapple.github.io/span-sg/draft/
+      url: https://alexmacapple.github.io/span-sg/staging/
     steps:
       - uses: actions/checkout@v3
         with:
@@ -236,12 +236,12 @@ jobs:
           name: exports
           path: exports/
 
-      - name: Deploy to /draft/ (staging)
+      - name: Deploy to /staging/ (staging)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Nettoyer /draft/ existant
+          # Nettoyer /staging/ existant
           rm -rf draft
           mkdir -p draft
 
@@ -284,7 +284,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Nettoyer racine (conserver /draft/)
+          # Nettoyer racine (conserver /staging/)
           find . -mindepth 1 -maxdepth 1 ! -name 'draft' ! -name '.git' -exec rm -rf {} +
 
           # Copier nouveau build
@@ -371,7 +371,7 @@ jobs:
 - Les modifications passent par une **Pull Request** vers `draft` pour validation.
 + Les modifications passent par une **Pull Request** vers `main` pour validation.
 
-- https://github.com/Alexmacapple/span-sg-repo/blob/draft/docs/modules/[votre-service].md
+- https://github.com/Alexmacapple/span-sg-repo/blob/staging/docs/modules/[votre-service].md
 + https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/modules/[votre-service].md
 
 - **Base** : `draft` (important !)
@@ -381,9 +381,9 @@ jobs:
 +
 + Après merge de votre PR sur `main` :
 +
-+ 1. **Déploiement staging automatique** : Votre contribution est visible sur /draft/ (org-only) sous 10 minutes
++ 1. **Déploiement staging automatique** : Votre contribution est visible sur /staging/ (org-only) sous 10 minutes
 + 2. **Notification Chef SNUM** : Email automatique "Deployment to production pending"
-+ 3. **Approval Chef SNUM** : Review /draft/ puis approve deployment (délai variable 0-60j)
++ 3. **Approval Chef SNUM** : Review /staging/ puis approve deployment (délai variable 0-60j)
 + 4. **Déploiement production automatique** : Contribution visible publiquement sur / sous 5 minutes
 ```
 
@@ -398,14 +398,14 @@ flowchart TD
     A[Contributeur crée feature/update-sircom] --> B[Édite docs/modules/sircom.md]
     B --> C[git commit -m feat...]
     C --> D[git push origin feature/update-sircom]
-    D --> E[Créer PR vers draft]
+    D --> E[Créer PR vers staging]
     E --> F[Review validateur 2-5j]
     F --> G{Approved?}
     G -->|Changes requested| H[Corriger]
     H --> C
-    G -->|Approved| I[Merge PR vers draft]
+    G -->|Approved| I[Merge PR vers staging]
     I --> J[CI/CD build-deploy-draft]
-    J --> K[Deploy /draft/ automatique]
+    J --> K[Deploy /staging/ automatique]
     K --> L[Accumulation contributions 30-60j]
     L --> M[Validateur crée PR draft → main]
     M --> N[Review Chef SNUM]
@@ -442,9 +442,9 @@ flowchart TD
     J --> K[E2E tests 300s]
     K --> L{Tests pass?}
     L -->|Failed| M[Investigation]
-    L -->|Success| N[Deploy staging /draft/]
+    L -->|Success| N[Deploy staging /staging/]
     N --> O[Notification Chef SNUM]
-    O --> P[Chef SNUM review /draft/]
+    O --> P[Chef SNUM review /staging/]
     P --> Q{Approve deployment?}
     Q -->|Not yet| R[Attente accumulation]
     R --> P
@@ -478,9 +478,9 @@ flowchart TD
 
 **Avant (2 branches)** :
 ```
-J+0  09:00 : Contributeur crée PR vers draft
+J+0  09:00 : Contributeur crée PR vers staging
 J+0  14:00 : Validateur approve et merge (5h review express)
-J+0  14:10 : Deploy /draft/ automatique
+J+0  14:10 : Deploy /staging/ automatique
 J+0  14:15 : Validateur crée PR draft → main
 J+0  14:30 : Chef SNUM notifié
 J+1  10:00 : Chef SNUM approve (19.5h délai nuit)
@@ -494,9 +494,9 @@ Total : 25h (1j 1h)
 ```
 J+0  09:00 : Contributeur crée PR vers main
 J+0  14:00 : Validateur approve et merge (5h review express)
-J+0  14:10 : Deploy /draft/ staging automatique
+J+0  14:10 : Deploy /staging/ staging automatique
 J+0  14:10 : Notification Chef SNUM "Deployment pending"
-J+0  14:30 : Chef SNUM review /draft/ puis approve (20 min)
+J+0  14:30 : Chef SNUM review /staging/ puis approve (20 min)
 J+0  14:35 : Deploy / production automatique
 
 Total : 5h35 (même jour)
@@ -508,9 +508,9 @@ Total : 5h35 (même jour)
 
 **Avant (2 branches)** :
 ```
-J+0      : Contributeur crée PR vers draft
+J+0      : Contributeur crée PR vers staging
 J+2      : Merge draft (2j review)
-J+2      : Deploy /draft/
+J+2      : Deploy /staging/
 J+2-60   : Accumulation 10 contributions
 J+60     : Validateur crée PR draft → main
 J+61     : Chef SNUM approve
@@ -523,7 +523,7 @@ Total : 61 jours
 ```
 J+0      : Contributeur crée PR vers main
 J+2      : Merge main (2j review)
-J+2      : Deploy /draft/ staging automatique
+J+2      : Deploy /staging/ staging automatique
 J+2      : Notification Chef SNUM
 J+2-60   : Chef SNUM attend accumulation 10 contributions
 J+60     : Chef SNUM approve deployment (batch)
@@ -591,14 +591,14 @@ Environment: production
 
 **Avant (2 workflows)** :
 ```
-Job draft : Linting → Tests → Security → Build → Deploy /draft/
+Job draft : Linting → Tests → Security → Build → Deploy /staging/
 Job main  : Linting → Tests → Security → Build → E2E → Deploy /
 ```
 
 **Après (1 workflow, 3 jobs)** :
 ```
 Job 1 : Linting → Tests → Security → Build → E2E
-Job 2 : Deploy /draft/ (needs: Job 1)
+Job 2 : Deploy /staging/ (needs: Job 1)
 Job 3 : Deploy / (needs: Job 1, environment: production)
 ```
 
@@ -644,7 +644,7 @@ Job 3 : Deploy / (needs: Job 1, environment: production)
 │ Status: ✅ Active                                           │
 │ Deployed: 2025-10-22 14:10 (02a52e7)                       │
 │ Auto-deployed                                               │
-│ URL: https://alexmacapple.github.io/span-sg/draft/         │
+│ URL: https://alexmacapple.github.io/span-sg/staging/         │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -825,7 +825,7 @@ Total : 2-5 min (+ temps détection)
 
    Avant d'approuver deployment production :
 
-   - [ ] Review /draft/ staging (navigation, contenu)
+   - [ ] Review /staging/ staging (navigation, contenu)
    - [ ] Vérifier E2E tests passés (GitHub Actions)
    - [ ] Vérifier aucune régression visuelle
    - [ ] Vérifier PDF exports/ généré
@@ -1151,7 +1151,7 @@ git tag -l | grep draft-archived
 
 # Remplacements globaux
 find docs/ -name "*.md" -type f -exec sed -i.bak \
-  's/blob\/draft/blob\/main/g' {} \;
+  's/blob\/staging/blob\/main/g' {} \;
 
 find docs/ -name "*.md" -type f -exec sed -i.bak \
   's/Base: `draft`/Base: `main`/g' {} \;
@@ -1193,8 +1193,8 @@ echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
    Job 2: deploy-staging → ✅ (2 min)
    Job 3: deploy-production → ⏳ Waiting for approval
 
-   # Vérifier /draft/
-   https://alexmacapple.github.io/span-sg/draft/
+   # Vérifier /staging/
+   https://alexmacapple.github.io/span-sg/staging/
    ```
 
 3. **Approuver déploiement production (test)** :
@@ -1255,8 +1255,8 @@ echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
    curl -I http://localhost:8000/span-sg/
    # Attendu : 200 OK
 
-   # Staging /draft/
-   curl -I https://alexmacapple.github.io/span-sg/draft/
+   # Staging /staging/
+   curl -I https://alexmacapple.github.io/span-sg/staging/
    # Attendu : 200 OK
 
    # Production /
@@ -1274,7 +1274,7 @@ echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
 - [ ] Tag `draft-archived-2025-10-22` vérifié
 - [ ] Branche `draft` supprimée (remote)
 - [ ] Branche `draft` supprimée (local)
-- [ ] 3 URLs vérifiées (local, /draft/, /)
+- [ ] 3 URLs vérifiées (local, /staging/, /)
 
 #### Phase 6 : Communication (30 min)
 
@@ -1326,7 +1326,7 @@ echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
    Pour approuver un déploiement :
    1. Aller sur https://github.com/Alexmacapple/span-sg/deployments
    2. Cliquer environment "production" → Status "Pending"
-   3. Review staging /draft/ (preview avant production)
+   3. Review staging /staging/ (preview avant production)
    4. Cliquer "Review deployment" → "Approve"
    5. Production déployée automatiquement sous 5 minutes
 
@@ -1359,7 +1359,7 @@ echo "✅ Documentation mise à jour (vérifier diffs avant commit)"
    2. Éditer docs/modules/[service].md
    3. Créer PR vers `main` (changement ici)
    4. Review validateur (2-5j, inchangé)
-   5. Merge → deploy /draft/ staging automatique
+   5. Merge → deploy /staging/ staging automatique
    6. Approval Chef SNUM → deploy / production
 
    **Documentation** :
@@ -1471,7 +1471,7 @@ git push -u origin test/post-migration
 # Vérifier :
 - [ ] Deploy staging automatique (< 10 min)
 - [ ] Notification Chef SNUM reçue
-- [ ] /draft/ accessible
+- [ ] /staging/ accessible
 ```
 
 **Test 2 : Approval production** :
@@ -1537,7 +1537,7 @@ cp .github/workflows/build.yml.backup-2025-10-22 .github/workflows/build.yml
 
 **Architecture** :
 ```
-feature → draft → /draft/
+feature → staging → /staging/
 draft (batch) → main → /
 main → GitHub Action auto-sync → draft (automatique)
 ```
@@ -1545,7 +1545,7 @@ main → GitHub Action auto-sync → draft (automatique)
 **Avantages** :
 - Conserve architecture 2 branches (familière)
 - Auto-sync évite divergence
-- Staging clair (/draft/ = branche draft)
+- Staging clair (/staging/ = branche draft)
 
 **Inconvénients** :
 - Maintenance 2 workflows CI/CD (inchangé)
@@ -1560,7 +1560,7 @@ main → GitHub Action auto-sync → draft (automatique)
 **Architecture** :
 ```
 feature → main
-Tag vX.Y.Z-rc → /draft/ staging
+Tag vX.Y.Z-rc → /staging/ staging
 Tag vX.Y.Z → / production
 ```
 
@@ -1660,7 +1660,7 @@ PR draft reviewed → Convert to main → Merge
 2. **ROI rapide** : Rentabilisé après 11 mois
 3. **Risques maîtrisés** : 4 risques identifiés avec mitigations
 4. **Rollback possible** : Procédure revert si seuils échec atteints
-5. **Conservation 3 URLs** : Objectif utilisateur respecté (local, /draft/, /)
+5. **Conservation 3 URLs** : Objectif utilisateur respecté (local, /staging/, /)
 
 **Conditions succès** :
 
@@ -1715,10 +1715,10 @@ La migration a nécessité 3 corrections itératives pour résoudre les conflits
 - Branches nettoyées : `draft`, `feature/migrate-github-environments`, `feature/update-docs-environments`, `feature/dsfr-poc`
 
 **Environments GitHub :**
-- `staging` (ID: 9461952255) : déploiement automatique vers /draft/ (org-only)
+- `staging` (ID: 9461952255) : déploiement automatique vers /staging/ (org-only)
   - Branch policy : main uniquement
   - Reviewers : null (automatique)
-  - URL : https://alexmacapple.github.io/span-sg/draft/
+  - URL : https://alexmacapple.github.io/span-sg/staging/
 
 - `production` (ID: 9461976290) : déploiement séquentiel vers / (public)
   - Branch policy : main uniquement
@@ -1728,7 +1728,7 @@ La migration a nécessité 3 corrections itératives pour résoudre les conflits
 **Workflow CI/CD Final :**
 ```
 Push main → build-and-test (~5min)
-           ├─ deploy-staging → /draft/ (~1min) [séquentiel]
+           ├─ deploy-staging → /staging/ (~1min) [séquentiel]
            └─ deploy-production → / (~1min) [séquentiel après staging]
 
 Temps total : ~7min (vs ~6-10min avant, acceptable pour fiabilité)
@@ -1738,12 +1738,12 @@ Temps total : ~7min (vs ~6-10min avant, acceptable pour fiabilité)
 
 **Tests post-migration (4/4 réussis) :**
 1. Build réussit : ✓ (run 18721249064)
-2. Staging déployé : ✓ (HTTP 200 sur /draft/)
+2. Staging déployé : ✓ (HTTP 200 sur /staging/)
 3. Production déployé : ✓ (HTTP 200 sur /)
 4. Workflow séquentiel : ✓ (staging avant production)
 
 **Sites opérationnels :**
-- Staging : https://alexmacapple.github.io/span-sg/draft/ (last-modified: Wed, 22 Oct 2025 15:30:24 GMT)
+- Staging : https://alexmacapple.github.io/span-sg/staging/ (last-modified: Wed, 22 Oct 2025 15:30:24 GMT)
 - Production : https://alexmacapple.github.io/span-sg/ (last-modified: Wed, 22 Oct 2025 15:30:24 GMT)
 
 ### Documentation Mise à Jour
@@ -1812,7 +1812,7 @@ Migration **RÉUSSIE** avec architecture finale **100% opérationnelle**. Les 3 
 **État final validé :**
 - Tous les objectifs migration atteints
 - Aucune perte de fonctionnalité
-- 3 URLs conservées (local, /draft/, /)
+- 3 URLs conservées (local, /staging/, /)
 - Documentation complète et à jour
 - Version taguée et tracée (v1.2.0-environments)
 

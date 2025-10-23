@@ -28,7 +28,7 @@ journey
       Répondre commentaires: 4: Contributeur
       Approbation: 5: Validateur
     section Déploiement
-      Merge sur draft: 5: Validateur
+      Merge sur staging: 5: Validateur
       CI/CD automatique: 5: Système
       Preview disponible: 5: Contributeur
     section Production
@@ -146,7 +146,7 @@ stateDiagram-v2
     InReview --> Approved: Validation OK
     ChangesRequested --> Draft: Vous corrigez
     Approved --> Merged: Validateur merge
-    Merged --> [*]: Déployé /draft/
+    Merged --> [*]: Déployé /staging/
 
     note right of InReview
         Bertrand ou Alex
@@ -207,7 +207,7 @@ graph LR
     I -->|✅| J[Build HTML<br/>MkDocs DSFR]
 
     J --> K[Generate PDF<br/>WeasyPrint]
-    K --> L[Deploy /draft/<br/>GitHub Pages]
+    K --> L[Deploy /staging/<br/>GitHub Pages]
 
     L --> M[✅ Preview<br/>disponible]
 
@@ -242,11 +242,11 @@ En cas d'erreur, consultez :
 
 ### 5.1 De draft à main
 
-Votre contribution est maintenant sur `/draft/`. Pour passer en production :
+Votre contribution est maintenant sur `/staging/`. Pour passer en production :
 
 ```mermaid
 graph TB
-    A[Votre PR merged<br/>sur draft] --> B[Validation interne<br/>Bertrand + Alex]
+    A[Votre PR merged<br/>sur staging] --> B[Validation interne<br/>Bertrand + Alex]
     B --> C{Prêt prod?}
     C -->|Non| D[Attente autres<br/>contributions]
     C -->|Oui| E[Chef SNUM<br/>Approuve release]
@@ -288,7 +288,7 @@ graph TB
 
 ### Puis-je voir ma contribution avant production ?
 
-Non, la preview `/draft/` est désactivée (accès org-only). Options :
+Non, la preview `/staging/` est désactivée (accès org-only). Options :
 
 1. **Build local** : Suivre [dev-local.md](dev-local.md) (Docker)
 2. **PDF** : Télécharger depuis Artifacts CI (nécessite compte GitHub)
@@ -378,7 +378,7 @@ graph TB
 
     subgraph "CI/CD Automatique"
         I[9. Build + Tests]
-        J[10. Deploy /draft/]
+        J[10. Deploy /staging/]
         K[11. E2E tests]
         L[12. Deploy / prod]
     end

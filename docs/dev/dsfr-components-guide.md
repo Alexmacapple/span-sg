@@ -900,7 +900,7 @@ git checkout -b feature/update-sircom
 git add docs/modules/sircom.md
 git commit -m "feat(sircom): mise à jour plan 2025"
 git push -u origin feature/update-sircom
-# Créer PR vers draft
+# Créer PR vers staging
 ```
 ///
 

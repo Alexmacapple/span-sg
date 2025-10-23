@@ -279,7 +279,7 @@ gitGraph
 **Architecture (depuis 22/10/2025) :**
 - `main` : Branche unique (source de vérité)
 - `feature/*` : Contributions services (PR vers main)
-- GitHub Environment `staging` : Auto-deploy /draft/
+- GitHub Environment `staging` : Auto-deploy /staging/
 - GitHub Environment `production` : Deploy / (approval Chef SNUM requis)
 
 **Référence :** [CONTRIBUTING.md](contributing.md#option-b--git-local-avancs)
@@ -327,7 +327,7 @@ jobs:
 **Définition :** Hébergement gratuit de sites statiques par GitHub.
 
 **URLs SPAN SG :**
-- Staging (auto-deploy) : https://alexmacapple.github.io/span-sg/draft/ (org-only)
+- Staging (auto-deploy) : https://alexmacapple.github.io/span-sg/staging/ (org-only)
 - Production (approval requis) : https://alexmacapple.github.io/span-sg/ (org-only)
 
 **Branche :** `gh-pages`

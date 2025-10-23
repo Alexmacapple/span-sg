@@ -15,7 +15,7 @@ Depuis la migration GitHub Environments (ADR-009), vous êtes **gate-keeper** de
 
 **Votre rôle** :
 - Recevoir notifications "Deployment to production pending"
-- Review staging https://alexmacapple.github.io/span-sg/draft/
+- Review staging https://alexmacapple.github.io/span-sg/staging/
 - Approuver déploiement production https://alexmacapple.github.io/span-sg/
 
 **Délai typique** :
@@ -71,7 +71,7 @@ Review deployment: https://github.com/Alexmacapple/span-sg/deployments/...
 │ - feat(sircom): ajoute 3 actions plan 2025               │
 │ - fix(accessibility): corriger timeout urllib3            │
 │                                                           │
-│ Preview staging: https://...github.io/span-sg/draft/      │
+│ Preview staging: https://...github.io/span-sg/staging/      │
 │                                                           │
 │ [Review deployment]                                       │
 └───────────────────────────────────────────────────────────┘
@@ -87,7 +87,7 @@ Review deployment: https://github.com/Alexmacapple/span-sg/deployments/...
 
 ### Étape 3 : Review Staging
 
-**URL staging** : https://alexmacapple.github.io/span-sg/draft/
+**URL staging** : https://alexmacapple.github.io/span-sg/staging/
 
 **Checklist review** (5-10 minutes) :
 
@@ -125,7 +125,7 @@ Job: build-and-test
   ✅ E2E tests (9 scenarios)
 
 Job: deploy-staging
-  ✅ Deploy /draft/
+  ✅ Deploy /staging/
 
 Job: deploy-production
   ⏳ Waiting for approval (vous)
@@ -477,7 +477,7 @@ https://github.com/Alexmacapple/span-sg/compare/production...staging
 
 **Option 3 : Manuel** :
 ```
-1. Ouvrir /draft/ (staging)
+1. Ouvrir /staging/ (staging)
 2. Ouvrir / (production) dans onglet séparé
 3. Comparer visuellement côte-à-côte
 ```
@@ -503,11 +503,11 @@ https://github.com/Alexmacapple/span-sg/compare/production...staging
 
 ---
 
-### Q8 : Que faire si staging /draft/ inaccessible (404) ?
+### Q8 : Que faire si staging /staging/ inaccessible (404) ?
 
 **R** : Vérifier :
 
-1. **URL correcte** : https://alexmacapple.github.io/span-sg/draft/ (pas /draft sans trailing slash)
+1. **URL correcte** : https://alexmacapple.github.io/span-sg/staging/ (pas /draft sans trailing slash)
 2. **Accès org-only** : Connecté GitHub avec compte org (pas mode incognito)
 3. **Déploiement staging réussi** : Vérifier GitHub Actions logs
 
@@ -593,7 +593,7 @@ Contributeur(s): _____________
 
 ### 1. Review Staging (5-10 min)
 
-- [ ] Ouvrir https://alexmacapple.github.io/span-sg/draft/
+- [ ] Ouvrir https://alexmacapple.github.io/span-sg/staging/
 - [ ] Tester navigation menu latéral (6 modules services)
 - [ ] Ouvrir 2-3 modules (ex: SIRCOM, SNUM)
 - [ ] Vérifier tableau Synthèse (scores cohérents, badges visibles)
@@ -612,7 +612,7 @@ Contributeur(s): _____________
 - [ ] E2E tests (9 scenarios) : ✅
 - [ ] Build HTML DSFR (strict mode) : ✅
 - [ ] Generate PDF (metadata enrichies) : ✅
-- [ ] Job deploy-staging : ✅ Deployed to /draft/
+- [ ] Job deploy-staging : ✅ Deployed to /staging/
 - [ ] Aucune erreur bloquante dans logs
 
 ### 3. Décision

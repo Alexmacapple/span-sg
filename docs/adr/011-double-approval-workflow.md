@@ -7,11 +7,11 @@
 
 ## Contexte
 
-Après la migration vers GitHub Environments (ADR-009), l'environnement `staging` était configuré en auto-deploy vers `/draft/` sans gate d'approbation. Seul l'environnement `production` nécessitait une validation manuelle.
+Après la migration vers GitHub Environments (ADR-009), l'environnement `staging` était configuré en auto-deploy vers `/staging/` sans gate d'approbation. Seul l'environnement `production` nécessitait une validation manuelle.
 
 Cette configuration présentait deux problèmes :
 1. **Manque de contrôle** : Impossible de tester staging avant que les modifications soient publiquement accessibles
-2. **Incohérence nomenclature** : Environment "staging" → URL "/draft/"
+2. **Incohérence nomenclature** : Environment "staging" → URL "/staging/"
 
 ## Décision
 
@@ -19,7 +19,7 @@ Cette configuration présentait deux problèmes :
 
 Configurer l'environnement GitHub "staging" avec Required Reviewers (Alexmacapple) pour forcer une approbation manuelle avant tout déploiement.
 
-### 2. Renommage /draft/ → /staging/
+### 2. Renommage /staging/ → /staging/
 
 Modifier toutes les références pour utiliser `/staging/` afin d'assurer la cohérence entre :
 - Nom de l'environnement GitHub : `staging`
@@ -65,8 +65,8 @@ Workflow : Double approbation (3 niveaux de contrôle)
 
 ### Neutres
 
-1. **Migration progressive** : Ancien dossier `/draft/` reste sur gh-pages jusqu'à nettoyage manuel
-2. **Bookmarks** : URLs `/draft/` à mettre à jour vers `/staging/` (coexistence temporaire)
+1. **Migration progressive** : Ancien dossier `/staging/` reste sur gh-pages jusqu'à nettoyage manuel
+2. **Bookmarks** : URLs `/staging/` à mettre à jour vers `/staging/` (coexistence temporaire)
 
 ## Fichiers modifiés
 
@@ -130,11 +130,11 @@ Résultat : Configuration fonctionnelle validée
 
 ### Nettoyage futur (optionnel)
 
-Pour supprimer l'ancien dossier `/draft/` de gh-pages :
+Pour supprimer l'ancien dossier `/staging/` de gh-pages :
 ```bash
 git checkout gh-pages
 rm -rf draft
-git commit -m "cleanup: remove deprecated /draft/ directory"
+git commit -m "cleanup: remove deprecated /staging/ directory"
 git push origin gh-pages
 ```
 

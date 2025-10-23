@@ -239,7 +239,7 @@ stateDiagram-v2
     CIRunning --> CISuccess: Tests passent
 
     CIFailed --> Fixing: Investigation erreurs
-    CISuccess --> DeployedDraft: Deploy /draft/ (org-only)
+    CISuccess --> DeployedDraft: Deploy /staging/ (org-only)
 
     DeployedDraft --> WaitingRelease: Accumulation contributions
     WaitingRelease --> ProdPR: Validateur crée PR main → main
@@ -264,7 +264,7 @@ stateDiagram-v2
 
     note right of DeployedDraft
         Preview privée (org-only)
-        URL : /draft/
+        URL : /staging/
         Persistance : Jusqu'à release
     end note
 
@@ -281,7 +281,7 @@ stateDiagram-v2
 2. **InReview** : Validateur notifié, review en cours (2-5j)
 3. **ChangesRequested** : Corrections demandées (loop possible)
 4. **CIRunning** : Pipeline CI/CD (linting, tests, security, build)
-5. **DeployedDraft** : Preview déployée `/draft/` (org-only)
+5. **DeployedDraft** : Preview déployée `/staging/` (org-only)
 6. **WaitingRelease** : Contributions accumulées (30-60j)
 7. **E2ETests** : Tests bout-en-bout (main only, bloquant)
 8. **DeployedProd** : Production publique `/` (final)
@@ -338,7 +338,7 @@ stateDiagram-v2
     E2ESuccess --> Deploy: Deploy GitHub Pages
     SkipE2E --> Deploy
 
-    Deploy --> DeployDraft: draft → /draft/
+    Deploy --> DeployDraft: draft → /staging/
     Deploy --> DeployProd: main → / racine
 
     DeployDraft --> Artifacts: Upload exports + reports
@@ -537,7 +537,7 @@ flowchart TD
     CheckLogs --> FixErrors[Corriger erreurs CI]
     FixErrors --> CommitFixes
 
-    CIResult -->|Success| DeployDraft[Déploiement /draft/ automatique]
+    CIResult -->|Success| DeployDraft[Déploiement /staging/ automatique]
     DeployDraft --> End([Contribution visible org-only])
 
     style Start fill:#91d5ff

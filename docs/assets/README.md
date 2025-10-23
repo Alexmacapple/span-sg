@@ -209,7 +209,7 @@ Pour créer une PR vers `draft`, suivre ces étapes :
 
 Animation démonstrant le processus de contribution de bout en bout :
 
-![Animation workflow : édition module SIRCOM sur GitHub web, cochage 3 critères DINUM, création Pull Request vers draft, attente review validateur, merge automatique](../assets/gifs/onboarding-create-pr-10fps.gif)
+![Animation workflow : édition module SIRCOM sur GitHub web, cochage 3 critères DINUM, création Pull Request vers staging, attente review validateur, merge automatique](../assets/gifs/onboarding-create-pr-10fps.gif)
 
 Durée estimée : 15 minutes par contribution.
 ```

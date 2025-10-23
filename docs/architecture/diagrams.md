@@ -59,7 +59,7 @@ graph TD
 **Validations:** Black, Ruff, pytest, coverage 89%+, DSFR, PDF, E2E (main seulement)
 
 **Déploiement:**
-- draft → `gh-pages/draft/`
+- draft → `gh-pages/staging/`
 - main → `gh-pages/` (racine)
 
 ---
@@ -160,7 +160,7 @@ gitGraph
 
 **Branches:**
 - `main`: Production (GitHub Pages racine)
-- `draft`: Preview (GitHub Pages /draft/)
+- `draft`: Preview (GitHub Pages /staging/)
 
 **Tags:** Releases officielles (v0.9.0, v1.0.0, v1.1.0, ...)
 
@@ -246,12 +246,12 @@ flowchart LR
     end
 
     subgraph "📦 gh-pages Branch"
-        G[/draft/<br/>Preview]
+        G[/staging/<br/>Preview]
         H[/ Racine<br/>Production]
     end
 
     subgraph "🌐 GitHub Pages"
-        I[alexmacapple.github.io/<br/>span-sg-repo/draft/]
+        I[alexmacapple.github.io/<br/>span-sg-repo/staging/]
         J[alexmacapple.github.io/<br/>span-sg-repo/]
     end
 
@@ -273,7 +273,7 @@ flowchart LR
 ```
 
 **URLs:**
-- Draft: https://alexmacapple.github.io/span-sg-repo/draft/
+- Draft: https://alexmacapple.github.io/span-sg-repo/staging/
 - Production: https://alexmacapple.github.io/span-sg-repo/
 
 **Stratégie:** Git push direct (pas actions/deploy-pages, contrôle total)

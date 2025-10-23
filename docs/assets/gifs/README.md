@@ -363,7 +363,7 @@ Avant commit, valider :
   **Étapes détaillées** :
   1. Éditer module sur GitHub
   2. Cocher critères DINUM
-  3. Créer Pull Request vers draft
+  3. Créer Pull Request vers staging
   ```
 
 ---
@@ -389,7 +389,7 @@ Avant commit, valider :
 
 Animation démonstrant le workflow de bout en bout :
 
-![Animation : édition module SIRCOM sur GitHub web, cochage 3 critères DINUM, création Pull Request vers draft, attente review validateur, merge automatique](../assets/gifs/onboarding-full-workflow-10fps.gif)
+![Animation : édition module SIRCOM sur GitHub web, cochage 3 critères DINUM, création Pull Request vers staging, attente review validateur, merge automatique](../assets/gifs/onboarding-full-workflow-10fps.gif)
 
 **Détail des étapes** :
 

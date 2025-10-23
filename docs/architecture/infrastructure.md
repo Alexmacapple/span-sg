@@ -34,7 +34,7 @@ graph TB
 
         subgraph "GitHub Pages"
             GHP[fa:fa-globe GitHub Pages<br/>CDN CloudFlare]
-            DRAFT[fa:fa-folder /draft/<br/>Preview org-only]
+            DRAFT[fa:fa-folder /staging/<br/>Preview org-only]
             PROD[fa:fa-folder / racine<br/>Production public]
         end
 
@@ -190,7 +190,7 @@ graph LR
 
     subgraph "Phase 6: Deploy Staging (60s)"
         U[Clone gh-pages]
-        V[Deploy to /draft/]
+        V[Deploy to /staging/]
         W[Push staging]
     end
 
@@ -306,14 +306,14 @@ gitGraph
     branch main
     commit id: "Push main"
     commit id: "CI: build-and-test"
-    commit id: "Deploy staging /draft/" tag: "staging"
+    commit id: "Deploy staging /staging/" tag: "staging"
     commit id: "Deploy production /" tag: "production"
     commit id: "v1.2.0-environments" type: HIGHLIGHT
 ```
 
 Architecture 1-branche + 2 Environments (depuis v1.2.0):
 - Branche unique `main` pour développement
-- Environnement `staging` : déploiement automatique vers /draft/
+- Environnement `staging` : déploiement automatique vers /staging/
 - Environnement `production` : déploiement séquentiel vers /
 
 ### URLs et Accès
@@ -321,7 +321,7 @@ Architecture 1-branche + 2 Environments (depuis v1.2.0):
 | URL | Environment GitHub | Déploiement gh-pages | Accès | Latency |
 |-----|-------------------|---------------------|-------|---------|
 | `/` | production | gh-pages racine | Public | <100ms |
-| `/draft/` | staging | gh-pages/draft/ | Org-only | <100ms |
+| `/staging/` | staging | gh-pages/staging/ | Org-only | <100ms |
 
 ---
 

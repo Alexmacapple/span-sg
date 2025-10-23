@@ -104,7 +104,7 @@ graph TB
 
     subgraph "Deployment Targets"
         direction TB
-        PAGES_DRAFT[fa:fa-globe gh-pages/draft/<br/>Preview privée]
+        PAGES_DRAFT[fa:fa-globe gh-pages/staging/<br/>Preview privée]
         PAGES_PROD[fa:fa-globe gh-pages/<br/>Production publique]
     end
 
@@ -171,7 +171,7 @@ graph TB
    - Reports : E2E HTML, Security JSON, Coverage HTML
 
 4. **Deployment Targets** :
-   - gh-pages/draft/ : Preview privée (org-only)
+   - gh-pages/staging/ : Preview privée (org-only)
    - gh-pages/ racine : Production publique
 
 5. **Build Tools** :
@@ -240,7 +240,7 @@ sequenceDiagram
     Note over G,CI: 4. Déploiement
     G->>CI: Trigger workflow (draft merge)
     CI->>CI: Run all checks + E2E (si main)
-    CI->>P: Deploy gh-pages/draft/ (ou /)
+    CI->>P: Deploy gh-pages/staging/ (ou /)
 
     Note over C,P: 5. Publication
     P->>C: Preview visible org-only
@@ -254,7 +254,7 @@ sequenceDiagram
 
 | Environnement | Branche | URL | Accès | Déploiement |
 |---------------|---------|-----|-------|-------------|
-| Preview | draft | /draft/ | Org-only | Auto (push draft) |
+| Preview | draft | /staging/ | Org-only | Auto (push draft) |
 | Production | main | / racine | Public | Auto (push main) |
 
 ### Workflow déploiement
@@ -265,7 +265,7 @@ graph LR
     B -->|❌ Failed| C[STOP - Fix errors]
     B -->|✅ Success| D[Build HTML + PDF]
     D --> E{Branche?}
-    E -->|draft| F[Deploy /draft/]
+    E -->|draft| F[Deploy /staging/]
     E -->|main| G[Run E2E tests]
     G --> H{E2E pass?}
     H -->|❌| I[STOP - Check E2E report]
