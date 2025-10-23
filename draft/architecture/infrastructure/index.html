@@ -1,108 +1,630 @@
-<!DOCTYPE html>
 
-<html class="writer-html5" lang="en">
+<!DOCTYPE html>
+<html lang="fr" data-fr-scheme="system">
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://alexmacapple.github.io/span-sg/architecture/infrastructure/" rel="canonical"/>
-<link href="../../img/favicon.ico" rel="shortcut icon"/>
-<title>Architecture Infrastructure - Runtime et Déploiement</title>
-<link href="../../css/theme.css" rel="stylesheet"/>
-<link href="../../css/theme_extra.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
-<script>
-        // Current page data
-        var mkdocs_page_name = "Architecture Infrastructure - Runtime et D\u00e9ploiement";
-        var mkdocs_page_input_path = "architecture/infrastructure.md";
-        var mkdocs_page_url = "/span-sg/architecture/infrastructure/";
-      </script>
-<!--[if lt IE 9]>
-      <script src="../../js/html5shiv.min.js"></script>
-    <![endif]-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
-<link href="../../../exports/span-sg.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
-<body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href="../..">
-</a><div role="search">
-<form action="../../search.html" class="wy-form" id="rtd-search-form" method="get">
-<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
-</form>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../../dsfr.min.css">
+    <link rel="stylesheet" href="../../utility/utility.min.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+
+    <meta name="theme-color" content="#000091">
+    <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+    <link rel="apple-touch-icon" href="../../ favicon /apple-touch-icon.png">
+    <!-- 180×180 -->
+    <link rel="icon" href="../../favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../../favicon/favicon.ico">
+    <!-- 32×32 -->
+    <link rel="manifest" href="../../favicon/manifest.webmanifest" crossorigin="use-credentials">
+    <script src="../../js/postprocess.js" defer></script>
+
+    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
+    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
+    
+
+    <title>Infrastructure Runtime</title>
+    
+    
+</head>
+<body>
+    <div class="fr-skiplinks">
+  <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+    <ul class="fr-skiplinks__list">
+      <li>
+        <a class="fr-link" href="#content">Contenu</a>
+      </li>
+      <li>
+        <a class="fr-link" href="#header-navigation">Menu</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#search-modal">Recherche</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#footer">Pied de page</a>
+      </li>
+    </ul>
+  </nav>
 </div>
-</div>
-<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../..">SPAN (SG)</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">SPAN (services)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/bgs/">BGS</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/safi/">SAFI</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/siep/">SIEP</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/sircom/">SIRCOM</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/snum/">SNUM</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/srh/">SRH</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../synthese/">Synthèse</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../processus/">Processus</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Guide contributeur</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../dev-local/">Développement local</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="" href="https://github.com/Alexmacapple/span-sg">Code source GitHub</a>
-</li>
-</ul>
-</div>
-</div>
+    <header role="banner" class="fr-header">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row">
+                <div class="fr-header__brand fr-enlarge-link">
+                    <div class="fr-header__brand-top">
+                        <div class="fr-header__logo">
+                            <p class="fr-logo" style="">
+                                GOUVERNEMENT
+                            </p>
+                        </div>
+
+                        <div class="fr-header__navbar">
+                            
+                            <button
+                                class="fr-btn--search fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-541"
+                                id="button-542"
+                                title="Rechercher"
+                            >
+                                Rechercher
+                            </button>
+                            
+                            <button
+                                class="fr-btn--menu fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-543"
+                                aria-haspopup="menu"
+                                id="button-544"
+                                title="Menu"
+                            >
+                                Menu
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fr-header__service">
+                        <a href="/" title="Retour à l'accueil du site - SPAN SG">
+                            <p class="fr-header__service-title">
+                                SPAN SG
+                            </p>
+                        </a>
+                        <p class="fr-header__service-tagline">
+                            Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général
+                        </p>
+                    </div>
+                </div>
+                <div class="fr-header__tools">
+                    
+                    <div class="fr-header__tools-links">
+                        <ul class="fr-btns-group">
+                            <li>
+                                <a
+                                    href="https://github.com/Alexmacapple/span-sg/blob/main/docs/architecture/infrastructure.md"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="fr-btn"
+                                    >Éditer dans GitHub</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="fr-header__search fr-modal" id="search-modal">
+                        <div class="fr-container fr-container-lg--fluid">
+                            <button
+                                class="fr-btn--close fr-btn"
+                                aria-controls="modal-541"
+                                title="Fermer"
+                            >
+                                Fermer
+                            </button>
+                            
+                            <form action="../../search.html">
+                                <div
+                                    class="fr-search-bar"
+                                    id="search-540"
+                                    role="search"
+                                >
+                                    <label
+                                        class="fr-label"
+                                        for="mkdocs-search-query"
+                                    >
+                                        Rechercher
+                                    </label>
+                                    <input
+                                        class="fr-input search_input search-query ui-autocomplete-input"
+                                        placeholder="Rechercher"
+                                        type="text"
+                                        id="mkdocs-search-query"
+                                        name="q"
+                                    />
+                                    <button
+                                        class="fr-btn"
+                                        title="Rechercher"
+                                        type="submit"
+                                    >
+                                        Rechercher
+                                    </button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="fr-header__menu fr-modal"
+        id="modal-543"
+        aria-labelledby="button-544"
+    >
+        <div class="fr-container">
+            <button
+                class="fr-btn--close fr-btn"
+                aria-controls="modal-543"
+                title="Fermer"
+            >
+                Fermer
+            </button>
+            <div class="fr-header__menu-links"></div>
+            <nav
+    class="fr-nav navbar-header"
+    id="header-navigation"
+    role="navigation"
+    aria-label="Menu principal"
+>
+    <ul class="fr-nav__list">
+         
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../.."
+                target="_self"
+                
+                >SPAN (SG)</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../mise-en-application-circulaire/"
+                target="_self"
+                
+                >Contexte réglementaire</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7763"
+                
+            >
+                SPAN (services)
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7763">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/bgs/"
+                            target="_self"
+                            >BGS</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/safi/"
+                            target="_self"
+                            >SAFI</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/siep/"
+                            target="_self"
+                            >SIEP</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/sircom/"
+                            target="_self"
+                            >SIRCOM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/snum/"
+                            target="_self"
+                            >SNUM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/srh/"
+                            target="_self"
+                            >SRH</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../processus/"
+                target="_self"
+                
+                >Processus</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../accompagnement/"
+                target="_self"
+                
+                >Guide d'accompagnement</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../synthese/"
+                target="_self"
+                
+                >Synthèse</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7767"
+                
+            >
+                Documentation technique
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7767">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            aria-current="page"
+                            
+                            href="../.."
+                            target="_self"
+                            >Architecture</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../dev/api-reference/"
+                            target="_self"
+                            >API Reference</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../dev/hooks-guide/"
+                            target="_self"
+                            >Guide Hooks</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../dev/dsfr-components-guide/"
+                            target="_self"
+                            >Guide Composants DSFR</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../glossary/"
+                            target="_self"
+                            >Glossaire</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../onboarding-visual/"
+                            target="_self"
+                            >Onboarding visuel</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../dev-local/"
+                            target="_self"
+                            >Développement local</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../contributing/"
+                            target="_self"
+                            >Guide contributeur</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../.."
+                            target="_self"
+                            >ADR (Décisions)</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7768"
+                
+            >
+                Informations légales
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7768">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../accessibilite/"
+                            target="_self"
+                            >Accessibilité</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../mentions-legales/"
+                            target="_self"
+                            >Mentions légales</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../donnees-personnelles/"
+                            target="_self"
+                            >Données personnelles</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="https://github.com/Alexmacapple/span-sg-repo"
+                target="_self"
+                
+                >Code source GitHub</a
+            >
+        </li>
+         
+    </ul>
 </nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href="../.."></a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a aria-label="Docs" class="icon icon-home" href="../.."></a></li>
-<li class="breadcrumb-item active">Architecture Infrastructure - Runtime et Déploiement</li>
-<li class="wy-breadcrumbs-aside">
-<a class="icon icon-github" href="https://github.com/Alexmacapple/span-sg/edit/master/docs/architecture/infrastructure.md"> Edit on GitHub</a>
-</li>
-</ul>
-<hr/>
+        </div>
+    </div>
+</header>
+    <main id="content" role="main">
+        
+        <div class="fr-container markdown-content">
+            <div class="fr-grid-row">
+                
+                
+                    
+                
+
+                
+                    
+<div class="fr-col-12 fr-col-md-3 fr-py-1v">
+    <nav
+        class="fr-sidemenu fr-sidemenu--sticky-full-height fr-mb-0-5v"
+        role="navigation"
+        aria-label="Menu latéral"
+    >
+        
+        <div class="fr-sidemenu__inner">
+            <button
+                class="fr-sidemenu__btn"
+                aria-controls="fr-sidemenu-wrapper"
+                aria-expanded="true"
+            >
+                Architecture Infrastructure - Runtime et Déploiement
+            </button>
+            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+                <div class="fr-sidemenu__title">Architecture Infrastructure - Runtime et Déploiement</div>
+                <ul class="fr-sidemenu__list">
+                     
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#1-vue-densemble-infrastructure"
+                            target="_self"
+                            >1. Vue d'ensemble Infrastructure</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#2-cicd-runner-infrastructure"
+                            target="_self"
+                            >2. CI/CD Runner Infrastructure</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#3-build-pipeline-detaille"
+                            target="_self"
+                            >3. Build Pipeline Détaillé</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#4-caching-strategy"
+                            target="_self"
+                            >4. Caching Strategy</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#5-deploiement-github-pages"
+                            target="_self"
+                            >5. Déploiement GitHub Pages</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#6-ressources-et-quotas"
+                            target="_self"
+                            >6. Ressources et Quotas</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#7-monitoring-et-observabilite"
+                            target="_self"
+                            >7. Monitoring et Observabilité</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#8-disaster-recovery"
+                            target="_self"
+                            >8. Disaster Recovery</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#9-securite-infrastructure"
+                            target="_self"
+                            >9. Sécurité Infrastructure</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#10-performance-et-optimisations"
+                            target="_self"
+                            >10. Performance et Optimisations</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#references"
+                            target="_self"
+                            >Références</a
+                        >
+                    </li>
+                     
+                </ul>
+            </div>
+        </div>
+        
+    </nav>
 </div>
-<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
-<div class="section" itemprop="articleBody">
-<h1 id="architecture-infrastructure-runtime-et-deploiement">Architecture Infrastructure - Runtime et Déploiement</h1>
+
+                    
+                        <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
+                    
+                
+
+                
+
+                
+                        
+                        <h1 id="architecture-infrastructure-runtime-et-deploiement">Architecture Infrastructure - Runtime et Déploiement</h1>
 <p>Documentation détaillée de l'infrastructure runtime, ressources système et architecture de déploiement SPAN SG.</p>
 <p>Version: 1.2.0-environments
 Dernière mise à jour: 2025-10-22</p>
-<hr/>
+<hr />
 <h2 id="1-vue-densemble-infrastructure">1. Vue d'ensemble Infrastructure</h2>
 <p>Architecture cloud-native basée sur GitHub Actions et GitHub Pages.</p>
-<pre><code class="language-mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "Developer Workstation"
         DEV[fa:fa-laptop Poste développeur&lt;br/&gt;macOS/Linux/Windows]
         DOCKER[fa:fa-docker Docker Desktop&lt;br/&gt;mkdocs-dsfr:latest]
@@ -157,20 +679,19 @@ Dernière mise à jour: 2025-10-22</p>
 
     style RUNNER fill:#b5f5ec,stroke:#13c2c2,stroke-width:3px
     style GHP fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
-    style REPO fill:#ffc9c9,stroke:#ff4d4f,stroke-width:2px
-</code></pre>
-<hr/>
+    style REPO fill:#ffc9c9,stroke:#ff4d4f,stroke-width:2px</code></pre>
+<hr />
 <h2 id="2-cicd-runner-infrastructure">2. CI/CD Runner Infrastructure</h2>
 <h3 id="github-actions-runner-specs">GitHub Actions Runner Specs</h3>
-<pre><code class="language-yaml">Runner: ubuntu-latest (Ubuntu 22.04 LTS)
-vCPU: 8 cores
-RAM: 14 GB
-Disk: 14 GB SSD
-Network: 1 Gbps
-Runtime: ~15min (draft), ~20min (main)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">Runner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest (Ubuntu 22.04 LTS)</span>
+<span class="nt">vCPU</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8 cores</span>
+<span class="nt">RAM</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">14 GB</span>
+<span class="nt">Disk</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">14 GB SSD</span>
+<span class="nt">Network</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1 Gbps</span>
+<span class="nt">Runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~15min (draft), ~20min (main)</span>
+</code></pre></div>
 <h3 id="software-stack-runner">Software Stack Runner</h3>
-<pre><code class="language-mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "OS Layer"
         UBUNTU[Ubuntu 22.04 LTS&lt;br/&gt;Kernel 5.15+]
     end
@@ -224,12 +745,11 @@ Runtime: ~15min (draft), ~20min (main)
 
     style PYTHON fill:#91d5ff,stroke:#1890ff,stroke-width:2px
     style MKDOCS fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
-    style WEASY fill:#ffc9c9,stroke:#ff4d4f,stroke-width:2px
-</code></pre>
-<hr/>
+    style WEASY fill:#ffc9c9,stroke:#ff4d4f,stroke-width:2px</code></pre>
+<hr />
 <h2 id="3-build-pipeline-detaille">3. Build Pipeline Détaillé</h2>
 <h3 id="phases-de-build">Phases de Build</h3>
-<pre><code class="language-mermaid">graph LR
+<pre class="mermaid"><code>graph LR
     subgraph "Phase 1: Setup (30s)"
         A[Checkout code]
         B[Setup Python 3.11]
@@ -285,9 +805,10 @@ Runtime: ~15min (draft), ~20min (main)
     T --&gt; U --&gt; V --&gt; W
     W --&gt; X --&gt; Y --&gt; Z
 
-    style Z fill:#b7eb8f,stroke:#52c41a,stroke-width:3px
-</code></pre>
+    style Z fill:#b7eb8f,stroke:#52c41a,stroke-width:3px</code></pre>
 <h3 id="temps-dexecution">Temps d'exécution</h3>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -339,32 +860,33 @@ Runtime: ~15min (draft), ~20min (main)
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <p>Note: Déploiement séquentiel depuis v1.2.0 (staging puis production) pour éviter conflits gh-pages.</p>
-<hr/>
+<hr />
 <h2 id="4-caching-strategy">4. Caching Strategy</h2>
 <h3 id="docker-layer-cache">Docker Layer Cache</h3>
-<pre><code class="language-yaml">Cache key: ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile.mkdocs-test') }}
-Storage: /tmp/.buildx-cache
-Size: ~500 MB
-Hit rate: 95% (runs consécutifs)
-Miss penalty: +2min build
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">Cache key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-buildx-${{ hashFiles(&#39;Dockerfile.mkdocs-test&#39;) }}</span>
+<span class="nt">Storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/.buildx-cache</span>
+<span class="nt">Size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~500 MB</span>
+<span class="nt">Hit rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">95% (runs consécutifs)</span>
+<span class="nt">Miss penalty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">+2min build</span>
+</code></pre></div>
 <h3 id="pip-dependencies-cache">Pip Dependencies Cache</h3>
-<pre><code class="language-yaml">Cache key: ${{ runner.os }}-pip-${{ hashFiles('requirements-dsfr.txt') }}
-Storage: ~/.cache/pip
-Size: ~200 MB
-Hit rate: 98%
-Miss penalty: +30s install
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">Cache key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-pip-${{ hashFiles(&#39;requirements-dsfr.txt&#39;) }}</span>
+<span class="nt">Storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.cache/pip</span>
+<span class="nt">Size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~200 MB</span>
+<span class="nt">Hit rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">98%</span>
+<span class="nt">Miss penalty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">+30s install</span>
+</code></pre></div>
 <h3 id="build-cache-effectiveness">Build Cache Effectiveness</h3>
-<pre><code class="language-mermaid">pie title "Cache Hit Rate (30 derniers builds)"
+<pre class="mermaid"><code>pie title "Cache Hit Rate (30 derniers builds)"
     "Cache Hit (13min)" : 85
-    "Cache Miss (15min)" : 15
-</code></pre>
-<hr/>
+    "Cache Miss (15min)" : 15</code></pre>
+<hr />
 <h2 id="5-deploiement-github-pages">5. Déploiement GitHub Pages</h2>
 <h3 id="architecture-cdn">Architecture CDN</h3>
-<pre><code class="language-mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "GitHub Pages Infrastructure"
         GHP[GitHub Pages&lt;br/&gt;Static hosting]
         CF[CloudFlare CDN&lt;br/&gt;Global edge network]
@@ -394,23 +916,23 @@ Miss penalty: +30s install
     PDF --&gt; GHP
 
     style CF fill:#ffec3d,stroke:#faad14,stroke-width:2px
-    style GHP fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
-</code></pre>
+    style GHP fill:#b7eb8f,stroke:#52c41a,stroke-width:2px</code></pre>
 <h3 id="strategie-deploiement-avec-github-environments">Stratégie Déploiement avec GitHub Environments</h3>
-<pre><code class="language-mermaid">gitGraph
+<pre class="mermaid"><code>gitGraph
     commit id: "Initial gh-pages"
     branch main
     commit id: "Push main"
     commit id: "CI: build-and-test"
     commit id: "Deploy staging /draft/" tag: "staging"
     commit id: "Deploy production /" tag: "production"
-    commit id: "v1.2.0-environments" type: HIGHLIGHT
-</code></pre>
+    commit id: "v1.2.0-environments" type: HIGHLIGHT</code></pre>
 <p>Architecture 1-branche + 2 Environments (depuis v1.2.0):
 - Branche unique <code>main</code> pour développement
 - Environnement <code>staging</code> : déploiement automatique vers /draft/
 - Environnement <code>production</code> : déploiement séquentiel vers /</p>
 <h3 id="urls-et-acces">URLs et Accès</h3>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -438,39 +960,41 @@ Miss penalty: +30s install
 </tr>
 </tbody>
 </table>
-<hr/>
+</div>
+</div>
+<hr />
 <h2 id="6-ressources-et-quotas">6. Ressources et Quotas</h2>
 <h3 id="github-actions-quotas">GitHub Actions Quotas</h3>
-<pre><code class="language-yaml">Free tier (public repo):
-  - Minutes: Unlimited
-  - Concurrent jobs: 20
-  - Storage artifacts: 500 MB
-  - Retention: 90 jours max
+<div class="highlight"><pre><span></span><code><span class="nt">Free tier (public repo)</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Minutes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unlimited</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Concurrent jobs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Storage artifacts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500 MB</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Retention</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90 jours max</span>
 
-Consommation SPAN SG:
-  - Minutes/mois: ~300 min (60 builds × 5 min)
-  - Concurrent jobs: 2 (draft + main)
-  - Storage: ~50 MB (reports + PDF)
-  - Retention: 30-90j selon type
-</code></pre>
+<span class="nt">Consommation SPAN SG</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Minutes/mois</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~300 min (60 builds × 5 min)</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Concurrent jobs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2 (draft + main)</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~50 MB (reports + PDF)</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Retention</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30-90j selon type</span>
+</code></pre></div>
 <h3 id="github-pages-quotas">GitHub Pages Quotas</h3>
-<pre><code class="language-yaml">Soft limits:
-  - Bandwidth: 100 GB/mois
-  - Build time: 10 min/build
-  - Site size: 1 GB
-  - Files: 100k max
+<div class="highlight"><pre><span></span><code><span class="nt">Soft limits</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Bandwidth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100 GB/mois</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Build time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10 min/build</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Site size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1 GB</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100k max</span>
 
-Consommation SPAN SG:
-  - Bandwidth: &lt;1 GB/mois (usage interne)
-  - Build time: 1-2 min (MkDocs)
-  - Site size: ~10 MB (HTML + assets)
-  - Files: ~200 fichiers
-</code></pre>
-<hr/>
+<span class="nt">Consommation SPAN SG</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Bandwidth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;1 GB/mois (usage interne)</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Build time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-2 min (MkDocs)</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Site size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~10 MB (HTML + assets)</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~200 fichiers</span>
+</code></pre></div>
+<hr />
 <h2 id="7-monitoring-et-observabilite">7. Monitoring et Observabilité</h2>
 <h3 id="metriques-cicd">Métriques CI/CD</h3>
 <p>Métriques trackées automatiquement par GitHub Actions :</p>
-<pre><code class="language-mermaid">graph LR
+<pre class="mermaid"><code>graph LR
     A[Build Duration] --&gt; E[Grafana&lt;br/&gt;Dashboard]
     B[Test Success Rate] --&gt; E
     C[Cache Hit Rate] --&gt; E
@@ -478,9 +1002,10 @@ Consommation SPAN SG:
 
     E --&gt; F[Alertes&lt;br/&gt;Slack/Email]
 
-    style E fill:#ffe7ba,stroke:#fa8c16,stroke-width:2px
-</code></pre>
+    style E fill:#ffe7ba,stroke:#fa8c16,stroke-width:2px</code></pre>
 <h3 id="health-checks">Health Checks</h3>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -517,10 +1042,12 @@ Consommation SPAN SG:
 </tr>
 </tbody>
 </table>
-<hr/>
+</div>
+</div>
+<hr />
 <h2 id="8-disaster-recovery">8. Disaster Recovery</h2>
 <h3 id="strategie-de-sauvegarde">Stratégie de Sauvegarde</h3>
-<pre><code class="language-mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "Sources"
         REPO[GitHub Repo&lt;br/&gt;Git history]
         PAGES[GitHub Pages&lt;br/&gt;Static site]
@@ -546,24 +1073,23 @@ Consommation SPAN SG:
     PDF_ARCHIVE --&gt; RPO
 
     style RTO fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
-    style RPO fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
-</code></pre>
+    style RPO fill:#b7eb8f,stroke:#52c41a,stroke-width:2px</code></pre>
 <h3 id="procedure-recovery">Procédure Recovery</h3>
 <p>En cas de perte totale GitHub Pages :</p>
 <ol>
 <li>
 <p><strong>Rebuild from Git</strong> (15 min) :
-   <code>bash
-   git clone https://github.com/Alexmacapple/span-sg.git
-   docker compose -f docker-compose-dsfr.yml up -d
-   mkdocs build --config-file mkdocs-dsfr.yml
-   # Deploy to alternative hosting</code></p>
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Alexmacapple/span-sg.git
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-dsfr.yml<span class="w"> </span>up<span class="w"> </span>-d
+mkdocs<span class="w"> </span>build<span class="w"> </span>--config-file<span class="w"> </span>mkdocs-dsfr.yml
+<span class="c1"># Deploy to alternative hosting</span>
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Restore from Releases</strong> (5 min) :
-   <code>bash
-   gh release download latest --pattern "*.pdf"
-   # PDF contient tout le contenu SPAN</code></p>
+   <div class="highlight"><pre><span></span><code>gh<span class="w"> </span>release<span class="w"> </span>download<span class="w"> </span>latest<span class="w"> </span>--pattern<span class="w"> </span><span class="s2">&quot;*.pdf&quot;</span>
+<span class="c1"># PDF contient tout le contenu SPAN</span>
+</code></pre></div></p>
 </li>
 <li>
 <p><strong>Alternative Hosting</strong> :</p>
@@ -572,19 +1098,19 @@ Consommation SPAN SG:
 <li>Vercel : <code>vercel --prod</code></li>
 <li>GitLab Pages : Migrate repo + CI</li>
 </ol>
-<hr/>
+<hr />
 <h2 id="9-securite-infrastructure">9. Sécurité Infrastructure</h2>
 <h3 id="secrets-management">Secrets Management</h3>
-<pre><code class="language-yaml">GitHub Secrets utilisés:
-  GITHUB_TOKEN: Auto-generated (push gh-pages)
-  # Pas d'autres secrets requis (sécurité minimale)
+<div class="highlight"><pre><span></span><code><span class="nt">GitHub Secrets utilisés</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">GITHUB_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Auto-generated (push gh-pages)</span>
+<span class="w">  </span><span class="c1"># Pas d&#39;autres secrets requis (sécurité minimale)</span>
 
-Rotation:
-  GITHUB_TOKEN: Automatique par GitHub
-</code></pre>
+<span class="nt">Rotation</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">GITHUB_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Automatique par GitHub</span>
+</code></pre></div>
 <h3 id="surface-dattaque">Surface d'Attaque</h3>
 <p>Analyse surface d'attaque réduite :</p>
-<pre><code class="language-mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     A[Attaquant potentiel]
 
     subgraph "Vecteurs d'attaque"
@@ -615,11 +1141,12 @@ Rotation:
     style F fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
     style G fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
     style H fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
-    style I fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
-</code></pre>
-<hr/>
+    style I fill:#b7eb8f,stroke:#52c41a,stroke-width:2px</code></pre>
+<hr />
 <h2 id="10-performance-et-optimisations">10. Performance et Optimisations</h2>
 <h3 id="optimisations-appliquees">Optimisations Appliquées</h3>
+<div class="fr-table">
+<div class="fr-table">
 <table>
 <thead>
 <tr>
@@ -656,8 +1183,10 @@ Rotation:
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <h3 id="performance-metrics">Performance Metrics</h3>
-<pre><code class="language-mermaid">graph LR
+<pre class="mermaid"><code>graph LR
     A[Build Time Evolution]
     B[v0.9: 18min]
     C[v1.0: 12min]
@@ -666,9 +1195,8 @@ Rotation:
     B --&gt;|Docker cache| C
     C --&gt;|Pip cache| D
 
-    style D fill:#b7eb8f,stroke:#52c41a,stroke-width:2px
-</code></pre>
-<hr/>
+    style D fill:#b7eb8f,stroke:#52c41a,stroke-width:2px</code></pre>
+<hr />
 <h2 id="references">Références</h2>
 <ul>
 <li><a href="../c4-diagrams/">C4 Diagrams (Architecture)</a></li>
@@ -677,35 +1205,207 @@ Rotation:
 <li><a href="https://github.com/Alexmacapple/span-sg/blob/main/SECURITY.md">SECURITY.md Politique Sécurité</a></li>
 <li><a href="https://docs.github.com/en/actions">GitHub Actions Documentation</a></li>
 </ul>
-</div>
-</div><footer>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
+                        
+                        
+                        <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
+                        
+                    </div>
+                    <hr />
+                    
+	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
+		<ul class="fr-pagination__list">
+			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../c4-diagrams/" title="Diagrammes C4" >
+				Page précédente
+			</a></li>
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../uml-diagrams/" title="Diagrammes UML" >
+				Page suivante
+			</a></li>
+		</ul>
+	</nav>
+
+                </div>
+            </div>
+            <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
+                <div class="fr-container fr-container--fluid fr-container-md">
+                    <div class="fr-grid-row fr-grid-row--center">
+                        <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
+                            <div class="fr-modal__body">
+                                <div class="fr-modal__header">
+                                    <button class="fr-btn--close fr-btn" aria-controls="fr-theme-modal" title="Fermer">
+                                        Fermer
+                                    </button>
+                                </div>
+                                <div class="fr-modal__content">
+                                    <h1 id="fr-theme-modal-title" class="fr-modal__title">
+                                        Paramètres d’affichage </h1>
+                                    <div id="fr-display" class="fr-display">
+                                        <div class="fr-form-group">
+                                            <fieldset class="fr-fieldset">
+                                                <legend class="fr-fieldset__legend fr-text--regular" id='-legend'>
+                                                    Choisissez un thème pour personnaliser l’apparence du site.
+                                                </legend>
+                                                <div class="fr-fieldset__content">
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="light"
+                                                            type="radio" id="fr-radios-theme-light"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-light"> Thème
+                                                            clair </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../../artwork/light.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../../artwork/light.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../../artwork/light.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="dark"
+                                                            type="radio" id="fr-radios-theme-dark"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-dark"> Thème
+                                                            sombre </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../../artwork/dark.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../../artwork/dark.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../../artwork/dark.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="system"
+                                                            type="radio" id="fr-radios-theme-system"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-system"> Système
+                                                            <span class="fr-hint-text">Utilise les paramètres
+                                                                système.</span>
+                                                        </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../../artwork/system.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../../artwork/system.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../../artwork/system.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dialog>
+    </main>
+    <footer class="fr-footer" role="contentinfo" id="footer">
+    <div class="fr-container">
+        <div class="fr-footer__body">
+            <div class="fr-footer__brand fr-enlarge-link">
+                <a href="/"
+                    title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
+                    <p class="fr-logo">
+                        GOUVERNEMENT
+                    </p>
+                </a>
+            </div>
+            <div class="fr-footer__content">
+                <p class="fr-footer__content-desc">Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique</p>
+                <ul class="fr-footer__content-list">
+                    
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://service-public.fr">service-public.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://data.gouv.fr">data.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://info.gouv.fr">info.gouv.fr</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="fr-footer__bottom">
+            <ul class="fr-footer__bottom-list">
+                
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="/span-sg-repo/accessibilite/">Accessibilité : conformité partielle</a>
+                </li>
+                
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="/span-sg-repo/mentions-legales/">Mentions légales</a>
+                </li>
+                
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="/span-sg-repo/donnees-personnelles/">Données personnelles</a>
+                </li>
+                
+                <li class="fr-footer__bottom-item">
+                    <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+                        aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+                </li>
+            </ul>
+            <div class="fr-footer__bottom-copy">
+                <p>Sauf mention contraire, tous les contenus de ce site sont sous <a
+                        href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence
+                        etalab-2.0</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+<div class="revision-date">
+    
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 10:37:05 UTC">23 octobre 2025</span> 
 </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-</div>
-</div>
-</section>
-</div>
-<div aria-label="Versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<span>
-<a class="fa fa-github" href="https://github.com/Alexmacapple/span-sg" style="color: #fcfcfc"> GitHub</a>
-</span>
-</span>
-</div>
-<script src="../../js/jquery-3.6.0.min.js"></script>
-<script>var base_url = "../..";</script>
-<script src="../../js/theme_extra.js"></script>
-<script src="../../js/theme.js"></script>
-<script src="../../search/main.js"></script>
+
 <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
+    var base_url = "../..";
+</script>
+
+<script type="module" src="../../dsfr.module.min.js"></script>
+<script
+    type="text/javascript"
+    nomodule
+    src="../../dsfr.nomodule.min.js"
+></script>
+<script src="../../search/lunr.js"></script>
+<script src="../../search/lunr.stemmer.support.js"></script>
+<script src="../../search/lunr.fr.js"></script>
+<script src="../../assets/extra.js" defer></script>
+<script src="../../search/main.js" defer></script>
+<script src="../../js/open_in_new_tab.js" defer></script>
 </body>
+
 </html>
