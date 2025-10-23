@@ -1,0 +1,315 @@
+h2 {
+    margin-top: 2rem;
+}
+
+h3 {
+    margin-top: 1rem;
+}
+
+.fr-alert h3 {
+    margin-top: 0;
+}
+
+h4 {
+    margin-top: 1rem;
+}
+
+h1:hover .headerlink::before,
+h2:hover .headerlink::before {
+    content: url(../icons/business/links-line.svg);
+    filter: invert(55%) sepia(89%) saturate(3378%) hue-rotate(217deg)
+        brightness(109%) contrast(93%);
+}
+
+h1:hover .headerlink,
+h2:hover .headerlink {
+    margin: 0 10px;
+}
+
+img {
+    max-width: -webkit-fill-available;
+}
+
+pre,
+.rst-content tt {
+    padding: 1em 1em;
+    background: #fefbf9;
+    margin: 0.5em 0;
+    overflow: auto;
+    color: #000;
+    text-shadow: 0 1px #fff;
+    font-family:
+        Consolas,
+        Monaco,
+        Andale Mono,
+        Ubuntu Mono,
+        monospace;
+    font-size: 0.8rem;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+code:not(pre code) {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.admonition .fr-display-lg,
+.admonition .fr-display-md,
+.admonition .fr-display-sm,
+.admonition .fr-display-xl,
+.admonition .fr-display-xs,
+.admonition .fr-h1,
+.admonition .fr-h2,
+.admonition .fr-h3,
+.admonition .fr-h4,
+.admonition .fr-h5,
+.admonition .fr-h6,
+.admonition h1,
+.admonition h2,
+.admonition h3,
+.admonition h4,
+.admonition h5,
+.admonition h6 {
+    mix-blend-mode: difference;
+}
+
+.admonition {
+    --title-spacing: 0 0 0.5rem;
+    --text-spacing: 0;
+    --idle: transparent;
+    margin: 0 0 1.5rem;
+    padding: 1.5rem;
+    position: relative;
+}
+div.admonition.block > .admonition-title {
+    display: none;
+}
+.admonition.note {
+    --text-spacing: 0;
+    --hover: var(--background-contrast-grey-hover);
+    --active: var(--background-contrast-grey-active);
+    background-color: var(--background-contrast-grey);
+    box-shadow: inset 0.25rem 0 0 0 var(--border-default-blue-france);
+}
+
+.admonition.warning {
+    --hover: var(--background-contrast-brown-caramel-hover);
+    --active: var(--background-contrast-brown-caramel-active);
+    background-color: var(--background-contrast-brown-caramel);
+    box-shadow: inset 0.25rem 0 0 0 var(--border-default-brown-caramel);
+}
+
+.admonition.new {
+    --hover: var(--background-contrast-green-emeraude-hover);
+    --active: var(--background-contrast-green-emeraude-active);
+    background-color: var(--background-contrast-green-emeraude);
+    box-shadow: inset 0.25rem 0 0 0 var(--border-default-green-emeraude);
+}
+
+.admonition-title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.admonition.example {
+    color: #353579;
+    background-color: #f0f1ff;
+    border-color: #d8dcf0;
+}
+
+details.exemple summary {
+    --text-spacing: 0;
+    --title-spacing: 0;
+    align-items: center;
+    color: var(--text-action-high-grey);
+    display: inline-flex;
+    flex-direction: row;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin: 0;
+    max-height: none;
+    max-width: 100%;
+    min-height: 3rem;
+    overflow: initial;
+    padding: 0.75rem 0;
+    text-align: left;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+    width: 100%;
+    z-index: 1;
+}
+
+details.exemple {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    --idle: transparent;
+    --hover: var(--background-default-grey-hover);
+    --active: var(--background-default-grey-active);
+    background-color: var(--background-default-grey);
+    color: var(--text-default-grey);
+    font-family: Marianne, arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.doc.doc-object.doc-attribute {
+    box-shadow: inset 0.25rem 0 0 0 var(--border-default-blue-france);
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin: 30px 0px;
+    margin-left: 2rem;
+    padding-left: 2rem;
+}
+.doc h5 {
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 15px 0;
+}
+table {
+    /* display: block; */
+    overflow: auto;
+    width: 100%;
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: gray;
+    margin-bottom: 25px;
+}
+
+/*thead {*/
+/*    --idle: transparent;*/
+/*    --hover: var(--background-contrast-grey-hover);*/
+/*    --active: var(--background-contrast-grey-active);*/
+/*    background-color: var(--background-contrast-grey);*/
+/*    background-image: linear-gradient(0deg, var(--border-plain-grey), var(--border-plain-grey));*/
+/*    background-position: bottom;*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 100% 2px;*/
+/*    color: var(--text-title-grey);*/
+/*}*/
+
+/*tbody {*/
+/*    --idle: transparent;*/
+/*    --hover: var(--background-alt-grey-hover);*/
+/*    --active: var(--background-alt-grey-active);*/
+/*    background-color: var(--background-alt-grey);*/
+/*}*/
+
+/*tbody tr:nth-child(2n) {*/
+/*    --idle: transparent;*/
+/*    --hover: var(--background-contrast-grey-hover);*/
+/*    --active: var(--background-contrast-grey-active);*/
+/*    background-color: var(--background-contrast-grey);*/
+/*}*/
+
+/*td,*/
+/*th {*/
+/*    border: 0;*/
+/*    display: table-cell;*/
+/*    font-size: .875rem;*/
+/*    line-height: 1.5rem;*/
+/*    padding: 0.75rem;*/
+/*    text-align: left;*/
+/*    vertical-align: middle;*/
+/*}*/
+
+.revision-date {
+    text-align: center;
+}
+
+.copy-code-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-family: Marianne,arial,sans-serif;
+}
+
+/* highlight
+Command : pygmentize -S xcode -f html -a .highlight
+*/
+pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #ffffff; }
+.highlight .c { color: #177500 } /* Comment */
+.highlight .err { color: #000 } /* Error */
+.highlight .k { color: #A90D91 } /* Keyword */
+.highlight .l { color: #1C01CE } /* Literal */
+.highlight .n { color: #000 } /* Name */
+.highlight .o { color: #000 } /* Operator */
+.highlight .ch { color: #177500 } /* Comment.Hashbang */
+.highlight .cm { color: #177500 } /* Comment.Multiline */
+.highlight .cp { color: #633820 } /* Comment.Preproc */
+.highlight .cpf { color: #177500 } /* Comment.PreprocFile */
+.highlight .c1 { color: #177500 } /* Comment.Single */
+.highlight .cs { color: #177500 } /* Comment.Special */
+.highlight .kc { color: #A90D91 } /* Keyword.Constant */
+.highlight .kd { color: #A90D91 } /* Keyword.Declaration */
+.highlight .kn { color: #A90D91 } /* Keyword.Namespace */
+.highlight .kp { color: #A90D91 } /* Keyword.Pseudo */
+.highlight .kr { color: #A90D91 } /* Keyword.Reserved */
+.highlight .kt { color: #A90D91 } /* Keyword.Type */
+.highlight .ld { color: #1C01CE } /* Literal.Date */
+.highlight .m { color: #1C01CE } /* Literal.Number */
+.highlight .s { color: #C41A16 } /* Literal.String */
+.highlight .na { color: #836C28 } /* Name.Attribute */
+.highlight .nb { color: #A90D91 } /* Name.Builtin */
+.highlight .nc { color: #3F6E75 } /* Name.Class */
+.highlight .no { color: #000 } /* Name.Constant */
+.highlight .nd { color: #000 } /* Name.Decorator */
+.highlight .ni { color: #000 } /* Name.Entity */
+.highlight .ne { color: #000 } /* Name.Exception */
+.highlight .nf { color: #000 } /* Name.Function */
+.highlight .nl { color: #000 } /* Name.Label */
+.highlight .nn { color: #000 } /* Name.Namespace */
+.highlight .nx { color: #000 } /* Name.Other */
+.highlight .py { color: #000 } /* Name.Property */
+.highlight .nt { color: #000 } /* Name.Tag */
+.highlight .nv { color: #000 } /* Name.Variable */
+.highlight .ow { color: #000 } /* Operator.Word */
+.highlight .mb { color: #1C01CE } /* Literal.Number.Bin */
+.highlight .mf { color: #1C01CE } /* Literal.Number.Float */
+.highlight .mh { color: #1C01CE } /* Literal.Number.Hex */
+.highlight .mi { color: #1C01CE } /* Literal.Number.Integer */
+.highlight .mo { color: #1C01CE } /* Literal.Number.Oct */
+.highlight .sa { color: #C41A16 } /* Literal.String.Affix */
+.highlight .sb { color: #C41A16 } /* Literal.String.Backtick */
+.highlight .sc { color: #2300CE } /* Literal.String.Char */
+.highlight .dl { color: #C41A16 } /* Literal.String.Delimiter */
+.highlight .sd { color: #C41A16 } /* Literal.String.Doc */
+.highlight .s2 { color: #C41A16 } /* Literal.String.Double */
+.highlight .se { color: #C41A16 } /* Literal.String.Escape */
+.highlight .sh { color: #C41A16 } /* Literal.String.Heredoc */
+.highlight .si { color: #C41A16 } /* Literal.String.Interpol */
+.highlight .sx { color: #C41A16 } /* Literal.String.Other */
+.highlight .sr { color: #C41A16 } /* Literal.String.Regex */
+.highlight .s1 { color: #C41A16 } /* Literal.String.Single */
+.highlight .ss { color: #C41A16 } /* Literal.String.Symbol */
+.highlight .bp { color: #5B269A } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #000 } /* Name.Function.Magic */
+.highlight .vc { color: #000 } /* Name.Variable.Class */
+.highlight .vg { color: #000 } /* Name.Variable.Global */
+.highlight .vi { color: #000 } /* Name.Variable.Instance */
+.highlight .vm { color: #000 } /* Name.Variable.Magic */
+.highlight .il { color: #1C01CE } /* Literal.Number.Integer.Long */
