@@ -12,16 +12,23 @@ RUN apk add --no-cache \
 WORKDIR /build
 
 # Copy requirements and build wheels (cached layer)
-COPY requirements.txt .
-RUN pip wheel --no-cache-dir --wheel-dir=/wheels -r requirements.txt
+# Use requirements-dsfr.txt (contains mkdocs-dsfr + all dependencies)
+COPY requirements-dsfr.txt .
+RUN pip wheel --no-cache-dir --wheel-dir=/wheels -r requirements-dsfr.txt
 
-# Stage 2: Runtime - Minimal image with pre-compiled wheels
+# Stage 2: Runtime - Image with pre-compiled wheels + E2E dependencies
 FROM squidfunk/mkdocs-material:9.5
 
 WORKDIR /docs
 
-# Install bash for E2E test scripts (Alpine doesn't have it by default)
-RUN apk add --no-cache bash
+# Install runtime dependencies for E2E tests
+# - bash: test scripts
+# - git: scenario rollback/checkout
+# - curl: scenario HTTP preview
+RUN apk add --no-cache \
+    bash \
+    git \
+    curl
 
 # Copy pre-compiled wheels from builder
 COPY --from=builder /wheels /wheels

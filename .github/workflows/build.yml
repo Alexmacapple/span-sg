@@ -162,6 +162,29 @@ jobs:
           retention-days: 365
 
       # ===== E2E TESTS (run on all events) =====
+      # Phase 1: E2E native (GitHub Actions environment)
+      - name: Run E2E tests (native environment)
+        run: |
+          echo "🧪 Running E2E tests in native GitHub Actions environment..."
+          bash tests/e2e/ci_runner.sh
+
+      - name: Upload E2E native report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-native-report-${{ github.run_number }}
+          path: tests/e2e/report.html
+          retention-days: 30
+
+      - name: Upload E2E native accessibility report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-native-accessibility-${{ github.run_number }}
+          path: tests/e2e/accessibility_report.json
+          retention-days: 30
+
+      # Phase 2: E2E Docker (containerized environment)
       - name: Install system dependencies for E2E
         run: |
           sudo apt-get update
@@ -179,11 +202,11 @@ jobs:
         uses: actions/cache@v3
         with:
           path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile.mkdocs-test', 'requirements.txt') }}
+          key: ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile.mkdocs-test', 'requirements-dsfr.txt') }}
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      - name: Build test Docker image
+      - name: Build E2E test Docker image (with mkdocs-dsfr)
         run: |
           docker buildx build \
             -f Dockerfile.mkdocs-test \
@@ -198,24 +221,24 @@ jobs:
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache || true
 
-      - name: Run E2E accessibility tests
-        continue-on-error: true  # TODO: Fix 6/9 failing scenarios (see run 18747440065)
+      - name: Run E2E tests (Docker environment)
+        continue-on-error: true  # TODO: Remove once Docker environment validated
         run: |
           docker run --rm -v $PWD:/docs --entrypoint bash mkdocs-test:latest tests/e2e/ci_runner.sh
 
-      - name: Upload E2E report
+      - name: Upload E2E Docker report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: e2e-report-${{ github.run_number }}
+          name: e2e-docker-report-${{ github.run_number }}
           path: tests/e2e/report.html
           retention-days: 30
 
-      - name: Upload accessibility report
+      - name: Upload E2E Docker accessibility report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: accessibility-report-${{ github.run_number }}
+          name: e2e-docker-accessibility-${{ github.run_number }}
           path: tests/e2e/accessibility_report.json
           retention-days: 30
 
