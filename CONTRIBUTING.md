@@ -177,21 +177,27 @@ pre-commit run --all-files
 
 ### Hooks Actifs
 
-1. **Bandit** : Détection patterns insecures Python
+1. **Gitleaks** : Détection secrets et credentials
+   - Scanne patterns secrets (API keys, tokens, passwords)
+   - Bloque commit si secret détecté
+   - Prévient fuites credentials accidentelles
+   - Exemples: AWS keys, GitHub tokens, private keys
+
+2. **Bandit** : Détection patterns insecures Python
    - Severity: HIGH et CRITICAL bloquent commit
    - Exclude: tests/ (évite faux positifs subprocess)
    - Exemples: shell=True, eval/exec, hardcoded secrets
 
-2. **Safety** : Check CVE dépendances
+3. **Safety** : Check CVE dépendances
    - Base PyUp.io (200k+ vulnérabilités)
    - Scan requirements-dsfr.txt
    - Redondant avec Dependabot (mais feedback plus rapide)
 
-3. **Black** : Formatage automatique code
+4. **Black** : Formatage automatique code
    - Config: pyproject.toml (line-length 88)
    - Modifie fichiers automatiquement
 
-4. **Ruff** : Linting Python
+5. **Ruff** : Linting Python
    - Checks: E, W, F, I, N (pycodestyle, pyflakes, isort, naming)
    - Auto-fix activé (--fix)
 
@@ -230,6 +236,11 @@ pre-commit install --install-hooks
 **Safety timeout** :
 - API PyUp.io peut être lente (< 30s normal)
 - Retry : `pre-commit run safety --all-files`
+
+**Gitleaks faux positif** :
+- Créer `.gitleaksignore` à la racine avec paths à ignorer
+- Ou ajouter `gitleaks:allow` en commentaire sur ligne concernée
+- Exemple : `API_KEY = "test-key" # gitleaks:allow`
 
 ---
 

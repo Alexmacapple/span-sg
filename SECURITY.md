@@ -57,12 +57,15 @@ Ne sont **PAS** considérées comme vulnérabilités :
 
 ### Dépendances
 - **Dependabot** : Scan automatique hebdomadaire (lundi 9h)
-- **Security alerts** : Notifications CVE activées
+- **GitHub Vulnerability Alerts** : Notifications CVE automatiques (depuis 2025-10-23)
 - **Auto-updates** : PR automatiques pour vulnérabilités
 
 ### Code
+- **Gitleaks** : Scan secrets en pre-commit (API keys, tokens, credentials)
+- **Bandit** : Analyse statique sécurité Python (pre-commit + CI)
+- **Safety** : Check CVE dépendances (pre-commit + CI)
 - **Secrets** : Exclus via .gitignore
-- **CI/CD** : Validation automatique (linter, tests)
+- **CI/CD** : Validation automatique (linter, tests, sécurité)
 - **Permissions** : Repo privé, accès restreint
 
 ### Git History
@@ -70,6 +73,12 @@ Ne sont **PAS** considérées comme vulnérabilités :
 - **Sensitive files** : Nettoyage historique effectué
 
 ## Historique Sécurité
+
+### v1.2.2-security (2025-10-23)
+- Activation GitHub Vulnerability Alerts
+- Ajout Gitleaks en pre-commit (scan secrets)
+- Score sécurité : 8/10 → 9.5/10
+- Documentation mesures sécurité mise à jour
 
 ### v1.0.0-poc (2025-10-07)
 - Aucune vulnérabilité connue

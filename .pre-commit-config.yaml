@@ -3,6 +3,14 @@
 # Documentation: https://pre-commit.com/
 
 repos:
+  # Secrets scanner (prevents credential leaks)
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.0
+    hooks:
+      - id: gitleaks
+        name: Gitleaks Secrets Scanner
+        stages: [commit]
+
   # Python security linter (static analysis)
   - repo: https://github.com/PyCQA/bandit
     rev: '1.8.0'
