@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+<html lang="fr" data-fr-scheme="system">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../dsfr.min.css">
+    <link rel="stylesheet" href="../utility/utility.min.css">
+    <link rel="stylesheet" href="../css/theme.css">
+
+    <meta name="theme-color" content="#000091">
+    <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+    <link rel="apple-touch-icon" href="../ favicon /apple-touch-icon.png">
+    <!-- 180×180 -->
+    <link rel="icon" href="../favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../favicon/favicon.ico">
+    <!-- 32×32 -->
+    <link rel="manifest" href="../favicon/manifest.webmanifest" crossorigin="use-credentials">
+    <script src="../js/postprocess.js" defer></script>
+
+    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
+    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
+    
+
+    <title>Tests d'accessibilité SPAN SG</title>
+    
+    
+</head>
+<body>
+    <div class="fr-skiplinks">
+  <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+    <ul class="fr-skiplinks__list">
+      <li>
+        <a class="fr-link" href="#content">Contenu</a>
+      </li>
+      <li>
+        <a class="fr-link" href="#header-navigation">Menu</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#search-modal">Recherche</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#footer">Pied de page</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+    <header role="banner" class="fr-header">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row">
+                <div class="fr-header__brand fr-enlarge-link">
+                    <div class="fr-header__brand-top">
+                        <div class="fr-header__logo">
+                            <p class="fr-logo" style="">
+                                GOUVERNEMENT
+                            </p>
+                        </div>
+
+                        <div class="fr-header__navbar">
+                            
+                            <button
+                                class="fr-btn--search fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-541"
+                                id="button-542"
+                                title="Rechercher"
+                            >
+                                Rechercher
+                            </button>
+                            
+                            <button
+                                class="fr-btn--menu fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-543"
+                                aria-haspopup="menu"
+                                id="button-544"
+                                title="Menu"
+                            >
+                                Menu
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fr-header__service">
+                        <a href="/" title="Retour à l'accueil du site - SPAN SG">
+                            <p class="fr-header__service-title">
+                                SPAN SG
+                            </p>
+                        </a>
+                        <p class="fr-header__service-tagline">
+                            Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général
+                        </p>
+                    </div>
+                </div>
+                <div class="fr-header__tools">
+                    
+                    <div class="fr-header__tools-links">
+                        <ul class="fr-btns-group">
+                            <li>
+                                <a
+                                    href="https://github.com/Alexmacapple/span-sg/blob/main/docs/tests-accessibilite.md"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="fr-btn"
+                                    >Éditer dans GitHub</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="fr-header__search fr-modal" id="search-modal">
+                        <div class="fr-container fr-container-lg--fluid">
+                            <button
+                                class="fr-btn--close fr-btn"
+                                aria-controls="modal-541"
+                                title="Fermer"
+                            >
+                                Fermer
+                            </button>
+                            
+                            <form action="../search.html">
+                                <div
+                                    class="fr-search-bar"
+                                    id="search-540"
+                                    role="search"
+                                >
+                                    <label
+                                        class="fr-label"
+                                        for="mkdocs-search-query"
+                                    >
+                                        Rechercher
+                                    </label>
+                                    <input
+                                        class="fr-input search_input search-query ui-autocomplete-input"
+                                        placeholder="Rechercher"
+                                        type="text"
+                                        id="mkdocs-search-query"
+                                        name="q"
+                                    />
+                                    <button
+                                        class="fr-btn"
+                                        title="Rechercher"
+                                        type="submit"
+                                    >
+                                        Rechercher
+                                    </button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="fr-header__menu fr-modal"
+        id="modal-543"
+        aria-labelledby="button-544"
+    >
+        <div class="fr-container">
+            <button
+                class="fr-btn--close fr-btn"
+                aria-controls="modal-543"
+                title="Fermer"
+            >
+                Fermer
+            </button>
+            <div class="fr-header__menu-links"></div>
+            <nav
+    class="fr-nav navbar-header"
+    id="header-navigation"
+    role="navigation"
+    aria-label="Menu principal"
+>
+    <ul class="fr-nav__list">
+         
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href=".."
+                target="_self"
+                
+                >SPAN (SG)</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7762"
+                
+            >
+                SPAN par service du SG
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7762">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../modules/bgs/"
+                            target="_self"
+                            >BGS</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../modules/safi/"
+                            target="_self"
+                            >SAFI</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../modules/siep/"
+                            target="_self"
+                            >SIEP</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../modules/sircom/"
+                            target="_self"
+                            >SIRCOM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../modules/snum/"
+                            target="_self"
+                            >SNUM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../modules/srh/"
+                            target="_self"
+                            >SRH</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../mise-en-application-circulaire/"
+                target="_self"
+                
+                >Contexte réglementaire</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../processus/"
+                target="_self"
+                
+                >Processus</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../accompagnement/"
+                target="_self"
+                
+                >Guide d'accompagnement</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../synthese/"
+                target="_self"
+                
+                >Synthèse</a
+            >
+        </li>
+         
+    </ul>
+</nav>
+        </div>
+    </div>
+</header>
+    <main id="content" role="main">
+        
+        <div class="fr-container markdown-content">
+            <div class="fr-grid-row">
+                
+                
+                    
+                
+
+                
+                    
+<div class="fr-col-12 fr-col-md-3 fr-py-1v">
+    <nav
+        class="fr-sidemenu fr-sidemenu--sticky-full-height fr-mb-0-5v"
+        role="navigation"
+        aria-label="Menu latéral"
+    >
+        
+        <div class="fr-sidemenu__inner">
+            <button
+                class="fr-sidemenu__btn"
+                aria-controls="fr-sidemenu-wrapper"
+                aria-expanded="true"
+            >
+                Tests d'accessibilité SPAN SG
+            </button>
+            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+                <div class="fr-sidemenu__title">Tests d'accessibilité SPAN SG</div>
+                <ul class="fr-sidemenu__list">
+                     
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#vue-densemble"
+                            target="_self"
+                            >Vue d'ensemble</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#tests-implementes"
+                            target="_self"
+                            >Tests implémentés</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#installation"
+                            target="_self"
+                            >Installation</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#usage-local"
+                            target="_self"
+                            >Usage local</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#integration-cicd"
+                            target="_self"
+                            >Intégration CI/CD</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#couverture-rgaa"
+                            target="_self"
+                            >Couverture RGAA</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#roadmap"
+                            target="_self"
+                            >Roadmap</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#references"
+                            target="_self"
+                            >Références</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#support"
+                            target="_self"
+                            >Support</a
+                        >
+                    </li>
+                     
+                </ul>
+            </div>
+        </div>
+        
+    </nav>
+</div>
+
+                    
+                        <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
+                    
+                
+
+                
+
+                
+                        
+                        <h1 id="tests-daccessibilite-span-sg">Tests d'accessibilité SPAN SG</h1>
+<p>Version: 1.2
+Date: 2025-10-20
+Statut: Actif (non-bloquant - surveillance active)</p>
+<h2 id="vue-densemble">Vue d'ensemble</h2>
+<p>Le projet SPAN SG intègre une suite complète de tests d'accessibilité automatisés conformes aux standards WCAG 2.1 AA et RGAA 4.1. Ces tests utilisent axe-core via Selenium pour automatiser 60-65% des vérifications RGAA.</p>
+<h2 id="tests-implementes">Tests implémentés</h2>
+<h3 id="1-homepage-wcag-5-tests">1. Homepage WCAG (5 tests)</h3>
+<ul>
+<li><strong>test_homepage_wcag_violations</strong> : Aucune violation WCAG 2.1 AA critique</li>
+<li><strong>test_homepage_color_contrast</strong> : Contraste des couleurs (WCAG 1.4.3)</li>
+<li><strong>test_homepage_heading_hierarchy</strong> : Hiérarchie des titres h1-h6 (WCAG 1.3.1)</li>
+<li><strong>test_homepage_landmarks</strong> : Présence landmarks ARIA (navigation, main, footer)</li>
+<li><strong>test_homepage_keyboard_navigation</strong> : Accessibilité clavier complète</li>
+</ul>
+<h3 id="2-synthese-table-dsfr-4-tests">2. Synthese Table DSFR (4 tests)</h3>
+<ul>
+<li><strong>test_synthese_table_dsfr_wrapper</strong> : Classes DSFR (fr-table)</li>
+<li><strong>test_synthese_table_aria_labels</strong> : Labels ARIA corrects</li>
+<li><strong>test_synthese_table_caption</strong> : Présence et pertinence du caption</li>
+<li><strong>test_synthese_table_responsive</strong> : Responsive design mobile (375px)</li>
+</ul>
+<h3 id="3-pdf-metadata-rgaa-3-tests">3. PDF Metadata RGAA (3 tests)</h3>
+<ul>
+<li><strong>test_pdf_metadata_title</strong> : Metadata /Title présent (RGAA 13.1)</li>
+<li><strong>test_pdf_metadata_language</strong> : Langue fr-FR déclarée (RGAA 13.3)</li>
+<li><strong>test_pdf_metadata_description</strong> : Metadata Subject/Description présent</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Installer dépendances accessibilité</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-accessibility.txt
+
+<span class="c1"># Chrome/ChromeDriver requis pour Selenium</span>
+<span class="c1"># - macOS: brew install chromedriver</span>
+<span class="c1"># - Linux CI: automatique via browser-actions/setup-chrome@v1</span>
+</code></pre></div>
+<h2 id="usage-local">Usage local</h2>
+<h3 id="prerequis">Prérequis</h3>
+<ol>
+<li>Générer le site HTML : <code>mkdocs build --config-file mkdocs-dsfr.yml</code></li>
+<li>Chrome/ChromeDriver disponible dans PATH</li>
+</ol>
+<h3 id="executer-les-tests">Exécuter les tests</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Tous les tests accessibilité</span>
+pytest<span class="w"> </span>tests/test_accessibility.py<span class="w"> </span>-v
+
+<span class="c1"># Tests homepage uniquement</span>
+pytest<span class="w"> </span>tests/test_accessibility.py<span class="w"> </span>-k<span class="w"> </span>homepage<span class="w"> </span>-v
+
+<span class="c1"># Tests table DSFR uniquement</span>
+pytest<span class="w"> </span>tests/test_accessibility.py<span class="w"> </span>-k<span class="w"> </span>synthese_table<span class="w"> </span>-v
+
+<span class="c1"># Tests PDF uniquement (nécessite exports/span-sg.pdf)</span>
+pytest<span class="w"> </span>tests/test_accessibility.py<span class="w"> </span>-k<span class="w"> </span>pdf_metadata<span class="w"> </span>-v
+
+<span class="c1"># Générer rapport HTML</span>
+pytest<span class="w"> </span>tests/test_accessibility.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--html<span class="o">=</span>accessibility-report.html<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--self-contained-html
+</code></pre></div>
+<h2 id="integration-cicd">Intégration CI/CD</h2>
+<p>Les tests d'accessibilité s'exécutent automatiquement dans GitHub Actions (branche main uniquement) :</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run accessibility tests (RGAA)</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest tests/test_accessibility.py -v --html=accessibility-report.html</span>
+</code></pre></div>
+<p><strong>Statut actuel</strong> : Bloquant (Phase 2 activée)
+- Les échecs bloquent le déploiement (fail-fast)
+- Seuil de tolérance : 0 violations critiques WCAG 2.1 AA
+- Rapport HTML uploadé comme artefact (30 jours rétention)
+- Phase 3 (Certification RGAA) prévue pour v1.2.0</p>
+<h2 id="couverture-rgaa">Couverture RGAA</h2>
+<p>Les tests automatisés couvrent environ 60-65% des critères RGAA 4.1 :</p>
+<h3 id="automatisables-60-65">Automatisables (60-65%)</h3>
+<ul>
+<li>Contraste des couleurs (1.4.3)</li>
+<li>Hiérarchie des titres (1.3.1)</li>
+<li>Labels formulaires (3.3.2)</li>
+<li>Navigation clavier (2.1.1)</li>
+<li>Landmarks ARIA (1.3.1)</li>
+<li>PDF metadata (13.1, 13.3)</li>
+</ul>
+<h3 id="non-automatisables-35-40">Non automatisables (35-40%)</h3>
+<ul>
+<li>Pertinence des alternatives textuelles</li>
+<li>Transcriptions audio/vidéo</li>
+<li>Clarté du langage</li>
+<li>Tests utilisateurs handicapés</li>
+</ul>
+<h2 id="roadmap">Roadmap</h2>
+<h3 id="phase-1-monitoring-termine-le-2025-10-20">Phase 1 : Monitoring ✅ (terminé le 2025-10-20)</h3>
+<ul>
+<li>Tests non-bloquants en CI</li>
+<li>Rapports HTML pour analyse</li>
+<li>Corrections progressives</li>
+</ul>
+<h3 id="phase-2-surveillance-active-actuel-v120">Phase 2 : Surveillance active 🔄 (actuel - v1.2.0)</h3>
+<ul>
+<li>Tests non-bloquants (timeout axe-core incompatible CI &gt;2min/test)</li>
+<li>Rapports HTML systématiques pour chaque build</li>
+<li>Tests E2E bloquants (9/9 scénarios)</li>
+<li>Couverture 93% (89%+ scripts, 100% hooks)</li>
+<li><strong>Note</strong> : Tests accessibilité restent exécutés mais non-bloquants</li>
+<li><strong>Roadmap</strong> : Optimisation future (Phase 3) pour tests bloquants</li>
+</ul>
+<h3 id="phase-3-optimisation-certification-v200">Phase 3 : Optimisation &amp; Certification (v2.0.0)</h3>
+<ul>
+<li>Optimisation tests axe-core (réduction timeout)</li>
+<li>Tests accessibilité bloquants si faisable</li>
+<li>Audit RGAA complet par expert</li>
+<li>Tests utilisateurs handicapés</li>
+<li>Déclaration accessibilité conforme</li>
+</ul>
+<h2 id="references">Références</h2>
+<ul>
+<li>WCAG 2.1 : https://www.w3.org/TR/WCAG21/</li>
+<li>RGAA 4.1 : https://www.numerique.gouv.fr/publications/rgaa-accessibilite/</li>
+<li>axe-core : https://github.com/dequelabs/axe-core</li>
+<li>DSFR Accessibilité : https://www.systeme-de-design.gouv.fr/utilisation-et-organisation/accessibilite</li>
+</ul>
+<h2 id="support">Support</h2>
+<p>Questions : alexandre@span-sg.gouv.fr
+Issues : https://github.com/Alexmacapple/span-sg-repo/issues</p>
+                        
+                        
+                        <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
+                        
+                    </div>
+                    <hr />
+                    
+                </div>
+            </div>
+            <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
+                <div class="fr-container fr-container--fluid fr-container-md">
+                    <div class="fr-grid-row fr-grid-row--center">
+                        <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
+                            <div class="fr-modal__body">
+                                <div class="fr-modal__header">
+                                    <button class="fr-btn--close fr-btn" aria-controls="fr-theme-modal" title="Fermer">
+                                        Fermer
+                                    </button>
+                                </div>
+                                <div class="fr-modal__content">
+                                    <h1 id="fr-theme-modal-title" class="fr-modal__title">
+                                        Paramètres d’affichage </h1>
+                                    <div id="fr-display" class="fr-display">
+                                        <div class="fr-form-group">
+                                            <fieldset class="fr-fieldset">
+                                                <legend class="fr-fieldset__legend fr-text--regular" id='-legend'>
+                                                    Choisissez un thème pour personnaliser l’apparence du site.
+                                                </legend>
+                                                <div class="fr-fieldset__content">
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="light"
+                                                            type="radio" id="fr-radios-theme-light"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-light"> Thème
+                                                            clair </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../artwork/light.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../artwork/light.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../artwork/light.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="dark"
+                                                            type="radio" id="fr-radios-theme-dark"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-dark"> Thème
+                                                            sombre </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../artwork/dark.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../artwork/dark.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../artwork/dark.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="system"
+                                                            type="radio" id="fr-radios-theme-system"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-system"> Système
+                                                            <span class="fr-hint-text">Utilise les paramètres
+                                                                système.</span>
+                                                        </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../artwork/system.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../artwork/system.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../artwork/system.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dialog>
+    </main>
+    <footer class="fr-footer" role="contentinfo" id="footer">
+    <div class="fr-container">
+        <div class="fr-footer__body">
+            <div class="fr-footer__brand fr-enlarge-link">
+                <a href="/"
+                    title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
+                    <p class="fr-logo">
+                        GOUVERNEMENT
+                    </p>
+                </a>
+            </div>
+            <div class="fr-footer__content">
+                <p class="fr-footer__content-desc">Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique</p>
+                <ul class="fr-footer__content-list">
+                    
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://service-public.fr">service-public.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://data.gouv.fr">data.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://info.gouv.fr">info.gouv.fr</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="fr-footer__bottom">
+            <ul class="fr-footer__bottom-list">
+                
+                <li class="fr-footer__bottom-item">
+                    <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+                        aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+                </li>
+            </ul>
+            <div class="fr-footer__bottom-copy">
+                <p>Sauf mention contraire, tous les contenus de ce site sont sous <a
+                        href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence
+                        etalab-2.0</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+<div class="revision-date">
+    
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 19:25:57 UTC">23 octobre 2025</span> 
+</div>
+
+
+<script>
+    var base_url = "..";
+</script>
+
+<script type="module" src="../dsfr.module.min.js"></script>
+<script
+    type="text/javascript"
+    nomodule
+    src="../dsfr.nomodule.min.js"
+></script>
+<script src="../search/lunr.js"></script>
+<script src="../search/lunr.stemmer.support.js"></script>
+<script src="../search/lunr.fr.js"></script>
+<script src="../assets/extra.js" defer></script>
+<script src="../search/main.js" defer></script>
+<script src="../js/open_in_new_tab.js" defer></script>
+</body>
+
+</html>

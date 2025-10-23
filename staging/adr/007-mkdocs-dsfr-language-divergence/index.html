@@ -1,0 +1,775 @@
+
+<!DOCTYPE html>
+<html lang="fr" data-fr-scheme="system">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../../dsfr.min.css">
+    <link rel="stylesheet" href="../../utility/utility.min.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+
+    <meta name="theme-color" content="#000091">
+    <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+    <link rel="apple-touch-icon" href="../../ favicon /apple-touch-icon.png">
+    <!-- 180×180 -->
+    <link rel="icon" href="../../favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../../favicon/favicon.ico">
+    <!-- 32×32 -->
+    <link rel="manifest" href="../../favicon/manifest.webmanifest" crossorigin="use-credentials">
+    <script src="../../js/postprocess.js" defer></script>
+
+    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
+    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
+    
+
+    <title>ADR-007: Divergence mkdocs-dsfr - locale vs language</title>
+    
+    
+</head>
+<body>
+    <div class="fr-skiplinks">
+  <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+    <ul class="fr-skiplinks__list">
+      <li>
+        <a class="fr-link" href="#content">Contenu</a>
+      </li>
+      <li>
+        <a class="fr-link" href="#header-navigation">Menu</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#search-modal">Recherche</a>
+      </li>
+      
+      <li>
+        <a class="fr-link" href="#footer">Pied de page</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+    <header role="banner" class="fr-header">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row">
+                <div class="fr-header__brand fr-enlarge-link">
+                    <div class="fr-header__brand-top">
+                        <div class="fr-header__logo">
+                            <p class="fr-logo" style="">
+                                GOUVERNEMENT
+                            </p>
+                        </div>
+
+                        <div class="fr-header__navbar">
+                            
+                            <button
+                                class="fr-btn--search fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-541"
+                                id="button-542"
+                                title="Rechercher"
+                            >
+                                Rechercher
+                            </button>
+                            
+                            <button
+                                class="fr-btn--menu fr-btn"
+                                data-fr-opened="false"
+                                aria-controls="modal-543"
+                                aria-haspopup="menu"
+                                id="button-544"
+                                title="Menu"
+                            >
+                                Menu
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fr-header__service">
+                        <a href="/" title="Retour à l'accueil du site - SPAN SG">
+                            <p class="fr-header__service-title">
+                                SPAN SG
+                            </p>
+                        </a>
+                        <p class="fr-header__service-tagline">
+                            Schéma Pluriannuel d'Accessibilité Numérique - Secrétariat Général
+                        </p>
+                    </div>
+                </div>
+                <div class="fr-header__tools">
+                    
+                    <div class="fr-header__tools-links">
+                        <ul class="fr-btns-group">
+                            <li>
+                                <a
+                                    href="https://github.com/Alexmacapple/span-sg/blob/main/docs/adr/007-mkdocs-dsfr-language-divergence.md"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="fr-btn"
+                                    >Éditer dans GitHub</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="fr-header__search fr-modal" id="search-modal">
+                        <div class="fr-container fr-container-lg--fluid">
+                            <button
+                                class="fr-btn--close fr-btn"
+                                aria-controls="modal-541"
+                                title="Fermer"
+                            >
+                                Fermer
+                            </button>
+                            
+                            <form action="../../search.html">
+                                <div
+                                    class="fr-search-bar"
+                                    id="search-540"
+                                    role="search"
+                                >
+                                    <label
+                                        class="fr-label"
+                                        for="mkdocs-search-query"
+                                    >
+                                        Rechercher
+                                    </label>
+                                    <input
+                                        class="fr-input search_input search-query ui-autocomplete-input"
+                                        placeholder="Rechercher"
+                                        type="text"
+                                        id="mkdocs-search-query"
+                                        name="q"
+                                    />
+                                    <button
+                                        class="fr-btn"
+                                        title="Rechercher"
+                                        type="submit"
+                                    >
+                                        Rechercher
+                                    </button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="fr-header__menu fr-modal"
+        id="modal-543"
+        aria-labelledby="button-544"
+    >
+        <div class="fr-container">
+            <button
+                class="fr-btn--close fr-btn"
+                aria-controls="modal-543"
+                title="Fermer"
+            >
+                Fermer
+            </button>
+            <div class="fr-header__menu-links"></div>
+            <nav
+    class="fr-nav navbar-header"
+    id="header-navigation"
+    role="navigation"
+    aria-label="Menu principal"
+>
+    <ul class="fr-nav__list">
+         
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../.."
+                target="_self"
+                
+                >SPAN (SG)</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <button
+                class="fr-nav__btn"
+                aria-expanded="false"
+                aria-controls="menu-7762"
+                
+            >
+                SPAN par service du SG
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-7762">
+                <ul class="fr-menu__list">
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/bgs/"
+                            target="_self"
+                            >BGS</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/safi/"
+                            target="_self"
+                            >SAFI</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/siep/"
+                            target="_self"
+                            >SIEP</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/sircom/"
+                            target="_self"
+                            >SIRCOM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/snum/"
+                            target="_self"
+                            >SNUM</a
+                        >
+                    </li>
+                    
+                    <li>
+                        <a
+                            class="fr-nav__link"
+                            
+                            href="../../modules/srh/"
+                            target="_self"
+                            >SRH</a
+                        >
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../mise-en-application-circulaire/"
+                target="_self"
+                
+                >Contexte réglementaire</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../processus/"
+                target="_self"
+                
+                >Processus</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../accompagnement/"
+                target="_self"
+                
+                >Guide d'accompagnement</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../synthese/"
+                target="_self"
+                
+                >Synthèse</a
+            >
+        </li>
+         
+    </ul>
+</nav>
+        </div>
+    </div>
+</header>
+    <main id="content" role="main">
+        
+        <div class="fr-container markdown-content">
+            <div class="fr-grid-row">
+                
+                
+                    
+                
+
+                
+                    
+<div class="fr-col-12 fr-col-md-3 fr-py-1v">
+    <nav
+        class="fr-sidemenu fr-sidemenu--sticky-full-height fr-mb-0-5v"
+        role="navigation"
+        aria-label="Menu latéral"
+    >
+        
+        <div class="fr-sidemenu__inner">
+            <button
+                class="fr-sidemenu__btn"
+                aria-controls="fr-sidemenu-wrapper"
+                aria-expanded="true"
+            >
+                ADR-007: Divergence mkdocs-dsfr - locale vs language
+            </button>
+            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+                <div class="fr-sidemenu__title">ADR-007: Divergence mkdocs-dsfr - locale vs language</div>
+                <ul class="fr-sidemenu__list">
+                     
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#contexte"
+                            target="_self"
+                            >Contexte</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#decision"
+                            target="_self"
+                            >Décision</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#alternatives-considerees"
+                            target="_self"
+                            >Alternatives considérées</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#consequences"
+                            target="_self"
+                            >Conséquences</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#validation"
+                            target="_self"
+                            >Validation</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#impact-sur-le-projet"
+                            target="_self"
+                            >Impact sur le projet</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#action-future"
+                            target="_self"
+                            >Action future</a
+                        >
+                    </li>
+                      
+                    <li class="fr-sidemenu__item">
+                        <a
+                            class="fr-sidemenu__link"
+                            href="#references"
+                            target="_self"
+                            >Références</a
+                        >
+                    </li>
+                     
+                </ul>
+            </div>
+        </div>
+        
+    </nav>
+</div>
+
+                    
+                        <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
+                    
+                
+
+                
+
+                
+                        
+                        <h1 id="adr-007-divergence-mkdocs-dsfr-locale-vs-language">ADR-007: Divergence mkdocs-dsfr - locale vs language</h1>
+<p><strong>Date</strong>: 2025-10-14
+<strong>Statut</strong>: ✅ Accepted
+<strong>Décideurs</strong>: Équipe technique SPAN SG
+<strong>Sponsor</strong>: Chef SNUM</p>
+<h2 id="contexte">Contexte</h2>
+<p>La documentation officielle du thème mkdocs-dsfr v0.17.0 recommande l'utilisation du paramètre <code>locale: fr</code> pour définir la langue du site :</p>
+<div class="highlight"><pre><span></span><code><span class="nt">theme</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dsfr</span>
+<span class="w">  </span><span class="nt">locale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fr</span>
+</code></pre></div>
+<p>Cependant, lors de l'implémentation, l'utilisation de <code>locale</code> génère un warning Python :</p>
+<div class="highlight"><pre><span></span><code>WARNING - Config value &#39;theme.locale&#39;: Unrecognised configuration key
+</code></pre></div>
+<p>Ce warning provient de MkDocs core qui ne reconnaît pas <code>locale</code> comme paramètre valide de <code>theme</code>.</p>
+<h3 id="probleme">Problème</h3>
+<ul>
+<li>Documentation officielle : https://pub.gitlab-pages.din.developpement-durable.gouv.fr/numeco/mkdocs-dsfr-doc/</li>
+<li>Paramètre recommandé : <code>locale: fr</code></li>
+<li>Résultat : warning à chaque build, pollution des logs CI/CD</li>
+</ul>
+<h3 id="impact">Impact</h3>
+<ul>
+<li>Builds fonctionnels mais logs "sales" avec warnings</li>
+<li>Confusion pour contributeurs suivant doc officielle</li>
+<li>Risque d'ignorer vrais warnings noyés dans le bruit</li>
+</ul>
+<h2 id="decision">Décision</h2>
+<p><strong>Utiliser <code>language: fr</code> au lieu de <code>locale: fr</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">theme</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dsfr</span>
+<span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fr</span><span class="w">  </span><span class="c1"># Paramètre MkDocs natif, équivalent fonctionnel</span>
+</code></pre></div>
+<p>Ajouter un commentaire inline explicatif :</p>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fr</span><span class="w">  </span><span class="c1"># Note: Doc officielle dit &quot;locale&quot; mais génère warning. &quot;language&quot; fonctionne.</span>
+</code></pre></div>
+<h2 id="alternatives-considerees">Alternatives considérées</h2>
+<h3 id="option-a-conserver-locale-fr-doc-officielle">Option A : Conserver <code>locale: fr</code> (doc officielle)</h3>
+<p><strong>Avantages :</strong>
+- Conforme à la documentation officielle mkdocs-dsfr
+- Cohérence avec exemples officiels</p>
+<p><strong>Inconvénients :</strong>
+- Warning Python à chaque build
+- Logs CI/CD pollués
+- Risque de masquer vrais warnings
+- Mauvaise expérience contributeur</p>
+<p><strong>Rejeté</strong> : Les warnings génèrent du bruit technique inacceptable en production.</p>
+<hr />
+<h3 id="option-b-utiliser-language-fr-choisi">Option B : Utiliser <code>language: fr</code> (choisi)</h3>
+<p><strong>Avantages :</strong>
+- Paramètre natif MkDocs (pas de warning)
+- Builds propres et silencieux
+- Équivalent fonctionnel exact (attribut <code>lang="fr"</code> dans HTML)
+- Compatible avec tous plugins MkDocs (search, git-revision-date, etc.)</p>
+<p><strong>Inconvénients :</strong>
+- Divergence mineure avec doc officielle (justifiée et documentée)
+- Nécessite commentaire inline pour expliciter le choix</p>
+<p><strong>Choisi</strong> : Équilibre optimal entre propreté technique et pragmatisme.</p>
+<hr />
+<h3 id="option-c-soumettre-issue-au-projet-mkdocs-dsfr">Option C : Soumettre issue au projet mkdocs-dsfr</h3>
+<p><strong>Avantages :</strong>
+- Correction upstream bénéficierait à tous
+- Documentation officielle alignée avec implémentation</p>
+<p><strong>Inconvénients :</strong>
+- Délai de réponse/correction incertain
+- Bloque le projet en attendant
+- Peut-être comportement intentionnel (alias non documenté)</p>
+<p><strong>Rejeté</strong> : Peut être fait en parallèle, mais ne doit pas bloquer le projet.</p>
+<h2 id="consequences">Conséquences</h2>
+<h3 id="positives">Positives</h3>
+<ol>
+<li><strong>Builds propres</strong> : Plus de warnings dans logs CI/CD</li>
+<li><strong>Maintenabilité</strong> : Logs exploitables, vrais warnings visibles</li>
+<li><strong>Standards MkDocs</strong> : Utilisation paramètre documenté officiellement dans MkDocs core</li>
+<li><strong>Compatibilité</strong> : Fonctionne avec tous plugins MkDocs sans ajustement</li>
+<li><strong>Accessibilité</strong> : Attribut <code>lang="fr"</code> correctement injecté dans HTML (RGAA conforme)</li>
+</ol>
+<h3 id="negatives">Négatives</h3>
+<ol>
+<li><strong>Divergence doc</strong> : Commentaire inline requis pour expliquer le choix</li>
+<li><strong>Maintenance</strong> : Vérifier à chaque mise à jour mkdocs-dsfr si divergence corrigée</li>
+<li><strong>Contributeurs</strong> : Doivent lire commentaire inline pour comprendre</li>
+</ol>
+<h3 id="mitigations">Mitigations</h3>
+<ul>
+<li>Commentaire inline explicite dans <code>mkdocs-dsfr.yml</code></li>
+<li>ADR-007 documente la décision (vous lisez actuellement)</li>
+<li>Mention dans README.md et guide contributeur</li>
+</ul>
+<h2 id="validation">Validation</h2>
+<h3 id="criteres-de-succes">Critères de succès</h3>
+<ul>
+<li>[x] Builds MkDocs sans warnings <code>locale</code> non reconnu</li>
+<li>[x] Attribut HTML <code>&lt;html lang="fr"&gt;</code> présent</li>
+<li>[x] Plugin search fonctionne avec stemmer français</li>
+<li>[x] Plugin git-revision-date-localized affiche dates en français</li>
+<li>[x] Tests CI/CD passent sans warnings</li>
+</ul>
+<h3 id="tests-de-validation">Tests de validation</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Build local sans warnings</span>
+mkdocs<span class="w"> </span>build<span class="w"> </span>--config-file<span class="w"> </span>mkdocs-dsfr.yml<span class="w"> </span>--strict
+
+<span class="c1"># Vérifier attribut lang dans HTML généré</span>
+grep<span class="w"> </span><span class="s1">&#39;&lt;html lang=&quot;fr&quot;&#39;</span><span class="w"> </span>site/index.html
+
+<span class="c1"># Vérifier recherche française active</span>
+grep<span class="w"> </span><span class="s1">&#39;lang: fr&#39;</span><span class="w"> </span>mkdocs-dsfr.yml
+</code></pre></div>
+<h3 id="resultats-validation-2025-10-14">Résultats validation (2025-10-14)</h3>
+<div class="highlight"><pre><span></span><code>✅ Build propre : 0 warnings
+✅ HTML conforme : &lt;html lang=&quot;fr&quot; data-fr-scheme=&quot;light&quot;&gt;
+✅ Recherche FR : Plugin search lang: fr actif
+✅ Dates FR : Plugin git-revision-date-localized affiche &quot;14 octobre 2025&quot;
+✅ CI/CD : Workflow #18504738491 succès
+</code></pre></div>
+<h2 id="impact-sur-le-projet">Impact sur le projet</h2>
+<h3 id="fichiers-concernes">Fichiers concernés</h3>
+<ul>
+<li><code>mkdocs-dsfr.yml</code> : Configuration principale (ligne 16)</li>
+<li><code>mkdocs-dsfr-pdf.yml</code> : Configuration PDF (ligne 16)</li>
+</ul>
+<h3 id="commits-de-reference">Commits de référence</h3>
+<ul>
+<li>Initial : <code>678f3f2</code> - fix(dsfr): conformité parfaite documentation officielle v0.17.0</li>
+<li>ADR : <code>[à compléter lors du commit]</code> - docs(100): documentation complète composants DSFR + ADR-007</li>
+</ul>
+<h3 id="versions-impactees">Versions impactées</h3>
+<ul>
+<li>mkdocs-dsfr : v0.17.0</li>
+<li>MkDocs : v1.6.1+</li>
+<li>Python : 3.11+</li>
+</ul>
+<h2 id="action-future">Action future</h2>
+<p><strong>À vérifier lors de la prochaine mise à jour mkdocs-dsfr (v0.18.0+) :</strong></p>
+<ol>
+<li>Tester si <code>locale: fr</code> ne génère plus de warning</li>
+<li>Si corrigé upstream → Migrer vers <code>locale</code> et marquer ADR-007 comme 🔄 Superseded</li>
+<li>Si toujours warning → Conserver <code>language</code> et mettre à jour ADR-007</li>
+</ol>
+<p><strong>Issue upstream suggérée :</strong></p>
+<div class="highlight"><pre><span></span><code>Title: Documentation recommends <span class="sb">`locale: fr`</span> but generates MkDocs warning
+
+Description:
+The official documentation recommends using <span class="sb">`theme.locale: fr`</span> but MkDocs
+core doesn&#39;t recognize this key and emits:
+&quot;WARNING - Config value &#39;theme.locale&#39;: Unrecognised configuration key&quot;
+
+Using <span class="sb">`theme.language: fr`</span> works without warnings and produces identical
+HTML output (<span class="sb">`&lt;html lang=&quot;fr&quot;&gt;`</span>).
+
+Is <span class="sb">`locale`</span> an intentional alias that should be documented differently,
+or should the docs recommend <span class="sb">`language`</span> instead?
+
+Versions:
+<span class="k">-</span><span class="w"> </span>mkdocs-dsfr: 0.17.0
+<span class="k">-</span><span class="w"> </span>mkdocs: 1.6.1
+</code></pre></div>
+<h2 id="references">Références</h2>
+<ul>
+<li><a href="https://www.mkdocs.org/user-guide/configuration/#language">MkDocs Configuration - theme.language</a></li>
+<li><a href="https://pub.gitlab-pages.din.developpement-durable.gouv.fr/numeco/mkdocs-dsfr-doc/">mkdocs-dsfr Documentation officielle</a></li>
+<li><a href="../001-choix-theme-dsfr/">ADR-001: Adoption thème DSFR</a> - Contexte choix DSFR</li>
+<li>Instructions projet : Voir fichier CLAUDE.md à la racine (lignes 15-17 : configuration language vs locale)</li>
+</ul>
+<hr />
+<p><strong>Note finale</strong> : Cette divergence est <strong>cosmétique</strong> (paramètre équivalent) et ne compromet en rien la conformité DSFR ou RGAA du site. Le choix de <code>language</code> est une <strong>best practice MkDocs</strong> standard.</p>
+                        
+                        
+                        <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
+                        
+                    </div>
+                    <hr />
+                    
+                </div>
+            </div>
+            <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
+                <div class="fr-container fr-container--fluid fr-container-md">
+                    <div class="fr-grid-row fr-grid-row--center">
+                        <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
+                            <div class="fr-modal__body">
+                                <div class="fr-modal__header">
+                                    <button class="fr-btn--close fr-btn" aria-controls="fr-theme-modal" title="Fermer">
+                                        Fermer
+                                    </button>
+                                </div>
+                                <div class="fr-modal__content">
+                                    <h1 id="fr-theme-modal-title" class="fr-modal__title">
+                                        Paramètres d’affichage </h1>
+                                    <div id="fr-display" class="fr-display">
+                                        <div class="fr-form-group">
+                                            <fieldset class="fr-fieldset">
+                                                <legend class="fr-fieldset__legend fr-text--regular" id='-legend'>
+                                                    Choisissez un thème pour personnaliser l’apparence du site.
+                                                </legend>
+                                                <div class="fr-fieldset__content">
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="light"
+                                                            type="radio" id="fr-radios-theme-light"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-light"> Thème
+                                                            clair </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../../artwork/light.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../../artwork/light.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../../artwork/light.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="dark"
+                                                            type="radio" id="fr-radios-theme-dark"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-dark"> Thème
+                                                            sombre </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../../artwork/dark.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../../artwork/dark.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../../artwork/dark.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fr-radio-group fr-radio-rich"><input value="system"
+                                                            type="radio" id="fr-radios-theme-system"
+                                                            name="fr-radios-theme">
+                                                        <label class="fr-label" for="fr-radios-theme-system"> Système
+                                                            <span class="fr-hint-text">Utilise les paramètres
+                                                                système.</span>
+                                                        </label>
+                                                        <div class="fr-radio-rich__img">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="fr-artwork"
+                                                                width="80px" height="80px" viewBox="0 0 80 80">
+                                                                <use class="fr-artwork-decorative"
+                                                                    xlink:href="../../artwork/system.svg#artwork-decorative">
+                                                                </use>
+                                                                <use class="fr-artwork-minor"
+                                                                    xlink:href="../../artwork/system.svg#artwork-minor">
+                                                                </use>
+                                                                <use class="fr-artwork-major"
+                                                                    xlink:href="../../artwork/system.svg#artwork-major">
+                                                                </use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dialog>
+    </main>
+    <footer class="fr-footer" role="contentinfo" id="footer">
+    <div class="fr-container">
+        <div class="fr-footer__body">
+            <div class="fr-footer__brand fr-enlarge-link">
+                <a href="/"
+                    title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
+                    <p class="fr-logo">
+                        GOUVERNEMENT
+                    </p>
+                </a>
+            </div>
+            <div class="fr-footer__content">
+                <p class="fr-footer__content-desc">Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général - Ministère de l'Économie des Finances et de la Souveraineté industrielle et énergétique</p>
+                <ul class="fr-footer__content-list">
+                    
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://service-public.fr">service-public.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://data.gouv.fr">data.gouv.fr</a>
+                    </li>
+                    
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" target="_blank" href="https://info.gouv.fr">info.gouv.fr</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="fr-footer__bottom">
+            <ul class="fr-footer__bottom-list">
+                
+                <li class="fr-footer__bottom-item">
+                    <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+                        aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+                </li>
+            </ul>
+            <div class="fr-footer__bottom-copy">
+                <p>Sauf mention contraire, tous les contenus de ce site sont sous <a
+                        href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence
+                        etalab-2.0</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+<div class="revision-date">
+    
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 19:25:57 UTC">23 octobre 2025</span> 
+</div>
+
+
+<script>
+    var base_url = "../..";
+</script>
+
+<script type="module" src="../../dsfr.module.min.js"></script>
+<script
+    type="text/javascript"
+    nomodule
+    src="../../dsfr.nomodule.min.js"
+></script>
+<script src="../../search/lunr.js"></script>
+<script src="../../search/lunr.stemmer.support.js"></script>
+<script src="../../search/lunr.fr.js"></script>
+<script src="../../assets/extra.js" defer></script>
+<script src="../../search/main.js" defer></script>
+<script src="../../js/open_in_new_tab.js" defer></script>
+</body>
+
+</html>
