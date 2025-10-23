@@ -2,8 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Version: 1.3
-Date: 2025-10-08
+Version: 1.4
+Date: 2025-10-23
 
 ## Langue et ton
 - Répondre en français, sans émojis, concision.
@@ -174,6 +174,59 @@ Workflow `.github/workflows/build.yml` (3 jobs séquentiels):
 **Pages privées**: Restreint aux membres organisation (paramètre org-only).
 
 **Documentation complète**: Voir [ADR-009](docs/adr/009-migration-github-environments.md) et [Guide Chef SNUM](docs/guide-chef-snum-approvals.md).
+
+## Checklist pré-modification
+
+Avant toute modification du code, de la documentation ou des modules, exécuter cette checklist obligatoire :
+
+### 1. Contexte et préparation
+- [ ] Lire la section pertinente de ce fichier CLAUDE.md
+- [ ] Identifier le type de modification (contenu, scoring, architecture, CI/CD)
+- [ ] Vérifier l'ADR pertinent si changement architectural (docs/adr/)
+- [ ] Créer une branche feature/hotfix appropriée
+
+### 2. Modifications de modules (docs/modules/*.md)
+Si vous modifiez un fichier dans docs/modules/ :
+- [ ] Vérifier que le front-matter YAML est complet (service, referent, updated)
+- [ ] S'assurer que EXACTEMENT 0 ou 33 balises `<!-- CHECKLIST -->` sont présentes
+- [ ] Ne PAS ajouter/supprimer de balises `<!-- CHECKLIST -->` (uniquement modifier `[x]`)
+- [ ] Respecter les 5 sections obligatoires (Périmètre, État des lieux, Organisation, Plan d'action, Indicateurs)
+- [ ] Aucun émoji ajouté (sauf dans roadmap/ et inspiration/)
+
+### 3. Validation locale obligatoire
+Exécuter ces commandes AVANT de commit :
+- [ ] `python scripts/calculate_scores.py` → Doit retourner 0 ou 33 points par module
+- [ ] `mkdocs build --config-file mkdocs-dsfr.yml --strict` → Build sans erreur
+- [ ] `pre-commit run --all-files` → Tous les hooks passent (linting, security)
+- [ ] Tester localement : `docker compose -f docker-compose-dsfr.yml up`
+
+### 4. Validation spécifique selon le type de modification
+
+**Si modification de scripts Python (scripts/, hooks/)** :
+- [ ] `python -m black --check scripts/ hooks/`
+- [ ] `python -m ruff check scripts/ hooks/`
+- [ ] `python -m pytest tests/unit/ -v --cov`
+
+**Si modification de la CI (.github/workflows/)** :
+- [ ] Tester localement avec `act` si possible
+- [ ] Vérifier que les 3 jobs sont préservés (build-and-test, deploy-staging, deploy-production)
+- [ ] Documenter le changement dans un ADR si impact architectural
+
+**Si modification des dépendances (requirements*.txt)** :
+- [ ] Justifier l'ajout dans la description de PR
+- [ ] Vérifier les CVE avec `safety check -r requirements-dsfr.txt`
+- [ ] Mettre à jour ADR-010 si changement de stratégie
+
+### 5. Avant de créer la PR
+- [ ] Commit message suit les conventions : `type(scope): description`
+- [ ] Aucun secret ou credential dans les fichiers
+- [ ] CHANGELOG.md mis à jour si nécessaire (features, breaking changes)
+- [ ] Liens internes valides (mode strict les détectera, mais vérifier avant)
+
+### En cas de doute
+- Consulter CONTRIBUTING.md pour le processus détaillé
+- Relire l'ADR pertinent dans docs/adr/
+- Demander une revue de code anticipée aux validateurs
 
 ## Règles de modification
 
