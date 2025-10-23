@@ -1,4 +1,10 @@
-# SPAN SG – Repo
+# SPAN SG
+
+Schéma Pluriannuel d'Accessibilité Numérique du Secrétariat Général
+
+Framework modulaire pour la gestion collaborative des schémas d'accessibilité numérique des services du SG, avec scoring automatique sur les 33 critères DINUM et export PDF accessible.
+
+---
 
 ![Build Status](https://github.com/Alexmacapple/span-sg/workflows/Build%20SPAN/badge.svg)
 ![E2E Tests](https://github.com/Alexmacapple/span-sg/actions/workflows/build.yml/badge.svg?event=push)
@@ -7,354 +13,197 @@
 ![Release](https://img.shields.io/github/v/release/Alexmacapple/span-sg)
 ![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)
 
-Ce dépôt contient le SPAN SG (MkDocs), les modules services et la CI de build/deploy.
+---
 
-## État actuel du projet (22/10/2025)
+## À propos
 
-**Version** : v1.0.1-dsfr - Migration thème DSFR complète + Architecture GitHub Environments
+La loi n° 2005-102 du 11 février 2005 rend obligatoire l'accessibilité de tout service de communication publique en ligne à tous les citoyens, y compris les personnes en situation de handicap. Le Référentiel Général d'Amélioration de l'Accessibilité (RGAA) fixe 33 critères de conformité.
 
-- **Infrastructure** : Production-ready (CI/CD, tests E2E automatisés, sécurité renforcée)
-- **Architecture** : 1 branche (main) + 2 Environments (staging, production) avec approval gates
-- **2 modules validés** : SIRCOM (24/31 - 77.4%), SNUM (21/31 - 67.7%)
-- **4 modules optionnels** : BGS, SAFI, SIEP, SRH (structure créée, enrichissement progressif)
-- **Roadmaps** : 32 archivées (Sprints 0-6), 5 actives (modules optionnels)
-- **Prochaine étape** : Complétion modules optionnels (POC-FINALISATION terminé)
+Ce projet fournit un framework technique permettant aux services du Secrétariat Général de :
 
-## Liens utiles
+- Éditer de manière décentralisée leur Schéma Pluriannuel d'Accessibilité Numérique
+- Bénéficier d'un scoring automatisé sur les 33 critères officiels DINUM
+- Générer automatiquement un site web et un PDF accessible conforme au Système de Design de l'État (DSFR)
+- Suivre l'évolution de leur conformité RGAA avec versioning Git
 
-- **Local** : http://localhost:8000/span-sg/ (développement, hot-reload)
-- **Staging** : https://alexmacapple.github.io/span-sg/draft/ (preview auto-deploy depuis main)
-- **Production** : https://alexmacapple.github.io/span-sg/ (nécessite approval Chef SNUM)
-- **PDF production** : https://github.com/Alexmacapple/span-sg/releases/latest
-- **Changelog** : [CHANGELOG.md](CHANGELOG.md) - Historique versions
-- **Migration** : [MIGRATION.md](MIGRATION.md) - Guides upgrade path
+Le projet couvre 6 modules correspondant aux services du SG : SNUM, SIRCOM, SRH, SIEP, SAFI, BGS.
 
-**Architecture déploiement** : Voir [ADR-009](docs/adr/009-migration-github-environments.md) et [Guide Chef SNUM](docs/guide-chef-snum-approvals.md)
+## Fonctionnalités principales
 
-## Architecture et Documentation
-
-Documentation technique complète du projet :
-
-- **API Reference** : [docs/dev/api-reference.md](docs/dev/api-reference.md) - Documentation scripts Python et hooks MkDocs
-- **Guide Hooks** : [docs/dev/hooks-guide.md](docs/dev/hooks-guide.md) - Guide développeur création hooks MkDocs
-- **Guide Composants DSFR** : [docs/dev/dsfr-components-guide.md](docs/dev/dsfr-components-guide.md) - Utilisation Cards, Callouts, Badges, Alerts, Grid (8 sections, 12+ exemples)
-- **ADR (Architecture Decision Records)** : [docs/adr/](docs/adr/) - Décisions techniques majeures (DSFR, PDF, hooks, coverage)
-- **Diagrammes Architecture** : [docs/architecture/diagrams.md](docs/architecture/diagrams.md) - 6 diagrammes Mermaid (CI/CD, composants, Git, hooks)
-
-## Thème DSFR (Système de Design de l'État)
-
-Le projet utilise le thème [mkdocs-dsfr](https://pypi.org/project/mkdocs-dsfr/) (v0.17.0) pour garantir la conformité avec le design gouvernemental français.
-
-### Caractéristiques DSFR
-- Header/footer officiels avec Marianne
-- Composants accessibles (fr-summary, fr-grid, fr-button)
-- Navigation RGAA conforme
-- Hooks Python pour tableaux responsifs et titres optimisés
-
-### Configuration
-- **Docker** : `docker-compose-dsfr.yml`
-- **Config principale** : `mkdocs-dsfr.yml`
-- **Config PDF** : `mkdocs-dsfr-pdf.yml`
-- **Hooks** : `hooks/dsfr_table_wrapper.py`, `hooks/title_cleaner.py`
+- **Édition collaborative** : Chaque service édite son module indépendamment
+- **Scoring automatique** : Calcul en temps réel du taux de conformité (0/33, 31/33 ou 33/33 points)
+- **Export PDF accessible** : Génération automatique avec métadonnées RGAA (titre, langue, keywords)
+- **Thème DSFR** : Conformité au Système de Design de l'État (composants, header/footer Marianne)
+- **CI/CD automatisée** : Tests E2E, linting, sécurité, déploiement staging/production
+- **Sécurité intégrée** : Dependabot, Gitleaks, Bandit, Safety (scan CVE hebdomadaire)
+- **Architecture Decision Records** : Traçabilité des décisions techniques majeures (10 ADR)
 
 ## Démarrage rapide
 
-### Installation en 3 étapes
-
-```bash
-# 1. Cloner le dépôt
-git clone https://github.com/Alexmacapple/span-sg.git
-cd span-sg
-
-# 2. Démarrer avec Docker (thème DSFR)
-docker compose -f docker-compose-dsfr.yml up -d
-
-# 3. Accéder au site
-# http://localhost:8000/span-sg/
-```
-
-**Guide complet** : Consultez [HOWTO.md](HOWTO.md) pour les instructions détaillées, la résolution de problèmes et les commandes utiles.
-
 ### Prérequis
 
-- **Docker Desktop** : [Installation](https://www.docker.com/products/docker-desktop)
-- **Git** (normalement préinstallé sur macOS/Linux)
+- Docker Desktop : [Installation](https://www.docker.com/products/docker-desktop)
+- Git (préinstallé sur macOS/Linux)
 
 Vérification :
 ```bash
 docker --version && docker compose version
 ```
 
-## Sprint 6 Tech First - Terminé (Score 97/100)
+### Installation
 
-**Infrastructure production-ready** :
-1. [COMPLETE] Tests E2E automatisés CI (S6-01) - Job GitHub Actions + reporting HTML
-2. [COMPLETE] Renforcement sécurité (S6-07) - Dependabot + SECURITY.md + guide BFG
-3. [COMPLETE] Documentation maintenabilité (S6-08) - CHANGELOG + MIGRATION + versioning
-
-**Roadmaps organisées** :
-- 32 roadmaps archivées (Sprints 0-6 terminés)
-- Structure unifiée `roadmap/archive/`
-- ROADMAP-INDEX.md créé (master index)
-
-**Prochaines étapes** :
-1. **Modules optionnels** (P1) : Compléter BGS, SAFI, SIEP, SRH (S6-03 à S6-06)
-2. **Infrastructure optionnelle** (P3) : Notifications CI + Rollback (S6-02)
-3. **Release v1.1.0** : Documentation GitHub Environments complète + modules enrichis
-
-## Commandes utiles
-
-**Pour un guide complet, consultez [HOWTO.md](HOWTO.md)**
-
-### Développement local
 ```bash
-# Démarrer le serveur (en arrière-plan)
-docker compose up -d
+# 1. Cloner le dépôt
+git clone https://github.com/Alexmacapple/span-sg.git
+cd span-sg
 
-# Voir les logs en temps réel
-docker compose logs -f mkdocs
+# 2. Démarrer le serveur avec Docker (thème DSFR)
+docker compose -f docker-compose-dsfr.yml up -d
 
-# Arrêter le serveur
-docker compose down
-
-# Redémarrer après modifications
-docker compose restart
-
-# Reconstruire après modification du Dockerfile
-docker compose up -d --build
+# 3. Accéder au site
+# http://localhost:8000/span-sg/
 ```
 
-**URL du site** : http://localhost:8000/span-sg/
+Le site est généré avec hot-reload automatique : toute modification dans `docs/` reconstruit le site en temps réel.
 
-### Autres commandes
-```bash
-# Build manuel du site HTML
-mkdocs build
+**Pour aller plus loin** : Consultez [HOWTO.md](HOWTO.md) pour l'installation détaillée, les commandes avancées, le troubleshooting et la génération PDF.
 
-# Build manuel du PDF avec enrichissement metadata
-mkdocs build --config-file mkdocs-pdf.yml
-python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
+## Documentation
 
-# Calcul des scores SPAN et génération synthèse
-python scripts/calculate_scores.py
+Le projet dispose d'une documentation technique complète :
 
-# Test complet du workflow PDF
-./scripts/test_pdf_workflow.sh
+- **[HOWTO.md](HOWTO.md)** : Installation, commandes utiles, troubleshooting Docker, génération PDF
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** : Guide contributeur, workflow Git, processus release automatisé
+- **[CHANGELOG.md](CHANGELOG.md)** : Historique des versions et évolutions du projet
+- **[SECURITY.md](SECURITY.md)** : Politique de sécurité, mesures actives, signalement vulnérabilités
+- **[MIGRATION.md](MIGRATION.md)** : Guides de migration entre versions majeures
+- **[docs/adr/](docs/adr/)** : Architecture Decision Records (10 ADR documentant les choix techniques)
+- **[docs/dev/api-reference.md](docs/dev/api-reference.md)** : Documentation des scripts Python et hooks MkDocs
+- **[docs/dev/hooks-guide.md](docs/dev/hooks-guide.md)** : Guide développeur pour création de hooks personnalisés
+- **[docs/dev/dsfr-components-guide.md](docs/dev/dsfr-components-guide.md)** : Utilisation composants DSFR (Cards, Alerts, Grid, etc.)
 
-# Script de développement
-./scripts/start-dev-server.sh  # Lance Docker avec vérifications
+## Architecture
+
+### Stack technique
+
+- **Générateur** : MkDocs 1.6+ avec plugin mkdocs-dsfr 0.17+
+- **Langage** : Python 3.11+
+- **Thème** : Système de Design de l'État (DSFR) - Conformité circulaire n°6411-SG du 7 juillet 2023
+- **Export PDF** : mkdocs-with-pdf + WeasyPrint + pikepdf (enrichissement métadonnées)
+- **CI/CD** : GitHub Actions (build, test, deploy staging/production)
+
+### Structure modulaire
+
+```
+docs/
+├── index.md                 # Page d'accueil
+├── synthese.md              # Tableau de bord agrégé (généré automatiquement)
+└── modules/
+    ├── _template.md         # Template avec 33 critères DINUM
+    ├── snum.md              # Service du Numérique
+    ├── sircom.md            # Service de la Communication
+    ├── srh.md               # Service des Ressources Humaines
+    ├── siep.md              # Service des Infrastructures et de l'Environnement Professionnel
+    ├── safi.md              # Service des Affaires Financières
+    └── bgs.md               # Bureau de la Gestion des Services
 ```
 
-## Export PDF
+Chaque module contient :
+- Front-matter YAML (service, referent, updated)
+- 5 sections obligatoires (Périmètre, État des lieux, Organisation, Plan d'action, Indicateurs)
+- 33 points de contrôle DINUM balisés `<!-- CHECKLIST -->`
 
-Le site est exportable en PDF avec métadonnées accessibilité (RGAA).
+### Pipeline de scoring automatisé
 
-### Téléchargement
+Le script `scripts/calculate_scores.py` :
 
-**Depuis le site web** :
-- Staging : https://alexmacapple.github.io/span-sg/draft/ (bouton "Télécharger PDF")
-- Production : https://alexmacapple.github.io/span-sg/ (bouton "Télécharger PDF")
+1. Scanne tous les modules dans `docs/modules/*.md`
+2. Compte les cases cochées `[x]` portant la balise `<!-- CHECKLIST -->`
+3. Valide que chaque module a exactement 0 ou 33 points (fail si autre valeur)
+4. Génère `docs/synthese.md` avec tableau agrégé par module
+5. Calcule le score global SG (somme des 6 modules)
 
-**Depuis GitHub Actions** :
-```bash
-./scripts/download_latest_pdf.sh main
-```
+### Hooks Python DSFR
 
-### Génération locale
+Deux hooks améliorent l'accessibilité et le rendu DSFR :
 
-**Prérequis** : Dépendances système WeasyPrint
+- `hooks/dsfr_table_wrapper.py` : Encapsule les tableaux Markdown dans `<div class="fr-table">` pour le responsive
+- `hooks/title_cleaner.py` : Nettoie les titres HTML redondants (post-processing regex)
 
-**macOS (Homebrew)** :
-```bash
-brew install pango cairo gdk-pixbuf libffi
-```
+## Environnements
 
-**Ubuntu/Debian** :
-```bash
-sudo apt-get install libpango-1.0-0 libcairo2 libgdk-pixbuf2.0-0
-```
+Le projet utilise 3 environnements de déploiement :
 
-**Build** :
-```bash
-ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml
-python scripts/enrich_pdf_metadata.py exports/span-sg.pdf
-```
+### Local (développement)
+- **URL** : http://localhost:8000/span-sg/
+- **Commande** : `docker compose -f docker-compose-dsfr.yml up -d`
+- **Usage** : Développement avec hot-reload, tests modifications avant commit
 
-**Output** : `exports/span-sg.pdf` (environ 2.6 MB, PDF 1.7, accessible)
+### Staging (préproduction)
+- **URL** : https://alexmacapple.github.io/span-sg/draft/
+- **Déploiement** : Auto-deploy à chaque push sur `main`
+- **Usage** : Revue validateurs avant production, accessible organisation uniquement
 
-### Métadonnées
+### Production
+- **URL** : https://alexmacapple.github.io/span-sg/
+- **Déploiement** : Nécessite approval manuel du Chef SNUM (GitHub Environment)
+- **Usage** : Version stable validée, accessible organisation uniquement
 
-Le PDF contient :
-- Titre : SPAN SG
-- Langue : fr-FR
-- Auteur : Secrétariat Général
-- Subject : Schéma Pluriannuel d'Accessibilité Numérique
-- Keywords : SPAN, accessibilité, SG, numérique, RGAA, DINUM
+### PDF
+- **Releases** : https://github.com/Alexmacapple/span-sg/releases
+- **Téléchargement** : `./scripts/download_latest_pdf.sh main`
+- **Génération locale** : `ENABLE_PDF_EXPORT=1 mkdocs build --config-file mkdocs-dsfr-pdf.yml`
 
-## Développement local avec Docker
-
-### Architecture Docker
-
-Le projet utilise 2 fichiers Docker complémentaires :
-
-**`Dockerfile`** (la recette de l'image)
-```dockerfile
-FROM squidfunk/mkdocs-material:latest  # Image de base MkDocs Material
-WORKDIR /docs                          # Répertoire de travail
-EXPOSE 8000                            # Port exposé
-CMD ["serve", "--dev-addr=0.0.0.0:8000"]  # Commande au démarrage
-```
-
-**Rôle** : Définit comment construire l'image Docker (le modèle du conteneur).
-
-**`docker-compose.yml`** (la configuration de lancement)
-```yaml
-services:
-  mkdocs:
-    build: .              # Construire avec le Dockerfile du répertoire actuel
-    volumes:
-      - .:/docs           # Partager le dossier actuel avec le conteneur
-    ports:
-      - "8000:8000"       # Exposer le port 8000 sur l'hôte
-```
-
-**Rôle** : Définit comment lancer le conteneur (volumes, ports, configuration).
-
-### Workflow de développement
-
-1. **Lancer le serveur** : `docker compose up -d`
-   - Docker lit `docker-compose.yml`
-   - Si l'image n'existe pas, la construit avec `Dockerfile`
-   - Démarre le conteneur en arrière-plan (`-d`)
-   - Monte le répertoire actuel dans `/docs` (hot-reload automatique)
-
-2. **Modifier le code** : Éditer les fichiers dans `docs/`
-   - MkDocs détecte automatiquement les changements
-   - Le site se reconstruit en temps réel
-   - Rafraîchir le navigateur pour voir les modifications
-
-3. **Arrêter le serveur** : `docker compose down`
-
-### Troubleshooting Docker
-
-**Erreur : "Cannot connect to Docker daemon"**
-```bash
-# Cause : Docker Desktop n'est pas démarré
-# Solution : Lancer Docker Desktop et attendre qu'il soit prêt
-docker ps  # Vérifier que Docker répond
-```
-
-**Erreur : "Port 8000 already in use"**
-```bash
-# Cause : Un autre processus utilise le port 8000
-# Solution : Trouver et arrêter le processus
-lsof -i :8000
-kill <PID>
-
-# Ou changer le port dans docker-compose.yml
-ports:
-  - "8001:8000"  # Utiliser 8001 au lieu de 8000
-```
-
-**Site inaccessible après `docker compose up`**
-```bash
-# Vérifier que le conteneur tourne
-docker compose ps
-
-# Voir les logs pour identifier l'erreur
-docker compose logs mkdocs
-
-# Problèmes courants :
-# - Erreur dans mkdocs.yml : corriger la config
-# - Plugin manquant : installer les dépendances
-```
-
-**Premier lancement très long**
-- Normal : Docker télécharge l'image de base (~200MB)
-- Les lancements suivants sont instantanés (image en cache)
-
-### Notes techniques
-
-- **Dépendances Python** : Toutes les dépendances sont centralisées dans `requirements.txt`. Pour développer en local sans Docker :
-  ```bash
-  pip install -r requirements.txt
-  mkdocs serve
-  ```
-
-- **Plugin PDF** : Le projet utilise `mkdocs-with-pdf` (meilleur support que `mkdocs-pdf-export-plugin`). L'enrichissement automatique des metadata (titre, langue, keywords) est assuré par `scripts/enrich_pdf_metadata.py`.
-
-- **Hot-reload automatique** : Le volume monté (`- .:/docs`) synchronise le répertoire local avec le conteneur. Toute modification est détectée instantanément par MkDocs.
-
-## Dépannage rapide
-- **PDF manquant** : Utiliser l'impression navigateur sur « Synthèse » (Cmd+P / Ctrl+P) ou vérifier que `exports/span-sg.pdf` existe après `mkdocs build --config-file mkdocs-pdf.yml`
-- **Metadata PDF absentes** : Exécuter `python scripts/enrich_pdf_metadata.py exports/span-sg.pdf` (nécessite `pikepdf`)
-- **Scores incohérents** : S'assurer que seuls les 31 points portent `<!-- DINUM -->`
-- **Staging non mis à jour** : Vérifier que le push est sur `main` (auto-deploy vers /draft/)
-- **Production non mise à jour** : Vérifier approval Chef SNUM (Dashboard Deployments)
-- **Docker ne démarre pas** : Vérifier que Docker Desktop est lancé et fonctionnel (`docker ps`)
-- **Dépendances manquantes** : Installer avec `pip install -r requirements.txt`
-
-## Sécurité
-
-Pour signaler une vulnérabilité, consultez [SECURITY.md](SECURITY.md).
-
-**Ne créez PAS d'issue publique pour les vulnérabilités.**
-
-### Mesures de Sécurité
-
-- **Dependabot** : Scan automatique hebdomadaire (vulnérabilités CVE)
-- **Security alerts** : Notifications activées
-- **Git history** : Nettoyé (fichiers sensibles purgés)
-- **CI/CD** : Validation automatique (linter, tests)
+Documentation complète de l'architecture déploiement : [ADR-009](docs/adr/009-migration-github-environments.md)
 
 ## Contribution
 
-Pour contribuer au projet, consulter le [Guide contributeur](CONTRIBUTING.md).
+### Workflow
+
+1. Créer une branche feature : `git checkout -b feature/update-[service]`
+2. Modifier les modules dans `docs/modules/[service].md`
+3. Créer une Pull Request vers `main`
+4. Validation par Bertrand ou Alex (code review)
+5. Merge → Auto-deploy staging (/draft/)
+6. Approval Chef SNUM → Deploy production (/)
+
+### Règles de modification
+
+**Autorisé :**
+- Cocher/décocher les cases `[x]` des 33 points CHECKLIST
+- Compléter les 5 sections obligatoires des modules
+- Mettre à jour le front-matter YAML (dates, référents)
+- Ajouter des actions au plan d'action annuel
+
+**Interdit :**
+- Modifier la logique de scoring (33 points balisés `<!-- CHECKLIST -->`)
+- Ajouter/supprimer des balises `<!-- CHECKLIST -->`
+- Modifier le périmètre v1 (6 modules SG)
+- Désactiver `strict: true` dans mkdocs-dsfr.yml
+
+**Documentation complète** : Consultez [CONTRIBUTING.md](CONTRIBUTING.md) pour le guide détaillé, les conventions de commit et le processus release.
+
+## Sécurité
+
+**Score sécurité** : 9.5/10
+
+Mesures actives :
+- **Dependabot** : Scan automatique hebdomadaire des vulnérabilités CVE (lundi 9h)
+- **GitHub Vulnerability Alerts** : Notifications automatiques activées
+- **Gitleaks** : Scan secrets en pre-commit (API keys, tokens, credentials)
+- **Bandit** : Analyse statique sécurité Python (pre-commit + CI)
+- **Safety** : Vérification CVE des dépendances (pre-commit + CI)
+- **Git history** : Fichiers sensibles purgés (BFG Repo-Cleaner)
+
+**Signaler une vulnérabilité** : Consultez [SECURITY.md](SECURITY.md) pour la procédure de responsible disclosure.
+
+**Ne créez PAS d'issue publique pour les vulnérabilités.**
 
 ## Contacts
-- Owner: Alexandra (@alexandra)
-- Validateurs: Bertrand (@bertrand), Alex (@alex)
-- Sponsor: Stéphane (Chef mission numérique SNUM-SG)
 
+- **Owner** : Alexandra (@alexandra)
+- **Validateurs** : Bertrand (@bertrand), Alex (@alex)
+- **Sponsor** : Stéphane (Chef mission numérique SNUM-SG, validation conceptuelle)
+- **Approval production** : Chef SNUM
 
-## règles de validation
-- Validation de contenu: Bertrand et Alex
-- Stéphane (Chef mission numérique SNUM-SG): validation conceptuelle
-- Chef SNUM: validation finale GO production
-
-
-## Preview GitHub Pages (note)
-- Ce dépôt public n’active pas Pages pour la preview avant validation.
-- Pour un déploiement Pages privé, voir `.github/PAGES-ACCESS-CHECKLIST.md` (nécessite organisation/Enterprise).
-
-
-## Checklist GO
-- Voir `GO-CHECKLIST.md` pour valider Pages org-only, URLs légales, variables `site_url`/`repo_url`, exécution CI initiale, et gouvernance des accès.
-- Voir `.github/PAGES-ACCESS-CHECKLIST.md` pour le détail du paramétrage Pages (organisation uniquement).
-
-
-
-## Vibe coding
-- Utiliser `Agents.md` (Codex/Cursor/Builder.io) pour les instructions d’agent standardisées
-- Utiliser `Claude.md` pour Claude Code (format spécifique Anthropic)
-- Conserver le périmètre MVP, ne pas modifier la logique des 31 points DINUM
-
-## Preview et revue
-
-Le projet utilise 3 environnements de revue :
-
-1. **Local** : `docker compose -f docker-compose-dsfr.yml up` → http://localhost:8000/span-sg/
-   - Hot-reload temps réel
-   - Tests modifications avant commit
-
-2. **Staging** : https://alexmacapple.github.io/span-sg/draft/
-   - Auto-deploy depuis branche `main`
-   - Revue validateurs avant production
-   - Accessible membres organisation uniquement
-
-3. **Production** : https://alexmacapple.github.io/span-sg/
-   - Deploy après approval Chef SNUM
-   - Version stable validée
-   - Public (organisation uniquement)
-
-**Architecture déploiement** : Voir [ADR-009](docs/adr/009-migration-github-environments.md) pour comprendre le workflow complet.
+Pour toute question technique, consulter [CONTRIBUTING.md](CONTRIBUTING.md) ou créer une issue.
