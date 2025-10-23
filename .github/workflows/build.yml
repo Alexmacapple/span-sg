@@ -257,6 +257,11 @@ jobs:
           fi
           echo "✅ Thème DSFR correctement appliqué (vérification finale)"
 
+      # ===== TEST REGRESSION DSFR =====
+      # Exécuter test dédié après rebuild final (non inclus dans E2E runner)
+      - name: Run DSFR theme preservation test
+        run: bash tests/e2e/test_dsfr_theme_preserved.sh
+
       # ===== UPLOAD ARTIFACTS =====
       - name: Upload site HTML
         uses: actions/upload-artifact@v4

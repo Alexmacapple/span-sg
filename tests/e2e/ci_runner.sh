@@ -14,6 +14,8 @@ REPORT_DIR="$TESTS_DIR/reports"
 mkdir -p "$REPORT_DIR"
 
 # Liste des scénarios à exécuter
+# Note: test_dsfr_theme_preserved.sh est exclu car il doit s'exécuter
+# APRÈS le rebuild final DSFR dans le workflow CI (pas pendant E2E)
 SCENARIOS=(
     "test_full_workflow.sh"
     "scenario_multi_modules.sh"
@@ -24,7 +26,6 @@ SCENARIOS=(
     "scenario_rollback.sh"
     "scenario_preview_http.sh"
     "scenario_frontmatter.sh"
-    "test_dsfr_theme_preserved.sh"
 )
 
 FAILED=0
