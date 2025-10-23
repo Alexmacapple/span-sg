@@ -56,9 +56,9 @@ run_scenario() {
 export -f run_scenario
 export TESTS_DIR REPORT_DIR
 
-# Exécuter scénarios en parallèle (3 workers max)
-# Alternative GNU parallel si disponible: parallel -j 3 --halt soon,fail=1 run_scenario ::: "${SCENARIOS[@]}"
-printf "%s\n" "${SCENARIOS[@]}" | xargs -n 1 -P 3 -I {} bash -c 'run_scenario "{}"'
+# Exécuter scénarios en séquentiel (éviter conflits git checkout)
+# Note: Parallélisme désactivé (-P 1) car tests modifient état git
+printf "%s\n" "${SCENARIOS[@]}" | xargs -n 1 -P 1 -I {} bash -c 'run_scenario "{}"'
 PARALLEL_EXIT=$?
 
 # Collecter résultats depuis logs (car xargs agrège stdout)
