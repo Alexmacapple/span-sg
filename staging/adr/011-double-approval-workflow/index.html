@@ -432,14 +432,14 @@
 <strong>Décideurs</strong> : Alexandra (Owner/Validateur)
 <strong>Référence</strong> : <a href="../009-migration-github-environments/">ADR-009</a></p>
 <h2 id="contexte">Contexte</h2>
-<p>Après la migration vers GitHub Environments (ADR-009), l'environnement <code>staging</code> était configuré en auto-deploy vers <code>/draft/</code> sans gate d'approbation. Seul l'environnement <code>production</code> nécessitait une validation manuelle.</p>
+<p>Après la migration vers GitHub Environments (ADR-009), l'environnement <code>staging</code> était configuré en auto-deploy vers <code>/staging/</code> sans gate d'approbation. Seul l'environnement <code>production</code> nécessitait une validation manuelle.</p>
 <p>Cette configuration présentait deux problèmes :
 1. <strong>Manque de contrôle</strong> : Impossible de tester staging avant que les modifications soient publiquement accessibles
-2. <strong>Incohérence nomenclature</strong> : Environment "staging" → URL "/draft/"</p>
+2. <strong>Incohérence nomenclature</strong> : Environment "staging" → URL "/staging/"</p>
 <h2 id="decision">Décision</h2>
 <h3 id="1-activation-required-reviewers-sur-staging">1. Activation Required Reviewers sur staging</h3>
 <p>Configurer l'environnement GitHub "staging" avec Required Reviewers (Alexmacapple) pour forcer une approbation manuelle avant tout déploiement.</p>
-<h3 id="2-renommage-draft-staging">2. Renommage /draft/ → /staging/</h3>
+<h3 id="2-renommage-staging-staging">2. Renommage /staging/ → /staging/</h3>
 <p>Modifier toutes les références pour utiliser <code>/staging/</code> afin d'assurer la cohérence entre :
 - Nom de l'environnement GitHub : <code>staging</code>
 - URL publique : <code>https://alexmacapple.github.io/span-sg/staging/</code></p>
@@ -479,8 +479,8 @@
 </ol>
 <h3 id="neutres">Neutres</h3>
 <ol>
-<li><strong>Migration progressive</strong> : Ancien dossier <code>/draft/</code> reste sur gh-pages jusqu'à nettoyage manuel</li>
-<li><strong>Bookmarks</strong> : URLs <code>/draft/</code> à mettre à jour vers <code>/staging/</code> (coexistence temporaire)</li>
+<li><strong>Migration progressive</strong> : Ancien dossier <code>/staging/</code> reste sur gh-pages jusqu'à nettoyage manuel</li>
+<li><strong>Bookmarks</strong> : URLs <code>/staging/</code> à mettre à jour vers <code>/staging/</code> (coexistence temporaire)</li>
 </ol>
 <h2 id="fichiers-modifies">Fichiers modifiés</h2>
 <h3 id="infrastructure">Infrastructure</h3>
@@ -559,10 +559,10 @@
 <span class="p">}</span>
 </code></pre></div></p>
 <h3 id="nettoyage-futur-optionnel">Nettoyage futur (optionnel)</h3>
-<p>Pour supprimer l'ancien dossier <code>/draft/</code> de gh-pages :
+<p>Pour supprimer l'ancien dossier <code>/staging/</code> de gh-pages :
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>gh-pages
 rm<span class="w"> </span>-rf<span class="w"> </span>draft
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;cleanup: remove deprecated /draft/ directory&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;cleanup: remove deprecated /staging/ directory&quot;</span>
 git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>gh-pages
 </code></pre></div></p>
 <h2 id="references">Références</h2>
@@ -729,7 +729,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 19:25:57 UTC">23 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 20:28:48 UTC">23 octobre 2025</span> 
 </div>
 
 

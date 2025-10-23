@@ -685,7 +685,7 @@ Standard: <a href="https://www.omg.org/spec/UML/">UML 2.5</a></p>
     CIRunning --&gt; CISuccess: Tests passent
 
     CIFailed --&gt; Fixing: Investigation erreurs
-    CISuccess --&gt; DeployedDraft: Deploy /draft/ (org-only)
+    CISuccess --&gt; DeployedDraft: Deploy /staging/ (org-only)
 
     DeployedDraft --&gt; WaitingRelease: Accumulation contributions
     WaitingRelease --&gt; ProdPR: Validateur crée PR main → main
@@ -710,7 +710,7 @@ Standard: <a href="https://www.omg.org/spec/UML/">UML 2.5</a></p>
 
     note right of DeployedDraft
         Preview privée (org-only)
-        URL : /draft/
+        URL : /staging/
         Persistance : Jusqu'à release
     end note
 
@@ -725,7 +725,7 @@ Standard: <a href="https://www.omg.org/spec/UML/">UML 2.5</a></p>
 <li><strong>InReview</strong> : Validateur notifié, review en cours (2-5j)</li>
 <li><strong>ChangesRequested</strong> : Corrections demandées (loop possible)</li>
 <li><strong>CIRunning</strong> : Pipeline CI/CD (linting, tests, security, build)</li>
-<li><strong>DeployedDraft</strong> : Preview déployée <code>/draft/</code> (org-only)</li>
+<li><strong>DeployedDraft</strong> : Preview déployée <code>/staging/</code> (org-only)</li>
 <li><strong>WaitingRelease</strong> : Contributions accumulées (30-60j)</li>
 <li><strong>E2ETests</strong> : Tests bout-en-bout (main only, bloquant)</li>
 <li><strong>DeployedProd</strong> : Production publique <code>/</code> (final)</li>
@@ -778,7 +778,7 @@ Standard: <a href="https://www.omg.org/spec/UML/">UML 2.5</a></p>
     E2ESuccess --&gt; Deploy: Deploy GitHub Pages
     SkipE2E --&gt; Deploy
 
-    Deploy --&gt; DeployDraft: draft → /draft/
+    Deploy --&gt; DeployDraft: draft → /staging/
     Deploy --&gt; DeployProd: main → / racine
 
     DeployDraft --&gt; Artifacts: Upload exports + reports
@@ -1006,7 +1006,7 @@ Standard: <a href="https://www.omg.org/spec/UML/">UML 2.5</a></p>
     CheckLogs --&gt; FixErrors[Corriger erreurs CI]
     FixErrors --&gt; CommitFixes
 
-    CIResult --&gt;|Success| DeployDraft[Déploiement /draft/ automatique]
+    CIResult --&gt;|Success| DeployDraft[Déploiement /staging/ automatique]
     DeployDraft --&gt; End([Contribution visible org-only])
 
     style Start fill:#91d5ff
@@ -1287,7 +1287,7 @@ Standard: <a href="https://www.omg.org/spec/UML/">UML 2.5</a></p>
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 19:25:57 UTC">23 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 20:28:48 UTC">23 octobre 2025</span> 
 </div>
 
 

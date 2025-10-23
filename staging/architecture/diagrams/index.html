@@ -477,7 +477,7 @@ Dernière mise à jour: 2025-10-11</p>
     style Z fill:#51cf66</code></pre>
 <p><strong>Validations:</strong> Black, Ruff, pytest, coverage 89%+, DSFR, PDF, E2E (main seulement)</p>
 <p><strong>Déploiement:</strong>
-- draft → <code>gh-pages/draft/</code>
+- draft → <code>gh-pages/staging/</code>
 - main → <code>gh-pages/</code> (racine)</p>
 <hr />
 <h2 id="2-architecture-composants">2. Architecture Composants</h2>
@@ -564,7 +564,7 @@ Dernière mise à jour: 2025-10-11</p>
     merge draft tag: "v1.0.0"</code></pre>
 <p><strong>Branches:</strong>
 - <code>main</code>: Production (GitHub Pages racine)
-- <code>draft</code>: Preview (GitHub Pages /draft/)</p>
+- <code>draft</code>: Preview (GitHub Pages /staging/)</p>
 <p><strong>Tags:</strong> Releases officielles (v0.9.0, v1.0.0, v1.1.0, ...)</p>
 <hr />
 <h2 id="4-architecture-hooks-dsfr">4. Architecture Hooks DSFR</h2>
@@ -629,12 +629,12 @@ Dernière mise à jour: 2025-10-11</p>
     end
 
     subgraph "📦 gh-pages Branch"
-        G[/draft/&lt;br/&gt;Preview]
+        G[/staging/&lt;br/&gt;Preview]
         H[/ Racine&lt;br/&gt;Production]
     end
 
     subgraph "🌐 GitHub Pages"
-        I[alexmacapple.github.io/&lt;br/&gt;span-sg-repo/draft/]
+        I[alexmacapple.github.io/&lt;br/&gt;span-sg-repo/staging/]
         J[alexmacapple.github.io/&lt;br/&gt;span-sg-repo/]
     end
 
@@ -654,7 +654,7 @@ Dernière mise à jour: 2025-10-11</p>
     style I fill:#91d5ff
     style J fill:#51cf66</code></pre>
 <p><strong>URLs:</strong>
-- Draft: https://alexmacapple.github.io/span-sg-repo/draft/
+- Draft: https://alexmacapple.github.io/span-sg-repo/staging/
 - Production: https://alexmacapple.github.io/span-sg-repo/</p>
 <p><strong>Stratégie:</strong> Git push direct (pas actions/deploy-pages, contrôle total)</p>
 <hr />
@@ -850,7 +850,7 @@ Dernière mise à jour: 2025-10-11</p>
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 19:25:57 UTC">23 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 20:28:48 UTC">23 octobre 2025</span> 
 </div>
 
 

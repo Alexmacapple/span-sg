@@ -445,7 +445,7 @@
 <h2 id="contexte">Contexte</h2>
 <h3 id="probleme-actuel">Problème actuel</h3>
 <p>Le projet SPAN SG utilise une architecture à 2 branches (<code>main</code>, <code>draft</code>) pour gérer staging et production :</p>
-<div class="highlight"><pre><span></span><code>feature/update-sircom → PR → draft → /draft/ (org-only)
+<div class="highlight"><pre><span></span><code>feature/update-sircom → PR → staging → /staging/ (org-only)
                                 ↓
                         PR draft → main → / (production)
 </code></pre></div>
@@ -464,7 +464,7 @@
 <h3 id="objectifs-migration">Objectifs migration</h3>
 <ul>
 <li><strong>Simplifier workflow</strong> : 1 branche cible unique (<code>main</code>)</li>
-<li><strong>Conserver 3 URLs</strong> : local, /draft/ (staging), / (production)</li>
+<li><strong>Conserver 3 URLs</strong> : local, /staging/ (staging), / (production)</li>
 <li><strong>Réduire maintenance</strong> : 67% réduction temps (6h/an → 2h/an)</li>
 <li><strong>Améliorer observabilité</strong> : Dashboard deployments centralisé</li>
 <li><strong>Faciliter rollback</strong> : Instantané (2 min au lieu de 10 min)</li>
@@ -474,7 +474,7 @@
 <p>Migrer vers architecture <strong>1 branche + 2 Environments GitHub</strong> :</p>
 <div class="highlight"><pre><span></span><code>feature/update-sircom → PR → main
                                 ↓
-                    Environment &quot;staging&quot; → /draft/ (auto-deploy)
+                    Environment &quot;staging&quot; → /staging/ (auto-deploy)
                                 ↓
                     Approval Chef SNUM (manual gate)
                                 ↓
@@ -485,7 +485,7 @@
 <p><strong>Environments GitHub</strong> :
 1. <strong>staging</strong>
    - Déploiement automatique sur push <code>main</code>
-   - URL : https://alexmacapple.github.io/span-sg/draft/
+   - URL : https://alexmacapple.github.io/span-sg/staging/
    - Accès : Org-only (inchangé)
    - Protection : Aucune (auto-deploy)</p>
 <ol>
@@ -497,7 +497,7 @@
 </ol>
 <p><strong>Workflow CI/CD</strong> : 1 job unique avec 3 étapes séquentielles
 1. <code>build-and-test</code> : Linting + Tests + Security + Build HTML/PDF + E2E
-2. <code>deploy-staging</code> : Deploy /draft/ (needs: build-and-test)
+2. <code>deploy-staging</code> : Deploy /staging/ (needs: build-and-test)
 3. <code>deploy-production</code> : Deploy / (needs: build-and-test, environment: production)</p>
 <hr />
 <h2 id="analyse-detaillee">Analyse Détaillée</h2>
@@ -508,7 +508,7 @@
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">staging</span>
 <span class="nt">deployment_branches</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
 <span class="nt">protection_rules</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
-<span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://alexmacapple.github.io/span-sg/draft/</span>
+<span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://alexmacapple.github.io/span-sg/staging/</span>
 
 <span class="c1"># Environment: production</span>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
@@ -624,7 +624,7 @@
 <span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">staging</span>
-<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://alexmacapple.github.io/span-sg/draft/</span>
+<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://alexmacapple.github.io/span-sg/staging/</span>
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
 <span class="w">        </span><span class="nt">with</span><span class="p">:</span>
@@ -643,12 +643,12 @@
 <span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exports</span>
 <span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exports/</span>
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to /draft/ (staging)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to /staging/ (staging)</span>
 <span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">          </span><span class="no">git config user.name &quot;github-actions[bot]&quot;</span>
 <span class="w">          </span><span class="no">git config user.email &quot;github-actions[bot]@users.noreply.github.com&quot;</span>
 
-<span class="w">          </span><span class="no"># Nettoyer /draft/ existant</span>
+<span class="w">          </span><span class="no"># Nettoyer /staging/ existant</span>
 <span class="w">          </span><span class="no">rm -rf draft</span>
 <span class="w">          </span><span class="no">mkdir -p draft</span>
 
@@ -691,7 +691,7 @@
 <span class="w">          </span><span class="no">git config user.name &quot;github-actions[bot]&quot;</span>
 <span class="w">          </span><span class="no">git config user.email &quot;github-actions[bot]@users.noreply.github.com&quot;</span>
 
-<span class="w">          </span><span class="no"># Nettoyer racine (conserver /draft/)</span>
+<span class="w">          </span><span class="no"># Nettoyer racine (conserver /staging/)</span>
 <span class="w">          </span><span class="no">find . -mindepth 1 -maxdepth 1 ! -name &#39;draft&#39; ! -name &#39;.git&#39; -exec rm -rf {} +</span>
 
 <span class="w">          </span><span class="no"># Copier nouveau build</span>
@@ -815,7 +815,7 @@
 <div class="highlight"><pre><span></span><code><span class="gd">- Les modifications passent par une **Pull Request** vers `draft` pour validation.</span>
 <span class="gi">+ Les modifications passent par une **Pull Request** vers `main` pour validation.</span>
 
-<span class="gd">- https://github.com/Alexmacapple/span-sg-repo/blob/draft/docs/modules/[votre-service].md</span>
+<span class="gd">- https://github.com/Alexmacapple/span-sg-repo/blob/staging/docs/modules/[votre-service].md</span>
 <span class="gi">+ https://github.com/Alexmacapple/span-sg-repo/blob/main/docs/modules/[votre-service].md</span>
 
 <span class="gd">- **Base** : `draft` (important !)</span>
@@ -825,9 +825,9 @@
 <span class="gi">+</span>
 <span class="gi">+ Après merge de votre PR sur `main` :</span>
 <span class="gi">+</span>
-<span class="gi">+ 1. **Déploiement staging automatique** : Votre contribution est visible sur /draft/ (org-only) sous 10 minutes</span>
+<span class="gi">+ 1. **Déploiement staging automatique** : Votre contribution est visible sur /staging/ (org-only) sous 10 minutes</span>
 <span class="gi">+ 2. **Notification Chef SNUM** : Email automatique &quot;Deployment to production pending&quot;</span>
-<span class="gi">+ 3. **Approval Chef SNUM** : Review /draft/ puis approve deployment (délai variable 0-60j)</span>
+<span class="gi">+ 3. **Approval Chef SNUM** : Review /staging/ puis approve deployment (délai variable 0-60j)</span>
 <span class="gi">+ 4. **Déploiement production automatique** : Contribution visible publiquement sur / sous 5 minutes</span>
 </code></pre></div>
 <hr />
@@ -837,14 +837,14 @@
     A[Contributeur crée feature/update-sircom] --&gt; B[Édite docs/modules/sircom.md]
     B --&gt; C[git commit -m feat...]
     C --&gt; D[git push origin feature/update-sircom]
-    D --&gt; E[Créer PR vers draft]
+    D --&gt; E[Créer PR vers staging]
     E --&gt; F[Review validateur 2-5j]
     F --&gt; G{Approved?}
     G --&gt;|Changes requested| H[Corriger]
     H --&gt; C
-    G --&gt;|Approved| I[Merge PR vers draft]
+    G --&gt;|Approved| I[Merge PR vers staging]
     I --&gt; J[CI/CD build-deploy-draft]
-    J --&gt; K[Deploy /draft/ automatique]
+    J --&gt; K[Deploy /staging/ automatique]
     K --&gt; L[Accumulation contributions 30-60j]
     L --&gt; M[Validateur crée PR draft → main]
     M --&gt; N[Review Chef SNUM]
@@ -876,9 +876,9 @@
     J --&gt; K[E2E tests 300s]
     K --&gt; L{Tests pass?}
     L --&gt;|Failed| M[Investigation]
-    L --&gt;|Success| N[Deploy staging /draft/]
+    L --&gt;|Success| N[Deploy staging /staging/]
     N --&gt; O[Notification Chef SNUM]
-    O --&gt; P[Chef SNUM review /draft/]
+    O --&gt; P[Chef SNUM review /staging/]
     P --&gt; Q{Approve deployment?}
     Q --&gt;|Not yet| R[Attente accumulation]
     R --&gt; P
@@ -942,9 +942,9 @@
 <h3 id="3-timeline-deploiement-comparee">3. Timeline Déploiement Comparée</h3>
 <h4 id="scenario-a-contribution-urgente-hotfix-critique">Scénario A : Contribution urgente (hotfix critique)</h4>
 <p><strong>Avant (2 branches)</strong> :
-<div class="highlight"><pre><span></span><code>J+0  09:00 : Contributeur crée PR vers draft
+<div class="highlight"><pre><span></span><code>J+0  09:00 : Contributeur crée PR vers staging
 J+0  14:00 : Validateur approve et merge (5h review express)
-J+0  14:10 : Deploy /draft/ automatique
+J+0  14:10 : Deploy /staging/ automatique
 J+0  14:15 : Validateur crée PR draft → main
 J+0  14:30 : Chef SNUM notifié
 J+1  10:00 : Chef SNUM approve (19.5h délai nuit)
@@ -956,9 +956,9 @@ Total : 25h (1j 1h)
 <p><strong>Après (1 branche + Environments)</strong> :
 <div class="highlight"><pre><span></span><code>J+0  09:00 : Contributeur crée PR vers main
 J+0  14:00 : Validateur approve et merge (5h review express)
-J+0  14:10 : Deploy /draft/ staging automatique
+J+0  14:10 : Deploy /staging/ staging automatique
 J+0  14:10 : Notification Chef SNUM &quot;Deployment pending&quot;
-J+0  14:30 : Chef SNUM review /draft/ puis approve (20 min)
+J+0  14:30 : Chef SNUM review /staging/ puis approve (20 min)
 J+0  14:35 : Deploy / production automatique
 
 Total : 5h35 (même jour)
@@ -966,9 +966,9 @@ Total : 5h35 (même jour)
 <p><strong>Gain</strong> : 77% réduction délai (25h → 5h35)</p>
 <h4 id="scenario-b-contribution-normale-accumulation-releases">Scénario B : Contribution normale (accumulation releases)</h4>
 <p><strong>Avant (2 branches)</strong> :
-<div class="highlight"><pre><span></span><code>J+0      : Contributeur crée PR vers draft
+<div class="highlight"><pre><span></span><code>J+0      : Contributeur crée PR vers staging
 J+2      : Merge draft (2j review)
-J+2      : Deploy /draft/
+J+2      : Deploy /staging/
 J+2-60   : Accumulation 10 contributions
 J+60     : Validateur crée PR draft → main
 J+61     : Chef SNUM approve
@@ -979,7 +979,7 @@ Total : 61 jours
 <p><strong>Après (1 branche + Environments)</strong> :
 <div class="highlight"><pre><span></span><code>J+0      : Contributeur crée PR vers main
 J+2      : Merge main (2j review)
-J+2      : Deploy /draft/ staging automatique
+J+2      : Deploy /staging/ staging automatique
 J+2      : Notification Chef SNUM
 J+2-60   : Chef SNUM attend accumulation 10 contributions
 J+60     : Chef SNUM approve deployment (batch)
@@ -1031,12 +1031,12 @@ Total : 60 jours
 - Environment secrets isolés (si besoin futur : API keys staging ≠ prod)</p>
 <h4 id="c-cicd-gates">C. CI/CD Gates</h4>
 <p><strong>Avant (2 workflows)</strong> :
-<div class="highlight"><pre><span></span><code>Job draft : Linting → Tests → Security → Build → Deploy /draft/
+<div class="highlight"><pre><span></span><code>Job draft : Linting → Tests → Security → Build → Deploy /staging/
 Job main  : Linting → Tests → Security → Build → E2E → Deploy /
 </code></pre></div></p>
 <p><strong>Après (1 workflow, 3 jobs)</strong> :
 <div class="highlight"><pre><span></span><code>Job 1 : Linting → Tests → Security → Build → E2E
-Job 2 : Deploy /draft/ (needs: Job 1)
+Job 2 : Deploy /staging/ (needs: Job 1)
 Job 3 : Deploy / (needs: Job 1, environment: production)
 </code></pre></div></p>
 <p><strong>Amélioration</strong> :
@@ -1073,7 +1073,7 @@ Job 3 : Deploy / (needs: Job 1, environment: production)
 │ Status: ✅ Active                                           │
 │ Deployed: 2025-10-22 14:10 (02a52e7)                       │
 │ Auto-deployed                                               │
-│ URL: https://alexmacapple.github.io/span-sg/draft/         │
+│ URL: https://alexmacapple.github.io/span-sg/staging/         │
 └─────────────────────────────────────────────────────────────┘
 </code></pre></div>
 <h4 id="metriques-dora">Métriques DORA</h4>
@@ -1258,7 +1258,7 @@ Voir CONTRIBUTING.md pour nouveau workflow.
 
 Avant d&#39;approuver deployment production :
 
-<span class="k">- [ ]</span> Review /draft/ staging (navigation, contenu)
+<span class="k">- [ ]</span> Review /staging/ staging (navigation, contenu)
 <span class="k">- [ ]</span> Vérifier E2E tests passés (GitHub Actions)
 <span class="k">- [ ]</span> Vérifier aucune régression visuelle
 <span class="k">- [ ]</span> Vérifier PDF exports/ généré
@@ -1574,7 +1574,7 @@ Description:
 
 <span class="c1"># Remplacements globaux</span>
 find<span class="w"> </span>docs/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.md&quot;</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-exec<span class="w"> </span>sed<span class="w"> </span>-i.bak<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;s/blob\/draft/blob\/main/g&#39;</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+<span class="w">  </span><span class="s1">&#39;s/blob\/staging/blob\/main/g&#39;</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
 
 find<span class="w"> </span>docs/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.md&quot;</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-exec<span class="w"> </span>sed<span class="w"> </span>-i.bak<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;s/Base: `draft`/Base: `main`/g&#39;</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
@@ -1612,8 +1612,8 @@ Job 1: build-and-test → ✅ (6 min)
 Job 2: deploy-staging → ✅ (2 min)
 Job 3: deploy-production → ⏳ Waiting for approval
 
-# Vérifier /draft/
-https://alexmacapple.github.io/span-sg/draft/
+# Vérifier /staging/
+https://alexmacapple.github.io/span-sg/staging/
 </code></pre></div></p>
 </li>
 <li>
@@ -1674,8 +1674,8 @@ docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> 
 curl<span class="w"> </span>-I<span class="w"> </span>http://localhost:8000/span-sg/
 <span class="c1"># Attendu : 200 OK</span>
 
-<span class="c1"># Staging /draft/</span>
-curl<span class="w"> </span>-I<span class="w"> </span>https://alexmacapple.github.io/span-sg/draft/
+<span class="c1"># Staging /staging/</span>
+curl<span class="w"> </span>-I<span class="w"> </span>https://alexmacapple.github.io/span-sg/staging/
 <span class="c1"># Attendu : 200 OK</span>
 
 <span class="c1"># Production /</span>
@@ -1694,7 +1694,7 @@ curl<span class="w"> </span>-I<span class="w"> </span>https://alexmacapple.githu
 - [ ] Tag <code>draft-archived-2025-10-22</code> vérifié
 - [ ] Branche <code>draft</code> supprimée (remote)
 - [ ] Branche <code>draft</code> supprimée (local)
-- [ ] 3 URLs vérifiées (local, /draft/, /)</p>
+- [ ] 3 URLs vérifiées (local, /staging/, /)</p>
 <h4 id="phase-6-communication-30-min">Phase 6 : Communication (30 min)</h4>
 <p><strong>Objectif</strong> : Notifier équipe, mettre à jour documentation publique</p>
 <p><strong>Étapes</strong> :</p>
@@ -1743,7 +1743,7 @@ Vous recevrez maintenant des notifications email GitHub :
 Pour approuver un déploiement :
 <span class="k">1.</span> Aller sur https://github.com/Alexmacapple/span-sg/deployments
 <span class="k">2.</span> Cliquer environment &quot;production&quot; → Status &quot;Pending&quot;
-<span class="k">3.</span> Review staging /draft/ (preview avant production)
+<span class="k">3.</span> Review staging /staging/ (preview avant production)
 <span class="k">4.</span> Cliquer &quot;Review deployment&quot; → &quot;Approve&quot;
 <span class="k">5.</span> Production déployée automatiquement sous 5 minutes
 
@@ -1776,7 +1776,7 @@ Toutes les Pull Requests ciblent maintenant la branche <span class="sb">`main`</
 <span class="k">2.</span> Éditer docs/modules/[service].md
 <span class="k">3.</span> Créer PR vers <span class="sb">`main`</span> (changement ici)
 <span class="k">4.</span> Review validateur (2-5j, inchangé)
-<span class="k">5.</span> Merge → deploy /draft/ staging automatique
+<span class="k">5.</span> Merge → deploy /staging/ staging automatique
 <span class="k">6.</span> Approval Chef SNUM → deploy / production
 
 <span class="gs">**Documentation**</span> :
@@ -2045,7 +2045,7 @@ git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span
 <span class="c1"># Vérifier :</span>
 -<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>Deploy<span class="w"> </span>staging<span class="w"> </span>automatique<span class="w"> </span><span class="o">(</span>&lt;<span class="w"> </span><span class="m">10</span><span class="w"> </span>min<span class="o">)</span>
 -<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>Notification<span class="w"> </span>Chef<span class="w"> </span>SNUM<span class="w"> </span>reçue
--<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>/draft/<span class="w"> </span>accessible
+-<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>/staging/<span class="w"> </span>accessible
 </code></pre></div></p>
 <p><strong>Test 2 : Approval production</strong> :
 <div class="highlight"><pre><span></span><code><span class="c1"># Chef SNUM approve deployment</span>
@@ -2096,14 +2096,14 @@ cp<span class="w"> </span>.github/workflows/build.yml.backup-2025-10-22<span cla
 <h2 id="alternatives-considerees">Alternatives Considérées</h2>
 <h3 id="alternative-1-workflow-strict-2-branches-auto-sync">Alternative 1 : Workflow strict 2 branches + Auto-sync</h3>
 <p><strong>Architecture</strong> :
-<div class="highlight"><pre><span></span><code>feature → draft → /draft/
+<div class="highlight"><pre><span></span><code>feature → staging → /staging/
 draft (batch) → main → /
 main → GitHub Action auto-sync → draft (automatique)
 </code></pre></div></p>
 <p><strong>Avantages</strong> :
 - Conserve architecture 2 branches (familière)
 - Auto-sync évite divergence
-- Staging clair (/draft/ = branche draft)</p>
+- Staging clair (/staging/ = branche draft)</p>
 <p><strong>Inconvénients</strong> :
 - Maintenance 2 workflows CI/CD (inchangé)
 - Complexité cognitive (2 branches)
@@ -2113,7 +2113,7 @@ main → GitHub Action auto-sync → draft (automatique)
 <h3 id="alternative-2-tag-based-deployments">Alternative 2 : Tag-based deployments</h3>
 <p><strong>Architecture</strong> :
 <div class="highlight"><pre><span></span><code>feature → main
-Tag vX.Y.Z-rc → /draft/ staging
+Tag vX.Y.Z-rc → /staging/ staging
 Tag vX.Y.Z → / production
 </code></pre></div></p>
 <p><strong>Avantages</strong> :
@@ -2219,7 +2219,7 @@ PR draft reviewed → Convert to main → Merge
 <li><strong>ROI rapide</strong> : Rentabilisé après 11 mois</li>
 <li><strong>Risques maîtrisés</strong> : 4 risques identifiés avec mitigations</li>
 <li><strong>Rollback possible</strong> : Procédure revert si seuils échec atteints</li>
-<li><strong>Conservation 3 URLs</strong> : Objectif utilisateur respecté (local, /draft/, /)</li>
+<li><strong>Conservation 3 URLs</strong> : Objectif utilisateur respecté (local, /staging/, /)</li>
 </ol>
 <p><strong>Conditions succès</strong> :</p>
 <ul>
@@ -2263,10 +2263,10 @@ PR draft reviewed → Convert to main → Merge
 - <code>gh-pages</code> : branche de déploiement (gérée automatiquement par CI)
 - Branches nettoyées : <code>draft</code>, <code>feature/migrate-github-environments</code>, <code>feature/update-docs-environments</code>, <code>feature/dsfr-poc</code></p>
 <p><strong>Environments GitHub :</strong>
-- <code>staging</code> (ID: 9461952255) : déploiement automatique vers /draft/ (org-only)
+- <code>staging</code> (ID: 9461952255) : déploiement automatique vers /staging/ (org-only)
   - Branch policy : main uniquement
   - Reviewers : null (automatique)
-  - URL : https://alexmacapple.github.io/span-sg/draft/</p>
+  - URL : https://alexmacapple.github.io/span-sg/staging/</p>
 <ul>
 <li><code>production</code> (ID: 9461976290) : déploiement séquentiel vers / (public)</li>
 <li>Branch policy : main uniquement</li>
@@ -2275,7 +2275,7 @@ PR draft reviewed → Convert to main → Merge
 </ul>
 <p><strong>Workflow CI/CD Final :</strong>
 <div class="highlight"><pre><span></span><code>Push main → build-and-test (~5min)
-           ├─ deploy-staging → /draft/ (~1min) [séquentiel]
+           ├─ deploy-staging → /staging/ (~1min) [séquentiel]
            └─ deploy-production → / (~1min) [séquentiel après staging]
 
 Temps total : ~7min (vs ~6-10min avant, acceptable pour fiabilité)
@@ -2283,11 +2283,11 @@ Temps total : ~7min (vs ~6-10min avant, acceptable pour fiabilité)
 <h3 id="metriques-de-validation">Métriques de Validation</h3>
 <p><strong>Tests post-migration (4/4 réussis) :</strong>
 1. Build réussit : ✓ (run 18721249064)
-2. Staging déployé : ✓ (HTTP 200 sur /draft/)
+2. Staging déployé : ✓ (HTTP 200 sur /staging/)
 3. Production déployé : ✓ (HTTP 200 sur /)
 4. Workflow séquentiel : ✓ (staging avant production)</p>
 <p><strong>Sites opérationnels :</strong>
-- Staging : https://alexmacapple.github.io/span-sg/draft/ (last-modified: Wed, 22 Oct 2025 15:30:24 GMT)
+- Staging : https://alexmacapple.github.io/span-sg/staging/ (last-modified: Wed, 22 Oct 2025 15:30:24 GMT)
 - Production : https://alexmacapple.github.io/span-sg/ (last-modified: Wed, 22 Oct 2025 15:30:24 GMT)</p>
 <h3 id="documentation-mise-a-jour">Documentation Mise à Jour</h3>
 <p><strong>Fichiers modifiés (17 fichiers, 2483 insertions, 89 deletions) :</strong>
@@ -2379,7 +2379,7 @@ Temps total : ~7min (vs ~6-10min avant, acceptable pour fiabilité)
 <p><strong>État final validé :</strong>
 - Tous les objectifs migration atteints
 - Aucune perte de fonctionnalité
-- 3 URLs conservées (local, /draft/, /)
+- 3 URLs conservées (local, /staging/, /)
 - Documentation complète et à jour
 - Version taguée et tracée (v1.2.0-environments)</p>
 <hr />
@@ -2579,7 +2579,7 @@ Temps total : ~7min (vs ~6-10min avant, acceptable pour fiabilité)
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 19:25:57 UTC">23 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 20:28:48 UTC">23 octobre 2025</span> 
 </div>
 
 
