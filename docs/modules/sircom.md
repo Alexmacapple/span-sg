@@ -9,7 +9,7 @@ validation_status: validated
 
 **Période** 2024-2027
 **Service** SG-SIRCOM (Secrétariat Général - Service de la Communication)
-**Score global** 0/33 critères validés (0.0%)
+**Score global** 10/33 critères validés (30.3%)
 **Dernière mise à jour** 13 octobre 2025
 
 /// alert | Méthodologie mise à jour
@@ -117,19 +117,19 @@ Checklist mise à jour vers 33 critères officiels - Réévaluation MiWeb requis
 
 ### 1. Vision (3 critères)
 
-- [ ] Politique de l'entité en matière d'accessibilité numérique décrite dans le SPAN <!-- CHECKLIST -->
-- [ ] Prise en compte de l'accessibilité numérique dans la stratégie numérique de l'entité <!-- CHECKLIST -->
-- [ ] Prise en compte de l'accessibilité dans la politique d'intégration des personnes en situation de handicap <!-- CHECKLIST -->
+- [x] Politique de l'entité en matière d'accessibilité numérique décrite dans le SPAN <!-- CHECKLIST -->
+- [x] Prise en compte de l'accessibilité numérique dans la stratégie numérique de l'entité <!-- CHECKLIST -->
+- [x] Prise en compte de l'accessibilité dans la politique d'intégration des personnes en situation de handicap <!-- CHECKLIST -->
 
 ### 2. RAN - Référent Accessibilité Numérique (7 critères)
 
-- [ ] SPAN durée maximum 3 ans (conformité légale art. 47 loi handicap) <!-- CHECKLIST -->
-- [ ] Position fonctionnelle du référent accessibilité numérique décrite <!-- CHECKLIST -->
-- [ ] Missions du référent accessibilité numérique décrites <!-- CHECKLIST -->
-- [ ] Bilan des plans d'actions annuels (si nécessaire) <!-- CHECKLIST -->
-- [ ] Travaux de mise en conformité planifiés annuellement dans plans d'actions <!-- CHECKLIST -->
-- [ ] SPAN et plan d'action année en cours disponibles en ligne sur site de l'entité <!-- CHECKLIST -->
-- [ ] SPAN et plans d'actions publiés dans un format accessible <!-- CHECKLIST -->
+- [x] SPAN durée maximum 3 ans (conformité légale art. 47 loi handicap) <!-- CHECKLIST -->
+- [x] Position fonctionnelle du référent accessibilité numérique décrite <!-- CHECKLIST -->
+- [x] Missions du référent accessibilité numérique décrites <!-- CHECKLIST -->
+- [x] Bilan des plans d'actions annuels (si nécessaire) <!-- CHECKLIST -->
+- [x] Travaux de mise en conformité planifiés annuellement dans plans d'actions <!-- CHECKLIST -->
+- [x] SPAN et plan d'action année en cours disponibles en ligne sur site de l'entité <!-- CHECKLIST -->
+- [x] SPAN et plans d'actions publiés dans un format accessible <!-- CHECKLIST -->
 
 ### 3. Organisation (6 critères)
 

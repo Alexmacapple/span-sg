@@ -76,10 +76,10 @@
                                 SIRCOM
                             </td>
                             <td>
-                                0/33 (0.0%)
+                                10/33 (30.3%)
                             </td>
                             <td>
-                                <p class="fr-badge fr-badge--error">Non renseigné</p>
+                                <p class="fr-badge fr-badge--info">En cours</p>
                             </td>
                             <td>
                                 <p class="fr-badge fr-badge--success">Validé</p>
@@ -118,7 +118,7 @@
                                 <strong>TOTAL</strong>
                             </td>
                             <td>
-                                <strong>0/198 (0.0%)</strong>
+                                <strong>10/198 (5.1%)</strong>
                             </td>
                             <td>
                                 <strong>Global</strong>
