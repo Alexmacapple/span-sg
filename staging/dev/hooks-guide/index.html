@@ -807,54 +807,54 @@ grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;fr-
 <hr />
 <h2 id="checklist-ajout-hook">Checklist ajout hook</h2>
 <h3 id="phase-1-developpement">Phase 1: Développement</h3>
-<ul>
-<li>[ ] Fichier hook créé dans <code>hooks/mon_hook.py</code></li>
-<li>[ ] Type hints complets (TYPE_CHECKING)</li>
-<li>[ ] Docstring complète (Args/Returns/Example/Note/Contexte)</li>
-<li>[ ] Regex optimisé (compiled, lookahead si besoin)</li>
-<li>[ ] Tests unitaires créés <code>tests/test_hooks_mon_hook.py</code></li>
-<li>[ ] 5+ scénarios de test (nominal, limites, erreurs, idempotence)</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Fichier hook créé dans <code>hooks/mon_hook.py</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Type hints complets (TYPE_CHECKING)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Docstring complète (Args/Returns/Example/Note/Contexte)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Regex optimisé (compiled, lookahead si besoin)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Tests unitaires créés <code>tests/test_hooks_mon_hook.py</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> 5+ scénarios de test (nominal, limites, erreurs, idempotence)</li>
 </ul>
 <h3 id="phase-2-validation">Phase 2: Validation</h3>
-<ul>
-<li>[ ] Coverage 100% du hook</li>
-<li>[ ] Black formatter passe (<code>black hooks/</code>)</li>
-<li>[ ] Ruff linter passe (<code>ruff check hooks/</code>)</li>
-<li>[ ] Tests unitaires passent (<code>pytest tests/test_hooks_mon_hook.py</code>)</li>
-<li>[ ] Build local réussit (<code>mkdocs build --config-file mkdocs-dsfr.yml</code>)</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Coverage 100% du hook</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Black formatter passe (<code>black hooks/</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Ruff linter passe (<code>ruff check hooks/</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Tests unitaires passent (<code>pytest tests/test_hooks_mon_hook.py</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Build local réussit (<code>mkdocs build --config-file mkdocs-dsfr.yml</code>)</li>
 </ul>
 <h3 id="phase-3-integration">Phase 3: Intégration</h3>
-<ul>
-<li>[ ] Hook ajouté à <code>mkdocs-dsfr.yml</code> section <code>hooks:</code></li>
-<li>[ ] Documentation ajoutée dans <code>docs/dev/hooks-guide.md</code></li>
-<li>[ ] API Reference mise à jour (<code>docs/dev/api-reference.md</code>)</li>
-<li>[ ] Commit avec message explicatif</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Hook ajouté à <code>mkdocs-dsfr.yml</code> section <code>hooks:</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Documentation ajoutée dans <code>docs/dev/hooks-guide.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> API Reference mise à jour (<code>docs/dev/api-reference.md</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Commit avec message explicatif</li>
 </ul>
 <h3 id="phase-4-ci">Phase 4: CI</h3>
-<ul>
-<li>[ ] CI passe (Black, Ruff, pytest, coverage 89%+)</li>
-<li>[ ] GitHub Pages déploie correctement</li>
-<li>[ ] Validation visuelle site déployé</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> CI passe (Black, Ruff, pytest, coverage 89%+)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> GitHub Pages déploie correctement</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Validation visuelle site déployé</li>
 </ul>
 <hr />
 <h2 id="checklist-modification-hook">Checklist modification hook</h2>
 <h3 id="phase-1-modifications">Phase 1: Modifications</h3>
-<ul>
-<li>[ ] Tests existants toujours passent</li>
-<li>[ ] Nouveaux tests pour nouvelle logique</li>
-<li>[ ] Coverage maintenu 100%</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Tests existants toujours passent</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Nouveaux tests pour nouvelle logique</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Coverage maintenu 100%</li>
 </ul>
 <h3 id="phase-2-documentation">Phase 2: Documentation</h3>
-<ul>
-<li>[ ] Docstring mise à jour</li>
-<li>[ ] Exemple mis à jour si changement comportement</li>
-<li>[ ] CHANGELOG.md entry créée</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Docstring mise à jour</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Exemple mis à jour si changement comportement</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> CHANGELOG.md entry créée</li>
 </ul>
 <h3 id="phase-3-validation">Phase 3: Validation</h3>
-<ul>
-<li>[ ] Black + Ruff passent</li>
-<li>[ ] Build local réussit</li>
-<li>[ ] CI passe</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Black + Ruff passent</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Build local réussit</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> CI passe</li>
 </ul>
 <hr />
 <h2 id="erreurs-frequentes">Erreurs fréquentes</h2>
@@ -1068,7 +1068,7 @@ grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;fr-
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 20:57:31 UTC">23 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="24 octobre 2025 11:50:45 UTC">24 octobre 2025</span> 
 </div>
 
 

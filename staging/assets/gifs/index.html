@@ -468,14 +468,14 @@ Public cible: Contributeurs documentation</p>
 <hr />
 <h2 id="checklist-enregistrement">Checklist Enregistrement</h2>
 <p>Avant d'enregistrer un GIF, vérifier :</p>
-<ul>
-<li>[ ] Nettoyer l'écran (fermer applications inutiles)</li>
-<li>[ ] Résolution : 1280x720 (compromis qualité/poids)</li>
-<li>[ ] FPS : 10-15 fps (fluidité sans lourdeur)</li>
-<li>[ ] Durée : 5-15 secondes maximum</li>
-<li>[ ] Préparer actions à l'avance (script mental)</li>
-<li>[ ] Masquer données sensibles (tokens, emails)</li>
-<li>[ ] Tester enregistrement 1 fois avant version finale</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Nettoyer l'écran (fermer applications inutiles)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Résolution : 1280x720 (compromis qualité/poids)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> FPS : 10-15 fps (fluidité sans lourdeur)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Durée : 5-15 secondes maximum</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Préparer actions à l'avance (script mental)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Masquer données sensibles (tokens, emails)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Tester enregistrement 1 fois avant version finale</li>
 </ul>
 <hr />
 <h2 id="categories-de-gifs">Catégories de GIFs</h2>
@@ -677,12 +677,12 @@ start<span class="w"> </span>output.gif<span class="w"> </span><span class="c1">
 xdg-open<span class="w"> </span>output.gif<span class="w"> </span><span class="c1"># Linux</span>
 </code></pre></div>
 <p><strong>Validation UX</strong> :</p>
-<ul>
-<li>[ ] Actions clairement visibles (pas flou)</li>
-<li>[ ] Durée acceptable (5-15s max)</li>
-<li>[ ] Loop infini fonctionne (pas freeze fin)</li>
-<li>[ ] Texte lisible (si présent dans UI)</li>
-<li>[ ] Pas de distractions (notifications, curseur erratique)</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Actions clairement visibles (pas flou)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Durée acceptable (5-15s max)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Loop infini fonctionne (pas freeze fin)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Texte lisible (si présent dans UI)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pas de distractions (notifications, curseur erratique)</li>
 </ul>
 <hr />
 <h3 id="etape-5-nommage-et-placement">Étape 5 : Nommage et Placement</h3>
@@ -736,37 +736,37 @@ Durée estimée : 15 minutes par contribution.
 <hr />
 <h2 id="checklist-accessibilite-rgaa">Checklist Accessibilité RGAA</h2>
 <p>Avant commit, valider :</p>
-<ul>
-<li>
-<p>[ ] <strong>Alt text descriptif</strong> : Décrit actions dans GIF (RGAA 1.1.1)
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Alt text descriptif</strong> : Décrit actions dans GIF (RGAA 1.1.1)
   <div class="highlight"><pre><span></span><code>✅ ![<span class="nt">Animation : édition module SIRCOM, cochage critères, création PR</span>](<span class="na">...</span>)
 ❌ ![<span class="nt">GIF demo</span>](<span class="na">...</span>)
 ❌ ![](animation.gif) # Alt text vide = ÉCHEC RGAA
 </code></pre></div></p>
 </li>
-<li>
-<p>[ ] <strong>Durée raisonnable</strong> : 5-15 secondes max (UX)</p>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Durée raisonnable</strong> : 5-15 secondes max (UX)</p>
 </li>
 <li>Si &gt; 15s : découper en plusieurs GIFs</li>
 <li>
 <p>Éviter fatigue visuelle utilisateur</p>
 </li>
-<li>
-<p>[ ] <strong>Pas de clignotement rapide</strong> : &lt; 3 flashs/seconde (RGAA 13.1.1)</p>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Pas de clignotement rapide</strong> : &lt; 3 flashs/seconde (RGAA 13.1.1)</p>
 </li>
 <li>Risque épilepsie si &gt; 3 Hz</li>
 <li>
 <p>Vérifier transitions brusques (ex: modal popup)</p>
 </li>
-<li>
-<p>[ ] <strong>Contrôle lecture</strong> : Pas de lecture auto obligatoire (RGAA 4.8.1)</p>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Contrôle lecture</strong> : Pas de lecture auto obligatoire (RGAA 4.8.1)</p>
 </li>
 <li>Markdown natif = OK (GIF loop = contrôle natif navigateur)</li>
 <li>
 <p>Éviter <code>&lt;video autoplay&gt;</code> sans contrôles</p>
 </li>
-<li>
-<p>[ ] <strong>Contexte fourni</strong> : Texte adjacent explique actions
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Contexte fourni</strong> : Texte adjacent explique actions
   <div class="highlight"><pre><span></span><code><span class="gu">## Création Pull Request</span>
 
 Le GIF ci-dessous montre le processus complet :
@@ -1054,7 +1054,7 @@ identify<span class="w"> </span>-verbose<span class="w"> </span>input.gif<span c
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 20:57:31 UTC">23 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="24 octobre 2025 11:50:45 UTC">24 octobre 2025</span> 
 </div>
 
 
