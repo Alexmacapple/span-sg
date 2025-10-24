@@ -168,8 +168,6 @@ Checklist mise à jour vers 33 critères officiels - Réévaluation MiWeb requis
 - [ ] Intégration de l'accessibilité numérique dans les procédures de recette prévue <!-- CHECKLIST -->
 - [ ] Intégration de l'accessibilité dans les conventions avec opérateurs/délégataires/partenaires prévue (si nécessaire) <!-- CHECKLIST -->
 
-**Score: 0/33 (0.0%)**
-
 
 ## Périmètre du service (détail)
 
