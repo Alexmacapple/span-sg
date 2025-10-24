@@ -66,6 +66,24 @@ def validation_to_badge(validation_state: str) -> str:
     return validation_state
 
 
+def update_module_score(module_path: Path, checked: int, total: int, pct: float) -> None:
+    """Met à jour la ligne 'Score global' dans un module markdown."""
+    content = module_path.read_text(encoding="utf-8")
+
+    # Regex pour trouver la ligne de score (capture variantes)
+    score_pattern = r'\*\*Score global\*\*.*?critères validés.*?\%\)'
+
+    # Nouvelle ligne de score calculée
+    new_score_line = f"**Score global** {checked}/{total} critères validés ({pct}%)"
+
+    # Remplacer la ligne de score
+    updated_content = re.sub(score_pattern, new_score_line, content)
+
+    # Écrire uniquement si modifications détectées
+    if updated_content != content:
+        module_path.write_text(updated_content, encoding="utf-8")
+
+
 def generate_summary() -> int:
     modules_dir = Path("docs/modules")
 
@@ -128,6 +146,9 @@ def generate_summary() -> int:
         status = "Conforme" if pct >= 75 else "En cours" if pct > 0 else "Non renseigné"
         status_badge = status_to_badge(status)
         validation_badge = validation_to_badge(validation_state)
+
+        # Mettre à jour le score dans le module individuel
+        update_module_score(module, checked, total, pct)
 
         service_key = module.stem.lower()
         module_rows.append(

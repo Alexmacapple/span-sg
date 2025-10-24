@@ -106,6 +106,26 @@ Le système repose sur un **comptage strict** des cases cochées marquées `<!--
 
 **Source officielle**: Checklist de 33 critères extraite du fichier DINUM/Arcom `SPAN-checklist-v2024-02-05-AAL.ots` (voir ADR-006).
 
+### Workflow checklist et interactivité
+
+**Édition et calcul:**
+1. Éditer markdown: cocher/décocher cases `- [x]` ou `- [ ]` avec balise `<!-- CHECKLIST -->`
+2. Exécuter: `python scripts/calculate_scores.py`
+3. Script met à jour automatiquement:
+   - Ligne "Score global X/33 critères validés (Y%)" dans chaque module
+   - Tableau agrégé dans `docs/synthese.md`
+
+**Checkboxes interactives web (mkdocs-dsfr.yml):**
+- Extension `pymdownx.tasklist` activée avec `clickable_checkbox: true`
+- Checkboxes cliquables dans interface MkDocs pour visualisation/démonstration
+- État NON persisté : refresh page réinitialise les coches
+- Source de vérité : fichiers markdown + CI/CD
+
+**Limitations:**
+- Pas de localStorage (hors scope MVP)
+- Cliquer dans web n'édite pas markdown source
+- Workflow contributeur : édition markdown puis CI recalcule scores
+
 ### Structure modulaire
 ```
 docs/modules/
