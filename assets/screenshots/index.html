@@ -450,13 +450,13 @@ Public cible: Contributeurs documentation</p>
 <hr />
 <h2 id="checklist-capture">Checklist Capture</h2>
 <p>Avant de capturer un screenshot, vérifier :</p>
-<ul>
-<li>[ ] Nettoyer l'écran (fermer onglets inutiles, masquer dock/barre tâches)</li>
-<li>[ ] Résolution écran : 1920x1080 ou supérieur</li>
-<li>[ ] Zoom navigateur : 100% (pas de zoom excessif)</li>
-<li>[ ] Thème : Clair (éviter dark mode pour cohérence)</li>
-<li>[ ] Masquer données sensibles (tokens, emails, clés API)</li>
-<li>[ ] Inclure contexte (URL visible, breadcrumb navigation)</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Nettoyer l'écran (fermer onglets inutiles, masquer dock/barre tâches)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Résolution écran : 1920x1080 ou supérieur</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Zoom navigateur : 100% (pas de zoom excessif)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Thème : Clair (éviter dark mode pour cohérence)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Masquer données sensibles (tokens, emails, clés API)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Inclure contexte (URL visible, breadcrumb navigation)</li>
 </ul>
 <hr />
 <h2 id="categories-de-screenshots">Catégories de Screenshots</h2>
@@ -662,28 +662,28 @@ du<span class="w"> </span>-sh<span class="w"> </span>docs/assets/screenshots/git
 <hr />
 <h2 id="checklist-accessibilite-rgaa">Checklist Accessibilité RGAA</h2>
 <p>Avant commit, valider :</p>
-<ul>
-<li>
-<p>[ ] <strong>Alt text descriptif</strong> : Décrit contenu image sans contexte externe (RGAA 1.1.1)
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Alt text descriptif</strong> : Décrit contenu image sans contexte externe (RGAA 1.1.1)
   <div class="highlight"><pre><span></span><code>✅ ![<span class="nt">Création PR GitHub avec base main et compare feature/update-sircom</span>](<span class="na">...</span>)
 ❌ ![<span class="nt">Screenshot PR</span>](<span class="na">...</span>)
 ❌ ![](screenshot.png) # Alt text vide = ÉCHEC RGAA
 </code></pre></div></p>
 </li>
-<li>
-<p>[ ] <strong>Contraste suffisant</strong> : Texte dans image lisible (RGAA 3.2.1)</p>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Contraste suffisant</strong> : Texte dans image lisible (RGAA 3.2.1)</p>
 </li>
 <li>Vérifier avec <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a></li>
 <li>
 <p>Ratio minimum : 4.5:1 (texte normal), 3:1 (texte large)</p>
 </li>
-<li>
-<p>[ ] <strong>Taille fichier optimale</strong> : &lt; 500 KB (performance)
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Taille fichier optimale</strong> : &lt; 500 KB (performance)
   <div class="highlight"><pre><span></span><code>du<span class="w"> </span>-h<span class="w"> </span>docs/assets/screenshots/*.png<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;$1 &gt; 500 { print &quot;❌&quot;, $2, &quot;trop lourd&quot; }&#39;</span>
 </code></pre></div></p>
 </li>
-<li>
-<p>[ ] <strong>Contexte fourni</strong> : Légende ou texte adjacent explique image
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Contexte fourni</strong> : Légende ou texte adjacent explique image
   <div class="highlight"><pre><span></span><code><span class="gu">## Création Pull Request</span>
 
 Pour créer une PR, suivre ces étapes :
@@ -916,7 +916,7 @@ github-pr-creation-v1.1-1920x1080.png
     
 <div class="revision-date">
     
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 octobre 2025 20:57:31 UTC">23 octobre 2025</span> 
+    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="24 octobre 2025 11:50:45 UTC">24 octobre 2025</span> 
 </div>
 
 
