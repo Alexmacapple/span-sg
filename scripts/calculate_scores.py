@@ -66,12 +66,14 @@ def validation_to_badge(validation_state: str) -> str:
     return validation_state
 
 
-def update_module_score(module_path: Path, checked: int, total: int, pct: float) -> None:
+def update_module_score(
+    module_path: Path, checked: int, total: int, pct: float
+) -> None:
     """Met à jour la ligne 'Score global' dans un module markdown."""
     content = module_path.read_text(encoding="utf-8")
 
     # Regex pour trouver la ligne de score (capture variantes)
-    score_pattern = r'\*\*Score global\*\*.*?critères validés.*?\%\)'
+    score_pattern = r"\*\*Score global\*\*.*?critères validés.*?\%\)"
 
     # Nouvelle ligne de score calculée
     new_score_line = f"**Score global** {checked}/{total} critères validés ({pct}%)"
