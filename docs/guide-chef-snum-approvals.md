@@ -92,7 +92,7 @@ Review deployment: https://github.com/Alexmacapple/span-sg/deployments/...
 **Checklist review** (5-10 minutes) :
 
 - [ ] **Navigation générale** : Ouvrir site, tester menu latéral
-- [ ] **SPAN par service du Secrétariat Général (SG)** : Vérifier 2-3 modules (SIRCOM, SNUM)
+- [ ] **SPAN par direction du Secrétariat Général (SG)** : Vérifier 2-3 modules (SIRCOM, SNUM)
 - [ ] **Synthèse** : Vérifier tableau scores cohérent
 - [ ] **Badges DSFR** : Vérifier badges visibles (Validé, En cours)
 - [ ] **PDF exports** : Télécharger span-sg.pdf, ouvrir (metadata OK)

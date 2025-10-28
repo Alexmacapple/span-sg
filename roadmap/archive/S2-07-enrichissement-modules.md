@@ -1447,7 +1447,7 @@ Informer directions après commit S2-07 :
 
 ```
 📧 À : Directeurs SNUM, SRH, SIEP, SAFI, BGS
-Objet : SPAN SG - SPAN par service du Secrétariat Général (SG) structurés et disponibles
+Objet : SPAN SG - SPAN par direction du Secrétariat Général (SG) structurés et disponibles
 
 Bonjour,
 

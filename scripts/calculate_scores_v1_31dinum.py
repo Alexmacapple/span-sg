@@ -61,7 +61,7 @@ def generate_summary():
         '            <div class="fr-table__content">',
         '                <table id="table-span-modules">',
         "                    <caption>",
-        "                        Synthèse des modules SPAN par service",
+        "                        Synthèse des modules SPAN par direction",
         "                    </caption>",
         "                    <thead>",
         "                        <tr>",

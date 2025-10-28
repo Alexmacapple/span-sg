@@ -12,7 +12,7 @@
 - [x] Preview privée déployée (https://alexmacapple.github.io/span-sg-repo/draft/)
 - [ ] Production déployée (en attente merge draft → main)
 
-## 2. SPAN par service du Secrétariat Général (SG) (6/6 créés, 2/6 validés)
+## 2. SPAN par direction du Secrétariat Général (SG) (6/6 créés, 2/6 validés)
 - [x] SIRCOM : 24/31 (77.4%) - Validé
 - [x] SNUM : 21/31 (67.7%) - Validé
 - [ ] SRH : 0/31 - Structure créée, en cours de complétion

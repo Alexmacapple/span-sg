@@ -301,9 +301,9 @@ Non, la preview `/staging/` est désactivée (accès org-only). Options :
 3. Push les modifications (même branche)
 4. Notifier le validateur (@bertrand @alex)
 
-### Puis-je modifier plusieurs services ?
+### Puis-je modifier plusieurs directions ?
 
-Oui, mais créez une PR par service :
+Oui, mais créez une PR par direction :
 
 - ✅ `PR #1` : `feat(sircom): ajoute 3 actions`
 - ✅ `PR #2` : `feat(snum): coche 5 critères`

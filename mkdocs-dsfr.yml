@@ -57,7 +57,7 @@ plugins:
 
 nav:
   - SPAN (SG): index.md
-  - SPAN par service du SG:
+  - SPAN par direction du SG:
     - BGS: modules/bgs.md
     - SAFI: modules/safi.md
     - SIEP: modules/siep.md
@@ -68,6 +68,7 @@ nav:
   - Processus: processus.md
   - Guide d'accompagnement: accompagnement.md
   - Synthèse: synthese.md
+  - Téléchargement PDF: telechargement-pdf.md
 
 hooks:
   - hooks/dsfr_table_wrapper.py

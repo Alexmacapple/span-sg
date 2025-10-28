@@ -226,7 +226,7 @@ Le FIPHFP peut financer jusqu'à 10 000€ par an pendant 3 ans (30 000€ total
 
 #### Trimestriellement
 - [ ] **Comité de pilotage** (revue indicateurs, déblocage obstacles, ajustements budget)
-- [ ] **Mise à jour tableau de bord** (conformité par service, formations réalisées, demandes usagers traitées)
+- [ ] **Mise à jour tableau de bord** (conformité par direction, formations réalisées, demandes usagers traitées)
 - [ ] **Communication interne** (newsletter accessibilité, succès visibles)
 
 #### Semestriellement
@@ -680,7 +680,7 @@ Mais gouvernance, suivi, décisions = responsabilité interne.
 
 ### Quelle différence entre SPAN et déclaration d'accessibilité ?
 - **SPAN** : document stratégique 3 ans (politique générale de l'organisation)
-- **Déclaration d'accessibilité** : document par service numérique (état conformité spécifique)
+- **Déclaration d'accessibilité** : document par direction numérique (état conformité spécifique)
 Les deux sont obligatoires et complémentaires.
 
 ---

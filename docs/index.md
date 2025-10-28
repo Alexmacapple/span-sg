@@ -9,19 +9,9 @@ title: SPAN (SG)
 Ce SPAN est susceptible d'être mis à jour sans préavis. La version en ligne est la seule version qui peut faire référence.
 ///
 
-## Téléchargement PDF
-
-Le PDF est généré automatiquement en production via GitHub Actions et contient l'intégralité des 6 modules services ainsi que le tableau de bord.
-
-En développement local : Le site HTML live constitue la source de vérité. Le PDF n'est disponible qu'après build CI.
-
-En production : Téléchargez la version PDF depuis la page d'accueil du site déployé ou via les GitHub Releases.
-
----
-
 ## Nouveau référent ? Besoin d'aide ?
 
-La MiWeb accompagne les services du SG dans la mise en œuvre de leur SPAN.
+La MiWeb accompagne les directions du SG dans la mise en œuvre de leur SPAN.
 
 → [Consulter le guide d'accompagnement](accompagnement.md)
 
@@ -29,9 +19,9 @@ La MiWeb accompagne les services du SG dans la mise en œuvre de leur SPAN.
 
 ---
 
-## SPAN par service du SG
+## SPAN par direction du SG
 
-Accédez directement aux SPAN de chaque service du Secrétariat Général :
+Accédez directement aux SPAN de chaque direction du Secrétariat Général :
 
 /// row | fr-grid-row--gutters
 /// col | 12 md-6 lg-4
@@ -168,10 +158,10 @@ Une ligne budgétaire dédiée à l'accessibilité numérique est reconduite ann
 
 L'équipe accessibilité du SG est constituée de plusieurs chefs de projets formés aux problématiques d'accessibilité, qui ont pour rôle :
 
-- D'accompagner la montée en compétences des contributeurs et les créateurs de contenus ;
-- D'accompagner les porteurs de projets numériques en phase de conception et de réalisation ;
-- De suivre les prestations d'audit et de mise en conformité par des prestataires externes ;
-- De réaliser des contrôles réguliers (audit partiel) et de vérifier la bonne correction des anomalies.
+- D'accompagner la montée en compétences des contributeurs et les créateurs de contenus
+- D'accompagner les porteurs de projets numériques en phase de conception et de réalisation
+- De suivre les prestations d'audit et de mise en conformité par des prestataires externes
+- De réaliser des contrôles réguliers (audit partiel) et de vérifier la bonne correction des anomalies
 
 ## Organisation de la prise en compte de l'accessibilité numérique
 
@@ -206,24 +196,28 @@ En outre, les agents ont accès à des contenus en ligne mis à disposition par 
 
 Opérateur de formation continue du ministère de l'Économie, des Finances et de la Souveraineté industrielle et numérique :
 
-- L'accessibilité numérique des sites et applications web : Game of code ;
-- Appliquer l'accessibilité aux interfaces web ;
-- Publier et organiser vos contenus sur economie.gouv.fr ;
-- Créer un PDF (vraiment) accessible - JN ;
+- L'accessibilité numérique des sites et applications web : Game of code
+- Appliquer l'accessibilité aux interfaces web
+- Publier et organiser vos contenus sur economie.gouv.fr
+- Créer un PDF (vraiment) accessible - JN
 
 ### Liste des formations disponibles sur MENTOR
 
-Plateforme interministérielle de formation :
+Plateforme interministérielle de formation
 
-- **L'accessibilité numérique selon votre métier** :
-  - Module 1 : Accessibilité numérique
-  - Module 2 : Consultation et cadrage
-  - Module 3 : Conception fonctionnelle et graphique
-  - Module 4 : Évaluation de l'accessibilité
-  - Module 5 : Intégration et développement
-  - Module 6 : Contribution éditoriale
-- Design et accessibilité des services publics numériques ;
-- L'essentiel de l'accessibilité de la communication de l'État.
+**L'accessibilité numérique selon votre métier** :
+
+- Module 1 : Accessibilité numérique
+- Module 2 : Consultation et cadrage
+- Module 3 : Conception fonctionnelle et graphique
+- Module 4 : Évaluation de l'accessibilité
+- Module 5 : Intégration et développement
+- Module 6 : Contribution éditoriale
+
+**Autres formations** :
+
+- Design et accessibilité des services publics numériques
+- L'essentiel de l'accessibilité de la communication de l'État
 
 ## Recours à des compétences externes
 

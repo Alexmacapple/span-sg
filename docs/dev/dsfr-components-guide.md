@@ -521,7 +521,7 @@ Pour les tableaux de données, ajouter un caption HTML :
 ```html
 <table id="table-span-modules">
     <caption>
-        Synthèse des modules SPAN par service
+        Synthèse des modules SPAN par direction
     </caption>
     <thead>
         ...
@@ -538,11 +538,11 @@ Pour les tableaux de données, ajouter un caption HTML :
             <div class="fr-table__content">
                 <table id="table-span-modules">
                     <caption>
-                        Synthèse des modules SPAN par service
+                        Synthèse des modules SPAN par direction
                     </caption>
                     <thead>
                         <tr>
-                            <th scope="col">Service</th>
+                            <th scope="col">Direction</th>
                             <th scope="col">Score</th>
                             <th scope="col">Statut</th>
                         </tr>
