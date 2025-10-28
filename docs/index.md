@@ -275,7 +275,7 @@ Ces opérations de contrôles destinées à l'établissement ou la mise à jour 
 
 ### Recensement
 
-Le SG gère plusieurs sites internet, extranet et intranet.
+Les sites internet, extranet et intranet des directions du SG. Voir le SPAN de chaque direction pour avoir la liste complète.
 
 ### Évaluation et qualification
 
