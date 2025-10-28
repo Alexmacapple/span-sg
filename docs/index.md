@@ -176,13 +176,13 @@ Les éléments ci-dessous décrivent les points importants sur lesquels SG va s'
 
 ## Action de formation et de sensibilisation
 
-Tout au long de la période d'application de ce schéma, des actions de formation et de sensibilisation qui concernent la production de contenus accessibles sont organisées pour les personnels des différentes directions du ministère intervenant sur les sites et les applications concernés par ce SPAN (voir annexe 1).
+Tout au long de la période d'application de ce schéma, des actions de formation et de sensibilisation qui concernent la production de contenus accessibles sont organisées pour les personnels des différentes directions du ministère intervenant sur les sites et les applications concernés par ce SPAN.
 
 Des sessions de sensibilisation sont proposées à l'ensemble des agents producteurs ou diffuseurs de contenus numériques au sein du SG depuis septembre 2021.
 
 Des actions de formation sont également proposées aux agents en charge produire des contenus (audiovisuels, documentaires, graphiques) ou de les diffuser (contributeurs web, community managers) en fonction de leurs besoins et des outils de création et de diffusion utilisés.
 
-Le SG/SIRCOM propose cinq formations à ses agents, en fonction de leur profil :
+Le SG a proposé cinq formations à ses agents, en fonction de leur profil :
 
 - Sensibilisation à l'accessibilité numérique
 - Ergonomie et graphisme
@@ -275,7 +275,7 @@ Ces opérations de contrôles destinées à l'établissement ou la mise à jour 
 
 ### Recensement
 
-Le SG gère les sites internet, extranet et intranet qui figurent en annexe 1.
+Le SG gère plusieurs sites internet, extranet et intranet.
 
 ### Évaluation et qualification
 
