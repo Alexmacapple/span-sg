@@ -1,6 +1,7 @@
 # Docker Compose DSFR - Environnement local iso production
-# Date: 2025-10-08
+# Date: 2025-10-28
 # Usage: docker compose -f docker-compose-dsfr.yml up --build
+# Fix hot-reload macOS : utilise polling au lieu de inotify
 
 services:
   mkdocs-dsfr:
@@ -8,8 +9,9 @@ services:
       context: .
       dockerfile: Dockerfile-dsfr
     volumes:
-      - .:/docs
+      - .:/docs:cached  # Optimisation macOS - améliore performances polling
     ports:
       - "8000:8000"
     environment:
       - PYTHONUNBUFFERED=1
+      - WATCHDOG_FORCE_POLLING=true  # Force polling pour hot-reload sur macOS

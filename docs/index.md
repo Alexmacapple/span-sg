@@ -126,9 +126,9 @@ Le présent Schéma Pluriannuel d'Accessibilité Numérique s'inscrit dans le ca
 
 Cette circulaire marque une étape clé dans la mise en place de la marque État, avec trois mesures concrètes :
 
-1. **L'utilisation obligatoire du Système de Design de l'État (DSFR)** pour tout nouveau projet numérique. Le DSFR est un ensemble de composants et de directives conçu pour garantir la cohérence et l'accessibilité des services numériques publics. Il fournit une base uniforme pour le développement web, favorisant ainsi l'accessibilité par défaut à travers des pratiques de design et de codage éprouvées.
+1. **[L'utilisation obligatoire du Système de Design de l'État (DSFR)](https://www.systeme-de-design.gouv.fr/version-courante/fr)** pour tout nouveau projet numérique. Le DSFR est un ensemble de composants et de directives conçu pour garantir la cohérence et l'accessibilité des services numériques publics. Il fournit une base uniforme pour le développement web, favorisant ainsi l'accessibilité par défaut à travers des pratiques de design et de codage éprouvées.
 
-2. **La nomination d'un responsable de design par ministère** pour veiller à l'implémentation et au respect des normes du DSFR, assurant que chaque service soit accessible et agréable à utiliser pour tous les citoyens, y compris ceux en situation de handicap.
+2. **[La nomination d'un responsable de design par ministère](https://www.systeme-de-design.gouv.fr/version-courante/fr/aide/vos-responsables-de-design)** pour veiller à l'implémentation et au respect des normes du DSFR, assurant que chaque service soit accessible et agréable à utiliser pour tous les citoyens, y compris ceux en situation de handicap.
 
 3. **La poursuite des efforts en matière d'accessibilité et de rationalisation** des points de contact pour faciliter l'accès aux services et l'interaction avec l'administration.
 
@@ -288,3 +288,4 @@ Compte tenu des informations recueillies lors de l'élaboration de ce schéma, l
 ## Plans annuels
 
 Ce schéma pluriannuel est accompagné de plans annuels d'actions qui décrivent en détail les opérations mises en œuvre pour prendre en charge l'ensemble des besoins en matière d'accessibilité numérique du SG.
+
