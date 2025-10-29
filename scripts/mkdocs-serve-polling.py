@@ -20,14 +20,14 @@ os.environ["WATCHDOG_FORCE_POLLING"] = "true"
 
 # Monkey-patch watchdog pour forcer PollingObserver
 # Cela doit être fait AVANT l'importation de mkdocs
-from watchdog.observers.polling import PollingObserver
 from watchdog import observers
+from watchdog.observers.polling import PollingObserver
 
 # Remplacer Observer par PollingObserver globalement
 observers.Observer = PollingObserver
 
 # Lancer MkDocs normalement avec tous les arguments
-from mkdocs.__main__ import cli
+from mkdocs.__main__ import cli  # noqa: E402
 
 if __name__ == "__main__":
     sys.exit(cli())
