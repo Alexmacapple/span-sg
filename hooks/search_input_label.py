@@ -50,14 +50,14 @@ def on_post_page(output: str, page: "Page", config: "Config") -> str:
     # Capture l'input jusqu'au > final (avec ou sans / pour auto-fermeture)
     pattern = r'(<input[^>]*id="mkdocs-search-query"[^>]*)(\s*/?\s*>)'
 
-    def add_title(match) -> str:
+    def add_title(match: re.Match[str]) -> str:
         """Ajoute title si pas déjà présent"""
         input_tag = match.group(1)
         closing = match.group(2)
 
         # Vérifier si title déjà présent
         if 'title=' in input_tag:
-            return match.group(0)
+            return str(match.group(0))
 
         # Ajouter title avant le / ou le >
         # Nettoyer le closing pour avoir soit " />" soit ">"
