@@ -4,8 +4,8 @@ Script d'ajout headers BMAD aux stories roadmap
 Ajoute metadata YAML en début de chaque fichier story
 """
 
-from pathlib import Path
 import sys
+from pathlib import Path
 
 # Header BMAD à ajouter
 BMAD_HEADER = """---
