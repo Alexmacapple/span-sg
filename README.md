@@ -140,8 +140,8 @@ Le projet utilise 3 environnements de déploiement :
 - **Usage** : Développement avec hot-reload, tests modifications avant commit
 
 ### Staging (préproduction)
-- **URL** : https://alexmacapple.github.io/span-sg/draft/
-- **Déploiement** : Auto-deploy à chaque push sur `main`
+- **URL** : https://alexmacapple.github.io/span-sg/staging/
+- **Déploiement** : Auto-deploy sur les branches feature via GitHub Actions
 - **Usage** : Revue validateurs avant production, accessible organisation uniquement
 
 ### Production
@@ -164,7 +164,7 @@ Documentation complète de l'architecture déploiement : [ADR-009](docs/adr/009-
 2. Modifier les modules dans `docs/modules/[service].md`
 3. Créer une Pull Request vers `main`
 4. Validation par Alexandra (code review)
-5. Merge → Auto-deploy staging (/draft/)
+5. Merge → Auto-deploy staging (/staging/)
 6. Approval Alexandra → Deploy production (/)
 
 ### Règles de modification
