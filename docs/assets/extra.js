@@ -5,6 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
   links.forEach(function(link) {
     link.setAttribute('target', '_blank');
     link.setAttribute('rel', 'noopener noreferrer');
-    link.setAttribute('title', 'Code source GitHub ouvrir dans une nouvelle fenêtre');
+
+    // RGAA: Le title doit commencer par le nom accessible
+    const nomAccessible = link.textContent.trim();
+    if (nomAccessible) {
+      link.setAttribute('title', nomAccessible + ' - Code source GitHub ouvrir dans une nouvelle fenêtre');
+    } else {
+      link.setAttribute('title', 'Code source GitHub ouvrir dans une nouvelle fenêtre');
+    }
   });
 });

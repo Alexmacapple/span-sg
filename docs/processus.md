@@ -718,9 +718,3 @@ Si vous débutez la démarche SPAN :
 - **Expertise** : Faire appel à organismes spécialisés (Access42, Atalan, Koena)
 
 **Le processus SPAN peut sembler complexe, mais chaque organisation l'a parcouru. Vous n'êtes pas seul·e.**
-
----
-
-*Document mis à jour : 2025-10-13*
-*Version : 3.0*
-*Auteur : RAN SG*

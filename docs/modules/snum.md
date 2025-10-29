@@ -62,5 +62,3 @@ validation_status: draft
 - [ ] Intégration de l'accessibilité numérique dans les critères de sélection des prestataires prévue <!-- CHECKLIST -->
 - [ ] Intégration de l'accessibilité numérique dans les procédures de recette prévue <!-- CHECKLIST -->
 - [ ] Intégration de l'accessibilité dans les conventions avec opérateurs/délégataires/partenaires prévue (si nécessaire) <!-- CHECKLIST -->
-
-**Score: 0/33 (0.0%)**

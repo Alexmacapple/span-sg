@@ -17,9 +17,9 @@ theme:
 
   # Configuration par défaut DSFR
   include_search_page: true
-  afficher_date_de_revision: true
+  afficher_date_de_revision: false
   afficher_menu_lateral: true
-  afficher_sommaire: false  # Désactivé (bug duplicate-id-aria mkdocs-dsfr v0.17.0)
+  afficher_sommaire: true  # Réactivé avec hook fix_sidemenu_ids.py pour corriger les IDs
   afficher_bouton_editer: true
   libelle_bouton_editer: "Éditer dans GitHub"
   bouton_hautdepage: right
@@ -51,12 +51,13 @@ theme:
 plugins:
   - search:
       lang: fr
-  - git-revision-date-localized:
-      enable_creation_date: false
+  # - git-revision-date-localized:
+  #     enable_creation_date: false
   - open-in-new-tab
 
 nav:
-  - SPAN (SG): index.md
+  - Accueil: accueil.md
+  - SPAN (SG): span-sg.md
   - SPAN par direction du SG:
     - BGS: modules/bgs.md
     - SAFI: modules/safi.md
@@ -64,19 +65,25 @@ nav:
     - SIRCOM: modules/sircom.md
     - SNUM: modules/snum.md
     - SRH: modules/srh.md
-  - Contexte réglementaire: mise-en-application-circulaire.md
+  - Synthèse: synthese.md
   - Processus: processus.md
   - Guide d'accompagnement: accompagnement.md
-  - Synthèse: synthese.md
   - Téléchargement PDF: telechargement-pdf.md
 
 hooks:
   - hooks/dsfr_table_wrapper.py
   - hooks/title_cleaner.py
   - hooks/pdf_copy.py
+  - hooks/card_heading_level.py
+  - hooks/search_input_label.py
+  - hooks/pagination_title.py
+  - hooks/fix_sidemenu_ids.py
 
 extra_javascript:
   - assets/extra.js
+
+extra_css:
+  - assets/custom.css
 
 markdown_extensions:
   - dsfr_structure.extension.all_extensions
@@ -99,7 +106,7 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - toc:
       permalink: false
-      toc_depth: 2
+      toc_depth: 3
   - attr_list
   - def_list
   - tables
