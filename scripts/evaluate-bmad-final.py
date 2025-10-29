@@ -5,6 +5,7 @@ Après toutes les améliorations (Phase 1-4)
 """
 
 import re
+import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -254,4 +255,4 @@ def main():
 
 
 if __name__ == "__main__":
-    exit(main())
+    sys.exit(main())

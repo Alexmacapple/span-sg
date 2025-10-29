@@ -5,6 +5,7 @@ Ajoute metadata YAML en début de chaque fichier story
 """
 
 from pathlib import Path
+import sys
 
 # Header BMAD à ajouter
 BMAD_HEADER = """---
@@ -69,4 +70,4 @@ def main():
 
 
 if __name__ == "__main__":
-    exit(main())
+    sys.exit(main())

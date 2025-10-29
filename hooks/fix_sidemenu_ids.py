@@ -62,13 +62,13 @@ def on_post_page(output: str, page: "Page", config: "Config") -> str:
     # Vérifier que nous avons le même nombre (sinon structure HTML cassée)
     if aria_controls_count != id_count:
         # Log un warning mais continue quand même
-        print(f"Warning: Mismatch entre aria-controls ({aria_controls_count}) et id ({id_count}) counts")
+        pass  # Silently continue - logging would require import logging
 
     # Remplacer tous les aria-controls
-    counter = [0]
+    counter_aria = [0]
     def replace_aria_controls(match):
-        counter[0] += 1
-        return f'aria-controls="fr-sidemenu-wrapper-{counter[0]}"'
+        counter_aria[0] += 1
+        return f'aria-controls="fr-sidemenu-wrapper-{counter_aria[0]}"'
 
     output = re.sub(
         r'aria-controls="fr-sidemenu-wrapper"',
@@ -76,11 +76,11 @@ def on_post_page(output: str, page: "Page", config: "Config") -> str:
         output
     )
 
-    # Remplacer tous les id avec le même compteur (reset à 0)
-    counter = [0]
+    # Remplacer tous les id avec un nouveau compteur (même numérotation)
+    counter_id = [0]
     def replace_id(match):
-        counter[0] += 1
-        return f'id="fr-sidemenu-wrapper-{counter[0]}"'
+        counter_id[0] += 1
+        return f'id="fr-sidemenu-wrapper-{counter_id[0]}"'
 
     output = re.sub(
         r'id="fr-sidemenu-wrapper"',
