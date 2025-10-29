@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../assets/custom.css" rel="stylesheet">
+    
 
     <title>ADR-009 : Migration Architecture 2 Branches → GitHub Environments</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,58 +341,265 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 ADR-009 : Migration Architecture 2 Branches → GitHub Environments
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">ADR-009 : Migration Architecture 2 Branches → GitHub Environments</div>
                 <ul class="fr-sidemenu__list">
                      
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#contexte"
-                            target="_self"
-                            >Contexte</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-1"
                         >
+                            Contexte
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-1"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#probleme-actuel"
+                                        target="_self"
+                                        >Problème actuel</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#objectifs-migration"
+                                        target="_self"
+                                        >Objectifs migration</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#decision-proposee-github-environments"
-                            target="_self"
-                            >Décision Proposée : GitHub Environments</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
                         >
+                            Décision Proposée : GitHub Environments
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#architecture-technique"
+                                        target="_self"
+                                        >Architecture technique</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#analyse-detaillee"
-                            target="_self"
-                            >Analyse Détaillée</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            Analyse Détaillée
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-changements-techniques-requis"
+                                        target="_self"
+                                        >1. Changements Techniques Requis</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-impact-workflow-contributeur"
+                                        target="_self"
+                                        >2. Impact Workflow Contributeur</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-timeline-deploiement-comparee"
+                                        target="_self"
+                                        >3. Timeline Déploiement Comparée</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#4-protection-et-securite"
+                                        target="_self"
+                                        >4. Protection et Sécurité</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#5-observabilite-et-monitoring"
+                                        target="_self"
+                                        >5. Observabilité et Monitoring</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#6-gestion-erreurs-et-rollback"
+                                        target="_self"
+                                        >6. Gestion Erreurs et Rollback</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#7-risques-et-mitigations"
+                                        target="_self"
+                                        >7. Risques et Mitigations</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#8-checklist-migration-6-phases-7h-estimation"
+                                        target="_self"
+                                        >8. Checklist Migration (6 phases, 7h estimation)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#9-comparaison-couts-maintenance"
+                                        target="_self"
+                                        >9. Comparaison Coûts Maintenance</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#10-metriques-succes"
+                                        target="_self"
+                                        >10. Métriques Succès</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#alternatives-considerees"
-                            target="_self"
-                            >Alternatives Considérées</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Alternatives Considérées
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#alternative-1-workflow-strict-2-branches-auto-sync"
+                                        target="_self"
+                                        >Alternative 1 : Workflow strict 2 branches + Auto-sync</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#alternative-2-tag-based-deployments"
+                                        target="_self"
+                                        >Alternative 2 : Tag-based deployments</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#alternative-3-stacked-prs-draft-pr-main-pr"
+                                        target="_self"
+                                        >Alternative 3 : Stacked PRs (draft PR → main PR)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#consequences"
-                            target="_self"
-                            >Conséquences</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            Conséquences
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#positives"
+                                        target="_self"
+                                        >Positives</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#negatives"
+                                        target="_self"
+                                        >Négatives</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -403,12 +612,111 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#resultat-de-limplementation"
-                            target="_self"
-                            >Résultat de l'Implémentation</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            Résultat de l'Implémentation
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#statut-final-migration-complete-et-operationnelle"
+                                        target="_self"
+                                        >Statut Final : MIGRATION COMPLÈTE ET OPÉRATIONNELLE</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#corrections-ci-appliquees"
+                                        target="_self"
+                                        >Corrections CI Appliquées</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#architecture-finale-deployee"
+                                        target="_self"
+                                        >Architecture Finale Déployée</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#metriques-de-validation"
+                                        target="_self"
+                                        >Métriques de Validation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#documentation-mise-a-jour"
+                                        target="_self"
+                                        >Documentation Mise à Jour</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#problemes-resolus"
+                                        target="_self"
+                                        >Problèmes Résolus</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#cout-reel-vs-estime"
+                                        target="_self"
+                                        >Coût Réel vs Estimé</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#gains-mesurables-confirmes"
+                                        target="_self"
+                                        >Gains Mesurables Confirmés</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#recommandations-post-migration"
+                                        target="_self"
+                                        >Recommandations Post-Migration</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#conclusion-implementation"
+                                        target="_self"
+                                        >Conclusion Implémentation</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -440,6 +748,198 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#contexte">Contexte</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#probleme-actuel">Problème actuel</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#objectifs-migration">Objectifs migration</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#decision-proposee-github-environments">Décision Proposée : GitHub Environments</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#architecture-technique">Architecture technique</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#analyse-detaillee">Analyse Détaillée</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#1-changements-techniques-requis">1. Changements Techniques Requis</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-impact-workflow-contributeur">2. Impact Workflow Contributeur</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-timeline-deploiement-comparee">3. Timeline Déploiement Comparée</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#4-protection-et-securite">4. Protection et Sécurité</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#5-observabilite-et-monitoring">5. Observabilité et Monitoring</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#6-gestion-erreurs-et-rollback">6. Gestion Erreurs et Rollback</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#7-risques-et-mitigations">7. Risques et Mitigations</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#8-checklist-migration-6-phases-7h-estimation">8. Checklist Migration (6 phases, 7h estimation)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#9-comparaison-couts-maintenance">9. Comparaison Coûts Maintenance</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#10-metriques-succes">10. Métriques Succès</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#alternatives-considerees">Alternatives Considérées</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#alternative-1-workflow-strict-2-branches-auto-sync">Alternative 1 : Workflow strict 2 branches + Auto-sync</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#alternative-2-tag-based-deployments">Alternative 2 : Tag-based deployments</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#alternative-3-stacked-prs-draft-pr-main-pr">Alternative 3 : Stacked PRs (draft PR → main PR)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#consequences">Conséquences</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#positives">Positives</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#negatives">Négatives</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#decision">Décision</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#resultat-de-limplementation">Résultat de l'Implémentation</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#statut-final-migration-complete-et-operationnelle">Statut Final : MIGRATION COMPLÈTE ET OPÉRATIONNELLE</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#corrections-ci-appliquees">Corrections CI Appliquées</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#architecture-finale-deployee">Architecture Finale Déployée</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#metriques-de-validation">Métriques de Validation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#documentation-mise-a-jour">Documentation Mise à Jour</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#problemes-resolus">Problèmes Résolus</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#cout-reel-vs-estime">Coût Réel vs Estimé</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#gains-mesurables-confirmes">Gains Mesurables Confirmés</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#recommandations-post-migration">Recommandations Post-Migration</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#conclusion-implementation">Conclusion Implémentation</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#references">Références</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#changelog">Changelog</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -2587,11 +3087,6 @@ Temps total : ~7min (vs ~6-10min avant, acceptable pour fiabilité)
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

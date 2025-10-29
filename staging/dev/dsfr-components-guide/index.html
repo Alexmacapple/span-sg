@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../assets/custom.css" rel="stylesheet">
+    
 
     <title>Guide d'utilisation des composants DSFR</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Guide d'utilisation des composants DSFR
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Guide d'utilisation des composants DSFR</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -358,93 +360,777 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#introduction"
-                            target="_self"
-                            >Introduction</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
                         >
+                            Introduction
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#reference-officielle"
+                                        target="_self"
+                                        >Référence officielle</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#configuration-requise"
+                                        target="_self"
+                                        >Configuration requise</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#cards-cartes-de-navigation"
-                            target="_self"
-                            >Cards - Cartes de navigation</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            Cards - Cartes de navigation
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#syntaxe-de-base"
+                                        target="_self"
+                                        >Syntaxe de base</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#parametres"
+                                        target="_self"
+                                        >Paramètres</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#types-de-badges"
+                                        target="_self"
+                                        >Types de badges</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-complet-docsindexmd125-129"
+                                        target="_self"
+                                        >Exemple complet (docs/index.md:125-129)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#rendu-html-genere"
+                                        target="_self"
+                                        >Rendu HTML généré</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#cas-dusage"
+                                        target="_self"
+                                        >Cas d'usage</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#callouts-encadres-informatifs"
-                            target="_self"
-                            >Callouts - Encadrés informatifs</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Callouts - Encadrés informatifs
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#syntaxe-de-base_1"
+                                        target="_self"
+                                        >Syntaxe de base</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#parametres_1"
+                                        target="_self"
+                                        >Paramètres</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#couleurs-dsfr-disponibles"
+                                        target="_self"
+                                        >Couleurs DSFR disponibles</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#icones-remix-icon"
+                                        target="_self"
+                                        >Icônes Remix Icon</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-1-callout-informatif-docsaccompagnementmd"
+                                        target="_self"
+                                        >Exemple 1 : Callout informatif (docs/accompagnement.md)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-2-callout-alerte-docsprocessusmd92-96"
+                                        target="_self"
+                                        >Exemple 2 : Callout alerte (docs/processus.md:92-96)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-3-callout-financement-docsprocessusmd99-104"
+                                        target="_self"
+                                        >Exemple 3 : Callout financement (docs/processus.md:99-104)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-4-callout-critique-exemple"
+                                        target="_self"
+                                        >Exemple 4 : Callout critique (exemple)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#difference-avec-alerts"
+                                        target="_self"
+                                        >Différence avec Alerts</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#badges-indicateurs-detat"
-                            target="_self"
-                            >Badges - Indicateurs d'état</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            Badges - Indicateurs d'état
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#pourquoi-html-au-lieu-de-markdown"
+                                        target="_self"
+                                        >Pourquoi HTML au lieu de Markdown ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#syntaxe-html-dsfr"
+                                        target="_self"
+                                        >Syntaxe HTML DSFR</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#types-de-badges_1"
+                                        target="_self"
+                                        >Types de badges</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-1-badge-dans-tableau-docssynthesemd"
+                                        target="_self"
+                                        >Exemple 1 : Badge dans tableau (docs/synthese.md)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-2-badge-warning"
+                                        target="_self"
+                                        >Exemple 2 : Badge warning</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-3-badge-error"
+                                        target="_self"
+                                        >Exemple 3 : Badge error</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-4-badge-info"
+                                        target="_self"
+                                        >Exemple 4 : Badge info</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#generation-dynamique-scriptscalculate_scorespy42-66"
+                                        target="_self"
+                                        >Génération dynamique (scripts/calculate_scores.py:42-66)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#badges-dans-cards-syntaxe-markdown"
+                                        target="_self"
+                                        >Badges dans Cards (syntaxe Markdown)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#alerts-notifications"
-                            target="_self"
-                            >Alerts - Notifications</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            Alerts - Notifications
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#syntaxe-de-base_2"
+                                        target="_self"
+                                        >Syntaxe de base</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#types-disponibles"
+                                        target="_self"
+                                        >Types disponibles</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-1-alert-info"
+                                        target="_self"
+                                        >Exemple 1 : Alert info</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-2-alert-warning"
+                                        target="_self"
+                                        >Exemple 2 : Alert warning</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-3-alert-error"
+                                        target="_self"
+                                        >Exemple 3 : Alert error</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-4-alert-success"
+                                        target="_self"
+                                        >Exemple 4 : Alert success</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#alert-vs-callout-quand-utiliser-quoi"
+                                        target="_self"
+                                        >Alert vs Callout : Quand utiliser quoi ?</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#grid-grilles-responsives"
-                            target="_self"
-                            >Grid - Grilles responsives</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            Grid - Grilles responsives
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#syntaxe-de-base_3"
+                                        target="_self"
+                                        >Syntaxe de base</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#structure"
+                                        target="_self"
+                                        >Structure</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#breakpoints"
+                                        target="_self"
+                                        >Breakpoints</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-complet-grille-3-colonnes-docsindexmd123-167"
+                                        target="_self"
+                                        >Exemple complet : Grille 3 colonnes (docs/index.md:123-167)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#rendu-responsive"
+                                        target="_self"
+                                        >Rendu responsive</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#variantes-de-row"
+                                        target="_self"
+                                        >Variantes de row</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-2-grille-2-colonnes"
+                                        target="_self"
+                                        >Exemple 2 : Grille 2 colonnes</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-3-grille-4-colonnes-desktop"
+                                        target="_self"
+                                        >Exemple 3 : Grille 4 colonnes desktop</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#tables-tableaux-accessibles"
-                            target="_self"
-                            >Tables - Tableaux accessibles</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-8"
                         >
+                            Tables - Tableaux accessibles
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-8"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#hook-automatique-hooksdsfr_table_wrapperpy"
+                                        target="_self"
+                                        >Hook automatique (hooks/dsfr_table_wrapper.py)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#syntaxe-markdown-standard"
+                                        target="_self"
+                                        >Syntaxe Markdown standard</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#caption-rgaa-obligatoire"
+                                        target="_self"
+                                        >Caption RGAA (obligatoire)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#tableaux-avec-badges-html-docssynthesemd"
+                                        target="_self"
+                                        >Tableaux avec badges HTML (docs/synthese.md)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#attributs-rgaa-obligatoires"
+                                        target="_self"
+                                        >Attributs RGAA obligatoires</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#responsive-dsfr"
+                                        target="_self"
+                                        >Responsive DSFR</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#snippets-reutilisables"
-                            target="_self"
-                            >Snippets réutilisables</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-9"
                         >
+                            Snippets réutilisables
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-9"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#card-module-standard"
+                                        target="_self"
+                                        >Card module standard</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#callout-aide-generique"
+                                        target="_self"
+                                        >Callout aide générique</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#callout-avertissement"
+                                        target="_self"
+                                        >Callout avertissement</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#callout-financement"
+                                        target="_self"
+                                        >Callout financement</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#alert-maintenance"
+                                        target="_self"
+                                        >Alert maintenance</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#alert-succes-validation"
+                                        target="_self"
+                                        >Alert succès validation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#badge-inline-personnalise"
+                                        target="_self"
+                                        >Badge inline personnalisé</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#grille-3-cards-template"
+                                        target="_self"
+                                        >Grille 3 cards template</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#tableau-scores-template"
+                                        target="_self"
+                                        >Tableau scores template</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#accordions-accordeons-pliables"
-                            target="_self"
-                            >Accordions - Accordéons pliables</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-10"
                         >
+                            Accordions - Accordéons pliables
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-10"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#syntaxe-de-base_4"
+                                        target="_self"
+                                        >Syntaxe de base</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#parametres-disponibles"
+                                        target="_self"
+                                        >Paramètres disponibles</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-1-faq-simple"
+                                        target="_self"
+                                        >Exemple 1 : FAQ simple</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-2-documentation-technique-pliable"
+                                        target="_self"
+                                        >Exemple 2 : Documentation technique pliable</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#difference-avec-collapsible-divs"
+                                        target="_self"
+                                        >Différence avec Collapsible divs</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#accessibilite"
+                                        target="_self"
+                                        >Accessibilité</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#tabs-onglets"
-                            target="_self"
-                            >Tabs - Onglets</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-11"
                         >
+                            Tabs - Onglets
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-11"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#syntaxe-de-base_5"
+                                        target="_self"
+                                        >Syntaxe de base</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#parametres-tabs"
+                                        target="_self"
+                                        >Paramètres tabs</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#accessibilite_1"
+                                        target="_self"
+                                        >Accessibilité</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#cas-dusage-recommandes"
+                                        target="_self"
+                                        >Cas d'usage recommandés</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -467,6 +1153,381 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#table-des-matieres">Table des matières</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#introduction">Introduction</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#reference-officielle">Référence officielle</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#configuration-requise">Configuration requise</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#cards-cartes-de-navigation">Cards - Cartes de navigation</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#syntaxe-de-base">Syntaxe de base</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#parametres">Paramètres</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#types-de-badges">Types de badges</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-complet-docsindexmd125-129">Exemple complet (docs/index.md:125-129)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#rendu-html-genere">Rendu HTML généré</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#cas-dusage">Cas d'usage</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#callouts-encadres-informatifs">Callouts - Encadrés informatifs</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#syntaxe-de-base_1">Syntaxe de base</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#parametres_1">Paramètres</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#couleurs-dsfr-disponibles">Couleurs DSFR disponibles</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#icones-remix-icon">Icônes Remix Icon</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-1-callout-informatif-docsaccompagnementmd">Exemple 1 : Callout informatif (docs/accompagnement.md)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-2-callout-alerte-docsprocessusmd92-96">Exemple 2 : Callout alerte (docs/processus.md:92-96)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-3-callout-financement-docsprocessusmd99-104">Exemple 3 : Callout financement (docs/processus.md:99-104)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-4-callout-critique-exemple">Exemple 4 : Callout critique (exemple)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#difference-avec-alerts">Différence avec Alerts</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#badges-indicateurs-detat">Badges - Indicateurs d'état</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#pourquoi-html-au-lieu-de-markdown">Pourquoi HTML au lieu de Markdown ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#syntaxe-html-dsfr">Syntaxe HTML DSFR</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#types-de-badges_1">Types de badges</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-1-badge-dans-tableau-docssynthesemd">Exemple 1 : Badge dans tableau (docs/synthese.md)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-2-badge-warning">Exemple 2 : Badge warning</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-3-badge-error">Exemple 3 : Badge error</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-4-badge-info">Exemple 4 : Badge info</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#generation-dynamique-scriptscalculate_scorespy42-66">Génération dynamique (scripts/calculate_scores.py:42-66)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#badges-dans-cards-syntaxe-markdown">Badges dans Cards (syntaxe Markdown)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#alerts-notifications">Alerts - Notifications</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#syntaxe-de-base_2">Syntaxe de base</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#types-disponibles">Types disponibles</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-1-alert-info">Exemple 1 : Alert info</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-2-alert-warning">Exemple 2 : Alert warning</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-3-alert-error">Exemple 3 : Alert error</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-4-alert-success">Exemple 4 : Alert success</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#alert-vs-callout-quand-utiliser-quoi">Alert vs Callout : Quand utiliser quoi ?</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#grid-grilles-responsives">Grid - Grilles responsives</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#syntaxe-de-base_3">Syntaxe de base</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#structure">Structure</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#breakpoints">Breakpoints</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-complet-grille-3-colonnes-docsindexmd123-167">Exemple complet : Grille 3 colonnes (docs/index.md:123-167)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#rendu-responsive">Rendu responsive</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#variantes-de-row">Variantes de row</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-2-grille-2-colonnes">Exemple 2 : Grille 2 colonnes</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-3-grille-4-colonnes-desktop">Exemple 3 : Grille 4 colonnes desktop</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#tables-tableaux-accessibles">Tables - Tableaux accessibles</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#hook-automatique-hooksdsfr_table_wrapperpy">Hook automatique (hooks/dsfr_table_wrapper.py)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#syntaxe-markdown-standard">Syntaxe Markdown standard</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#caption-rgaa-obligatoire">Caption RGAA (obligatoire)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#tableaux-avec-badges-html-docssynthesemd">Tableaux avec badges HTML (docs/synthese.md)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#attributs-rgaa-obligatoires">Attributs RGAA obligatoires</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#responsive-dsfr">Responsive DSFR</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#snippets-reutilisables">Snippets réutilisables</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#card-module-standard">Card module standard</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#callout-aide-generique">Callout aide générique</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#callout-avertissement">Callout avertissement</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#callout-financement">Callout financement</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#alert-maintenance">Alert maintenance</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#alert-succes-validation">Alert succès validation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#badge-inline-personnalise">Badge inline personnalisé</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#grille-3-cards-template">Grille 3 cards template</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#tableau-scores-template">Tableau scores template</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#accordions-accordeons-pliables">Accordions - Accordéons pliables</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#syntaxe-de-base_4">Syntaxe de base</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#parametres-disponibles">Paramètres disponibles</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-1-faq-simple">Exemple 1 : FAQ simple</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-2-documentation-technique-pliable">Exemple 2 : Documentation technique pliable</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#difference-avec-collapsible-divs">Différence avec Collapsible divs</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#accessibilite">Accessibilité</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#tabs-onglets">Tabs - Onglets</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#syntaxe-de-base_5">Syntaxe de base</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#parametres-tabs">Paramètres tabs</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#accessibilite_1">Accessibilité</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#cas-dusage-recommandes">Cas d'usage recommandés</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#references-complementaires">Références complémentaires</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -1689,11 +2750,6 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

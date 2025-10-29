@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../assets/custom.css" rel="stylesheet">
+    
 
     <title>Architecture C4 - Diagrammes Contexte et Containers</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Architecture C4 - Diagrammes Contexte et Containers
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Architecture C4 - Diagrammes Contexte et Containers</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -376,12 +378,39 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#3-technologies-et-dependances"
-                            target="_self"
-                            >3. Technologies et Dépendances</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            3. Technologies et Dépendances
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#stack-technique"
+                                        target="_self"
+                                        >Stack technique</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#dependances-critiques"
+                                        target="_self"
+                                        >Dépendances critiques</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -394,21 +423,75 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#5-strategie-de-deploiement"
-                            target="_self"
-                            >5. Stratégie de Déploiement</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            5. Stratégie de Déploiement
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#environnements"
+                                        target="_self"
+                                        >Environnements</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#workflow-deploiement"
+                                        target="_self"
+                                        >Workflow déploiement</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#6-securite-et-qualite"
-                            target="_self"
-                            >6. Sécurité et Qualité</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            6. Sécurité et Qualité
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#gates-qualite-cicd"
+                                        target="_self"
+                                        >Gates qualité CI/CD</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#artefacts-securite"
+                                        target="_self"
+                                        >Artefacts sécurité</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -431,6 +514,93 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#introduction-c4">Introduction C4</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#1-c4-level-1-diagramme-de-contexte">1. C4 Level 1 : Diagramme de Contexte</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#2-c4-level-2-diagramme-containers">2. C4 Level 2 : Diagramme Containers</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#3-technologies-et-dependances">3. Technologies et Dépendances</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#stack-technique">Stack technique</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#dependances-critiques">Dépendances critiques</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#4-flux-de-donnees">4. Flux de Données</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#5-strategie-de-deploiement">5. Stratégie de Déploiement</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#environnements">Environnements</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#workflow-deploiement">Workflow déploiement</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#6-securite-et-qualite">6. Sécurité et Qualité</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#gates-qualite-cicd">Gates qualité CI/CD</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#artefacts-securite">Artefacts sécurité</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#references">Références</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -947,11 +1117,6 @@ Standard: <a href="https://c4model.com/">C4 Model</a></p>
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

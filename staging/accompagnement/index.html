@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../assets/custom.css" rel="stylesheet">
+    
 
     <title>Guide d'accompagnement</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href=".."
+                href="../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../mise-en-application-circulaire/"
+                href="../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -292,16 +304,6 @@
                 aria-current="page"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -341,12 +343,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Guide d'accompagnement SPAN
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Guide d'accompagnement SPAN</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -369,39 +371,228 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#structure-de-la-checklist"
-                            target="_self"
-                            >Structure de la checklist</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            Structure de la checklist
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-vision-3-criteres"
+                                        target="_self"
+                                        >1. Vision (3 critères)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-ran-referent-accessibilite-numerique-7-criteres"
+                                        target="_self"
+                                        >2. RAN - Référent Accessibilité Numérique (7 critères)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-organisation-6-criteres"
+                                        target="_self"
+                                        >3. Organisation (6 critères)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#4-budget-2-criteres"
+                                        target="_self"
+                                        >4. Budget (2 critères)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#5-gestion-de-projets-7-criteres"
+                                        target="_self"
+                                        >5. Gestion de projets (7 critères)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#6-rh-ressources-humaines-3-criteres"
+                                        target="_self"
+                                        >6. RH - Ressources Humaines (3 critères)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#7-achats-5-criteres"
+                                        target="_self"
+                                        >7. Achats (5 critères)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#workflow-de-validation"
-                            target="_self"
-                            >Workflow de validation</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Workflow de validation
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-1-autoevaluation-par-le-referent"
+                                        target="_self"
+                                        >Étape 1: Autoévaluation par le référent</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-2-validation-par-miweb"
+                                        target="_self"
+                                        >Étape 2 : Validation par MiWeb</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-3-publication"
+                                        target="_self"
+                                        >Étape 3 : Publication</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#regles-strictes-a-respecter"
-                            target="_self"
-                            >Règles strictes à respecter</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            Règles strictes à respecter
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#regle-1-ne-jamais-modifier-les-balises"
+                                        target="_self"
+                                        >Règle 1 : Ne jamais modifier les balises</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#regle-2-total-de-33-criteres-exactement"
+                                        target="_self"
+                                        >Règle 2 : Total de 33 critères exactement</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#regle-3-format-des-cases-a-cocher"
+                                        target="_self"
+                                        >Règle 3 : Format des cases à cocher</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#regle-4-preserver-la-structure"
+                                        target="_self"
+                                        >Règle 4 : Préserver la structure</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#conseils-pratiques"
-                            target="_self"
-                            >Conseils pratiques</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            Conseils pratiques
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#pour-demarrer"
+                                        target="_self"
+                                        >Pour démarrer</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#documentation-attendue"
+                                        target="_self"
+                                        >Documentation attendue</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#cas-particuliers"
+                                        target="_self"
+                                        >Cas particuliers</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -442,6 +633,146 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#principe-general">Principe général</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#grille-de-conformite-dun-span-33-criteres">Grille de conformité d'un SPAN (33 critères)</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#structure-de-la-checklist">Structure de la checklist</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#1-vision-3-criteres">1. Vision (3 critères)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-ran-referent-accessibilite-numerique-7-criteres">2. RAN - Référent Accessibilité Numérique (7 critères)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-organisation-6-criteres">3. Organisation (6 critères)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#4-budget-2-criteres">4. Budget (2 critères)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#5-gestion-de-projets-7-criteres">5. Gestion de projets (7 critères)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#6-rh-ressources-humaines-3-criteres">6. RH - Ressources Humaines (3 critères)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#7-achats-5-criteres">7. Achats (5 critères)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#workflow-de-validation">Workflow de validation</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-1-autoevaluation-par-le-referent">Étape 1: Autoévaluation par le référent</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-2-validation-par-miweb">Étape 2 : Validation par MiWeb</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-3-publication">Étape 3 : Publication</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#regles-strictes-a-respecter">Règles strictes à respecter</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#regle-1-ne-jamais-modifier-les-balises">Règle 1 : Ne jamais modifier les balises</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#regle-2-total-de-33-criteres-exactement">Règle 2 : Total de 33 critères exactement</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#regle-3-format-des-cases-a-cocher">Règle 3 : Format des cases à cocher</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#regle-4-preserver-la-structure">Règle 4 : Préserver la structure</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#conseils-pratiques">Conseils pratiques</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#pour-demarrer">Pour démarrer</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#documentation-attendue">Documentation attendue</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#cas-particuliers">Cas particuliers</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#exemple-de-module-complete">Exemple de module complété</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#support-et-contact">Support et contact</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#ressources-complementaires">Ressources complémentaires</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -631,12 +962,8 @@ Ne pas cocher. Documenter l'avancement dans la section "Plan d'actions prioritai
                     
 	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
 		<ul class="fr-pagination__list">
-			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../processus/" title="Processus" >
-				Page précédente
-			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../synthese/" title="Synthèse" >
-				Page suivante
-			</a></li>
+			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../processus/" title="Page précédente : Processus" >Page précédente</a></li>
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../telechargement-pdf/" title="Page suivante : Téléchargement PDF" >Page suivante</a></li>
 		</ul>
 	</nav>
 
@@ -789,11 +1116,6 @@ Ne pas cocher. Documenter l'avancement dans la section "Plan d'actions prioritai
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "..";

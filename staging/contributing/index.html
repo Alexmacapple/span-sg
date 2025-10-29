@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../assets/custom.css" rel="stylesheet">
+    
 
     <title>Guide de contribution SPAN SG</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href=".."
+                href="../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../mise-en-application-circulaire/"
+                href="../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Guide de contribution SPAN SG
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Guide de contribution SPAN SG</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -358,39 +360,228 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#option-a-interface-github-recommande-pour-debutants"
-                            target="_self"
-                            >Option A : Interface GitHub (recommandé pour débutants)</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
                         >
+                            Option A : Interface GitHub (recommandé pour débutants)
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-aller-sur-le-fichier-de-votre-service"
+                                        target="_self"
+                                        >1. Aller sur le fichier de votre service</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-cliquer-sur-edit-this-file"
+                                        target="_self"
+                                        >2. Cliquer sur "Edit this file"</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-modifier-le-contenu"
+                                        target="_self"
+                                        >3. Modifier le contenu</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#4-sauvegarder-et-creer-la-pull-request"
+                                        target="_self"
+                                        >4. Sauvegarder et créer la Pull Request</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#5-validation"
+                                        target="_self"
+                                        >5. Validation</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#option-b-git-local-avances"
-                            target="_self"
-                            >Option B : Git local (avancés)</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            Option B : Git local (avancés)
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-cloner-le-repo"
+                                        target="_self"
+                                        >1. Cloner le repo</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-creer-une-branche-feature"
+                                        target="_self"
+                                        >2. Créer une branche feature</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-editer-votre-module"
+                                        target="_self"
+                                        >3. Éditer votre module</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#4-previsualiser-en-local-optionnel"
+                                        target="_self"
+                                        >4. Prévisualiser en local (optionnel)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#5-committer-et-pusher"
+                                        target="_self"
+                                        >5. Committer et pusher</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#6-creer-la-pull-request"
+                                        target="_self"
+                                        >6. Créer la Pull Request</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#qualite-code-python"
-                            target="_self"
-                            >Qualité code Python</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Qualité code Python
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#tests-unitaires"
+                                        target="_self"
+                                        >Tests unitaires</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#pre-commit-hooks-fortement-recommande"
+                                        target="_self"
+                                        >Pre-commit hooks (fortement recommandé)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#formatting-et-linting-manuels"
+                                        target="_self"
+                                        >Formatting et linting manuels</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#installation-environnement-dev"
+                                        target="_self"
+                                        >Installation environnement dev</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#regles-de-validation-des-pr"
-                            target="_self"
-                            >Règles de validation des PR</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            Règles de validation des PR
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#verifications-automatiques-ci"
+                                        target="_self"
+                                        >Vérifications automatiques (CI)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#verifications-manuelles"
+                                        target="_self"
+                                        >Vérifications manuelles</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -431,6 +622,141 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#principe">Principe</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#option-a-interface-github-recommande-pour-debutants">Option A : Interface GitHub (recommandé pour débutants)</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#1-aller-sur-le-fichier-de-votre-service">1. Aller sur le fichier de votre service</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-cliquer-sur-edit-this-file">2. Cliquer sur "Edit this file"</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-modifier-le-contenu">3. Modifier le contenu</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#4-sauvegarder-et-creer-la-pull-request">4. Sauvegarder et créer la Pull Request</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#5-validation">5. Validation</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#option-b-git-local-avances">Option B : Git local (avancés)</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#1-cloner-le-repo">1. Cloner le repo</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-creer-une-branche-feature">2. Créer une branche feature</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-editer-votre-module">3. Éditer votre module</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#4-previsualiser-en-local-optionnel">4. Prévisualiser en local (optionnel)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#5-committer-et-pusher">5. Committer et pusher</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#6-creer-la-pull-request">6. Créer la Pull Request</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#qualite-code-python">Qualité code Python</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#tests-unitaires">Tests unitaires</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#pre-commit-hooks-fortement-recommande">Pre-commit hooks (fortement recommandé)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#formatting-et-linting-manuels">Formatting et linting manuels</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#installation-environnement-dev">Installation environnement dev</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#regles-de-validation-des-pr">Règles de validation des PR</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#verifications-automatiques-ci">Vérifications automatiques (CI)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#verifications-manuelles">Vérifications manuelles</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#workflow-complet">Workflow complet</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#besoin-daide">Besoin d'aide ?</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#note-sur-les-urls">Note sur les URLs</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -791,11 +1117,6 @@ Validation Yves → Production
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "..";

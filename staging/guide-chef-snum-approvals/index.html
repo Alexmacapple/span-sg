@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../assets/custom.css" rel="stylesheet">
+    
 
     <title>Guide Chef Validateur - Approval Déploiements Production</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href=".."
+                href="../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../mise-en-application-circulaire/"
+                href="../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Guide Chef Validateur - Approval Déploiements Production
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Guide Chef Validateur - Approval Déploiements Production</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -358,75 +360,399 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#processus-approval-5-etapes"
-                            target="_self"
-                            >Processus Approval (5 étapes)</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
                         >
+                            Processus Approval (5 étapes)
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-1-recevoir-notification"
+                                        target="_self"
+                                        >Étape 1 : Recevoir Notification</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-2-consulter-dashboard-deployments"
+                                        target="_self"
+                                        >Étape 2 : Consulter Dashboard Deployments</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-3-review-staging"
+                                        target="_self"
+                                        >Étape 3 : Review Staging</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-4-verifier-logs-cicd"
+                                        target="_self"
+                                        >Étape 4 : Vérifier Logs CI/CD</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-5-approuver-ou-rejeter"
+                                        target="_self"
+                                        >Étape 5 : Approuver ou Rejeter</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#cas-dusage"
-                            target="_self"
-                            >Cas d'Usage</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            Cas d'Usage
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#cas-1-hotfix-urgent"
+                                        target="_self"
+                                        >Cas 1 : Hotfix Urgent</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#cas-2-contribution-normale"
+                                        target="_self"
+                                        >Cas 2 : Contribution Normale</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#cas-3-regression-detectee"
+                                        target="_self"
+                                        >Cas 3 : Régression Détectée</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#dashboard-centralise"
-                            target="_self"
-                            >Dashboard Centralisé</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Dashboard Centralisé
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#acces"
+                                        target="_self"
+                                        >Accès</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#filtres"
+                                        target="_self"
+                                        >Filtres</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#historique"
+                                        target="_self"
+                                        >Historique</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#rollback-production"
-                            target="_self"
-                            >Rollback Production</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            Rollback Production
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quand-rollback"
+                                        target="_self"
+                                        >Quand Rollback ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#procedure-rollback-2-5-minutes"
+                                        target="_self"
+                                        >Procédure Rollback (2-5 minutes)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#notifications"
-                            target="_self"
-                            >Notifications</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            Notifications
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#configuration-email"
+                                        target="_self"
+                                        >Configuration Email</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#notifications-slack-optionnel"
+                                        target="_self"
+                                        >Notifications Slack (optionnel)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#faq"
-                            target="_self"
-                            >FAQ</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            FAQ
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q1-que-se-passe-t-il-si-jignore-notification"
+                                        target="_self"
+                                        >Q1 : Que se passe-t-il si j'ignore notification ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q2-puis-je-deleguer-approval-a-quelquun"
+                                        target="_self"
+                                        >Q2 : Puis-je déléguer approval à quelqu'un ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q3-combien-de-temps-prend-deploiement-apres-approval"
+                                        target="_self"
+                                        >Q3 : Combien de temps prend déploiement après approval ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q4-puis-je-annuler-approval-apres-avoir-clique"
+                                        target="_self"
+                                        >Q4 : Puis-je annuler approval après avoir cliqué ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q5-que-faire-si-e2e-tests-echouent"
+                                        target="_self"
+                                        >Q5 : Que faire si E2E tests échouent ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q6-puis-je-voir-diff-staging-vs-production"
+                                        target="_self"
+                                        >Q6 : Puis-je voir diff staging vs production ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q7-combien-de-contributions-attendre-avant-approuver-batch"
+                                        target="_self"
+                                        >Q7 : Combien de contributions attendre avant approuver batch ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q8-que-faire-si-staging-staging-inaccessible-404"
+                                        target="_self"
+                                        >Q8 : Que faire si staging /staging/ inaccessible (404) ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q9-puis-je-approuver-depuis-mobile"
+                                        target="_self"
+                                        >Q9 : Puis-je approuver depuis mobile ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q10-quel-delai-attendre-avant-approuver-securite"
+                                        target="_self"
+                                        >Q10 : Quel délai attendre avant approuver (sécurité) ?</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#metriques-et-reporting"
-                            target="_self"
-                            >Métriques et Reporting</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-8"
                         >
+                            Métriques et Reporting
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-8"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#metriques-personnelles"
+                                        target="_self"
+                                        >Métriques personnelles</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#support-et-contacts"
-                            target="_self"
-                            >Support et Contacts</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-9"
                         >
+                            Support et Contacts
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-9"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#contacts-techniques"
+                                        target="_self"
+                                        >Contacts techniques</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#ressources-documentation"
+                                        target="_self"
+                                        >Ressources documentation</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -449,6 +775,211 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#vue-densemble">Vue d'ensemble</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#processus-approval-5-etapes">Processus Approval (5 étapes)</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-1-recevoir-notification">Étape 1 : Recevoir Notification</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-2-consulter-dashboard-deployments">Étape 2 : Consulter Dashboard Deployments</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-3-review-staging">Étape 3 : Review Staging</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-4-verifier-logs-cicd">Étape 4 : Vérifier Logs CI/CD</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-5-approuver-ou-rejeter">Étape 5 : Approuver ou Rejeter</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#cas-dusage">Cas d'Usage</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#cas-1-hotfix-urgent">Cas 1 : Hotfix Urgent</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#cas-2-contribution-normale">Cas 2 : Contribution Normale</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#cas-3-regression-detectee">Cas 3 : Régression Détectée</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#dashboard-centralise">Dashboard Centralisé</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#acces">Accès</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#filtres">Filtres</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#historique">Historique</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#rollback-production">Rollback Production</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#quand-rollback">Quand Rollback ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#procedure-rollback-2-5-minutes">Procédure Rollback (2-5 minutes)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#notifications">Notifications</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#configuration-email">Configuration Email</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#notifications-slack-optionnel">Notifications Slack (optionnel)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#faq">FAQ</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#q1-que-se-passe-t-il-si-jignore-notification">Q1 : Que se passe-t-il si j'ignore notification ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#q2-puis-je-deleguer-approval-a-quelquun">Q2 : Puis-je déléguer approval à quelqu'un ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#q3-combien-de-temps-prend-deploiement-apres-approval">Q3 : Combien de temps prend déploiement après approval ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#q4-puis-je-annuler-approval-apres-avoir-clique">Q4 : Puis-je annuler approval après avoir cliqué ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#q5-que-faire-si-e2e-tests-echouent">Q5 : Que faire si E2E tests échouent ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#q6-puis-je-voir-diff-staging-vs-production">Q6 : Puis-je voir diff staging vs production ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#q7-combien-de-contributions-attendre-avant-approuver-batch">Q7 : Combien de contributions attendre avant approuver batch ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#q8-que-faire-si-staging-staging-inaccessible-404">Q8 : Que faire si staging /staging/ inaccessible (404) ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#q9-puis-je-approuver-depuis-mobile">Q9 : Puis-je approuver depuis mobile ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#q10-quel-delai-attendre-avant-approuver-securite">Q10 : Quel délai attendre avant approuver (sécurité) ?</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#metriques-et-reporting">Métriques et Reporting</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#metriques-personnelles">Métriques personnelles</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#support-et-contacts">Support et Contacts</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#contacts-techniques">Contacts techniques</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#ressources-documentation">Ressources documentation</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#annexe-checklist-approval-complete">Annexe : Checklist Approval Complète</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -1089,11 +1620,6 @@ Contributeur(s): _____________
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "..";

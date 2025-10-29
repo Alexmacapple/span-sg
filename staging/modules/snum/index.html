@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../assets/custom.css" rel="stylesheet">
+    
 
     <title>SNUM</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,14 +203,14 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
                 aria-current="true"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -270,10 +282,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -294,16 +306,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -343,22 +345,94 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 SPAN SNUM
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">SPAN SNUM</div>
                 <ul class="fr-sidemenu__list">
                      
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#checklist-de-conformite-33-criteres"
-                            target="_self"
-                            >Checklist de conformité (33 critères)</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-1"
                         >
+                            Checklist de conformité (33 critères)
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-1"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-vision-3-criteres"
+                                        target="_self"
+                                        >1. Vision (3 critères)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-ran-referent-accessibilite-numerique-7-criteres"
+                                        target="_self"
+                                        >2. RAN - Référent Accessibilité Numérique (7 critères)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-organisation-6-criteres"
+                                        target="_self"
+                                        >3. Organisation (6 critères)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#4-budget-2-criteres"
+                                        target="_self"
+                                        >4. Budget (2 critères)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#5-gestion-de-projets-7-criteres"
+                                        target="_self"
+                                        >5. Gestion de projets (7 critères)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#6-rh-ressources-humaines-3-criteres"
+                                        target="_self"
+                                        >6. RH - Ressources Humaines (3 critères)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#7-achats-5-criteres"
+                                        target="_self"
+                                        >7. Achats (5 critères)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                      
                 </ul>
@@ -372,6 +446,54 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#checklist-de-conformite-33-criteres">Checklist de conformité (33 critères)</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#1-vision-3-criteres">1. Vision (3 critères)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-ran-referent-accessibilite-numerique-7-criteres">2. RAN - Référent Accessibilité Numérique (7 critères)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-organisation-6-criteres">3. Organisation (6 critères)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#4-budget-2-criteres">4. Budget (2 critères)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#5-gestion-de-projets-7-criteres">5. Gestion de projets (7 critères)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#6-rh-ressources-humaines-3-criteres">6. RH - Ressources Humaines (3 critères)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#7-achats-5-criteres">7. Achats (5 critères)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -433,7 +555,6 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Intégration de l'accessibilité numérique dans les procédures de recette prévue <!-- CHECKLIST --></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Intégration de l'accessibilité dans les conventions avec opérateurs/délégataires/partenaires prévue (si nécessaire) <!-- CHECKLIST --></li>
 </ul>
-<p><strong>Score: 0/33 (0.0%)</strong></p>
                         
                         
                         <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
@@ -443,12 +564,8 @@
                     
 	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
 		<ul class="fr-pagination__list">
-			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../sircom/" title="SIRCOM" >
-				Page précédente
-			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../srh/" title="SRH" >
-				Page suivante
-			</a></li>
+			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../sircom/" title="Page précédente : SIRCOM" >Page précédente</a></li>
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../srh/" title="Page suivante : SRH" >Page suivante</a></li>
 		</ul>
 	</nav>
 
@@ -601,11 +718,6 @@
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

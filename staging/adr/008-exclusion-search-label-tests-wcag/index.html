@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../assets/custom.css" rel="stylesheet">
+    
 
     <title>ADR-008: Exclusion temporaire search label des tests WCAG</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,22 +341,58 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 ADR-008: Exclusion temporaire search label des tests WCAG
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">ADR-008: Exclusion temporaire search label des tests WCAG</div>
                 <ul class="fr-sidemenu__list">
                      
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#contexte"
-                            target="_self"
-                            >Contexte</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-1"
                         >
+                            Contexte
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-1"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#probleme-identifie"
+                                        target="_self"
+                                        >Problème identifié</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#analyse-technique"
+                                        target="_self"
+                                        >Analyse technique</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#impact-sur-le-projet"
+                                        target="_self"
+                                        >Impact sur le projet</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -367,30 +405,138 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#alternatives-considerees"
-                            target="_self"
-                            >Alternatives considérées</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            Alternatives considérées
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#option-a-exclusion-selective-post-run-choisie"
+                                        target="_self"
+                                        >Option A: Exclusion sélective POST-RUN (CHOISIE)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#option-b-css-override-local-rejetee"
+                                        target="_self"
+                                        >Option B: CSS Override local (REJETÉE)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#option-c-attente-fix-upstream-rejetee-comme-solution-unique"
+                                        target="_self"
+                                        >Option C: Attente fix upstream (REJETÉE comme solution unique)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#consequences"
-                            target="_self"
-                            >Conséquences</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Conséquences
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#positives"
+                                        target="_self"
+                                        >Positives</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#negatives"
+                                        target="_self"
+                                        >Négatives</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#neutres"
+                                        target="_self"
+                                        >Neutres</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#validation"
-                            target="_self"
-                            >Validation</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            Validation
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#criteres-de-succes"
+                                        target="_self"
+                                        >Critères de succès</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#tests-effectues"
+                                        target="_self"
+                                        >Tests effectués</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#metriques"
+                                        target="_self"
+                                        >Métriques</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -403,21 +549,102 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#references"
-                            target="_self"
-                            >Références</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            Références
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#code"
+                                        target="_self"
+                                        >Code</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#documentation"
+                                        target="_self"
+                                        >Documentation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#standards-et-outils"
+                                        target="_self"
+                                        >Standards et outils</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#upstream"
+                                        target="_self"
+                                        >Upstream</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#workflows-ci"
+                                        target="_self"
+                                        >Workflows CI</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#notes-techniques"
-                            target="_self"
-                            >Notes techniques</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-8"
                         >
+                            Notes techniques
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-8"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#pourquoi-post-run-et-pas-exclusion-dans-axerun"
+                                        target="_self"
+                                        >Pourquoi POST-RUN et pas exclusion dans axe.run() ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#alternative-exclude-globale-rejetee"
+                                        target="_self"
+                                        >Alternative : Exclude globale (rejetée)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                      
                 </ul>
@@ -431,6 +658,157 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#contexte">Contexte</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#probleme-identifie">Problème identifié</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#analyse-technique">Analyse technique</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#impact-sur-le-projet">Impact sur le projet</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#decision">Décision</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#alternatives-considerees">Alternatives considérées</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#option-a-exclusion-selective-post-run-choisie">Option A: Exclusion sélective POST-RUN (CHOISIE)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#option-b-css-override-local-rejetee">Option B: CSS Override local (REJETÉE)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#option-c-attente-fix-upstream-rejetee-comme-solution-unique">Option C: Attente fix upstream (REJETÉE comme solution unique)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#consequences">Conséquences</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#positives">Positives</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#negatives">Négatives</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#neutres">Neutres</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#validation">Validation</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#criteres-de-succes">Critères de succès</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#tests-effectues">Tests effectués</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#metriques">Métriques</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#plan-de-retrait-superseding">Plan de retrait (Superseding)</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#references">Références</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#code">Code</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#documentation">Documentation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#standards-et-outils">Standards et outils</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#upstream">Upstream</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#workflows-ci">Workflows CI</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#notes-techniques">Notes techniques</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#pourquoi-post-run-et-pas-exclusion-dans-axerun">Pourquoi POST-RUN et pas exclusion dans axe.run() ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#alternative-exclude-globale-rejetee">Alternative : Exclude globale (rejetée)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -835,11 +1213,6 @@ mkdocs<span class="w"> </span>build<span class="w"> </span>--config-file<span cl
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

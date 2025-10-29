@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../custom.css" rel="stylesheet">
+    
 
     <title>Guide GIFs - SPAN SG</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Guide GIFs - SPAN SG
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Guide GIFs - SPAN SG</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -367,39 +369,174 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#categories-de-gifs"
-                            target="_self"
-                            >Catégories de GIFs</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            Catégories de GIFs
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-onboarding-contributeur"
+                                        target="_self"
+                                        >1. Onboarding Contributeur</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-tests-e2e"
+                                        target="_self"
+                                        >2. Tests E2E</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-build-mkdocs"
+                                        target="_self"
+                                        >3. Build MkDocs</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#outils-recommandes"
-                            target="_self"
-                            >Outils Recommandés</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Outils Recommandés
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#capture-ecran-gif"
+                                        target="_self"
+                                        >Capture Écran → GIF</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#conversion-video-gif"
+                                        target="_self"
+                                        >Conversion Vidéo → GIF</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#workflow-creation-detaille"
-                            target="_self"
-                            >Workflow Création Détaillé</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            Workflow Création Détaillé
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-1-preparation-environnement"
+                                        target="_self"
+                                        >Étape 1 : Préparation Environnement</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-2-enregistrement"
+                                        target="_self"
+                                        >Étape 2 : Enregistrement</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-3-optimisation"
+                                        target="_self"
+                                        >Étape 3 : Optimisation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-4-validation-qualite"
+                                        target="_self"
+                                        >Étape 4 : Validation Qualité</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-5-nommage-et-placement"
+                                        target="_self"
+                                        >Étape 5 : Nommage et Placement</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#referencement-dans-documentation"
-                            target="_self"
-                            >Référencement dans Documentation</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            Référencement dans Documentation
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#syntaxe-markdown"
+                                        target="_self"
+                                        >Syntaxe Markdown</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -412,30 +549,120 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#exemples-cas-dusage"
-                            target="_self"
-                            >Exemples Cas d'Usage</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-8"
                         >
+                            Exemples Cas d'Usage
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-8"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-1-onboarding-contributeur-complet"
+                                        target="_self"
+                                        >Exemple 1 : Onboarding Contributeur Complet</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-2-tests-e2e-selenium"
+                                        target="_self"
+                                        >Exemple 2 : Tests E2E Selenium</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#maintenance-gifs"
-                            target="_self"
-                            >Maintenance GIFs</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-9"
                         >
+                            Maintenance GIFs
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-9"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quand-refaire"
+                                        target="_self"
+                                        >Quand Refaire</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#versioning-assets"
+                                        target="_self"
+                                        >Versioning Assets</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#troubleshooting"
-                            target="_self"
-                            >Troubleshooting</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-10"
                         >
+                            Troubleshooting
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-10"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#gif-trop-lourd-2-mb"
+                                        target="_self"
+                                        >GIF trop lourd (&gt; 2 MB)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#gif-saccade-fps-trop-bas"
+                                        target="_self"
+                                        >GIF saccadé (FPS trop bas)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#gif-ne-loop-pas"
+                                        target="_self"
+                                        >GIF ne loop pas</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -458,6 +685,172 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#objectif">Objectif</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#checklist-enregistrement">Checklist Enregistrement</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#categories-de-gifs">Catégories de GIFs</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#1-onboarding-contributeur">1. Onboarding Contributeur</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-tests-e2e">2. Tests E2E</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-build-mkdocs">3. Build MkDocs</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#outils-recommandes">Outils Recommandés</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#capture-ecran-gif">Capture Écran → GIF</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#conversion-video-gif">Conversion Vidéo → GIF</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#workflow-creation-detaille">Workflow Création Détaillé</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-1-preparation-environnement">Étape 1 : Préparation Environnement</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-2-enregistrement">Étape 2 : Enregistrement</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-3-optimisation">Étape 3 : Optimisation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-4-validation-qualite">Étape 4 : Validation Qualité</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-5-nommage-et-placement">Étape 5 : Nommage et Placement</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#referencement-dans-documentation">Référencement dans Documentation</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#syntaxe-markdown">Syntaxe Markdown</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#checklist-accessibilite-rgaa">Checklist Accessibilité RGAA</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#exemples-cas-dusage">Exemples Cas d'Usage</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-1-onboarding-contributeur-complet">Exemple 1 : Onboarding Contributeur Complet</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-2-tests-e2e-selenium">Exemple 2 : Tests E2E Selenium</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#maintenance-gifs">Maintenance GIFs</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#quand-refaire">Quand Refaire</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#versioning-assets">Versioning Assets</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#troubleshooting">Troubleshooting</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#gif-trop-lourd-2-mb">GIF trop lourd (&gt; 2 MB)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#gif-saccade-fps-trop-bas">GIF saccadé (FPS trop bas)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#gif-ne-loop-pas">GIF ne loop pas</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#ressources">Ressources</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -1062,11 +1455,6 @@ identify<span class="w"> </span>-verbose<span class="w"> </span>input.gif<span c
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../../assets/custom.css" rel="stylesheet">
+    
 
     <title>DU RAN - Référent·e accessibilité numérique</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../.."
+                href="../../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../../mise-en-application-circulaire/"
+                href="../../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 DU RAN - Référent·e accessibilité numérique
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">DU RAN - Référent·e accessibilité numérique</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -376,57 +378,318 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#rappels-sur-le-span"
-                            target="_self"
-                            >Rappels sur le SPAN</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Rappels sur le SPAN
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#cest-quoi-le-span"
+                                        target="_self"
+                                        >C'est quoi le SPAN ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-strategie-numerique-et-politique-dintegration-p1"
+                                        target="_self"
+                                        >1. Stratégie numérique et politique d'intégration (P1)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-fonction-de-referent-accessibilite-numerique-p1"
+                                        target="_self"
+                                        >2. Fonction de Référent accessibilité numérique (P1)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-ressources-humaines-et-financieres-p1"
+                                        target="_self"
+                                        >3. Ressources humaines et financières (P1)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#4-fiches-de-poste-et-processus-de-recrutement-p3"
+                                        target="_self"
+                                        >4. Fiches de poste et processus de recrutement (P3)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#5-actions-de-formation-et-de-sensibilisation-p2-p1-p3"
+                                        target="_self"
+                                        >5. Actions de formation et de sensibilisation (P2, P1, P3)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#6-ressources-et-expertises-externes-p1-p3"
+                                        target="_self"
+                                        >6. Ressources et expertises externes (P1, P3)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#7-organisation-interne-p1-p2-p3"
+                                        target="_self"
+                                        >7. Organisation interne (P1, P2, P3)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#8-clauses-contractuelles-p1p2"
+                                        target="_self"
+                                        >8. Clauses contractuelles (P1/P2)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#9-travaux-de-mise-en-conformite-p1-p2-p3"
+                                        target="_self"
+                                        >9. Travaux de mise en conformité (P1, P2, P3)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#premiers-plans-daction-prealables"
-                            target="_self"
-                            >Premiers plans d'action préalables</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            Premiers plans d'action préalables
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#en-resume-avant-de-commencer"
+                                        target="_self"
+                                        >En résumé, avant de commencer :</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#formalisation-des-plans-dactions"
-                            target="_self"
-                            >Formalisation des plans d'actions</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            Formalisation des plans d'actions
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#que-trouve-t-on-dans-un-plan-daction-annuel"
+                                        target="_self"
+                                        >Que trouve-t-on dans un plan d'action annuel ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#structure-de-formalisation-des-actions"
+                                        target="_self"
+                                        >Structure de formalisation des actions</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#types-dactions-a-formaliser"
-                            target="_self"
-                            >Types d'actions à formaliser</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            Types d'actions à formaliser
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-actions-concernant-la-formation"
+                                        target="_self"
+                                        >1. Actions concernant la formation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-actions-concernant-les-nouveaux-projets-developpes-en-interne"
+                                        target="_self"
+                                        >2. Actions concernant les nouveaux projets développés en interne</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-actions-concernant-les-projets-legacy-rattrapage-de-la-dette"
+                                        target="_self"
+                                        >3. Actions concernant les projets "legacy" (rattrapage de la dette)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#4-actions-concernant-les-nouveaux-projets-developpes-100-en-externe"
+                                        target="_self"
+                                        >4. Actions concernant les nouveaux projets développés 100% en externe</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#5-actions-concernant-lachat-de-solutions-saas"
+                                        target="_self"
+                                        >5. Actions concernant l'achat de solutions SaaS</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#6-actions-concernant-les-tests-utilisateurs"
+                                        target="_self"
+                                        >6. Actions concernant les tests utilisateurs</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#7-actions-concernant-le-reporting-de-la-demarche-daccessibilite"
+                                        target="_self"
+                                        >7. Actions concernant le reporting de la démarche d'accessibilité</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#bilan-des-plans-dactions"
-                            target="_self"
-                            >Bilan des plans d'actions</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-8"
                         >
+                            Bilan des plans d'actions
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-8"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#mise-a-jour-des-plans-dactions"
+                                        target="_self"
+                                        >Mise à jour des plans d'actions</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quid-du-delai-de-3-ans"
+                                        target="_self"
+                                        >Quid du délai de 3 ans ?</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#travaux-diriges"
-                            target="_self"
-                            >Travaux dirigés</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-9"
                         >
+                            Travaux dirigés
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-9"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exercices-proposes"
+                                        target="_self"
+                                        >Exercices proposés</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                      
                 </ul>
@@ -440,6 +703,178 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#realiser-le-bilan-des-plans-dactions-annuels-et-piloter-la-mise-a-jour-du-span">Réaliser le bilan des plans d'actions annuels et piloter la mise à jour du SPAN</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#plan-du-cours">Plan du cours</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#objectifs-du-cours">Objectifs du cours</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#rappels-sur-le-span">Rappels sur le SPAN</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#cest-quoi-le-span">C'est quoi le SPAN ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#1-strategie-numerique-et-politique-dintegration-p1">1. Stratégie numérique et politique d'intégration (P1)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-fonction-de-referent-accessibilite-numerique-p1">2. Fonction de Référent accessibilité numérique (P1)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-ressources-humaines-et-financieres-p1">3. Ressources humaines et financières (P1)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#4-fiches-de-poste-et-processus-de-recrutement-p3">4. Fiches de poste et processus de recrutement (P3)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#5-actions-de-formation-et-de-sensibilisation-p2-p1-p3">5. Actions de formation et de sensibilisation (P2, P1, P3)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#6-ressources-et-expertises-externes-p1-p3">6. Ressources et expertises externes (P1, P3)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#7-organisation-interne-p1-p2-p3">7. Organisation interne (P1, P2, P3)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#8-clauses-contractuelles-p1p2">8. Clauses contractuelles (P1/P2)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#9-travaux-de-mise-en-conformite-p1-p2-p3">9. Travaux de mise en conformité (P1, P2, P3)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#premiers-plans-daction-prealables">Premiers plans d'action préalables</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#en-resume-avant-de-commencer">En résumé, avant de commencer :</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#formalisation-des-plans-dactions">Formalisation des plans d'actions</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#que-trouve-t-on-dans-un-plan-daction-annuel">Que trouve-t-on dans un plan d'action annuel ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#structure-de-formalisation-des-actions">Structure de formalisation des actions</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#types-dactions-a-formaliser">Types d'actions à formaliser</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#1-actions-concernant-la-formation">1. Actions concernant la formation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-actions-concernant-les-nouveaux-projets-developpes-en-interne">2. Actions concernant les nouveaux projets développés en interne</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-actions-concernant-les-projets-legacy-rattrapage-de-la-dette">3. Actions concernant les projets "legacy" (rattrapage de la dette)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#4-actions-concernant-les-nouveaux-projets-developpes-100-en-externe">4. Actions concernant les nouveaux projets développés 100% en externe</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#5-actions-concernant-lachat-de-solutions-saas">5. Actions concernant l'achat de solutions SaaS</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#6-actions-concernant-les-tests-utilisateurs">6. Actions concernant les tests utilisateurs</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#7-actions-concernant-le-reporting-de-la-demarche-daccessibilite">7. Actions concernant le reporting de la démarche d'accessibilité</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#bilan-des-plans-dactions">Bilan des plans d'actions</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#mise-a-jour-des-plans-dactions">Mise à jour des plans d'actions</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#quid-du-delai-de-3-ans">Quid du délai de 3 ans ?</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#travaux-diriges">Travaux dirigés</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#exercices-proposes">Exercices proposés</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -1052,11 +1487,6 @@
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../../..";

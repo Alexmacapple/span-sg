@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../assets/custom.css" rel="stylesheet">
+    
 
     <title>Les attendus du SPAN</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,58 +341,382 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Les attendus du SPAN
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Les attendus du SPAN</div>
                 <ul class="fr-sidemenu__list">
                      
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#objectif-dapprentissage"
-                            target="_self"
-                            >Objectif d'apprentissage</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-1"
                         >
+                            Objectif d'apprentissage
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-1"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#au-programme"
+                                        target="_self"
+                                        >Au programme</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#1-introduction-quiz"
-                            target="_self"
-                            >1. Introduction : quiz</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
                         >
+                            1. Introduction : quiz
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q1-a-quoi-sert-le-span"
+                                        target="_self"
+                                        >Q1 : À quoi sert le SPAN ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q2-dapres-vous-quest-ce-quun-span-efficace"
+                                        target="_self"
+                                        >Q2 : D'après vous, qu'est-ce qu'un SPAN efficace ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q3-comment-anticiper-ce-qui-se-passera-dans-3-ans-comment-gerer-lincertitude"
+                                        target="_self"
+                                        >Q3 : Comment anticiper ce qui se passera dans 3 ans : comment gérer l'incertitude ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#q4-qui-est-responsable-du-span"
+                                        target="_self"
+                                        >Q4 : Qui est responsable du SPAN ?</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#2-les-attendus-du-span"
-                            target="_self"
-                            >2. Les attendus du SPAN</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            2. Les attendus du SPAN
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#le-span-une-obligation-legale"
+                                        target="_self"
+                                        >Le SPAN : une obligation légale</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#modalites-de-publication-du-span"
+                                        target="_self"
+                                        >Modalités de publication du SPAN</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#une-duree-maximale-de-3-ans"
+                                        target="_self"
+                                        >Une durée maximale de 3 ans</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-plans-dactions-annuels-sur-3-ans"
+                                        target="_self"
+                                        >3 plans d'actions annuels sur 3 ans</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#la-fonction-de-ran-nest-pas-une-obligation-legale"
+                                        target="_self"
+                                        >La fonction de RAN n'est pas une obligation légale</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#pas-de-formalisme-impose-mais-des-informations-obligatoires-a-faire-figurer"
+                                        target="_self"
+                                        >Pas de formalisme imposé, mais des informations obligatoires à faire figurer</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#span-14-ambition-generale-pour-les-3-ans-a-venir"
+                                        target="_self"
+                                        >[SPAN 1/4] Ambition générale pour les 3 ans à venir</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#span-24-organisation-mise-en-uvre"
+                                        target="_self"
+                                        >[SPAN 2/4] Organisation mise en œuvre</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#span-34-ressources-allouees"
+                                        target="_self"
+                                        >[SPAN 3/4] Ressources allouées</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#span-44-gestion-des-competences"
+                                        target="_self"
+                                        >[SPAN 4/4] Gestion des compétences</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#creation-dun-outil-danalyse-dun-span"
+                                        target="_self"
+                                        >Création d'un outil d'analyse d'un SPAN</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#3-plan-dactions-et-kpi"
-                            target="_self"
-                            >3. Plan d'actions et KPI</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            3. Plan d'actions et KPI
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#une-duree-de-12-mois-donc-3-plans-max-par-span"
+                                        target="_self"
+                                        >Une durée de 12 mois, donc 3 plans max par SPAN</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#le-role-du-referent-ou-de-la-referente-selon-rgaa-3"
+                                        target="_self"
+                                        >Le rôle du référent ou de la référente selon RGAA 3</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#ran-pilote-du-processus-accessibilite-numerique"
+                                        target="_self"
+                                        >RAN = pilote du processus accessibilité numérique</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#pas-de-modele-de-plan-daction"
+                                        target="_self"
+                                        >Pas de modèle de plan d'action</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#le-tableau-de-bord-au-dela-du-plan-daction-publie"
+                                        target="_self"
+                                        >Le tableau de bord, au-delà du plan d'action publié</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quels-indicateurs-peut-on-suivre"
+                                        target="_self"
+                                        >Quels indicateurs peut-on suivre ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#mesurer-les-competences"
+                                        target="_self"
+                                        >Mesurer les compétences</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#plan-daction-objectif-et-mise-en-uvre"
+                                        target="_self"
+                                        >Plan d'action : objectif et mise en œuvre</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#au-secours-je-nai-pas-realise-mon-plan-daction"
+                                        target="_self"
+                                        >Au secours, je n'ai pas réalisé mon plan d'action !</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#4-etat-des-lieux-et-priorisation"
-                            target="_self"
-                            >4. État des lieux et priorisation</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            4. État des lieux et priorisation
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#voici-1000-services-numeriques-on-trie"
+                                        target="_self"
+                                        >Voici 1000 services numériques : on trie !</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#criteres-de-tri-possibles"
+                                        target="_self"
+                                        >Critères de tri possibles</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#les-avantages-de-prioriser-parfois-ce-qui-est-moins-couteux"
+                                        target="_self"
+                                        >Les avantages de prioriser parfois ce qui est moins coûteux</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#visez-lexhaustivite-mais-ne-lattendez-pas-pour-agir"
+                                        target="_self"
+                                        >Visez l'exhaustivité, mais ne l'attendez pas pour agir</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#au-dela-des-services-numeriques-que-doit-on-recenser"
+                                        target="_self"
+                                        >Au-delà des services numériques, que doit-on recenser ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#attention-a-la-charge-disproportionnee"
+                                        target="_self"
+                                        >Attention à la charge disproportionnée</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -403,21 +729,84 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#5-evaluation"
-                            target="_self"
-                            >5. Évaluation</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            5. Évaluation
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-exercices-notes"
+                                        target="_self"
+                                        >2 exercices notés</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#travail-de-groupe-consigne"
+                                        target="_self"
+                                        >Travail de groupe : consigne</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#travail-de-groupe-modalites-de-realisation"
+                                        target="_self"
+                                        >Travail de groupe : modalités de réalisation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#modalites-devaluation"
+                                        target="_self"
+                                        >Modalités d'évaluation</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#6-ressources"
-                            target="_self"
-                            >6. Ressources</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-8"
                         >
+                            6. Ressources
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-8"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#liste-des-ressources"
+                                        target="_self"
+                                        >Liste des ressources</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -440,6 +829,234 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#objectif-dapprentissage">Objectif d'apprentissage</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#au-programme">Au programme</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#1-introduction-quiz">1. Introduction : quiz</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#q1-a-quoi-sert-le-span">Q1 : À quoi sert le SPAN ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#q2-dapres-vous-quest-ce-quun-span-efficace">Q2 : D'après vous, qu'est-ce qu'un SPAN efficace ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#q3-comment-anticiper-ce-qui-se-passera-dans-3-ans-comment-gerer-lincertitude">Q3 : Comment anticiper ce qui se passera dans 3 ans : comment gérer l'incertitude ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#q4-qui-est-responsable-du-span">Q4 : Qui est responsable du SPAN ?</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#2-les-attendus-du-span">2. Les attendus du SPAN</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#le-span-une-obligation-legale">Le SPAN : une obligation légale</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#modalites-de-publication-du-span">Modalités de publication du SPAN</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#une-duree-maximale-de-3-ans">Une durée maximale de 3 ans</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-plans-dactions-annuels-sur-3-ans">3 plans d'actions annuels sur 3 ans</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#la-fonction-de-ran-nest-pas-une-obligation-legale">La fonction de RAN n'est pas une obligation légale</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#pas-de-formalisme-impose-mais-des-informations-obligatoires-a-faire-figurer">Pas de formalisme imposé, mais des informations obligatoires à faire figurer</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#span-14-ambition-generale-pour-les-3-ans-a-venir">[SPAN 1/4] Ambition générale pour les 3 ans à venir</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#span-24-organisation-mise-en-uvre">[SPAN 2/4] Organisation mise en œuvre</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#span-34-ressources-allouees">[SPAN 3/4] Ressources allouées</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#span-44-gestion-des-competences">[SPAN 4/4] Gestion des compétences</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#creation-dun-outil-danalyse-dun-span">Création d'un outil d'analyse d'un SPAN</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#3-plan-dactions-et-kpi">3. Plan d'actions et KPI</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#une-duree-de-12-mois-donc-3-plans-max-par-span">Une durée de 12 mois, donc 3 plans max par SPAN</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#le-role-du-referent-ou-de-la-referente-selon-rgaa-3">Le rôle du référent ou de la référente selon RGAA 3</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#ran-pilote-du-processus-accessibilite-numerique">RAN = pilote du processus accessibilité numérique</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#pas-de-modele-de-plan-daction">Pas de modèle de plan d'action</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#le-tableau-de-bord-au-dela-du-plan-daction-publie">Le tableau de bord, au-delà du plan d'action publié</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#quels-indicateurs-peut-on-suivre">Quels indicateurs peut-on suivre ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#mesurer-les-competences">Mesurer les compétences</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#plan-daction-objectif-et-mise-en-uvre">Plan d'action : objectif et mise en œuvre</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#au-secours-je-nai-pas-realise-mon-plan-daction">Au secours, je n'ai pas réalisé mon plan d'action !</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#4-etat-des-lieux-et-priorisation">4. État des lieux et priorisation</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#voici-1000-services-numeriques-on-trie">Voici 1000 services numériques : on trie !</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#criteres-de-tri-possibles">Critères de tri possibles</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#les-avantages-de-prioriser-parfois-ce-qui-est-moins-couteux">Les avantages de prioriser parfois ce qui est moins coûteux</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#visez-lexhaustivite-mais-ne-lattendez-pas-pour-agir">Visez l'exhaustivité, mais ne l'attendez pas pour agir</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#au-dela-des-services-numeriques-que-doit-on-recenser">Au-delà des services numériques, que doit-on recenser ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#attention-a-la-charge-disproportionnee">Attention à la charge disproportionnée</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#conclusion">Conclusion</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#5-evaluation">5. Évaluation</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-exercices-notes">2 exercices notés</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#travail-de-groupe-consigne">Travail de groupe : consigne</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#travail-de-groupe-modalites-de-realisation">Travail de groupe : modalités de réalisation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#modalites-devaluation">Modalités d'évaluation</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#6-ressources">6. Ressources</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#liste-des-ressources">Liste des ressources</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#conditions-dutilisation-du-support-de-cours">Conditions d'utilisation du support de cours</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -587,9 +1204,9 @@
 <li>Maintenir dans la durée</li>
 </ol>
 <p><strong>Source (en anglais) :</strong> Planning and Managing Web Accessibility : https://www.w3.org/WAI/planning-and-managing/</p>
-<h5 id="premiere-etape-securiser-votre-demarche">Première étape : sécuriser votre démarche</h5>
+<h5 id="premiere-etape-securiser-votre-demarche">Première étape : sécuriser votre démarche</h3>
 <p>Important d'avoir un mandat officiel : rapprochez-vous de la Direction pour obtenir la permission de créer des groupes de travail impliquant les parties prenantes, et renseignez-vous dès le départ sur le circuit de validation du SPAN à venir.</p>
-<h5 id="1-initier">1. Initier</h5>
+<h5 id="1-initier">1. Initier</h3>
 <p><strong>Développer la compréhension de ce qu'est l'accessibilité et construire de l'enthousiasme dans l'organisation.</strong></p>
 <ul>
 <li>Apprendre les bases</li>
@@ -599,7 +1216,7 @@
 <li>Sensibiliser</li>
 <li>Réunir des soutiens</li>
 </ul>
-<h5 id="2-planifier">2. Planifier</h5>
+<h5 id="2-planifier">2. Planifier</h3>
 <p><strong>Développer des objectifs clairs et un environnement favorisant l'accessibilité.</strong></p>
 <ul>
 <li>Créer une politique accessibilité</li>
@@ -610,7 +1227,7 @@
 <li>Établir un cadre de suivi (monitoring framework)</li>
 <li>Impliquer les parties prenantes</li>
 </ul>
-<h5 id="3-mettre-en-uvre">3. Mettre en œuvre</h5>
+<h5 id="3-mettre-en-uvre">3. Mettre en œuvre</h3>
 <p><strong>S'assurer que les personnels sont formés, que les outils sont disponibles et que l'accessibilité est incluse partout où c'est utile.</strong></p>
 <ul>
 <li>Bâtir expertise et compétences</li>
@@ -620,7 +1237,7 @@
 <li>Prioriser les sujets</li>
 <li>Suivre et communiquer sur la progression</li>
 </ul>
-<h5 id="4-maintenir-dans-la-duree">4. Maintenir dans la durée</h5>
+<h5 id="4-maintenir-dans-la-duree">4. Maintenir dans la durée</h3>
 <p><strong>Poursuivre le suivi et les comptes-rendus concernant le contenu, les processus et les ressources.</strong></p>
 <ul>
 <li>Suivre les services web</li>
@@ -1016,11 +1633,6 @@
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

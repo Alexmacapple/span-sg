@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../assets/custom.css" rel="stylesheet">
+    
 
     <title>Glossaire SPAN SG - Termes Techniques Illustrés</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href=".."
+                href="../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../mise-en-application-circulaire/"
+                href="../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,112 +341,400 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Glossaire SPAN SG - Termes Techniques Illustrés
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Glossaire SPAN SG - Termes Techniques Illustrés</div>
                 <ul class="fr-sidemenu__list">
                      
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#a"
-                            target="_self"
-                            >A</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-1"
                         >
+                            A
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-1"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#accessibilite-numerique"
+                                        target="_self"
+                                        >Accessibilité Numérique</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#adr-architecture-decision-record"
+                                        target="_self"
+                                        >ADR (Architecture Decision Record)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#c"
-                            target="_self"
-                            >C</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
                         >
+                            C
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#c4-model"
+                                        target="_self"
+                                        >C4 Model</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#cicd-continuous-integration-continuous-deployment"
+                                        target="_self"
+                                        >CI/CD (Continuous Integration / Continuous Deployment)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#coverage-couverture-de-tests"
+                                        target="_self"
+                                        >Coverage (Couverture de Tests)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#d"
-                            target="_self"
-                            >D</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            D
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#dinum-direction-interministerielle-du-numerique"
+                                        target="_self"
+                                        >DINUM (Direction Interministérielle du Numérique)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#docker"
+                                        target="_self"
+                                        >Docker</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#dsfr-design-system-de-letat-francais"
+                                        target="_self"
+                                        >DSFR (Design System de l'État Français)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#e"
-                            target="_self"
-                            >E</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            E
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#e2e-end-to-end-tests"
+                                        target="_self"
+                                        >E2E (End-to-End Tests)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#g"
-                            target="_self"
-                            >G</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            G
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#git"
+                                        target="_self"
+                                        >Git</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#github-actions"
+                                        target="_self"
+                                        >GitHub Actions</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#github-pages"
+                                        target="_self"
+                                        >GitHub Pages</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#h"
-                            target="_self"
-                            >H</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            H
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#hooks-mkdocs"
+                                        target="_self"
+                                        >Hooks MkDocs</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#m"
-                            target="_self"
-                            >M</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            M
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#markdown"
+                                        target="_self"
+                                        >Markdown</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#mermaid"
+                                        target="_self"
+                                        >Mermaid</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#mkdocs"
+                                        target="_self"
+                                        >MkDocs</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#p"
-                            target="_self"
-                            >P</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-8"
                         >
+                            P
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-8"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#pdf-portable-document-format"
+                                        target="_self"
+                                        >PDF (Portable Document Format)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#pytest"
+                                        target="_self"
+                                        >Pytest</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#r"
-                            target="_self"
-                            >R</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-9"
                         >
+                            R
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-9"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#rgaa-referentiel-general-damelioration-de-laccessibilite"
+                                        target="_self"
+                                        >RGAA (Référentiel Général d'Amélioration de l'Accessibilité)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#s"
-                            target="_self"
-                            >S</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-10"
                         >
+                            S
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-10"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#span-schema-pluriannuel-daccessibilite-numerique"
+                                        target="_self"
+                                        >SPAN (Schéma Pluriannuel d'Accessibilité Numérique)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#w"
-                            target="_self"
-                            >W</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-11"
                         >
+                            W
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-11"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#weasyprint"
+                                        target="_self"
+                                        >WeasyPrint</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -476,6 +766,210 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#a">A</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#accessibilite-numerique">Accessibilité Numérique</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#adr-architecture-decision-record">ADR (Architecture Decision Record)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#c">C</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#c4-model">C4 Model</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#cicd-continuous-integration-continuous-deployment">CI/CD (Continuous Integration / Continuous Deployment)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#coverage-couverture-de-tests">Coverage (Couverture de Tests)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#d">D</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#dinum-direction-interministerielle-du-numerique">DINUM (Direction Interministérielle du Numérique)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#docker">Docker</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#dsfr-design-system-de-letat-francais">DSFR (Design System de l'État Français)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#e">E</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#e2e-end-to-end-tests">E2E (End-to-End Tests)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#g">G</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#git">Git</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#github-actions">GitHub Actions</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#github-pages">GitHub Pages</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#h">H</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#hooks-mkdocs">Hooks MkDocs</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#m">M</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#markdown">Markdown</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#mermaid">Mermaid</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#mkdocs">MkDocs</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#p">P</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#pdf-portable-document-format">PDF (Portable Document Format)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#pytest">Pytest</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#r">R</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#rgaa-referentiel-general-damelioration-de-laccessibilite">RGAA (Référentiel Général d'Amélioration de l'Accessibilité)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#s">S</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#span-schema-pluriannuel-daccessibilite-numerique">SPAN (Schéma Pluriannuel d'Accessibilité Numérique)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#w">W</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#weasyprint">WeasyPrint</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#acronymes">Acronymes</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#references">Références</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -1115,11 +1609,6 @@ libharfbuzz-dev<span class="w">     </span><span class="c1"># Text shaping</span
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "..";
