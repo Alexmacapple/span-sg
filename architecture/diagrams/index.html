@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../assets/custom.css" rel="stylesheet">
+    
 
     <title>Architecture - Diagrammes</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Architecture - Diagrammes
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Architecture - Diagrammes</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -403,12 +405,48 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#notes-techniques"
-                            target="_self"
-                            >Notes techniques</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            Notes techniques
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#diagrammes-mermaid"
+                                        target="_self"
+                                        >Diagrammes Mermaid</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#modification-diagrammes"
+                                        target="_self"
+                                        >Modification diagrammes</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#syntaxe-mermaid"
+                                        target="_self"
+                                        >Syntaxe Mermaid</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -431,6 +469,73 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#1-cicd-pipeline">1. CI/CD Pipeline</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#2-architecture-composants">2. Architecture Composants</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#3-workflow-git-branches">3. Workflow Git Branches</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#4-architecture-hooks-dsfr">4. Architecture Hooks DSFR</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#5-coverage-tests-par-module">5. Coverage Tests par Module</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#6-deploiement-github-pages">6. Déploiement GitHub Pages</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#notes-techniques">Notes techniques</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#diagrammes-mermaid">Diagrammes Mermaid</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#modification-diagrammes">Modification diagrammes</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#syntaxe-mermaid">Syntaxe Mermaid</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#references">Références</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -858,11 +963,6 @@ Dernière mise à jour: 2025-10-11</p>
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

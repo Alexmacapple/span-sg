@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../custom.css" rel="stylesheet">
+    
 
     <title>Guide Screenshots - SPAN SG</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Guide Screenshots - SPAN SG
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Guide Screenshots - SPAN SG</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -367,30 +369,138 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#categories-de-screenshots"
-                            target="_self"
-                            >Catégories de Screenshots</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            Catégories de Screenshots
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-github-interface"
+                                        target="_self"
+                                        >1. GitHub Interface</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-github-actions-cicd"
+                                        target="_self"
+                                        >2. GitHub Actions CI/CD</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-mkdocs-local"
+                                        target="_self"
+                                        >3. MkDocs Local</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#4-composants-dsfr"
+                                        target="_self"
+                                        >4. Composants DSFR</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#workflow-capture-detaille"
-                            target="_self"
-                            >Workflow Capture Détaillé</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Workflow Capture Détaillé
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-1-preparation"
+                                        target="_self"
+                                        >Étape 1 : Préparation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-2-capture"
+                                        target="_self"
+                                        >Étape 2 : Capture</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-3-optimisation"
+                                        target="_self"
+                                        >Étape 3 : Optimisation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#etape-4-nommage-et-placement"
+                                        target="_self"
+                                        >Étape 4 : Nommage et Placement</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#referencement-dans-documentation"
-                            target="_self"
-                            >Référencement dans Documentation</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            Référencement dans Documentation
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#syntaxe-markdown"
+                                        target="_self"
+                                        >Syntaxe Markdown</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -403,21 +513,75 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#exemples-cas-dusage"
-                            target="_self"
-                            >Exemples Cas d'Usage</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            Exemples Cas d'Usage
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-1-workflow-github-pr"
+                                        target="_self"
+                                        >Exemple 1 : Workflow GitHub PR</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-2-cicd-logs"
+                                        target="_self"
+                                        >Exemple 2 : CI/CD Logs</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#maintenance-screenshots"
-                            target="_self"
-                            >Maintenance Screenshots</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-8"
                         >
+                            Maintenance Screenshots
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-8"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quand-mettre-a-jour"
+                                        target="_self"
+                                        >Quand Mettre à Jour</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#versioning-assets"
+                                        target="_self"
+                                        >Versioning Assets</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -440,6 +604,134 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#objectif">Objectif</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#checklist-capture">Checklist Capture</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#categories-de-screenshots">Catégories de Screenshots</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#1-github-interface">1. GitHub Interface</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-github-actions-cicd">2. GitHub Actions CI/CD</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-mkdocs-local">3. MkDocs Local</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#4-composants-dsfr">4. Composants DSFR</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#workflow-capture-detaille">Workflow Capture Détaillé</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-1-preparation">Étape 1 : Préparation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-2-capture">Étape 2 : Capture</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-3-optimisation">Étape 3 : Optimisation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#etape-4-nommage-et-placement">Étape 4 : Nommage et Placement</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#referencement-dans-documentation">Référencement dans Documentation</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#syntaxe-markdown">Syntaxe Markdown</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#checklist-accessibilite-rgaa">Checklist Accessibilité RGAA</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#exemples-cas-dusage">Exemples Cas d'Usage</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-1-workflow-github-pr">Exemple 1 : Workflow GitHub PR</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-2-cicd-logs">Exemple 2 : CI/CD Logs</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#maintenance-screenshots">Maintenance Screenshots</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#quand-mettre-a-jour">Quand Mettre à Jour</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#versioning-assets">Versioning Assets</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#ressources">Ressources</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -924,11 +1216,6 @@ github-pr-creation-v1.1-1920x1080.png
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

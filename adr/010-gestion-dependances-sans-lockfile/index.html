@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../assets/custom.css" rel="stylesheet">
+    
 
     <title>ADR-010: Gestion dépendances sans lockfile</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 ADR-010: Gestion dépendances sans lockfile
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">ADR-010: Gestion dépendances sans lockfile</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -367,39 +369,165 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#justification"
-                            target="_self"
-                            >Justification</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            Justification
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#avantages-approche-sans-lockfile"
+                                        target="_self"
+                                        >Avantages approche sans lockfile</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#inconvenients-acceptes"
+                                        target="_self"
+                                        >Inconvénients acceptés</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#alternatives-considerees"
-                            target="_self"
-                            >Alternatives considérées</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Alternatives considérées
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#alternative-1-poetry-poetrylock"
+                                        target="_self"
+                                        >Alternative 1: Poetry + poetry.lock</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#alternative-2-pip-tools-requirementsin-requirementstxt"
+                                        target="_self"
+                                        >Alternative 2: pip-tools (requirements.in → requirements.txt)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#alternative-3-requirementslock-via-pip-freeze-manuel"
+                                        target="_self"
+                                        >Alternative 3: requirements.lock via pip freeze manuel</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#consequences"
-                            target="_self"
-                            >Conséquences</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            Conséquences
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#positives"
+                                        target="_self"
+                                        >Positives</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#negatives"
+                                        target="_self"
+                                        >Négatives</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#neutres"
+                                        target="_self"
+                                        >Neutres</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#validation"
-                            target="_self"
-                            >Validation</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            Validation
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#criteres-succes"
+                                        target="_self"
+                                        >Critères succès</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#monitoring"
+                                        target="_self"
+                                        >Monitoring</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -431,6 +559,113 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#contexte">Contexte</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#decision">Décision</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#justification">Justification</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#avantages-approche-sans-lockfile">Avantages approche sans lockfile</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#inconvenients-acceptes">Inconvénients acceptés</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#alternatives-considerees">Alternatives considérées</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#alternative-1-poetry-poetrylock">Alternative 1: Poetry + poetry.lock</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#alternative-2-pip-tools-requirementsin-requirementstxt">Alternative 2: pip-tools (requirements.in → requirements.txt)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#alternative-3-requirementslock-via-pip-freeze-manuel">Alternative 3: requirements.lock via pip freeze manuel</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#consequences">Conséquences</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#positives">Positives</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#negatives">Négatives</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#neutres">Neutres</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#validation">Validation</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#criteres-succes">Critères succès</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#monitoring">Monitoring</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#liens">Liens</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#revision">Révision</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -743,11 +978,6 @@ mkdocs-git-revision-date-localized-plugin&gt;=1.2.0
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

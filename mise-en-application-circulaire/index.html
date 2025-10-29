@@ -21,8 +21,10 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../assets/custom.css" rel="stylesheet">
+    
 
-    <title>Contexte réglementaire</title>
+    <title>Mise en application de la Circulaire du Premier Ministre (28 avril 2025)</title>
     
     
 </head>
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href=".."
+                href="../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,12 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="./"
+                href="../synthese/"
                 target="_self"
                 
-                aria-current="page"
-                
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -292,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -341,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Mise en application de la Circulaire du Premier Ministre (28 avril 2025)
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Mise en application de la Circulaire du Premier Ministre (28 avril 2025)</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -399,6 +399,37 @@
                 
 
                 
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#comite-ministeriel-du-handicap">Comité ministériel du handicap</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#schema-pluriannuel-daccessibilite-numerique-span">Schéma Pluriannuel d'Accessibilité Numérique (SPAN)</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#accompagnement-et-sensibilisation">Accompagnement et sensibilisation</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#salon-tchap-accessibilite-numerique-des-mef">Salon Tchap "Accessibilité numérique des MEF"</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
+
+                
 
                 
                         
@@ -449,17 +480,6 @@
                     </div>
                     <hr />
                     
-	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
-		<ul class="fr-pagination__list">
-			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../modules/srh/" title="SRH" >
-				Page précédente
-			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../processus/" title="Processus" >
-				Page suivante
-			</a></li>
-		</ul>
-	</nav>
-
                 </div>
             </div>
             <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
@@ -609,11 +629,6 @@
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "..";

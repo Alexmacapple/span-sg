@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../assets/custom.css" rel="stylesheet">
+    
 
     <title>Guide Onboarding Visuel - Contributeur SPAN SG</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href=".."
+                href="../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../mise-en-application-circulaire/"
+                href="../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Guide Onboarding Visuel - Contributeur SPAN SG
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Guide Onboarding Visuel - Contributeur SPAN SG</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -358,66 +360,327 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#etape-1-preparation-10-minutes"
-                            target="_self"
-                            >Étape 1 : Préparation (10 minutes)</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
                         >
+                            Étape 1 : Préparation (10 minutes)
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#11-comprendre-votre-role"
+                                        target="_self"
+                                        >1.1 Comprendre votre rôle</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#12-checklist-preparation"
+                                        target="_self"
+                                        >1.2 Checklist préparation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#13-ressources-utiles"
+                                        target="_self"
+                                        >1.3 Ressources utiles</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#etape-2-premiere-modification-15-minutes"
-                            target="_self"
-                            >Étape 2 : Première Modification (15 minutes)</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            Étape 2 : Première Modification (15 minutes)
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#21-interface-github-recommande"
+                                        target="_self"
+                                        >2.1 Interface GitHub (recommandé)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#22-exemple-modification"
+                                        target="_self"
+                                        >2.2 Exemple modification</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#etape-3-review-et-validation-2-5-jours"
-                            target="_self"
-                            >Étape 3 : Review et Validation (2-5 jours)</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Étape 3 : Review et Validation (2-5 jours)
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#31-cycle-de-review"
+                                        target="_self"
+                                        >3.1 Cycle de review</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#32-notifications-email"
+                                        target="_self"
+                                        >3.2 Notifications email</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#33-dashboard-pr"
+                                        target="_self"
+                                        >3.3 Dashboard PR</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#etape-4-cicd-automatique-10-minutes"
-                            target="_self"
-                            >Étape 4 : CI/CD Automatique (10 minutes)</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            Étape 4 : CI/CD Automatique (10 minutes)
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#41-pipeline-de-validation"
+                                        target="_self"
+                                        >4.1 Pipeline de validation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#42-monitoring-build"
+                                        target="_self"
+                                        >4.2 Monitoring build</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#43-logs-utiles"
+                                        target="_self"
+                                        >4.3 Logs utiles</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#etape-5-deploiement-production-sur-demande"
-                            target="_self"
-                            >Étape 5 : Déploiement Production (sur demande)</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            Étape 5 : Déploiement Production (sur demande)
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#51-de-draft-a-main"
+                                        target="_self"
+                                        >5.1 De draft à main</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#52-timeline-typique"
+                                        target="_self"
+                                        >5.2 Timeline typique</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#faq-contributeur"
-                            target="_self"
-                            >FAQ Contributeur</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            FAQ Contributeur
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#combien-de-temps-prend-une-contribution"
+                                        target="_self"
+                                        >Combien de temps prend une contribution ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#puis-je-voir-ma-contribution-avant-production"
+                                        target="_self"
+                                        >Puis-je voir ma contribution avant production ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#que-faire-si-ma-pr-est-rejetee"
+                                        target="_self"
+                                        >Que faire si ma PR est rejetée ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#puis-je-modifier-plusieurs-directions"
+                                        target="_self"
+                                        >Puis-je modifier plusieurs directions ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#puis-je-contribuer-sans-github"
+                                        target="_self"
+                                        >Puis-je contribuer sans GitHub ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#dois-je-installer-les-pre-commit-hooks"
+                                        target="_self"
+                                        >Dois-je installer les pre-commit hooks ?</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#ressources-et-support"
-                            target="_self"
-                            >Ressources et Support</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-8"
                         >
+                            Ressources et Support
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-8"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#documentation"
+                                        target="_self"
+                                        >Documentation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#contacts"
+                                        target="_self"
+                                        >Contacts</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#canaux-support"
+                                        target="_self"
+                                        >Canaux support</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -449,6 +712,183 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#parcours-contributeur">Parcours Contributeur</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#etape-1-preparation-10-minutes">Étape 1 : Préparation (10 minutes)</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#11-comprendre-votre-role">1.1 Comprendre votre rôle</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#12-checklist-preparation">1.2 Checklist préparation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#13-ressources-utiles">1.3 Ressources utiles</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#etape-2-premiere-modification-15-minutes">Étape 2 : Première Modification (15 minutes)</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#21-interface-github-recommande">2.1 Interface GitHub (recommandé)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#22-exemple-modification">2.2 Exemple modification</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#etape-3-review-et-validation-2-5-jours">Étape 3 : Review et Validation (2-5 jours)</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#31-cycle-de-review">3.1 Cycle de review</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#32-notifications-email">3.2 Notifications email</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#33-dashboard-pr">3.3 Dashboard PR</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#etape-4-cicd-automatique-10-minutes">Étape 4 : CI/CD Automatique (10 minutes)</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#41-pipeline-de-validation">4.1 Pipeline de validation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#42-monitoring-build">4.2 Monitoring build</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#43-logs-utiles">4.3 Logs utiles</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#etape-5-deploiement-production-sur-demande">Étape 5 : Déploiement Production (sur demande)</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#51-de-draft-a-main">5.1 De draft à main</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#52-timeline-typique">5.2 Timeline typique</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#faq-contributeur">FAQ Contributeur</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#combien-de-temps-prend-une-contribution">Combien de temps prend une contribution ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#puis-je-voir-ma-contribution-avant-production">Puis-je voir ma contribution avant production ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#que-faire-si-ma-pr-est-rejetee">Que faire si ma PR est rejetée ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#puis-je-modifier-plusieurs-directions">Puis-je modifier plusieurs directions ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#puis-je-contribuer-sans-github">Puis-je contribuer sans GitHub ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#dois-je-installer-les-pre-commit-hooks">Dois-je installer les pre-commit hooks ?</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#ressources-et-support">Ressources et Support</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#documentation">Documentation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#contacts">Contacts</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#canaux-support">Canaux support</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#diagramme-recapitulatif">Diagramme Récapitulatif</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#prochaines-etapes">Prochaines Étapes</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -1050,11 +1490,6 @@ Public cible: Contributeurs services (débutants Git)</p>
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "..";

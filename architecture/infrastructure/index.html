@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../assets/custom.css" rel="stylesheet">
+    
 
     <title>Architecture Infrastructure - Runtime et Déploiement</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Architecture Infrastructure - Runtime et Déploiement
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Architecture Infrastructure - Runtime et Déploiement</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -358,84 +360,345 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#2-cicd-runner-infrastructure"
-                            target="_self"
-                            >2. CI/CD Runner Infrastructure</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
                         >
+                            2. CI/CD Runner Infrastructure
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#github-actions-runner-specs"
+                                        target="_self"
+                                        >GitHub Actions Runner Specs</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#software-stack-runner"
+                                        target="_self"
+                                        >Software Stack Runner</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#3-build-pipeline-detaille"
-                            target="_self"
-                            >3. Build Pipeline Détaillé</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            3. Build Pipeline Détaillé
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phases-de-build"
+                                        target="_self"
+                                        >Phases de Build</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#temps-dexecution"
+                                        target="_self"
+                                        >Temps d'exécution</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#4-caching-strategy"
-                            target="_self"
-                            >4. Caching Strategy</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            4. Caching Strategy
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#docker-layer-cache"
+                                        target="_self"
+                                        >Docker Layer Cache</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#pip-dependencies-cache"
+                                        target="_self"
+                                        >Pip Dependencies Cache</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#build-cache-effectiveness"
+                                        target="_self"
+                                        >Build Cache Effectiveness</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#5-deploiement-github-pages"
-                            target="_self"
-                            >5. Déploiement GitHub Pages</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            5. Déploiement GitHub Pages
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#architecture-cdn"
+                                        target="_self"
+                                        >Architecture CDN</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#strategie-deploiement-avec-github-environments"
+                                        target="_self"
+                                        >Stratégie Déploiement avec GitHub Environments</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#urls-et-acces"
+                                        target="_self"
+                                        >URLs et Accès</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#6-ressources-et-quotas"
-                            target="_self"
-                            >6. Ressources et Quotas</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            6. Ressources et Quotas
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#github-actions-quotas"
+                                        target="_self"
+                                        >GitHub Actions Quotas</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#github-pages-quotas"
+                                        target="_self"
+                                        >GitHub Pages Quotas</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#7-monitoring-et-observabilite"
-                            target="_self"
-                            >7. Monitoring et Observabilité</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            7. Monitoring et Observabilité
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#metriques-cicd"
+                                        target="_self"
+                                        >Métriques CI/CD</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#health-checks"
+                                        target="_self"
+                                        >Health Checks</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#8-disaster-recovery"
-                            target="_self"
-                            >8. Disaster Recovery</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-8"
                         >
+                            8. Disaster Recovery
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-8"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#strategie-de-sauvegarde"
+                                        target="_self"
+                                        >Stratégie de Sauvegarde</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#procedure-recovery"
+                                        target="_self"
+                                        >Procédure Recovery</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#9-securite-infrastructure"
-                            target="_self"
-                            >9. Sécurité Infrastructure</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-9"
                         >
+                            9. Sécurité Infrastructure
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-9"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#secrets-management"
+                                        target="_self"
+                                        >Secrets Management</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#surface-dattaque"
+                                        target="_self"
+                                        >Surface d'Attaque</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#10-performance-et-optimisations"
-                            target="_self"
-                            >10. Performance et Optimisations</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-10"
                         >
+                            10. Performance et Optimisations
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-10"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#optimisations-appliquees"
+                                        target="_self"
+                                        >Optimisations Appliquées</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#performance-metrics"
+                                        target="_self"
+                                        >Performance Metrics</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -458,6 +721,188 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#1-vue-densemble-infrastructure">1. Vue d'ensemble Infrastructure</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#2-cicd-runner-infrastructure">2. CI/CD Runner Infrastructure</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#github-actions-runner-specs">GitHub Actions Runner Specs</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#software-stack-runner">Software Stack Runner</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#3-build-pipeline-detaille">3. Build Pipeline Détaillé</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#phases-de-build">Phases de Build</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#temps-dexecution">Temps d'exécution</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#4-caching-strategy">4. Caching Strategy</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#docker-layer-cache">Docker Layer Cache</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#pip-dependencies-cache">Pip Dependencies Cache</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#build-cache-effectiveness">Build Cache Effectiveness</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#5-deploiement-github-pages">5. Déploiement GitHub Pages</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#architecture-cdn">Architecture CDN</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#strategie-deploiement-avec-github-environments">Stratégie Déploiement avec GitHub Environments</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#urls-et-acces">URLs et Accès</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#6-ressources-et-quotas">6. Ressources et Quotas</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#github-actions-quotas">GitHub Actions Quotas</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#github-pages-quotas">GitHub Pages Quotas</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#7-monitoring-et-observabilite">7. Monitoring et Observabilité</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#metriques-cicd">Métriques CI/CD</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#health-checks">Health Checks</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#8-disaster-recovery">8. Disaster Recovery</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#strategie-de-sauvegarde">Stratégie de Sauvegarde</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#procedure-recovery">Procédure Recovery</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#9-securite-infrastructure">9. Sécurité Infrastructure</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#secrets-management">Secrets Management</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#surface-dattaque">Surface d'Attaque</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#10-performance-et-optimisations">10. Performance et Optimisations</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#optimisations-appliquees">Optimisations Appliquées</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#performance-metrics">Performance Metrics</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#references">Références</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -1207,11 +1652,6 @@ mkdocs<span class="w"> </span>build<span class="w"> </span>--config-file<span cl
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

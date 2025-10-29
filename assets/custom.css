@@ -1,1 +1,27 @@
 /* Styles minimaux spécifiques SPAN SG */
+
+/* Fix pour le menu latéral DSFR qui déborde sur le footer */
+/* Limite la hauteur du sidemenu sticky et ajoute un scroll si nécessaire */
+.fr-sidemenu--sticky-full-height {
+    max-height: calc(100vh - 250px);  /* Laisse de l'espace pour le header et footer */
+    overflow-y: auto;  /* Ajoute un scroll vertical si le contenu dépasse */
+    overflow-x: hidden;  /* Évite le scroll horizontal */
+}
+
+/* Amélioration du scroll dans le sidemenu */
+.fr-sidemenu--sticky-full-height::-webkit-scrollbar {
+    width: 8px;
+}
+
+.fr-sidemenu--sticky-full-height::-webkit-scrollbar-track {
+    background: var(--background-default-grey);
+}
+
+.fr-sidemenu--sticky-full-height::-webkit-scrollbar-thumb {
+    background: var(--border-default-grey);
+    border-radius: 4px;
+}
+
+.fr-sidemenu--sticky-full-height::-webkit-scrollbar-thumb:hover {
+    background: var(--text-action-high-grey);
+}

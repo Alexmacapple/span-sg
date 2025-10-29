@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../assets/custom.css" rel="stylesheet">
+    
 
     <title>mkdocs-dsfr 0.17.0</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 mkdocs-dsfr 0.17.0
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">mkdocs-dsfr 0.17.0</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -400,12 +402,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-2"
                 aria-expanded="true"
             >
                 Thème DSFR pour MkDocs
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-2">
                 <div class="fr-sidemenu__title">Thème DSFR pour MkDocs</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -428,30 +430,120 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#configuration-du-depot-et-des-liens-dedition"
-                            target="_self"
-                            >Configuration du dépôt et des liens d'édition</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            Configuration du dépôt et des liens d'édition
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#parametres-principaux"
+                                        target="_self"
+                                        >Paramètres principaux</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-de-configuration"
+                                        target="_self"
+                                        >Exemple de configuration</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#fonctionnement"
+                                        target="_self"
+                                        >Fonctionnement</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#configuration-du-theme-dsfr-mkdocs"
-                            target="_self"
-                            >Configuration du thème DSFR MkDocs</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Configuration du thème DSFR MkDocs
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#configuration-complete"
+                                        target="_self"
+                                        >Configuration complète</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#options-de-theme"
-                            target="_self"
-                            >Options de thème</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            Options de thème
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#options-generales"
+                                        target="_self"
+                                        >Options générales</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#options-den-tete"
+                                        target="_self"
+                                        >Options d'en-tête</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#options-de-pied-de-page"
+                                        target="_self"
+                                        >Options de pied de page</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -473,30 +565,183 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#options-du-theme"
-                            target="_self"
-                            >Options du thème</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-8"
                         >
+                            Options du thème
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-8"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#name_1"
+                                        target="_self"
+                                        >name</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#locale_1"
+                                        target="_self"
+                                        >locale</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#afficher_bouton_editer_1"
+                                        target="_self"
+                                        >afficher_bouton_editer</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#afficher_date_de_revision_1"
+                                        target="_self"
+                                        >afficher_date_de_revision</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#afficher_menu_lateral_1"
+                                        target="_self"
+                                        >afficher_menu_lateral</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#afficher_sommaire"
+                                        target="_self"
+                                        >afficher_sommaire</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#bouton_hautdepage_1"
+                                        target="_self"
+                                        >bouton_hautdepage</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#include_search_page_1"
+                                        target="_self"
+                                        >include_search_page</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#libelle_bouton_editer_1"
+                                        target="_self"
+                                        >libelle_bouton_editer</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#intitule_1"
+                                        target="_self"
+                                        >intitule</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#options-de-len-tete-avec-header"
-                            target="_self"
-                            >Options de l'en-tête avec header</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-9"
                         >
+                            Options de l'en-tête avec header
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-9"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#titre"
+                                        target="_self"
+                                        >titre</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#sous_titre"
+                                        target="_self"
+                                        >sous_titre</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#options-du-pied-de-page-avec-footer"
-                            target="_self"
-                            >Options du pied de page avec footer</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-10"
                         >
+                            Options du pied de page avec footer
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-10"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#description"
+                                        target="_self"
+                                        >description</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#links"
+                                        target="_self"
+                                        >links</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -518,12 +763,147 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#les-composants-dsfr"
-                            target="_self"
-                            >Les composants DSFR</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-13"
                         >
+                            Les composants DSFR
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-13"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#generalite"
+                                        target="_self"
+                                        >Généralité</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#accordeon"
+                                        target="_self"
+                                        >Accordéon</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#alerte"
+                                        target="_self"
+                                        >Alerte</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#badge"
+                                        target="_self"
+                                        >Badge</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#composant-bandeau-dinformation-importante"
+                                        target="_self"
+                                        >Composant bandeau d'information importante</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#carte"
+                                        target="_self"
+                                        >Carte</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#composant-citation"
+                                        target="_self"
+                                        >Composant Citation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#fil-dariane"
+                                        target="_self"
+                                        >Fil d'ariane</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#le-systeme-de-grille_1"
+                                        target="_self"
+                                        >Le système de grille</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#medias"
+                                        target="_self"
+                                        >Médias</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#menu-lateral"
+                                        target="_self"
+                                        >Menu latéral</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#mise-en-avant-simple"
+                                        target="_self"
+                                        >Mise en avant simple</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#sommaire"
+                                        target="_self"
+                                        >Sommaire</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#composant-tuile"
+                                        target="_self"
+                                        >Composant Tuile</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                      
                 </ul>
@@ -537,6 +917,277 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#source">Source :</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#site-de-documentation-du-theme-mkdocs-dsfr">Site de documentation du thème Mkdocs DSFR :</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#projet-dexemple">Projet d'exemple</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#url-depot">URL dépôt</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#guide-configuration-mkdocs">Guide configuration MKDOCS</a>
+      
+    </li>
+    
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#description-du-projet">Description du projet</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#demarrage-rapide">Démarrage rapide</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#configuration-du-depot-et-des-liens-dedition">Configuration du dépôt et des liens d'édition</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#parametres-principaux">Paramètres principaux</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-de-configuration">Exemple de configuration</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#fonctionnement">Fonctionnement</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#configuration-du-theme-dsfr-mkdocs">Configuration du thème DSFR MkDocs</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#configuration-complete">Configuration complète</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#options-de-theme">Options de thème</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#options-generales">Options générales</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#options-den-tete">Options d'en-tête</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#options-de-pied-de-page">Options de pied de page</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#exemple-dutilisation">Exemple d'utilisation</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#site_name-mon-site-dsfr-theme-name-dsfr-intitule-republique-br-francaise-header-titre-mon-service-public-sous_titre-documentation-officielle-footer-description-documentation-du-service-public-links-name-service-publicfr-url-httpsservice-publicfr">site_name: Mon site DSFR theme: name: dsfr intitule: &quot;République &lt;br&gt; française&quot; header: titre: &quot;Mon service public&quot; sous_titre: &quot;Documentation officielle&quot; footer: description: &quot;Documentation du service public&quot; links: - name: service-public.fr url: https://service-public.fr</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#options-du-theme">Options du thème</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#name_1">name</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#locale_1">locale</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#afficher_bouton_editer_1">afficher_bouton_editer</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#afficher_date_de_revision_1">afficher_date_de_revision</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#afficher_menu_lateral_1">afficher_menu_lateral</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#afficher_sommaire">afficher_sommaire</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#bouton_hautdepage_1">bouton_hautdepage</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#include_search_page_1">include_search_page</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#libelle_bouton_editer_1">libelle_bouton_editer</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#intitule_1">intitule</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#options-de-len-tete-avec-header">Options de l'en-tête avec header</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#titre">titre</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#sous_titre">sous_titre</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#options-du-pied-de-page-avec-footer">Options du pied de page avec footer</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#description">description</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#links">links</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#menu-de-navigation-principal">Menu de navigation principal</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#le-systeme-de-grille">Le système de grille</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#les-composants-dsfr">Les composants DSFR</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#generalite">Généralité</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#accordeon">Accordéon</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#alerte">Alerte</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#badge">Badge</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#composant-bandeau-dinformation-importante">Composant bandeau d'information importante</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#carte">Carte</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#composant-citation">Composant Citation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#fil-dariane">Fil d'ariane</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#le-systeme-de-grille_1">Le système de grille</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#medias">Médias</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#menu-lateral">Menu latéral</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#mise-en-avant-simple">Mise en avant simple</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#sommaire">Sommaire</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#composant-tuile">Composant Tuile</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -1069,11 +1720,6 @@ Contenu de la page avec le menu latéral, le fil d&#39;Ariane et le sommaire.
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

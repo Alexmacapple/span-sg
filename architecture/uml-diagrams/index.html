@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../assets/custom.css" rel="stylesheet">
+    
 
     <title>Architecture UML - Diagrammes Classes et États</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Architecture UML - Diagrammes Classes et États
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Architecture UML - Diagrammes Classes et États</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -358,21 +360,102 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#1-diagrammes-de-classes"
-                            target="_self"
-                            >1. Diagrammes de Classes</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
                         >
+                            1. Diagrammes de Classes
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#11-module-calculate_scorespy"
+                                        target="_self"
+                                        >1.1 Module calculate_scores.py</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#12-hook-dsfr_table_wrapperpy"
+                                        target="_self"
+                                        >1.2 Hook dsfr_table_wrapper.py</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#13-hook-title_cleanerpy"
+                                        target="_self"
+                                        >1.3 Hook title_cleaner.py</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#14-script-enrich_pdf_metadatapy"
+                                        target="_self"
+                                        >1.4 Script enrich_pdf_metadata.py</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#2-diagrammes-detats"
-                            target="_self"
-                            >2. Diagrammes d'États</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            2. Diagrammes d'États
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#21-etats-pr-pull-request-workflow"
+                                        target="_self"
+                                        >2.1 États PR (Pull Request Workflow)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#22-etats-cicd-pipeline"
+                                        target="_self"
+                                        >2.2 États CI/CD Pipeline</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#23-etats-validation-module"
+                                        target="_self"
+                                        >2.3 États Validation Module</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -422,6 +505,88 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#introduction-uml">Introduction UML</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#1-diagrammes-de-classes">1. Diagrammes de Classes</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#11-module-calculate_scorespy">1.1 Module calculate_scores.py</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#12-hook-dsfr_table_wrapperpy">1.2 Hook dsfr_table_wrapper.py</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#13-hook-title_cleanerpy">1.3 Hook title_cleaner.py</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#14-script-enrich_pdf_metadatapy">1.4 Script enrich_pdf_metadata.py</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#2-diagrammes-detats">2. Diagrammes d'États</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#21-etats-pr-pull-request-workflow">2.1 États PR (Pull Request Workflow)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#22-etats-cicd-pipeline">2.2 États CI/CD Pipeline</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#23-etats-validation-module">2.3 États Validation Module</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#3-diagramme-sequence-generation-pdf">3. Diagramme Séquence : Génération PDF</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#4-diagramme-activite-workflow-contributeur">4. Diagramme Activité : Workflow Contributeur</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#5-diagramme-composants-architecture-scripts">5. Diagramme Composants : Architecture Scripts</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#references">Références</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -1295,11 +1460,6 @@ Standard: <a href="https://www.omg.org/spec/UML/">UML 2.5</a></p>
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

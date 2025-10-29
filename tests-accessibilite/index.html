@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../assets/custom.css" rel="stylesheet">
+    
 
     <title>Tests d'accessibilité SPAN SG</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href=".."
+                href="../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../mise-en-application-circulaire/"
+                href="../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Tests d'accessibilité SPAN SG
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Tests d'accessibilité SPAN SG</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -358,12 +360,48 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#tests-implementes"
-                            target="_self"
-                            >Tests implémentés</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
                         >
+                            Tests implémentés
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-homepage-wcag-5-tests"
+                                        target="_self"
+                                        >1. Homepage WCAG (5 tests)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-synthese-table-dsfr-4-tests"
+                                        target="_self"
+                                        >2. Synthese Table DSFR (4 tests)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-pdf-metadata-rgaa-3-tests"
+                                        target="_self"
+                                        >3. PDF Metadata RGAA (3 tests)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -376,12 +414,39 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#usage-local"
-                            target="_self"
-                            >Usage local</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Usage local
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#prerequis"
+                                        target="_self"
+                                        >Prérequis</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#executer-les-tests"
+                                        target="_self"
+                                        >Exécuter les tests</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -394,21 +459,84 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#couverture-rgaa"
-                            target="_self"
-                            >Couverture RGAA</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            Couverture RGAA
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#automatisables-60-65"
+                                        target="_self"
+                                        >Automatisables (60-65%)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#non-automatisables-35-40"
+                                        target="_self"
+                                        >Non automatisables (35-40%)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#roadmap"
-                            target="_self"
-                            >Roadmap</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            Roadmap
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-1-monitoring-termine-le-2025-10-20"
+                                        target="_self"
+                                        >Phase 1 : Monitoring ✅ (terminé le 2025-10-20)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-2-surveillance-active-actuel-v120"
+                                        target="_self"
+                                        >Phase 2 : Surveillance active 🔄 (actuel - v1.2.0)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-3-optimisation-certification-v200"
+                                        target="_self"
+                                        >Phase 3 : Optimisation &amp; Certification (v2.0.0)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -440,6 +568,118 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#vue-densemble">Vue d'ensemble</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#tests-implementes">Tests implémentés</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#1-homepage-wcag-5-tests">1. Homepage WCAG (5 tests)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-synthese-table-dsfr-4-tests">2. Synthese Table DSFR (4 tests)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-pdf-metadata-rgaa-3-tests">3. PDF Metadata RGAA (3 tests)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#installation">Installation</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#usage-local">Usage local</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#prerequis">Prérequis</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#executer-les-tests">Exécuter les tests</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#integration-cicd">Intégration CI/CD</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#couverture-rgaa">Couverture RGAA</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#automatisables-60-65">Automatisables (60-65%)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#non-automatisables-35-40">Non automatisables (35-40%)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#roadmap">Roadmap</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-1-monitoring-termine-le-2025-10-20">Phase 1 : Monitoring ✅ (terminé le 2025-10-20)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-2-surveillance-active-actuel-v120">Phase 2 : Surveillance active 🔄 (actuel - v1.2.0)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-3-optimisation-certification-v200">Phase 3 : Optimisation &amp; Certification (v2.0.0)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#references">Références</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#support">Support</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -723,11 +963,6 @@ Issues : https://github.com/Alexmacapple/span-sg-repo/issues</p>
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "..";

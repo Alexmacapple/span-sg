@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../../assets/custom.css" rel="stylesheet">
+    
 
     <title>DU RAN - Préparer un budget accessibilité</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../.."
+                href="../../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../../mise-en-application-circulaire/"
+                href="../../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 DU RAN - Préparer un budget accessibilité
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">DU RAN - Préparer un budget accessibilité</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -358,48 +360,264 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#programme"
-                            target="_self"
-                            >Programme</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
                         >
+                            Programme
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-rappel-et-contextualisation"
+                                        target="_self"
+                                        >1. Rappel et contextualisation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-preparer-le-budget"
+                                        target="_self"
+                                        >2. Préparer le budget</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-presentation-du-budget"
+                                        target="_self"
+                                        >3. Présentation du budget</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#4-conclusion"
+                                        target="_self"
+                                        >4. Conclusion</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#i-rappel-et-contextualisation"
-                            target="_self"
-                            >I. Rappel et contextualisation</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            I. Rappel et contextualisation
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#le-span-schema-pluriannuel-daccessibilite-numerique"
+                                        target="_self"
+                                        >Le SPAN (Schéma Pluriannuel d'Accessibilité Numérique)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quizz-1-existe-t-il-le-bon-moment-pour-construire-un-span"
+                                        target="_self"
+                                        >Quizz 1 : Existe-t-il le "bon" moment pour construire un SPAN ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quizz-2-qui-embarquer-dans-la-construction-du-span"
+                                        target="_self"
+                                        >Quizz 2 : Qui embarquer dans la construction du SPAN ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quizz-3-quel-est-le-principal-paradoxe-du-1er-span"
+                                        target="_self"
+                                        >Quizz 3 : Quel est le principal paradoxe du 1er SPAN ?</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#ii-preparer-le-budget"
-                            target="_self"
-                            >II. Préparer le budget</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            II. Préparer le budget
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quizz-4-par-ou-commencer-quest-ce-qui-est-chiffrable"
+                                        target="_self"
+                                        >Quizz 4 : Par où commencer ? Qu'est-ce qui est chiffrable ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quest-ce-qui-est-chiffrable-partie-12"
+                                        target="_self"
+                                        >Qu'est-ce qui est chiffrable ? (Partie 1/2)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quizz-5-peut-on-chiffrer-dautres-choses"
+                                        target="_self"
+                                        >Quizz 5 : Peut-on chiffrer d'autres choses ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quest-ce-qui-est-chiffrable-partie-22"
+                                        target="_self"
+                                        >Qu'est-ce qui est chiffrable ? (Partie 2/2)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#luf-ou-la-poule"
+                                        target="_self"
+                                        >L'œuf ou la poule ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quest-ce-qui-est-chiffrable-immediatement-12"
+                                        target="_self"
+                                        >Qu'est-ce qui est chiffrable immédiatement ? (1/2)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quest-ce-qui-est-chiffrable-apres-experimentation"
+                                        target="_self"
+                                        >Qu'est-ce qui est chiffrable après expérimentation ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#des-couts-lies-a-la-maturite-de-lorganisation"
+                                        target="_self"
+                                        >Des coûts liés à la maturité de l'organisation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#des-couts-de-pilotage"
+                                        target="_self"
+                                        >Des coûts de pilotage</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#iii-presenter-le-projet-de-span"
-                            target="_self"
-                            >III. Présenter le projet de SPAN</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            III. Présenter le projet de SPAN
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#priorisation-dans-la-presentation"
+                                        target="_self"
+                                        >Priorisation dans la présentation</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#conclusion"
-                            target="_self"
-                            >Conclusion</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            Conclusion
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#points-cles-a-retenir"
+                                        target="_self"
+                                        >Points clés à retenir</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -422,6 +640,148 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#objectif-du-module">Objectif du module</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#programme">Programme</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#1-rappel-et-contextualisation">1. Rappel et contextualisation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-preparer-le-budget">2. Préparer le budget</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-presentation-du-budget">3. Présentation du budget</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#4-conclusion">4. Conclusion</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#i-rappel-et-contextualisation">I. Rappel et contextualisation</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#le-span-schema-pluriannuel-daccessibilite-numerique">Le SPAN (Schéma Pluriannuel d'Accessibilité Numérique)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#quizz-1-existe-t-il-le-bon-moment-pour-construire-un-span">Quizz 1 : Existe-t-il le "bon" moment pour construire un SPAN ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#quizz-2-qui-embarquer-dans-la-construction-du-span">Quizz 2 : Qui embarquer dans la construction du SPAN ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#quizz-3-quel-est-le-principal-paradoxe-du-1er-span">Quizz 3 : Quel est le principal paradoxe du 1er SPAN ?</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#ii-preparer-le-budget">II. Préparer le budget</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#quizz-4-par-ou-commencer-quest-ce-qui-est-chiffrable">Quizz 4 : Par où commencer ? Qu'est-ce qui est chiffrable ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#quest-ce-qui-est-chiffrable-partie-12">Qu'est-ce qui est chiffrable ? (Partie 1/2)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#quizz-5-peut-on-chiffrer-dautres-choses">Quizz 5 : Peut-on chiffrer d'autres choses ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#quest-ce-qui-est-chiffrable-partie-22">Qu'est-ce qui est chiffrable ? (Partie 2/2)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#luf-ou-la-poule">L'œuf ou la poule ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#quest-ce-qui-est-chiffrable-immediatement-12">Qu'est-ce qui est chiffrable immédiatement ? (1/2)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#quest-ce-qui-est-chiffrable-apres-experimentation">Qu'est-ce qui est chiffrable après expérimentation ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#des-couts-lies-a-la-maturite-de-lorganisation">Des coûts liés à la maturité de l'organisation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#des-couts-de-pilotage">Des coûts de pilotage</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#iii-presenter-le-projet-de-span">III. Présenter le projet de SPAN</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#priorisation-dans-la-presentation">Priorisation dans la présentation</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#conclusion">Conclusion</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#points-cles-a-retenir">Points clés à retenir</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#questions">Questions</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -865,11 +1225,6 @@
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../../..";

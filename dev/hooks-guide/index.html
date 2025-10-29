@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../assets/custom.css" rel="stylesheet">
+    
 
     <title>Guide Développeur - Hooks MkDocs</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Guide Développeur - Hooks MkDocs
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Guide Développeur - Hooks MkDocs</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -367,84 +369,399 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#cycle-de-vie-hooks-mkdocs"
-                            target="_self"
-                            >Cycle de vie hooks MkDocs</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            Cycle de vie hooks MkDocs
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#hooks-disponibles"
+                                        target="_self"
+                                        >Hooks disponibles</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#hooks-utilises-par-span-sg"
+                                        target="_self"
+                                        >Hooks utilisés par SPAN SG</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#configuration"
-                            target="_self"
-                            >Configuration</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Configuration
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#mkdocs-dsfryml"
+                                        target="_self"
+                                        >mkdocs-dsfr.yml</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#creer-un-nouveau-hook"
-                            target="_self"
-                            >Créer un nouveau hook</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            Créer un nouveau hook
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#template-de-base"
+                                        target="_self"
+                                        >Template de base</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#exemple-complet-link_externalpy"
+                                        target="_self"
+                                        >Exemple complet: link_external.py</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#tests-obligatoires"
-                            target="_self"
-                            >Tests obligatoires</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            Tests obligatoires
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#template-test"
+                                        target="_self"
+                                        >Template test</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#execution-tests"
+                                        target="_self"
+                                        >Exécution tests</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#bonnes-pratiques"
-                            target="_self"
-                            >Bonnes pratiques</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            Bonnes pratiques
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-regex-compiles-performance"
+                                        target="_self"
+                                        >1. Regex compilés (performance)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-type-hints-modernes-pep-563"
+                                        target="_self"
+                                        >2. Type hints modernes (PEP 563)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-lookaheadlookbehind-eviter-double-traitement"
+                                        target="_self"
+                                        >3. Lookahead/lookbehind (éviter double traitement)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#4-flags-regex-appropries"
+                                        target="_self"
+                                        >4. Flags regex appropriés</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#5-docstrings-completes"
+                                        target="_self"
+                                        >5. Docstrings complètes</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#debugging"
-                            target="_self"
-                            >Debugging</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-8"
                         >
+                            Debugging
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-8"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#logs"
+                                        target="_self"
+                                        >Logs</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#tests-locaux"
+                                        target="_self"
+                                        >Tests locaux</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#desactiver-hook-temporairement"
+                                        target="_self"
+                                        >Désactiver hook temporairement</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#checklist-ajout-hook"
-                            target="_self"
-                            >Checklist ajout hook</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-9"
                         >
+                            Checklist ajout hook
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-9"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-1-developpement"
+                                        target="_self"
+                                        >Phase 1: Développement</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-2-validation"
+                                        target="_self"
+                                        >Phase 2: Validation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-3-integration"
+                                        target="_self"
+                                        >Phase 3: Intégration</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-4-ci"
+                                        target="_self"
+                                        >Phase 4: CI</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#checklist-modification-hook"
-                            target="_self"
-                            >Checklist modification hook</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-10"
                         >
+                            Checklist modification hook
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-10"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-1-modifications"
+                                        target="_self"
+                                        >Phase 1: Modifications</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-2-documentation"
+                                        target="_self"
+                                        >Phase 2: Documentation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-3-validation"
+                                        target="_self"
+                                        >Phase 3: Validation</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#erreurs-frequentes"
-                            target="_self"
-                            >Erreurs fréquentes</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-11"
                         >
+                            Erreurs fréquentes
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-11"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#erreur-1-import-circulaire"
+                                        target="_self"
+                                        >Erreur 1: Import circulaire</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#erreur-2-regex-non-greedy-oublie"
+                                        target="_self"
+                                        >Erreur 2: Regex non-greedy oublié</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#erreur-3-oublier-flags-redotall"
+                                        target="_self"
+                                        >Erreur 3: Oublier flags re.DOTALL</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#erreur-4-modifier-html-sans-retourner"
+                                        target="_self"
+                                        >Erreur 4: Modifier HTML sans retourner</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -467,6 +784,217 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#introduction">Introduction</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#architecture-hooks">Architecture hooks/</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#cycle-de-vie-hooks-mkdocs">Cycle de vie hooks MkDocs</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#hooks-disponibles">Hooks disponibles</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#hooks-utilises-par-span-sg">Hooks utilisés par SPAN SG</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#configuration">Configuration</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#mkdocs-dsfryml">mkdocs-dsfr.yml</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#creer-un-nouveau-hook">Créer un nouveau hook</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#template-de-base">Template de base</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#exemple-complet-link_externalpy">Exemple complet: link_external.py</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#tests-obligatoires">Tests obligatoires</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#template-test">Template test</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#execution-tests">Exécution tests</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#bonnes-pratiques">Bonnes pratiques</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#1-regex-compiles-performance">1. Regex compilés (performance)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-type-hints-modernes-pep-563">2. Type hints modernes (PEP 563)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-lookaheadlookbehind-eviter-double-traitement">3. Lookahead/lookbehind (éviter double traitement)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#4-flags-regex-appropries">4. Flags regex appropriés</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#5-docstrings-completes">5. Docstrings complètes</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#debugging">Debugging</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#logs">Logs</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#tests-locaux">Tests locaux</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#desactiver-hook-temporairement">Désactiver hook temporairement</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#checklist-ajout-hook">Checklist ajout hook</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-1-developpement">Phase 1: Développement</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-2-validation">Phase 2: Validation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-3-integration">Phase 3: Intégration</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-4-ci">Phase 4: CI</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#checklist-modification-hook">Checklist modification hook</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-1-modifications">Phase 1: Modifications</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-2-documentation">Phase 2: Documentation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-3-validation">Phase 3: Validation</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#erreurs-frequentes">Erreurs fréquentes</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#erreur-1-import-circulaire">Erreur 1: Import circulaire</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#erreur-2-regex-non-greedy-oublie">Erreur 2: Regex non-greedy oublié</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#erreur-3-oublier-flags-redotall">Erreur 3: Oublier flags re.DOTALL</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#erreur-4-modifier-html-sans-retourner">Erreur 4: Modifier HTML sans retourner</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#references">Références</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -1076,11 +1604,6 @@ grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;fr-
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";

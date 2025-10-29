@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../assets/custom.css" rel="stylesheet">
+    
 
     <title>Processus</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href=".."
+                href="../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../mise-en-application-circulaire/"
+                href="../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -292,16 +304,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -341,12 +343,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 Processus de mise en œuvre du SPAN
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">Processus de mise en œuvre du SPAN</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -360,93 +362,570 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#1-introduction"
-                            target="_self"
-                            >1. Introduction</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
                         >
+                            1. Introduction
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quest-ce-que-le-processus-span"
+                                        target="_self"
+                                        >Qu'est-ce que le processus SPAN ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#objectifs-du-processus"
+                                        target="_self"
+                                        >Objectifs du processus</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#cycle-de-vie"
+                                        target="_self"
+                                        >Cycle de vie</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#2-avant-de-demarrer-6-actions-prealables-indispensables"
-                            target="_self"
-                            >2. Avant de démarrer : 6 actions préalables indispensables</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            2. Avant de démarrer : 6 actions préalables indispensables
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#21-obtenir-lengagement-de-la-direction"
+                                        target="_self"
+                                        >2.1 Obtenir l'engagement de la Direction</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#22-identifier-et-nommer-lela-ran"
+                                        target="_self"
+                                        >2.2 Identifier et nommer le/la RAN</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#23-constituer-lecosysteme-dacteurs"
+                                        target="_self"
+                                        >2.3 Constituer l'écosystème d'acteurs</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#24-realiser-letat-des-lieux-initial"
+                                        target="_self"
+                                        >2.4 Réaliser l'état des lieux initial</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#25-preparer-le-budget-pluriannuel"
+                                        target="_self"
+                                        >2.5 Préparer le budget pluriannuel</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#26-definir-les-indicateurs-smart"
+                                        target="_self"
+                                        >2.6 Définir les indicateurs SMART</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#3-les-4-phases-du-processus-methodologie-wai"
-                            target="_self"
-                            >3. Les 4 phases du processus (méthodologie WAI)</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            3. Les 4 phases du processus (méthodologie WAI)
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-1-initier-mois-1-3"
+                                        target="_self"
+                                        >Phase 1 : INITIER (Mois 1-3)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-2-planifier-mois-4-6"
+                                        target="_self"
+                                        >Phase 2 : PLANIFIER (Mois 4-6)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-3-mettre-en-uvre-annees-1-3"
+                                        target="_self"
+                                        >Phase 3 : METTRE EN ŒUVRE (Années 1-3)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#phase-4-maintenir-annee-3-et-au-dela"
+                                        target="_self"
+                                        >Phase 4 : MAINTENIR (Année 3 et au-delà)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#4-acteurs-et-gouvernance"
-                            target="_self"
-                            >4. Acteurs et gouvernance</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-5"
                         >
+                            4. Acteurs et gouvernance
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-5"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#referente-accessibilite-numerique-ran"
+                                        target="_self"
+                                        >Référent·e Accessibilité Numérique (RAN)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#comite-de-pilotage-span"
+                                        target="_self"
+                                        >Comité de pilotage SPAN</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#reseau-dambassadeurs"
+                                        target="_self"
+                                        >Réseau d'ambassadeurs</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#parties-prenantes-externes"
+                                        target="_self"
+                                        >Parties prenantes externes</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#5-indicateurs-de-suivi"
-                            target="_self"
-                            >5. Indicateurs de suivi</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-6"
                         >
+                            5. Indicateurs de suivi
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-6"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#indicateurs-de-conformite-resultat"
+                                        target="_self"
+                                        >Indicateurs de conformité (résultat)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#indicateurs-de-capacite-moyens"
+                                        target="_self"
+                                        >Indicateurs de capacité (moyens)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#indicateurs-dimpact-benefices"
+                                        target="_self"
+                                        >Indicateurs d'impact (bénéfices)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#dashboard-de-pilotage-exemple"
+                                        target="_self"
+                                        >Dashboard de pilotage (exemple)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#6-ressources-et-outils"
-                            target="_self"
-                            >6. Ressources et outils</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            6. Ressources et outils
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#guides-detailles-disponibles-dans-documentation"
+                                        target="_self"
+                                        >Guides détaillés disponibles (dans /documentation)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#templates-fournis"
+                                        target="_self"
+                                        >Templates fournis</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#outils-techniques-recommandes"
+                                        target="_self"
+                                        >Outils techniques recommandés</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#formations-recommandees"
+                                        target="_self"
+                                        >Formations recommandées</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#communautes-et-veille"
+                                        target="_self"
+                                        >Communautés et veille</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#7-diagrammes-de-synthese"
-                            target="_self"
-                            >7. Diagrammes de synthèse</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-8"
                         >
+                            7. Diagrammes de synthèse
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-8"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#diagramme-1-vue-densemble-du-processus-span"
+                                        target="_self"
+                                        >Diagramme 1 : Vue d'ensemble du processus SPAN</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#diagramme-2-gestion-des-demandes-usagers"
+                                        target="_self"
+                                        >Diagramme 2 : Gestion des demandes usagers</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#diagramme-3-ecosysteme-dacteurs"
+                                        target="_self"
+                                        >Diagramme 3 : Écosystème d'acteurs</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#8-pour-demarrer-rapidement"
-                            target="_self"
-                            >8. Pour démarrer rapidement</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-9"
                         >
+                            8. Pour démarrer rapidement
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-9"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#checklist-ran-nouveaunouvelle-semaine-1"
+                                        target="_self"
+                                        >Checklist RAN nouveau/nouvelle (Semaine 1)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#checklist-mois-1-consolidation"
+                                        target="_self"
+                                        >Checklist Mois 1 (consolidation)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#checklist-mois-2-3-planification"
+                                        target="_self"
+                                        >Checklist Mois 2-3 (planification)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#checklist-mois-4-6-lancement"
+                                        target="_self"
+                                        >Checklist Mois 4-6 (lancement)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#9-questions-frequentes-faq"
-                            target="_self"
-                            >9. Questions fréquentes (FAQ)</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-10"
                         >
+                            9. Questions fréquentes (FAQ)
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-10"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#qui-peut-etre-ran"
+                                        target="_self"
+                                        >Qui peut être RAN ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#combien-coute-un-span-sur-3-ans"
+                                        target="_self"
+                                        >Combien coûte un SPAN sur 3 ans ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#combien-de-temps-pour-atteindre-100-conformite"
+                                        target="_self"
+                                        >Combien de temps pour atteindre 100% conformité ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#que-se-passe-t-il-si-on-ne-publie-pas-de-span"
+                                        target="_self"
+                                        >Que se passe-t-il si on ne publie pas de SPAN ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#peut-on-sous-traiter-tout-a-un-prestataire"
+                                        target="_self"
+                                        >Peut-on sous-traiter tout à un prestataire ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#comment-gerer-la-resistance-au-changement"
+                                        target="_self"
+                                        >Comment gérer la résistance au changement ?</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#quelle-difference-entre-span-et-declaration-daccessibilite"
+                                        target="_self"
+                                        >Quelle différence entre SPAN et déclaration d'accessibilité ?</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#10-conclusion"
-                            target="_self"
-                            >10. Conclusion</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-11"
                         >
+                            10. Conclusion
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-11"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#synthese-des-points-cles"
+                                        target="_self"
+                                        >Synthèse des points-clés</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#prochaines-etapes"
+                                        target="_self"
+                                        >Prochaines étapes</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#ressources-de-support"
+                                        target="_self"
+                                        >Ressources de support</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                      
                 </ul>
@@ -460,6 +939,284 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#glossaire-des-acronymes">Glossaire des acronymes</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#1-introduction">1. Introduction</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#quest-ce-que-le-processus-span">Qu'est-ce que le processus SPAN ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#objectifs-du-processus">Objectifs du processus</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#cycle-de-vie">Cycle de vie</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#2-avant-de-demarrer-6-actions-prealables-indispensables">2. Avant de démarrer : 6 actions préalables indispensables</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#21-obtenir-lengagement-de-la-direction">2.1 Obtenir l'engagement de la Direction</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#22-identifier-et-nommer-lela-ran">2.2 Identifier et nommer le/la RAN</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#23-constituer-lecosysteme-dacteurs">2.3 Constituer l'écosystème d'acteurs</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#24-realiser-letat-des-lieux-initial">2.4 Réaliser l'état des lieux initial</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#25-preparer-le-budget-pluriannuel">2.5 Préparer le budget pluriannuel</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#26-definir-les-indicateurs-smart">2.6 Définir les indicateurs SMART</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#3-les-4-phases-du-processus-methodologie-wai">3. Les 4 phases du processus (méthodologie WAI)</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-1-initier-mois-1-3">Phase 1 : INITIER (Mois 1-3)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-2-planifier-mois-4-6">Phase 2 : PLANIFIER (Mois 4-6)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-3-mettre-en-uvre-annees-1-3">Phase 3 : METTRE EN ŒUVRE (Années 1-3)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#phase-4-maintenir-annee-3-et-au-dela">Phase 4 : MAINTENIR (Année 3 et au-delà)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#4-acteurs-et-gouvernance">4. Acteurs et gouvernance</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#referente-accessibilite-numerique-ran">Référent·e Accessibilité Numérique (RAN)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#comite-de-pilotage-span">Comité de pilotage SPAN</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#reseau-dambassadeurs">Réseau d'ambassadeurs</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#parties-prenantes-externes">Parties prenantes externes</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#5-indicateurs-de-suivi">5. Indicateurs de suivi</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#indicateurs-de-conformite-resultat">Indicateurs de conformité (résultat)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#indicateurs-de-capacite-moyens">Indicateurs de capacité (moyens)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#indicateurs-dimpact-benefices">Indicateurs d'impact (bénéfices)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#dashboard-de-pilotage-exemple">Dashboard de pilotage (exemple)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#6-ressources-et-outils">6. Ressources et outils</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#guides-detailles-disponibles-dans-documentation">Guides détaillés disponibles (dans /documentation)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#templates-fournis">Templates fournis</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#outils-techniques-recommandes">Outils techniques recommandés</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#formations-recommandees">Formations recommandées</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#communautes-et-veille">Communautés et veille</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#7-diagrammes-de-synthese">7. Diagrammes de synthèse</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#diagramme-1-vue-densemble-du-processus-span">Diagramme 1 : Vue d'ensemble du processus SPAN</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#diagramme-2-gestion-des-demandes-usagers">Diagramme 2 : Gestion des demandes usagers</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#diagramme-3-ecosysteme-dacteurs">Diagramme 3 : Écosystème d'acteurs</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#8-pour-demarrer-rapidement">8. Pour démarrer rapidement</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#checklist-ran-nouveaunouvelle-semaine-1">Checklist RAN nouveau/nouvelle (Semaine 1)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#checklist-mois-1-consolidation">Checklist Mois 1 (consolidation)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#checklist-mois-2-3-planification">Checklist Mois 2-3 (planification)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#checklist-mois-4-6-lancement">Checklist Mois 4-6 (lancement)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#9-questions-frequentes-faq">9. Questions fréquentes (FAQ)</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#qui-peut-etre-ran">Qui peut être RAN ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#combien-coute-un-span-sur-3-ans">Combien coûte un SPAN sur 3 ans ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#combien-de-temps-pour-atteindre-100-conformite">Combien de temps pour atteindre 100% conformité ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#que-se-passe-t-il-si-on-ne-publie-pas-de-span">Que se passe-t-il si on ne publie pas de SPAN ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#peut-on-sous-traiter-tout-a-un-prestataire">Peut-on sous-traiter tout à un prestataire ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#comment-gerer-la-resistance-au-changement">Comment gérer la résistance au changement ?</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#quelle-difference-entre-span-et-declaration-daccessibilite">Quelle différence entre SPAN et déclaration d'accessibilité ?</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#10-conclusion">10. Conclusion</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#synthese-des-points-cles">Synthèse des points-clés</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#prochaines-etapes">Prochaines étapes</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#ressources-de-support">Ressources de support</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -1339,10 +2096,6 @@ Les deux sont obligatoires et complémentaires.</li>
 <li><strong>Expertise</strong> : Faire appel à organismes spécialisés (Access42, Atalan, Koena)</li>
 </ul>
 <p><strong>Le processus SPAN peut sembler complexe, mais chaque organisation l'a parcouru. Vous n'êtes pas seul·e.</strong></p>
-<hr />
-<p><em>Document mis à jour : 2025-10-13</em>
-<em>Version : 3.0</em>
-<em>Auteur : RAN SG</em></p>
                         
                         
                         <div id="backtop" class="fr-grid-row fr-grid-row--right"></div>
@@ -1352,12 +2105,8 @@ Les deux sont obligatoires et complémentaires.</li>
                     
 	<nav role="navigation" class="fr-pagination fr-mx-auto" aria-label="Pagination">
 		<ul class="fr-pagination__list">
-			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../mise-en-application-circulaire/" title="Contexte réglementaire" >
-				Page précédente
-			</a></li>
-			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../accompagnement/" title="Guide d'accompagnement" >
-				Page suivante
-			</a></li>
+			<li><a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"  href="../synthese/" title="Page précédente : Synthèse" >Page précédente</a></li>
+			<li><a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"  href="../accompagnement/" title="Page suivante : Guide d'accompagnement" >Page suivante</a></li>
 		</ul>
 	</nav>
 
@@ -1510,11 +2259,6 @@ Les deux sont obligatoires et complémentaires.</li>
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "..";

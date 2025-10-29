@@ -21,6 +21,8 @@
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     
+    <link href="../../assets/custom.css" rel="stylesheet">
+    
 
     <title>ADR-011 : Double approbation et renommage /staging/</title>
     
@@ -138,7 +140,7 @@
                                         type="text"
                                         id="mkdocs-search-query"
                                         name="q"
-                                    />
+                                    / title="Rechercher">
                                     <button
                                         class="fr-btn"
                                         title="Rechercher"
@@ -180,7 +182,17 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../.."
+                href="../../accueil/"
+                target="_self"
+                
+                >Accueil</a
+            >
+        </li>
+          
+        <li class="fr-nav__item">
+            <a
+                class="fr-nav__link"
+                href="../../span-sg/"
                 target="_self"
                 
                 >SPAN (SG)</a
@@ -191,12 +203,12 @@
             <button
                 class="fr-nav__btn"
                 aria-expanded="false"
-                aria-controls="menu-7762"
+                aria-controls="menu-7763"
                 
             >
                 SPAN par direction du SG
             </button>
-            <div class="fr-collapse fr-menu" id="menu-7762">
+            <div class="fr-collapse fr-menu" id="menu-7763">
                 <ul class="fr-menu__list">
                     
                     <li>
@@ -266,10 +278,10 @@
         <li class="fr-nav__item">
             <a
                 class="fr-nav__link"
-                href="../../mise-en-application-circulaire/"
+                href="../../synthese/"
                 target="_self"
                 
-                >Contexte réglementaire</a
+                >Synthèse</a
             >
         </li>
           
@@ -290,16 +302,6 @@
                 target="_self"
                 
                 >Guide d'accompagnement</a
-            >
-        </li>
-          
-        <li class="fr-nav__item">
-            <a
-                class="fr-nav__link"
-                href="../../synthese/"
-                target="_self"
-                
-                >Synthèse</a
             >
         </li>
           
@@ -339,12 +341,12 @@
         <div class="fr-sidemenu__inner">
             <button
                 class="fr-sidemenu__btn"
-                aria-controls="fr-sidemenu-wrapper"
+                aria-controls="fr-sidemenu-wrapper-1"
                 aria-expanded="true"
             >
                 ADR-011 : Double approbation et renommage /staging/
             </button>
-            <div class="fr-collapse" id="fr-sidemenu-wrapper">
+            <div class="fr-collapse" id="fr-sidemenu-wrapper-1">
                 <div class="fr-sidemenu__title">ADR-011 : Double approbation et renommage /staging/</div>
                 <ul class="fr-sidemenu__list">
                      
@@ -358,30 +360,138 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#decision"
-                            target="_self"
-                            >Décision</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-2"
                         >
+                            Décision
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-2"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#1-renommage-draft-staging"
+                                        target="_self"
+                                        >1. Renommage /draft/ → /staging/</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#2-configuration-hybride-des-approbations-option-c"
+                                        target="_self"
+                                        >2. Configuration hybride des approbations (Option C)</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#3-architecture-resultante"
+                                        target="_self"
+                                        >3. Architecture résultante</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#consequences"
-                            target="_self"
-                            >Conséquences</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-3"
                         >
+                            Conséquences
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-3"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#positives"
+                                        target="_self"
+                                        >Positives</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#negatives"
+                                        target="_self"
+                                        >Négatives</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#neutres"
+                                        target="_self"
+                                        >Neutres</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#fichiers-modifies"
-                            target="_self"
-                            >Fichiers modifiés</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-4"
                         >
+                            Fichiers modifiés
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-4"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#infrastructure"
+                                        target="_self"
+                                        >Infrastructure</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#documentation"
+                                        target="_self"
+                                        >Documentation</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#nouveau-fichier"
+                                        target="_self"
+                                        >Nouveau fichier</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -403,12 +513,39 @@
                     </li>
                       
                     <li class="fr-sidemenu__item">
-                        <a
-                            class="fr-sidemenu__link"
-                            href="#notes-dimplementation"
-                            target="_self"
-                            >Notes d'implémentation</a
+                        <button
+                            class="fr-sidemenu__btn"
+                            aria-expanded="false"
+                            aria-controls="fr-sidemenu-item-7"
                         >
+                            Notes d'implémentation
+                        </button>
+                        <div
+                            class="fr-collapse"
+                            id="fr-sidemenu-item-7"
+                        >
+                            <ul class="fr-sidemenu__list">
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#configuration-github-environments"
+                                        target="_self"
+                                        >Configuration GitHub Environments</a
+                                    >
+                                </li>
+                                
+                                <li class="fr-sidemenu__item">
+                                    <a
+                                        class="fr-sidemenu__link"
+                                        href="#nettoyage-futur-optionnel"
+                                        target="_self"
+                                        >Nettoyage futur (optionnel)</a
+                                    >
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </li>
                       
                     <li class="fr-sidemenu__item">
@@ -431,6 +568,117 @@
                         <div id="contenu" class="fr-col-12 fr-col-md-9 fr-py-6v">
                     
                 
+
+                
+                    
+<nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+  <p class="fr-summary__title" id="fr-summary-title">Sommaire</>
+  <ol>
+    
+    
+    <li>
+      <a class="fr-summary__link" href="#contexte">Contexte</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#decision">Décision</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#1-renommage-draft-staging">1. Renommage /draft/ → /staging/</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#2-configuration-hybride-des-approbations-option-c">2. Configuration hybride des approbations (Option C)</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#3-architecture-resultante">3. Architecture résultante</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#consequences">Conséquences</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#positives">Positives</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#negatives">Négatives</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#neutres">Neutres</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#fichiers-modifies">Fichiers modifiés</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#infrastructure">Infrastructure</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#documentation">Documentation</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#nouveau-fichier">Nouveau fichier</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#urls-finales">URLs finales</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#test-de-validation">Test de validation</a>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#notes-dimplementation">Notes d'implémentation</a>
+      
+      <ol>
+        
+        <li>
+          <a class="fr-summary__link" href="#configuration-github-environments">Configuration GitHub Environments</a>
+        </li>
+        
+        <li>
+          <a class="fr-summary__link" href="#nettoyage-futur-optionnel">Nettoyage futur (optionnel)</a>
+        </li>
+        
+      </ol>
+      
+    </li>
+    
+    <li>
+      <a class="fr-summary__link" href="#references">Références</a>
+      
+    </li>
+    
+    
+  </ol>
+</nav>
 
                 
 
@@ -768,11 +1016,6 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 </footer>
 
     
-<div class="revision-date">
-    
-    Dernière révision le <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 octobre 2025 14:18:20 UTC">28 octobre 2025</span> 
-</div>
-
 
 <script>
     var base_url = "../..";
