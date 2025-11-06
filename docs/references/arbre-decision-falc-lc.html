@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arbre de décision : FALC ou Langage Clair ?</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 4px solid #1976d2;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: #1976d2;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .source {
+            background: #e3f2fd;
+            padding: 15px;
+            border-left: 4px solid #1976d2;
+            margin: 20px 0;
+        }
+
+        .source a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .decision-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .decision-box h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .criteria-card {
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        .criteria-card.falc {
+            background: #e8f5e9;
+            border-color: #4caf50;
+        }
+
+        .criteria-card.warning {
+            background: #fff3e0;
+            border-color: #ff9800;
+        }
+
+        .criteria-card.lc {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .criteria-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .criteria-card.falc h3 {
+            color: #2e7d32;
+        }
+
+        .criteria-card.warning h3 {
+            color: #e65100;
+        }
+
+        .criteria-card.lc h3 {
+            color: #1976d2;
+        }
+
+        .criteria-list {
+            list-style: none;
+        }
+
+        .criteria-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .criteria-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+
+        .falc .criteria-list li:before {
+            color: #4caf50;
+        }
+
+        .warning .criteria-list li:before {
+            content: "⚠";
+            color: #ff9800;
+        }
+
+        .lc .criteria-list li:before {
+            color: #2196f3;
+        }
+
+        .flowchart {
+            margin: 40px 0;
+            padding: 30px;
+            background: #fafafa;
+            border-radius: 10px;
+        }
+
+        .flowchart h2 {
+            text-align: center;
+            color: #1976d2;
+            margin-bottom: 30px;
+        }
+
+        .flow-step {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .flow-step.question {
+            border-left: 5px solid #ffa726;
+        }
+
+        .flow-step.result-falc {
+            border-left: 5px solid #66bb6a;
+            background: #e8f5e9;
+        }
+
+        .flow-step.result-lc {
+            border-left: 5px solid #42a5f5;
+            background: #e3f2fd;
+        }
+
+        .flow-step.result-warning {
+            border-left: 5px solid #ffa726;
+            background: #fff3e0;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            font-size: 2em;
+            color: #1976d2;
+            margin: 10px 0;
+        }
+
+        .examples {
+            margin: 40px 0;
+        }
+
+        .example-card {
+            margin: 20px 0;
+            padding: 25px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+        }
+
+        .example-card h3 {
+            color: #1976d2;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .example-card .result {
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .example-card .result.falc {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .example-card .result.lc {
+            background: #bbdefb;
+            color: #1565c0;
+        }
+
+        .example-card .result.warning {
+            background: #ffe0b2;
+            color: #e65100;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #1976d2;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .summary-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .summary-box ul {
+            list-style: none;
+        }
+
+        .summary-box li {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .summary-box li:before {
+            content: "→ ";
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+            color: #666;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Arbre de décision</h1>
+            <h2>FALC ou Langage Clair ?</h2>
+            <p class="subtitle">Guide pratique pour choisir le bon niveau de simplification</p>
+        </header>
+
+        <div class="source">
+            <strong>Source :</strong> Analyse du formulaire
+            <a href="https://com-access.fr/falc-ou-lc/" target="_blank">Com'access - FALC ou LC</a><br>
+            <strong>Date :</strong> 2025-11-06<br>
+            <strong>Organisme :</strong> Com'access - SARL spécialisée en FALC, Accessibilité numérique et Langage clair
+        </div>
+
+        <div class="decision-box">
+            <h2>Règle d'or</h2>
+            <p style="font-size: 1.2em;">Le formulaire utilise une <strong>logique d'escalade irréversible</strong></p>
+            <ul style="text-align: left; max-width: 600px; margin: 20px auto; font-size: 1.1em;">
+                <li>1️⃣ Par défaut : <strong>Langage Clair (LC)</strong></li>
+                <li>2️⃣ Si l'une des 3 conditions FALC est remplie : <strong>FALC (décision finale)</strong></li>
+                <li>3️⃣ Une fois FALC recommandé : <strong>impossible de revenir à LC</strong></li>
+            </ul>
+        </div>
+
+        <h2 style="color: #1976d2; margin-top: 50px; margin-bottom: 30px;">Les critères de décision</h2>
+
+        <div class="criteria-grid">
+            <div class="criteria-card falc">
+                <h3>✅ FALC OBLIGATOIRE</h3>
+                <p style="margin-bottom: 15px;"><strong>Si AU MOINS 1 critère parmi :</strong></p>
+                <ul class="criteria-list">
+                    <li><strong>Q3 :</strong> Niveau scolaire ≤ 4ème (majorité)</li>
+                    <li><strong>Q5 :</strong> Handicap cognitif/mental/psychique (majorité)</li>
+                    <li><strong>Q6 :</strong> Non autonome pour lire (majorité)</li>
+                </ul>
+            </div>
+
+            <div class="criteria-card warning">
+                <h3>⚠️ LC + ENVISAGER FALC</h3>
+                <p style="margin-bottom: 15px;"><strong>Si au moins 1 critère :</strong></p>
+                <ul class="criteria-list">
+                    <li><strong>Q2 :</strong> Public âgé ≥ 70 ans (majorité)</li>
+                    <li><strong>Q4 :</strong> Maîtrise faible du français (majorité)</li>
+                </ul>
+            </div>
+
+            <div class="criteria-card lc">
+                <h3>✅ LANGAGE CLAIR</h3>
+                <p style="margin-bottom: 15px;"><strong>Si aucun critère ci-dessus</strong></p>
+                <ul class="criteria-list">
+                    <li>Public général</li>
+                    <li>Professionnels</li>
+                    <li>Personnes autonomes sans handicap cognitif</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="flowchart">
+            <h2>📊 Arbre de décision simplifié</h2>
+
+            <div class="flow-step question">
+                <strong>❓ Question 3 :</strong> Public avec niveau scolaire ≤ 4ème (majorité) ?
+            </div>
+            <div class="flow-arrow">↓ OUI → ✅ FALC</div>
+            <div class="flow-arrow">↓ NON ↓</div>
+
+            <div class="flow-step question">
+                <strong>❓ Question 5 :</strong> Public avec handicap cognitif/mental/psychique (majorité) ?
+            </div>
+            <div class="flow-arrow">↓ OUI → ✅ FALC</div>
+            <div class="flow-arrow">↓ NON ↓</div>
+
+            <div class="flow-step question">
+                <strong>❓ Question 6 :</strong> Public autonome pour lire (majorité) ?
+            </div>
+            <div class="flow-arrow">↓ NON (non autonome) → ✅ FALC</div>
+            <div class="flow-arrow">↓ OUI (autonome) ↓</div>
+
+            <div class="flow-step question">
+                <strong>❓ Questions 2 et 4 :</strong> Public âgé ≥70 ans OU Maîtrise faible français ?
+            </div>
+            <div class="flow-arrow">↓ OUI → ⚠️ LC + envisager FALC</div>
+            <div class="flow-arrow">↓ NON ↓</div>
+
+            <div class="flow-step result-lc">
+                <strong>✅ RÉSULTAT :</strong> Langage Clair
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h2 style="color: #1976d2; margin-top: 50px; margin-bottom: 30px;">📋 Matrice de décision rapide</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Type de public</th>
+                    <th>Niveau ≤4e</th>
+                    <th>Handicap cognitif</th>
+                    <th>Non autonome</th>
+                    <th>→ Décision</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>ESAT, IME, Foyers spécialisés</strong></td>
+                    <td>Souvent</td>
+                    <td>Souvent</td>
+                    <td>Souvent</td>
+                    <td><strong style="color: #2e7d32;">FALC</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Associations insertion</strong></td>
+                    <td>Souvent</td>
+                    <td>Parfois</td>
+                    <td>Parfois</td>
+                    <td><strong style="color: #2e7d32;">FALC</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Cours d'alphabétisation</strong></td>
+                    <td>Souvent</td>
+                    <td>Rarement</td>
+                    <td>Variable</td>
+                    <td><strong style="color: #2e7d32;">FALC</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Seniors (≥70 ans)</strong></td>
+                    <td>Rarement</td>
+                    <td>Rarement</td>
+                    <td>Rarement</td>
+                    <td><strong style="color: #e65100;">LC + envisager FALC</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Services sociaux (CAF, Pôle Emploi)</strong></td>
+                    <td>Variable</td>
+                    <td>Parfois</td>
+                    <td>Rarement</td>
+                    <td><strong style="color: #1565c0;">LC</strong> (ou FALC selon public)</td>
+                </tr>
+                <tr>
+                    <td><strong>Grand public</strong></td>
+                    <td>Rarement</td>
+                    <td>Rarement</td>
+                    <td>Rarement</td>
+                    <td><strong style="color: #1565c0;">LC</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Professionnels</strong></td>
+                    <td>Rarement</td>
+                    <td>Rarement</td>
+                    <td>Rarement</td>
+                    <td><strong style="color: #1565c0;">LC</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="page-break"></div>
+
+        <h2 style="color: #1976d2; margin-top: 50px; margin-bottom: 30px;">💡 Exemples concrets</h2>
+
+        <div class="examples">
+            <div class="example-card">
+                <h3>Exemple 1 : ESAT - Règlement intérieur</h3>
+                <p><strong>Public :</strong> Travailleurs en ESAT</p>
+                <ul style="margin: 15px 0;">
+                    <li>Handicap cognitif/mental : <strong>OUI (majorité)</strong> ✅</li>
+                    <li>Niveau scolaire : variable</li>
+                    <li>Autonome pour lire : variable</li>
+                </ul>
+                <div class="result falc">
+                    ✅ RÉSULTAT : FALC (déclenché par Q5 - handicap cognitif)
+                </div>
+            </div>
+
+            <div class="example-card">
+                <h3>Exemple 2 : Mairie - Information seniors</h3>
+                <p><strong>Public :</strong> Seniors ≥ 70 ans (majorité)</p>
+                <ul style="margin: 15px 0;">
+                    <li>Âge ≥ 70 ans : <strong>OUI (majorité)</strong> ⚠️</li>
+                    <li>Niveau scolaire : secondaire terminé</li>
+                    <li>Handicap cognitif : NON</li>
+                    <li>Autonome pour lire : OUI</li>
+                </ul>
+                <div class="result warning">
+                    ⚠️ RÉSULTAT : Langage Clair + envisager FALC<br>
+                    <small>Recommandation : Commencer en LC, tester auprès du public, envisager FALC si retours négatifs</small>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <h3>Exemple 3 : Association - Cours d'alphabétisation</h3>
+                <p><strong>Public :</strong> Adultes en alphabétisation</p>
+                <ul style="margin: 15px 0;">
+                    <li>Niveau scolaire ≤ 4e : <strong>OUI (majorité)</strong> ✅</li>
+                    <li>Français faible : OUI</li>
+                    <li>Autonome pour lire : en apprentissage</li>
+                </ul>
+                <div class="result falc">
+                    ✅ RÉSULTAT : FALC (déclenché par Q3 - niveau scolaire)
+                </div>
+            </div>
+
+            <div class="example-card">
+                <h3>Exemple 4 : Service public - Démarches administratives</h3>
+                <p><strong>Public :</strong> Tout public</p>
+                <ul style="margin: 15px 0;">
+                    <li>Niveau scolaire : secondaire</li>
+                    <li>Handicap cognitif : NON</li>
+                    <li>Autonome pour lire : OUI</li>
+                    <li>Âge : mixte</li>
+                    <li>Français : maîtrise correcte</li>
+                </ul>
+                <div class="result lc">
+                    ✅ RÉSULTAT : Langage Clair
+                </div>
+            </div>
+
+            <div class="example-card">
+                <h3>Exemple 5 : Foyer d'hébergement - Livret d'accueil</h3>
+                <p><strong>Public :</strong> Personnes avec déficience intellectuelle</p>
+                <ul style="margin: 15px 0;">
+                    <li>Niveau scolaire ≤ 4e : <strong>OUI (majorité)</strong> ✅</li>
+                    <li>Handicap cognitif : <strong>OUI (majorité)</strong> ✅</li>
+                    <li>Non autonome pour lire : <strong>OUI (majorité)</strong> ✅</li>
+                </ul>
+                <div class="result falc">
+                    ✅✅✅ RÉSULTAT : FALC OBLIGATOIRE (3/3 critères remplis)
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="summary-box">
+            <h2>📌 Résumé en 3 points clés</h2>
+            <ul>
+                <li><strong>FALC obligatoire si :</strong> handicap cognitif OU niveau ≤4e OU non autonome (majorité)</li>
+                <li><strong>LC recommandé sinon</strong>, avec avertissement si : âgé ≥70 ans OU français faible (majorité)</li>
+                <li><strong>FALC toujours possible :</strong> même si pas obligatoire, le FALC est plus accessible</li>
+            </ul>
+        </div>
+
+        <h2 style="color: #1976d2; margin-top: 50px; margin-bottom: 30px;">❓ Questions fréquentes</h2>
+
+        <div class="example-card">
+            <h3>Q : Si mon public est mixte (certains avec handicap, d'autres non), que choisir ?</h3>
+            <p><strong>R :</strong> Si le handicap cognitif concerne la <strong>majorité</strong> du public → FALC.<br>
+            Si c'est une minorité → LC, et prévoir une version FALC en complément.</p>
+        </div>
+
+        <div class="example-card">
+            <h3>Q : Mon public a 65 ans en moyenne, dois-je utiliser le FALC ?</h3>
+            <p><strong>R :</strong> Non. Le critère âge est ≥70 ans ET en <strong>majorité</strong>.<br>
+            À 65 ans → LC recommandé.<br>
+            Entre 70-75 ans → LC + envisager FALC selon retours.</p>
+        </div>
+
+        <div class="example-card">
+            <h3>Q : Puis-je utiliser FALC même si aucun critère n'est rempli ?</h3>
+            <p><strong>R :</strong> Oui ! Le FALC est <strong>plus accessible que le LC</strong>. Vous pouvez toujours choisir FALC.<br>
+            L'arbre indique le <strong>minimum requis</strong>, pas le maximum autorisé.</p>
+        </div>
+
+        <div class="example-card">
+            <h3>Q : Le format de publication (web, papier) change-t-il la décision ?</h3>
+            <p><strong>R :</strong> Non. Les questions sur la publication et le format sont pour <strong>info uniquement</strong>.<br>
+            La décision FALC/LC dépend uniquement du <strong>public cible</strong>.</p>
+        </div>
+
+        <footer>
+            <p><strong>Source :</strong> Analyse du formulaire Com'access (https://com-access.fr/falc-ou-lc/)</p>
+            <p>Com'access : SARL spécialisée en FALC, Accessibilité numérique et Langage clair</p>
+            <p style="margin-top: 10px;">Document généré le 2025-11-06</p>
+            <p style="margin-top: 20px; font-size: 0.9em;">
+                <strong>Pour convertir en PDF :</strong> Ouvrir ce fichier dans un navigateur web, puis Fichier → Imprimer → Enregistrer en PDF
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+---
+title: Arbre de décision FALC vs Langage Clair
+---
+graph TD
+    Start[🎯 DÉBUT<br/>Choix FALC ou LC ?]
+
+    Start --> Q3[❓ Q3: Public avec<br/>niveau scolaire ≤ 4ème ?<br/><i>majorité</i>]
+
+    Q3 -->|OUI| FALC1[✅ FALC<br/><b>DÉCISION FINALE</b>]
+    Q3 -->|NON| Q5[❓ Q5: Public avec<br/>handicap cognitif/mental ?<br/><i>majorité</i>]
+
+    Q5 -->|OUI| FALC2[✅ FALC<br/><b>DÉCISION FINALE</b>]
+    Q5 -->|NON| Q6[❓ Q6: Public autonome<br/>pour lire ?<br/><i>majorité</i>]
+
+    Q6 -->|NON<br/>non autonome| FALC3[✅ FALC<br/><b>DÉCISION FINALE</b>]
+    Q6 -->|OUI<br/>autonome| Q2Q4{❓ Public âgé ≥70 ans<br/>OU<br/>Maîtrise faible français ?}
+
+    Q2Q4 -->|OUI<br/>au moins 1| LCWarning[⚠️ LANGAGE CLAIR<br/><b>+ envisager FALC</b>]
+    Q2Q4 -->|NON<br/>aucune| LCSimple[✅ LANGAGE CLAIR<br/><b>recommandé</b>]
+
+    style Start fill:#e1f5ff,stroke:#01579b,stroke-width:3px
+    style Q3 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Q5 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Q6 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Q2Q4 fill:#ffe0b2,stroke:#e65100,stroke-width:2px
+    style FALC1 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style FALC2 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style FALC3 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style LCWarning fill:#ffecb3,stroke:#f57c00,stroke-width:3px
+    style LCSimple fill:#bbdefb,stroke:#1976d2,stroke-width:3px

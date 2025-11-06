@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <!-- Définitions -->
+  <defs>
+    <!-- Gradient pour le titre -->
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Ombre portée -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Fond -->
+  <rect width="1200" height="1600" fill="#f5f5f5"/>
+
+  <!-- En-tête -->
+  <rect x="0" y="0" width="1200" height="140" fill="url(#titleGradient)"/>
+  <text x="600" y="60" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">
+    🎯 FALC ou Langage Clair ?
+  </text>
+  <text x="600" y="100" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle" opacity="0.9">
+    Arbre de décision simplifié
+  </text>
+
+  <!-- Début -->
+  <g filter="url(#shadow)">
+    <rect x="450" y="180" width="300" height="80" rx="40" fill="#2196f3" stroke="#1565c0" stroke-width="3"/>
+    <text x="600" y="215" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">
+      DÉBUT
+    </text>
+    <text x="600" y="245" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle">
+      Quel langage choisir ?
+    </text>
+  </g>
+
+  <!-- Flèche -->
+  <line x1="600" y1="260" x2="600" y2="310" stroke="#666" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- Question 3 -->
+  <g filter="url(#shadow)">
+    <rect x="350" y="320" width="500" height="100" rx="10" fill="#fff9c4" stroke="#f57f17" stroke-width="3"/>
+    <text x="600" y="355" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333" text-anchor="middle">
+      ❓ Q3 : Niveau scolaire ≤ 4ème ?
+    </text>
+    <text x="600" y="385" font-family="Arial, sans-serif" font-size="16" fill="#666" text-anchor="middle">
+      (majorité du public)
+    </text>
+  </g>
+
+  <!-- Branches Q3 -->
+  <line x1="500" y1="420" x2="300" y2="500" stroke="#4caf50" stroke-width="4"/>
+  <text x="380" y="450" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#4caf50">OUI</text>
+
+  <line x1="700" y1="420" x2="700" y2="500" stroke="#666" stroke-width="3"/>
+  <text x="740" y="460" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#666">NON</text>
+
+  <!-- FALC 1 (Q3 = OUI) -->
+  <g filter="url(#shadow)">
+    <rect x="150" y="510" width="300" height="100" rx="10" fill="#c8e6c9" stroke="#4caf50" stroke-width="4"/>
+    <text x="300" y="545" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2e7d32" text-anchor="middle">
+      ✅ FALC
+    </text>
+    <text x="300" y="575" font-family="Arial, sans-serif" font-size="16" fill="#2e7d32" text-anchor="middle">
+      DÉCISION FINALE
+    </text>
+  </g>
+
+  <!-- Question 5 -->
+  <g filter="url(#shadow)">
+    <rect x="550" y="510" width="450" height="100" rx="10" fill="#fff9c4" stroke="#f57f17" stroke-width="3"/>
+    <text x="775" y="545" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333" text-anchor="middle">
+      ❓ Q5 : Handicap cognitif ?
+    </text>
+    <text x="775" y="575" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle">
+      (mental/psychique - majorité)
+    </text>
+  </g>
+
+  <!-- Branches Q5 -->
+  <line x1="675" y1="610" x2="500" y2="690" stroke="#4caf50" stroke-width="4"/>
+  <text x="570" y="640" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#4caf50">OUI</text>
+
+  <line x1="875" y1="610" x2="875" y2="690" stroke="#666" stroke-width="3"/>
+  <text x="910" y="650" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#666">NON</text>
+
+  <!-- FALC 2 (Q5 = OUI) -->
+  <g filter="url(#shadow)">
+    <rect x="350" y="700" width="300" height="100" rx="10" fill="#c8e6c9" stroke="#4caf50" stroke-width="4"/>
+    <text x="500" y="735" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2e7d32" text-anchor="middle">
+      ✅ FALC
+    </text>
+    <text x="500" y="765" font-family="Arial, sans-serif" font-size="16" fill="#2e7d32" text-anchor="middle">
+      DÉCISION FINALE
+    </text>
+  </g>
+
+  <!-- Question 6 -->
+  <g filter="url(#shadow)">
+    <rect x="700" y="700" width="400" height="100" rx="10" fill="#fff9c4" stroke="#f57f17" stroke-width="3"/>
+    <text x="900" y="735" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333" text-anchor="middle">
+      ❓ Q6 : Autonome pour lire ?
+    </text>
+    <text x="900" y="765" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle">
+      (majorité)
+    </text>
+  </g>
+
+  <!-- Branches Q6 -->
+  <line x1="825" y1="800" x2="700" y2="880" stroke="#4caf50" stroke-width="4"/>
+  <text x="740" y="830" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#4caf50">NON</text>
+  <text x="740" y="850" font-family="Arial, sans-serif" font-size="13" fill="#4caf50">(non autonome)</text>
+
+  <line x1="975" y1="800" x2="975" y2="880" stroke="#666" stroke-width="3"/>
+  <text x="1010" y="830" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#666">OUI</text>
+  <text x="1010" y="850" font-family="Arial, sans-serif" font-size="13" fill="#666">(autonome)</text>
+
+  <!-- FALC 3 (Q6 = NON) -->
+  <g filter="url(#shadow)">
+    <rect x="550" y="890" width="300" height="100" rx="10" fill="#c8e6c9" stroke="#4caf50" stroke-width="4"/>
+    <text x="700" y="925" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2e7d32" text-anchor="middle">
+      ✅ FALC
+    </text>
+    <text x="700" y="955" font-family="Arial, sans-serif" font-size="16" fill="#2e7d32" text-anchor="middle">
+      DÉCISION FINALE
+    </text>
+  </g>
+
+  <!-- Question 2 et 4 -->
+  <g filter="url(#shadow)">
+    <rect x="875" y="890" width="300" height="120" rx="10" fill="#ffe0b2" stroke="#ff9800" stroke-width="3"/>
+    <text x="1025" y="920" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">
+      ❓ Âge ≥70 ans
+    </text>
+    <text x="1025" y="945" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">
+      OU
+    </text>
+    <text x="1025" y="970" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">
+      Français faible ?
+    </text>
+  </g>
+
+  <!-- Branches Q2/Q4 -->
+  <line x1="950" y1="1010" x2="850" y2="1090" stroke="#ff9800" stroke-width="4"/>
+  <text x="880" y="1040" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ff9800">OUI</text>
+
+  <line x1="1100" y1="1010" x2="1100" y2="1090" stroke="#666" stroke-width="3"/>
+  <text x="1135" y="1050" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#666">NON</text>
+
+  <!-- LC + Warning -->
+  <g filter="url(#shadow)">
+    <rect x="650" y="1100" width="350" height="110" rx="10" fill="#ffecb3" stroke="#f57c00" stroke-width="4"/>
+    <text x="825" y="1135" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#e65100" text-anchor="middle">
+      ⚠️ LANGAGE CLAIR
+    </text>
+    <text x="825" y="1165" font-family="Arial, sans-serif" font-size="16" fill="#e65100" text-anchor="middle">
+      + envisager FALC
+    </text>
+  </g>
+
+  <!-- LC Simple -->
+  <g filter="url(#shadow)">
+    <rect x="1050" y="1100" width="130" height="110" rx="10" fill="#bbdefb" stroke="#1976d2" stroke-width="4"/>
+    <text x="1115" y="1140" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1565c0" text-anchor="middle">
+      ✅ LC
+    </text>
+    <text x="1115" y="1170" font-family="Arial, sans-serif" font-size="14" fill="#1565c0" text-anchor="middle">
+      Langage
+    </text>
+    <text x="1115" y="1190" font-family="Arial, sans-serif" font-size="14" fill="#1565c0" text-anchor="middle">
+      Clair
+    </text>
+  </g>
+
+  <!-- Légende -->
+  <rect x="50" y="1250" width="1100" height="300" rx="10" fill="white" stroke="#ddd" stroke-width="2"/>
+
+  <text x="600" y="1290" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1976d2" text-anchor="middle">
+    📋 Résumé des critères
+  </text>
+
+  <!-- Colonne FALC -->
+  <rect x="80" y="1320" width="320" height="200" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+  <text x="240" y="1350" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2e7d32" text-anchor="middle">
+    ✅ FALC si :
+  </text>
+  <text x="90" y="1380" font-family="Arial, sans-serif" font-size="14" fill="#333">
+    <tspan x="90" dy="0">• Niveau ≤ 4ème</tspan>
+    <tspan x="100" dy="20">(majorité)</tspan>
+    <tspan x="90" dy="25">• Handicap cognitif</tspan>
+    <tspan x="100" dy="20">(majorité)</tspan>
+    <tspan x="90" dy="25">• Non autonome lire</tspan>
+    <tspan x="100" dy="20">(majorité)</tspan>
+  </text>
+
+  <!-- Colonne Warning -->
+  <rect x="440" y="1320" width="320" height="200" rx="8" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+  <text x="600" y="1350" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#e65100" text-anchor="middle">
+    ⚠️ LC + envisager :
+  </text>
+  <text x="450" y="1380" font-family="Arial, sans-serif" font-size="14" fill="#333">
+    <tspan x="450" dy="0">• Âge ≥ 70 ans</tspan>
+    <tspan x="460" dy="20">(majorité)</tspan>
+    <tspan x="450" dy="30">• Maîtrise faible</tspan>
+    <tspan x="460" dy="20">français</tspan>
+    <tspan x="460" dy="20">(majorité)</tspan>
+  </text>
+
+  <!-- Colonne LC -->
+  <rect x="800" y="1320" width="320" height="200" rx="8" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+  <text x="960" y="1350" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1565c0" text-anchor="middle">
+    ✅ LC si :
+  </text>
+  <text x="810" y="1380" font-family="Arial, sans-serif" font-size="14" fill="#333">
+    <tspan x="810" dy="0">• Aucun critère</tspan>
+    <tspan x="820" dy="20">FALC</tspan>
+    <tspan x="810" dy="30">• Public général</tspan>
+    <tspan x="810" dy="25">• Professionnels</tspan>
+  </text>
+
+  <!-- Footer -->
+  <rect x="0" y="1560" width="1200" height="40" fill="#333"/>
+  <text x="600" y="1585" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">
+    Source : Com'access (https://com-access.fr/falc-ou-lc/) • 2025-11-06
+  </text>
+
+  <!-- Flèches -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+    </marker>
+  </defs>
+</svg>
